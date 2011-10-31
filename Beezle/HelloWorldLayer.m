@@ -11,14 +11,15 @@
 // Import the interfaces
 #import "HelloWorldLayer.h"
 
-enum {
+enum
+{
 	kTagParentNode = 1,
 };
 
-// callback to remove Shapes from the Space
-void removeShape( cpBody *body, cpShape *shape, void *data )
+// Callback to remove Shapes from the Space
+void removeShape(cpBody* body, cpShape* shape, void* data)
 {
-	cpShapeFree( shape );
+	cpShapeFree(shape);
 }
 
 #pragma mark - PhysicsSprite
@@ -26,49 +27,51 @@ void removeShape( cpBody *body, cpShape *shape, void *data )
 
 -(void) setPhysicsBody:(cpBody *)body
 {
-	body_ = body;
+	_body = body;
 }
 
-// this method will only get called if the sprite is batched.
-// return YES if the physics values (angles, position ) changed
+// This method will only get called if the sprite is batched.
+// Return YES if the physics values (angles, position ) changed
 // If you return NO, then nodeToParentTransform won't be called.
 -(BOOL) dirty
 {
 	return YES;
 }
 
-// returns the transform matrix according the Chipmunk Body values
+// Returns the transform matrix according the Chipmunk Body values
 -(CGAffineTransform) nodeToParentTransform
 {	
-	CGFloat x = body_->p.x;
-	CGFloat y = body_->p.y;
+	CGFloat x = _body->p.x;
+	CGFloat y = _body->p.y;
 	
-	if ( !isRelativeAnchorPoint_ ) {
+	if (!isRelativeAnchorPoint_)
+    {
 		x += anchorPointInPoints_.x;
 		y += anchorPointInPoints_.y;
 	}
 	
 	// Make matrix
-	CGFloat c = body_->rot.x;
-	CGFloat s = body_->rot.y;
+	CGFloat c = _body->rot.x;
+	CGFloat s = _body->rot.y;
 	
-	if( ! CGPointEqualToPoint(anchorPointInPoints_, CGPointZero) ){
+	if(!CGPointEqualToPoint(anchorPointInPoints_, CGPointZero))
+    {
 		x += c*-anchorPointInPoints_.x + -s*-anchorPointInPoints_.y;
 		y += s*-anchorPointInPoints_.x + c*-anchorPointInPoints_.y;
 	}
 	
 	// Translate, Rot, anchor Matrix
-	transform_ = CGAffineTransformMake( c,  s,
+	transform_ = CGAffineTransformMake(c,  s,
 									   -s,	c,
-									   x,	y );
+									   x,	y);
 	
 	return transform_;
 }
 
 -(void) dealloc
 {
-	cpBodyEachShape(body_, removeShape, NULL);
-	cpBodyFree( body_ );
+	cpBodyEachShape(_body, removeShape, NULL);
+	cpBodyFree(_body);
 	
 	[super dealloc];
 }
@@ -88,9 +91,9 @@ void removeShape( cpBody *body, cpShape *shape, void *data )
 
 -(id) init
 {
-	if( (self=[super init])) {
-		
-		// enable events
+	if(self=[super init])
+    {
+		// Enable events
 #ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
 		self.isTouchEnabled = YES;
 		self.isAccelerometerEnabled = YES;
@@ -100,25 +103,23 @@ void removeShape( cpBody *body, cpShape *shape, void *data )
 		
 		CGSize s = [[CCDirector sharedDirector] winSize];
 		
-		// title
+		// Title
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Multi touch the screen" fontName:@"Marker Felt" fontSize:36];
 		label.position = ccp( s.width / 2, s.height - 30);
 		[self addChild:label z:-1];
 		
-		// reset button
+		// Reset button
 		[self createResetButton];
 		
-		
-		// init physics
+		// Init physics
 		[self initPhysics];
-		
 		
 #if 1
 		// Use batch node. Faster
 		CCSpriteBatchNode *parent = [CCSpriteBatchNode batchNodeWithFile:@"grossini_dance_atlas.png" capacity:100];
 		spriteTexture_ = [parent texture];
 #else
-		// doesn't use batch node. Slower
+		// Doesn't use batch node. Slower
 		spriteTexture_ = [[CCTextureCache sharedTextureCache] addImage:@"grossini_dance_atlas.png"];
 		CCNode *parent = [CCNode node];		
 #endif
@@ -136,7 +137,7 @@ void removeShape( cpBody *body, cpShape *shape, void *data )
 {
 	CGSize s = [[CCDirector sharedDirector] winSize];
 	
-	// init chipmunk
+	// Init chipmunk
 	cpInitChipmunk();
 	
 	space_ = cpSpaceNew();
@@ -159,10 +160,11 @@ void removeShape( cpBody *body, cpShape *shape, void *data )
 	// right
 	walls_[3] = cpSegmentShapeNew( space_->staticBody, ccp(s.width,0), ccp(s.width,s.height), 0.0f);
 	
-	for( int i=0;i<4;i++) {
+	for (int i = 0; i < 4; i++)
+    {
 		walls_[i]->e = 1.0f;
 		walls_[i]->u = 1.0f;
-		cpSpaceAddStaticShape(space_, walls_[i] );
+		cpSpaceAddStaticShape(space_, walls_[i]);
 	}	
 }
 
@@ -185,21 +187,22 @@ void removeShape( cpBody *body, cpShape *shape, void *data )
 	int steps = 2;
 	CGFloat dt = [[CCDirector sharedDirector] animationInterval]/(CGFloat)steps;
 	
-	for(int i=0; i<steps; i++){
+	for (int i = 0; i < steps; i++)
+    {
 		cpSpaceStep(space_, dt);
 	}
 }
 
 -(void) createResetButton
 {
-	CCMenuItemLabel *reset = [CCMenuItemFont itemFromString:@"Reset" block:^(id sender){
-		CCScene *s = [CCScene node];
+	CCMenuItemLabel* reset = [CCMenuItemFont itemFromString:@"Reset" block:^(id sender){
+		CCScene* s = [CCScene node];
 		id child = [HelloWorldLayer node];
 		[s addChild:child];
 		[[CCDirector sharedDirector] replaceScene: s];
 	}];
 	
-	CCMenu *menu = [CCMenu menuWithItems:reset, nil];
+	CCMenu* menu = [CCMenu menuWithItems:reset, nil];
 	
 	CGSize s = [[CCDirector sharedDirector] winSize];
 	
@@ -220,20 +223,21 @@ void removeShape( cpBody *body, cpShape *shape, void *data )
 	posx = (posx % 4) * 85;
 	posy = (posy % 3) * 121;
 	
-	PhysicsSprite *sprite = [PhysicsSprite spriteWithTexture:spriteTexture_ rect:CGRectMake(posx, posy, 85, 121)];
+	PhysicsSprite* sprite = [PhysicsSprite spriteWithTexture:spriteTexture_ rect:CGRectMake(posx, posy, 85, 121)];
 	[parent addChild: sprite];
 	
 	sprite.position = pos;
 	
 	int num = 4;
-	CGPoint verts[] = {
+	CGPoint verts[] =
+    {
 		ccp(-24,-54),
 		ccp(-24, 54),
 		ccp( 24, 54),
 		ccp( 24,-54),
 	};
 	
-	cpBody *body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
+	cpBody* body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
 	
 	body->p = pos;
 	cpSpaceAddBody(space_, body);
@@ -247,9 +251,10 @@ void removeShape( cpBody *body, cpShape *shape, void *data )
 
 #ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
 
-- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+-(void) ccTouchesEnded:(NSSet*)touches withEvent:(UIEvent*)event
 {
-	for( UITouch *touch in touches ) {
+	for(UITouch* touch in touches)
+    {
 		CGPoint location = [touch locationInView: [touch view]];
 		
 		location = [[CCDirector sharedDirector] convertToGL: location];
@@ -258,7 +263,7 @@ void removeShape( cpBody *body, cpShape *shape, void *data )
 	}
 }
 
-- (void)accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration
+-(void) accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration
 {	
 	static float prevX=0, prevY=0;
 	
@@ -277,7 +282,7 @@ void removeShape( cpBody *body, cpShape *shape, void *data )
 
 #elif defined(__MAC_OS_X_VERSION_MAX_ALLOWED)
 
--(BOOL) ccMouseDown:(NSEvent *)event
+-(BOOL) ccMouseDown:(NSEvent*)event
 {
 	CGPoint location = [(CCDirectorMac*)[CCDirector sharedDirector] convertEventToGL:event];
 	[self addNewSpriteAtPosition:location];
