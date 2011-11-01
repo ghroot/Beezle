@@ -16,18 +16,20 @@
 
 @interface HelloWorldLayer : CCLayer
 {
-	CCTexture2D *spriteTexture_; // weak ref
+	CCTexture2D* spriteTexture_; // weak ref
 	
-	cpSpace *space_; // strong ref
+	cpSpace* space_; // strong ref
 	
-	cpShape *walls_[4];
+	cpShape* walls_[4];
+    
+    CGPoint touchStartLocation;
 }
 @end
 
 
 @interface PhysicsSprite : CCSprite
 {
-	cpBody *_body;	// strong ref
+	cpBody* _body;	// strong ref
 }
 
 -(void) setPhysicsBody:(cpBody*)body;

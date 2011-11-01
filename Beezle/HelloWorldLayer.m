@@ -94,12 +94,8 @@ void removeShape(cpBody* body, cpShape* shape, void* data)
 	if(self=[super init])
     {
 		// Enable events
-#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
 		self.isTouchEnabled = YES;
 		self.isAccelerometerEnabled = YES;
-#elif defined(__MAC_OS_X_VERSION_MAX_ALLOWED)
-		self.isMouseEnabled = YES;
-#endif
 		
 		CGSize s = [[CCDirector sharedDirector] winSize];
 		
@@ -249,21 +245,42 @@ void removeShape(cpBody* body, cpShape* shape, void* data)
 	[sprite setPhysicsBody:body];
 }
 
-#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
-
--(void) ccTouchesEnded:(NSSet*)touches withEvent:(UIEvent*)event
+-(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	for(UITouch* touch in touches)
-    {
-		CGPoint location = [touch locationInView: [touch view]];
-		
-		location = [[CCDirector sharedDirector] convertToGL: location];
-		
-		[self addNewSpriteAtPosition: location];
-	}
+    UITouch* touch = [touches anyObject];
+    CGPoint location = [touch locationInView: [touch view]];
+    CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+    
+    touchStartLocation = convertedLocation;
+    
+//    NSLog(@"ccTouchesBegan %f,%f -> %f,%f", location.x, location.y, convertedLocation.x, convertedLocation.y);
 }
 
--(void) accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration
+-(void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch* touch = [touches anyObject];
+    CGPoint location = [touch locationInView: [touch view]];
+    CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+    
+    CGPoint touchVector = ccpSub(convertedLocation, touchStartLocation);
+    
+    NSLog(@"touchVector: %f, %f", touchVector.x, touchVector.y);
+    
+//    NSLog(@"ccTouchesMoved %f,%f -> %f,%f", location.x, location.y, convertedLocation.x, convertedLocation.y);
+}
+
+-(void) ccTouchesEnded:(NSSet*)touches withEvent:(UIEvent *)event
+{
+    UITouch* touch = [touches anyObject];
+    CGPoint location = [touch locationInView: [touch view]];
+    CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+    
+//    NSLog(@"ccTouchesEnded %f,%f -> %f,%f", location.x, location.y, convertedLocation.x, convertedLocation.y);
+    
+//    [self addNewSpriteAtPosition: location];
+}
+
+-(void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration*)acceleration
 {	
 	static float prevX=0, prevY=0;
 	
@@ -280,15 +297,4 @@ void removeShape(cpBody* body, cpShape* shape, void* data)
 	space_->gravity = ccpMult(v, 200);
 }
 
-#elif defined(__MAC_OS_X_VERSION_MAX_ALLOWED)
-
--(BOOL) ccMouseDown:(NSEvent*)event
-{
-	CGPoint location = [(CCDirectorMac*)[CCDirector sharedDirector] convertEventToGL:event];
-	[self addNewSpriteAtPosition:location];
-	
-	return YES;
-}
-
-#endif
 @end
