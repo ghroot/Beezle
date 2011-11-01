@@ -22,7 +22,9 @@
 	
 	cpShape* walls_[4];
     
+    BOOL isTouching;
     CGPoint touchStartLocation;
+    CGPoint touchVector;
 }
 @end
 

@@ -189,6 +189,25 @@ void removeShape(cpBody* body, cpShape* shape, void* data)
 	}
 }
 
+- (void)draw
+{
+    if (isTouching)
+    {
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        
+        CGPoint actualStartPoint = touchStartLocation;
+        CGPoint actualEndPoint = ccpAdd(actualStartPoint, touchVector);
+        glLineWidth(2.0);
+        ccDrawLine(actualStartPoint, actualEndPoint);
+        
+        CGPoint projectedStartPoint = ccp(winSize.width / 2, winSize.height / 2);
+        CGPoint projectedEndPoint = ccpAdd(projectedStartPoint, touchVector);
+        glLineWidth(5.0);
+        ccDrawLine(projectedStartPoint, projectedEndPoint);
+    }
+}
+
+
 -(void) createResetButton
 {
 	CCMenuItemLabel* reset = [CCMenuItemFont itemFromString:@"Reset" block:^(id sender){
@@ -252,6 +271,9 @@ void removeShape(cpBody* body, cpShape* shape, void* data)
     CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
     
     touchStartLocation = convertedLocation;
+    touchVector = ccp(0, 0);
+    
+    isTouching = TRUE;
     
 //    NSLog(@"ccTouchesBegan %f,%f -> %f,%f", location.x, location.y, convertedLocation.x, convertedLocation.y);
 }
@@ -262,18 +284,20 @@ void removeShape(cpBody* body, cpShape* shape, void* data)
     CGPoint location = [touch locationInView: [touch view]];
     CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
     
-    CGPoint touchVector = ccpSub(convertedLocation, touchStartLocation);
+    touchVector = ccpSub(convertedLocation, touchStartLocation);
     
-    NSLog(@"touchVector: %f, %f", touchVector.x, touchVector.y);
+//    NSLog(@"touchVector: %f, %f", touchVector.x, touchVector.y);
     
 //    NSLog(@"ccTouchesMoved %f,%f -> %f,%f", location.x, location.y, convertedLocation.x, convertedLocation.y);
 }
 
 -(void) ccTouchesEnded:(NSSet*)touches withEvent:(UIEvent *)event
 {
-    UITouch* touch = [touches anyObject];
-    CGPoint location = [touch locationInView: [touch view]];
-    CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+//    UITouch* touch = [touches anyObject];
+//    CGPoint location = [touch locationInView: [touch view]];
+//    CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+    
+    isTouching = FALSE;
     
 //    NSLog(@"ccTouchesEnded %f,%f -> %f,%f", location.x, location.y, convertedLocation.x, convertedLocation.y);
     
