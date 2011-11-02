@@ -6,86 +6,12 @@
 //  Copyright __MyCompanyName__ 2011. All rights reserved.
 //
 
-
-
-// Import the interfaces
 #import "HelloWorldLayer.h"
 
 enum
 {
 	kTagParentNode = 1,
 };
-
-// Callback to remove Shapes from the Space
-void removeShape(cpBody* body, cpShape* shape, void* data)
-{
-	cpShapeFree(shape);
-}
-
-#pragma mark - PhysicsSprite
-@implementation PhysicsSprite
-
--(void) setPhysicsBody:(cpBody *)body
-{
-	_body = body;
-}
-
-// This method will only get called if the sprite is batched.
-// Return YES if the physics values (angles, position ) changed
-// If you return NO, then nodeToParentTransform won't be called.
--(BOOL) dirty
-{
-	return YES;
-}
-
-// Returns the transform matrix according the Chipmunk Body values
--(CGAffineTransform) nodeToParentTransform
-{	
-	CGFloat x = _body->p.x;
-	CGFloat y = _body->p.y;
-	
-	if (!isRelativeAnchorPoint_)
-    {
-		x += anchorPointInPoints_.x;
-		y += anchorPointInPoints_.y;
-	}
-	
-	// Make matrix
-	CGFloat c = _body->rot.x;
-	CGFloat s = _body->rot.y;
-	
-	if(!CGPointEqualToPoint(anchorPointInPoints_, CGPointZero))
-    {
-		x += c*-anchorPointInPoints_.x + -s*-anchorPointInPoints_.y;
-		y += s*-anchorPointInPoints_.x + c*-anchorPointInPoints_.y;
-	}
-	
-	// Translate, Rot, anchor Matrix
-	transform_ = CGAffineTransformMake(c,  s,
-									   -s,	c,
-									   x,	y);
-	
-	return transform_;
-}
-
--(void) dealloc
-{
-	cpBodyEachShape(_body, removeShape, NULL);
-	cpBodyFree(_body);
-	
-	[super dealloc];
-}
-
-@end
-
-#pragma mark - HelloWorldLayer
-
-@interface HelloWorldLayer ()
--(void) addNewSpriteAtPosition:(CGPoint)pos;
--(void) createResetButton;
--(void) initPhysics;
-@end
-
 
 @implementation HelloWorldLayer
 
@@ -110,18 +36,13 @@ void removeShape(cpBody* body, cpShape* shape, void* data)
 		// Init physics
 		[self initPhysics];
 		
-#if 1
 		// Use batch node. Faster
 		CCSpriteBatchNode *parent = [CCSpriteBatchNode batchNodeWithFile:@"grossini_dance_atlas.png" capacity:100];
 		spriteTexture_ = [parent texture];
-#else
-		// Doesn't use batch node. Slower
-		spriteTexture_ = [[CCTextureCache sharedTextureCache] addImage:@"grossini_dance_atlas.png"];
-		CCNode *parent = [CCNode node];		
-#endif
+
 		[self addChild:parent z:0 tag:kTagParentNode];
 		
-		[self addNewSpriteAtPosition:ccp(200,200)];
+//		[self addNewSpriteAtPosition:ccp(200,200)];
 		
 		[self scheduleUpdate];
 	}
@@ -226,43 +147,43 @@ void removeShape(cpBody* body, cpShape* shape, void* data)
 	
 }
 
--(void) addNewSpriteAtPosition:(CGPoint)pos
-{
-	int posx, posy;
-	
-	CCNode *parent = [self getChildByTag:kTagParentNode];
-	
-	posx = CCRANDOM_0_1() * 200.0f;
-	posy = CCRANDOM_0_1() * 200.0f;
-	
-	posx = (posx % 4) * 85;
-	posy = (posy % 3) * 121;
-	
-	PhysicsSprite* sprite = [PhysicsSprite spriteWithTexture:spriteTexture_ rect:CGRectMake(posx, posy, 85, 121)];
-	[parent addChild: sprite];
-	
-	sprite.position = pos;
-	
-	int num = 4;
-	CGPoint verts[] =
-    {
-		ccp(-24,-54),
-		ccp(-24, 54),
-		ccp( 24, 54),
-		ccp( 24,-54),
-	};
-	
-	cpBody* body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
-	
-	body->p = pos;
-	cpSpaceAddBody(space_, body);
-	
-	cpShape* shape = cpPolyShapeNew(body, num, verts, CGPointZero);
-	shape->e = 0.5f; shape->u = 0.5f;
-	cpSpaceAddShape(space_, shape);
-	
-	[sprite setPhysicsBody:body];
-}
+//-(void) addNewSpriteAtPosition:(CGPoint)pos
+//{
+//	int posx, posy;
+//	
+//	CCNode *parent = [self getChildByTag:kTagParentNode];
+//	
+//	posx = CCRANDOM_0_1() * 200.0f;
+//	posy = CCRANDOM_0_1() * 200.0f;
+//	
+//	posx = (posx % 4) * 85;
+//	posy = (posy % 3) * 121;
+//	
+//	PhysicsSprite* sprite = [PhysicsSprite spriteWithTexture:spriteTexture_ rect:CGRectMake(posx, posy, 85, 121)];
+//	[parent addChild: sprite];
+//	
+//	sprite.position = pos;
+//	
+//	int num = 4;
+//	CGPoint verts[] =
+//    {
+//		ccp(-24,-54),
+//		ccp(-24, 54),
+//		ccp( 24, 54),
+//		ccp( 24,-54),
+//	};
+//	
+//	cpBody* body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
+//	
+//	body->p = pos;
+//	cpSpaceAddBody(space_, body);
+//	
+//	cpShape* shape = cpPolyShapeNew(body, num, verts, CGPointZero);
+//	shape->e = 0.5f; shape->u = 0.5f;
+//	cpSpaceAddShape(space_, shape);
+//	
+//	[sprite setPhysicsBody:body];
+//}
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {

@@ -6,34 +6,26 @@
 //  Copyright __MyCompanyName__ 2011. All rights reserved.
 //
 
+#import "PhysicsSprite.h"
 
-
-// When you import this file, you import all the cocos2d classes
-#import "cocos2d.h"
-
-// Importing Chipmunk headers
 #import "chipmunk.h"
+#import "cocos2d.h"
 
 @interface HelloWorldLayer : CCLayer
 {
-	CCTexture2D* spriteTexture_; // weak ref
+	CCTexture2D *spriteTexture_; // weak ref
 	
-	cpSpace* space_; // strong ref
+	cpSpace *space_; // strong ref
 	
-	cpShape* walls_[4];
+	cpShape *walls_[4];
     
     BOOL isTouching;
     CGPoint touchStartLocation;
     CGPoint touchVector;
 }
-@end
 
-
-@interface PhysicsSprite : CCSprite
-{
-	cpBody* _body;	// strong ref
-}
-
--(void) setPhysicsBody:(cpBody*)body;
+//-(void) addNewSpriteAtPosition:(CGPoint)pos;
+-(void) createResetButton;
+-(void) initPhysics;
 
 @end
