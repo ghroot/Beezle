@@ -10,38 +10,36 @@
 
 @implementation RenderableBehaviour
 
-- (id)initWithSprite:(CCSprite *)sprite
+-(id) initWithFile:(NSString *)fileName;
 {
     if (self = [super init])
     {
-        _sprite = [sprite retain];
+        _spriteSheet = [[CCSpriteBatchNode batchNodeWithFile:fileName capacity:100] retain];
+        _sprite = [[CCSprite spriteWithTexture:_spriteSheet.texture] retain];
+        [_spriteSheet addChild:_sprite];
     }
     return self;
 }
 
--(CCSprite *) sprite
-{
-    return _sprite;
-}
-
 -(void) addedToLayer:(GameLayer *)layer
 {
-    [layer addChild:_sprite];
+    [layer addChild:_spriteSheet];
 }
 
 -(void) removedFromLayer:(GameLayer *)layer
 {
-    [layer removeChild:_sprite cleanup:TRUE];
+    [layer removeChild:_spriteSheet cleanup:TRUE];
 }
 
 -(void) setPosition:(CGPoint)position
 {
-    [_sprite setPosition:position];
+    [_spriteSheet setPosition:position];
 }
 
 - (void)dealloc
 {
-    [_sprite dealloc];
+    [_spriteSheet release];
+    [_sprite release];
     
     [super dealloc];
 }

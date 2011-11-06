@@ -12,14 +12,14 @@
 #import "cocos2d.h"
 
 @class Actor;
-@class TestActor;
+@class TestRenderableActor;
 
 @interface GameLayer : CCLayer
 {
     cpSpace *_space; // strong ref
     
     NSMutableArray *_actors;
-    TestActor *testActor;
+    TestRenderableActor *testActor;
     
     BOOL isTouching;
     CGPoint touchStartLocation;

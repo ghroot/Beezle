@@ -8,6 +8,8 @@
 
 #import "PhysicalBehaviour.h"
 
+#import "Actor.h"
+
 @implementation PhysicalBehaviour
 
 - (id)initWithBody:(cpBody *)body andShape:(cpShape *)shape
@@ -18,16 +20,6 @@
         _shape = shape;
     }
     return self;
-}
-
--(cpBody *) body
-{
-    return _body;
-}
-
--(cpShape *) shape
-{
-    return _shape;
 }
 
 -(void) addedToLayer:(GameLayer *)layer
@@ -45,6 +37,17 @@
 -(void) setPosition:(CGPoint)position
 {
     _body->p = position;
+}
+
+-(void) update:(ccTime) delta
+{
+    // TODO: Have coordinator handle behaviour interactions
+    
+    if ([_parentActor hasBehaviour:@"renderable"])
+    {
+        RenderableBehaviour *renderableBehaviour = (RenderableBehaviour *)[_parentActor getBehaviour:@"renderable"];
+        [renderableBehaviour setPosition:_body->p];
+    }
 }
 
 void removeShape(cpBody *body, cpShape *shape, void *data)

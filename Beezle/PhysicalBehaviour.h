@@ -17,7 +17,5 @@
 }
 
 -(id) initWithBody:(cpBody *)body andShape:(cpShape *)shape;
--(cpBody *) body;
--(cpShape *) shape;
 
 @end

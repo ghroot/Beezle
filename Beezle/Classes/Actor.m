@@ -21,6 +21,12 @@
     return self;
 }
 
+-(void) addBehaviour:(AbstractBehaviour *)behaviour
+{
+    [_behaviours addObject:behaviour];
+    behaviour.parentActor = self;
+}
+
 -(AbstractBehaviour *) getBehaviour:(NSString *)name
 {
     AbstractBehaviour *behaviourToReturn;
@@ -63,6 +69,14 @@
     for (AbstractBehaviour *behaviour in _behaviours)
     {
         [behaviour setPosition:position];
+    }
+}
+
+-(void) update:(ccTime) delta
+{
+    for (AbstractBehaviour *behaviour in _behaviours)
+    {
+        [behaviour update:delta];
     }
 }
 

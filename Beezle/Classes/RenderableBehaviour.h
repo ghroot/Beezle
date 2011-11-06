@@ -12,10 +12,10 @@
 
 @interface RenderableBehaviour : AbstractBehaviour
 {
+    CCSpriteBatchNode *_spriteSheet;
     CCSprite *_sprite;
 }
 
--(id) initWithSprite:(CCSprite *)sprite;
--(CCSprite *) sprite;
+-(id) initWithFile:(NSString *)fileName;
 
 @end

@@ -16,10 +16,12 @@
     NSMutableArray *_behaviours;
 }
 
+-(void) addBehaviour:(AbstractBehaviour *)behaviour;
 -(AbstractBehaviour *) getBehaviour:(NSString *)name;
 -(BOOL) hasBehaviour:(NSString *)name;
 -(void) addedToLayer:(GameLayer *)layer;
 -(void) removedFromLayer:(GameLayer *)layer;
 -(void) setPosition:(CGPoint) position;
+-(void) update:(ccTime) delta;
 
 @end

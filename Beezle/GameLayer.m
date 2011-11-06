@@ -9,7 +9,8 @@
 #import "GameLayer.h"
 
 #import "Actor.h"
-#import "TestActor.h"
+#import "TestPhysicalActor.h"
+#import "TestRenderableActor.h"
 
 @implementation GameLayer
 
@@ -23,17 +24,9 @@
 		// Init physics
 		[self initPhysics];
 		
-		// Use batch node. Faster
-//		CCSpriteBatchNode *parent = [CCSpriteBatchNode batchNodeWithFile:@"grossini_dance_atlas.png" capacity:100];
-//		spriteTexture_ = [parent texture];
-
-//		[self addChild:parent z:0 tag:kTagParentNode];
-		
-//		[self addNewSpriteAtPosition:ccp(200,200)];
-        
+        // Actors
         _actors = [[NSMutableArray alloc] init];
-        
-        testActor = [[TestActor alloc] init];
+        testActor = [[TestRenderableActor alloc] init];
 		
 		[self scheduleUpdate];
 	}
@@ -94,15 +87,13 @@
 
 - (void)dealloc
 {
-	// manually Free rogue shapes
-//	for( int i=0;i<4;i++) {
-//		cpShapeFree( walls_[i] );
-//	}
-	
+    [_actors dealloc];
+    [testActor dealloc];
+    
 	cpSpaceFree(_space);
+    _space = NULL;
 	
 	[super dealloc];
-	
 }
 
 -(void) update:(ccTime) delta
@@ -115,6 +106,11 @@
     {
 		cpSpaceStep(_space, dt);
 	}
+    
+    for (Actor *actor in _actors)
+    {
+        [actor update:delta];
+    }
     
     if (isTouching)
     {
@@ -143,44 +139,6 @@
     }
 }
 
-//-(void) addNewSpriteAtPosition:(CGPoint)pos
-//{
-//	int posx, posy;
-//	
-//	CCNode *parent = [self getChildByTag:kTagParentNode];
-//	
-//	posx = CCRANDOM_0_1() * 200.0f;
-//	posy = CCRANDOM_0_1() * 200.0f;
-//	
-//	posx = (posx % 4) * 85;
-//	posy = (posy % 3) * 121;
-//	
-//	PhysicsSprite* sprite = [PhysicsSprite spriteWithTexture:spriteTexture_ rect:CGRectMake(posx, posy, 85, 121)];
-//	[parent addChild: sprite];
-//	
-//	sprite.position = pos;
-//	
-//	int num = 4;
-//	CGPoint verts[] =
-//    {
-//		ccp(-24,-54),
-//		ccp(-24, 54),
-//		ccp( 24, 54),
-//		ccp( 24,-54),
-//	};
-//	
-//	cpBody* body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
-//	
-//	body->p = pos;
-//	cpSpaceAddBody(space_, body);
-//	
-//	cpShape* shape = cpPolyShapeNew(body, num, verts, CGPointZero);
-//	shape->e = 0.5f; shape->u = 0.5f;
-//	cpSpaceAddShape(space_, shape);
-//	
-//	[sprite setPhysicsBody:body];
-//}
-
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch* touch = [touches anyObject];
@@ -193,6 +151,10 @@
     isTouching = TRUE;
     
     [self addActor:testActor];
+    
+    TestPhysicalActor *testPhysicalActor = [[TestPhysicalActor alloc] init];
+    [testPhysicalActor setPosition:touchStartLocation];
+    [self addActor:testPhysicalActor];
     
 //    NSLog(@"ccTouchesBegan %f,%f -> %f,%f", location.x, location.y, convertedLocation.x, convertedLocation.y);
 }

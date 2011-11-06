@@ -8,9 +8,12 @@
 
 #import "AbstractBehaviour.h"
 
+#import "Actor.h"
+
 @implementation AbstractBehaviour
 
 @synthesize name = _name;
+@synthesize parentActor = _parentActor;
 
 - (id)init
 {
@@ -27,6 +30,10 @@
 }
 
 -(void) setPosition:(CGPoint)position
+{
+}
+
+-(void) update:(ccTime) delta
 {
 }
 
