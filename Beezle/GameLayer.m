@@ -8,25 +8,41 @@
 
 #import "GameLayer.h"
 
-#import "Actor.h"
-#import "TestPhysicalActor.h"
-#import "TestRenderableActor.h"
+#import "EntityManager.h"
+#import "Entity.h"
+#import "PhysicsSystem.h"
+#import "PhysicsComponent.h"
+#import "RenderSystem.h"
+#import "RenderComponent.h"
+#import "TransformSystem.h"
+#import "TransformComponent.h"
 
 @implementation GameLayer
 
 -(id) init
 {
-	if(self=[super init])
+	if (self=[super init])
     {
 		// Enable events
 		self.isTouchEnabled = YES;
 		
-		// Init physics
-		[self initPhysics];
-		
-        // Actors
-        _actors = [[NSMutableArray alloc] init];
-        testActor = [[TestRenderableActor alloc] init];
+		entityManager = [[EntityManager alloc] init];
+        _systems = [[NSMutableArray alloc] init];
+        
+        _transformSystem = [[TransformSystem alloc] init];
+        [_systems addObject:_transformSystem];
+        _physicsSystem = [[PhysicsSystem alloc] init];
+        [_systems addObject:_physicsSystem];
+        _renderSystem = [[RenderSystem alloc] initWithLayer:self];
+        [_systems addObject:_renderSystem];
+        
+        _staticEntity = [entityManager createEntity];
+        TransformComponent *transformComponent = [[TransformComponent alloc] initWithPosition:CGPointMake(0, 0)];
+        [_staticEntity addComponent:transformComponent];
+        RenderComponent *renderComponent = [[RenderComponent alloc] initWithFile:@"Beeater-01.png"];
+        [_staticEntity addComponent:renderComponent];
+        [_transformSystem entityAdded:_staticEntity];
+        [_renderSystem entityAdded:_staticEntity];
 		
 		[self scheduleUpdate];
 	}
@@ -34,82 +50,45 @@
 	return self;
 }
 
--(cpSpace *) space
+-(void) createEntityAtPosition:(CGPoint) position
 {
-    return _space;
-}
-
--(void) addActor:(Actor *)actor
-{
-    [_actors addObject:actor];
-    [actor addedToLayer:self];
-}
-
--(void) removeActor:(Actor *)actor
-{
-    [_actors removeObject:actor];
-    [actor removedFromLayer:self];
-}
-
--(void) initPhysics
-{
-//	CGSize s = [[CCDirector sharedDirector] winSize];
-	
-	// Init chipmunk
-	cpInitChipmunk();
-	
-	_space = cpSpaceNew();
-	_space->gravity = ccp(0, -100);
-	
-	//
-	// rogue shapes
-	// We have to free them manually
-	//
-	// bottom
-//	walls_[0] = cpSegmentShapeNew( _space->staticBody, ccp(0,0), ccp(s.width,0), 0.0f);
-//	
-//	// top
-//	walls_[1] = cpSegmentShapeNew( _space->staticBody, ccp(0,s.height), ccp(s.width,s.height), 0.0f);
-//	
-//	// left
-//	walls_[2] = cpSegmentShapeNew( _space->staticBody, ccp(0,0), ccp(0,s.height), 0.0f);
-//	
-//	// right
-//	walls_[3] = cpSegmentShapeNew( _space->staticBody, ccp(s.width,0), ccp(s.width,s.height), 0.0f);
-//	
-//	for (int i = 0; i < 4; i++)
-//    {
-//		walls_[i]->e = 1.0f;
-//		walls_[i]->u = 1.0f;
-//		cpSpaceAddStaticShape(_space, walls_[i]);
-//	}	
+    Entity *testEntity = [entityManager createEntity];
+    
+    TransformComponent *transformComponent = [[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)];
+    [testEntity addComponent:transformComponent];
+    
+    int num = 4;
+    CGPoint verts[] = {
+        ccp(-24,-54),
+        ccp(-24, 54),
+        ccp( 24, 54),
+        ccp( 24,-54),
+    };
+    cpBody *body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
+    cpShape *shape = cpPolyShapeNew(body, num, verts, CGPointZero);
+    shape->e = 0.5f;
+    shape->u = 0.5f;
+    PhysicsComponent *physicsComponent = [[PhysicsComponent alloc] initWithBody:body andShape:shape];
+    [testEntity addComponent:physicsComponent];
+    
+    RenderComponent *renderComponent = [[RenderComponent alloc] initWithFile:@"BeeSlingerC-01.png"];
+    [testEntity addComponent:renderComponent];
+    
+    [_transformSystem entityAdded:testEntity];
+    [_physicsSystem entityAdded:testEntity];
+    [_renderSystem entityAdded:testEntity];
 }
 
 - (void)dealloc
 {
-    [_actors dealloc];
-    [testActor dealloc];
-    
-	cpSpaceFree(_space);
-    _space = NULL;
-	
 	[super dealloc];
 }
 
--(void) update:(ccTime) delta
+-(void) update:(ccTime)delta
 {
-	// Should use a fixed size step based on the animation interval.
-	int steps = 2;
-	CGFloat dt = [[CCDirector sharedDirector] animationInterval] / (CGFloat)steps;
-	
-	for (int i = 0; i < steps; i++)
+    for (AbstractSystem *system in _systems)
     {
-		cpSpaceStep(_space, dt);
-	}
-    
-    for (Actor *actor in _actors)
-    {
-        [actor update:delta];
+        [system update];
     }
     
     if (isTouching)
@@ -117,7 +96,16 @@
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         CGPoint projectedStartPoint = ccp(winSize.width / 2, winSize.height / 2);
         CGPoint projectedEndPoint = ccpAdd(projectedStartPoint, touchVector);
-        [testActor setPosition:projectedEndPoint];
+        
+        TransformComponent *transformComponent = (TransformComponent *)[_staticEntity getComponent:[TransformComponent class]];
+        
+        [transformComponent setPosition:projectedEndPoint];
+        
+        CGFloat height = projectedEndPoint.y - projectedStartPoint.y;
+        CGFloat width = projectedStartPoint.x - projectedEndPoint.x;
+        CGFloat rads = atan(height / width);
+        float degrees = CC_RADIANS_TO_DEGREES(rads);
+        [transformComponent setRotation:degrees];
     }
 }
 
@@ -150,11 +138,7 @@
     
     isTouching = TRUE;
     
-    [self addActor:testActor];
-    
-    TestPhysicalActor *testPhysicalActor = [[TestPhysicalActor alloc] init];
-    [testPhysicalActor setPosition:touchStartLocation];
-    [self addActor:testPhysicalActor];
+    [self createEntityAtPosition:convertedLocation];
     
 //    NSLog(@"ccTouchesBegan %f,%f -> %f,%f", location.x, location.y, convertedLocation.x, convertedLocation.y);
 }
@@ -180,11 +164,7 @@
     
     isTouching = FALSE;
     
-    [self removeActor:testActor];
-    
 //    NSLog(@"ccTouchesEnded %f,%f -> %f,%f", location.x, location.y, convertedLocation.x, convertedLocation.y);
-    
-//    [self addNewSpriteAtPosition: location];
 }
 
 @end

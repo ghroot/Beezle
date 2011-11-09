@@ -8,27 +8,27 @@
 
 #import <Foundation/Foundation.h>
 
-#import "chipmunk.h"
 #import "cocos2d.h"
 
-@class Actor;
-@class TestRenderableActor;
+#import "AbstractSystem.h"
+
+@class EntityManager;
 
 @interface GameLayer : CCLayer
 {
-    cpSpace *_space; // strong ref
+    EntityManager *entityManager;
+    NSMutableArray *_systems;
     
-    NSMutableArray *_actors;
-    TestRenderableActor *testActor;
+    AbstractSystem *_transformSystem;
+    AbstractSystem *_physicsSystem;
+    AbstractSystem *_renderSystem;
     
     BOOL isTouching;
     CGPoint touchStartLocation;
     CGPoint touchVector;
+    Entity *_staticEntity;
 }
 
--(cpSpace *) space;
--(void) initPhysics;
--(void) addActor:(Actor *)actor;
--(void) removeActor:(Actor *)actor;
+-(void) createEntityAtPosition:(CGPoint) position;
 
 @end
