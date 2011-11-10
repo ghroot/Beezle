@@ -12,12 +12,10 @@
 {
     CGPoint _position;
     float _rotation;
-    float _scale;
 }
 
 @property (nonatomic) CGPoint position;
 @property (nonatomic) float rotation;
-@property (nonatomic) float scale;
 
 -(id) initWithPosition:(CGPoint)position;
 

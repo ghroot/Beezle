@@ -12,14 +12,12 @@
 
 @synthesize position = _position;
 @synthesize rotation = _rotation;
-@synthesize scale = _scale;
 
 -(id) initWithPosition:(CGPoint)position
 {
     if (self = [self init])
     {
         _position = position;
-        _scale = 1.0f;
         _rotation = 0.0f;
     }
     return self;

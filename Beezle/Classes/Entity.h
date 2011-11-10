@@ -8,18 +8,21 @@
 
 #import "AbstractComponent.h"
 
+@class World;
 @class EntityManager;
 
 @interface Entity : NSObject
 {
     int _entityId;
+    World *_world;
     EntityManager *_entityManager;
 }
 
 @property (nonatomic) int entityId;
 
--(id) initWithEntityManage:(EntityManager *)entityManager;
+-(id) initWithWorld:(World *)world andId:(int)entityId;
 -(void) addComponent:(AbstractComponent *)component;
 -(AbstractComponent *) getComponent:(Class)componentClass;
+-(void) refresh;
 
 @end

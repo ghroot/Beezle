@@ -15,7 +15,7 @@
 
 -(id) initWithLayer:(CCLayer *)layer;
 {
-    if (self = [super init])
+    if (self = [super initWithUsedComponentClasses:[NSMutableArray arrayWithObjects:[TransformComponent class], [RenderComponent class], nil]])
     {
         _layer = layer;
     }
@@ -30,16 +30,13 @@
     [super entityAdded:entity];
 }
 
--(void) update
+-(void) processEntity:(Entity *)entity
 {
-    for (Entity *entity in _entities)
-    {
-        TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
-        RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
-        
-        [[renderComponent spriteSheet] setPosition:[transformComponent position]];
-        [[renderComponent spriteSheet] setRotation:[transformComponent rotation]];
-    }
+    TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
+    RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
+    
+    [[renderComponent spriteSheet] setPosition:[transformComponent position]];
+    [[renderComponent spriteSheet] setRotation:[transformComponent rotation]];
 }
 
 @end

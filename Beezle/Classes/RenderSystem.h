@@ -8,9 +8,9 @@
 
 #import "cocos2d.h"
 
-#import "AbstractSystem.h"
+#import "EntityProcessingSystem.h"
 
-@interface RenderSystem : AbstractSystem
+@interface RenderSystem : EntityProcessingSystem
 {
     CCLayer *_layer;
 }

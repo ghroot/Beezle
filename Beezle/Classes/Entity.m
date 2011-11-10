@@ -8,17 +8,20 @@
 
 #import "Entity.h"
 
+#import "World.h"
 #import "EntityManager.h"
 
 @implementation Entity
 
 @synthesize entityId = _entityId;
 
--(id) initWithEntityManage:(EntityManager *)entityManager
+-(id) initWithWorld:(World *)world andId:(int)entityId
 {
     if (self = [super init])
     {
-        _entityManager = entityManager;
+        _world = world;
+        _entityManager = [_world entityManager];
+        _entityId = entityId;
     }
     return self;
 }
@@ -30,7 +33,12 @@
 
 -(AbstractComponent *) getComponent:(Class)componentClass;
 {
-    return [_entityManager getComponent:componentClass fromEntity:self];
+    return [_entityManager getComponentWithClass:componentClass fromEntity:self];
+}
+
+-(void) refresh
+{
+    [_entityManager refresh:self];
 }
 
 @end

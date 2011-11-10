@@ -14,8 +14,8 @@
 #import "PhysicsComponent.h"
 #import "RenderSystem.h"
 #import "RenderComponent.h"
-#import "TransformSystem.h"
 #import "TransformComponent.h"
+#import "InputSystem.h"
 
 @implementation GameLayer
 
@@ -25,24 +25,26 @@
     {
 		// Enable events
 		self.isTouchEnabled = YES;
-		
-		entityManager = [[EntityManager alloc] init];
-        _systems = [[NSMutableArray alloc] init];
         
-        _transformSystem = [[TransformSystem alloc] init];
-        [_systems addObject:_transformSystem];
-        _physicsSystem = [[PhysicsSystem alloc] init];
-        [_systems addObject:_physicsSystem];
-        _renderSystem = [[RenderSystem alloc] initWithLayer:self];
-        [_systems addObject:_renderSystem];
+        _world = [[World alloc] init];
+        SystemManager *systemManager = [_world systemManager];
         
-        _staticEntity = [entityManager createEntity];
+        PhysicsSystem *physicsSystem = [[PhysicsSystem alloc] init];
+        [systemManager setSystem:physicsSystem];
+        RenderSystem *renderSystem = [[RenderSystem alloc] initWithLayer:self];
+        [systemManager setSystem:renderSystem];
+        _inputSystem = [[InputSystem alloc] init];
+        [systemManager setSystem:_inputSystem];
+        
+        [systemManager initialiseAll];
+
+        _staticEntity = [_world createEntity];
         TransformComponent *transformComponent = [[TransformComponent alloc] initWithPosition:CGPointMake(0, 0)];
         [_staticEntity addComponent:transformComponent];
         RenderComponent *renderComponent = [[RenderComponent alloc] initWithFile:@"Beeater-01.png"];
+        [[renderComponent spriteSheet] setVisible:FALSE];
         [_staticEntity addComponent:renderComponent];
-        [_transformSystem entityAdded:_staticEntity];
-        [_renderSystem entityAdded:_staticEntity];
+        [_staticEntity refresh];
 		
 		[self scheduleUpdate];
 	}
@@ -52,7 +54,7 @@
 
 -(void) createEntityAtPosition:(CGPoint) position
 {
-    Entity *testEntity = [entityManager createEntity];
+    Entity *testEntity = [_world createEntity];
     
     TransformComponent *transformComponent = [[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)];
     [testEntity addComponent:transformComponent];
@@ -74,22 +76,20 @@
     RenderComponent *renderComponent = [[RenderComponent alloc] initWithFile:@"BeeSlingerC-01.png"];
     [testEntity addComponent:renderComponent];
     
-    [_transformSystem entityAdded:testEntity];
-    [_physicsSystem entityAdded:testEntity];
-    [_renderSystem entityAdded:testEntity];
+    [testEntity refresh];
 }
 
 - (void)dealloc
 {
+    [_world release];
+    
 	[super dealloc];
 }
 
 -(void) update:(ccTime)delta
 {
-    for (AbstractSystem *system in _systems)
-    {
-        [system update];
-    }
+    [_world loopStart];
+    [[_world systemManager] processAll];
     
     if (isTouching)
     {
@@ -101,11 +101,26 @@
         
         [transformComponent setPosition:projectedEndPoint];
         
-        CGFloat height = projectedEndPoint.y - projectedStartPoint.y;
-        CGFloat width = projectedStartPoint.x - projectedEndPoint.x;
-        CGFloat rads = atan(height / width);
-        float degrees = CC_RADIANS_TO_DEGREES(rads);
-        [transformComponent setRotation:degrees];
+        if (projectedStartPoint.x == projectedEndPoint.x &&
+            projectedStartPoint.y == projectedEndPoint.y)
+        {
+            [transformComponent setRotation:0];
+        }
+        else
+        {
+            CGPoint originPoint = CGPointMake(projectedEndPoint.x - projectedStartPoint.x, projectedEndPoint.y - projectedStartPoint.y);
+            float bearingRadians = atan2f(originPoint.y, originPoint.x);
+            float bearingDegrees = bearingRadians * (180.0 / M_PI);
+            bearingDegrees = (bearingDegrees > 0.0 ? bearingDegrees : (360.0 + bearingDegrees));
+            bearingDegrees = 270 - bearingDegrees;
+            if (bearingDegrees < 0)
+            {
+                bearingDegrees += 360;
+            }
+            bearingDegrees -= 90;
+            
+            [transformComponent setRotation:bearingDegrees];
+        }
     }
 }
 
@@ -138,7 +153,20 @@
     
     isTouching = TRUE;
     
-    [self createEntityAtPosition:convertedLocation];
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    CGPoint projectedStartPoint = ccp(winSize.width / 2, winSize.height / 2);
+    
+    TransformComponent *transformComponent = (TransformComponent *)[_staticEntity getComponent:[TransformComponent class]];
+    [transformComponent setPosition:projectedStartPoint];
+    [transformComponent setRotation:0];
+    
+    RenderComponent *renderComponent = (RenderComponent *)[_staticEntity getComponent:[RenderComponent class]];
+    [[renderComponent spriteSheet] setVisible:TRUE];
+    
+    [_inputSystem setTouchType:1];
+    [_inputSystem setTouchLocation:convertedLocation];
+    
+//    [self createEntityAtPosition:convertedLocation];
     
 //    NSLog(@"ccTouchesBegan %f,%f -> %f,%f", location.x, location.y, convertedLocation.x, convertedLocation.y);
 }
@@ -151,6 +179,9 @@
     
     touchVector = ccpSub(convertedLocation, touchStartLocation);
     
+    [_inputSystem setTouchType:2];
+    [_inputSystem setTouchLocation:convertedLocation];
+    
 //    NSLog(@"touchVector: %f, %f", touchVector.x, touchVector.y);
     
 //    NSLog(@"ccTouchesMoved %f,%f -> %f,%f", location.x, location.y, convertedLocation.x, convertedLocation.y);
@@ -158,11 +189,17 @@
 
 -(void) ccTouchesEnded:(NSSet*)touches withEvent:(UIEvent *)event
 {
-//    UITouch* touch = [touches anyObject];
-//    CGPoint location = [touch locationInView: [touch view]];
-//    CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+    UITouch* touch = [touches anyObject];
+    CGPoint location = [touch locationInView: [touch view]];
+    CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
     
     isTouching = FALSE;
+    
+    RenderComponent *renderComponent = (RenderComponent *)[_staticEntity getComponent:[RenderComponent class]];
+    [[renderComponent spriteSheet] setVisible:FALSE];
+    
+    [_inputSystem setTouchType:3];
+    [_inputSystem setTouchLocation:convertedLocation];
     
 //    NSLog(@"ccTouchesEnded %f,%f -> %f,%f", location.x, location.y, convertedLocation.x, convertedLocation.y);
 }

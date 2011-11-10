@@ -8,12 +8,15 @@
 
 #import "EntityManager.h"
 
+#import "World.h"
+
 @implementation EntityManager
 
--(id) init
+-(id) initWithWorld:(World *)world
 {
     if (self = [super init])
     {
+        _world = world;
         _nextEntityId = 1;
         _entities = [[NSMutableArray alloc] init];
         _componentsByClass = [[NSMutableDictionary alloc] init];
@@ -23,10 +26,24 @@
 
 -(Entity *) createEntity
 {
-    Entity *entity = [[[Entity alloc] initWithEntityManage:self] autorelease];
-    entity.entityId = _nextEntityId++;
+    Entity *entity = [[[Entity alloc] initWithWorld:_world andId:++_nextEntityId] autorelease];
     [_entities addObject:entity];
     return entity;
+}
+
+-(void) remove:(Entity *)entity
+{
+    [_entities removeObject:entity];   
+    [self refresh:entity];
+    [self removeComponentsOfEntity:entity];
+}
+
+-(void) removeComponentsOfEntity:(Entity *)entity
+{
+    for (NSMutableDictionary *componentsByEntity in [_componentsByClass allValues])
+    {
+        [componentsByEntity setObject:NULL forKey:[NSNumber numberWithInt:[entity entityId]]];
+    }
 }
 
 -(void) addComponent:(AbstractComponent *)component toEntity:(Entity *)entity
@@ -44,7 +61,27 @@
     [_componentsByEntity setObject:component forKey:[NSNumber numberWithInt:[entity entityId]]];
 }
 
--(AbstractComponent *) getComponent:(Class)componentClass fromEntity:(Entity *)entity
+-(void) refresh:(Entity *)entity
+{
+    NSArray *systems = [[_world systemManager] systems] ;
+    for (AbstractEntitySystem *system in systems)
+    {
+        [system entityChanged:entity];
+    }
+}
+
+-(void) removeComponent:(AbstractComponent *)component fromEntity:(Entity *)entity
+{
+    [self removeComponentWithClass:[component class] fromEntity:entity];
+}
+
+-(void) removeComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity
+{
+    NSMutableDictionary *componentsByEntity = [_componentsByClass objectForKey:componentClass];
+    [componentsByEntity setObject:NULL forKey:entity];
+}
+
+-(AbstractComponent *) getComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity
 {
     if ([_componentsByClass objectForKey:componentClass] != NULL)
     {
@@ -55,6 +92,34 @@
     {
         return NULL;
     }
+}
+
+-(Entity *) getEntity:(int)entityId
+{
+    Entity *entityToReturn = NULL;
+    for (Entity *entity in _entities)
+    {
+        if ([entity entityId] == entityId)
+        {
+            entityToReturn = entity;
+            break;
+        }
+    }
+    return entityToReturn;
+}
+
+-(NSArray *) getComponents:(Entity *)entity
+{
+    NSMutableArray *entityComponents = [NSMutableArray array];
+    for (NSMutableDictionary *componentsByEntity in [_componentsByClass allValues])
+    {
+        AbstractComponent *component = [componentsByEntity objectForKey:entity];
+        if (component != NULL)
+        {
+            [entityComponents addObject:component];
+        }
+    }
+    return entityComponents;
 }
 
 @end

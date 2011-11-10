@@ -6,22 +6,18 @@
 //  Copyright __MyCompanyName__ 2011. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 #import "cocos2d.h"
 
-#import "AbstractSystem.h"
+#import "SystemManager.h"
+#import "World.h"
 
 @class EntityManager;
+@class InputSystem;
 
 @interface GameLayer : CCLayer
 {
-    EntityManager *entityManager;
-    NSMutableArray *_systems;
-    
-    AbstractSystem *_transformSystem;
-    AbstractSystem *_physicsSystem;
-    AbstractSystem *_renderSystem;
+    World *_world;
+    InputSystem *_inputSystem;
     
     BOOL isTouching;
     CGPoint touchStartLocation;

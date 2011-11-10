@@ -8,9 +8,9 @@
 
 #import "chipmunk.h"
 
-#import "AbstractSystem.h"
+#import "EntityProcessingSystem.h"
 
-@interface PhysicsSystem : AbstractSystem
+@interface PhysicsSystem : EntityProcessingSystem
 {
     cpSpace *_space;
 }

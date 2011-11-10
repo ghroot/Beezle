@@ -17,7 +17,7 @@
 
 -(id) init
 {
-    if (self = [super init])
+    if (self = [super initWithUsedComponentClasses:[NSMutableArray arrayWithObjects:[TransformComponent class], [PhysicsComponent class], nil]])
     {   
         // Init chipmunk
         cpInitChipmunk();
@@ -44,27 +44,27 @@
     [super entityAdded:entity];
 }
 
--(void) update
+-(void) begin
 {
     // Should use a fixed size step based on the animation interval.
-	int steps = 2;
-	CGFloat dt = [[CCDirector sharedDirector] animationInterval] / (CGFloat)steps;
-	
-	for (int i = 0; i < steps; i++)
+    int steps = 2;
+    CGFloat dt = [[CCDirector sharedDirector] animationInterval] / (CGFloat)steps;
+
+    for (int i = 0; i < steps; i++)
     {
-		cpSpaceStep(_space, dt);
-	}
-    
-    for (Entity *entity in _entities)
-    {
-        TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
-        PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
-        
-        cpBody *body = [physicsComponent body];
-        
-        [transformComponent setPosition:cpv(body->p.x, body->p.y)];
-        [transformComponent setRotation:CC_RADIANS_TO_DEGREES(-body->a)];
-    }
+      cpSpaceStep(_space, dt);
+    }   
+}
+
+-(void) processEntity:(Entity *)entity
+{
+    TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
+    PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
+
+    cpBody *body = [physicsComponent body];
+
+    [transformComponent setPosition:cpv(body->p.x, body->p.y)];
+    [transformComponent setRotation:CC_RADIANS_TO_DEGREES(-body->a)];
 }
 
 -(void) dealloc
