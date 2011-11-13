@@ -6,9 +6,16 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "EntityProcessingSystem.h"
+#import "EntitySystem.h"
 
-@interface InputSystem : EntityProcessingSystem
+typedef enum
+{
+    TOUCH_START,
+    TOUCH_MOVE,
+    TOUCH_END,
+} touchTypes;
+
+@interface InputSystem : EntitySystem
 {
     int _touchType;
     CGPoint _touchLocation;

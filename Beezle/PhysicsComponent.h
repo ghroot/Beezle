@@ -6,11 +6,11 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "AbstractComponent.h"
+#import "Component.h"
 
 #import "chipmunk.h"
 
-@interface PhysicsComponent : AbstractComponent
+@interface PhysicsComponent : Component
 {
     cpBody *_body;
     cpShape *_shape;

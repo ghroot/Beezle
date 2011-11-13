@@ -15,10 +15,15 @@
 		2C7CE60F146B1FEE001F331F /* SystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE60E146B1FEE001F331F /* SystemManager.m */; };
 		2C7CE612146B2846001F331F /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE611146B2846001F331F /* World.m */; };
 		2C7CE616146C6415001F331F /* EntityProcessingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE615146C6415001F331F /* EntityProcessingSystem.m */; };
-		2C7CE619146C73DB001F331F /* InputComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE618146C73DB001F331F /* InputComponent.m */; };
 		2C7CE61C146C73FE001F331F /* InputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE61B146C73FE001F331F /* InputSystem.m */; };
 		2C7CE61F146C81B5001F331F /* TagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE61E146C81B5001F331F /* TagManager.m */; };
-		2CBA7B641469AC1D006CBCB4 /* AbstractEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA7B631469AC1D006CBCB4 /* AbstractEntitySystem.m */; };
+		2C7CE622146FD670001F331F /* DragSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE621146FD66F001F331F /* DragSystem.m */; };
+		2C7CE625146FD786001F331F /* DragComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE624146FD785001F331F /* DragComponent.m */; };
+		2C7CE628146FE111001F331F /* BoundrySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE627146FE111001F331F /* BoundrySystem.m */; };
+		2C7CE62B146FE123001F331F /* BoundryComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE62A146FE123001F331F /* BoundryComponent.m */; };
+		2C7CE62E146FE14E001F331F /* Boundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE62D146FE14D001F331F /* Boundry.m */; };
+		2C7CE631146FE161001F331F /* CircularBoundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE630146FE160001F331F /* CircularBoundry.m */; };
+		2CBA7B641469AC1D006CBCB4 /* EntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA7B631469AC1D006CBCB4 /* EntitySystem.m */; };
 		2CEA3278145F66F7000FF575 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3277145F66F7000FF575 /* QuartzCore.framework */; };
 		2CEA327A145F66F7000FF575 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3279145F66F7000FF575 /* OpenGLES.framework */; };
 		2CEA327C145F66F7000FF575 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA327B145F66F7000FF575 /* OpenAL.framework */; };
@@ -195,7 +200,7 @@
 		2CEA3481145F66F9000FF575 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA3480145F66F9000FF575 /* GameLayer.m */; };
 		2CEA3483145F66F9000FF575 /* grossini_dance_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CEA3482145F66F9000FF575 /* grossini_dance_atlas.png */; };
 		2CEA35271466B1FB000FF575 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA35261466B1FB000FF575 /* Entity.m */; };
-		2CEA352B1466B21E000FF575 /* AbstractComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA352A1466B21E000FF575 /* AbstractComponent.m */; };
+		2CEA352B1466B21E000FF575 /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA352A1466B21E000FF575 /* Component.m */; };
 		2CEA352E1466B2B5000FF575 /* RenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA352D1466B2B5000FF575 /* RenderComponent.m */; };
 		2CEA35311466B2C9000FF575 /* PhysicsComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA35301466B2C9000FF575 /* PhysicsComponent.m */; };
 		2CEA353C1466BD06000FF575 /* Beeater-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CEA353B1466BD06000FF575 /* Beeater-01.png */; };
@@ -209,7 +214,7 @@
 		2C7CE5F61469AD06001F331F /* RenderSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSystem.m; path = Classes/RenderSystem.m; sourceTree = "<group>"; };
 		2C7CE5F81469D092001F331F /* PhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsSystem.h; path = Classes/PhysicsSystem.h; sourceTree = "<group>"; };
 		2C7CE5F91469D092001F331F /* PhysicsSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhysicsSystem.m; path = Classes/PhysicsSystem.m; sourceTree = "<group>"; };
-		2C7CE5FB1469D219001F331F /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityManager.h; path = Classes/EntityManager.h; sourceTree = "<group>"; };
+		2C7CE5FB1469D219001F331F /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = EntityManager.h; path = Classes/EntityManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2C7CE5FC1469D219001F331F /* EntityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityManager.m; path = Classes/EntityManager.m; sourceTree = "<group>"; };
 		2C7CE60D146B1FED001F331F /* SystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemManager.h; path = Classes/SystemManager.h; sourceTree = "<group>"; };
 		2C7CE60E146B1FEE001F331F /* SystemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemManager.m; path = Classes/SystemManager.m; sourceTree = "<group>"; };
@@ -217,14 +222,24 @@
 		2C7CE611146B2846001F331F /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = World.m; path = Classes/World.m; sourceTree = "<group>"; };
 		2C7CE614146C6415001F331F /* EntityProcessingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityProcessingSystem.h; path = Classes/EntityProcessingSystem.h; sourceTree = "<group>"; };
 		2C7CE615146C6415001F331F /* EntityProcessingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityProcessingSystem.m; path = Classes/EntityProcessingSystem.m; sourceTree = "<group>"; };
-		2C7CE617146C73DB001F331F /* InputComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputComponent.h; path = Classes/InputComponent.h; sourceTree = "<group>"; };
-		2C7CE618146C73DB001F331F /* InputComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputComponent.m; path = Classes/InputComponent.m; sourceTree = "<group>"; };
 		2C7CE61A146C73FE001F331F /* InputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputSystem.h; path = Classes/InputSystem.h; sourceTree = "<group>"; };
 		2C7CE61B146C73FE001F331F /* InputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputSystem.m; path = Classes/InputSystem.m; sourceTree = "<group>"; };
 		2C7CE61D146C81B4001F331F /* TagManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagManager.h; path = Classes/TagManager.h; sourceTree = "<group>"; };
 		2C7CE61E146C81B5001F331F /* TagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagManager.m; path = Classes/TagManager.m; sourceTree = "<group>"; };
-		2CBA7B621469AC1D006CBCB4 /* AbstractEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractEntitySystem.h; path = Classes/AbstractEntitySystem.h; sourceTree = "<group>"; };
-		2CBA7B631469AC1D006CBCB4 /* AbstractEntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AbstractEntitySystem.m; path = Classes/AbstractEntitySystem.m; sourceTree = "<group>"; };
+		2C7CE620146FD66F001F331F /* DragSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DragSystem.h; path = Classes/DragSystem.h; sourceTree = "<group>"; };
+		2C7CE621146FD66F001F331F /* DragSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DragSystem.m; path = Classes/DragSystem.m; sourceTree = "<group>"; };
+		2C7CE623146FD785001F331F /* DragComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DragComponent.h; path = Classes/DragComponent.h; sourceTree = "<group>"; };
+		2C7CE624146FD785001F331F /* DragComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DragComponent.m; path = Classes/DragComponent.m; sourceTree = "<group>"; };
+		2C7CE626146FE110001F331F /* BoundrySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundrySystem.h; path = Classes/BoundrySystem.h; sourceTree = "<group>"; };
+		2C7CE627146FE111001F331F /* BoundrySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoundrySystem.m; path = Classes/BoundrySystem.m; sourceTree = "<group>"; };
+		2C7CE629146FE123001F331F /* BoundryComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundryComponent.h; path = Classes/BoundryComponent.h; sourceTree = "<group>"; };
+		2C7CE62A146FE123001F331F /* BoundryComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoundryComponent.m; path = Classes/BoundryComponent.m; sourceTree = "<group>"; };
+		2C7CE62C146FE14D001F331F /* Boundry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Boundry.h; path = Classes/Boundry.h; sourceTree = "<group>"; };
+		2C7CE62D146FE14D001F331F /* Boundry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Boundry.m; path = Classes/Boundry.m; sourceTree = "<group>"; };
+		2C7CE62F146FE160001F331F /* CircularBoundry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircularBoundry.h; path = Classes/CircularBoundry.h; sourceTree = "<group>"; };
+		2C7CE630146FE160001F331F /* CircularBoundry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircularBoundry.m; path = Classes/CircularBoundry.m; sourceTree = "<group>"; };
+		2CBA7B621469AC1D006CBCB4 /* EntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntitySystem.h; path = Classes/EntitySystem.h; sourceTree = "<group>"; };
+		2CBA7B631469AC1D006CBCB4 /* EntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntitySystem.m; path = Classes/EntitySystem.m; sourceTree = "<group>"; };
 		2CEA3273145F66F7000FF575 /* Beezle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beezle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CEA3277145F66F7000FF575 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2CEA3279145F66F7000FF575 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -553,10 +568,10 @@
 		2CEA347F145F66F9000FF575 /* GameLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		2CEA3480145F66F9000FF575 /* GameLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		2CEA3482145F66F9000FF575 /* grossini_dance_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grossini_dance_atlas.png; path = Resources/grossini_dance_atlas.png; sourceTree = "<group>"; };
-		2CEA35251466B1FB000FF575 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Entity.h; path = Classes/Entity.h; sourceTree = "<group>"; };
-		2CEA35261466B1FB000FF575 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Entity.m; path = Classes/Entity.m; sourceTree = "<group>"; };
-		2CEA35291466B21E000FF575 /* AbstractComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractComponent.h; path = Classes/AbstractComponent.h; sourceTree = "<group>"; };
-		2CEA352A1466B21E000FF575 /* AbstractComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AbstractComponent.m; path = Classes/AbstractComponent.m; sourceTree = "<group>"; };
+		2CEA35251466B1FB000FF575 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = Entity.h; path = Classes/Entity.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2CEA35261466B1FB000FF575 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = Entity.m; path = Classes/Entity.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2CEA35291466B21E000FF575 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Component.h; path = Classes/Component.h; sourceTree = "<group>"; };
+		2CEA352A1466B21E000FF575 /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Component.m; path = Classes/Component.m; sourceTree = "<group>"; };
 		2CEA352C1466B2B5000FF575 /* RenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderComponent.h; path = Classes/RenderComponent.h; sourceTree = "<group>"; };
 		2CEA352D1466B2B5000FF575 /* RenderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderComponent.m; path = Classes/RenderComponent.m; sourceTree = "<group>"; };
 		2CEA352F1466B2C9000FF575 /* PhysicsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsComponent.h; sourceTree = "<group>"; };
@@ -601,6 +616,10 @@
 				2C7CE5F91469D092001F331F /* PhysicsSystem.m */,
 				2C7CE61A146C73FE001F331F /* InputSystem.h */,
 				2C7CE61B146C73FE001F331F /* InputSystem.m */,
+				2C7CE620146FD66F001F331F /* DragSystem.h */,
+				2C7CE621146FD66F001F331F /* DragSystem.m */,
+				2C7CE626146FE110001F331F /* BoundrySystem.h */,
+				2C7CE627146FE111001F331F /* BoundrySystem.m */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -608,16 +627,16 @@
 		2C7CE613146B356D001F331F /* Artemis */ = {
 			isa = PBXGroup;
 			children = (
-				2CBA7B621469AC1D006CBCB4 /* AbstractEntitySystem.h */,
-				2CBA7B631469AC1D006CBCB4 /* AbstractEntitySystem.m */,
+				2CBA7B621469AC1D006CBCB4 /* EntitySystem.h */,
+				2CBA7B631469AC1D006CBCB4 /* EntitySystem.m */,
 				2C7CE614146C6415001F331F /* EntityProcessingSystem.h */,
 				2C7CE615146C6415001F331F /* EntityProcessingSystem.m */,
 				2C7CE5FB1469D219001F331F /* EntityManager.h */,
 				2C7CE5FC1469D219001F331F /* EntityManager.m */,
 				2CEA35251466B1FB000FF575 /* Entity.h */,
 				2CEA35261466B1FB000FF575 /* Entity.m */,
-				2CEA35291466B21E000FF575 /* AbstractComponent.h */,
-				2CEA352A1466B21E000FF575 /* AbstractComponent.m */,
+				2CEA35291466B21E000FF575 /* Component.h */,
+				2CEA352A1466B21E000FF575 /* Component.m */,
 				2C7CE60D146B1FED001F331F /* SystemManager.h */,
 				2C7CE60E146B1FEE001F331F /* SystemManager.m */,
 				2C7CE610146B2845001F331F /* World.h */,
@@ -1184,8 +1203,14 @@
 				2CEA35301466B2C9000FF575 /* PhysicsComponent.m */,
 				2C068A32146858B9003E200D /* TransformComponent.h */,
 				2C068A33146858B9003E200D /* TransformComponent.m */,
-				2C7CE617146C73DB001F331F /* InputComponent.h */,
-				2C7CE618146C73DB001F331F /* InputComponent.m */,
+				2C7CE623146FD785001F331F /* DragComponent.h */,
+				2C7CE624146FD785001F331F /* DragComponent.m */,
+				2C7CE629146FE123001F331F /* BoundryComponent.h */,
+				2C7CE62A146FE123001F331F /* BoundryComponent.m */,
+				2C7CE62C146FE14D001F331F /* Boundry.h */,
+				2C7CE62D146FE14D001F331F /* Boundry.m */,
+				2C7CE62F146FE160001F331F /* CircularBoundry.h */,
+				2C7CE630146FE160001F331F /* CircularBoundry.m */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -1429,20 +1454,25 @@
 				2CEA347E145F66F9000FF575 /* RootViewController.m in Sources */,
 				2CEA3481145F66F9000FF575 /* GameLayer.m in Sources */,
 				2CEA35271466B1FB000FF575 /* Entity.m in Sources */,
-				2CEA352B1466B21E000FF575 /* AbstractComponent.m in Sources */,
+				2CEA352B1466B21E000FF575 /* Component.m in Sources */,
 				2CEA352E1466B2B5000FF575 /* RenderComponent.m in Sources */,
 				2CEA35311466B2C9000FF575 /* PhysicsComponent.m in Sources */,
 				2C068A34146858B9003E200D /* TransformComponent.m in Sources */,
-				2CBA7B641469AC1D006CBCB4 /* AbstractEntitySystem.m in Sources */,
+				2CBA7B641469AC1D006CBCB4 /* EntitySystem.m in Sources */,
 				2C7CE5F71469AD06001F331F /* RenderSystem.m in Sources */,
 				2C7CE5FA1469D092001F331F /* PhysicsSystem.m in Sources */,
 				2C7CE5FD1469D21A001F331F /* EntityManager.m in Sources */,
 				2C7CE60F146B1FEE001F331F /* SystemManager.m in Sources */,
 				2C7CE612146B2846001F331F /* World.m in Sources */,
 				2C7CE616146C6415001F331F /* EntityProcessingSystem.m in Sources */,
-				2C7CE619146C73DB001F331F /* InputComponent.m in Sources */,
 				2C7CE61C146C73FE001F331F /* InputSystem.m in Sources */,
 				2C7CE61F146C81B5001F331F /* TagManager.m in Sources */,
+				2C7CE622146FD670001F331F /* DragSystem.m in Sources */,
+				2C7CE625146FD786001F331F /* DragComponent.m in Sources */,
+				2C7CE628146FE111001F331F /* BoundrySystem.m in Sources */,
+				2C7CE62B146FE123001F331F /* BoundryComponent.m in Sources */,
+				2C7CE62E146FE14E001F331F /* Boundry.m in Sources */,
+				2C7CE631146FE161001F331F /* CircularBoundry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

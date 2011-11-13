@@ -6,9 +6,9 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "AbstractEntitySystem.h"
+#import "EntitySystem.h"
 
-@interface EntityProcessingSystem : AbstractEntitySystem
+@interface EntityProcessingSystem : EntitySystem
 
 -(id) initWithUsedComponentClasses:(NSMutableArray *)usedComponentClasses;
 -(void) processEntity:(Entity *)entity;

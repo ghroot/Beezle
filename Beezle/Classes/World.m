@@ -13,6 +13,7 @@
 @synthesize entityManager = _entityManager;
 @synthesize systemManager = _systemManager;
 @synthesize tagManager = _tagManager;
+@synthesize delta = _delta;
 
 -(id) init
 {

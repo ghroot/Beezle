@@ -12,6 +12,7 @@
 
 @synthesize position = _position;
 @synthesize rotation = _rotation;
+@synthesize scale = _scale;
 
 -(id) initWithPosition:(CGPoint)position
 {
@@ -19,6 +20,7 @@
     {
         _position = position;
         _rotation = 0.0f;
+        _scale = CGPointMake(1.0f, 1.0f);
     }
     return self;
 }

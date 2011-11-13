@@ -6,16 +6,18 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "AbstractComponent.h"
+#import "Component.h"
 
-@interface TransformComponent : AbstractComponent
+@interface TransformComponent : Component
 {
     CGPoint _position;
     float _rotation;
+    CGPoint _scale;
 }
 
 @property (nonatomic) CGPoint position;
 @property (nonatomic) float rotation;
+@property (nonatomic) CGPoint scale;
 
 -(id) initWithPosition:(CGPoint)position;
 

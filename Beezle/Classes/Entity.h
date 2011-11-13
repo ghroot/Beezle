@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "AbstractComponent.h"
+#import "Component.h"
 
 @class World;
 @class EntityManager;
@@ -21,8 +21,8 @@
 @property (nonatomic) int entityId;
 
 -(id) initWithWorld:(World *)world andId:(int)entityId;
--(void) addComponent:(AbstractComponent *)component;
--(AbstractComponent *) getComponent:(Class)componentClass;
+-(void) addComponent:(Component *)component;
+-(Component *) getComponent:(Class)componentClass;
 -(void) refresh;
 
 @end

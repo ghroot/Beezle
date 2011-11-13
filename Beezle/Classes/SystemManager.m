@@ -24,17 +24,17 @@
     return self;
 }
 
--(AbstractEntitySystem *) setSystem:(AbstractEntitySystem *)system
+-(EntitySystem *) setSystem:(EntitySystem *)system
 {
     [system setWorld:_world];
     [_systems addObject:system];
     return system;
 }
 
--(AbstractEntitySystem *) getSystem:(Class)systemClass
+-(EntitySystem *) getSystem:(Class)systemClass
 {
-    AbstractEntitySystem *systemToReturn = NULL;
-    for (AbstractEntitySystem *system in _systems)
+    EntitySystem *systemToReturn = NULL;
+    for (EntitySystem *system in _systems)
     {
         if ([system isKindOfClass:systemClass])
         {
@@ -47,7 +47,7 @@
 
 -(void) initialiseAll
 {
-    for (AbstractEntitySystem *system in _systems)
+    for (EntitySystem *system in _systems)
     {
         [system initialise];
     }
@@ -55,7 +55,7 @@
 
 -(void) processAll
 {
-    for (AbstractEntitySystem *system in _systems)
+    for (EntitySystem *system in _systems)
     {
         [system process];
     }

@@ -26,12 +26,12 @@
     return self;
 }
 
--(void) addComponent:(AbstractComponent *)component
+-(void) addComponent:(Component *)component
 {
     [_entityManager addComponent:component toEntity:self];
 }
 
--(AbstractComponent *) getComponent:(Class)componentClass;
+-(Component *) getComponent:(Class)componentClass;
 {
     return [_entityManager getComponentWithClass:componentClass fromEntity:self];
 }

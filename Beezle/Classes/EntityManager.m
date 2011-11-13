@@ -46,7 +46,7 @@
     }
 }
 
--(void) addComponent:(AbstractComponent *)component toEntity:(Entity *)entity
+-(void) addComponent:(Component *)component toEntity:(Entity *)entity
 {
     NSMutableDictionary *_componentsByEntity;
     if ([_componentsByClass objectForKey:[component class]] == NULL)
@@ -64,13 +64,13 @@
 -(void) refresh:(Entity *)entity
 {
     NSArray *systems = [[_world systemManager] systems] ;
-    for (AbstractEntitySystem *system in systems)
+    for (EntitySystem *system in systems)
     {
         [system entityChanged:entity];
     }
 }
 
--(void) removeComponent:(AbstractComponent *)component fromEntity:(Entity *)entity
+-(void) removeComponent:(Component *)component fromEntity:(Entity *)entity
 {
     [self removeComponentWithClass:[component class] fromEntity:entity];
 }
@@ -81,7 +81,7 @@
     [componentsByEntity setObject:NULL forKey:entity];
 }
 
--(AbstractComponent *) getComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity
+-(Component *) getComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity
 {
     if ([_componentsByClass objectForKey:componentClass] != NULL)
     {
@@ -113,7 +113,7 @@
     NSMutableArray *entityComponents = [NSMutableArray array];
     for (NSMutableDictionary *componentsByEntity in [_componentsByClass allValues])
     {
-        AbstractComponent *component = [componentsByEntity objectForKey:entity];
+        Component *component = [componentsByEntity objectForKey:entity];
         if (component != NULL)
         {
             [entityComponents addObject:component];

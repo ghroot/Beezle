@@ -7,7 +7,7 @@
 //
 
 #import "Entity.h"
-#import "AbstractComponent.h"
+#import "Component.h"
 
 @class World;
 
@@ -23,11 +23,11 @@
 -(Entity *) createEntity;
 -(void) remove:(Entity *)entity;
 -(void) removeComponentsOfEntity:(Entity *)entity;
--(void) addComponent:(AbstractComponent *)component toEntity:(Entity *)entity;
+-(void) addComponent:(Component *)component toEntity:(Entity *)entity;
 -(void) refresh:(Entity *)entity;
--(void) removeComponent:(AbstractComponent *)component fromEntity:(Entity *)entity;
+-(void) removeComponent:(Component *)component fromEntity:(Entity *)entity;
 -(void) removeComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity;
--(AbstractComponent *) getComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity;
+-(Component *) getComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity;
 -(Entity *) getEntity:(int)entityId;
 -(NSArray *) getComponents:(Entity *)entity;
 

@@ -6,11 +6,11 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "AbstractComponent.h"
+#import "Component.h"
 
 #import "cocos2d.h"
 
-@interface RenderComponent : AbstractComponent
+@interface RenderComponent : Component
 {
     CCSpriteBatchNode *_spriteSheet;
     CCSprite *_sprite;

@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "AbstractEntitySystem.h"
+#import "EntitySystem.h"
 
 @class World;
 
@@ -19,8 +19,8 @@
 @property (nonatomic, retain) NSMutableArray *systems;
 
 -(id) initWithWorld:(World *)world;
--(AbstractEntitySystem *) setSystem:(AbstractEntitySystem *)system;
--(AbstractEntitySystem *) getSystem:(Class)systemClass;
+-(EntitySystem *) setSystem:(EntitySystem *)system;
+-(EntitySystem *) getSystem:(Class)systemClass;
 -(void) initialiseAll;
 -(void) processAll;
 

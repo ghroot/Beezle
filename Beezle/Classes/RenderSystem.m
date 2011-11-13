@@ -37,6 +37,8 @@
     
     [[renderComponent spriteSheet] setPosition:[transformComponent position]];
     [[renderComponent spriteSheet] setRotation:[transformComponent rotation]];
+    [[renderComponent spriteSheet] setScaleX:[transformComponent scale].x];
+    [[renderComponent spriteSheet] setScaleY:[transformComponent scale].y];
 }
 
 @end

@@ -13,9 +13,4 @@
 @synthesize touchType;
 @synthesize touchLocation;
 
--(void) begin
-{
-//    NSLog(@"InputSystem.begin %i   %f, %f", touchType, touchLocation.x, touchLocation.y);  
-}
-
 @end
