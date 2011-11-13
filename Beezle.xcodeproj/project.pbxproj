@@ -17,12 +17,14 @@
 		2C7CE616146C6415001F331F /* EntityProcessingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE615146C6415001F331F /* EntityProcessingSystem.m */; };
 		2C7CE61C146C73FE001F331F /* InputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE61B146C73FE001F331F /* InputSystem.m */; };
 		2C7CE61F146C81B5001F331F /* TagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE61E146C81B5001F331F /* TagManager.m */; };
-		2C7CE622146FD670001F331F /* DragSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE621146FD66F001F331F /* DragSystem.m */; };
-		2C7CE625146FD786001F331F /* DragComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE624146FD785001F331F /* DragComponent.m */; };
+		2C7CE622146FD670001F331F /* SlingerControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE621146FD66F001F331F /* SlingerControlSystem.m */; };
+		2C7CE625146FD786001F331F /* SlingerControlComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE624146FD785001F331F /* SlingerControlComponent.m */; };
 		2C7CE628146FE111001F331F /* BoundrySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE627146FE111001F331F /* BoundrySystem.m */; };
 		2C7CE62B146FE123001F331F /* BoundryComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE62A146FE123001F331F /* BoundryComponent.m */; };
 		2C7CE62E146FE14E001F331F /* Boundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE62D146FE14D001F331F /* Boundry.m */; };
 		2C7CE631146FE161001F331F /* CircularBoundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE630146FE160001F331F /* CircularBoundry.m */; };
+		2CADCC6D1470807E00302475 /* RampCrach [ Sketch ]-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CADCC6C1470807E00302475 /* RampCrach [ Sketch ]-01.png */; };
+		2CAE05FB14705F4A0023FA94 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE05FA14705F4A0023FA94 /* EntityFactory.m */; };
 		2CBA7B641469AC1D006CBCB4 /* EntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA7B631469AC1D006CBCB4 /* EntitySystem.m */; };
 		2CEA3278145F66F7000FF575 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3277145F66F7000FF575 /* QuartzCore.framework */; };
 		2CEA327A145F66F7000FF575 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3279145F66F7000FF575 /* OpenGLES.framework */; };
@@ -226,10 +228,10 @@
 		2C7CE61B146C73FE001F331F /* InputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputSystem.m; path = Classes/InputSystem.m; sourceTree = "<group>"; };
 		2C7CE61D146C81B4001F331F /* TagManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagManager.h; path = Classes/TagManager.h; sourceTree = "<group>"; };
 		2C7CE61E146C81B5001F331F /* TagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagManager.m; path = Classes/TagManager.m; sourceTree = "<group>"; };
-		2C7CE620146FD66F001F331F /* DragSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DragSystem.h; path = Classes/DragSystem.h; sourceTree = "<group>"; };
-		2C7CE621146FD66F001F331F /* DragSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DragSystem.m; path = Classes/DragSystem.m; sourceTree = "<group>"; };
-		2C7CE623146FD785001F331F /* DragComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DragComponent.h; path = Classes/DragComponent.h; sourceTree = "<group>"; };
-		2C7CE624146FD785001F331F /* DragComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DragComponent.m; path = Classes/DragComponent.m; sourceTree = "<group>"; };
+		2C7CE620146FD66F001F331F /* SlingerControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlingerControlSystem.h; path = Classes/SlingerControlSystem.h; sourceTree = "<group>"; };
+		2C7CE621146FD66F001F331F /* SlingerControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlingerControlSystem.m; path = Classes/SlingerControlSystem.m; sourceTree = "<group>"; };
+		2C7CE623146FD785001F331F /* SlingerControlComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlingerControlComponent.h; path = Classes/SlingerControlComponent.h; sourceTree = "<group>"; };
+		2C7CE624146FD785001F331F /* SlingerControlComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlingerControlComponent.m; path = Classes/SlingerControlComponent.m; sourceTree = "<group>"; };
 		2C7CE626146FE110001F331F /* BoundrySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundrySystem.h; path = Classes/BoundrySystem.h; sourceTree = "<group>"; };
 		2C7CE627146FE111001F331F /* BoundrySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoundrySystem.m; path = Classes/BoundrySystem.m; sourceTree = "<group>"; };
 		2C7CE629146FE123001F331F /* BoundryComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundryComponent.h; path = Classes/BoundryComponent.h; sourceTree = "<group>"; };
@@ -238,6 +240,9 @@
 		2C7CE62D146FE14D001F331F /* Boundry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Boundry.m; path = Classes/Boundry.m; sourceTree = "<group>"; };
 		2C7CE62F146FE160001F331F /* CircularBoundry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircularBoundry.h; path = Classes/CircularBoundry.h; sourceTree = "<group>"; };
 		2C7CE630146FE160001F331F /* CircularBoundry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircularBoundry.m; path = Classes/CircularBoundry.m; sourceTree = "<group>"; };
+		2CADCC6C1470807E00302475 /* RampCrach [ Sketch ]-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RampCrach [ Sketch ]-01.png"; path = "Resources/Ramp/RampCrach [ Sketch ]-01.png"; sourceTree = "<group>"; };
+		2CAE05F914705F490023FA94 /* EntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityFactory.h; path = Classes/EntityFactory.h; sourceTree = "<group>"; };
+		2CAE05FA14705F4A0023FA94 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityFactory.m; path = Classes/EntityFactory.m; sourceTree = "<group>"; };
 		2CBA7B621469AC1D006CBCB4 /* EntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntitySystem.h; path = Classes/EntitySystem.h; sourceTree = "<group>"; };
 		2CBA7B631469AC1D006CBCB4 /* EntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntitySystem.m; path = Classes/EntitySystem.m; sourceTree = "<group>"; };
 		2CEA3273145F66F7000FF575 /* Beezle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beezle.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -616,8 +621,8 @@
 				2C7CE5F91469D092001F331F /* PhysicsSystem.m */,
 				2C7CE61A146C73FE001F331F /* InputSystem.h */,
 				2C7CE61B146C73FE001F331F /* InputSystem.m */,
-				2C7CE620146FD66F001F331F /* DragSystem.h */,
-				2C7CE621146FD66F001F331F /* DragSystem.m */,
+				2C7CE620146FD66F001F331F /* SlingerControlSystem.h */,
+				2C7CE621146FD66F001F331F /* SlingerControlSystem.m */,
 				2C7CE626146FE110001F331F /* BoundrySystem.h */,
 				2C7CE627146FE111001F331F /* BoundrySystem.m */,
 			);
@@ -645,6 +650,14 @@
 				2C7CE61E146C81B5001F331F /* TagManager.m */,
 			);
 			name = Artemis;
+			sourceTree = "<group>";
+		};
+		2CADCC6E1470808100302475 /* Ramp */ = {
+			isa = PBXGroup;
+			children = (
+				2CADCC6C1470807E00302475 /* RampCrach [ Sketch ]-01.png */,
+			);
+			name = Ramp;
 			sourceTree = "<group>";
 		};
 		2CEA3268145F66F7000FF575 = {
@@ -694,6 +707,7 @@
 		2CEA3288145F66F7000FF575 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CADCC6E1470808100302475 /* Ramp */,
 				2C06880B14670EFB003E200D /* BeeSlingerC */,
 				2CEA353A1466BD06000FF575 /* Beeater */,
 				2CEA3289145F66F7000FF575 /* Default.png */,
@@ -1190,6 +1204,8 @@
 				2CEA347D145F66F9000FF575 /* RootViewController.m */,
 				2CEA347F145F66F9000FF575 /* GameLayer.h */,
 				2CEA3480145F66F9000FF575 /* GameLayer.m */,
+				2CAE05F914705F490023FA94 /* EntityFactory.h */,
+				2CAE05FA14705F4A0023FA94 /* EntityFactory.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1203,8 +1219,8 @@
 				2CEA35301466B2C9000FF575 /* PhysicsComponent.m */,
 				2C068A32146858B9003E200D /* TransformComponent.h */,
 				2C068A33146858B9003E200D /* TransformComponent.m */,
-				2C7CE623146FD785001F331F /* DragComponent.h */,
-				2C7CE624146FD785001F331F /* DragComponent.m */,
+				2C7CE623146FD785001F331F /* SlingerControlComponent.h */,
+				2C7CE624146FD785001F331F /* SlingerControlComponent.m */,
 				2C7CE629146FE123001F331F /* BoundryComponent.h */,
 				2C7CE62A146FE123001F331F /* BoundryComponent.m */,
 				2C7CE62C146FE14D001F331F /* Boundry.h */,
@@ -1315,6 +1331,7 @@
 				2CEA3483145F66F9000FF575 /* grossini_dance_atlas.png in Resources */,
 				2CEA353C1466BD06000FF575 /* Beeater-01.png in Resources */,
 				2C06880D14670EFB003E200D /* BeeSlingerC-01.png in Resources */,
+				2CADCC6D1470807E00302475 /* RampCrach [ Sketch ]-01.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1467,12 +1484,13 @@
 				2C7CE616146C6415001F331F /* EntityProcessingSystem.m in Sources */,
 				2C7CE61C146C73FE001F331F /* InputSystem.m in Sources */,
 				2C7CE61F146C81B5001F331F /* TagManager.m in Sources */,
-				2C7CE622146FD670001F331F /* DragSystem.m in Sources */,
-				2C7CE625146FD786001F331F /* DragComponent.m in Sources */,
+				2C7CE622146FD670001F331F /* SlingerControlSystem.m in Sources */,
+				2C7CE625146FD786001F331F /* SlingerControlComponent.m in Sources */,
 				2C7CE628146FE111001F331F /* BoundrySystem.m in Sources */,
 				2C7CE62B146FE123001F331F /* BoundryComponent.m in Sources */,
 				2C7CE62E146FE14E001F331F /* Boundry.m in Sources */,
 				2C7CE631146FE161001F331F /* CircularBoundry.m in Sources */,
+				2CAE05FB14705F4A0023FA94 /* EntityFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

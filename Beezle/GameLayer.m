@@ -8,19 +8,12 @@
 
 #import "GameLayer.h"
 
-#import "EntityManager.h"
-#import "Entity.h"
 #import "PhysicsSystem.h"
-#import "PhysicsComponent.h"
 #import "RenderSystem.h"
-#import "RenderComponent.h"
-#import "TransformComponent.h"
 #import "InputSystem.h"
-#import "DragSystem.h"
-#import "DragComponent.h"
+#import "SlingerControlSystem.h"
 #import "BoundrySystem.h"
-#import "BoundryComponent.h"
-#import "CircularBoundry.h"
+#import "EntityFactory.h"
 
 @implementation GameLayer
 
@@ -40,53 +33,20 @@
         [systemManager setSystem:renderSystem];
         _inputSystem = [[InputSystem alloc] init];
         [systemManager setSystem:_inputSystem];
-        DragSystem *dragSystem = [[DragSystem alloc] init];
+        SlingerControlSystem *dragSystem = [[SlingerControlSystem alloc] init];
         [systemManager setSystem:dragSystem];
         BoundrySystem *boundrySystem = [[BoundrySystem alloc] init];
         [systemManager setSystem:boundrySystem];
         
         [systemManager initialiseAll];
 
-        [self createEntityAtPosition:ccp(150, 200)];
+        [EntityFactory createSlinger:_world withPosition:CGPointMake(150, 300)];
+        [EntityFactory createRamp:_world withPosition:CGPointMake(150, 100)];
 		
 		[self scheduleUpdate];
 	}
 	
 	return self;
-}
-
--(void) createEntityAtPosition:(CGPoint) position
-{
-    Entity *testEntity = [_world createEntity];
-    
-    TransformComponent *transformComponent = [[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)];
-    [testEntity addComponent:transformComponent];
-    
-//    int num = 4;
-//    CGPoint verts[] = {
-//        ccp(-24,-54),
-//        ccp(-24, 54),
-//        ccp( 24, 54),
-//        ccp( 24,-54),
-//    };
-//    cpBody *body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
-//    cpShape *shape = cpPolyShapeNew(body, num, verts, CGPointZero);
-//    shape->e = 0.5f;
-//    shape->u = 0.5f;
-//    PhysicsComponent *physicsComponent = [[PhysicsComponent alloc] initWithBody:body andShape:shape];
-//    [testEntity addComponent:physicsComponent];
-    
-    RenderComponent *renderComponent = [[RenderComponent alloc] initWithFile:@"BeeSlingerC-01.png"];
-    [testEntity addComponent:renderComponent];
-    
-    DragComponent *dragComponent = [[DragComponent alloc] initWithScale:0.0f];
-    [testEntity addComponent:dragComponent];
-    
-    Boundry *boundry = [[CircularBoundry alloc] initWithCenterLocation:position andRadius:60];
-    BoundryComponent *boundryComponent = [[BoundryComponent alloc] initWithBoundry:boundry];
-    [testEntity addComponent:boundryComponent];
-    
-    [testEntity refresh];
 }
 
 - (void)dealloc
@@ -135,8 +95,6 @@
     [_inputSystem setTouchType:TOUCH_START];
     [_inputSystem setTouchLocation:convertedLocation];
     
-//    [self createEntityAtPosition:convertedLocation];
-    
 //    NSLog(@"ccTouchesBegan %f,%f -> %f,%f", location.x, location.y, convertedLocation.x, convertedLocation.y);
 }
 
@@ -150,8 +108,6 @@
     
     [_inputSystem setTouchType:TOUCH_MOVE];
     [_inputSystem setTouchLocation:convertedLocation];
-    
-//    NSLog(@"touchVector: %f, %f", touchVector.x, touchVector.y);
     
 //    NSLog(@"ccTouchesMoved %f,%f -> %f,%f", location.x, location.y, convertedLocation.x, convertedLocation.y);
 }

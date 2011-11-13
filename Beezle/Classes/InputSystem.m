@@ -10,7 +10,12 @@
 
 @implementation InputSystem
 
-@synthesize touchType;
-@synthesize touchLocation;
+@synthesize touchType = _touchType;
+@synthesize touchLocation = _touchLocation;
+
+-(void) reset
+{
+    _touchType = TOUCH_NONE;
+}
 
 @end

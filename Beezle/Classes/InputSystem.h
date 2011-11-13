@@ -10,6 +10,7 @@
 
 typedef enum
 {
+    TOUCH_NONE,
     TOUCH_START,
     TOUCH_MOVE,
     TOUCH_END,
@@ -23,5 +24,7 @@ typedef enum
 
 @property (nonatomic) int touchType;
 @property (nonatomic) CGPoint touchLocation;
+
+-(void) reset;
 
 @end

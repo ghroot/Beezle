@@ -38,8 +38,15 @@
     
     body->p = [transformComponent position];
     
-    cpSpaceAddBody(_space, body);
-    cpSpaceAddShape(_space, shape);
+    if (cpBodyIsStatic(body))
+    {
+        cpSpaceAddStaticShape(_space, shape);
+    }
+    else
+    {
+        cpSpaceAddBody(_space, body);
+        cpSpaceAddShape(_space, shape);
+    }
     
     [super entityAdded:entity];
 }

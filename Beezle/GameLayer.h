@@ -22,9 +22,6 @@
     BOOL isTouching;
     CGPoint touchStartLocation;
     CGPoint touchVector;
-    Entity *_staticEntity;
 }
-
--(void) createEntityAtPosition:(CGPoint) position;
 
 @end
