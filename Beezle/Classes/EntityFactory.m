@@ -1,4 +1,4 @@
-//
+
 //  EntityFactory.m
 //  Beezle
 //
@@ -33,10 +33,6 @@
     SlingerControlComponent *slingerControlComponent = [[SlingerControlComponent alloc] init];
     [slingerEntity addComponent:slingerControlComponent];
     
-    Boundry *boundry = [[CircularBoundry alloc] initWithCenterLocation:position andRadius:60];
-    BoundryComponent *boundryComponent = [[BoundryComponent alloc] initWithBoundry:boundry];
-    [slingerEntity addComponent:boundryComponent];
-    
     [slingerEntity refresh];
     
     return slingerEntity;
@@ -52,18 +48,21 @@
     RenderComponent *renderComponent = [[RenderComponent alloc] initWithFile:@"Beeater-01.png"];
     [beeEntity addComponent:renderComponent];
     
-    int num = 4;
-    CGPoint verts[] = {
-        ccp(-20,-20),
-        ccp(-20, 20),
-        ccp( 20, 20),
-        ccp( 20,-20),
-    };
-    cpBody *body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
+//    int num = 4;
+//    CGPoint verts[] = {
+//        ccp(-20,-20),
+//        ccp(-20, 20),
+//        ccp( 20, 20),
+//        ccp( 20,-20),
+//    };
+//    cpBody *body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
+    cpBody *body = cpBodyNew(1.0f, 1.0f);
     body->v = cpv(velocity.x, velocity.y);
-    cpShape *shape = cpPolyShapeNew(body, num, verts, CGPointZero);
+//    cpShape *shape = cpPolyShapeNew(body, num, verts, CGPointZero);
+    cpShape *shape = cpCircleShapeNew(body, 20, cpv(0, 0));
     shape->e = 0.5f;
     shape->u = 0.5f;
+    shape->collision_type = 1;
     PhysicsComponent *physicsComponent = [[PhysicsComponent alloc] initWithBody:body andShape:shape];
     [beeEntity addComponent:physicsComponent];
     
@@ -94,6 +93,7 @@
     cpShape *shape = cpPolyShapeNew(body, num, verts, CGPointZero);
     shape->e = 0.5f;
     shape->u = 0.5f;
+    shape->collision_type = 2;
     PhysicsComponent *physicsComponent = [[PhysicsComponent alloc] initWithBody:body andShape:shape];
     [rampEntity addComponent:physicsComponent];
     

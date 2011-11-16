@@ -29,6 +29,19 @@
     return [_entitiesByTag objectForKey:tag];
 }
 
+-(void) remove:(Entity *)entity
+{
+    for (NSString *tag in [_entitiesByTag allKeys])
+    {
+        Entity *anEntity = [_entitiesByTag objectForKey:tag];
+        if (anEntity == entity)
+        {
+            [_entitiesByTag removeObjectForKey:tag];
+            break;
+        }
+    }
+}
+
 -(void) dealloc
 {
     [_entitiesByTag release];

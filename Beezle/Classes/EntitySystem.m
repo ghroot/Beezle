@@ -73,7 +73,7 @@
         }
     }
     
-    if ([_entities containsObject:entity] && !hasAllUsedComponents)
+    if ([_entities containsObject:entity] && (!hasAllUsedComponents || [entity deleted]))
     {
         [self removeEntity:entity];
     }

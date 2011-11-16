@@ -16,13 +16,18 @@
     int _entityId;
     World *_world;
     EntityManager *_entityManager;
+    
+    BOOL _deleted;
 }
 
 @property (nonatomic) int entityId;
+@property (nonatomic, readonly) World *world;
+@property (nonatomic) BOOL deleted;
 
 -(id) initWithWorld:(World *)world andId:(int)entityId;
 -(void) addComponent:(Component *)component;
 -(Component *) getComponent:(Class)componentClass;
 -(void) refresh;
+-(void) deleteEntity;
 
 @end

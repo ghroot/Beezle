@@ -31,18 +31,19 @@
     return entity;
 }
 
--(void) remove:(Entity *)entity
+-(void) removeEntity:(Entity *)entity
 {
-    [_entities removeObject:entity];   
-    [self refresh:entity];
-    [self removeComponentsOfEntity:entity];
+    [_entities removeObject:entity];
+    [entity setDeleted:TRUE];
+    [self refreshEntity:entity];
+    [self removeAllComponentsFromEntity:entity];
 }
 
--(void) removeComponentsOfEntity:(Entity *)entity
+-(void) removeAllComponentsFromEntity:(Entity *)entity
 {
     for (NSMutableDictionary *componentsByEntity in [_componentsByClass allValues])
     {
-        [componentsByEntity setObject:NULL forKey:[NSNumber numberWithInt:[entity entityId]]];
+        [componentsByEntity removeObjectForKey:[NSNumber numberWithInt:[entity entityId]]];
     }
 }
 
@@ -61,7 +62,7 @@
     [_componentsByEntity setObject:component forKey:[NSNumber numberWithInt:[entity entityId]]];
 }
 
--(void) refresh:(Entity *)entity
+-(void) refreshEntity:(Entity *)entity
 {
     NSArray *systems = [[_world systemManager] systems] ;
     for (EntitySystem *system in systems)

@@ -15,5 +15,6 @@
 
 -(void) registerEntity:(Entity *)entity withTag:(NSString *)tag;
 -(Entity *) getEntity:(NSString *)tag;
+-(void) remove:(Entity *)entity;
 
 @end

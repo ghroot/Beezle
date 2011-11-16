@@ -14,6 +14,8 @@
 @implementation Entity
 
 @synthesize entityId = _entityId;
+@synthesize world = _world;
+@synthesize deleted = _deleted;
 
 -(id) initWithWorld:(World *)world andId:(int)entityId
 {
@@ -38,7 +40,12 @@
 
 -(void) refresh
 {
-    [_entityManager refresh:self];
+    [_entityManager refreshEntity:self];
+}
+
+-(void) deleteEntity
+{
+    [_world deleteEntity:self];
 }
 
 @end

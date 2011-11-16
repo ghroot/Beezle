@@ -12,20 +12,42 @@
 
 #import "PhysicsComponent.h"
 #import "TransformComponent.h"
+#import "CollisionSystem.h"
+#import "Collision.h"
+#import "World.h"
 
 @implementation PhysicsSystem
 
 -(id) init
 {
-    if (self = [super initWithUsedComponentClasses:[NSMutableArray arrayWithObjects:[TransformComponent class], [PhysicsComponent class], nil]])
-    {   
-        // Init chipmunk
-        cpInitChipmunk();
-        
-        _space = cpSpaceNew();
-        _space->gravity = CGPointMake(0, -100);
-    }
+    self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], [PhysicsComponent class], nil]];
     return self;
+}
+
+void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
+{
+    cpShape *firstShape;
+    cpShape *secondShape;
+    cpArbiterGetShapes(arbiter, &firstShape, &secondShape);
+    
+    Entity *firstEntity = (Entity *)firstShape->data;
+    Entity *secondEntity = (Entity *)secondShape->data;
+    
+    PhysicsSystem *physicsSystem = (PhysicsSystem *)cpSpaceGetUserData(space);
+    CollisionSystem *collisionSystem = (CollisionSystem *)[[[physicsSystem world] systemManager] getSystem:[CollisionSystem class]];
+    Collision *collision = [[Collision alloc] initWithFirstEntity:firstEntity andSecondEntity:secondEntity];
+    [collisionSystem pushCollision:collision];
+}
+
+-(void) initialise
+{
+    cpInitChipmunk();
+    
+    _space = cpSpaceNew();
+    cpSpaceSetUserData(_space, self);
+    _space->gravity = CGPointMake(0, -100);
+    
+    cpSpaceAddCollisionHandler(_space, 1, 2, NULL, NULL, &postSolveCollision, NULL, NULL);
 }
 
 -(void) entityAdded:(Entity *)entity
@@ -36,6 +58,7 @@
     cpBody *body = [physicsComponent body];
     cpShape *shape = [physicsComponent shape];
     
+    shape->data = entity;
     body->p = [transformComponent position];
     
     if (cpBodyIsStatic(body))
@@ -51,6 +74,26 @@
     [super entityAdded:entity];
 }
 
+-(void) entityRemoved:(Entity *)entity
+{
+    PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
+    
+    cpBody *body = [physicsComponent body];
+    cpShape *shape = [physicsComponent shape];
+    
+    if (cpBodyIsStatic(body))
+    {
+        cpSpaceRemoveStaticShape(_space, shape);
+    }
+    else
+    {
+        cpSpaceRemoveBody(_space, body);
+        cpSpaceRemoveShape(_space, shape);
+    }
+    
+    [super entityRemoved:entity];
+}
+
 -(void) begin
 {
     // Should use a fixed size step based on the animation interval.
@@ -59,7 +102,7 @@
 
     for (int i = 0; i < steps; i++)
     {
-      cpSpaceStep(_space, dt);
+        cpSpaceStep(_space, dt);
     }   
 }
 

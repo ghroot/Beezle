@@ -10,7 +10,6 @@
 
 @interface EntityProcessingSystem : EntitySystem
 
--(id) initWithUsedComponentClasses:(NSMutableArray *)usedComponentClasses;
 -(void) processEntity:(Entity *)entity;
 
 @end

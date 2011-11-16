@@ -7,24 +7,16 @@
 //
 
 #import "EntitySystem.h"
-
-typedef enum
-{
-    TOUCH_NONE,
-    TOUCH_START,
-    TOUCH_MOVE,
-    TOUCH_END,
-} touchTypes;
+#import "InputAction.h"
 
 @interface InputSystem : EntitySystem
 {
-    int _touchType;
-    CGPoint _touchLocation;
+    NSMutableArray *_inputActions;
 }
 
-@property (nonatomic) int touchType;
-@property (nonatomic) CGPoint touchLocation;
-
--(void) reset;
+-(void) pushInputAction:(InputAction *)inputAction;
+-(InputAction *) peekInputAction;
+-(InputAction *) popInputAction;
+-(BOOL) hasInputActions;
 
 @end

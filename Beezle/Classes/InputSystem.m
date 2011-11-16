@@ -10,12 +10,42 @@
 
 @implementation InputSystem
 
-@synthesize touchType = _touchType;
-@synthesize touchLocation = _touchLocation;
-
--(void) reset
+-(id) init
 {
-    _touchType = TOUCH_NONE;
+    if (self = [super init])
+    {
+        _inputActions = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+-(void) pushInputAction:(InputAction *)inputAction
+{
+    [_inputActions addObject:inputAction];
+}
+
+-(InputAction *) peekInputAction
+{
+    return [_inputActions objectAtIndex:0];
+}
+
+-(InputAction *) popInputAction
+{
+    InputAction *nextInputAction = [[[_inputActions objectAtIndex:0] retain] autorelease];
+    [_inputActions removeObject:nextInputAction];
+    return nextInputAction;
+}
+
+-(BOOL) hasInputActions
+{
+    return [_inputActions count] > 0;
+}
+
+-(void) dealloc
+{
+    [_inputActions release];
+    
+    [super dealloc];
 }
 
 @end

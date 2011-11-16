@@ -14,6 +14,7 @@
 #import "SlingerControlSystem.h"
 #import "BoundrySystem.h"
 #import "EntityFactory.h"
+#import "CollisionSystem.h"
 
 @implementation GameLayer
 
@@ -29,6 +30,8 @@
         
         PhysicsSystem *physicsSystem = [[PhysicsSystem alloc] init];
         [systemManager setSystem:physicsSystem];
+        CollisionSystem *collisionSystem = [[CollisionSystem alloc] init];
+        [systemManager setSystem:collisionSystem];
         RenderSystem *renderSystem = [[RenderSystem alloc] initWithLayer:self];
         [systemManager setSystem:renderSystem];
         _inputSystem = [[InputSystem alloc] init];
@@ -40,7 +43,10 @@
         
         [systemManager initialiseAll];
 
-        [EntityFactory createSlinger:_world withPosition:CGPointMake(150, 300)];
+        Entity *slingerEntity = [EntityFactory createSlinger:_world withPosition:CGPointMake(150, 350)];
+        [[_world tagManager] registerEntity:slingerEntity withTag:@"SLINGER"];
+        [EntityFactory createRamp:_world withPosition:CGPointMake(150, 300)];
+        [EntityFactory createRamp:_world withPosition:CGPointMake(150, 200)];
         [EntityFactory createRamp:_world withPosition:CGPointMake(150, 100)];
 		
 		[self scheduleUpdate];
@@ -92,8 +98,8 @@
     
     isTouching = TRUE;
     
-    [_inputSystem setTouchType:TOUCH_START];
-    [_inputSystem setTouchLocation:convertedLocation];
+    InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_START andTouchLocation:convertedLocation] autorelease];
+    [_inputSystem pushInputAction:inputAction];
     
 //    NSLog(@"ccTouchesBegan %f,%f -> %f,%f", location.x, location.y, convertedLocation.x, convertedLocation.y);
 }
@@ -106,8 +112,8 @@
     
     touchVector = ccpSub(convertedLocation, touchStartLocation);
     
-    [_inputSystem setTouchType:TOUCH_MOVE];
-    [_inputSystem setTouchLocation:convertedLocation];
+    InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_MOVE andTouchLocation:convertedLocation] autorelease];
+    [_inputSystem pushInputAction:inputAction];
     
 //    NSLog(@"ccTouchesMoved %f,%f -> %f,%f", location.x, location.y, convertedLocation.x, convertedLocation.y);
 }
@@ -120,8 +126,8 @@
     
     isTouching = FALSE;
     
-    [_inputSystem setTouchType:TOUCH_END];
-    [_inputSystem setTouchLocation:convertedLocation];
+    InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_END andTouchLocation:convertedLocation] autorelease];
+    [_inputSystem pushInputAction:inputAction];
     
 //    NSLog(@"ccTouchesEnded %f,%f -> %f,%f", location.x, location.y, convertedLocation.x, convertedLocation.y);
 }

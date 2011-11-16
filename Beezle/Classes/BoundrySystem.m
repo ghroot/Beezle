@@ -15,7 +15,7 @@
 
 -(id) init
 {
-    if (self = [super initWithUsedComponentClasses:[NSMutableArray arrayWithObjects:[TransformComponent class], [BoundryComponent class], nil]])
+    if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], [BoundryComponent class], nil]])
     {   
         
     }

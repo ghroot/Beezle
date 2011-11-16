@@ -25,14 +25,9 @@
     return self;
 }
 
-void removeShape(cpBody *body, cpShape *shape, void *data)
-{
-	cpShapeFree(shape);
-}
-
 - (void)dealloc
 {
-    cpBodyEachShape(_body, removeShape, NULL);
+    cpShapeFree(_shape);
 	cpBodyFree(_body);
     
     [super dealloc];

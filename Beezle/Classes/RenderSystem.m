@@ -15,7 +15,7 @@
 
 -(id) initWithLayer:(CCLayer *)layer;
 {
-    if (self = [super initWithUsedComponentClasses:[NSMutableArray arrayWithObjects:[TransformComponent class], [RenderComponent class], nil]])
+    if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], [RenderComponent class], nil]])
     {
         _layer = layer;
     }
@@ -28,6 +28,14 @@
     [_layer addChild:[renderComponent spriteSheet]];
     
     [super entityAdded:entity];
+}
+
+-(void) entityRemoved:(Entity *)entity
+{
+    RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
+    [_layer removeChild:[renderComponent spriteSheet] cleanup:TRUE];
+    
+    [super entityRemoved:entity];
 }
 
 -(void) processEntity:(Entity *)entity

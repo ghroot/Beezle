@@ -58,7 +58,7 @@
     {
         for (Entity *entity in _refreshed)
         {
-            [_entityManager refresh:entity];
+            [_entityManager refreshEntity:entity];
         }
         [_refreshed removeAllObjects];
     }
@@ -67,7 +67,8 @@
     {
         for (Entity *entity in _deleted)
         {
-            [_entityManager remove:entity];
+            [_entityManager removeEntity:entity];
+            [_tagManager remove:entity];
         }
         [_deleted removeAllObjects];
     }

@@ -24,6 +24,10 @@
 		2C7CE62E146FE14E001F331F /* Boundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE62D146FE14D001F331F /* Boundry.m */; };
 		2C7CE631146FE161001F331F /* CircularBoundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE630146FE160001F331F /* CircularBoundry.m */; };
 		2CADCC6D1470807E00302475 /* RampCrach [ Sketch ]-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CADCC6C1470807E00302475 /* RampCrach [ Sketch ]-01.png */; };
+		2CADCC711471C76400302475 /* InputAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC701471C76400302475 /* InputAction.m */; };
+		2CADCC7714732ADC00302475 /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC7614732ADB00302475 /* CollisionSystem.m */; };
+		2CADCC7A1473314D00302475 /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC791473314C00302475 /* Collision.m */; };
+		2CADCC7D1473340800302475 /* CollisionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC7C1473340800302475 /* CollisionComponent.m */; };
 		2CAE05FB14705F4A0023FA94 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE05FA14705F4A0023FA94 /* EntityFactory.m */; };
 		2CBA7B641469AC1D006CBCB4 /* EntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA7B631469AC1D006CBCB4 /* EntitySystem.m */; };
 		2CEA3278145F66F7000FF575 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3277145F66F7000FF575 /* QuartzCore.framework */; };
@@ -241,6 +245,14 @@
 		2C7CE62F146FE160001F331F /* CircularBoundry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircularBoundry.h; path = Classes/CircularBoundry.h; sourceTree = "<group>"; };
 		2C7CE630146FE160001F331F /* CircularBoundry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircularBoundry.m; path = Classes/CircularBoundry.m; sourceTree = "<group>"; };
 		2CADCC6C1470807E00302475 /* RampCrach [ Sketch ]-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RampCrach [ Sketch ]-01.png"; path = "Resources/Ramp/RampCrach [ Sketch ]-01.png"; sourceTree = "<group>"; };
+		2CADCC6F1471C76400302475 /* InputAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputAction.h; path = Classes/InputAction.h; sourceTree = "<group>"; };
+		2CADCC701471C76400302475 /* InputAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputAction.m; path = Classes/InputAction.m; sourceTree = "<group>"; };
+		2CADCC7514732ADB00302475 /* CollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionSystem.h; path = Classes/CollisionSystem.h; sourceTree = "<group>"; };
+		2CADCC7614732ADB00302475 /* CollisionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionSystem.m; path = Classes/CollisionSystem.m; sourceTree = "<group>"; };
+		2CADCC781473314B00302475 /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collision.h; path = Classes/Collision.h; sourceTree = "<group>"; };
+		2CADCC791473314C00302475 /* Collision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Collision.m; path = Classes/Collision.m; sourceTree = "<group>"; };
+		2CADCC7B1473340800302475 /* CollisionComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionComponent.h; path = Classes/CollisionComponent.h; sourceTree = "<group>"; };
+		2CADCC7C1473340800302475 /* CollisionComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionComponent.m; path = Classes/CollisionComponent.m; sourceTree = "<group>"; };
 		2CAE05F914705F490023FA94 /* EntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityFactory.h; path = Classes/EntityFactory.h; sourceTree = "<group>"; };
 		2CAE05FA14705F4A0023FA94 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityFactory.m; path = Classes/EntityFactory.m; sourceTree = "<group>"; };
 		2CBA7B621469AC1D006CBCB4 /* EntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntitySystem.h; path = Classes/EntitySystem.h; sourceTree = "<group>"; };
@@ -621,10 +633,16 @@
 				2C7CE5F91469D092001F331F /* PhysicsSystem.m */,
 				2C7CE61A146C73FE001F331F /* InputSystem.h */,
 				2C7CE61B146C73FE001F331F /* InputSystem.m */,
+				2CADCC6F1471C76400302475 /* InputAction.h */,
+				2CADCC701471C76400302475 /* InputAction.m */,
 				2C7CE620146FD66F001F331F /* SlingerControlSystem.h */,
 				2C7CE621146FD66F001F331F /* SlingerControlSystem.m */,
 				2C7CE626146FE110001F331F /* BoundrySystem.h */,
 				2C7CE627146FE111001F331F /* BoundrySystem.m */,
+				2CADCC7514732ADB00302475 /* CollisionSystem.h */,
+				2CADCC7614732ADB00302475 /* CollisionSystem.m */,
+				2CADCC781473314B00302475 /* Collision.h */,
+				2CADCC791473314C00302475 /* Collision.m */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -1227,6 +1245,8 @@
 				2C7CE62D146FE14D001F331F /* Boundry.m */,
 				2C7CE62F146FE160001F331F /* CircularBoundry.h */,
 				2C7CE630146FE160001F331F /* CircularBoundry.m */,
+				2CADCC7B1473340800302475 /* CollisionComponent.h */,
+				2CADCC7C1473340800302475 /* CollisionComponent.m */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -1491,6 +1511,10 @@
 				2C7CE62E146FE14E001F331F /* Boundry.m in Sources */,
 				2C7CE631146FE161001F331F /* CircularBoundry.m in Sources */,
 				2CAE05FB14705F4A0023FA94 /* EntityFactory.m in Sources */,
+				2CADCC711471C76400302475 /* InputAction.m in Sources */,
+				2CADCC7714732ADC00302475 /* CollisionSystem.m in Sources */,
+				2CADCC7A1473314D00302475 /* Collision.m in Sources */,
+				2CADCC7D1473340800302475 /* CollisionComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

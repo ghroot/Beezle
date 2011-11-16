@@ -10,22 +10,16 @@
 
 @implementation EntityProcessingSystem
 
--(id) initWithUsedComponentClasses:(NSMutableArray *)usedComponentClasses
-{
-    self = [super initWithUsedComponentClasses:usedComponentClasses];
-    return self;
-}
-
--(void) processEntity:(Entity *)entity
-{
-}
-
 -(void) processEntities:(NSArray *)entities
 {
     for (Entity *entity in entities)
     {
         [self processEntity:entity];
     }
+}
+
+-(void) processEntity:(Entity *)entity
+{
 }
 
 @end

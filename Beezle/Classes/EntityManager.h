@@ -21,10 +21,10 @@
 
 -(id) initWithWorld:(World *)world;
 -(Entity *) createEntity;
--(void) remove:(Entity *)entity;
--(void) removeComponentsOfEntity:(Entity *)entity;
+-(void) removeEntity:(Entity *)entity;
+-(void) removeAllComponentsFromEntity:(Entity *)entity;
 -(void) addComponent:(Component *)component toEntity:(Entity *)entity;
--(void) refresh:(Entity *)entity;
+-(void) refreshEntity:(Entity *)entity;
 -(void) removeComponent:(Component *)component fromEntity:(Entity *)entity;
 -(void) removeComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity;
 -(Component *) getComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity;
