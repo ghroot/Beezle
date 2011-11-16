@@ -40,12 +40,17 @@
 
 -(void) refresh
 {
-    [_entityManager refreshEntity:self];
+    [_world refreshEntity:self];
 }
 
 -(void) deleteEntity
 {
     [_world deleteEntity:self];
+}
+
+-(void) setTag:(NSString *)tag
+{
+    [[_world tagManager] registerEntity:self withTag:tag];
 }
 
 @end

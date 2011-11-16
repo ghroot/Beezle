@@ -29,5 +29,6 @@
 -(void) entityRemoved:(Entity *)entity;
 -(void) entityChanged:(Entity *)entity;
 -(void) removeEntity:(Entity *)entity;
+-(BOOL) hasEntity:(Entity *)entity;
 
 @end

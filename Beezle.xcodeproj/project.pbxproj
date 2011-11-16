@@ -28,6 +28,11 @@
 		2CADCC7714732ADC00302475 /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC7614732ADB00302475 /* CollisionSystem.m */; };
 		2CADCC7A1473314D00302475 /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC791473314C00302475 /* Collision.m */; };
 		2CADCC7D1473340800302475 /* CollisionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC7C1473340800302475 /* CollisionComponent.m */; };
+		2CADCC8514746BA100302475 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CADCC8414746BA100302475 /* SenTestingKit.framework */; };
+		2CADCC8614746BA100302475 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3281145F66F7000FF575 /* UIKit.framework */; };
+		2CADCC8714746BA100302475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3283145F66F7000FF575 /* Foundation.framework */; };
+		2CADCC8D14746BA200302475 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CADCC8B14746BA200302475 /* InfoPlist.strings */; };
+		2CADCC9014746BA200302475 /* ArtemisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC8F14746BA200302475 /* ArtemisTests.m */; };
 		2CAE05FB14705F4A0023FA94 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE05FA14705F4A0023FA94 /* EntityFactory.m */; };
 		2CBA7B641469AC1D006CBCB4 /* EntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA7B631469AC1D006CBCB4 /* EntitySystem.m */; };
 		2CEA3278145F66F7000FF575 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3277145F66F7000FF575 /* QuartzCore.framework */; };
@@ -212,6 +217,16 @@
 		2CEA353C1466BD06000FF575 /* Beeater-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CEA353B1466BD06000FF575 /* Beeater-01.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2C75CD891474715A00545287 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2CEA326A145F66F7000FF575 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CEA3272145F66F7000FF575;
+			remoteInfo = Beezle;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		2C06880C14670EFB003E200D /* BeeSlingerC-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BeeSlingerC-01.png"; sourceTree = "<group>"; };
 		2C068A32146858B9003E200D /* TransformComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransformComponent.h; path = Classes/TransformComponent.h; sourceTree = "<group>"; };
@@ -253,6 +268,13 @@
 		2CADCC791473314C00302475 /* Collision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Collision.m; path = Classes/Collision.m; sourceTree = "<group>"; };
 		2CADCC7B1473340800302475 /* CollisionComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionComponent.h; path = Classes/CollisionComponent.h; sourceTree = "<group>"; };
 		2CADCC7C1473340800302475 /* CollisionComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionComponent.m; path = Classes/CollisionComponent.m; sourceTree = "<group>"; };
+		2CADCC8314746BA100302475 /* ArtemisTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtemisTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CADCC8414746BA100302475 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		2CADCC8A14746BA200302475 /* ArtemisTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ArtemisTests-Info.plist"; sourceTree = "<group>"; };
+		2CADCC8C14746BA200302475 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2CADCC8E14746BA200302475 /* ArtemisTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArtemisTests.h; sourceTree = "<group>"; };
+		2CADCC8F14746BA200302475 /* ArtemisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArtemisTests.m; sourceTree = "<group>"; };
+		2CADCC9114746BA200302475 /* ArtemisTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ArtemisTests-Prefix.pch"; sourceTree = "<group>"; };
 		2CAE05F914705F490023FA94 /* EntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityFactory.h; path = Classes/EntityFactory.h; sourceTree = "<group>"; };
 		2CAE05FA14705F4A0023FA94 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityFactory.m; path = Classes/EntityFactory.m; sourceTree = "<group>"; };
 		2CBA7B621469AC1D006CBCB4 /* EntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntitySystem.h; path = Classes/EntitySystem.h; sourceTree = "<group>"; };
@@ -597,6 +619,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2CADCC7F14746BA100302475 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CADCC8514746BA100302475 /* SenTestingKit.framework in Frameworks */,
+				2CADCC8614746BA100302475 /* UIKit.framework in Frameworks */,
+				2CADCC8714746BA100302475 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2CEA3270145F66F7000FF575 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -678,10 +710,31 @@
 			name = Ramp;
 			sourceTree = "<group>";
 		};
+		2CADCC8814746BA100302475 /* ArtemisTests */ = {
+			isa = PBXGroup;
+			children = (
+				2CADCC8E14746BA200302475 /* ArtemisTests.h */,
+				2CADCC8F14746BA200302475 /* ArtemisTests.m */,
+				2CADCC8914746BA200302475 /* Supporting Files */,
+			);
+			path = ArtemisTests;
+			sourceTree = "<group>";
+		};
+		2CADCC8914746BA200302475 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2CADCC8A14746BA200302475 /* ArtemisTests-Info.plist */,
+				2CADCC8B14746BA200302475 /* InfoPlist.strings */,
+				2CADCC9114746BA200302475 /* ArtemisTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		2CEA3268145F66F7000FF575 = {
 			isa = PBXGroup;
 			children = (
 				2CEA3287145F66F7000FF575 /* Beezle */,
+				2CADCC8814746BA100302475 /* ArtemisTests */,
 				2CEA3276145F66F7000FF575 /* Frameworks */,
 				2CEA3274145F66F7000FF575 /* Products */,
 			);
@@ -691,6 +744,7 @@
 			isa = PBXGroup;
 			children = (
 				2CEA3273145F66F7000FF575 /* Beezle.app */,
+				2CADCC8314746BA100302475 /* ArtemisTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -706,6 +760,7 @@
 				2CEA3281145F66F7000FF575 /* UIKit.framework */,
 				2CEA3283145F66F7000FF575 /* Foundation.framework */,
 				2CEA3285145F66F7000FF575 /* CoreGraphics.framework */,
+				2CADCC8414746BA100302475 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1263,6 +1318,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2CADCC8214746BA100302475 /* ArtemisTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CADCC9214746BA200302475 /* Build configuration list for PBXNativeTarget "ArtemisTests" */;
+			buildPhases = (
+				2CADCC7E14746BA100302475 /* Sources */,
+				2CADCC7F14746BA100302475 /* Frameworks */,
+				2CADCC8014746BA100302475 /* Resources */,
+				2CADCC8114746BA100302475 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C75CD8A1474715A00545287 /* PBXTargetDependency */,
+			);
+			name = ArtemisTests;
+			productName = ArtemisTests;
+			productReference = 2CADCC8314746BA100302475 /* ArtemisTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		2CEA3272145F66F7000FF575 /* Beezle */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CEA3486145F66F9000FF575 /* Build configuration list for PBXNativeTarget "Beezle" */;
@@ -1301,11 +1375,20 @@
 			projectRoot = "";
 			targets = (
 				2CEA3272145F66F7000FF575 /* Beezle */,
+				2CADCC8214746BA100302475 /* ArtemisTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2CADCC8014746BA100302475 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CADCC8D14746BA200302475 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2CEA3271145F66F7000FF575 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1357,7 +1440,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2CADCC8114746BA100302475 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		2CADCC7E14746BA100302475 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CADCC9014746BA200302475 /* ArtemisTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2CEA326F145F66F7000FF575 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1520,7 +1627,74 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		2C75CD8A1474715A00545287 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CEA3272145F66F7000FF575 /* Beezle */;
+			targetProxy = 2C75CD891474715A00545287 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2CADCC8B14746BA200302475 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CADCC8C14746BA200302475 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		2CADCC9314746BA200302475 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Beezle.app/Beezle";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ArtemisTests/ArtemisTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "ArtemisTests/ArtemisTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		2CADCC9414746BA200302475 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Beezle.app/Beezle";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ArtemisTests/ArtemisTests-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "ArtemisTests/ArtemisTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		2CEA3484145F66F9000FF575 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1584,6 +1758,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = Beezle/Resources/Info.plist;
@@ -1598,6 +1773,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2CADCC9214746BA200302475 /* Build configuration list for PBXNativeTarget "ArtemisTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CADCC9314746BA200302475 /* Debug */,
+				2CADCC9414746BA200302475 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2CEA326D145F66F7000FF575 /* Build configuration list for PBXProject "Beezle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -22,6 +22,11 @@
     return self;
 }
 
+-(id) init
+{
+    return [self initWithUsedComponentClasses:[NSMutableArray array]];
+}
+
 -(void) begin
 {
 }
@@ -88,6 +93,11 @@
 {
     [_entities removeObject:entity];
     [self entityRemoved:entity];
+}
+
+-(BOOL) hasEntity:(Entity *)entity
+{
+    return [_entities containsObject:entity];
 }
 
 -(void) dealloc
