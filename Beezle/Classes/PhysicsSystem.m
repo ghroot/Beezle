@@ -96,7 +96,6 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
 
 -(void) begin
 {
-    // Should use a fixed size step based on the animation interval.
     int steps = 2;
     CGFloat dt = [[CCDirector sharedDirector] animationInterval] / (CGFloat)steps;
 

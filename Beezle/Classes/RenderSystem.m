@@ -27,6 +27,8 @@
     RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
     [_layer addChild:[renderComponent spriteSheet]];
     
+    // TODO: Only one instance of each sprite sheet should be added to a CCLayer
+    
     [super entityAdded:entity];
 }
 

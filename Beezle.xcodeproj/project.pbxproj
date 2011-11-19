@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2C06880D14670EFB003E200D /* BeeSlingerC-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06880C14670EFB003E200D /* BeeSlingerC-01.png */; };
 		2C068A34146858B9003E200D /* TransformComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C068A33146858B9003E200D /* TransformComponent.m */; };
+		2C75CD8D1477D7BB00545287 /* Ramp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C75CD8B1477D7BB00545287 /* Ramp.plist */; };
+		2C75CD8E1477D7BB00545287 /* Ramp.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C75CD8C1477D7BB00545287 /* Ramp.png */; };
 		2C7CE5F71469AD06001F331F /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5F61469AD06001F331F /* RenderSystem.m */; };
 		2C7CE5FA1469D092001F331F /* PhysicsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5F91469D092001F331F /* PhysicsSystem.m */; };
 		2C7CE5FD1469D21A001F331F /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5FC1469D219001F331F /* EntityManager.m */; };
@@ -231,6 +233,8 @@
 		2C06880C14670EFB003E200D /* BeeSlingerC-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BeeSlingerC-01.png"; sourceTree = "<group>"; };
 		2C068A32146858B9003E200D /* TransformComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransformComponent.h; path = Classes/TransformComponent.h; sourceTree = "<group>"; };
 		2C068A33146858B9003E200D /* TransformComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransformComponent.m; path = Classes/TransformComponent.m; sourceTree = "<group>"; };
+		2C75CD8B1477D7BB00545287 /* Ramp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Ramp.plist; path = Resources/Ramp/Ramp.plist; sourceTree = "<group>"; };
+		2C75CD8C1477D7BB00545287 /* Ramp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ramp.png; path = Resources/Ramp/Ramp.png; sourceTree = "<group>"; };
 		2C7CE5F51469AD06001F331F /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderSystem.h; path = Classes/RenderSystem.h; sourceTree = "<group>"; };
 		2C7CE5F61469AD06001F331F /* RenderSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSystem.m; path = Classes/RenderSystem.m; sourceTree = "<group>"; };
 		2C7CE5F81469D092001F331F /* PhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsSystem.h; path = Classes/PhysicsSystem.h; sourceTree = "<group>"; };
@@ -705,6 +709,8 @@
 		2CADCC6E1470808100302475 /* Ramp */ = {
 			isa = PBXGroup;
 			children = (
+				2C75CD8B1477D7BB00545287 /* Ramp.plist */,
+				2C75CD8C1477D7BB00545287 /* Ramp.png */,
 				2CADCC6C1470807E00302475 /* RampCrach [ Sketch ]-01.png */,
 			);
 			name = Ramp;
@@ -1435,6 +1441,8 @@
 				2CEA353C1466BD06000FF575 /* Beeater-01.png in Resources */,
 				2C06880D14670EFB003E200D /* BeeSlingerC-01.png in Resources */,
 				2CADCC6D1470807E00302475 /* RampCrach [ Sketch ]-01.png in Resources */,
+				2C75CD8D1477D7BB00545287 /* Ramp.plist in Resources */,
+				2C75CD8E1477D7BB00545287 /* Ramp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,4 +10,25 @@
 
 @implementation Component
 
+@synthesize enabled = _enabled;
+
+-(id) init
+{
+    if (self = [super init])
+    {
+        _enabled = TRUE;
+    }
+    return self;
+}
+
+-(void) enable
+{
+    _enabled = TRUE;
+}
+
+-(void) disable
+{
+    _enabled = FALSE;
+}
+
 @end

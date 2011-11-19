@@ -39,7 +39,10 @@
 
 -(void) refreshEntity:(Entity *)entity
 {
-    [_refreshed addObject:entity];
+    if (![_refreshed containsObject:entity])
+    {
+        [_refreshed addObject:entity];
+    }
 }
 
 -(Entity *) createEntity

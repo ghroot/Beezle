@@ -7,5 +7,14 @@
 //
 
 @interface Component : NSObject
+{
+@private
+    BOOL _enabled;
+}
+
+@property (nonatomic, readonly) BOOL enabled;
+
+-(void) enable;
+-(void) disable;
 
 @end

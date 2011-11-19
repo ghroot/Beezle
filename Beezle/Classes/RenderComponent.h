@@ -14,10 +14,16 @@
 {
     CCSpriteBatchNode *_spriteSheet;
     CCSprite *_sprite;
+    
+    NSString *_frameFormat;
+    NSMutableDictionary *_animationByName;
 }
 
 @property (nonatomic, readonly) CCSpriteBatchNode *spriteSheet;
 
 -(id) initWithFile:(NSString *)fileName;
+-(id) initWithSpriteSheetName:(NSString *)spriteSheetName andFrameFormat:(NSString *)frameFormat;
+-(void) addAnimation:(NSString *)animationName withStartFrame:(int)startFrame andEndFrame:(int)endFrame;
+-(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops;
 
 @end

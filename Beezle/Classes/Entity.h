@@ -26,6 +26,8 @@
 
 -(id) initWithWorld:(World *)world andId:(int)entityId;
 -(void) addComponent:(Component *)component;
+-(BOOL) hasComponent:(Class)componentClass;
+-(void) removeComponent:(Component *)component;
 -(Component *) getComponent:(Class)componentClass;
 -(void) refresh;
 -(void) deleteEntity;

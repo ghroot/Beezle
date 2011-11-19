@@ -9,6 +9,8 @@
 #import "CollisionSystem.h"
 
 #import "Entity.h"
+#import "RenderComponent.h"
+#import "PhysicsComponent.h"
 
 @implementation CollisionSystem
 
@@ -28,9 +30,19 @@
 
 -(void) begin
 {
+    // TEMP
     for (Collision *collision in _collisions)
     {
-        [[collision secondEntity] deleteEntity];
+//        [[collision secondEntity] deleteEntity];
+        
+        // Crash animation
+        RenderComponent *renderComponent = (RenderComponent *)[[collision secondEntity] getComponent:[RenderComponent class]];
+        [renderComponent playAnimation:@"crash" withLoops:1];
+        
+        // Disable physics component
+        PhysicsComponent *physicsComponent = (PhysicsComponent *)[[collision secondEntity] getComponent:[PhysicsComponent class]];
+        [physicsComponent disable];
+        [[collision secondEntity] refresh];
     }
     [_collisions removeAllObjects];
 }

@@ -71,7 +71,8 @@
     BOOL hasAllUsedComponents = TRUE;
     for (Class usedComponentClass in _usedComponentClasses)
     {
-        if ([entity getComponent:usedComponentClass] == NULL)
+        Component *component = [entity getComponent:usedComponentClass];
+        if (component == nil || ![component enabled])
         {
             hasAllUsedComponents = FALSE;
             break;

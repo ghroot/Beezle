@@ -33,9 +33,19 @@
     [_entityManager addComponent:component toEntity:self];
 }
 
+-(void) removeComponent:(Component *)component
+{
+    [_entityManager removeComponent:component fromEntity:self];
+}
+
 -(Component *) getComponent:(Class)componentClass;
 {
     return [_entityManager getComponentWithClass:componentClass fromEntity:self];
+}
+
+-(BOOL) hasComponent:(Class)componentClass
+{
+    return [self getComponent:componentClass] != nil;
 }
 
 -(void) refresh

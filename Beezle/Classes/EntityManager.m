@@ -50,7 +50,7 @@
 -(void) addComponent:(Component *)component toEntity:(Entity *)entity
 {
     NSMutableDictionary *_componentsByEntity;
-    if ([_componentsByClass objectForKey:[component class]] == NULL)
+    if ([_componentsByClass objectForKey:[component class]] == nil)
     {
         _componentsByEntity = [[NSMutableDictionary alloc] init];
         [_componentsByClass setObject:_componentsByEntity forKey:[component class]];
@@ -79,25 +79,25 @@
 -(void) removeComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity
 {
     NSMutableDictionary *componentsByEntity = [_componentsByClass objectForKey:componentClass];
-    [componentsByEntity setObject:NULL forKey:entity];
+    [componentsByEntity removeObjectForKey:[NSNumber numberWithInt:[entity entityId]]];
 }
 
 -(Component *) getComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity
 {
-    if ([_componentsByClass objectForKey:componentClass] != NULL)
+    if ([_componentsByClass objectForKey:componentClass] != nil)
     {
         NSMutableDictionary *_componentsByEntity = [_componentsByClass objectForKey:componentClass];
         return [_componentsByEntity objectForKey:[NSNumber numberWithInt:[entity entityId]]];
     }
     else
     {
-        return NULL;
+        return nil;
     }
 }
 
 -(Entity *) getEntity:(int)entityId
 {
-    Entity *entityToReturn = NULL;
+    Entity *entityToReturn = nil;
     for (Entity *entity in _entities)
     {
         if ([entity entityId] == entityId)
