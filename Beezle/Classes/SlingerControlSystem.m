@@ -10,7 +10,6 @@
 
 #import "cocos2d.h"
 
-#import "SlingerControlComponent.h"
 #import "TransformComponent.h"
 #import "InputSystem.h"
 #import "World.h"
@@ -22,7 +21,7 @@
 
 -(id) init
 {
-    self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], [SlingerControlComponent class], nil]];
+    self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], nil]];
     return self;
 }
 
@@ -39,21 +38,25 @@
     }
 }
 
+-(void) processEntities:(NSArray *)entities
+{
+    Entity *slingerEntity = [[_world tagManager] getEntity:@"SLINGER"];
+    [self processEntity:slingerEntity];
+}
+
 -(void) processEntity:(Entity *)entity
 {
     InputSystem *inputSystem = (InputSystem *)[[_world systemManager] getSystem:[InputSystem class]];
     if ([inputSystem hasInputActions])
     {
-        InputAction *nextInputAction = [[inputSystem popInputAction] retain];
+        InputAction *nextInputAction = [inputSystem popInputAction];
         
         TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
-        SlingerControlComponent *slingerControlComponent = (SlingerControlComponent *)[entity getComponent:[SlingerControlComponent class]];
         
         switch ([nextInputAction touchType])
         {
             case TOUCH_START:
             {
-                [slingerControlComponent setDragStartLocation:[transformComponent position]];
                 break;
             }
             case TOUCH_MOVE:
@@ -71,7 +74,6 @@
             }
             case TOUCH_END:
             {
-                [transformComponent setPosition:[slingerControlComponent dragStartLocation]];
                 [transformComponent setScale:CGPointMake(1.0f, 1.0f)];
                 
                 CGPoint touchVector = ccpSub([nextInputAction touchLocation], [self startLocation]);
@@ -81,8 +83,6 @@
                 break;
             }
         }
-        
-        [nextInputAction release];
     }
 }
 

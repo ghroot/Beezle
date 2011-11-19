@@ -13,7 +13,6 @@
 #import "World.h"
 #import "TransformComponent.h"
 #import "RenderComponent.h"
-#import "SlingerControlComponent.h"
 #import "BoundryComponent.h"
 #import "CircularBoundry.h"
 #import "PhysicsComponent.h"
@@ -30,8 +29,7 @@
     RenderComponent *renderComponent = [[RenderComponent alloc] initWithFile:@"BeeSlingerC-01.png"];
     [slingerEntity addComponent:renderComponent];
     
-    SlingerControlComponent *slingerControlComponent = [[SlingerControlComponent alloc] init];
-    [slingerEntity addComponent:slingerControlComponent];
+    [slingerEntity setTag:@"SLINGER"];
     
     [slingerEntity refresh];
     

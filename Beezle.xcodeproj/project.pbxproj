@@ -20,7 +20,6 @@
 		2C7CE61C146C73FE001F331F /* InputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE61B146C73FE001F331F /* InputSystem.m */; };
 		2C7CE61F146C81B5001F331F /* TagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE61E146C81B5001F331F /* TagManager.m */; };
 		2C7CE622146FD670001F331F /* SlingerControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE621146FD66F001F331F /* SlingerControlSystem.m */; };
-		2C7CE625146FD786001F331F /* SlingerControlComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE624146FD785001F331F /* SlingerControlComponent.m */; };
 		2C7CE628146FE111001F331F /* BoundrySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE627146FE111001F331F /* BoundrySystem.m */; };
 		2C7CE62B146FE123001F331F /* BoundryComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE62A146FE123001F331F /* BoundryComponent.m */; };
 		2C7CE62E146FE14E001F331F /* Boundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE62D146FE14D001F331F /* Boundry.m */; };
@@ -253,8 +252,6 @@
 		2C7CE61E146C81B5001F331F /* TagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagManager.m; path = Classes/TagManager.m; sourceTree = "<group>"; };
 		2C7CE620146FD66F001F331F /* SlingerControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlingerControlSystem.h; path = Classes/SlingerControlSystem.h; sourceTree = "<group>"; };
 		2C7CE621146FD66F001F331F /* SlingerControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlingerControlSystem.m; path = Classes/SlingerControlSystem.m; sourceTree = "<group>"; };
-		2C7CE623146FD785001F331F /* SlingerControlComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlingerControlComponent.h; path = Classes/SlingerControlComponent.h; sourceTree = "<group>"; };
-		2C7CE624146FD785001F331F /* SlingerControlComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlingerControlComponent.m; path = Classes/SlingerControlComponent.m; sourceTree = "<group>"; };
 		2C7CE626146FE110001F331F /* BoundrySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundrySystem.h; path = Classes/BoundrySystem.h; sourceTree = "<group>"; };
 		2C7CE627146FE111001F331F /* BoundrySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoundrySystem.m; path = Classes/BoundrySystem.m; sourceTree = "<group>"; };
 		2C7CE629146FE123001F331F /* BoundryComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundryComponent.h; path = Classes/BoundryComponent.h; sourceTree = "<group>"; };
@@ -1298,8 +1295,6 @@
 				2CEA35301466B2C9000FF575 /* PhysicsComponent.m */,
 				2C068A32146858B9003E200D /* TransformComponent.h */,
 				2C068A33146858B9003E200D /* TransformComponent.m */,
-				2C7CE623146FD785001F331F /* SlingerControlComponent.h */,
-				2C7CE624146FD785001F331F /* SlingerControlComponent.m */,
 				2C7CE629146FE123001F331F /* BoundryComponent.h */,
 				2C7CE62A146FE123001F331F /* BoundryComponent.m */,
 				2C7CE62C146FE14D001F331F /* Boundry.h */,
@@ -1620,7 +1615,6 @@
 				2C7CE61C146C73FE001F331F /* InputSystem.m in Sources */,
 				2C7CE61F146C81B5001F331F /* TagManager.m in Sources */,
 				2C7CE622146FD670001F331F /* SlingerControlSystem.m in Sources */,
-				2C7CE625146FD786001F331F /* SlingerControlComponent.m in Sources */,
 				2C7CE628146FE111001F331F /* BoundrySystem.m in Sources */,
 				2C7CE62B146FE123001F331F /* BoundryComponent.m in Sources */,
 				2C7CE62E146FE14E001F331F /* Boundry.m in Sources */,

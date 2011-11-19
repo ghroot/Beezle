@@ -43,8 +43,7 @@
         
         [systemManager initialiseAll];
 
-        Entity *slingerEntity = [EntityFactory createSlinger:_world withPosition:CGPointMake(150, 350)];
-        [[_world tagManager] registerEntity:slingerEntity withTag:@"SLINGER"];
+        [EntityFactory createSlinger:_world withPosition:CGPointMake(150, 350)];
         [EntityFactory createRamp:_world withPosition:CGPointMake(150, 300)];
         [EntityFactory createRamp:_world withPosition:CGPointMake(150, 200)];
         [EntityFactory createRamp:_world withPosition:CGPointMake(150, 100)];
