@@ -32,6 +32,7 @@
 {
     if (shape->klass_private->type == CP_CIRCLE_SHAPE)
     {
+        
         cpCircleShape* circleShape = (cpCircleShape*)shape;
         cpVect c = cpvadd(shape->body->p, cpvrotate(circleShape->c, shape->body->rot));
         ccDrawCircle(c, circleShape->r, shape->body->a, 20, TRUE);
