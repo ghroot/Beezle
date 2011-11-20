@@ -25,11 +25,12 @@
 		2C7CE62B146FE123001F331F /* BoundryComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE62A146FE123001F331F /* BoundryComponent.m */; };
 		2C7CE62E146FE14E001F331F /* Boundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE62D146FE14D001F331F /* Boundry.m */; };
 		2C7CE631146FE161001F331F /* CircularBoundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE630146FE160001F331F /* CircularBoundry.m */; };
+		2CA9E3951479BDE60058C496 /* Beeater.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CA9E3931479BDE60058C496 /* Beeater.plist */; };
+		2CA9E3961479BDE60058C496 /* Beeater.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA9E3941479BDE60058C496 /* Beeater.png */; };
 		2CADCC6D1470807E00302475 /* RampCrach [ Sketch ]-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CADCC6C1470807E00302475 /* RampCrach [ Sketch ]-01.png */; };
 		2CADCC711471C76400302475 /* InputAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC701471C76400302475 /* InputAction.m */; };
 		2CADCC7714732ADC00302475 /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC7614732ADB00302475 /* CollisionSystem.m */; };
 		2CADCC7A1473314D00302475 /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC791473314C00302475 /* Collision.m */; };
-		2CADCC7D1473340800302475 /* CollisionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC7C1473340800302475 /* CollisionComponent.m */; };
 		2CADCC8514746BA100302475 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CADCC8414746BA100302475 /* SenTestingKit.framework */; };
 		2CADCC8614746BA100302475 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3281145F66F7000FF575 /* UIKit.framework */; };
 		2CADCC8714746BA100302475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3283145F66F7000FF575 /* Foundation.framework */; };
@@ -278,6 +279,8 @@
 		2C7CE62D146FE14D001F331F /* Boundry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Boundry.m; path = Classes/Boundry.m; sourceTree = "<group>"; };
 		2C7CE62F146FE160001F331F /* CircularBoundry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircularBoundry.h; path = Classes/CircularBoundry.h; sourceTree = "<group>"; };
 		2C7CE630146FE160001F331F /* CircularBoundry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircularBoundry.m; path = Classes/CircularBoundry.m; sourceTree = "<group>"; };
+		2CA9E3931479BDE60058C496 /* Beeater.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Beeater.plist; sourceTree = "<group>"; };
+		2CA9E3941479BDE60058C496 /* Beeater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Beeater.png; sourceTree = "<group>"; };
 		2CADCC6C1470807E00302475 /* RampCrach [ Sketch ]-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RampCrach [ Sketch ]-01.png"; path = "Resources/Ramp/RampCrach [ Sketch ]-01.png"; sourceTree = "<group>"; };
 		2CADCC6F1471C76400302475 /* InputAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputAction.h; path = Classes/InputAction.h; sourceTree = "<group>"; };
 		2CADCC701471C76400302475 /* InputAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputAction.m; path = Classes/InputAction.m; sourceTree = "<group>"; };
@@ -285,8 +288,6 @@
 		2CADCC7614732ADB00302475 /* CollisionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionSystem.m; path = Classes/CollisionSystem.m; sourceTree = "<group>"; };
 		2CADCC781473314B00302475 /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collision.h; path = Classes/Collision.h; sourceTree = "<group>"; };
 		2CADCC791473314C00302475 /* Collision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Collision.m; path = Classes/Collision.m; sourceTree = "<group>"; };
-		2CADCC7B1473340800302475 /* CollisionComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionComponent.h; path = Classes/CollisionComponent.h; sourceTree = "<group>"; };
-		2CADCC7C1473340800302475 /* CollisionComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionComponent.m; path = Classes/CollisionComponent.m; sourceTree = "<group>"; };
 		2CADCC8314746BA100302475 /* ArtemisTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtemisTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CADCC8414746BA100302475 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2CADCC8A14746BA200302475 /* ArtemisTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ArtemisTests-Info.plist"; sourceTree = "<group>"; };
@@ -1451,8 +1452,6 @@
 				2C7CE62D146FE14D001F331F /* Boundry.m */,
 				2C7CE62F146FE160001F331F /* CircularBoundry.h */,
 				2C7CE630146FE160001F331F /* CircularBoundry.m */,
-				2CADCC7B1473340800302475 /* CollisionComponent.h */,
-				2CADCC7C1473340800302475 /* CollisionComponent.m */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -1460,6 +1459,8 @@
 		2CEA353A1466BD06000FF575 /* Beeater */ = {
 			isa = PBXGroup;
 			children = (
+				2CA9E3931479BDE60058C496 /* Beeater.plist */,
+				2CA9E3941479BDE60058C496 /* Beeater.png */,
 				2CEA353B1466BD06000FF575 /* Beeater-01.png */,
 			);
 			name = Beeater;
@@ -1588,6 +1589,8 @@
 				2CADCC6D1470807E00302475 /* RampCrach [ Sketch ]-01.png in Resources */,
 				2C75CD8D1477D7BB00545287 /* Ramp.plist in Resources */,
 				2C75CD8E1477D7BB00545287 /* Ramp.png in Resources */,
+				2CA9E3951479BDE60058C496 /* Beeater.plist in Resources */,
+				2CA9E3961479BDE60058C496 /* Beeater.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1773,7 +1776,6 @@
 				2CADCC711471C76400302475 /* InputAction.m in Sources */,
 				2CADCC7714732ADC00302475 /* CollisionSystem.m in Sources */,
 				2CADCC7A1473314D00302475 /* Collision.m in Sources */,
-				2CADCC7D1473340800302475 /* CollisionComponent.m in Sources */,
 				2C5B86E01479155700028179 /* DebugRenderPhysicsSystem.m in Sources */,
 				2CD9B0B5147958C40098C183 /* cpCCNode.m in Sources */,
 				2CD9B0B6147958C40098C183 /* cpCCNodeImpl.m in Sources */,

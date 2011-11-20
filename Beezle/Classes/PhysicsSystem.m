@@ -26,6 +26,19 @@
     return self;
 }
 
+-(void) dealloc
+{
+    for (int i = 0; i < 4; i++)
+    {
+		cpShapeFree(_walls[i]);
+	}
+    
+    cpSpaceFree(_space);
+    _space = NULL;
+    
+    [super dealloc];
+}
+
 void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
 {
     cpShape *firstShape;
@@ -37,7 +50,7 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     
     PhysicsSystem *physicsSystem = (PhysicsSystem *)cpSpaceGetUserData(space);
     CollisionSystem *collisionSystem = (CollisionSystem *)[[[physicsSystem world] systemManager] getSystem:[CollisionSystem class]];
-    Collision *collision = [[Collision alloc] initWithFirstEntity:firstEntity andSecondEntity:secondEntity];
+    Collision *collision = [[[Collision alloc] initWithFirstEntity:firstEntity andSecondEntity:secondEntity] autorelease];
     [collisionSystem pushCollision:collision];
 }
 
@@ -49,7 +62,19 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     cpSpaceSetUserData(_space, self);
     _space->gravity = CGPointMake(0, -100);
     
-    cpSpaceAddCollisionHandler(_space, 1, 2, NULL, NULL, &postSolveCollision, NULL, NULL);
+    CGSize size = [[CCDirector sharedDirector] winSize];
+	_walls[0] = cpSegmentShapeNew(_space->staticBody, ccp(0,0), ccp(size.width,0), 0.0f);
+	_walls[1] = cpSegmentShapeNew(_space->staticBody, ccp(0,size.height), ccp(size.width,size.height), 0.0f);
+	_walls[2] = cpSegmentShapeNew(_space->staticBody, ccp(0,0), ccp(0,size.height), 0.0f);
+	_walls[3] = cpSegmentShapeNew(_space->staticBody, ccp(size.width,0), ccp(size.width,size.height), 0.0f);
+	for (int i = 0; i < 4; i++)
+    {
+		_walls[i]->e = 1.0f;
+		_walls[i]->u = 1.0f;
+		cpSpaceAddStaticShape(_space, _walls[i]);
+	}
+    
+    cpSpaceAddCollisionHandler(_space, COLLISION_TYPE_BEE, COLLISION_TYPE_RAMP, NULL, NULL, &postSolveCollision, NULL, NULL);
 }
 
 -(void) entityAdded:(Entity *)entity
@@ -116,14 +141,6 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
 
     [transformComponent setPosition:cpv(body->p.x, body->p.y)];
     [transformComponent setRotation:CC_RADIANS_TO_DEGREES(-body->a)];
-}
-
--(void) dealloc
-{
-    cpSpaceFree(_space);
-    _space = NULL;
-    
-    [super dealloc];
 }
 
 @end

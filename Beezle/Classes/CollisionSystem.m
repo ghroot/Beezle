@@ -30,21 +30,38 @@
 
 -(void) begin
 {
-    // TEMP
+    [self handleCollisions];
+}
+
+-(void) handleCollisions
+{
     for (Collision *collision in _collisions)
     {
-//        [[collision secondEntity] deleteEntity];
+        PhysicsComponent *firstPhysicsComponent = (PhysicsComponent *)[[collision firstEntity] getComponent:[PhysicsComponent class]];
+        PhysicsComponent *secondPhysicsComponent = (PhysicsComponent *)[[collision secondEntity] getComponent:[PhysicsComponent class]];
         
-        // Crash animation
-        RenderComponent *renderComponent = (RenderComponent *)[[collision secondEntity] getComponent:[RenderComponent class]];
-        [renderComponent playAnimation:@"crash" withLoops:1];
-        
-        // Disable physics component
-        PhysicsComponent *physicsComponent = (PhysicsComponent *)[[collision secondEntity] getComponent:[PhysicsComponent class]];
-        [physicsComponent disable];
-        [[collision secondEntity] refresh];
+        if ([firstPhysicsComponent shape]->collision_type == COLLISION_TYPE_BEE &&
+            [secondPhysicsComponent shape]->collision_type == COLLISION_TYPE_RAMP)
+        {
+            [self handleCollisionBee:[collision firstEntity] withRamp:[collision secondEntity]];
+        }
     }
-    [_collisions removeAllObjects];
+    [_collisions removeAllObjects];    
+}
+
+-(void) handleCollisionBee:(Entity *)beeEntity withRamp:(Entity *)rampEntity
+{
+    RenderComponent *beeRenderComponent = (RenderComponent *)[beeEntity getComponent:[RenderComponent class]];
+    [beeRenderComponent playAnimation:@"idle" withLoops:1];
+    
+    // Crash animation
+    RenderComponent *rampRenderComponent = (RenderComponent *)[rampEntity getComponent:[RenderComponent class]];
+    [rampRenderComponent playAnimation:@"crash" withLoops:1];
+    
+    // Disable physics component
+    PhysicsComponent *physicsComponent = (PhysicsComponent *)[rampEntity getComponent:[PhysicsComponent class]];
+    [physicsComponent disable];
+    [rampEntity refresh];
 }
 
 -(void) dealloc
