@@ -7,12 +7,13 @@
 //
 
 #import "chipmunk.h"
-
 #import "EntityProcessingSystem.h"
 
 @interface PhysicsSystem : EntityProcessingSystem
 {
     cpSpace *_space;
 }
+
+@property (nonatomic, readonly) cpSpace *space;
 
 @end

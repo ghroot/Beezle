@@ -28,14 +28,13 @@
     if (self = [super init])
     {
         _frameFormat = frameFormat;
+        _animationByName = [[NSMutableDictionary alloc] init];
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", spriteSheetName]];
         _spriteSheet = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png", spriteSheetName]] retain];
         NSString *spriteFrameName = [NSString stringWithFormat:_frameFormat, 1];
         _sprite = [CCSprite spriteWithSpriteFrameName:spriteFrameName];
         [_spriteSheet addChild:_sprite];
-        
-        _animationByName = [[NSMutableDictionary alloc] init];
     }
     return self;
 }

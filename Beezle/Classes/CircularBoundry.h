@@ -14,9 +14,6 @@
     float _radius;
 }
 
-@property (nonatomic, readonly) CGPoint centerLocation;
-@property (nonatomic, readonly) float radius;
-
 -(id) initWithCenterLocation:(CGPoint)centerLocation andRadius:(float)radius;
 
 @end

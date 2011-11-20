@@ -15,6 +15,7 @@
 #import "BoundrySystem.h"
 #import "EntityFactory.h"
 #import "CollisionSystem.h"
+#import "DebugRenderPhysicsSystem.h"
 
 @implementation GameLayer
 
@@ -28,18 +29,20 @@
         _world = [[World alloc] init];
         SystemManager *systemManager = [_world systemManager];
         
-        PhysicsSystem *physicsSystem = [[PhysicsSystem alloc] init];
-        [systemManager setSystem:physicsSystem];
-        CollisionSystem *collisionSystem = [[CollisionSystem alloc] init];
-        [systemManager setSystem:collisionSystem];
-        RenderSystem *renderSystem = [[RenderSystem alloc] initWithLayer:self];
-        [systemManager setSystem:renderSystem];
+        _physicsSystem = [[PhysicsSystem alloc] init];
+        [systemManager setSystem:_physicsSystem];
+        _collisionSystem = [[CollisionSystem alloc] init];
+        [systemManager setSystem:_collisionSystem];
+        _renderSystem = [[RenderSystem alloc] initWithLayer:self];
+        [systemManager setSystem:_renderSystem];
+        _debugRenderPhysicsSystem = [[DebugRenderPhysicsSystem alloc] init];
+        [systemManager setSystem:_debugRenderPhysicsSystem];
         _inputSystem = [[InputSystem alloc] init];
         [systemManager setSystem:_inputSystem];
-        SlingerControlSystem *dragSystem = [[SlingerControlSystem alloc] init];
-        [systemManager setSystem:dragSystem];
-        BoundrySystem *boundrySystem = [[BoundrySystem alloc] init];
-        [systemManager setSystem:boundrySystem];
+        _slingerControlSystem = [[SlingerControlSystem alloc] init];
+        [systemManager setSystem:_slingerControlSystem];
+        _boundrySystem = [[BoundrySystem alloc] init];
+        [systemManager setSystem:_boundrySystem];
         
         [systemManager initialiseAll];
 
@@ -58,6 +61,13 @@
 {
     [_world release];
     
+    [_physicsSystem release];
+    [_collisionSystem release];
+    [_renderSystem release];
+    [_inputSystem release];
+    [_slingerControlSystem release];
+    [_boundrySystem release];
+    
 	[super dealloc];
 }
 
@@ -65,11 +75,19 @@
 {
     [_world loopStart];
     [_world setDelta:delta];
-    [[_world systemManager] processAll];
+    
+    [_physicsSystem process];
+    [_collisionSystem process];
+    [_renderSystem process];
+    [_inputSystem process];
+    [_slingerControlSystem process];
+    [_boundrySystem process];
 }
 
-- (void)draw
+-(void) draw
 {
+    [_debugRenderPhysicsSystem process];
+    
     if (isTouching)
     {
 //        CGSize winSize = [[CCDirector sharedDirector] winSize];

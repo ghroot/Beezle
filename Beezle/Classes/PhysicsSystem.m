@@ -18,6 +18,8 @@
 
 @implementation PhysicsSystem
 
+@synthesize space = _space;
+
 -(id) init
 {
     self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], [PhysicsComponent class], nil]];
@@ -102,7 +104,7 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     for (int i = 0; i < steps; i++)
     {
         cpSpaceStep(_space, dt);
-    }   
+    }
 }
 
 -(void) processEntity:(Entity *)entity

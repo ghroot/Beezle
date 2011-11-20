@@ -12,9 +12,6 @@
 
 @implementation CircularBoundry
 
-@synthesize centerLocation = _centerLocation;
-@synthesize radius = _radius;
-
 -(id) initWithCenterLocation:(CGPoint)centerLocation andRadius:(float)radius
 {
     if (self = [super init])

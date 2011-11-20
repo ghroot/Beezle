@@ -93,7 +93,7 @@
 	// Removes the startup flicker
 	[self removeStartupFlicker];
 	
-	// create scene
+	// Create scene
 	CCScene *scene = [CCScene node];
 	[scene addChild:[GameLayer node]];
 

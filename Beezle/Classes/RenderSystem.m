@@ -7,13 +7,12 @@
 //
 
 #import "RenderSystem.h"
-
 #import "RenderComponent.h"
 #import "TransformComponent.h"
 
 @implementation RenderSystem
 
--(id) initWithLayer:(CCLayer *)layer;
+-(id) initWithLayer:(CCLayer *)layer
 {
     if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], [RenderComponent class], nil]])
     {
@@ -25,7 +24,8 @@
 -(void) entityAdded:(Entity *)entity
 {
     RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
-    [_layer addChild:[renderComponent spriteSheet]];
+//    [_layer addChild:[renderComponent spriteSheet]];
+    [_layer addChild:[renderComponent spriteSheet] z:-1];
     
     // TODO: Only one instance of each sprite sheet should be added to a CCLayer
     

@@ -46,17 +46,8 @@
     RenderComponent *renderComponent = [[RenderComponent alloc] initWithFile:@"Beeater-01.png"];
     [beeEntity addComponent:renderComponent];
     
-//    int num = 4;
-//    CGPoint verts[] = {
-//        ccp(-20,-20),
-//        ccp(-20, 20),
-//        ccp( 20, 20),
-//        ccp( 20,-20),
-//    };
-//    cpBody *body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
     cpBody *body = cpBodyNew(1.0f, 1.0f);
     body->v = cpv(velocity.x, velocity.y);
-//    cpShape *shape = cpPolyShapeNew(body, num, verts, CGPointZero);
     cpShape *shape = cpCircleShapeNew(body, 20, cpv(0, 0));
     shape->e = 0.5f;
     shape->u = 0.5f;
@@ -83,10 +74,10 @@
     
     int num = 4;
     CGPoint verts[] = {
-        ccp(-80,-5),
-        ccp(-80, 5),
-        ccp( 80, 5),
-        ccp( 80,-5),
+        ccp(-90,-5),
+        ccp(-90, 5),
+        ccp( 90, 5),
+        ccp( 90,-5),
     };
     cpBody *body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
     cpBodyInitStatic(body);
