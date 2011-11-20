@@ -60,14 +60,13 @@
     return beeEntity;
 }
 
-+(Entity *) createRamp:(World *)world withPosition:(CGPoint)position
++(Entity *) createRamp:(World *)world withPosition:(CGPoint)position andRotation:(float)rotation
 {
     Entity *rampEntity = [world createEntity];
     
     TransformComponent *transformComponent = [[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)];
     [rampEntity addComponent:transformComponent];
     
-//    RenderComponent *renderComponent = [[RenderComponent alloc] initWithFile:@"RampCrach [ Sketch ]-01.png"];
     RenderComponent *renderComponent = [[RenderComponent alloc] initWithSpriteSheetName:@"Ramp" andFrameFormat:@"RampCrach [ Sketch ]-0%i.png"];
     [renderComponent addAnimation:@"crash" withStartFrame:1 andEndFrame:8];
     [rampEntity addComponent:renderComponent];
@@ -85,6 +84,7 @@
     shape->e = 0.5f;
     shape->u = 0.5f;
     shape->collision_type = 2;
+    cpBodySetAngle(body, rotation);
     PhysicsComponent *physicsComponent = [[PhysicsComponent alloc] initWithBody:body andShape:shape];
     [rampEntity addComponent:physicsComponent];
     
