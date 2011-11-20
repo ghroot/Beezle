@@ -12,4 +12,6 @@
 
 @interface DebugRenderPhysicsSystem : EntityProcessingSystem
 
+-(void) drawShape:(cpShape *)shape;
+
 @end

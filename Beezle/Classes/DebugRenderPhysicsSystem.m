@@ -23,23 +23,30 @@
 {
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
     
-    cpBody *body = [physicsComponent body];
     cpShape *shape = [physicsComponent shape];
     
+    [self drawShape:shape];
+}
+
+-(void) drawShape:(cpShape *)shape
+{
     if (shape->klass_private->type == CP_CIRCLE_SHAPE)
     {
-        cpCircleShape *circleShape = (cpCircleShape *)shape;
-        ccDrawCircle(body->p, circleShape->r, body->a, 30, TRUE);
+        cpCircleShape* circleShape = (cpCircleShape*)shape;
+        cpVect c = cpvadd(shape->body->p, cpvrotate(circleShape->c, shape->body->rot));
+        ccDrawCircle(c, circleShape->r, shape->body->a, 20, TRUE);
     }
     else if (shape->klass_private->type == CP_POLY_SHAPE)
     {
-        cpPolyShape *polyShape = (cpPolyShape *)shape;
-        for (int i = 0; i < polyShape->numVerts; i++)
-        {
-            ccDrawPoly(polyShape->tVerts, polyShape->numVerts, TRUE);
-        }
+        cpPolyShape* polyShape = (cpPolyShape*)shape;
+        ccDrawPoly(polyShape->tVerts, polyShape->numVerts, YES);
     }
     else if (shape->klass_private->type == CP_SEGMENT_SHAPE)
+    {
+        cpSegmentShape* segmentShape = (cpSegmentShape*)shape;
+        ccDrawLine(segmentShape->ta, segmentShape->tb);
+    }
+    else
     {
         cpSegmentShape* segmentShape = (cpSegmentShape*)shape;
         ccDrawLine(segmentShape->ta, segmentShape->tb);
