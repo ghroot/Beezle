@@ -30,6 +30,7 @@
 
 -(void) drawShape:(cpShape *)shape
 {
+    
     if (shape->klass_private->type == CP_CIRCLE_SHAPE)
     {
         
