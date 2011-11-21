@@ -27,6 +27,14 @@
     return self;
 }
 
+-(void) dealloc
+{
+    [_entities release];
+    [_componentsByClass release];
+    
+    [super dealloc];
+}
+
 -(Entity *) createEntity
 {
     Entity *entity = [[[Entity alloc] initWithWorld:_world andId:++_nextEntityId] autorelease];
@@ -52,17 +60,17 @@
 
 -(void) addComponent:(Component *)component toEntity:(Entity *)entity
 {
-    NSMutableDictionary *_componentsByEntity;
+    NSMutableDictionary *componentsByEntity;
     if ([_componentsByClass objectForKey:[component class]] == nil)
     {
-        _componentsByEntity = [[NSMutableDictionary alloc] init];
-        [_componentsByClass setObject:_componentsByEntity forKey:[component class]];
+        componentsByEntity = [[[NSMutableDictionary alloc] init] autorelease];
+        [_componentsByClass setObject:componentsByEntity forKey:[component class]];
     }
     else
     {
-        _componentsByEntity = [_componentsByClass objectForKey:[component class]];
+        componentsByEntity = [_componentsByClass objectForKey:[component class]];
     }
-    [_componentsByEntity setObject:component forKey:[NSNumber numberWithInt:[entity entityId]]];
+    [componentsByEntity setObject:component forKey:[NSNumber numberWithInt:[entity entityId]]];
 }
 
 -(void) refreshEntity:(Entity *)entity
