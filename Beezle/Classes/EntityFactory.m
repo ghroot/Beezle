@@ -19,10 +19,10 @@
 {
     Entity *slingerEntity = [world createEntity];
     
-    TransformComponent *transformComponent = [[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)];
+    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [slingerEntity addComponent:transformComponent];
     
-    RenderComponent *renderComponent = [[RenderComponent alloc] initWithFile:@"BeeSlingerC-01.png"];
+    RenderComponent *renderComponent = [[[RenderComponent alloc] initWithFile:@"BeeSlingerC-01.png"] autorelease];
     [slingerEntity addComponent:renderComponent];
     
     [slingerEntity setTag:@"SLINGER"];
@@ -36,10 +36,10 @@
 {
     Entity *beeEntity = [world createEntity];
     
-    TransformComponent *transformComponent = [[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)];
+    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [beeEntity addComponent:transformComponent];
     
-    RenderComponent *renderComponent = [[RenderComponent alloc] initWithSpriteSheetName:@"Beeater" andFrameFormat:@"Beeater-0%i.png"];
+    RenderComponent *renderComponent = [[[RenderComponent alloc] initWithSpriteSheetName:@"Beeater" andFrameFormat:@"Beeater-0%i.png"] autorelease];
     [renderComponent addAnimation:@"idle" withStartFrame:1 andEndFrame:9];
     [beeEntity addComponent:renderComponent];
     
@@ -50,7 +50,7 @@
     shape->u = 0.5f;
     shape->collision_type = COLLISION_TYPE_BEE;
 //    cpShapeSetGroup(shape, 1);
-    PhysicsComponent *physicsComponent = [[PhysicsComponent alloc] initWithBody:body andShape:shape];
+    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:body andShape:shape] autorelease];
     [beeEntity addComponent:physicsComponent];
     
     [beeEntity refresh];
@@ -62,10 +62,10 @@
 {
     Entity *rampEntity = [world createEntity];
     
-    TransformComponent *transformComponent = [[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)];
+    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [rampEntity addComponent:transformComponent];
     
-    RenderComponent *renderComponent = [[RenderComponent alloc] initWithSpriteSheetName:@"Ramp" andFrameFormat:@"RampCrach [ Sketch ]-0%i.png"];
+    RenderComponent *renderComponent = [[[RenderComponent alloc] initWithSpriteSheetName:@"Ramp" andFrameFormat:@"RampCrach [ Sketch ]-0%i.png"] autorelease];
     [renderComponent addAnimation:@"crash" withStartFrame:1 andEndFrame:8];
     [rampEntity addComponent:renderComponent];
     
@@ -83,7 +83,7 @@
     shape->u = 0.5f;
     shape->collision_type = COLLISION_TYPE_RAMP;
     cpBodySetAngle(body, rotation);
-    PhysicsComponent *physicsComponent = [[PhysicsComponent alloc] initWithBody:body andShape:shape];
+    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:body andShape:shape] autorelease];
     [rampEntity addComponent:physicsComponent];
     
     [rampEntity refresh];
