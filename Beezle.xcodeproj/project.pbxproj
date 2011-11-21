@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2C06880D14670EFB003E200D /* BeeSlingerC-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06880C14670EFB003E200D /* BeeSlingerC-01.png */; };
 		2C068A34146858B9003E200D /* TransformComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C068A33146858B9003E200D /* TransformComponent.m */; };
+		2C44B5B7147B194C000CF537 /* TagEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C44B5B6147B194C000CF537 /* TagEntitySystem.m */; };
+		2C44B5BB147B1960000CF537 /* GroupEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C44B5BA147B1960000CF537 /* GroupEntitySystem.m */; };
 		2C5B86E01479155700028179 /* DebugRenderPhysicsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B86DF1479155700028179 /* DebugRenderPhysicsSystem.m */; };
 		2C75CD8D1477D7BB00545287 /* Ramp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C75CD8B1477D7BB00545287 /* Ramp.plist */; };
 		2C75CD8E1477D7BB00545287 /* Ramp.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C75CD8C1477D7BB00545287 /* Ramp.png */; };
@@ -250,6 +252,10 @@
 		2C06880C14670EFB003E200D /* BeeSlingerC-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BeeSlingerC-01.png"; sourceTree = "<group>"; };
 		2C068A32146858B9003E200D /* TransformComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransformComponent.h; path = Classes/TransformComponent.h; sourceTree = "<group>"; };
 		2C068A33146858B9003E200D /* TransformComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransformComponent.m; path = Classes/TransformComponent.m; sourceTree = "<group>"; };
+		2C44B5B5147B194C000CF537 /* TagEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagEntitySystem.h; path = Classes/TagEntitySystem.h; sourceTree = "<group>"; };
+		2C44B5B6147B194C000CF537 /* TagEntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagEntitySystem.m; path = Classes/TagEntitySystem.m; sourceTree = "<group>"; };
+		2C44B5B9147B1960000CF537 /* GroupEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupEntitySystem.h; path = Classes/GroupEntitySystem.h; sourceTree = "<group>"; };
+		2C44B5BA147B1960000CF537 /* GroupEntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupEntitySystem.m; path = Classes/GroupEntitySystem.m; sourceTree = "<group>"; };
 		2C5B86DE1479155700028179 /* DebugRenderPhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugRenderPhysicsSystem.h; path = Classes/DebugRenderPhysicsSystem.h; sourceTree = "<group>"; };
 		2C5B86DF1479155700028179 /* DebugRenderPhysicsSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugRenderPhysicsSystem.m; path = Classes/DebugRenderPhysicsSystem.m; sourceTree = "<group>"; };
 		2C75CD8B1477D7BB00545287 /* Ramp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Ramp.plist; path = Resources/Ramp/Ramp.plist; sourceTree = "<group>"; };
@@ -741,6 +747,10 @@
 				2CBA7B631469AC1D006CBCB4 /* EntitySystem.m */,
 				2C7CE614146C6415001F331F /* EntityProcessingSystem.h */,
 				2C7CE615146C6415001F331F /* EntityProcessingSystem.m */,
+				2C44B5B5147B194C000CF537 /* TagEntitySystem.h */,
+				2C44B5B6147B194C000CF537 /* TagEntitySystem.m */,
+				2C44B5B9147B1960000CF537 /* GroupEntitySystem.h */,
+				2C44B5BA147B1960000CF537 /* GroupEntitySystem.m */,
 				2C7CE5FB1469D219001F331F /* EntityManager.h */,
 				2C7CE5FC1469D219001F331F /* EntityManager.m */,
 				2CEA35251466B1FB000FF575 /* Entity.h */,
@@ -1800,6 +1810,8 @@
 				2CD9B0C2147958C40098C183 /* SpaceManager.mm in Sources */,
 				2CD9B0C614795AD30098C183 /* GCpShapeCache.m in Sources */,
 				2CA9E3A2147B0EEE0058C496 /* GroupManager.m in Sources */,
+				2C44B5B7147B194C000CF537 /* TagEntitySystem.m in Sources */,
+				2C44B5BB147B1960000CF537 /* GroupEntitySystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

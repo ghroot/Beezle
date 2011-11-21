@@ -8,6 +8,8 @@
 
 #import "EntitySystem.h"
 
+@class Entity;
+
 @interface EntityProcessingSystem : EntitySystem
 
 -(void) processEntity:(Entity *)entity;
