@@ -27,6 +27,7 @@
 		2C7CE631146FE161001F331F /* CircularBoundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE630146FE160001F331F /* CircularBoundry.m */; };
 		2CA9E3951479BDE60058C496 /* Beeater.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CA9E3931479BDE60058C496 /* Beeater.plist */; };
 		2CA9E3961479BDE60058C496 /* Beeater.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA9E3941479BDE60058C496 /* Beeater.png */; };
+		2CA9E3A2147B0EEE0058C496 /* GroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA9E3A1147B0EED0058C496 /* GroupManager.m */; };
 		2CADCC6D1470807E00302475 /* RampCrach [ Sketch ]-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CADCC6C1470807E00302475 /* RampCrach [ Sketch ]-01.png */; };
 		2CADCC711471C76400302475 /* InputAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC701471C76400302475 /* InputAction.m */; };
 		2CADCC7714732ADC00302475 /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC7614732ADB00302475 /* CollisionSystem.m */; };
@@ -282,6 +283,8 @@
 		2CA9E3931479BDE60058C496 /* Beeater.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Beeater.plist; sourceTree = "<group>"; };
 		2CA9E3941479BDE60058C496 /* Beeater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Beeater.png; sourceTree = "<group>"; };
 		2CA9E39F147AF9910058C496 /* artemis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = artemis.h; path = Classes/artemis.h; sourceTree = "<group>"; };
+		2CA9E3A0147B0EED0058C496 /* GroupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupManager.h; path = Classes/GroupManager.h; sourceTree = "<group>"; };
+		2CA9E3A1147B0EED0058C496 /* GroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupManager.m; path = Classes/GroupManager.m; sourceTree = "<group>"; };
 		2CADCC6C1470807E00302475 /* RampCrach [ Sketch ]-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RampCrach [ Sketch ]-01.png"; path = "Resources/Ramp/RampCrach [ Sketch ]-01.png"; sourceTree = "<group>"; };
 		2CADCC6F1471C76400302475 /* InputAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputAction.h; path = Classes/InputAction.h; sourceTree = "<group>"; };
 		2CADCC701471C76400302475 /* InputAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputAction.m; path = Classes/InputAction.m; sourceTree = "<group>"; };
@@ -750,6 +753,8 @@
 				2C7CE611146B2846001F331F /* World.m */,
 				2C7CE61D146C81B4001F331F /* TagManager.h */,
 				2C7CE61E146C81B5001F331F /* TagManager.m */,
+				2CA9E3A0147B0EED0058C496 /* GroupManager.h */,
+				2CA9E3A1147B0EED0058C496 /* GroupManager.m */,
 			);
 			name = Artemis;
 			sourceTree = "<group>";
@@ -1794,6 +1799,7 @@
 				2CD9B0C1147958C40098C183 /* cpCCSprite+PhysicsEditor.m in Sources */,
 				2CD9B0C2147958C40098C183 /* SpaceManager.mm in Sources */,
 				2CD9B0C614795AD30098C183 /* GCpShapeCache.m in Sources */,
+				2CA9E3A2147B0EEE0058C496 /* GroupManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
