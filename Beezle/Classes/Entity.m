@@ -9,6 +9,7 @@
 #import "Entity.h"
 #import "Component.h"
 #import "EntityManager.h"
+#import "GroupManager.h"
 #import "TagManager.h"
 #import "World.h"
 
@@ -62,6 +63,11 @@
 -(void) setTag:(NSString *)tag
 {
     [[_world tagManager] registerEntity:self withTag:tag];
+}
+
+-(void) addToGroup:(NSString *)groupName
+{
+    [[_world groupManager] addEntity:self toGroup:groupName];
 }
 
 @end

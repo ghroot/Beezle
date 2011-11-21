@@ -9,6 +9,7 @@
 #import "World.h"
 #import "Entity.h"
 #import "EntityManager.h"
+#import "GroupManager.h"
 #import "SystemManager.h"
 #import "TagManager.h"
 
@@ -17,6 +18,7 @@
 @synthesize entityManager = _entityManager;
 @synthesize systemManager = _systemManager;
 @synthesize tagManager = _tagManager;
+@synthesize groupManager = _groupManager;
 @synthesize delta = _delta;
 
 -(id) init
@@ -26,11 +28,25 @@
         _entityManager = [[EntityManager alloc] initWithWorld:self];
         _systemManager = [[SystemManager alloc] initWithWorld:self];
         _tagManager = [[TagManager alloc] init];
+        _groupManager = [[GroupManager alloc] init];
         
         _refreshed = [[NSMutableArray alloc] init];
         _deleted = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+-(void) dealloc
+{
+    [_entityManager release];
+    [_systemManager release];
+    [_tagManager release];
+    [_groupManager release];
+    
+    [_refreshed release];
+    [_deleted release];
+    
+    [super dealloc];
 }
 
 -(void) deleteEntity:(Entity *)entity
@@ -79,17 +95,6 @@
         }
         [_deleted removeAllObjects];
     }
-}
-
--(void) dealloc
-{
-    [_entityManager release];
-    [_systemManager release];
-    
-    [_refreshed release];
-    [_deleted release];
-    
-    [super dealloc];
 }
 
 @end

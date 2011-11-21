@@ -8,6 +8,7 @@
 
 @class Entity;
 @class EntityManager;
+@class GroupManager;
 @class SystemManager;
 @class TagManager;
 
@@ -16,6 +17,7 @@
     EntityManager *_entityManager;
     SystemManager *_systemManager;
     TagManager *_tagManager;
+    GroupManager *_groupManager;
     
     int _delta;
     
@@ -26,6 +28,7 @@
 @property (nonatomic, readonly) EntityManager *entityManager;
 @property (nonatomic, readonly) SystemManager *systemManager;
 @property (nonatomic, readonly) TagManager *tagManager;
+@property (nonatomic, readonly) GroupManager *groupManager;
 @property (nonatomic) int delta;
 
 -(void) deleteEntity:(Entity *)entity;
