@@ -29,6 +29,14 @@
     return [self initWithUsedComponentClasses:[NSMutableArray array]];
 }
 
+-(void) dealloc
+{
+    [_usedComponentClasses release];
+    [_entities release];
+    
+    [super dealloc];
+}
+
 -(void) begin
 {
 }
@@ -101,14 +109,6 @@
 -(BOOL) hasEntity:(Entity *)entity
 {
     return [_entities containsObject:entity];
-}
-
--(void) dealloc
-{
-    [_usedComponentClasses release];
-    [_entities release];
-    
-    [super dealloc];
 }
 
 @end
