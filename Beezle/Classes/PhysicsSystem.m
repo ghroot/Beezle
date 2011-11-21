@@ -7,14 +7,10 @@
 //
 
 #import "PhysicsSystem.h"
-
-#import "cocos2d.h"
-
 #import "PhysicsComponent.h"
 #import "TransformComponent.h"
 #import "CollisionSystem.h"
 #import "Collision.h"
-#import "World.h"
 
 @implementation PhysicsSystem
 

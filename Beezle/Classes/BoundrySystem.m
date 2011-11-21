@@ -7,7 +7,7 @@
 //
 
 #import "BoundrySystem.h"
-
+#import "Boundry.h"
 #import "BoundryComponent.h"
 #import "TransformComponent.h"
 

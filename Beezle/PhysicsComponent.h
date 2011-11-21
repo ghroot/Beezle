@@ -7,7 +7,7 @@
 //
 
 #import "Component.h"
-
+#import "artemis.h"
 #import "chipmunk.h"
 
 typedef enum
@@ -15,7 +15,6 @@ typedef enum
     COLLISION_TYPE_BEE,
     COLLISION_TYPE_RAMP,
 } collisionTypes;
-
 
 @interface PhysicsComponent : Component
 {

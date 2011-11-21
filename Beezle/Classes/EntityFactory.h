@@ -6,7 +6,8 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "Entity.h"
+#import "artemis.h"
+#import "chipmunk.h"
 
 @interface EntityFactory : NSObject
 

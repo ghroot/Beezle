@@ -8,7 +8,6 @@
 
 @interface Component : NSObject
 {
-@private
     BOOL _enabled;
 }
 

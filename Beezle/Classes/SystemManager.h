@@ -6,8 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "EntitySystem.h"
-
+@class EntitySystem;
 @class World;
 
 @interface SystemManager : NSObject

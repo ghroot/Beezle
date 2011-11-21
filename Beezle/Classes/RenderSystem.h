@@ -6,9 +6,9 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "cocos2d.h"
-
 #import "EntityProcessingSystem.h"
+#import "artemis.h"
+#import "cocos2d.h"
 
 @interface RenderSystem : EntityProcessingSystem
 {

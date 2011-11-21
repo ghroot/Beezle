@@ -9,7 +9,6 @@
 #import "DebugRenderPhysicsSystem.h"
 #import "PhysicsSystem.h"
 #import "PhysicsComponent.h"
-#import "World.h"
 
 @implementation DebugRenderPhysicsSystem
 

@@ -7,9 +7,10 @@
 //
 
 #import "Entity.h"
-
-#import "World.h"
+#import "Component.h"
 #import "EntityManager.h"
+#import "TagManager.h"
+#import "World.h"
 
 @implementation Entity
 

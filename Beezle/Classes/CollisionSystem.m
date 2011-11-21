@@ -7,10 +7,9 @@
 //
 
 #import "CollisionSystem.h"
-
-#import "Entity.h"
-#import "RenderComponent.h"
+#import "Collision.h"
 #import "PhysicsComponent.h"
+#import "RenderComponent.h"
 
 @implementation CollisionSystem
 

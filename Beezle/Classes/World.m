@@ -7,6 +7,10 @@
 //
 
 #import "World.h"
+#import "Entity.h"
+#import "EntityManager.h"
+#import "SystemManager.h"
+#import "TagManager.h"
 
 @implementation World
 

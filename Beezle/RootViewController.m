@@ -13,8 +13,6 @@
 // Use this class to control rotation and integtration with iAd and any other View Controller
 //
 
-#import "cocos2d.h"
-
 #import "RootViewController.h"
 
 @implementation RootViewController
@@ -44,8 +42,8 @@
 
 
 // Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-		
+-(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{		
 	//
 	//
 	// return YES for the supported orientations
@@ -61,7 +59,7 @@
 }
 
 
--(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+-(void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
 
 	//
@@ -71,19 +69,22 @@
 #if 0
 	CGRect screenRect = [[UIScreen mainScreen] bounds];
 	CGRect rect = CGRectZero;
-
 	
-	if(toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)		
+	if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
+    {	
 		rect = screenRect;
-	
-	else if(toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
+	}
+	else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
+    {
 		rect.size = CGSizeMake( screenRect.size.height, screenRect.size.width );
+    }
 	
 	CCDirector *director = [CCDirector sharedDirector];
 	EAGLView *glView = [director openGLView];
 	float contentScaleFactor = [director contentScaleFactor];
 	
-	if( contentScaleFactor != 1 ) {
+	if (contentScaleFactor != 1)
+    {
 		rect.size.width *= contentScaleFactor;
 		rect.size.height *= contentScaleFactor;
 	}
@@ -92,24 +93,19 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
+-(void) didReceiveMemoryWarning
+{
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
+-(void) viewDidUnload
+{
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
-
-- (void)dealloc {
-    [super dealloc];
-}
-
-
 @end
-

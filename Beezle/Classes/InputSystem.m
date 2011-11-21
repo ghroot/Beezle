@@ -7,6 +7,7 @@
 //
 
 #import "InputSystem.h"
+#import "InputAction.h"
 
 @implementation InputSystem
 

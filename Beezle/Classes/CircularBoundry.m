@@ -8,8 +8,6 @@
 
 #import "CircularBoundry.h"
 
-#import "cocos2d.h"
-
 @implementation CircularBoundry
 
 -(id) initWithCenterLocation:(CGPoint)centerLocation andRadius:(float)radius

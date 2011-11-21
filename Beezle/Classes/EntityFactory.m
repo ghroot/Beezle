@@ -7,15 +7,11 @@
 //
 
 #import "EntityFactory.h"
-
-#import "chipmunk.h"
-
-#import "World.h"
-#import "TransformComponent.h"
-#import "RenderComponent.h"
 #import "BoundryComponent.h"
 #import "CircularBoundry.h"
 #import "PhysicsComponent.h"
+#import "RenderComponent.h"
+#import "TransformComponent.h"
 
 @implementation EntityFactory
 
@@ -75,10 +71,10 @@
     
     int num = 4;
     CGPoint verts[] = {
-        ccp(-90,-5),
-        ccp(-90, 5),
-        ccp( 90, 5),
-        ccp( 90,-5),
+        CGPointMake(-90,-5),
+        CGPointMake(-90, 5),
+        CGPointMake( 90, 5),
+        CGPointMake( 90,-5),
     };
     cpBody *body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
     cpBodyInitStatic(body);

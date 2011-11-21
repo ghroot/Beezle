@@ -7,7 +7,7 @@
 //
 
 #import "SystemManager.h"
-
+#import "EntitySystem.h"
 #import "World.h"
 
 @implementation SystemManager

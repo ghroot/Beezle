@@ -6,8 +6,11 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import "Component.h"
+#import "Entity.h"
 #import "EntityManager.h"
-
+#import "EntitySystem.h"
+#import "SystemManager.h"
 #import "World.h"
 
 @implementation EntityManager

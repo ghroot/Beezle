@@ -7,7 +7,9 @@
 //
 
 #import "EntityProcessingSystem.h"
-#import "Collision.h"
+#import "artemis.h"
+
+@class Collision;
 
 @interface CollisionSystem : EntityProcessingSystem
 {

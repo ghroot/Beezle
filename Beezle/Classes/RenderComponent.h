@@ -7,7 +7,6 @@
 //
 
 #import "Component.h"
-
 #import "cocos2d.h"
 
 @interface RenderComponent : Component

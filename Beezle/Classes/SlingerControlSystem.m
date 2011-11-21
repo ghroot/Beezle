@@ -7,13 +7,10 @@
 //
 
 #import "SlingerControlSystem.h"
-
-#import "cocos2d.h"
-
-#import "TransformComponent.h"
-#import "InputSystem.h"
-#import "World.h"
 #import "EntityFactory.h"
+#import "InputAction.h"
+#import "InputSystem.h"
+#import "TransformComponent.h"
 
 @implementation SlingerControlSystem
 

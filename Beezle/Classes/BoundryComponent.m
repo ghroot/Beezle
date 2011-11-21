@@ -7,6 +7,7 @@
 //
 
 #import "BoundryComponent.h"
+#import "Boundry.h"
 
 @implementation BoundryComponent
 

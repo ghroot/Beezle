@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "cocos2d.h"
 
-
-@interface RootViewController : UIViewController {
-
-}
+@interface RootViewController : UIViewController
 
 @end

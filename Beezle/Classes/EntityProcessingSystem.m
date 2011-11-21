@@ -7,6 +7,7 @@
 //
 
 #import "EntityProcessingSystem.h"
+#import "Entity.h"
 
 @implementation EntityProcessingSystem
 

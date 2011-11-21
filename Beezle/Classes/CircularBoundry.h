@@ -7,6 +7,7 @@
 //
 
 #import "Boundry.h"
+#import "cocos2d.h"
 
 @interface CircularBoundry : Boundry
 {

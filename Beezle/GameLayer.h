@@ -7,18 +7,15 @@
 //
 
 #import "cocos2d.h"
+#import "artemis.h"
 
-#import "SystemManager.h"
-#import "World.h"
-
-@class EntityManager;
-@class PhysicsSystem;
+@class BoundrySystem;
 @class CollisionSystem;
-@class RenderSystem;
 @class DebugRenderPhysicsSystem;
 @class InputSystem;
+@class PhysicsSystem;
+@class RenderSystem;
 @class SlingerControlSystem;
-@class BoundrySystem;
 
 @interface GameLayer : CCLayer
 {

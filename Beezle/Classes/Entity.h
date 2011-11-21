@@ -6,17 +6,15 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "Component.h"
-
-@class World;
+@class Component;
 @class EntityManager;
+@class World;
 
 @interface Entity : NSObject
 {
     int _entityId;
     World *_world;
     EntityManager *_entityManager;
-    
     BOOL _deleted;
 }
 

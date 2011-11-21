@@ -8,8 +8,6 @@
 
 #import "PhysicsComponent.h"
 
-#import "Entity.h"
-
 @implementation PhysicsComponent
 
 @synthesize body = _body;

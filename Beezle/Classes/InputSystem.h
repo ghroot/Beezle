@@ -7,7 +7,8 @@
 //
 
 #import "EntitySystem.h"
-#import "InputAction.h"
+
+@class InputAction;
 
 @interface InputSystem : EntitySystem
 {

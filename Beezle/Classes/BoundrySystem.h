@@ -7,6 +7,7 @@
 //
 
 #import "EntityProcessingSystem.h"
+#import "artemis.h"
 
 @interface BoundrySystem : EntityProcessingSystem
 

@@ -7,6 +7,7 @@
 //
 
 #import "TagManager.h"
+#import "Entity.h"
 
 @implementation TagManager
 

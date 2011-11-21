@@ -6,9 +6,9 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "Component.h"
+#import "artemis.h"
 
-#import "Boundry.h"
+@class Boundry;
 
 @interface BoundryComponent : Component
 {

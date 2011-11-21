@@ -6,8 +6,10 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "chipmunk.h"
 #import "EntityProcessingSystem.h"
+#import "artemis.h"
+#import "chipmunk.h"
+#import "cocos2d.h"
 
 @interface PhysicsSystem : EntityProcessingSystem
 {

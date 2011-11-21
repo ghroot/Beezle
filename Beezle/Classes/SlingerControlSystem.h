@@ -7,6 +7,8 @@
 //
 
 #import "EntityProcessingSystem.h"
+#import "artemis.h"
+#import "cocos2d.h"
 
 @interface SlingerControlSystem : EntityProcessingSystem
 {

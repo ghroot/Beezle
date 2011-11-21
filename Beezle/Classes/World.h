@@ -6,9 +6,10 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "EntityManager.h"
-#import "SystemManager.h"
-#import "TagManager.h"
+@class Entity;
+@class EntityManager;
+@class SystemManager;
+@class TagManager;
 
 @interface World : NSObject
 {

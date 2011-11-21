@@ -7,6 +7,8 @@
 //
 
 #import "EntitySystem.h"
+#import "Component.h"
+#import "Entity.h"
 
 @implementation EntitySystem
 
