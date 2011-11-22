@@ -12,6 +12,7 @@
 
 typedef enum
 {
+    COLLISION_TYPE_BACKGROUND,
     COLLISION_TYPE_BEE,
     COLLISION_TYPE_RAMP,
 } collisionTypes;

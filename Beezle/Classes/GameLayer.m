@@ -46,13 +46,11 @@
         
         [systemManager initialiseAll];
 
-        [EntityFactory createSlinger:_world withPosition:CGPointMake(150, 350)];
+        [EntityFactory createBackground:_world withFileName:@"Background-01.jpg"];
+        [EntityFactory createSlinger:_world withPosition:CGPointMake(150, 250)];
         [EntityFactory createRamp:_world withPosition:CGPointMake(150, 100) andRotation:0.0f];
         [EntityFactory createRamp:_world withPosition:CGPointMake(150, 140) andRotation:0.1f];
         [EntityFactory createRamp:_world withPosition:CGPointMake(150, 180) andRotation:-0.1f];
-        [EntityFactory createRamp:_world withPosition:CGPointMake(150, 220) andRotation:0.1f];
-        [EntityFactory createRamp:_world withPosition:CGPointMake(150, 260) andRotation:-0.1f];
-        [EntityFactory createRamp:_world withPosition:CGPointMake(150, 300) andRotation:0.0f];
 		
 		[self scheduleUpdate];
 	}

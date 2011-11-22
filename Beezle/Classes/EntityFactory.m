@@ -15,6 +15,41 @@
 
 @implementation EntityFactory
 
++(Entity *) createBackground:(World *)world withFileName:(NSString *)fileName
+{
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    Entity *backgroundEntity = [world createEntity];
+    
+    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(winSize.width / 2, winSize.height / 2)] autorelease];
+    [backgroundEntity addComponent:transformComponent];
+    
+    RenderComponent *renderComponent = [[[RenderComponent alloc] initWithFile:fileName] autorelease];
+    [backgroundEntity addComponent:renderComponent];
+    
+    int num = 6;
+    CGPoint verts[] = {
+        cpv(-238.0f, -138.0f),
+        cpv(0.0f, -75.0f),
+        cpv(237.0f, -123.0f),
+        cpv(237.0f, -157.0f),
+        cpv(-238.0f, -159.0f),
+        cpv(-238.0f, -138.0f)
+    };
+    cpBody *body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
+    cpBodyInitStatic(body);
+    cpShape *shape = cpPolyShapeNew(body, num, verts, CGPointZero);
+    shape->e = 0.8f;
+    shape->u = 0.5f;
+    shape->collision_type = COLLISION_TYPE_BACKGROUND;
+    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:body andShape:shape] autorelease];
+    [backgroundEntity addComponent:physicsComponent];
+    
+    [backgroundEntity refresh];
+    
+    return backgroundEntity;
+}
+
 +(Entity *) createSlinger:(World *)world withPosition:(CGPoint)position
 {
     Entity *slingerEntity = [world createEntity];

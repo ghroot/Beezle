@@ -41,6 +41,7 @@
 		2CADCC9014746BA200302475 /* ArtemisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC8F14746BA200302475 /* ArtemisTests.m */; };
 		2CAE05FB14705F4A0023FA94 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE05FA14705F4A0023FA94 /* EntityFactory.m */; };
 		2CBA7B641469AC1D006CBCB4 /* EntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA7B631469AC1D006CBCB4 /* EntitySystem.m */; };
+		2CD33EB6147C5579000869C1 /* Background-01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CD33EB5147C5579000869C1 /* Background-01.jpg */; };
 		2CD9B0B5147958C40098C183 /* cpCCNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B097147958C40098C183 /* cpCCNode.m */; };
 		2CD9B0B6147958C40098C183 /* cpCCNodeImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B099147958C40098C183 /* cpCCNodeImpl.m */; };
 		2CD9B0B7147958C40098C183 /* cpCCSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B09B147958C40098C183 /* cpCCSprite.m */; };
@@ -250,53 +251,53 @@
 
 /* Begin PBXFileReference section */
 		2C06880C14670EFB003E200D /* BeeSlingerC-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BeeSlingerC-01.png"; sourceTree = "<group>"; };
-		2C068A32146858B9003E200D /* TransformComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; name = TransformComponent.h; path = Classes/Component/TransformComponent.h; sourceTree = "<group>"; };
+		2C068A32146858B9003E200D /* TransformComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransformComponent.h; path = Classes/Component/TransformComponent.h; sourceTree = "<group>"; };
 		2C068A33146858B9003E200D /* TransformComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransformComponent.m; path = Classes/Component/TransformComponent.m; sourceTree = "<group>"; };
-		2C44B5B5147B194C000CF537 /* TagEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; name = TagEntitySystem.h; path = Classes/Artemis/TagEntitySystem.h; sourceTree = "<group>"; };
+		2C44B5B5147B194C000CF537 /* TagEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagEntitySystem.h; path = Classes/Artemis/TagEntitySystem.h; sourceTree = "<group>"; };
 		2C44B5B6147B194C000CF537 /* TagEntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagEntitySystem.m; path = Classes/Artemis/TagEntitySystem.m; sourceTree = "<group>"; };
 		2C44B5B9147B1960000CF537 /* GroupEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupEntitySystem.h; path = Classes/Artemis/GroupEntitySystem.h; sourceTree = "<group>"; };
 		2C44B5BA147B1960000CF537 /* GroupEntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupEntitySystem.m; path = Classes/Artemis/GroupEntitySystem.m; sourceTree = "<group>"; };
-		2C5B86DE1479155700028179 /* DebugRenderPhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; name = DebugRenderPhysicsSystem.h; path = Classes/System/DebugRenderPhysicsSystem.h; sourceTree = "<group>"; };
+		2C5B86DE1479155700028179 /* DebugRenderPhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugRenderPhysicsSystem.h; path = Classes/System/DebugRenderPhysicsSystem.h; sourceTree = "<group>"; };
 		2C5B86DF1479155700028179 /* DebugRenderPhysicsSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugRenderPhysicsSystem.m; path = Classes/System/DebugRenderPhysicsSystem.m; sourceTree = "<group>"; };
 		2C75CD8B1477D7BB00545287 /* Ramp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Ramp.plist; path = Resources/Ramp/Ramp.plist; sourceTree = "<group>"; };
 		2C75CD8C1477D7BB00545287 /* Ramp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ramp.png; path = Resources/Ramp/Ramp.png; sourceTree = "<group>"; };
 		2C7CE5F51469AD06001F331F /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderSystem.h; path = Classes/System/RenderSystem.h; sourceTree = "<group>"; };
 		2C7CE5F61469AD06001F331F /* RenderSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSystem.m; path = Classes/System/RenderSystem.m; sourceTree = "<group>"; };
-		2C7CE5F81469D092001F331F /* PhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; name = PhysicsSystem.h; path = Classes/System/PhysicsSystem.h; sourceTree = "<group>"; };
+		2C7CE5F81469D092001F331F /* PhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsSystem.h; path = Classes/System/PhysicsSystem.h; sourceTree = "<group>"; };
 		2C7CE5F91469D092001F331F /* PhysicsSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhysicsSystem.m; path = Classes/System/PhysicsSystem.m; sourceTree = "<group>"; };
-		2C7CE5FB1469D219001F331F /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lineEnding = 0; name = EntityManager.h; path = Classes/Artemis/EntityManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2C7CE5FB1469D219001F331F /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = EntityManager.h; path = Classes/Artemis/EntityManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2C7CE5FC1469D219001F331F /* EntityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityManager.m; path = Classes/Artemis/EntityManager.m; sourceTree = "<group>"; };
-		2C7CE60D146B1FED001F331F /* SystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; name = SystemManager.h; path = Classes/Artemis/SystemManager.h; sourceTree = "<group>"; };
+		2C7CE60D146B1FED001F331F /* SystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemManager.h; path = Classes/Artemis/SystemManager.h; sourceTree = "<group>"; };
 		2C7CE60E146B1FEE001F331F /* SystemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemManager.m; path = Classes/Artemis/SystemManager.m; sourceTree = "<group>"; };
-		2C7CE610146B2845001F331F /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; name = World.h; path = Classes/Artemis/World.h; sourceTree = "<group>"; };
+		2C7CE610146B2845001F331F /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = World.h; path = Classes/Artemis/World.h; sourceTree = "<group>"; };
 		2C7CE611146B2846001F331F /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = World.m; path = Classes/Artemis/World.m; sourceTree = "<group>"; };
 		2C7CE614146C6415001F331F /* EntityProcessingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityProcessingSystem.h; path = Classes/Artemis/EntityProcessingSystem.h; sourceTree = "<group>"; };
 		2C7CE615146C6415001F331F /* EntityProcessingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityProcessingSystem.m; path = Classes/Artemis/EntityProcessingSystem.m; sourceTree = "<group>"; };
-		2C7CE61A146C73FE001F331F /* InputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; name = InputSystem.h; path = Classes/System/InputSystem.h; sourceTree = "<group>"; };
+		2C7CE61A146C73FE001F331F /* InputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputSystem.h; path = Classes/System/InputSystem.h; sourceTree = "<group>"; };
 		2C7CE61B146C73FE001F331F /* InputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputSystem.m; path = Classes/System/InputSystem.m; sourceTree = "<group>"; };
-		2C7CE61D146C81B4001F331F /* TagManager.h */ = {isa = PBXFileReference; fileEncoding = 4; name = TagManager.h; path = Classes/Artemis/TagManager.h; sourceTree = "<group>"; };
+		2C7CE61D146C81B4001F331F /* TagManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagManager.h; path = Classes/Artemis/TagManager.h; sourceTree = "<group>"; };
 		2C7CE61E146C81B5001F331F /* TagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagManager.m; path = Classes/Artemis/TagManager.m; sourceTree = "<group>"; };
-		2C7CE620146FD66F001F331F /* SlingerControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; name = SlingerControlSystem.h; path = Classes/System/SlingerControlSystem.h; sourceTree = "<group>"; };
+		2C7CE620146FD66F001F331F /* SlingerControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlingerControlSystem.h; path = Classes/System/SlingerControlSystem.h; sourceTree = "<group>"; };
 		2C7CE621146FD66F001F331F /* SlingerControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlingerControlSystem.m; path = Classes/System/SlingerControlSystem.m; sourceTree = "<group>"; };
-		2C7CE626146FE110001F331F /* BoundrySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; name = BoundrySystem.h; path = Classes/System/BoundrySystem.h; sourceTree = "<group>"; };
+		2C7CE626146FE110001F331F /* BoundrySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundrySystem.h; path = Classes/System/BoundrySystem.h; sourceTree = "<group>"; };
 		2C7CE627146FE111001F331F /* BoundrySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoundrySystem.m; path = Classes/System/BoundrySystem.m; sourceTree = "<group>"; };
-		2C7CE629146FE123001F331F /* BoundryComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; name = BoundryComponent.h; path = Classes/Component/BoundryComponent.h; sourceTree = "<group>"; };
+		2C7CE629146FE123001F331F /* BoundryComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundryComponent.h; path = Classes/Component/BoundryComponent.h; sourceTree = "<group>"; };
 		2C7CE62A146FE123001F331F /* BoundryComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoundryComponent.m; path = Classes/Component/BoundryComponent.m; sourceTree = "<group>"; };
-		2C7CE62C146FE14D001F331F /* Boundry.h */ = {isa = PBXFileReference; fileEncoding = 4; name = Boundry.h; path = Classes/Component/Boundry.h; sourceTree = "<group>"; };
+		2C7CE62C146FE14D001F331F /* Boundry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Boundry.h; path = Classes/Component/Boundry.h; sourceTree = "<group>"; };
 		2C7CE62D146FE14D001F331F /* Boundry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Boundry.m; path = Classes/Component/Boundry.m; sourceTree = "<group>"; };
-		2C7CE62F146FE160001F331F /* CircularBoundry.h */ = {isa = PBXFileReference; fileEncoding = 4; name = CircularBoundry.h; path = Classes/Component/CircularBoundry.h; sourceTree = "<group>"; };
+		2C7CE62F146FE160001F331F /* CircularBoundry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircularBoundry.h; path = Classes/Component/CircularBoundry.h; sourceTree = "<group>"; };
 		2C7CE630146FE160001F331F /* CircularBoundry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircularBoundry.m; path = Classes/Component/CircularBoundry.m; sourceTree = "<group>"; };
 		2CA9E3931479BDE60058C496 /* Beeater.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Beeater.plist; sourceTree = "<group>"; };
 		2CA9E3941479BDE60058C496 /* Beeater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Beeater.png; sourceTree = "<group>"; };
 		2CA9E39F147AF9910058C496 /* artemis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = artemis.h; path = Classes/Artemis/artemis.h; sourceTree = "<group>"; };
-		2CA9E3A0147B0EED0058C496 /* GroupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; name = GroupManager.h; path = Classes/Artemis/GroupManager.h; sourceTree = "<group>"; };
+		2CA9E3A0147B0EED0058C496 /* GroupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupManager.h; path = Classes/Artemis/GroupManager.h; sourceTree = "<group>"; };
 		2CA9E3A1147B0EED0058C496 /* GroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupManager.m; path = Classes/Artemis/GroupManager.m; sourceTree = "<group>"; };
 		2CADCC6C1470807E00302475 /* RampCrach [ Sketch ]-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RampCrach [ Sketch ]-01.png"; path = "Resources/Ramp/RampCrach [ Sketch ]-01.png"; sourceTree = "<group>"; };
-		2CADCC6F1471C76400302475 /* InputAction.h */ = {isa = PBXFileReference; fileEncoding = 4; name = InputAction.h; path = Classes/System/InputAction.h; sourceTree = "<group>"; };
+		2CADCC6F1471C76400302475 /* InputAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputAction.h; path = Classes/System/InputAction.h; sourceTree = "<group>"; };
 		2CADCC701471C76400302475 /* InputAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputAction.m; path = Classes/System/InputAction.m; sourceTree = "<group>"; };
-		2CADCC7514732ADB00302475 /* CollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; name = CollisionSystem.h; path = Classes/System/CollisionSystem.h; sourceTree = "<group>"; };
+		2CADCC7514732ADB00302475 /* CollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionSystem.h; path = Classes/System/CollisionSystem.h; sourceTree = "<group>"; };
 		2CADCC7614732ADB00302475 /* CollisionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionSystem.m; path = Classes/System/CollisionSystem.m; sourceTree = "<group>"; };
-		2CADCC781473314B00302475 /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; name = Collision.h; path = Classes/System/Collision.h; sourceTree = "<group>"; };
+		2CADCC781473314B00302475 /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collision.h; path = Classes/System/Collision.h; sourceTree = "<group>"; };
 		2CADCC791473314C00302475 /* Collision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Collision.m; path = Classes/System/Collision.m; sourceTree = "<group>"; };
 		2CADCC8314746BA100302475 /* ArtemisTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtemisTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CADCC8414746BA100302475 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -309,6 +310,7 @@
 		2CAE05FA14705F4A0023FA94 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityFactory.m; path = Classes/EntityFactory.m; sourceTree = "<group>"; };
 		2CBA7B621469AC1D006CBCB4 /* EntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntitySystem.h; path = Classes/Artemis/EntitySystem.h; sourceTree = "<group>"; };
 		2CBA7B631469AC1D006CBCB4 /* EntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntitySystem.m; path = Classes/Artemis/EntitySystem.m; sourceTree = "<group>"; };
+		2CD33EB5147C5579000869C1 /* Background-01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Background-01.jpg"; path = "Resources/Background-01.jpg"; sourceTree = "<group>"; };
 		2CD9B096147958C40098C183 /* cpCCNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpCCNode.h; sourceTree = "<group>"; };
 		2CD9B097147958C40098C183 /* cpCCNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cpCCNode.m; sourceTree = "<group>"; };
 		2CD9B098147958C40098C183 /* cpCCNodeImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpCCNodeImpl.h; sourceTree = "<group>"; };
@@ -665,13 +667,13 @@
 		2CEA347F145F66F9000FF575 /* GameLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameLayer.h; path = Classes/GameLayer.h; sourceTree = "<group>"; };
 		2CEA3480145F66F9000FF575 /* GameLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GameLayer.m; path = Classes/GameLayer.m; sourceTree = "<group>"; };
 		2CEA3482145F66F9000FF575 /* grossini_dance_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grossini_dance_atlas.png; path = Resources/grossini_dance_atlas.png; sourceTree = "<group>"; };
-		2CEA35251466B1FB000FF575 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lineEnding = 0; name = Entity.h; path = Classes/Artemis/Entity.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2CEA35251466B1FB000FF575 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = Entity.h; path = Classes/Artemis/Entity.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2CEA35261466B1FB000FF575 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = Entity.m; path = Classes/Artemis/Entity.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2CEA35291466B21E000FF575 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Component.h; path = Classes/Artemis/Component.h; sourceTree = "<group>"; };
 		2CEA352A1466B21E000FF575 /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Component.m; path = Classes/Artemis/Component.m; sourceTree = "<group>"; };
 		2CEA352C1466B2B5000FF575 /* RenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderComponent.h; path = Classes/Component/RenderComponent.h; sourceTree = "<group>"; };
 		2CEA352D1466B2B5000FF575 /* RenderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderComponent.m; path = Classes/Component/RenderComponent.m; sourceTree = "<group>"; };
-		2CEA352F1466B2C9000FF575 /* PhysicsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; name = PhysicsComponent.h; path = Classes/Component/PhysicsComponent.h; sourceTree = "<group>"; };
+		2CEA352F1466B2C9000FF575 /* PhysicsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsComponent.h; path = Classes/Component/PhysicsComponent.h; sourceTree = "<group>"; };
 		2CEA35301466B2C9000FF575 /* PhysicsComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhysicsComponent.m; path = Classes/Component/PhysicsComponent.m; sourceTree = "<group>"; };
 		2CEA353B1466BD06000FF575 /* Beeater-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Beeater-01.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -949,6 +951,7 @@
 		2CEA3288145F66F7000FF575 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CD33EB5147C5579000869C1 /* Background-01.jpg */,
 				2CADCC6E1470808100302475 /* Ramp */,
 				2C06880B14670EFB003E200D /* BeeSlingerC */,
 				2CEA353A1466BD06000FF575 /* Beeater */,
@@ -1608,6 +1611,7 @@
 				2C75CD8E1477D7BB00545287 /* Ramp.png in Resources */,
 				2CA9E3951479BDE60058C496 /* Beeater.plist in Resources */,
 				2CA9E3961479BDE60058C496 /* Beeater.png in Resources */,
+				2CD33EB6147C5579000869C1 /* Background-01.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
