@@ -7,8 +7,9 @@
 //
 
 #import "DebugRenderPhysicsSystem.h"
-#import "PhysicsSystem.h"
 #import "PhysicsComponent.h"
+#import "PhysicsShape.h"
+#import "PhysicsSystem.h"
 
 @implementation DebugRenderPhysicsSystem
 
@@ -22,7 +23,7 @@
 {
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
     
-    cpShape *shape = [physicsComponent shape];
+    cpShape *shape = [[physicsComponent shape] shape];
     
     [self drawShape:shape];
 }

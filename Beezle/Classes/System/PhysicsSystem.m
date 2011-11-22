@@ -7,10 +7,12 @@
 //
 
 #import "PhysicsSystem.h"
-#import "PhysicsComponent.h"
-#import "TransformComponent.h"
 #import "CollisionSystem.h"
 #import "Collision.h"
+#import "PhysicsBody.h"
+#import "PhysicsComponent.h"
+#import "PhysicsShape.h"
+#import "TransformComponent.h"
 
 @implementation PhysicsSystem
 
@@ -65,7 +67,7 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
 	_walls[3] = cpSegmentShapeNew(_space->staticBody, ccp(size.width,0), ccp(size.width,size.height), 0.0f);
 	for (int i = 0; i < 4; i++)
     {
-		_walls[i]->e = 1.0f;
+		_walls[i]->e = 0.1f;
 		_walls[i]->u = 1.0f;
 		cpSpaceAddStaticShape(_space, _walls[i]);
 	}
@@ -78,20 +80,27 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
     
-    cpBody *body = [physicsComponent body];
-    cpShape *shape = [physicsComponent shape];
-    
-    shape->data = entity;
+    cpBody *body = [[physicsComponent body] body];
     body->p = [transformComponent position];
-    
-    if (cpBodyIsStatic(body))
-    {
-        cpSpaceAddStaticShape(_space, shape);
-    }
-    else
+    if (!cpBodyIsStatic(body))
     {
         cpSpaceAddBody(_space, body);
-        cpSpaceAddShape(_space, shape);
+    }
+    
+    for (PhysicsShape *physicsShape in [physicsComponent shapes])
+    {
+        cpShape *shape = [physicsShape shape];
+        
+        shape->data = entity;
+        
+        if (cpBodyIsStatic(body))
+        {
+            cpSpaceAddStaticShape(_space, shape);
+        }
+        else
+        {
+            cpSpaceAddShape(_space, shape);
+        }   
     }
     
     [super entityAdded:entity];
@@ -101,17 +110,24 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
 {
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
     
-    cpBody *body = [physicsComponent body];
-    cpShape *shape = [physicsComponent shape];
-    
-    if (cpBodyIsStatic(body))
-    {
-        cpSpaceRemoveStaticShape(_space, shape);
-    }
-    else
+    cpBody *body = [[physicsComponent body] body];
+    if (!cpBodyIsStatic(body))
     {
         cpSpaceRemoveBody(_space, body);
-        cpSpaceRemoveShape(_space, shape);
+    }
+    
+    for (PhysicsShape *physicsShape in [physicsComponent shapes])
+    {
+        cpShape *shape = [physicsShape shape];
+        
+        if (cpBodyIsStatic(body))
+        {
+            cpSpaceRemoveStaticShape(_space, shape);
+        }
+        else
+        {
+            cpSpaceRemoveShape(_space, shape);
+        }
     }
     
     [super entityRemoved:entity];
@@ -133,7 +149,7 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
 
-    cpBody *body = [physicsComponent body];
+    cpBody *body = [[physicsComponent body] body];
 
     [transformComponent setPosition:cpv(body->p.x, body->p.y)];
     [transformComponent setRotation:CC_RADIANS_TO_DEGREES(-body->a)];

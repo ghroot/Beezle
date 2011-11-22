@@ -42,6 +42,8 @@
 		2CAE05FB14705F4A0023FA94 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE05FA14705F4A0023FA94 /* EntityFactory.m */; };
 		2CBA7B641469AC1D006CBCB4 /* EntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA7B631469AC1D006CBCB4 /* EntitySystem.m */; };
 		2CD33EB6147C5579000869C1 /* Background-01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CD33EB5147C5579000869C1 /* Background-01.jpg */; };
+		2CD33EBE147C5DAC000869C1 /* PhysicsShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EBD147C5DAB000869C1 /* PhysicsShape.m */; };
+		2CD33EC1147C5DBF000869C1 /* PhysicsBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EC0147C5DBF000869C1 /* PhysicsBody.m */; };
 		2CD9B0B5147958C40098C183 /* cpCCNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B097147958C40098C183 /* cpCCNode.m */; };
 		2CD9B0B6147958C40098C183 /* cpCCNodeImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B099147958C40098C183 /* cpCCNodeImpl.m */; };
 		2CD9B0B7147958C40098C183 /* cpCCSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B09B147958C40098C183 /* cpCCSprite.m */; };
@@ -311,6 +313,10 @@
 		2CBA7B621469AC1D006CBCB4 /* EntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntitySystem.h; path = Classes/Artemis/EntitySystem.h; sourceTree = "<group>"; };
 		2CBA7B631469AC1D006CBCB4 /* EntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntitySystem.m; path = Classes/Artemis/EntitySystem.m; sourceTree = "<group>"; };
 		2CD33EB5147C5579000869C1 /* Background-01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Background-01.jpg"; path = "Resources/Background-01.jpg"; sourceTree = "<group>"; };
+		2CD33EBC147C5DAB000869C1 /* PhysicsShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsShape.h; path = Classes/Component/PhysicsShape.h; sourceTree = "<group>"; };
+		2CD33EBD147C5DAB000869C1 /* PhysicsShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhysicsShape.m; path = Classes/Component/PhysicsShape.m; sourceTree = "<group>"; };
+		2CD33EBF147C5DBF000869C1 /* PhysicsBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsBody.h; path = Classes/Component/PhysicsBody.h; sourceTree = "<group>"; };
+		2CD33EC0147C5DBF000869C1 /* PhysicsBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhysicsBody.m; path = Classes/Component/PhysicsBody.m; sourceTree = "<group>"; };
 		2CD9B096147958C40098C183 /* cpCCNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpCCNode.h; sourceTree = "<group>"; };
 		2CD9B097147958C40098C183 /* cpCCNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cpCCNode.m; sourceTree = "<group>"; };
 		2CD9B098147958C40098C183 /* cpCCNodeImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpCCNodeImpl.h; sourceTree = "<group>"; };
@@ -1464,6 +1470,10 @@
 				2CEA352D1466B2B5000FF575 /* RenderComponent.m */,
 				2CEA352F1466B2C9000FF575 /* PhysicsComponent.h */,
 				2CEA35301466B2C9000FF575 /* PhysicsComponent.m */,
+				2CD33EBC147C5DAB000869C1 /* PhysicsShape.h */,
+				2CD33EBD147C5DAB000869C1 /* PhysicsShape.m */,
+				2CD33EBF147C5DBF000869C1 /* PhysicsBody.h */,
+				2CD33EC0147C5DBF000869C1 /* PhysicsBody.m */,
 				2C068A32146858B9003E200D /* TransformComponent.h */,
 				2C068A33146858B9003E200D /* TransformComponent.m */,
 				2C7CE629146FE123001F331F /* BoundryComponent.h */,
@@ -1816,6 +1826,8 @@
 				2CA9E3A2147B0EEE0058C496 /* GroupManager.m in Sources */,
 				2C44B5B7147B194C000CF537 /* TagEntitySystem.m in Sources */,
 				2C44B5BB147B1960000CF537 /* GroupEntitySystem.m in Sources */,
+				2CD33EBE147C5DAC000869C1 /* PhysicsShape.m in Sources */,
+				2CD33EC1147C5DBF000869C1 /* PhysicsBody.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

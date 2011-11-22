@@ -9,7 +9,9 @@
 #import "EntityFactory.h"
 #import "BoundryComponent.h"
 #import "CircularBoundry.h"
+#import "PhysicsBody.h"
 #import "PhysicsComponent.h"
+#import "PhysicsShape.h"
 #import "RenderComponent.h"
 #import "TransformComponent.h"
 
@@ -27,22 +29,40 @@
     RenderComponent *renderComponent = [[[RenderComponent alloc] initWithFile:fileName] autorelease];
     [backgroundEntity addComponent:renderComponent];
     
-    int num = 6;
+    int num = 16;
     CGPoint verts[] = {
-        cpv(-238.0f, -138.0f),
-        cpv(0.0f, -75.0f),
-        cpv(237.0f, -123.0f),
-        cpv(237.0f, -157.0f),
-        cpv(-238.0f, -159.0f),
-        cpv(-238.0f, -138.0f)
+        cpv(-239.0f, 67.0f),
+        cpv(-144.0f, 52.0f),
+        cpv(-172.0f, -40.0f),
+        cpv(-162.0f, -109.0f),
+        cpv(-114.0f, -129.0f),
+        cpv(5.0f, -76.0f),
+        cpv(22.0f, -128.0f),
+        cpv(68.0f, -149.0f),
+        cpv(124.0f, -120.0f),
+        cpv(150.0f, -72.0f),
+        cpv(150.0f, -44.0f),
+        cpv(93.0f, -20.0f),
+        cpv(93.0f, 13.0f),
+        cpv(147.0f, 19.0f),
+        cpv(191.0f, 10.0f),
+        cpv(238.0f, -33.0f)
     };
     cpBody *body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
     cpBodyInitStatic(body);
-    cpShape *shape = cpPolyShapeNew(body, num, verts, CGPointZero);
-    shape->e = 0.8f;
-    shape->u = 0.5f;
-    shape->collision_type = COLLISION_TYPE_BACKGROUND;
-    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:body andShape:shape] autorelease];
+    NSMutableArray *physicsShapes = [[[NSMutableArray alloc] init] autorelease];
+    for (int i = 0; i < num - 1; i++)
+    {
+        cpShape *shape = cpSegmentShapeNew(body, verts[i], verts[i + 1], 0);
+        shape->e = 0.4f;
+        shape->u = 0.5f;
+        shape->collision_type = COLLISION_TYPE_BACKGROUND;
+        
+        PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:shape] autorelease];
+        [physicsShapes addObject:physicsShape];
+    }
+    PhysicsBody *physicsBody = [[[PhysicsBody alloc] initWithBody:body] autorelease];
+    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShapes:physicsShapes] autorelease];
     [backgroundEntity addComponent:physicsComponent];
     
     [backgroundEntity refresh];
@@ -85,7 +105,9 @@
     shape->u = 0.5f;
     shape->collision_type = COLLISION_TYPE_BEE;
 //    cpShapeSetGroup(shape, 1);
-    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:body andShape:shape] autorelease];
+    PhysicsBody *physicsBody = [[[PhysicsBody alloc] initWithBody:body] autorelease];
+    PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:shape] autorelease];
+    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShape:physicsShape] autorelease];
     [beeEntity addComponent:physicsComponent];
     
     [beeEntity refresh];
@@ -118,7 +140,9 @@
     shape->u = 0.5f;
     shape->collision_type = COLLISION_TYPE_RAMP;
     cpBodySetAngle(body, rotation);
-    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:body andShape:shape] autorelease];
+    PhysicsBody *physicsBody = [[[PhysicsBody alloc] initWithBody:body] autorelease];
+    PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:shape] autorelease];
+    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShape:physicsShape] autorelease];
     [rampEntity addComponent:physicsComponent];
     
     [rampEntity refresh];

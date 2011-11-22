@@ -10,6 +10,9 @@
 #import "artemis.h"
 #import "chipmunk.h"
 
+@class PhysicsBody;
+@class PhysicsShape;
+
 typedef enum
 {
     COLLISION_TYPE_BACKGROUND,
@@ -19,13 +22,15 @@ typedef enum
 
 @interface PhysicsComponent : Component
 {
-    cpBody *_body;
-    cpShape *_shape;
+    PhysicsBody *_body;
+    NSMutableArray *_shapes;
 }
 
-@property (nonatomic, readonly) cpBody *body;
-@property (nonatomic, readonly) cpShape *shape;
+@property (nonatomic, readonly) PhysicsBody *body;
+@property (nonatomic, readonly) NSMutableArray *shapes;
 
--(id) initWithBody:(cpBody *)body andShape:(cpShape *)shape;
+-(id) initWithBody:(PhysicsBody *)body andShapes:(NSMutableArray *)shapes;
+-(id) initWithBody:(PhysicsBody *)body andShape:(PhysicsShape *)shape;
+-(PhysicsShape *) shape;
 
 @end

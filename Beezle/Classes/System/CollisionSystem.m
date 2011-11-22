@@ -9,7 +9,9 @@
 #import "CollisionSystem.h"
 #import "cocos2d.h"
 #import "Collision.h"
+#import "PhysicsBody.h"
 #import "PhysicsComponent.h"
+#import "PhysicsShape.h"
 #import "RenderComponent.h"
 
 @implementation CollisionSystem
@@ -40,8 +42,8 @@
         PhysicsComponent *firstPhysicsComponent = (PhysicsComponent *)[[collision firstEntity] getComponent:[PhysicsComponent class]];
         PhysicsComponent *secondPhysicsComponent = (PhysicsComponent *)[[collision secondEntity] getComponent:[PhysicsComponent class]];
         
-        if ([firstPhysicsComponent shape]->collision_type == COLLISION_TYPE_BEE &&
-            [secondPhysicsComponent shape]->collision_type == COLLISION_TYPE_RAMP)
+        if ([[firstPhysicsComponent shape] shape]->collision_type == COLLISION_TYPE_BEE &&
+            [[secondPhysicsComponent shape] shape]->collision_type == COLLISION_TYPE_RAMP)
         {
             [self handleCollisionBee:[collision firstEntity] withRamp:[collision secondEntity]];
         }
