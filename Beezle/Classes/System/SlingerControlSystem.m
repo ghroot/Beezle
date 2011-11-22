@@ -18,7 +18,7 @@
 
 -(id) init
 {
-    self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], nil]];
+    self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], nil] andTag:@"SLINGER"];
     return self;
 }
 
@@ -35,13 +35,7 @@
     }
 }
 
--(void) processEntities:(NSArray *)entities
-{
-    Entity *slingerEntity = [[_world tagManager] getEntity:@"SLINGER"];
-    [self processEntity:slingerEntity];
-}
-
--(void) processEntity:(Entity *)entity
+-(void) processTaggedEntity:(Entity *)entity
 {
     InputSystem *inputSystem = (InputSystem *)[[_world systemManager] getSystem:[InputSystem class]];
     if ([inputSystem hasInputActions])

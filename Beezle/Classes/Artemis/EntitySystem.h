@@ -12,13 +12,13 @@
 @interface EntitySystem : NSObject
 {
     World *_world;
-    NSMutableArray *_usedComponentClasses;
+    NSArray *_usedComponentClasses;
     NSMutableArray *_entities;
 }
 
 @property (nonatomic, assign) World *world;
 
--(id) initWithUsedComponentClasses:(NSMutableArray *)usedComponentClasses;
+-(id) initWithUsedComponentClasses:(NSArray *)usedComponentClasses;
 -(void) begin;
 -(void) process;
 -(void) end;

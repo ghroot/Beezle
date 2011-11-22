@@ -6,11 +6,11 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "EntityProcessingSystem.h"
+#import "TagEntitySystem.h"
 #import "artemis.h"
 #import "cocos2d.h"
 
-@interface SlingerControlSystem : EntityProcessingSystem
+@interface SlingerControlSystem : TagEntitySystem
 {
     CGPoint _startLocation;
 }

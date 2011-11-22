@@ -14,7 +14,7 @@
 
 @synthesize world = _world;
 
--(id) initWithUsedComponentClasses:(NSMutableArray *)usedComponentClasses
+-(id) initWithUsedComponentClasses:(NSArray *)usedComponentClasses
 {
     if (self = [super init])
     {
@@ -26,7 +26,7 @@
 
 -(id) init
 {
-    return [self initWithUsedComponentClasses:[NSMutableArray array]];
+    return [self initWithUsedComponentClasses:[NSArray array]];
 }
 
 -(void) dealloc

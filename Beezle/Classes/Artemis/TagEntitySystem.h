@@ -15,7 +15,7 @@
     NSString *_tag;
 }
 
--(id) initWithTag:(NSString *)tag;
+-(id) initWithUsedComponentClasses:(NSArray *)usedComponentClasses andTag:(NSString *)tag;
 -(void) processTaggedEntity:(Entity *)entity;
 
 @end

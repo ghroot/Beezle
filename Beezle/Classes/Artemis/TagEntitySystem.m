@@ -12,9 +12,9 @@
 
 @implementation TagEntitySystem
 
--(id) initWithTag:(NSString *)tag
+-(id) initWithUsedComponentClasses:(NSArray *)usedComponentClasses andTag:(NSString *)tag;
 {
-    if (self = [super init])
+    if (self = [super initWithUsedComponentClasses:usedComponentClasses])
     {
         _tag = [tag retain];
     }
