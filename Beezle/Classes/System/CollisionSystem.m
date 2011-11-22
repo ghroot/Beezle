@@ -7,6 +7,7 @@
 //
 
 #import "CollisionSystem.h"
+#import "cocos2d.h"
 #import "Collision.h"
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
@@ -50,12 +51,9 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withRamp:(Entity *)rampEntity
 {
-    RenderComponent *beeRenderComponent = (RenderComponent *)[beeEntity getComponent:[RenderComponent class]];
-    [beeRenderComponent playAnimation:@"idle" withLoops:1];
-    
-    // Crash animation
+    // Crash animation (and delete entity at end of animation)
     RenderComponent *rampRenderComponent = (RenderComponent *)[rampEntity getComponent:[RenderComponent class]];
-    [rampRenderComponent playAnimation:@"crash" withLoops:1];
+    [rampRenderComponent playAnimation:@"crash" withCallbackTarget:rampEntity andCallbackSelector:@selector(deleteEntity)];
     
     // Disable physics component
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[rampEntity getComponent:[PhysicsComponent class]];

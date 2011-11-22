@@ -24,5 +24,6 @@
 -(id) initWithSpriteSheetName:(NSString *)spriteSheetName andFrameFormat:(NSString *)frameFormat;
 -(void) addAnimation:(NSString *)animationName withStartFrame:(int)startFrame andEndFrame:(int)endFrame;
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops;
+-(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector;
 
 @end
