@@ -27,7 +27,7 @@
 
 -(id) initWithBody:(PhysicsBody *)body andShape:(PhysicsShape *)shape
 {
-    self = [self initWithBody:body andShapes:[[NSMutableArray alloc] initWithObjects:shape, nil]];
+    self = [self initWithBody:body andShapes:[NSMutableArray arrayWithObject:shape]];
     return self;
 }
 
