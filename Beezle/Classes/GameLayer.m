@@ -91,17 +91,10 @@
     
     if (isTouching)
     {
-//        CGSize winSize = [[CCDirector sharedDirector] winSize];
-        
         CGPoint actualStartPoint = touchStartLocation;
         CGPoint actualEndPoint = ccpAdd(actualStartPoint, touchVector);
         glLineWidth(2.0);
         ccDrawLine(actualStartPoint, actualEndPoint);
-        
-//        CGPoint projectedStartPoint = ccp(winSize.width / 2, winSize.height / 2);
-//        CGPoint projectedEndPoint = ccpAdd(projectedStartPoint, touchVector);
-//        glLineWidth(5.0);
-//        ccDrawLine(projectedStartPoint, projectedEndPoint);
     }
 }
 
