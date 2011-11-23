@@ -26,7 +26,7 @@
 {
     if (self = [super initWithId:gameStateId])
     {
-		_debug = FALSE;
+		_debug = TRUE;
 		_world = [[World alloc] init];
     }
     return self;
