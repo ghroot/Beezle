@@ -12,15 +12,15 @@
 
 @implementation PhysicsComponent
 
-@synthesize body = _body;
-@synthesize shapes = _shapes;
+@synthesize physicsBody = _physicsBody;
+@synthesize physicsShapes = _physicsShapes;
 
 -(id) initWithBody:(PhysicsBody *)body andShapes:(NSMutableArray *)shapes
 {
     if (self = [super init])
     {
-        _body = [body retain];
-        _shapes = [shapes retain];
+        _physicsBody = [body retain];
+        _physicsShapes = [shapes retain];
     }
     return self;
 }
@@ -33,15 +33,15 @@
 
 - (void)dealloc
 {
-    [_shapes release];
-    [_body release];
+    [_physicsShapes release];
+    [_physicsBody release];
     
     [super dealloc];
 }
 
--(PhysicsShape *) shape
+-(PhysicsShape *) firstPhysicsShape
 {
-    return [_shapes objectAtIndex:0];
+    return [_physicsShapes objectAtIndex:0];
 }
 
 @end

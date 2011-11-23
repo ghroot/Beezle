@@ -80,14 +80,14 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
     
-    cpBody *body = [[physicsComponent body] body];
+    cpBody *body = [[physicsComponent physicsBody] body];
     body->p = [transformComponent position];
     if (!cpBodyIsStatic(body))
     {
         cpSpaceAddBody(_space, body);
     }
     
-    for (PhysicsShape *physicsShape in [physicsComponent shapes])
+    for (PhysicsShape *physicsShape in [physicsComponent physicsShapes])
     {
         cpShape *shape = [physicsShape shape];
         
@@ -110,13 +110,13 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
 {
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
     
-    cpBody *body = [[physicsComponent body] body];
+    cpBody *body = [[physicsComponent physicsBody] body];
     if (!cpBodyIsStatic(body))
     {
         cpSpaceRemoveBody(_space, body);
     }
     
-    for (PhysicsShape *physicsShape in [physicsComponent shapes])
+    for (PhysicsShape *physicsShape in [physicsComponent physicsShapes])
     {
         cpShape *shape = [physicsShape shape];
         
@@ -149,7 +149,7 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
 
-    cpBody *body = [[physicsComponent body] body];
+    cpBody *body = [[physicsComponent physicsBody] body];
 
     [transformComponent setPosition:cpv(body->p.x, body->p.y)];
     [transformComponent setRotation:CC_RADIANS_TO_DEGREES(-body->a)];

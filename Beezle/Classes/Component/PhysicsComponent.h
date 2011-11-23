@@ -22,15 +22,15 @@ typedef enum
 
 @interface PhysicsComponent : Component
 {
-    PhysicsBody *_body;
-    NSMutableArray *_shapes;
+    PhysicsBody *_physicsBody;
+    NSMutableArray *_physicsShapes;
 }
 
-@property (nonatomic, readonly) PhysicsBody *body;
-@property (nonatomic, readonly) NSMutableArray *shapes;
+@property (nonatomic, readonly) PhysicsBody *physicsBody;
+@property (nonatomic, readonly) NSMutableArray *physicsShapes;
 
 -(id) initWithBody:(PhysicsBody *)body andShapes:(NSMutableArray *)shapes;
 -(id) initWithBody:(PhysicsBody *)body andShape:(PhysicsShape *)shape;
--(PhysicsShape *) shape;
+-(PhysicsShape *) firstPhysicsShape;
 
 @end

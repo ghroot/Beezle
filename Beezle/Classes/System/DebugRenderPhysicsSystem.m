@@ -23,7 +23,7 @@
 {
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
     
-    cpShape *shape = [[physicsComponent shape] shape];
+    cpShape *shape = [[physicsComponent firstPhysicsShape] shape];
     
     [self drawShape:shape];
 }

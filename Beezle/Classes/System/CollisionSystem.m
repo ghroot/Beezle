@@ -42,8 +42,8 @@
         PhysicsComponent *firstPhysicsComponent = (PhysicsComponent *)[[collision firstEntity] getComponent:[PhysicsComponent class]];
         PhysicsComponent *secondPhysicsComponent = (PhysicsComponent *)[[collision secondEntity] getComponent:[PhysicsComponent class]];
         
-        if ([[firstPhysicsComponent shape] shape]->collision_type == COLLISION_TYPE_BEE &&
-            [[secondPhysicsComponent shape] shape]->collision_type == COLLISION_TYPE_RAMP)
+        if ([[firstPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_BEE &&
+            [[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_RAMP)
         {
             [self handleCollisionBee:[collision firstEntity] withRamp:[collision secondEntity]];
         }
