@@ -39,7 +39,6 @@
 	// Init the window
 	_window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
-	
 	CCDirector *director = [CCDirector sharedDirector];
 	
 	// Init the View Controller
@@ -67,11 +66,9 @@
 	[director setAnimationInterval:1.0f/60.0f];
 	[director setDisplayFPS:TRUE];
 	
-	
 	// enable multi touches
 	[glView setMultipleTouchEnabled:TRUE];
 
-	
 	// make the OpenGLView a child of the view controller
 	[_viewController setView:glView];
 	
@@ -94,6 +91,12 @@
 	// Create scene
 	CCScene *scene = [CCScene node];
 	[scene addChild:[GameLayer node]];
+	
+	// TEMP: New structure
+	Beezle *beezle = [[Beezle alloc] init];
+	CocosGameContainer *container = [[CocosGameContainer alloc] initWithGame:beezle];
+	[scene addChild:[container layer]];
+	[container start];
 
 	// Run the intro Scene
 	[[CCDirector sharedDirector] runWithScene:scene];

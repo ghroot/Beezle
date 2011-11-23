@@ -1,5 +1,5 @@
 //
-//  Artemis.h
+//  artemis.h
 //  Beezle
 //
 //  Created by Me on 21/11/2011.
