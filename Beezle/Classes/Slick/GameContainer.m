@@ -10,7 +10,7 @@
 
 @interface GameContainer()
 
--(void) timerInterval;
+-(void) timerInterval:(NSTimer *)timer;
 -(void) updateAndRender:(int)delta;
 
 @end
@@ -35,7 +35,7 @@
 	_timer = [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:timerInterval userInfo:nil repeats:TRUE];
 }
 
--(void) timerInterval
+-(void) timerInterval:(NSTimer *)timer
 {
 	float delta = 1.0f/60.0f;
 	[self updateAndRender:delta];
