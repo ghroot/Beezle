@@ -65,6 +65,7 @@
     [_physicsSystem release];
     [_collisionSystem release];
     [_renderSystem release];
+    [_debugRenderPhysicsSystem release];
     [_inputSystem release];
     [_slingerControlSystem release];
     [_boundrySystem release];
