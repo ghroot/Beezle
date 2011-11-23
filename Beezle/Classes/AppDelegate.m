@@ -93,9 +93,9 @@
 	[scene addChild:[GameLayer node]];
 	
 	// TEMP: New structure
-	Beezle *beezle = [[Beezle alloc] init];
-	CocosGameContainer *container = [[CocosGameContainer alloc] initWithGame:beezle];
-	[scene addChild:[container layer]];
+	_beezle = [[Beezle alloc] init];
+	_container = [[CocosGameContainer alloc] initWithGame:_beezle];
+	[scene addChild:[_container layer]];
 	[container start];
 
 	// Run the intro Scene
@@ -152,6 +152,8 @@
 
 	[_window release];
 	[_viewController release];
+	[_beezle release];
+	[_container release];
     
 	[super dealloc];
 }

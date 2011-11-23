@@ -11,6 +11,7 @@
 @interface GameContainer()
 
 -(void) timerInterval;
+-(void) updateAndRender:(int)delta;
 
 @end
 

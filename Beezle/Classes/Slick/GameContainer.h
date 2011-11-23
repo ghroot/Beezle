@@ -18,7 +18,6 @@
 
 -(id) initWithGame:(Game *)game;
 -(void) start;
--(void) updateAndRender:(int)delta;
 -(void) pause;
 -(void) resume;
 -(void) exit;
