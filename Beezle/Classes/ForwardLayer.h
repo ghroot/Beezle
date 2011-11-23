@@ -10,13 +10,19 @@
 
 @interface ForwardLayer : CCLayer
 {
-    id _updateTarget;
+    id _target;
     SEL _updateSelector;
-    id _drawTarget;
     SEL _drawSelector;
+    SEL _touchBeganSelector;
+    SEL _touchMovedSelector;
+    SEL _touchEndedSelector;
 }
 
--(void) setUpdateTarget:(id)target withSelector:(SEL)selector;
--(void) setDrawTarget:(id)target withSelector:(SEL)selector;
+-(void) setTarget:(id)target;
+-(void) setUpdateSelector:(SEL)selector;
+-(void) setDrawSelector:(SEL)selector;
+-(void) setTouchBeganSelector:(SEL)selector;
+-(void) setTouchMovedSelector:(SEL)selector;
+-(void) setTouchEndedSelector:(SEL)selector;
 
 @end

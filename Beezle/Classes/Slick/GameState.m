@@ -43,4 +43,16 @@
 {
 }
 
+-(void) touchBegan:(Touch *)touch
+{
+}
+
+-(void) touchMoved:(Touch *)touch
+{
+}
+
+-(void) touchEnded:(Touch *)touch
+{
+}
+
 @end

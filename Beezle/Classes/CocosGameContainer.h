@@ -9,6 +9,7 @@
 #import "slick.h"
 
 @class ForwardLayer;
+@class Touch;
 
 @interface CocosGameContainer : GameContainer
 {
@@ -19,5 +20,8 @@
 
 -(void) intervalUpdate:(NSNumber *)delta;
 -(void) intervalDraw;
+-(void) touchBegan:(Touch *)touch;
+-(void) touchMoved:(Touch *)touch;
+-(void) touchEnded:(Touch *)touch;
 
 @end

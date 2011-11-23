@@ -8,6 +8,7 @@
 
 #import "StateBasedGame.h"
 #import "GameState.h"
+#import "Touch.h"
 
 @implementation StateBasedGame
 
@@ -91,6 +92,30 @@
 	if (_currentState != nil)
 	{
 		[_currentState renderWithContainer:_container andGame:self];
+	}
+}
+
+-(void) touchBegan:(Touch *)touch
+{
+    if (_currentState != nil)
+	{
+		[_currentState touchBegan:touch];
+	}
+}
+
+-(void) touchMoved:(Touch *)touch
+{
+    if (_currentState != nil)
+	{
+		[_currentState touchMoved:touch];
+	}
+}
+
+-(void) touchEnded:(Touch *)touch
+{
+    if (_currentState != nil)
+	{
+		[_currentState touchEnded:touch];
 	}
 }
 

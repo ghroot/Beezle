@@ -7,34 +7,101 @@
 //
 
 #import "ForwardLayer.h"
+#import "Touch.h"
 
 @implementation ForwardLayer
 
--(void) setUpdateTarget:(id)target withSelector:(SEL)selector
+-(id) init
 {
-    _updateTarget = target;
+    if (self = [super init])
+    {
+        self.isTouchEnabled = TRUE;
+    }
+    return self;
+}
+
+-(void) setTarget:(id)target
+{
+    _target = target;
+}
+
+-(void) setUpdateSelector:(SEL)selector
+{
     _updateSelector = selector;
 }
 
--(void) setDrawTarget:(id)target withSelector:(SEL)selector
+-(void) setDrawSelector:(SEL)selector
 {
-    _drawTarget = target;
     _drawSelector = selector;
+}
+
+-(void) setTouchBeganSelector:(SEL)selector
+{
+    _touchBeganSelector = selector;
+}
+
+-(void) setTouchMovedSelector:(SEL)selector
+{
+    _touchMovedSelector = selector;
+}
+
+-(void) setTouchEndedSelector:(SEL)selector
+{
+    _touchEndedSelector = selector;
 }
 
 -(void) update:(ccTime)delta
 {
-    if (_updateTarget != nil)
+    if (_updateSelector != nil)
     {
-        [_updateTarget performSelector:_updateSelector withObject:[NSNumber numberWithFloat:delta]];
+        [_target performSelector:_updateSelector withObject:[NSNumber numberWithFloat:delta]];
     }
 }
 
 -(void) draw
 {
-    if (_drawTarget != nil)
+    if (_drawSelector != nil)
     {
-        [_drawTarget performSelector:_drawSelector];
+        [_target performSelector:_drawSelector];
+    }
+}
+
+-(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if (_touchBeganSelector != nil)
+    {
+        UITouch* touch = [touches anyObject];
+        CGPoint location = [touch locationInView: [touch view]];
+        CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+    
+        Touch *touchParameter = [[[Touch alloc] initWithPoint:convertedLocation] autorelease];
+        [_target performSelector:_touchBeganSelector withObject:touchParameter];
+    }
+}
+
+-(void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if (_touchMovedSelector != nil)
+    {
+        UITouch* touch = [touches anyObject];
+        CGPoint location = [touch locationInView: [touch view]];
+        CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+        
+        Touch *touchParameter = [[[Touch alloc] initWithPoint:convertedLocation] autorelease];
+        [_target performSelector:_touchMovedSelector withObject:touchParameter];
+    }
+}
+
+-(void) ccTouchesEnded:(NSSet*)touches withEvent:(UIEvent *)event
+{
+    if (_touchEndedSelector != nil)
+    {
+        UITouch* touch = [touches anyObject];
+        CGPoint location = [touch locationInView: [touch view]];
+        CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+        
+        Touch *touchParameter = [[[Touch alloc] initWithPoint:convertedLocation] autorelease];
+        [_target performSelector:_touchEndedSelector withObject:touchParameter];
     }
 }
 

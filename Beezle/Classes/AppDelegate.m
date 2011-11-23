@@ -10,7 +10,6 @@
 #import "Beezle.h"
 #import "CocosGameContainer.h"
 #import "ForwardLayer.h"
-#import "GameLayer.h"
 #import "RootViewController.h"
 
 @implementation AppDelegate
@@ -93,9 +92,7 @@
 	
 	// Create scene
 	CCScene *scene = [CCScene node];
-//	[scene addChild:[GameLayer node]];
 	
-	// TEMP: New structure
 	_beezle = [[Beezle alloc] init];
 	_container = [[CocosGameContainer alloc] initWithGame:_beezle];
 	[scene addChild:[_container layer]];

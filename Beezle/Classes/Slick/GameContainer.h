@@ -17,6 +17,7 @@
 }
 
 -(id) initWithGame:(Game *)game;
+-(void) setup;
 -(void) start;
 -(void) startInterval;
 -(void) update:(int)delta;

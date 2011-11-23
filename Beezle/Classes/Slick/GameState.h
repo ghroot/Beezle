@@ -8,6 +8,7 @@
 
 @class GameContainer;
 @class StateBasedGame;
+@class Touch;
 
 @interface GameState : NSObject
 {
@@ -22,5 +23,8 @@
 -(void) updateWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game delta:(int)delta;
 -(void) renderWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game;
 -(void) leaveWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game;
+-(void) touchBegan:(Touch *)touch;
+-(void) touchMoved:(Touch *)touch;
+-(void) touchEnded:(Touch *)touch;
 
 @end

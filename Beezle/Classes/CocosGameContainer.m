@@ -22,10 +22,20 @@
 	return self;
 }
 
+-(void) setup
+{
+    [super setup];
+    
+    [_layer setTouchBeganSelector:@selector(touchBegan:)];
+    [_layer setTouchMovedSelector:@selector(touchMoved:)];
+    [_layer setTouchEndedSelector:@selector(touchEnded:)];
+}
+
 -(void) startInterval
 {
-    [_layer setUpdateTarget:self withSelector:@selector(intervalUpdate:)];
-    [_layer setDrawTarget:self withSelector:@selector(intervalDraw)];
+    [_layer setTarget:self];
+    [_layer setUpdateSelector:@selector(intervalUpdate:)];
+    [_layer setDrawSelector:@selector(intervalDraw)];
     [_layer scheduleUpdate];
 }
 
@@ -37,6 +47,21 @@
 -(void) intervalDraw
 {
     [self render];
+}
+
+-(void) touchBegan:(Touch *)touch
+{
+    [_game touchBegan:touch];
+}
+
+-(void) touchMoved:(Touch *)touch
+{
+    [_game touchMoved:touch];
+}
+
+-(void) touchEnded:(Touch *)touch
+{
+    [_game touchEnded:touch];
 }
 
 @end

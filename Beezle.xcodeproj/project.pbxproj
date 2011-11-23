@@ -52,6 +52,7 @@
 		2CD33EDD147D72BC000869C1 /* Beezle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EDA147D72BB000869C1 /* Beezle.m */; };
 		2CD33EDE147D72BC000869C1 /* CocosGameContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EDC147D72BC000869C1 /* CocosGameContainer.m */; };
 		2CD33EE1147DA02B000869C1 /* ForwardLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE0147DA02A000869C1 /* ForwardLayer.m */; };
+		2CD33EE4147DAF63000869C1 /* Touch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE3147DAF62000869C1 /* Touch.m */; };
 		2CD9B0B5147958C40098C183 /* cpCCNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B097147958C40098C183 /* cpCCNode.m */; };
 		2CD9B0B6147958C40098C183 /* cpCCNodeImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B099147958C40098C183 /* cpCCNodeImpl.m */; };
 		2CD9B0B7147958C40098C183 /* cpCCSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B09B147958C40098C183 /* cpCCSprite.m */; };
@@ -240,7 +241,6 @@
 		2CEA3478145F66F9000FF575 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA3477145F66F9000FF575 /* main.m */; };
 		2CEA347B145F66F9000FF575 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA347A145F66F9000FF575 /* AppDelegate.m */; };
 		2CEA347E145F66F9000FF575 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA347D145F66F9000FF575 /* RootViewController.m */; };
-		2CEA3481145F66F9000FF575 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA3480145F66F9000FF575 /* GameLayer.m */; };
 		2CEA3483145F66F9000FF575 /* grossini_dance_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CEA3482145F66F9000FF575 /* grossini_dance_atlas.png */; };
 		2CEA35271466B1FB000FF575 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA35261466B1FB000FF575 /* Entity.m */; };
 		2CEA352B1466B21E000FF575 /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA352A1466B21E000FF575 /* Component.m */; };
@@ -342,6 +342,8 @@
 		2CD33EDC147D72BC000869C1 /* CocosGameContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CocosGameContainer.m; path = Classes/CocosGameContainer.m; sourceTree = "<group>"; };
 		2CD33EDF147DA028000869C1 /* ForwardLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForwardLayer.h; path = Classes/ForwardLayer.h; sourceTree = "<group>"; };
 		2CD33EE0147DA02A000869C1 /* ForwardLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForwardLayer.m; path = Classes/ForwardLayer.m; sourceTree = "<group>"; };
+		2CD33EE2147DAF60000869C1 /* Touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Touch.h; path = Classes/Touch.h; sourceTree = "<group>"; };
+		2CD33EE3147DAF62000869C1 /* Touch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Touch.m; path = Classes/Touch.m; sourceTree = "<group>"; };
 		2CD9B096147958C40098C183 /* cpCCNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpCCNode.h; sourceTree = "<group>"; };
 		2CD9B097147958C40098C183 /* cpCCNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cpCCNode.m; sourceTree = "<group>"; };
 		2CD9B098147958C40098C183 /* cpCCNodeImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpCCNodeImpl.h; sourceTree = "<group>"; };
@@ -695,8 +697,6 @@
 		2CEA347A145F66F9000FF575 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		2CEA347C145F66F9000FF575 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = Classes/RootViewController.h; sourceTree = "<group>"; };
 		2CEA347D145F66F9000FF575 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = Classes/RootViewController.m; sourceTree = "<group>"; };
-		2CEA347F145F66F9000FF575 /* GameLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameLayer.h; path = Classes/GameLayer.h; sourceTree = "<group>"; };
-		2CEA3480145F66F9000FF575 /* GameLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GameLayer.m; path = Classes/GameLayer.m; sourceTree = "<group>"; };
 		2CEA3482145F66F9000FF575 /* grossini_dance_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grossini_dance_atlas.png; path = Resources/grossini_dance_atlas.png; sourceTree = "<group>"; };
 		2CEA35251466B1FB000FF575 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = Entity.h; path = Classes/Artemis/Entity.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2CEA35261466B1FB000FF575 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = Entity.m; path = Classes/Artemis/Entity.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -1513,12 +1513,12 @@
 				2CD33EDC147D72BC000869C1 /* CocosGameContainer.m */,
 				2CD33ED9147D72BB000869C1 /* Beezle.h */,
 				2CD33EDA147D72BB000869C1 /* Beezle.m */,
-				2CEA347F145F66F9000FF575 /* GameLayer.h */,
-				2CEA3480145F66F9000FF575 /* GameLayer.m */,
 				2CAE05F914705F490023FA94 /* EntityFactory.h */,
 				2CAE05FA14705F4A0023FA94 /* EntityFactory.m */,
 				2CD33EDF147DA028000869C1 /* ForwardLayer.h */,
 				2CD33EE0147DA02A000869C1 /* ForwardLayer.m */,
+				2CD33EE2147DAF60000869C1 /* Touch.h */,
+				2CD33EE3147DAF62000869C1 /* Touch.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1843,7 +1843,6 @@
 				2CEA3478145F66F9000FF575 /* main.m in Sources */,
 				2CEA347B145F66F9000FF575 /* AppDelegate.m in Sources */,
 				2CEA347E145F66F9000FF575 /* RootViewController.m in Sources */,
-				2CEA3481145F66F9000FF575 /* GameLayer.m in Sources */,
 				2CEA35271466B1FB000FF575 /* Entity.m in Sources */,
 				2CEA352B1466B21E000FF575 /* Component.m in Sources */,
 				2CEA352E1466B2B5000FF575 /* RenderComponent.m in Sources */,
@@ -1896,6 +1895,7 @@
 				2CD33EDD147D72BC000869C1 /* Beezle.m in Sources */,
 				2CD33EDE147D72BC000869C1 /* CocosGameContainer.m in Sources */,
 				2CD33EE1147DA02B000869C1 /* ForwardLayer.m in Sources */,
+				2CD33EE4147DAF63000869C1 /* Touch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

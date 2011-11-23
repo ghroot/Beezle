@@ -13,10 +13,12 @@
 #import "DebugRenderPhysicsSystem.h"
 #import "EntityFactory.h"
 #import "ForwardLayer.h"
+#import "InputAction.h"
 #import "InputSystem.h"
 #import "PhysicsSystem.h"
 #import "RenderSystem.h"
 #import "SlingerControlSystem.h"
+#import "Touch.h"
 
 @implementation GameplayState
 
@@ -24,7 +26,7 @@
 {
     if (self = [super initWithId:gameStateId])
     {
-		_debug = TRUE;
+		_debug = FALSE;
 		_world = [[World alloc] init];
     }
     return self;
@@ -100,6 +102,24 @@
 	{
 		[_debugRenderPhysicsSystem process];
 	}
+}
+
+-(void) touchBegan:(Touch *)touch
+{
+    InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_START andTouchLocation:[touch point]] autorelease];
+    [_inputSystem pushInputAction:inputAction];
+}
+
+-(void) touchMoved:(Touch *)touch
+{
+    InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_MOVE andTouchLocation:[touch point]] autorelease];
+    [_inputSystem pushInputAction:inputAction];
+}
+
+-(void) touchEnded:(Touch *)touch
+{
+    InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_END andTouchLocation:[touch point]] autorelease];
+    [_inputSystem pushInputAction:inputAction];
 }
 
 @end

@@ -11,7 +11,6 @@
 
 @interface GameContainer()
 
--(void) setup;
 -(void) timerInterval:(NSTimer *)timer;
 
 @end

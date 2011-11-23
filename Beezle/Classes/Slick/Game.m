@@ -8,6 +8,7 @@
 
 #import "Game.h"
 #import "GameContainer.h"
+#import "Touch.h"
 
 @implementation Game
 
@@ -20,6 +21,18 @@
 }
 
 -(void) renderWithContainer:(GameContainer *)container
+{
+}
+
+-(void) touchBegan:(Touch *)touch
+{
+}
+
+-(void) touchMoved:(Touch *)touch
+{
+}
+
+-(void) touchEnded:(Touch *)touch
 {
 }
 
