@@ -7,8 +7,8 @@
 //
 
 #import "GameState.h"
-#import "GameContainer.h";
-#import "StateBasedGame.h";
+#import "GameContainer.h"
+#import "StateBasedGame.h"
 
 @implementation GameState
 

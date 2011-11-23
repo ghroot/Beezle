@@ -6,14 +6,18 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "cocos2d.h"
 #import "slick.h"
+
+@class ForwardLayer;
 
 @interface CocosGameContainer : GameContainer
 {
-	CCLayer *_layer;
+	ForwardLayer *_layer;
 }
 
-@property (nonatomic, readonly) CCLayer *layer;
+@property (nonatomic, readonly) ForwardLayer *layer;
+
+-(void) intervalUpdate:(NSNumber *)delta;
+-(void) intervalDraw;
 
 @end

@@ -9,13 +9,9 @@
 @class GameContainer;
 
 @interface Game : NSObject
-{
-	GameContainer *_container;
-}
 
-@property (nonatomic, assign) GameContainer *container;
-
--(void) update:(int)delta;
--(void) render;
+-(void) initialiseWithContainer:(GameContainer *)container;
+-(void) updateWithContainer:(GameContainer *)container andDelta:(int)delta;
+-(void) renderWithContainer:(GameContainer *)container;
 
 @end

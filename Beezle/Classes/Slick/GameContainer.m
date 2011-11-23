@@ -7,11 +7,12 @@
 //
 
 #import "GameContainer.h"
+#import "Game.h"
 
 @interface GameContainer()
 
+-(void) setup;
 -(void) timerInterval:(NSTimer *)timer;
--(void) updateAndRender:(int)delta;
 
 @end
 
@@ -22,39 +23,55 @@
     if (self = [super init])
     {
 		_game = game;
-		[_game setContainer:self];
     }
     return self;
 }
 
 -(void) start
 {
+    [self setup];
+    
 	_running = TRUE;
+    
+    [self startInterval];
+}
 
+-(void) startInterval
+{
 	float interval = 1.0f/60.0f;
-	_timer = [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:timerInterval userInfo:nil repeats:TRUE];
+	_timer = [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(timerInterval:) userInfo:nil repeats:TRUE];    
+}
+
+-(void) setup
+{
+    [_game initialiseWithContainer:self];
 }
 
 -(void) timerInterval:(NSTimer *)timer
 {
 	float delta = 1.0f/60.0f;
-	[self updateAndRender:delta];
+	[self update:delta];
+    [self render];
 }
 
--(void) updateAndRender:(int)delta
+-(void) update:(int)delta
 {
 	if (_running)
 	{
 		if (!_paused)
 		{
-			[_game update:delta];
+			[_game updateWithContainer:self andDelta:delta];
 		}
 		else
 		{
-			[_game update:0];
+			[_game updateWithContainer:self andDelta:0];
 		}
 	}
-	[_game render];
+}
+
+-(void) render
+{
+    [_game renderWithContainer:self];
 }
 
 -(void) pause

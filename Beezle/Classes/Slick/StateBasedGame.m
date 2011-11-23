@@ -7,6 +7,7 @@
 //
 
 #import "StateBasedGame.h"
+#import "GameState.h"
 
 @implementation StateBasedGame
 
@@ -36,12 +37,12 @@
 	if (_currentState != nil)
 	{
 		// Leave current state before entering a new state
-		[_currentState leaveWithContainer:_container andStateBasedGame:self];
+		[_currentState leaveWithContainer:_container andGame:self];
 	}
 	
 	_currentState = [self getState:stateId];
 	
-	[_currentState enterWithContainer:_container andStateBasedGame:self];
+	[_currentState enterWithContainer:_container andGame:self];
 }
 
 -(GameState *) getCurrentState
@@ -64,22 +65,32 @@
 
 -(GameState *) getState:(int)stateId
 {
-	return [_statesById objectWithKey:[NSNumber numberWithInt:stateId]];
+	return [_statesById objectForKey:[NSNumber numberWithInt:stateId]];
 }
 
--(void) update:(int)delta
+-(void) initialiseWithContainer:(GameContainer *)container
+{
+    _container = container;
+    
+    for (GameState *state in [_statesById allValues])
+    {
+        [state initialiseWithContainer:_container andGame:self];
+    }
+}
+
+-(void) updateWithContainer:(GameContainer *)container andDelta:(int)delta
 {
 	if (_currentState != nil)
 	{
-		[_currentState updateWithContainer:_container andStateBasedGame:self delta:delta];
+		[_currentState updateWithContainer:_container andGame:self delta:delta];
 	}
 }
 
--(void) render
+-(void) renderWithContainer:(GameContainer *)container
 {
 	if (_currentState != nil)
 	{
-		[_currentState renderWithContainer:_container andStateBasedGame:self];
+		[_currentState renderWithContainer:_container andGame:self];
 	}
 }
 

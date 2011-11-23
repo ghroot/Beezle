@@ -11,13 +11,15 @@
 
 @implementation Game
 
-@synthesize container = _container;
-
--(void) update:(int)delta
+-(void) initialiseWithContainer:(GameContainer *)container
 {
 }
 
--(void) render
+-(void) updateWithContainer:(GameContainer *)container andDelta:(int)delta
+{
+}
+
+-(void) renderWithContainer:(GameContainer *)container
 {
 }
 

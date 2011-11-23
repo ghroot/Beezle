@@ -7,6 +7,7 @@
 //
 
 #import "Beezle.h"
+#import "GameplayState.h"
 
 typedef enum {
 	STATE_MENU,

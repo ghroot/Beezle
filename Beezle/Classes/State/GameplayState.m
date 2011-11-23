@@ -11,6 +11,8 @@
 #import "CocosGameContainer.h"
 #import "CollisionSystem.h"
 #import "DebugRenderPhysicsSystem.h"
+#import "EntityFactory.h"
+#import "ForwardLayer.h"
 #import "InputSystem.h"
 #import "PhysicsSystem.h"
 #import "RenderSystem.h"
@@ -69,6 +71,14 @@
 	[systemManager setSystem:_slingerControlSystem];
 	_boundrySystem = [[BoundrySystem alloc] init];
 	[systemManager setSystem:_boundrySystem];
+    
+    [systemManager initialiseAll];
+    
+    [EntityFactory createBackground:_world withFileName:@"Background-01.jpg"];
+    [EntityFactory createSlinger:_world withPosition:CGPointMake(150, 250)];
+    [EntityFactory createRamp:_world withPosition:CGPointMake(150, 100) andRotation:0.0f];
+    [EntityFactory createRamp:_world withPosition:CGPointMake(150, 140) andRotation:0.1f];
+    [EntityFactory createRamp:_world withPosition:CGPointMake(150, 180) andRotation:-0.1f];
 }
 
 -(void) updateWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game delta:(int)delta

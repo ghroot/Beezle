@@ -11,6 +11,7 @@
 
 @interface StateBasedGame : Game
 {
+    GameContainer *_container;
 	NSMutableDictionary *_statesById;
 	GameState *_currentState;
 }

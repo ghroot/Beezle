@@ -12,12 +12,15 @@
 {
 	Game *_game;
 	NSTimer *_timer;
-	BOOL *_running;
-	BOOL *_paused;
+	BOOL _running;
+	BOOL _paused;
 }
 
 -(id) initWithGame:(Game *)game;
 -(void) start;
+-(void) startInterval;
+-(void) update:(int)delta;
+-(void) render;
 -(void) pause;
 -(void) resume;
 -(void) exit;
