@@ -18,7 +18,7 @@
 
 -(id) init
 {
-    self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], nil] andTag:@"SLINGER"];
+    self = [super initWithTag:@"SLINGER"];
     return self;
 }
 

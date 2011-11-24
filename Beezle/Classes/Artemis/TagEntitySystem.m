@@ -34,9 +34,9 @@
 
 @implementation TagEntitySystem
 
--(id) initWithUsedComponentClasses:(NSArray *)usedComponentClasses andTag:(NSString *)tag;
+-(id) initWithTag:(NSString *)tag
 {
-    if (self = [super initWithUsedComponentClasses:usedComponentClasses])
+    if (self = [super init])
     {
         _tag = [tag retain];
     }
@@ -52,12 +52,18 @@
 
 -(void) processEntities:(NSArray *)entities
 {
-    Entity *taggedEntity = [[_world tagManager] getEntity:_tag];
+    Entity *taggedEntity = [_entities objectAtIndex:0];
     [self processTaggedEntity:taggedEntity];
 }
 
 -(void) processTaggedEntity:(Entity *)entity
 {
+}
+
+-(BOOL) shouldContainEntity:(Entity *)entity
+{
+	BOOL isTaggedEntity = entity == [[_world tagManager] getEntity:_tag];
+	return isTaggedEntity;
 }
 
 @end

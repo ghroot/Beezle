@@ -52,6 +52,7 @@
 -(void) registerEntity:(Entity *)entity withTag:(NSString *)tag
 {
     [_entitiesByTag setObject:entity forKey:tag];
+	[entity refresh];
 }
 
 -(Entity *) getEntity:(NSString *)tag
@@ -70,6 +71,7 @@
             break;
         }
     }
+	[entity refresh];
 }
 
 @end

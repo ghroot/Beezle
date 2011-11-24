@@ -34,13 +34,11 @@
 @interface EntitySystem : NSObject
 {
     World *_world;
-    NSArray *_usedComponentClasses;
     NSMutableArray *_entities;
 }
 
 @property (nonatomic, assign) World *world;
 
--(id) initWithUsedComponentClasses:(NSArray *)usedComponentClasses;
 -(void) begin;
 -(void) process;
 -(void) end;
@@ -50,6 +48,7 @@
 -(void) entityAdded:(Entity *)entity;
 -(void) entityRemoved:(Entity *)entity;
 -(void) entityChanged:(Entity *)entity;
+-(BOOL) shouldContainEntity:(Entity *)entity;
 -(void) removeEntity:(Entity *)entity;
 -(BOOL) hasEntity:(Entity *)entity;
 

@@ -61,6 +61,7 @@
         entitiesInGroup = [_entitiesByGroupName objectForKey:groupName];
     }
     [entitiesInGroup addObject:entity];
+	[entity refresh];
 }
 
 -(NSArray *) getEntitiesInGroup:(NSString *)groupName
@@ -87,6 +88,7 @@
             [entitiesInGroup removeObject:entity];
         }
     }
+	[entity refresh];
 }
 
 -(void) removeEntityFromAllGroups:(Entity *)entity
@@ -99,6 +101,7 @@
             [entitiesInGroup removeObject:entity];
         }
 	}
+	[entity refresh];
 }
 
 @end

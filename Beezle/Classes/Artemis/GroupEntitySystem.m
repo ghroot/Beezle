@@ -50,14 +50,27 @@
     [super dealloc];
 }
 
--(void) processEntities:(NSArray *)entities
+-(void) entityChanged:(Entity *)entity
 {
-    NSArray *entitiesInGroup = [[_world groupManager] getEntitiesInGroup:_groupName];
-    [self processEntitiesInGroup:entitiesInGroup];
+	NSArray *entitiesInGroup = [[_world groupManager] getEntitiesInGroup:_groupName];
+	BOOL isEntityInGroup = [entitiesInGroup contains:entity];
+    
+    if ([_entities containsObject:entity] && (!isEntityInGroup || [entity deleted]))
+    {
+        [self removeEntity:entity];
+    }
+    else if (![_entities containsObject:entity] && isEntityInGroup)
+    {
+        [_entities addObject:entity];
+        [self entityAdded:entity];
+    }
 }
 
--(void) processEntitiesInGroup:(NSArray *)entities
+-(BOOL) shouldContainEntity:(Entity *)entity
 {
+	NSArray *entitiesInGroup = [[_world groupManager] getEntitiesInGroup:_groupName];
+	BOOL isEntityInGroup = [entitiesInGroup contains:entity];
+	return isEntityInGroup;
 }
 
 @end

@@ -29,31 +29,23 @@
 */
 
 #import "EntitySystem.h"
-#import "Component.h"
 #import "Entity.h"
 
 @implementation EntitySystem
 
 @synthesize world = _world;
 
--(id) initWithUsedComponentClasses:(NSArray *)usedComponentClasses
+-(id) init
 {
     if (self = [super init])
     {
-        _usedComponentClasses = [usedComponentClasses retain];
         _entities = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
--(id) init
-{
-    return [self initWithUsedComponentClasses:[NSArray array]];
-}
-
 -(void) dealloc
 {
-    [_usedComponentClasses release];
     [_entities release];
     
     [super dealloc];
@@ -100,26 +92,21 @@
 
 -(void) entityChanged:(Entity *)entity
 {
-    BOOL hasAllUsedComponents = TRUE;
-    for (Class usedComponentClass in _usedComponentClasses)
-    {
-        Component *component = [entity getComponent:usedComponentClass];
-        if (component == nil || ![component enabled])
-        {
-            hasAllUsedComponents = FALSE;
-            break;
-        }
-    }
-    
-    if ([_entities containsObject:entity] && (!hasAllUsedComponents || [entity deleted]))
+    BOOL shouldBeInThisSystem = [self shouldContainEntity:entity];
+    if ([_entities containsObject:entity] && (!shouldBeInThisSystem || [entity deleted]))
     {
         [self removeEntity:entity];
     }
-    else if (![_entities containsObject:entity] && hasAllUsedComponents)
+    else if (![_entities containsObject:entity] && shouldBeInThisSystem)
     {
         [_entities addObject:entity];
         [self entityAdded:entity];
     }
+}
+
+-(BOOL) shouldContainEntity:(Entity *)entity
+{
+	return FALSE;
 }
 
 -(void) removeEntity:(Entity *)entity
