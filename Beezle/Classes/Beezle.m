@@ -16,14 +16,9 @@ typedef enum {
 
 @implementation Beezle
 
--(id) init
+-(void) initialiseStatesListWithContainer:(GameContainer *)container
 {
-	if (self = [super init])
-	{
-		[self addState:[[[GameplayState alloc] initWithId:STATE_GAMEPLAY] autorelease]];
-		[self enterState:STATE_GAMEPLAY];
-	}
-	return self;
+	[self addState:[[[GameplayState alloc] initWithId:STATE_GAMEPLAY] autorelease]];
 }
 
 @end

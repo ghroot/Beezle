@@ -18,6 +18,7 @@
 
 -(void) addState:(GameState *)state;
 -(void) enterState:(int)id;
+-(void) initialiseStatesListWithContainer:(GameContainer *)container;
 -(GameState *) getCurrentState;
 -(int) getCurrentStateId;
 -(GameState *) getState:(int)stateId;
