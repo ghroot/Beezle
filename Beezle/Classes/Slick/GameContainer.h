@@ -16,6 +16,8 @@
 	BOOL _paused;
 }
 
+@property (nonatomic, readonly) BOOL paused;
+
 -(id) initWithGame:(Game *)game;
 -(void) setup;
 -(void) start;

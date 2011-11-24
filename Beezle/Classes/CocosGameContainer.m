@@ -26,6 +26,7 @@
 {
     [super setup];
     
+    [_layer setTarget:self];
     [_layer setTouchBeganSelector:@selector(touchBegan:)];
     [_layer setTouchMovedSelector:@selector(touchMoved:)];
     [_layer setTouchEndedSelector:@selector(touchEnded:)];
@@ -33,7 +34,6 @@
 
 -(void) startInterval
 {
-    [_layer setTarget:self];
     [_layer setUpdateSelector:@selector(intervalUpdate:)];
     [_layer setDrawSelector:@selector(intervalDraw)];
     [_layer scheduleUpdate];

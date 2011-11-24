@@ -54,7 +54,7 @@
 {
     if (_updateSelector != nil)
     {
-        [_target performSelector:_updateSelector withObject:[NSNumber numberWithFloat:delta]];
+        [_target performSelector:_updateSelector withObject:[NSNumber numberWithInt:1000 * delta]];
     }
 }
 

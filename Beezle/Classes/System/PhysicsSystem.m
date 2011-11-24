@@ -136,8 +136,8 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
 -(void) begin
 {
     int steps = 2;
-    CGFloat dt = [[CCDirector sharedDirector] animationInterval] / (CGFloat)steps;
-
+    CGFloat dt = [_world delta] == 0 ? 0.0f : ([_world delta] / 1000.0f) / (CGFloat)steps;
+    
     for (int i = 0; i < steps; i++)
     {
         cpSpaceStep(_space, dt);

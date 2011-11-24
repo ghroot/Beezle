@@ -20,7 +20,7 @@ typedef enum {
 {
 	if (self = [super init])
 	{
-		[self addState:[[GameplayState alloc] initWithId:STATE_GAMEPLAY]];
+		[self addState:[[[GameplayState alloc] initWithId:STATE_GAMEPLAY] autorelease]];
 		[self enterState:STATE_GAMEPLAY];
 	}
 	return self;

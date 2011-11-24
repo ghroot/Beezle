@@ -104,19 +104,19 @@
 	}
 }
 
--(void) touchBegan:(Touch *)touch
+-(void) touchBeganWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch
 {
     InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_START andTouchLocation:[touch point]] autorelease];
     [_inputSystem pushInputAction:inputAction];
 }
 
--(void) touchMoved:(Touch *)touch
+-(void) touchMovedWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch
 {
     InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_MOVE andTouchLocation:[touch point]] autorelease];
     [_inputSystem pushInputAction:inputAction];
 }
 
--(void) touchEnded:(Touch *)touch
+-(void) touchEndedWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch
 {
     InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_END andTouchLocation:[touch point]] autorelease];
     [_inputSystem pushInputAction:inputAction];

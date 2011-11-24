@@ -6,6 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import "Game.h"
 #import "GameContainer.h"
 #import "GameState.h"
 #import "StateBasedGame.h"

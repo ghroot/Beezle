@@ -23,8 +23,8 @@
 -(void) updateWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game delta:(int)delta;
 -(void) renderWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game;
 -(void) leaveWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game;
--(void) touchBegan:(Touch *)touch;
--(void) touchMoved:(Touch *)touch;
--(void) touchEnded:(Touch *)touch;
+-(void) touchBeganWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch;
+-(void) touchMovedWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch;
+-(void) touchEndedWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch;
 
 @end

@@ -17,6 +17,8 @@
 
 @implementation GameContainer
 
+@synthesize paused = _paused;
+
 -(id) initWithGame:(Game *)game
 {
     if (self = [super init])
@@ -85,8 +87,11 @@
 
 -(void) exit
 {
-	[_timer invalidate];
-	_timer = nil;
+    if (_timer != nil)
+    {
+        [_timer invalidate];
+        _timer = nil;
+    }
 	
 	_running = FALSE;
 }

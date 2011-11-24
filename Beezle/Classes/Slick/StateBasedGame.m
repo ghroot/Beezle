@@ -99,7 +99,7 @@
 {
     if (_currentState != nil)
 	{
-		[_currentState touchBegan:touch];
+		[_currentState touchBeganWithContainer:_container andGame:self touch:touch];
 	}
 }
 
@@ -107,7 +107,7 @@
 {
     if (_currentState != nil)
 	{
-		[_currentState touchMoved:touch];
+		[_currentState touchMovedWithContainer:_container andGame:self touch:touch];
 	}
 }
 
@@ -115,7 +115,7 @@
 {
     if (_currentState != nil)
 	{
-		[_currentState touchEnded:touch];
+		[_currentState touchEndedWithContainer:_container andGame:self touch:touch];
 	}
 }
 
