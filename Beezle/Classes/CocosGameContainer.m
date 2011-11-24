@@ -30,6 +30,10 @@
     [_layer setTouchBeganSelector:@selector(touchBegan:)];
     [_layer setTouchMovedSelector:@selector(touchMoved:)];
     [_layer setTouchEndedSelector:@selector(touchEnded:)];
+    
+    CCScene *scene = [CCScene node];
+    [scene addChild:_layer];
+    [[CCDirector sharedDirector] runWithScene:scene];
 }
 
 -(void) startInterval

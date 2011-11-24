@@ -90,16 +90,10 @@
 	// Removes the startup flicker
 	[self removeStartupFlicker];
 	
-	// Create scene
-	CCScene *scene = [CCScene node];
-	
+	// Create game
 	_beezle = [[Beezle alloc] init];
 	_container = [[CocosGameContainer alloc] initWithGame:_beezle];
-	[scene addChild:[_container layer]];
 	[_container start];
-
-	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene:scene];
 }
 
 
