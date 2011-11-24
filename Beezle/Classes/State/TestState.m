@@ -71,6 +71,13 @@
     [systemManager initialiseAll];
     
     [_label setPosition:CGPointMake(15, 310)];
+}
+
+-(void) enterWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
+{
+    CocosGameContainer *cocosGameContainer = (CocosGameContainer *)container;
+	CCLayer *layer = [cocosGameContainer layer];
+    
     [layer addChild:_label];
 }
 
@@ -83,6 +90,14 @@
     
     NSArray *entities = [[_world groupManager] getEntitiesInGroup:@"ENTITIES"];
     [_label setString:[NSString stringWithFormat:@"%i", [entities count]]];
+}
+
+-(void) leaveWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
+{
+    CocosGameContainer *cocosGameContainer = (CocosGameContainer *)container;
+	CCLayer *layer = [cocosGameContainer layer];
+    
+    [layer removeChild:_label cleanup:TRUE];
 }
 
 -(void) touchBeganWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch

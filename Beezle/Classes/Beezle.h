@@ -8,6 +8,12 @@
 
 #import "slick.h"
 
+typedef enum {
+	STATE_MENU,
+	STATE_GAMEPLAY,
+    STATE_TEST,
+} gameStates;
+
 @interface Beezle : StateBasedGame
 
 @end

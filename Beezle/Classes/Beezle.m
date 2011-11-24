@@ -8,19 +8,15 @@
 
 #import "Beezle.h"
 #import "GameplayState.h"
+#import "MenuState.h"
 #import "TestState.h"
-
-typedef enum {
-	STATE_MENU,
-	STATE_GAMEPLAY,
-    STATE_TEST,
-} gameStates;
 
 @implementation Beezle
 
 -(void) initialiseStatesListWithContainer:(GameContainer *)container
 {
-//    [self addState:[[[TestState alloc] initWithId:STATE_TEST] autorelease]];
+    [self addState:[[[MenuState alloc] initWithId:STATE_MENU] autorelease]];
+    [self addState:[[[TestState alloc] initWithId:STATE_TEST] autorelease]];
 	[self addState:[[[GameplayState alloc] initWithId:STATE_GAMEPLAY] autorelease]];
 }
 
