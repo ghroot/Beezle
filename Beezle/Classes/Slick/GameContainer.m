@@ -17,6 +17,7 @@
 
 @implementation GameContainer
 
+@synthesize updateInterval = _updateInterval;
 @synthesize paused = _paused;
 
 -(id) initWithGame:(Game *)game
@@ -39,8 +40,7 @@
 
 -(void) startInterval
 {
-	float interval = 1.0f/60.0f;
-	_timer = [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(timerInterval:) userInfo:nil repeats:TRUE];    
+	_timer = [NSTimer scheduledTimerWithTimeInterval:_updateInterval target:self selector:@selector(timerInterval:) userInfo:nil repeats:TRUE];    
 }
 
 -(void) setup
@@ -50,8 +50,7 @@
 
 -(void) timerInterval:(NSTimer *)timer
 {
-	float delta = 1.0f/60.0f;
-	[self update:delta];
+	[self update:_updateInterval];
     [self render];
 }
 

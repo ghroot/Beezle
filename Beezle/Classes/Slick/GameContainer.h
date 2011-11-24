@@ -12,10 +12,12 @@
 {
 	Game *_game;
 	NSTimer *_timer;
+	float _updateInterval;
 	BOOL _running;
 	BOOL _paused;
 }
 
+@property (nonatomic) float updateInterval;
 @property (nonatomic, readonly) BOOL paused;
 
 -(id) initWithGame:(Game *)game;

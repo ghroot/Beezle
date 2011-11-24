@@ -45,7 +45,7 @@
 	
 	// Init the View Controller
 	_viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
-	_viewController.wantsFullScreenLayout = YES;
+	_viewController.wantsFullScreenLayout = TRUE;
 	
 	//
 	// Create the EAGLView manually
@@ -62,19 +62,18 @@
 	[director setOpenGLView:glView];
 	
 	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
-//	if( ! [director enableRetinaDisplay:YES] )
+//	if( ! [director enableRetinaDisplay:TRUE] )
 //		CCLOG(@"Retina Display Not supported");
-		
-	[director setAnimationInterval:1.0f/60.0f];
+
 	[director setDisplayFPS:TRUE];
 	
-	// enable multi touches
-	[glView setMultipleTouchEnabled:TRUE];
+	// Enable multi touches
+//	[glView setMultipleTouchEnabled:TRUE];
 
-	// make the OpenGLView a child of the view controller
+	// Make the OpenGLView a child of the view controller
 	[_viewController setView:glView];
 	
-	// make the View Controller a child of the main window
+	// Make the View Controller a child of the main window
 	[_window addSubview: _viewController.view];
 	
 	[_window makeKeyAndVisible];
@@ -85,7 +84,7 @@
 	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
 	
 	// PVR Textures have alpha premultiplied
-	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
+	[CCTexture2D PVRImagesHavePremultipliedAlpha:TRUE];
 	
 	// Removes the startup flicker
 	[self removeStartupFlicker];
@@ -93,6 +92,7 @@
 	// Create game
 	_beezle = [[Beezle alloc] init];
 	_container = [[CocosGameContainer alloc] initWithGame:_beezle];
+	[_container setUpdateInterval:(1.0f / 60.0f)];
 	[_container start];
 }
 

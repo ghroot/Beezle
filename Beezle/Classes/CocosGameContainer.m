@@ -40,12 +40,14 @@
 {
     [_layer setUpdateSelector:@selector(intervalUpdate:)];
     [_layer setDrawSelector:@selector(intervalDraw)];
+	
+	[[CCDirector sharedDirector] setAnimationInterval:_updateInterval];
     [_layer scheduleUpdate];
 }
 
 -(void) intervalUpdate:(NSNumber *)delta
 {
-    [self update:[delta floatValue]];
+    [self update:[delta intValue]];
 }
 
 -(void) intervalDraw
