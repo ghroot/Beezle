@@ -20,6 +20,13 @@
     return self;
 }
 
+-(void) dealloc
+{
+    [_entitiesByTag release];
+    
+    [super dealloc];
+}
+
 -(void) registerEntity:(Entity *)entity withTag:(NSString *)tag
 {
     [_entitiesByTag setObject:entity forKey:tag];
@@ -30,7 +37,7 @@
     return [_entitiesByTag objectForKey:tag];
 }
 
--(void) remove:(Entity *)entity
+-(void) removeEntity:(Entity *)entity
 {
     for (NSString *tag in [_entitiesByTag allKeys])
     {
@@ -41,13 +48,6 @@
             break;
         }
     }
-}
-
--(void) dealloc
-{
-    [_entitiesByTag release];
-    
-    [super dealloc];
 }
 
 @end

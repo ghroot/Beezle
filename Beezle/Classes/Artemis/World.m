@@ -91,7 +91,8 @@
         for (Entity *entity in _deleted)
         {
             [_entityManager removeEntity:entity];
-            [_tagManager remove:entity];
+            [_tagManager removeEntity:entity];
+			[_groupManager removeEntityFromAllGroups];
         }
         [_deleted removeAllObjects];
     }

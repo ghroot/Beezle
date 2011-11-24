@@ -67,4 +67,16 @@
     }
 }
 
+-(void) removeEntityFromAllGroups:(Entity *)entity
+{
+	for (NSString *groupName in [_entitiesByGroupName allKeys])
+	{
+		NSMutableArray *entitiesInGroup = [_entitiesByGroupName objectForKey:groupName];
+        if ([entitiesInGroup containsObject:entity])
+        {
+            [entitiesInGroup removeObject:entity];
+        }
+	}
+}
+
 @end
