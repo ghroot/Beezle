@@ -52,8 +52,11 @@
 
 -(void) processEntities:(NSArray *)entities
 {
-    Entity *taggedEntity = [_entities objectAtIndex:0];
-    [self processTaggedEntity:taggedEntity];
+    if ([_entities count] > 0)
+    {
+        Entity *taggedEntity = [_entities objectAtIndex:0];
+        [self processTaggedEntity:taggedEntity];
+    }
 }
 
 -(void) processTaggedEntity:(Entity *)entity
