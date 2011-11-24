@@ -29,6 +29,7 @@
 */
 
 #import "GroupManager.h"
+#import "Entity.h"
 
 @implementation GroupManager
 

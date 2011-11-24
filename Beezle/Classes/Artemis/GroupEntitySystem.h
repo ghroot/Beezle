@@ -38,6 +38,5 @@
 }
 
 -(id) initWithGroup:(NSString *)groupName;
--(void) processEntitiesInGroup:(NSArray *)entities;
 
 @end

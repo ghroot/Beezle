@@ -28,11 +28,11 @@
 * or implied, of GAMADU.COM.
 */
 
-#import "EntitySystem.h"
+#import "EntityComponentSystem.h"
 
 @class Entity;
 
-@interface EntityProcessingSystem : EntitySystem
+@interface EntityProcessingSystem : EntityComponentSystem
 
 -(void) processEntity:(Entity *)entity;
 

@@ -114,7 +114,7 @@
         {
             [_entityManager removeEntity:entity];
             [_tagManager removeEntity:entity];
-			[_groupManager removeEntityFromAllGroups];
+			[_groupManager removeEntityFromAllGroups:entity];
         }
         [_deleted removeAllObjects];
     }

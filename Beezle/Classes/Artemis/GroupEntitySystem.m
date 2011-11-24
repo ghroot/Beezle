@@ -50,26 +50,10 @@
     [super dealloc];
 }
 
--(void) entityChanged:(Entity *)entity
-{
-	NSArray *entitiesInGroup = [[_world groupManager] getEntitiesInGroup:_groupName];
-	BOOL isEntityInGroup = [entitiesInGroup contains:entity];
-    
-    if ([_entities containsObject:entity] && (!isEntityInGroup || [entity deleted]))
-    {
-        [self removeEntity:entity];
-    }
-    else if (![_entities containsObject:entity] && isEntityInGroup)
-    {
-        [_entities addObject:entity];
-        [self entityAdded:entity];
-    }
-}
-
 -(BOOL) shouldContainEntity:(Entity *)entity
 {
 	NSArray *entitiesInGroup = [[_world groupManager] getEntitiesInGroup:_groupName];
-	BOOL isEntityInGroup = [entitiesInGroup contains:entity];
+	BOOL isEntityInGroup = [entitiesInGroup containsObject:entity];
 	return isEntityInGroup;
 }
 
