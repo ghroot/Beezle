@@ -97,14 +97,10 @@
 
 -(void) refreshEntity:(Entity *)entity
 {
-    NSArray *systems = [[_world systemManager] systems];
-    for (System *system in systems)
+    NSArray *entitySystems = [[_world systemManager] entitySystems];
+    for (EntitySystem *entitySystem in entitySystems)
     {
-        if ([system isKindOfClass:[EntitySystem class]])
-        {
-            EntitySystem *entitySystem = (EntitySystem *)system;
-            [entitySystem entityChanged:entity];
-        }
+        [entitySystem entityChanged:entity];
     }
 }
 

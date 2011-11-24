@@ -29,6 +29,7 @@
 */
 
 #import "SystemManager.h"
+#import "EntitySystem.h"
 #import "System.h"
 #import "World.h"
 
@@ -65,6 +66,19 @@
         }
     }
     return systemToReturn;
+}
+
+-(NSArray *) entitySystems
+{
+    NSMutableArray *entitySystems = [NSMutableArray array];
+    for (System *system in _systems)
+    {
+        if ([system isKindOfClass:[EntitySystem class]])
+        {
+            [entitySystems addObject:system];
+        }
+    }
+    return entitySystems;
 }
 
 -(void) initialiseAll

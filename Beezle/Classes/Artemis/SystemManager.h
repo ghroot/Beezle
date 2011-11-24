@@ -42,6 +42,7 @@
 -(id) initWithWorld:(World *)world;
 -(System *) setSystem:(System *)system;
 -(System *) getSystem:(Class)systemClass;
+-(NSArray *) entitySystems;
 -(void) initialiseAll;
 -(void) processAll;
 
