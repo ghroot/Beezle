@@ -19,7 +19,6 @@
 		2C7CE5FD1469D21A001F331F /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5FC1469D219001F331F /* EntityManager.m */; };
 		2C7CE60F146B1FEE001F331F /* SystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE60E146B1FEE001F331F /* SystemManager.m */; };
 		2C7CE612146B2846001F331F /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE611146B2846001F331F /* World.m */; };
-		2C7CE616146C6415001F331F /* EntityProcessingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE615146C6415001F331F /* EntityProcessingSystem.m */; };
 		2C7CE61C146C73FE001F331F /* InputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE61B146C73FE001F331F /* InputSystem.m */; };
 		2C7CE61F146C81B5001F331F /* TagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE61E146C81B5001F331F /* TagManager.m */; };
 		2C7CE622146FD670001F331F /* SlingerControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE621146FD66F001F331F /* SlingerControlSystem.m */; };
@@ -54,6 +53,9 @@
 		2CD33EE1147DA02B000869C1 /* ForwardLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE0147DA02A000869C1 /* ForwardLayer.m */; };
 		2CD33EE4147DAF63000869C1 /* Touch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE3147DAF62000869C1 /* Touch.m */; };
 		2CD33EE7147EE3C6000869C1 /* EntityComponentSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE6147EE3C6000869C1 /* EntityComponentSystem.m */; };
+		2CD33EEA147EE7AD000869C1 /* TestState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE9147EE7AD000869C1 /* TestState.m */; };
+		2CD33EED147EEA4F000869C1 /* System.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EEC147EEA4E000869C1 /* System.m */; };
+		2CD33EF0147EF144000869C1 /* TestEntitySpawningSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EEF147EF143000869C1 /* TestEntitySpawningSystem.m */; };
 		2CD9B0B5147958C40098C183 /* cpCCNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B097147958C40098C183 /* cpCCNode.m */; };
 		2CD9B0B6147958C40098C183 /* cpCCNodeImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B099147958C40098C183 /* cpCCNodeImpl.m */; };
 		2CD9B0B7147958C40098C183 /* cpCCSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B09B147958C40098C183 /* cpCCSprite.m */; };
@@ -282,8 +284,6 @@
 		2C7CE60E146B1FEE001F331F /* SystemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemManager.m; path = Classes/Artemis/SystemManager.m; sourceTree = "<group>"; };
 		2C7CE610146B2845001F331F /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = World.h; path = Classes/Artemis/World.h; sourceTree = "<group>"; };
 		2C7CE611146B2846001F331F /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = World.m; path = Classes/Artemis/World.m; sourceTree = "<group>"; };
-		2C7CE614146C6415001F331F /* EntityProcessingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityProcessingSystem.h; path = Classes/Artemis/EntityProcessingSystem.h; sourceTree = "<group>"; };
-		2C7CE615146C6415001F331F /* EntityProcessingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityProcessingSystem.m; path = Classes/Artemis/EntityProcessingSystem.m; sourceTree = "<group>"; };
 		2C7CE61A146C73FE001F331F /* InputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputSystem.h; path = Classes/System/InputSystem.h; sourceTree = "<group>"; };
 		2C7CE61B146C73FE001F331F /* InputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputSystem.m; path = Classes/System/InputSystem.m; sourceTree = "<group>"; };
 		2C7CE61D146C81B4001F331F /* TagManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagManager.h; path = Classes/Artemis/TagManager.h; sourceTree = "<group>"; };
@@ -347,6 +347,12 @@
 		2CD33EE3147DAF62000869C1 /* Touch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Touch.m; path = Classes/Touch.m; sourceTree = "<group>"; };
 		2CD33EE5147EE3C6000869C1 /* EntityComponentSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityComponentSystem.h; path = Classes/Artemis/EntityComponentSystem.h; sourceTree = "<group>"; };
 		2CD33EE6147EE3C6000869C1 /* EntityComponentSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityComponentSystem.m; path = Classes/Artemis/EntityComponentSystem.m; sourceTree = "<group>"; };
+		2CD33EE8147EE7AD000869C1 /* TestState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestState.h; sourceTree = "<group>"; };
+		2CD33EE9147EE7AD000869C1 /* TestState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestState.m; sourceTree = "<group>"; };
+		2CD33EEB147EEA4D000869C1 /* System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System.h; path = Classes/Artemis/System.h; sourceTree = "<group>"; };
+		2CD33EEC147EEA4E000869C1 /* System.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System.m; path = Classes/Artemis/System.m; sourceTree = "<group>"; };
+		2CD33EEE147EF142000869C1 /* TestEntitySpawningSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestEntitySpawningSystem.h; path = Classes/System/TestEntitySpawningSystem.h; sourceTree = "<group>"; };
+		2CD33EEF147EF143000869C1 /* TestEntitySpawningSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestEntitySpawningSystem.m; path = Classes/System/TestEntitySpawningSystem.m; sourceTree = "<group>"; };
 		2CD9B096147958C40098C183 /* cpCCNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpCCNode.h; sourceTree = "<group>"; };
 		2CD9B097147958C40098C183 /* cpCCNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cpCCNode.m; sourceTree = "<group>"; };
 		2CD9B098147958C40098C183 /* cpCCNodeImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpCCNodeImpl.h; sourceTree = "<group>"; };
@@ -771,6 +777,8 @@
 				2CADCC7614732ADB00302475 /* CollisionSystem.m */,
 				2CADCC781473314B00302475 /* Collision.h */,
 				2CADCC791473314C00302475 /* Collision.m */,
+				2CD33EEE147EF142000869C1 /* TestEntitySpawningSystem.h */,
+				2CD33EEF147EF143000869C1 /* TestEntitySpawningSystem.m */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -779,12 +787,12 @@
 			isa = PBXGroup;
 			children = (
 				2CA9E39F147AF9910058C496 /* artemis.h */,
+				2CD33EEB147EEA4D000869C1 /* System.h */,
+				2CD33EEC147EEA4E000869C1 /* System.m */,
 				2CBA7B621469AC1D006CBCB4 /* EntitySystem.h */,
 				2CBA7B631469AC1D006CBCB4 /* EntitySystem.m */,
 				2CD33EE5147EE3C6000869C1 /* EntityComponentSystem.h */,
 				2CD33EE6147EE3C6000869C1 /* EntityComponentSystem.m */,
-				2C7CE614146C6415001F331F /* EntityProcessingSystem.h */,
-				2C7CE615146C6415001F331F /* EntityProcessingSystem.m */,
 				2C44B5B5147B194C000CF537 /* TagEntitySystem.h */,
 				2C44B5B6147B194C000CF537 /* TagEntitySystem.m */,
 				2C44B5B9147B1960000CF537 /* GroupEntitySystem.h */,
@@ -859,6 +867,8 @@
 			children = (
 				2CD33ED6147D72AD000869C1 /* GameplayState.h */,
 				2CD33ED7147D72AD000869C1 /* GameplayState.m */,
+				2CD33EE8147EE7AD000869C1 /* TestState.h */,
+				2CD33EE9147EE7AD000869C1 /* TestState.m */,
 			);
 			name = State;
 			path = Classes/State;
@@ -1859,7 +1869,6 @@
 				2C7CE5FD1469D21A001F331F /* EntityManager.m in Sources */,
 				2C7CE60F146B1FEE001F331F /* SystemManager.m in Sources */,
 				2C7CE612146B2846001F331F /* World.m in Sources */,
-				2C7CE616146C6415001F331F /* EntityProcessingSystem.m in Sources */,
 				2C7CE61C146C73FE001F331F /* InputSystem.m in Sources */,
 				2C7CE61F146C81B5001F331F /* TagManager.m in Sources */,
 				2C7CE622146FD670001F331F /* SlingerControlSystem.m in Sources */,
@@ -1902,6 +1911,9 @@
 				2CD33EE1147DA02B000869C1 /* ForwardLayer.m in Sources */,
 				2CD33EE4147DAF63000869C1 /* Touch.m in Sources */,
 				2CD33EE7147EE3C6000869C1 /* EntityComponentSystem.m in Sources */,
+				2CD33EEA147EE7AD000869C1 /* TestState.m in Sources */,
+				2CD33EED147EEA4F000869C1 /* System.m in Sources */,
+				2CD33EF0147EF144000869C1 /* TestEntitySpawningSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

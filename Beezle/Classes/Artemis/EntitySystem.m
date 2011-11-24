@@ -33,8 +33,6 @@
 
 @implementation EntitySystem
 
-@synthesize world = _world;
-
 -(id) init
 {
     if (self = [super init])
@@ -57,12 +55,9 @@
 
 -(void) process
 {
-    if ([self checkProcessing])
-    {
-        [self begin];
-        [self processEntities:_entities];
-        [self end];
-    }
+    [self begin];
+    [self processEntities:_entities];
+    [self end];
 }
 
 -(void) end
@@ -71,14 +66,13 @@
 
 -(void) processEntities:(NSArray *)entities
 {
+    for (Entity *entity in entities)
+    {
+        [self processEntity:entity];
+    }
 }
 
--(BOOL) checkProcessing
-{
-    return TRUE;
-}
-
--(void) initialise
+-(void) processEntity:(Entity *)entity
 {
 }
 

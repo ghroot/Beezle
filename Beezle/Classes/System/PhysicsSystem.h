@@ -6,12 +6,12 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "EntityProcessingSystem.h"
+#import "EntityComponentSystem.h"
 #import "artemis.h"
 #import "chipmunk.h"
 #import "cocos2d.h"
 
-@interface PhysicsSystem : EntityProcessingSystem
+@interface PhysicsSystem : EntityComponentSystem
 {
     cpSpace *_space;
     cpShape *_walls[4];

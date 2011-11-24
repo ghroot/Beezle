@@ -6,9 +6,9 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "EntityProcessingSystem.h"
+#import "EntityComponentSystem.h"
 #import "artemis.h"
 
-@interface BoundrySystem : EntityProcessingSystem
+@interface BoundrySystem : EntityComponentSystem
 
 @end

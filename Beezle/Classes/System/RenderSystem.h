@@ -6,11 +6,11 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "EntityProcessingSystem.h"
+#import "EntityComponentSystem.h"
 #import "artemis.h"
 #import "cocos2d.h"
 
-@interface RenderSystem : EntityProcessingSystem
+@interface RenderSystem : EntityComponentSystem
 {
     CCLayer *_layer;
 }

@@ -29,7 +29,7 @@
 */
 
 #import "SystemManager.h"
-#import "EntitySystem.h"
+#import "System.h"
 #import "World.h"
 
 @implementation SystemManager
@@ -46,17 +46,17 @@
     return self;
 }
 
--(EntitySystem *) setSystem:(EntitySystem *)system
+-(System *) setSystem:(System *)system
 {
     [system setWorld:_world];
     [_systems addObject:system];
     return system;
 }
 
--(EntitySystem *) getSystem:(Class)systemClass
+-(System *) getSystem:(Class)systemClass
 {
-    EntitySystem *systemToReturn = NULL;
-    for (EntitySystem *system in _systems)
+    System *systemToReturn = NULL;
+    for (System *system in _systems)
     {
         if ([system isKindOfClass:systemClass])
         {
@@ -69,7 +69,7 @@
 
 -(void) initialiseAll
 {
-    for (EntitySystem *system in _systems)
+    for (System *system in _systems)
     {
         [system initialise];
     }
@@ -77,7 +77,7 @@
 
 -(void) processAll
 {
-    for (EntitySystem *system in _systems)
+    for (System *system in _systems)
     {
         [system process];
     }

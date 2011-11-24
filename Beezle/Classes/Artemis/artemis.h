@@ -28,11 +28,15 @@
 * or implied, of GAMADU.COM.
 */
 
-#import "EntitySystem.h"
-#import "EntityProcessingSystem.h"
-#import "EntityManager.h"
-#import "Entity.h"
 #import "Component.h"
+#import "Entity.h"
+#import "EntityComponentSystem.h"
+#import "EntitySystem.h"
+#import "EntityManager.h"
+#import "GroupEntitySystem.h"
+#import "GroupManager.h"
+#import "System.h"
 #import "SystemManager.h"
 #import "World.h"
+#import "TagEntitySystem.h"
 #import "TagManager.h"
