@@ -18,10 +18,10 @@
 
 @property (nonatomic, readonly) ForwardLayer *layer;
 
--(void) intervalUpdate:(NSNumber *)delta;
--(void) intervalDraw;
--(void) touchBegan:(Touch *)touch;
--(void) touchMoved:(Touch *)touch;
--(void) touchEnded:(Touch *)touch;
+-(void) onUpdate:(NSNumber *)delta;
+-(void) onDraw;
+-(void) onTouchBegan:(Touch *)touch;
+-(void) onTouchMoved:(Touch *)touch;
+-(void) onTouchEnded:(Touch *)touch;
 
 @end

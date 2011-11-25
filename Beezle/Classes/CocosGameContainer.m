@@ -27,9 +27,9 @@
     [super setup];
     
     [_layer setTarget:self];
-    [_layer setTouchBeganSelector:@selector(touchBegan:)];
-    [_layer setTouchMovedSelector:@selector(touchMoved:)];
-    [_layer setTouchEndedSelector:@selector(touchEnded:)];
+    [_layer setTouchBeganSelector:@selector(onTouchBegan:)];
+    [_layer setTouchMovedSelector:@selector(onTouchMoved:)];
+    [_layer setTouchEndedSelector:@selector(onTouchEnded:)];
     
     CCScene *scene = [CCScene node];
     [scene addChild:_layer];
@@ -38,34 +38,34 @@
 
 -(void) startInterval
 {
-    [_layer setUpdateSelector:@selector(intervalUpdate:)];
-    [_layer setDrawSelector:@selector(intervalDraw)];
+    [_layer setUpdateSelector:@selector(onUpdate:)];
+    [_layer setDrawSelector:@selector(onDraw)];
 	
 	[[CCDirector sharedDirector] setAnimationInterval:_updateInterval];
     [_layer scheduleUpdate];
 }
 
--(void) intervalUpdate:(NSNumber *)delta
+-(void) onUpdate:(NSNumber *)delta
 {
     [self update:[delta intValue]];
 }
 
--(void) intervalDraw
+-(void) onDraw
 {
     [self render];
 }
 
--(void) touchBegan:(Touch *)touch
+-(void) onTouchBegan:(Touch *)touch
 {
     [_game touchBegan:touch];
 }
 
--(void) touchMoved:(Touch *)touch
+-(void) onTouchMoved:(Touch *)touch
 {
     [_game touchMoved:touch];
 }
 
--(void) touchEnded:(Touch *)touch
+-(void) onTouchEnded:(Touch *)touch
 {
     [_game touchEnded:touch];
 }
