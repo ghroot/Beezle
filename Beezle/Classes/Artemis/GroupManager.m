@@ -93,7 +93,7 @@
 	[entity refresh];
 }
 
--(void) removeEntityFromAllGroups:(Entity *)entity
+-(void) removeEntity:(Entity *)entity
 {
 	for (NSString *groupName in [_entitiesByGroupName allKeys])
 	{

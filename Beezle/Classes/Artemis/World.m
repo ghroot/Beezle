@@ -32,26 +32,32 @@
 #import "Entity.h"
 #import "EntityManager.h"
 #import "GroupManager.h"
+#import "Manager.h"
 #import "SystemManager.h"
 #import "TagManager.h"
 
 @implementation World
 
-@synthesize entityManager = _entityManager;
-@synthesize systemManager = _systemManager;
-@synthesize tagManager = _tagManager;
-@synthesize groupManager = _groupManager;
 @synthesize delta = _delta;
 
 -(id) init
 {
     if (self = [super init])
     {
-        _entityManager = [[EntityManager alloc] initWithWorld:self];
-        _systemManager = [[SystemManager alloc] initWithWorld:self];
-        _tagManager = [[TagManager alloc] initWithWorld:self];
-        _groupManager = [[GroupManager alloc] initWithWorld:self];
-        
+		_managersByClass = [[NSMutableDictionary alloc] init];
+		
+        EntityManager *entityManager = [[[EntityManager alloc] initWithWorld:self] autorelease];
+		[self setManager:entityManager];
+		
+        SystemManager *systemManager = [[[SystemManager alloc] initWithWorld:self] autorelease];
+		[self setManager:systemManager];
+		
+        TagManager *tagManager = [[[TagManager alloc] initWithWorld:self] autorelease];
+		[self setManager:tagManager];
+		
+        GroupManager *groupManager = [[[GroupManager alloc] initWithWorld:self] autorelease];
+		[self setManager:groupManager];
+		
         _refreshed = [[NSMutableArray alloc] init];
         _deleted = [[NSMutableArray alloc] init];
     }
@@ -60,15 +66,32 @@
 
 -(void) dealloc
 {
-    [_entityManager release];
-    [_systemManager release];
-    [_tagManager release];
-    [_groupManager release];
+	[_managersByClass release];
     
     [_refreshed release];
     [_deleted release];
     
     [super dealloc];
+}
+
+-(void) setManager:(Manager *)manager
+{
+	[_managersByClass setObject:manager forKey:[manager class]];
+}
+
+-(Manager *) getManager:(Class)managerClass
+{
+	return [_managersByClass objectForKey:managerClass];
+}
+
+-(EntityManager *)entityManager
+{
+	return (EntityManager *)[self getManager:[EntityManager class]];
+}
+
+-(SystemManager *)systemManager
+{
+	return (SystemManager *)[self getManager:[SystemManager class]];
 }
 
 -(void) deleteEntity:(Entity *)entity
@@ -89,12 +112,12 @@
 
 -(Entity *) createEntity
 {
-    return [_entityManager createEntity];
+    return [[self entityManager] createEntity];
 }
 
 -(Entity *) getEntity:(int) entityId
 {
-    return [_entityManager getEntity:entityId];
+    return [[self entityManager] getEntity:entityId];
 }
 
 -(void) loopStart
@@ -103,7 +126,7 @@
     {
         for (Entity *entity in _refreshed)
         {
-            [_entityManager refreshEntity:entity];
+            [[self entityManager] refreshEntity:entity];
         }
         [_refreshed removeAllObjects];
     }
@@ -112,9 +135,10 @@
     {
         for (Entity *entity in _deleted)
         {
-            [_entityManager removeEntity:entity];
-            [_tagManager removeEntity:entity];
-			[_groupManager removeEntityFromAllGroups:entity];
+            for (Manager *manager in [_managersByClass allValues])
+			{
+				[manager removeEntity:entity];
+			}
         }
         [_deleted removeAllObjects];
     }

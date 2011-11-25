@@ -40,6 +40,5 @@
 -(void) addEntity:(Entity *)entity toGroup:(NSString *)groupName;
 -(NSArray *) getEntitiesInGroup:(NSString *)groupName;
 -(void) removeEntity:(Entity *)entity fromGroup:(NSString *)groupName;
--(void) removeEntityFromAllGroups:(Entity *)entity;
 
 @end

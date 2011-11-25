@@ -29,6 +29,7 @@
 */
 
 @class World;
+@class Entity;
 
 @interface Manager : NSObject
 {
@@ -36,5 +37,6 @@
 }
 
 -(id) initWithWorld:(World *)world;
+-(void) removeEntity:(Entity *)entity;
 
 @end

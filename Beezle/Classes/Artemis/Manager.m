@@ -29,6 +29,7 @@
 */
 
 #import "Manager.h"
+#import "Entity.h"
 #import "World.h"
 
 @implementation Manager
@@ -40,6 +41,10 @@
         _world = world;
     }
     return self;
+}
+
+-(void) removeEntity:(Entity *)entity
+{
 }
 
 @end

@@ -13,6 +13,7 @@
 #import "PhysicsComponent.h"
 #import "PhysicsShape.h"
 #import "RenderComponent.h"
+#import "TagManager.h"
 #import "TransformComponent.h"
 
 @implementation EntityFactory
@@ -80,7 +81,8 @@
     RenderComponent *renderComponent = [[[RenderComponent alloc] initWithFile:@"BeeSlingerC-01.png"] autorelease];
     [slingerEntity addComponent:renderComponent];
     
-    [slingerEntity setTag:@"SLINGER"];
+	Tagmanager *tagManager = (TagManager *)[world getManager:[TagManager class]];
+	[tagManager registerEntity:slingerEntity withTag:@"SLINGER"];
     
     [slingerEntity refresh];
     

@@ -30,16 +30,12 @@
 
 @class Entity;
 @class EntityManager;
-@class GroupManager;
+@class Manager;
 @class SystemManager;
-@class TagManager;
 
 @interface World : NSObject
 {
-    EntityManager *_entityManager;
-    SystemManager *_systemManager;
-    TagManager *_tagManager;
-    GroupManager *_groupManager;
+	NSMutableDictionary *_managersByClass;
     
     int _delta;
     
@@ -47,12 +43,12 @@
     NSMutableArray *_deleted;
 }
 
-@property (nonatomic, readonly) EntityManager *entityManager;
-@property (nonatomic, readonly) SystemManager *systemManager;
-@property (nonatomic, readonly) TagManager *tagManager;
-@property (nonatomic, readonly) GroupManager *groupManager;
 @property (nonatomic) int delta;
 
+-(void) setManager:(Manager *)manager;
+-(Manager *) getManager:(Class)managerClass;
+-(EntityManager *)entityManager;
+-(SystemManager *)systemManager;
 -(void) deleteEntity:(Entity *)entity;
 -(void) refreshEntity:(Entity *)entity;
 -(Entity *) createEntity;

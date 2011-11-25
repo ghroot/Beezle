@@ -51,7 +51,5 @@
 -(Component *) getComponent:(Class)componentClass;
 -(void) refresh;
 -(void) deleteEntity;
--(void) setTag:(NSString *)tag;
--(void) addToGroup:(NSString *)groupName;
 
 @end
