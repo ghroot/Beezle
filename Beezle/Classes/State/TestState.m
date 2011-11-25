@@ -108,7 +108,8 @@
         _countdown = _interval;
     }
     
-    NSArray *entities = [[_world groupManager] getEntitiesInGroup:@"ENTITIES"];
+    GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
+    NSArray *entities = [groupManager getEntitiesInGroup:@"ENTITIES"];
     [_label setString:[NSString stringWithFormat:@"%i", [entities count]]];
 }
 
@@ -140,7 +141,8 @@
     
     [entity refresh];
     
-    [entity addToGroup:@"ENTITIES"];
+    GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
+    [groupManager addEntity:entity toGroup:@"ENTITIES"];
 }
 
 -(void) leaveWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
@@ -154,7 +156,8 @@
 -(void) touchBeganWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch
 {
 	// Delete all entities when tapping the screen
-    NSArray *entities = [[_world groupManager] getEntitiesInGroup:@"ENTITIES"];
+    GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
+    NSArray *entities = [groupManager getEntitiesInGroup:@"ENTITIES"];
     for (Entity *entity in entities)
     {
         [entity deleteEntity];

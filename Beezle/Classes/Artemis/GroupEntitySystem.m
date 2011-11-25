@@ -52,7 +52,8 @@
 
 -(BOOL) shouldContainEntity:(Entity *)entity
 {
-	NSArray *entitiesInGroup = [[_world groupManager] getEntitiesInGroup:_groupName];
+    GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
+	NSArray *entitiesInGroup = [groupManager getEntitiesInGroup:_groupName];
 	BOOL isEntityInGroup = [entitiesInGroup containsObject:entity];
 	return isEntityInGroup;
 }

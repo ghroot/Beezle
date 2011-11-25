@@ -81,7 +81,7 @@
     RenderComponent *renderComponent = [[[RenderComponent alloc] initWithFile:@"BeeSlingerC-01.png"] autorelease];
     [slingerEntity addComponent:renderComponent];
     
-	Tagmanager *tagManager = (TagManager *)[world getManager:[TagManager class]];
+	TagManager *tagManager = (TagManager *)[world getManager:[TagManager class]];
 	[tagManager registerEntity:slingerEntity withTag:@"SLINGER"];
     
     [slingerEntity refresh];

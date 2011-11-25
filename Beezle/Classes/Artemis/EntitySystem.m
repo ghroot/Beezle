@@ -39,7 +39,6 @@
 {
     if (self = [super init])
     {
-		_world = [[World alloc] init];
         _entities = [[NSMutableArray alloc] init];
     }
     return self;
@@ -47,7 +46,6 @@
 
 -(void) dealloc
 {
-	[_world release];
     [_entities release];
     
     [super dealloc];

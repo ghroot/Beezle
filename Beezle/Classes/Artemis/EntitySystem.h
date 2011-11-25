@@ -29,6 +29,7 @@
 */
 
 @class Entity;
+@class World;
 
 @interface EntitySystem : NSObject
 {

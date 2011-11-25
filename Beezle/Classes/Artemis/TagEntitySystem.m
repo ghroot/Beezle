@@ -65,7 +65,8 @@
 
 -(BOOL) shouldContainEntity:(Entity *)entity
 {
-	BOOL isTaggedEntity = entity == [[_world tagManager] getEntity:_tag];
+    TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
+	BOOL isTaggedEntity = entity == [tagManager getEntity:_tag];
 	return isTaggedEntity;
 }
 
