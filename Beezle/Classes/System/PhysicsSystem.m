@@ -53,7 +53,7 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
 }
 
 -(void) initialise
-{
+{   
     cpInitChipmunk();
     
     _space = cpSpaceNew();
@@ -146,7 +146,7 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
 }
 
 -(void) processEntity:(Entity *)entity
-{
+{   
     TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
 

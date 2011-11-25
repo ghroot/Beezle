@@ -6,10 +6,10 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "ForwardLayer.h"
+#import "ForwardNode.h"
 #import "Touch.h"
 
-@implementation ForwardLayer
+@implementation ForwardNode
 
 -(id) init
 {

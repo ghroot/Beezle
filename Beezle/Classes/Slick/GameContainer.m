@@ -54,15 +54,15 @@
 	_timer = [NSTimer scheduledTimerWithTimeInterval:_updateInterval target:self selector:@selector(timerInterval:) userInfo:nil repeats:TRUE];    
 }
 
+-(void) timerInterval:(NSTimer *)timer
+{
+	[self update:(int) (1000 * _updateInterval)];
+    [self render];
+}
+
 -(void) setup
 {
     [_game initialiseWithContainer:self];
-}
-
--(void) timerInterval:(NSTimer *)timer
-{
-	[self update:_updateInterval];
-    [self render];
 }
 
 -(void) update:(int)delta

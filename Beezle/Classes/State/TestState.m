@@ -12,7 +12,6 @@
 #import "CollisionSystem.h"
 #import "DebugRenderPhysicsSystem.h"
 #import "EntityFactory.h"
-#import "ForwardLayer.h"
 #import "InputAction.h"
 #import "InputSystem.h"
 #import "PhysicsBody.h"
@@ -64,14 +63,12 @@
 -(void) initialiseWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
 {
 	SystemManager *systemManager = [_world systemManager];
-	CocosGameContainer *cocosGameContainer = (CocosGameContainer *)container;
-	CCLayer *layer = [cocosGameContainer layer];
 	
 	_physicsSystem = [[PhysicsSystem alloc] init];
 	[systemManager setSystem:_physicsSystem];
 	_collisionSystem = [[CollisionSystem alloc] init];
 	[systemManager setSystem:_collisionSystem];
-	_renderSystem = [[RenderSystem alloc] initWithLayer:layer];
+	_renderSystem = [[RenderSystem alloc] initWithLayer:_layer];
 	[systemManager setSystem:_renderSystem];
 	_slingerControlSystem = [[SlingerControlSystem alloc] init];
 	[systemManager setSystem:_slingerControlSystem];
@@ -84,14 +81,7 @@
     _countdown = _interval;
 	
     [_label setPosition:CGPointMake(15, 310)];
-}
-
--(void) enterWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
-{
-    CocosGameContainer *cocosGameContainer = (CocosGameContainer *)container;
-	CCLayer *layer = [cocosGameContainer layer];
-    
-    [layer addChild:_label];
+    [_layer addChild:_label];
 }
 
 -(void) updateWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game delta:(int)delta
@@ -128,6 +118,7 @@
     [entity addComponent:renderComponent];
     
     cpBody *body = cpBodyNew(1.0f, 1.0f);
+    body->p = cpv(randomPosition.x, randomPosition.y);
     int rotation = RANDOM_INT(0, 359);
     body->a = CC_DEGREES_TO_RADIANS(rotation);
     cpShape *shape = cpCircleShapeNew(body, 25, cpv(0, 0));
@@ -143,14 +134,6 @@
     
     GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
     [groupManager addEntity:entity toGroup:@"ENTITIES"];
-}
-
--(void) leaveWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
-{
-    CocosGameContainer *cocosGameContainer = (CocosGameContainer *)container;
-	CCLayer *layer = [cocosGameContainer layer];
-    
-    [layer removeChild:_label cleanup:TRUE];
 }
 
 -(void) touchBeganWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch

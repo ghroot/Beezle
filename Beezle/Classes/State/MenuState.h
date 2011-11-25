@@ -6,11 +6,11 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameState.h"
+#import "CocosGameState.h"
 #import "cocos2d.h"
 #import "slick.h"
 
-@interface MenuState : GameState
+@interface MenuState : CocosGameState
 {
     StateBasedGame *_game;
     CCMenu *_menu;

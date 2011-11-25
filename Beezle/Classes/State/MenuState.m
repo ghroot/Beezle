@@ -9,7 +9,6 @@
 #import "MenuState.h"
 #import "Beezle.h"
 #import "CocosGameContainer.h"
-#import "ForwardLayer.h"
 
 @implementation MenuState
 
@@ -31,6 +30,8 @@
     
     _menu = [CCMenu menuWithItems: _startGameButton, _startTestButton, nil];
     [_menu alignItemsHorizontallyWithPadding:40.0f];
+    
+    [_layer addChild:_menu];
 }
 
 -(void) startGame:(id)sender
@@ -41,22 +42,6 @@
 -(void) startTest:(id)sender
 {
     [_game enterState:STATE_TEST];
-}
-
--(void) enterWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
-{
-    CocosGameContainer *cocosGameContainer = (CocosGameContainer *)container;
-	CCLayer *layer = [cocosGameContainer layer];
-    
-    [layer addChild:_menu];
-}
-
--(void) leaveWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
-{
-    CocosGameContainer *cocosGameContainer = (CocosGameContainer *)container;
-	CCLayer *layer = [cocosGameContainer layer];
-    
-    [layer removeChild:_menu cleanup:TRUE];
 }
 
 @end

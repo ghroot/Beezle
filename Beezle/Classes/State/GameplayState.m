@@ -12,7 +12,6 @@
 #import "CollisionSystem.h"
 #import "DebugRenderPhysicsSystem.h"
 #import "EntityFactory.h"
-#import "ForwardLayer.h"
 #import "InputAction.h"
 #import "InputSystem.h"
 #import "PhysicsSystem.h"
@@ -53,14 +52,12 @@
 -(void) initialiseWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
 {
 	SystemManager *systemManager = [_world systemManager];
-	CocosGameContainer *cocosGameContainer = (CocosGameContainer *)container;
-	CCLayer *layer = [cocosGameContainer layer];
 	
 	_physicsSystem = [[PhysicsSystem alloc] init];
 	[systemManager setSystem:_physicsSystem];
 	_collisionSystem = [[CollisionSystem alloc] init];
 	[systemManager setSystem:_collisionSystem];
-	_renderSystem = [[RenderSystem alloc] initWithLayer:layer];
+	_renderSystem = [[RenderSystem alloc] initWithLayer:_layer];
 	[systemManager setSystem:_renderSystem];
 	if (_debug)
 	{
@@ -77,7 +74,7 @@
     [systemManager initialiseAll];
     
     [EntityFactory createBackground:_world withFileName:@"Background-01.jpg"];
-    [EntityFactory createSlinger:_world withPosition:CGPointMake(150, 250)];
+    [EntityFactory createSlinger:_world withPosition:CGPointMake(80, 270)];
     [EntityFactory createRamp:_world withPosition:CGPointMake(150, 100) andRotation:0.0f];
     [EntityFactory createRamp:_world withPosition:CGPointMake(150, 140) andRotation:0.1f];
     [EntityFactory createRamp:_world withPosition:CGPointMake(150, 180) andRotation:-0.1f];

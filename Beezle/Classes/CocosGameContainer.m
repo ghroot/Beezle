@@ -7,42 +7,54 @@
 //
 
 #import "CocosGameContainer.h"
-#import "ForwardLayer.h"
+#import "ForwardNode.h"
 
 @implementation CocosGameContainer
 
-@synthesize layer = _layer;
-
 -(id) initWithGame:(Game *)game
 {
-	if (self = [super initWithGame:game])
-	{
-		_layer = [[ForwardLayer alloc] init];
-	}
-	return self;
+    if (self = [super initWithGame:game])
+    {
+        _forwardNode = [[ForwardNode alloc] init];
+    }
+    return self;
 }
 
 -(void) setup
 {
+    CCScene *defaultScene = [CCScene node];
+    [self setScene:defaultScene];
+    
     [super setup];
-    
-    [_layer setTarget:self];
-    [_layer setTouchBeganSelector:@selector(onTouchBegan:)];
-    [_layer setTouchMovedSelector:@selector(onTouchMoved:)];
-    [_layer setTouchEndedSelector:@selector(onTouchEnded:)];
-    
-    CCScene *scene = [CCScene node];
-    [scene addChild:_layer];
-    [[CCDirector sharedDirector] runWithScene:scene];
 }
 
 -(void) startInterval
 {
-    [_layer setUpdateSelector:@selector(onUpdate:)];
-    [_layer setDrawSelector:@selector(onDraw)];
-	
-	[[CCDirector sharedDirector] setAnimationInterval:_updateInterval];
-    [_layer scheduleUpdate];
+    [[CCDirector sharedDirector] setAnimationInterval:_updateInterval];
+    
+    [_forwardNode setTarget:self];
+    [_forwardNode setUpdateSelector:@selector(onUpdate:)];
+    [_forwardNode setDrawSelector:@selector(onDraw)];
+    [_forwardNode setTouchBeganSelector:@selector(onTouchBegan:)];
+    [_forwardNode setTouchMovedSelector:@selector(onTouchMoved:)];
+    [_forwardNode setTouchEndedSelector:@selector(onTouchEnded:)];
+}
+
+-(void) setScene:(CCScene *)scene
+{
+    if (_currentScene == nil)
+    {
+        [[CCDirector sharedDirector] runWithScene:scene];
+    }
+    else
+    {
+        [_forwardNode unscheduleAllSelectors];
+        [_currentScene removeChild:_forwardNode cleanup:TRUE];
+        [[CCDirector sharedDirector] replaceScene:scene];
+    }
+    [scene addChild:_forwardNode];
+    [_forwardNode scheduleUpdate];
+    _currentScene = scene;
 }
 
 -(void) onUpdate:(NSNumber *)delta

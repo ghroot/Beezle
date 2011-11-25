@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "Beezle.h"
 #import "CocosGameContainer.h"
-#import "ForwardLayer.h"
 #import "RootViewController.h"
 
 @implementation AppDelegate

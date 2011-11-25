@@ -6,18 +6,19 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import "cocos2d.h"
 #import "slick.h"
 
-@class ForwardLayer;
+@class ForwardNode;
 @class Touch;
 
 @interface CocosGameContainer : GameContainer
 {
-	ForwardLayer *_layer;
+    CCScene *_currentScene;
+    ForwardNode *_forwardNode;
 }
 
-@property (nonatomic, readonly) ForwardLayer *layer;
-
+-(void) setScene:(CCScene *)scene;
 -(void) onUpdate:(NSNumber *)delta;
 -(void) onDraw;
 -(void) onTouchBegan:(Touch *)touch;

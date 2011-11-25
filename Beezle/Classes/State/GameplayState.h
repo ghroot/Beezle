@@ -6,6 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import "CocosGameState.h"
 #import "artemis.h"
 #import "cocos2d.h"
 #import "slick.h"
@@ -18,7 +19,7 @@
 @class RenderSystem;
 @class SlingerControlSystem;
 
-@interface GameplayState : GameState
+@interface GameplayState : CocosGameState
 {
 	World *_world;
 	
