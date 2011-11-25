@@ -47,6 +47,11 @@
         {
             [self handleCollisionBee:[collision firstEntity] withRamp:[collision secondEntity]];
         }
+		else if ([[firstPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_BEE &&
+				 [[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_BEEATER)
+		{
+			[self handleCollisionBee:[collision firstEntity] withBeeater:[collision secondEntity]];
+		}
     }
     [_collisions removeAllObjects];    
 }
@@ -61,6 +66,16 @@
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[rampEntity getComponent:[PhysicsComponent class]];
     [physicsComponent disable];
     [rampEntity refresh];
+}
+
+-(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity
+{
+	// Eat animation
+    RenderComponent *beeaterRenderComponent = (RenderComponent *)[beeaterEntity getComponent:[RenderComponent class]];
+    [beeaterRenderComponent playAnimation:@"eat" withLoops:1];
+	
+	// Remove bee
+	[beeEntity deleteEntity];
 }
 
 -(void) dealloc
