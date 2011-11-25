@@ -28,9 +28,9 @@
 * or implied, of GAMADU.COM.
 */
 
+#import "EntityManager.h"
 #import "Component.h"
 #import "Entity.h"
-#import "EntityManager.h"
 #import "EntitySystem.h"
 #import "SystemManager.h"
 #import "World.h"
@@ -39,9 +39,8 @@
 
 -(id) initWithWorld:(World *)world
 {
-    if (self = [super init])
+    if (self = [super initWithWorld:world])
     {
-        _world = world;
         _nextEntityId = 1;
         _entities = [[NSMutableArray alloc] init];
         _componentsByClass = [[NSMutableDictionary alloc] init];

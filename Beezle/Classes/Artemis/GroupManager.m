@@ -30,12 +30,13 @@
 
 #import "GroupManager.h"
 #import "Entity.h"
+#import "World.h"
 
 @implementation GroupManager
 
--(id) init
+-(id) initWithWorld:(World *)world
 {
-    if (self = [super init])
+    if (self = [super initWithWorld:world])
     {
         _entitiesByGroupName = [[NSMutableDictionary alloc] init];
     }

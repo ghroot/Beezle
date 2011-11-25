@@ -49,8 +49,8 @@
     {
         _entityManager = [[EntityManager alloc] initWithWorld:self];
         _systemManager = [[SystemManager alloc] initWithWorld:self];
-        _tagManager = [[TagManager alloc] init];
-        _groupManager = [[GroupManager alloc] init];
+        _tagManager = [[TagManager alloc] initWithWorld:self];
+        _groupManager = [[GroupManager alloc] initWithWorld:self];
         
         _refreshed = [[NSMutableArray alloc] init];
         _deleted = [[NSMutableArray alloc] init];

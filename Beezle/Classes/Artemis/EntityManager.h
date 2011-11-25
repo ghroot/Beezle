@@ -28,19 +28,18 @@
 * or implied, of GAMADU.COM.
 */
 
+#import "Manager.h"
+
 @class Entity;
 @class Component;
-@class World;
 
-@interface EntityManager : NSObject
+@interface EntityManager : Manager
 {
-    World *_world;
     int _nextEntityId;
     NSMutableArray *_entities;
     NSMutableDictionary *_componentsByClass;
 }
 
--(id) initWithWorld:(World *)world;
 -(Entity *) createEntity;
 -(void) removeEntity:(Entity *)entity;
 -(void) removeAllComponentsFromEntity:(Entity *)entity;

@@ -29,16 +29,17 @@
 */
 
 #import "Manager.h"
+#import "World.h"
 
-@class Entity;
+@implementation Manager
 
-@interface TagManager : Manager
+-(id) initWithWorld:(World *)world
 {
-    NSMutableDictionary *_entitiesByTag;
+    if (self = [super init])
+    {
+        _world = world;
+    }
+    return self;
 }
-
--(void) registerEntity:(Entity *)entity withTag:(NSString *)tag;
--(Entity *) getEntity:(NSString *)tag;
--(void) removeEntity:(Entity *)entity;
 
 @end

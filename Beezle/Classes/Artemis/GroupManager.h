@@ -28,9 +28,11 @@
 * or implied, of GAMADU.COM.
 */
 
+#import "Manager.h"
+
 @class Entity;
 
-@interface GroupManager : NSObject
+@interface GroupManager : Manager
 {
     NSMutableDictionary *_entitiesByGroupName;
 }

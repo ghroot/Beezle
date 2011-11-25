@@ -38,9 +38,8 @@
 
 -(id) initWithWorld:(World *)world
 {
-    if (self = [super init])
+    if (self = [super initWithWorld:world])
     {
-        _world = world;
         _systems = [[NSMutableArray alloc] init];
     }
     return self;

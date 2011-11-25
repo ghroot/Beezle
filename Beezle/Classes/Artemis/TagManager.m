@@ -30,12 +30,13 @@
 
 #import "TagManager.h"
 #import "Entity.h"
+#import "World.h"
 
 @implementation TagManager
 
--(id) init
+-(id) initWithWorld:(World *)world
 {
-    if (self = [super init])
+    if (self = [super initWithWorld:world])
     {
         _entitiesByTag = [[NSMutableDictionary alloc] init];
     }

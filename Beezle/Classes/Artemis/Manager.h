@@ -28,17 +28,13 @@
 * or implied, of GAMADU.COM.
 */
 
-#import "Manager.h"
+@class World;
 
-@class Entity;
-
-@interface TagManager : Manager
+@interface Manager : NSObject
 {
-    NSMutableDictionary *_entitiesByTag;
+    World *_world;
 }
 
--(void) registerEntity:(Entity *)entity withTag:(NSString *)tag;
--(Entity *) getEntity:(NSString *)tag;
--(void) removeEntity:(Entity *)entity;
+-(id) initWithWorld:(World *)world;
 
 @end

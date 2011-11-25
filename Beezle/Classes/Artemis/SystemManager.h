@@ -28,18 +28,17 @@
 * or implied, of GAMADU.COM.
 */
 
-@class EntitySystem;
-@class World;
+#import "Manager.h"
 
-@interface SystemManager : NSObject
+@class EntitySystem;
+
+@interface SystemManager : Manager
 {
-    World *_world;
     NSMutableArray *_systems;
 }
 
 @property (nonatomic, retain) NSMutableArray *systems;
 
--(id) initWithWorld:(World *)world;
 -(EntitySystem *) setSystem:(EntitySystem *)system;
 -(EntitySystem *) getSystem:(Class)systemClass;
 -(void) initialiseAll;
