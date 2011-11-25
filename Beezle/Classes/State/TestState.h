@@ -7,6 +7,7 @@
 //
 
 #import "artemis.h"
+#import "chipmunk.h"
 #import "cocos2d.h"
 #import "slick.h"
 
@@ -16,7 +17,6 @@
 @class PhysicsSystem;
 @class RenderSystem;
 @class SlingerControlSystem;
-@class TestEntitySpawningSystem;
 
 @interface TestState : GameState
 {
@@ -28,8 +28,10 @@
     DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
     SlingerControlSystem *_slingerControlSystem;
     BoundrySystem *_boundrySystem;
-    TestEntitySpawningSystem *_testEntitySpawningSystem;
     
+	int _interval;
+    int _countdown;
+	
     CCLabelTTF *_label;
 }
 

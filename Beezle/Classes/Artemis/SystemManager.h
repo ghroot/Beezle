@@ -28,7 +28,7 @@
 * or implied, of GAMADU.COM.
 */
 
-@class System;
+@class EntitySystem;
 @class World;
 
 @interface SystemManager : NSObject
@@ -40,9 +40,8 @@
 @property (nonatomic, retain) NSMutableArray *systems;
 
 -(id) initWithWorld:(World *)world;
--(System *) setSystem:(System *)system;
--(System *) getSystem:(Class)systemClass;
--(NSArray *) entitySystems;
+-(EntitySystem *) setSystem:(EntitySystem *)system;
+-(EntitySystem *) getSystem:(Class)systemClass;
 -(void) initialiseAll;
 -(void) processAll;
 

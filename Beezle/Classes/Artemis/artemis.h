@@ -35,7 +35,6 @@
 #import "EntityManager.h"
 #import "GroupEntitySystem.h"
 #import "GroupManager.h"
-#import "System.h"
 #import "SystemManager.h"
 #import "World.h"
 #import "TagEntitySystem.h"

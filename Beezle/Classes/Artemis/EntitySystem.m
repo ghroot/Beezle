@@ -33,10 +33,13 @@
 
 @implementation EntitySystem
 
+@synthesize world = _world;
+
 -(id) init
 {
     if (self = [super init])
     {
+		_world = [[World alloc] init];
         _entities = [[NSMutableArray alloc] init];
     }
     return self;
@@ -44,9 +47,14 @@
 
 -(void) dealloc
 {
+	[_world release];
     [_entities release];
     
     [super dealloc];
+}
+
+-(void) initialise
+{
 }
 
 -(void) begin

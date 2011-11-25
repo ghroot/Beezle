@@ -28,17 +28,20 @@
 * or implied, of GAMADU.COM.
 */
 
-#import "System.h"
-
 @class Entity;
 
-@interface EntitySystem : System
+@interface EntitySystem : NSObject
 {
+	World *_world;
     NSMutableArray *_entities;
 }
 
+@property (nonatomic, assign) World *world;
+
+-(void) initialise;
 -(void) begin;
 -(void) end;
+-(void) process;
 -(void) processEntities:(NSArray *)entities;
 -(void) processEntity:(Entity *)entity;
 -(void) entityAdded:(Entity *)entity;
