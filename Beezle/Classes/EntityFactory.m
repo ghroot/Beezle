@@ -112,13 +112,14 @@
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [beeEntity addComponent:transformComponent];
     
-    RenderComponent *renderComponent = [[[RenderComponent alloc] initWithSpriteSheetName:@"Beeater" andFrameFormat:@"Beeater-0%i.png"] autorelease];
-    [renderComponent addAnimation:@"idle" withStartFrame:1 andEndFrame:9];
+    RenderComponent *renderComponent = [[[RenderComponent alloc] initWithSpriteSheetName:@"Bee" andFrameFormat:@"Bee-0%i.png"] autorelease];
+    [renderComponent addAnimation:@"idle" withStartFrame:1 andEndFrame:3];
+    [renderComponent addAnimation:@"fly" withStartFrame:4 andEndFrame:4];
     [beeEntity addComponent:renderComponent];
     
     cpBody *body = cpBodyNew(1.0f, 1.0f);
     body->v = cpv(velocity.x, velocity.y);
-    cpShape *shape = cpCircleShapeNew(body, 20, cpv(0, 0));
+    cpShape *shape = cpCircleShapeNew(body, 10, cpv(0, 0));
     shape->e = 0.8f;
     shape->u = 0.5f;
     shape->collision_type = COLLISION_TYPE_BEE;

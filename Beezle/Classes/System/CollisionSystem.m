@@ -42,18 +42,30 @@
         PhysicsComponent *firstPhysicsComponent = (PhysicsComponent *)[[collision firstEntity] getComponent:[PhysicsComponent class]];
         PhysicsComponent *secondPhysicsComponent = (PhysicsComponent *)[[collision secondEntity] getComponent:[PhysicsComponent class]];
         
-        if ([[firstPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_BEE &&
-            [[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_RAMP)
+        if ([[firstPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_BEE)
         {
-            [self handleCollisionBee:[collision firstEntity] withRamp:[collision secondEntity]];
+            [self handleCollisionBee:[collision firstEntity]];
+            if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_RAMP)
+            {
+                [self handleCollisionBee:[collision firstEntity] withRamp:[collision secondEntity]];
+            }
+            else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_BEEATER)
+            {
+                [self handleCollisionBee:[collision firstEntity] withBeeater:[collision secondEntity]];
+            }
+            else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_BACKGROUND)
+            {
+                [self handleCollisionBee:[collision firstEntity] withBackground:[collision secondEntity]];
+            }
         }
-		else if ([[firstPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_BEE &&
-				 [[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_BEEATER)
-		{
-			[self handleCollisionBee:[collision firstEntity] withBeeater:[collision secondEntity]];
-		}
     }
     [_collisions removeAllObjects];    
+}
+
+-(void) handleCollisionBee:(Entity *)beeEntity
+{
+    RenderComponent *beeRenderComponent = (RenderComponent *)[beeEntity getComponent:[RenderComponent class]];
+    [beeRenderComponent playAnimation:@"idle" withLoops:3];
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withRamp:(Entity *)rampEntity
@@ -76,6 +88,10 @@
 	
 	// Remove bee
 	[beeEntity deleteEntity];
+}
+
+-(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity
+{
 }
 
 -(void) dealloc

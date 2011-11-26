@@ -73,7 +73,9 @@
                 
                 CGPoint touchVector = ccpSub([nextInputAction touchLocation], [self startLocation]);
                 CGPoint beeVelocity = CGPointMake(1.5 * -touchVector.x, 1.5 * -touchVector.y);
-                [EntityFactory createBee:_world withPosition:[transformComponent position] andVelocity:beeVelocity];
+                Entity *beeEntity = [EntityFactory createBee:_world withPosition:[transformComponent position] andVelocity:beeVelocity];
+                RenderComponent *beeRenderComponent = (RenderComponent *)[beeEntity getComponent:[RenderComponent class]];
+                [beeRenderComponent playAnimation:@"fly" withLoops:1];
                 
                 break;
             }
