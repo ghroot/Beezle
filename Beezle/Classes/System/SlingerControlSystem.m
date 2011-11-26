@@ -10,6 +10,7 @@
 #import "EntityFactory.h"
 #import "InputAction.h"
 #import "InputSystem.h"
+#import "RenderComponent.h"
 #import "TransformComponent.h"
 
 @implementation SlingerControlSystem
@@ -43,6 +44,7 @@
         InputAction *nextInputAction = [inputSystem popInputAction];
         
         TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
+        RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
         
         switch ([nextInputAction touchType])
         {
@@ -66,6 +68,8 @@
             case TOUCH_END:
             {
                 [transformComponent setScale:CGPointMake(1.0f, 1.0f)];
+                
+                [renderComponent playAnimation:@"shoot" withLoops:1];
                 
                 CGPoint touchVector = ccpSub([nextInputAction touchLocation], [self startLocation]);
                 CGPoint beeVelocity = CGPointMake(1.5 * -touchVector.x, 1.5 * -touchVector.y);

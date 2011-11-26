@@ -69,6 +69,19 @@
     [_animationByName setObject:animation forKey:animationName];
 }
 
+-(void) addAnimation:(NSString *)animationName withFrames:(NSArray *)frames;
+{
+    NSMutableArray *aimationFrames = [NSMutableArray array];
+    for (NSNumber *frameIndex in frames)
+    {
+        CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:_frameFormat, [frameIndex intValue]]];
+        [aimationFrames addObject:frame];
+    }
+    
+    CCAnimation *animation = [CCAnimation animationWithFrames:aimationFrames delay:0.08f];
+    [_animationByName setObject:animation forKey:animationName];
+}
+
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops
 {
     CCAnimation *animation = [_animationByName objectForKey:animationName];

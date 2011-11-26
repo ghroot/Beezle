@@ -78,7 +78,23 @@
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [slingerEntity addComponent:transformComponent];
     
-    RenderComponent *renderComponent = [[[RenderComponent alloc] initWithFile:@"BeeSlingerC-01.png"] autorelease];
+    RenderComponent *renderComponent = [[[RenderComponent alloc] initWithSpriteSheetName:@"BeeSlingerC" andFrameFormat:@"BeeSlingerC-0%i.png"] autorelease];
+    [renderComponent addAnimation:@"idle" withStartFrame:1 andEndFrame:1];
+    NSMutableArray *strechFrames = [NSMutableArray arrayWithObjects:
+                                   [NSNumber numberWithInt:2],
+                                   [NSNumber numberWithInt:3],
+                                   [NSNumber numberWithInt:4],
+                                   [NSNumber numberWithInt:5],
+                                   nil];
+    [renderComponent addAnimation:@"strech" withFrames:strechFrames];
+    NSMutableArray *shootFrames = [NSMutableArray arrayWithObjects:
+                                   [NSNumber numberWithInt:6],
+                                   [NSNumber numberWithInt:7],
+                                   [NSNumber numberWithInt:8],
+                                   [NSNumber numberWithInt:9],
+                                   [NSNumber numberWithInt:1],
+                                   nil];
+    [renderComponent addAnimation:@"shoot" withFrames:shootFrames];
     [slingerEntity addComponent:renderComponent];
     
 	TagManager *tagManager = (TagManager *)[world getManager:[TagManager class]];

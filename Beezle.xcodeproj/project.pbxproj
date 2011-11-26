@@ -57,6 +57,8 @@
 		2CD48B8B14801833007D90D9 /* Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48B8A14801833007D90D9 /* Manager.m */; };
 		2CD48B8E14801A4F007D90D9 /* EntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48B8D14801A4E007D90D9 /* EntitySystem.m */; };
 		2CD48B9114802E51007D90D9 /* CocosGameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48B9014802E51007D90D9 /* CocosGameState.m */; };
+		2CD48B9414806199007D90D9 /* BeeSlingerC.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD48B9214806199007D90D9 /* BeeSlingerC.plist */; };
+		2CD48B9514806199007D90D9 /* BeeSlingerC.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CD48B9314806199007D90D9 /* BeeSlingerC.png */; };
 		2CD9B0B5147958C40098C183 /* cpCCNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B097147958C40098C183 /* cpCCNode.m */; };
 		2CD9B0B6147958C40098C183 /* cpCCNodeImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B099147958C40098C183 /* cpCCNodeImpl.m */; };
 		2CD9B0B7147958C40098C183 /* cpCCSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B09B147958C40098C183 /* cpCCSprite.m */; };
@@ -340,7 +342,7 @@
 		2CD33EDA147D72BB000869C1 /* Beezle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Beezle.m; path = Classes/Beezle.m; sourceTree = "<group>"; };
 		2CD33EDB147D72BC000869C1 /* CocosGameContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocosGameContainer.h; path = Classes/CocosGameContainer.h; sourceTree = "<group>"; };
 		2CD33EDC147D72BC000869C1 /* CocosGameContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CocosGameContainer.m; path = Classes/CocosGameContainer.m; sourceTree = "<group>"; };
-		2CD33EDF147DA028000869C1 /* ForwardNode.h */ = {isa = PBXFileReference; fileEncoding = 4; name = ForwardNode.h; path = Classes/ForwardNode.h; sourceTree = "<group>"; };
+		2CD33EDF147DA028000869C1 /* ForwardNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForwardNode.h; path = Classes/ForwardNode.h; sourceTree = "<group>"; };
 		2CD33EE0147DA02A000869C1 /* ForwardNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForwardNode.m; path = Classes/ForwardNode.m; sourceTree = "<group>"; };
 		2CD33EE2147DAF60000869C1 /* Touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Touch.h; path = Classes/Touch.h; sourceTree = "<group>"; };
 		2CD33EE3147DAF62000869C1 /* Touch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Touch.m; path = Classes/Touch.m; sourceTree = "<group>"; };
@@ -356,6 +358,8 @@
 		2CD48B8D14801A4E007D90D9 /* EntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntitySystem.m; path = Classes/Artemis/EntitySystem.m; sourceTree = "<group>"; };
 		2CD48B8F14802E51007D90D9 /* CocosGameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosGameState.h; sourceTree = "<group>"; };
 		2CD48B9014802E51007D90D9 /* CocosGameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosGameState.m; sourceTree = "<group>"; };
+		2CD48B9214806199007D90D9 /* BeeSlingerC.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BeeSlingerC.plist; sourceTree = "<group>"; };
+		2CD48B9314806199007D90D9 /* BeeSlingerC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeeSlingerC.png; sourceTree = "<group>"; };
 		2CD9B096147958C40098C183 /* cpCCNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpCCNode.h; sourceTree = "<group>"; };
 		2CD9B097147958C40098C183 /* cpCCNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cpCCNode.m; sourceTree = "<group>"; };
 		2CD9B098147958C40098C183 /* cpCCNodeImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpCCNodeImpl.h; sourceTree = "<group>"; };
@@ -753,6 +757,8 @@
 		2C06880B14670EFB003E200D /* BeeSlingerC */ = {
 			isa = PBXGroup;
 			children = (
+				2CD48B9214806199007D90D9 /* BeeSlingerC.plist */,
+				2CD48B9314806199007D90D9 /* BeeSlingerC.png */,
 				2C06880C14670EFB003E200D /* BeeSlingerC-01.png */,
 			);
 			name = BeeSlingerC;
@@ -1702,6 +1708,8 @@
 				2CA9E3951479BDE60058C496 /* Beeater.plist in Resources */,
 				2CA9E3961479BDE60058C496 /* Beeater.png in Resources */,
 				2CD33EB6147C5579000869C1 /* Background-01.jpg in Resources */,
+				2CD48B9414806199007D90D9 /* BeeSlingerC.plist in Resources */,
+				2CD48B9514806199007D90D9 /* BeeSlingerC.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
