@@ -35,15 +35,15 @@
 {
 }
 
--(void) touchBegan:(Touch *)touch
+-(void) touchBeganWithContainer:(GameContainer *)container touch:(Touch *)touch
 {
 }
 
--(void) touchMoved:(Touch *)touch
+-(void) touchMovedWithContainer:(GameContainer *)container touch:(Touch *)touch
 {
 }
 
--(void) touchEnded:(Touch *)touch
+-(void) touchEndedWithContainer:(GameContainer *)container touch:(Touch *)touch
 {
 }
 

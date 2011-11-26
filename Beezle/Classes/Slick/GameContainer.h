@@ -18,6 +18,7 @@
 */
 
 @class Game;
+@class Touch;
 
 @interface GameContainer : NSObject
 {
@@ -37,6 +38,9 @@
 -(void) startInterval;
 -(void) update:(int)delta;
 -(void) render;
+-(void) touchBegan:(Touch *)touch;
+-(void) touchMoved:(Touch *)touch;
+-(void) touchEnded:(Touch *)touch;
 -(void) pause;
 -(void) resume;
 -(void) exit;

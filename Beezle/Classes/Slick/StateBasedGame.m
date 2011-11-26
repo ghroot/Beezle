@@ -105,17 +105,17 @@
 	[_currentState renderWithContainer:_container andGame:self];
 }
 
--(void) touchBegan:(Touch *)touch
+-(void) touchBeganWithContainer:(GameContainer *)container touch:(Touch *)touch
 {
 	[_currentState touchBeganWithContainer:_container andGame:self touch:touch];
 }
 
--(void) touchMoved:(Touch *)touch
+-(void) touchMovedWithContainer:(GameContainer *)container touch:(Touch *)touch
 {
 	[_currentState touchMovedWithContainer:_container andGame:self touch:touch];
 }
 
--(void) touchEnded:(Touch *)touch
+-(void) touchEndedWithContainer:(GameContainer *)container touch:(Touch *)touch
 {
 	[_currentState touchEndedWithContainer:_container andGame:self touch:touch];
 }

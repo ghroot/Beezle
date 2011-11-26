@@ -69,17 +69,17 @@
 
 -(void) onTouchBegan:(Touch *)touch
 {
-    [_game touchBegan:touch];
+    [self touchBegan:touch];
 }
 
 -(void) onTouchMoved:(Touch *)touch
 {
-    [_game touchMoved:touch];
+    [self touchMoved:touch];
 }
 
 -(void) onTouchEnded:(Touch *)touch
 {
-    [_game touchEnded:touch];
+    [self touchEnded:touch];
 }
 
 @end

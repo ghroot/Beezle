@@ -19,6 +19,7 @@
 
 #import "GameContainer.h"
 #import "Game.h"
+#import "Touch.h"
 
 @interface GameContainer()
 
@@ -83,6 +84,21 @@
 -(void) render
 {
     [_game renderWithContainer:self];
+}
+
+-(void) touchBegan:(Touch *)touch
+{
+    [_game touchBeganWithContainer:self touch:touch];
+}
+
+-(void) touchMoved:(Touch *)touch
+{
+    [_game touchMovedWithContainer:self touch:touch];
+}
+
+-(void) touchEnded:(Touch *)touch
+{
+    [_game touchEndedWithContainer:self touch:touch];
 }
 
 -(void) pause
