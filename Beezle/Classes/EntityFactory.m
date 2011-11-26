@@ -169,4 +169,30 @@
     return rampEntity;
 }
 
++(Entity *) createPollen:(World *)world withPosition:(CGPoint)position
+{
+    Entity *pollenEntity = [world createEntity];
+    
+    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
+    [pollenEntity addComponent:transformComponent];
+    
+    RenderComponent *renderComponent = [[[RenderComponent alloc] initWithSpriteSheetName:@"Pollen" andFrameFormat:@"Pollen-0%i.png"] autorelease];
+    NSMutableArray *spinFrames = [NSMutableArray arrayWithObjects:
+                                   [NSNumber numberWithInt:1],
+                                   [NSNumber numberWithInt:2],
+                                   [NSNumber numberWithInt:3],
+                                   [NSNumber numberWithInt:4],
+                                   [NSNumber numberWithInt:3],
+                                   [NSNumber numberWithInt:2],
+                                   nil];
+    [renderComponent addAnimation:@"spin" withFrames:spinFrames];
+    [pollenEntity addComponent:renderComponent];
+    
+    [pollenEntity refresh];
+    
+    [renderComponent playAnimation:@"spin" withLoops:999];
+    
+    return pollenEntity;
+}
+
 @end

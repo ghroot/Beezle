@@ -78,6 +78,7 @@
     [EntityFactory createRamp:_world withPosition:CGPointMake(150, 100) andRotation:0.0f];
     [EntityFactory createRamp:_world withPosition:CGPointMake(150, 140) andRotation:0.1f];
     [EntityFactory createRamp:_world withPosition:CGPointMake(150, 180) andRotation:-0.1f];
+    [EntityFactory createPollen:_world withPosition:CGPointMake(250, 250)];
 }
 
 -(void) updateWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game delta:(int)delta
