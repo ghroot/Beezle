@@ -13,7 +13,7 @@
 
 @implementation Beezle
 
--(void) initialiseStatesListWithContainer:(GameContainer *)container
+-(void) createStates
 {
     [self addState:[[[MainMenuState alloc] initWithId:STATE_MAIN_MENU] autorelease]];
     [self addState:[[[TestState alloc] initWithId:STATE_TEST] autorelease]];

@@ -20,14 +20,6 @@
     return self;
 }
 
--(void) setup
-{
-    CCScene *defaultScene = [CCScene node];
-    [self setScene:defaultScene];
-    
-    [super setup];
-}
-
 -(void) startInterval
 {
     [[CCDirector sharedDirector] setAnimationInterval:_updateInterval];

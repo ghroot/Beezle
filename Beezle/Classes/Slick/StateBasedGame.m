@@ -30,7 +30,9 @@
 		_statesById = [[NSMutableDictionary alloc] init];
 		
 		// Empty state on creation to avoid nil issues
-		_currentState = [[[GameState alloc] initWithId:-1] autorelease];
+         GameState *emptyState = [[[GameState alloc] initWithId:-1] autorelease];
+        [self addState:emptyState];
+		_currentState = emptyState;
     }
     return self;
 }
@@ -45,23 +47,14 @@
 -(void) addState:(GameState *)state
 {
 	[_statesById setObject:state forKey:[NSNumber numberWithInt:[state stateId]]];
-	
-	// Replace placeholder state
-	if ([_currentState stateId] == -1)
-	{
-		_currentState = state;
-	}
+    [state setGame:self];
 }
 
 -(void) enterState:(int)stateId
 {
-	[_currentState leaveWithContainer:_container andGame:self];
+	[_currentState leave];
 	_currentState = [self getState:stateId];
-	[_currentState enterWithContainer:_container andGame:self];
-}
-
--(void) initialiseStatesListWithContainer:(GameContainer *)container
-{
+	[_currentState enter];
 }
 
 -(GameState *) getCurrentState
@@ -79,45 +72,48 @@
 	return [_statesById objectForKey:[NSNumber numberWithInt:stateId]];
 }
 
--(void) initialiseWithContainer:(GameContainer *)container
+-(void) initialise
 {
-    _container = container;
-	
-	// Create states
-	[self initialiseStatesListWithContainer:container];
+    // Create states
+	[self createStates];
     
 	// Initialise states
     for (GameState *state in [_statesById allValues])
     {
-        [state initialiseWithContainer:_container andGame:self];
+        [state initialise];
     }
 	
-	[_currentState enterWithContainer:_container andGame:self];
+    // Enter current state (which is the empty state)
+	[_currentState enter];
 }
 
--(void) updateWithContainer:(GameContainer *)container andDelta:(int)delta
+-(void) createStates
 {
-	[_currentState updateWithContainer:_container andGame:self delta:delta];
 }
 
--(void) renderWithContainer:(GameContainer *)container
+-(void) update:(int)delta
 {
-	[_currentState renderWithContainer:_container andGame:self];
+	[_currentState update:delta];
 }
 
--(void) touchBeganWithContainer:(GameContainer *)container touch:(Touch *)touch
+-(void) render
 {
-	[_currentState touchBeganWithContainer:_container andGame:self touch:touch];
+	[_currentState render];
 }
 
--(void) touchMovedWithContainer:(GameContainer *)container touch:(Touch *)touch
+-(void) touchBegan:(Touch *)touch
 {
-	[_currentState touchMovedWithContainer:_container andGame:self touch:touch];
+	[_currentState touchBegan:touch];
 }
 
--(void) touchEndedWithContainer:(GameContainer *)container touch:(Touch *)touch
+-(void) touchMoved:(Touch *)touch
 {
-	[_currentState touchEndedWithContainer:_container andGame:self touch:touch];
+	[_currentState touchMoved:touch];
+}
+
+-(void) touchEnded:(Touch *)touch
+{
+	[_currentState touchEnded:touch];
 }
 
 @end

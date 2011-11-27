@@ -89,10 +89,11 @@
 	[self removeStartupFlicker];
 	
 	// Create game
-	_beezle = [[Beezle alloc] init];
-	_container = [[CocosGameContainer alloc] initWithGame:_beezle];
+	Beezle *beezle = [[Beezle alloc] init];
+	_container = [[CocosGameContainer alloc] initWithGame:beezle];
 	[_container setUpdateInterval:(1.0f / 60.0f)];
 	[_container start];
+    [beezle enterState:STATE_MAIN_MENU];
 }
 
 
@@ -145,7 +146,6 @@
 
 	[_window release];
 	[_viewController release];
-	[_beezle release];
 	[_container release];
     
 	[super dealloc];

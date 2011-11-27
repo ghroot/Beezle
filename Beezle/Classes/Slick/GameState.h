@@ -24,18 +24,20 @@
 @interface GameState : NSObject
 {
 	int _stateId;
+    StateBasedGame *_game;
 }
 
 @property (nonatomic, readonly) int stateId;
+@property (nonatomic, assign) StateBasedGame *game;
 
 -(id) initWithId:(int)stateId;
--(void) initialiseWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game;
--(void) enterWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game;
--(void) updateWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game delta:(int)delta;
--(void) renderWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game;
--(void) leaveWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game;
--(void) touchBeganWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch;
--(void) touchMovedWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch;
--(void) touchEndedWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch;
+-(void) initialise;
+-(void) enter;
+-(void) update:(int)delta;
+-(void) render;
+-(void) leave;
+-(void) touchBegan:(Touch *)touch;
+-(void) touchMoved:(Touch *)touch;
+-(void) touchEnded:(Touch *)touch;
 
 @end

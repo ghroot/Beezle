@@ -31,14 +31,23 @@
 
 @synthesize updateInterval = _updateInterval;
 @synthesize paused = _paused;
+@synthesize game = _game;
 
 -(id) initWithGame:(Game *)game
 {
     if (self = [super init])
     {
-		_game = game;
+        _game = [game retain];
+        [_game setContainer:self];
     }
     return self;
+}
+
+-(void) dealloc
+{
+    [_game release];
+    
+    [super dealloc];
 }
 
 -(void) start
@@ -63,7 +72,7 @@
 
 -(void) setup
 {
-    [_game initialiseWithContainer:self];
+    [_game initialise];
 }
 
 -(void) update:(int)delta
@@ -72,33 +81,33 @@
 	{
 		if (!_paused)
 		{
-			[_game updateWithContainer:self andDelta:delta];
+			[_game update:delta];
 		}
 		else
 		{
-			[_game updateWithContainer:self andDelta:0];
+			[_game update:0];
 		}
 	}
 }
 
 -(void) render
 {
-    [_game renderWithContainer:self];
+    [_game render];
 }
 
 -(void) touchBegan:(Touch *)touch
 {
-    [_game touchBeganWithContainer:self touch:touch];
+    [_game touchBegan:touch];
 }
 
 -(void) touchMoved:(Touch *)touch
 {
-    [_game touchMovedWithContainer:self touch:touch];
+    [_game touchMoved:touch];
 }
 
 -(void) touchEnded:(Touch *)touch
 {
-    [_game touchEndedWithContainer:self touch:touch];
+    [_game touchEnded:touch];
 }
 
 -(void) pause

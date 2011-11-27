@@ -18,7 +18,6 @@
 	UIWindow *_window;
 	RootViewController *_viewController;
 	
-	Beezle *_beezle;
 	CocosGameContainer *_container;
 }
 

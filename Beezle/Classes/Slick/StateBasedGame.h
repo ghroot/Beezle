@@ -23,14 +23,13 @@
 
 @interface StateBasedGame : Game
 {
-    GameContainer *_container;
 	NSMutableDictionary *_statesById;
 	GameState *_currentState;
 }
 
 -(void) addState:(GameState *)state;
 -(void) enterState:(int)id;
--(void) initialiseStatesListWithContainer:(GameContainer *)container;
+-(void) createStates;
 -(GameState *) getCurrentState;
 -(int) getCurrentStateId;
 -(GameState *) getState:(int)stateId;

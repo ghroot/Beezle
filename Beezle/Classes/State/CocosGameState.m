@@ -30,9 +30,9 @@
     [super dealloc];
 }
 
--(void) enterWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
+-(void) enter
 {
-    CocosGameContainer *cocosGameContainer = (CocosGameContainer *)container;
+    CocosGameContainer *cocosGameContainer = (CocosGameContainer *)[_game container];
     [cocosGameContainer setScene:_scene];
 }
 

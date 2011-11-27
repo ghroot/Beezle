@@ -23,27 +23,29 @@
 
 @implementation Game
 
--(void) initialiseWithContainer:(GameContainer *)container
+@synthesize container = _container;
+
+-(void) initialise
 {
 }
 
--(void) updateWithContainer:(GameContainer *)container andDelta:(int)delta
+-(void) update:(int)delta
 {
 }
 
--(void) renderWithContainer:(GameContainer *)container
+-(void) render
 {
 }
 
--(void) touchBeganWithContainer:(GameContainer *)container touch:(Touch *)touch
+-(void) touchBegan:(Touch *)touch
 {
 }
 
--(void) touchMovedWithContainer:(GameContainer *)container touch:(Touch *)touch
+-(void) touchMoved:(Touch *)touch
 {
 }
 
--(void) touchEndedWithContainer:(GameContainer *)container touch:(Touch *)touch
+-(void) touchEnded:(Touch *)touch
 {
 }
 

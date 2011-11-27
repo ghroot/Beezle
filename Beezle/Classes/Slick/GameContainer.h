@@ -29,6 +29,7 @@
 	BOOL _paused;
 }
 
+@property (nonatomic, readonly, retain) Game *game;
 @property (nonatomic) float updateInterval;
 @property (nonatomic, readonly) BOOL paused;
 

@@ -12,7 +12,6 @@
 
 @interface MainMenuState : CocosGameState
 {
-    StateBasedGame *_game;
     CCMenu *_menu;
 }
 

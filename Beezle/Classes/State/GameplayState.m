@@ -49,7 +49,7 @@
 	[super dealloc];
 }
 
--(void) initialiseWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
+-(void) initialise
 {
 	SystemManager *systemManager = [_world systemManager];
 	
@@ -86,7 +86,7 @@
 
 }
 
--(void) updateWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game delta:(int)delta
+-(void) update:(int)delta
 {
 	[_world loopStart];
 	[_world setDelta:delta];
@@ -99,7 +99,7 @@
     [_boundrySystem process];
 }
 
--(void) renderWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
+-(void) render
 {
 	if (_debug)
 	{
@@ -107,19 +107,19 @@
 	}
 }
 
--(void) touchBeganWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch
+-(void) touchBegan:(Touch *)touch
 {
     InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_START andTouchLocation:[touch point]] autorelease];
     [_inputSystem pushInputAction:inputAction];
 }
 
--(void) touchMovedWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch
+-(void) touchMoved:(Touch *)touch
 {
     InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_MOVE andTouchLocation:[touch point]] autorelease];
     [_inputSystem pushInputAction:inputAction];
 }
 
--(void) touchEndedWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch
+-(void) touchEnded:(Touch *)touch
 {
     InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_END andTouchLocation:[touch point]] autorelease];
     [_inputSystem pushInputAction:inputAction];

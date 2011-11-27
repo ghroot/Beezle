@@ -12,10 +12,8 @@
 
 @implementation MainMenuState
 
--(void) initialiseWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
+-(void) initialise
 {
-    _game = game;
-    
     CCMenuItem *playMenuItem = [CCMenuItemFont itemFromString:@"Play" target:self selector:@selector(startGame:)];
     CCMenuItem *testMenuItem = [CCMenuItemFont itemFromString:@"Test" target:self selector:@selector(startTest:)];
     _menu = [CCMenu menuWithItems: playMenuItem, testMenuItem, nil];

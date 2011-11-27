@@ -24,6 +24,7 @@
 @implementation GameState
 
 @synthesize stateId = _stateId;
+@synthesize game = _game;
 
 -(id) initWithId:(int)stateId
 {
@@ -34,35 +35,35 @@
     return self;
 }
 
--(void) initialiseWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
+-(void) initialise
 {
 }
 
--(void) enterWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
+-(void) enter
 {
 }
 
--(void) updateWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game delta:(int)delta
+-(void) update:(int)delta
 {
 }
 
--(void) renderWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
+-(void) render
 {
 }
 
--(void) leaveWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
+-(void) leave
 {
 }
 
--(void) touchBeganWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch
+-(void) touchBegan:(Touch *)touch
 {
 }
 
--(void) touchMovedWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch
+-(void) touchMoved:(Touch *)touch
 {
 }
 
--(void) touchEndedWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch
+-(void) touchEnded:(Touch *)touch
 {
 }
 

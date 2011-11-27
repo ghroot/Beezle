@@ -60,7 +60,7 @@
 	[super dealloc];
 }
 
--(void) initialiseWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
+-(void) initialise
 {
 	SystemManager *systemManager = [_world systemManager];
 	
@@ -84,7 +84,7 @@
     [_layer addChild:_label];
 }
 
--(void) updateWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game delta:(int)delta
+-(void) update:(int)delta
 {
 	[_world loopStart];
 	[_world setDelta:delta];
@@ -136,7 +136,7 @@
     [groupManager addEntity:entity toGroup:@"ENTITIES"];
 }
 
--(void) touchBeganWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game touch:(Touch *)touch
+-(void) touchBegan:(Touch *)touch
 {
 	// Delete all entities when tapping the screen
     GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
