@@ -80,12 +80,11 @@
             }
             case TOUCH_END:
             {
-                CGPoint slingerVector = ccpSub([nextInputAction touchLocation], [transformComponent position]);
-                CGPoint touchVector = ccpSub([nextInputAction touchLocation], [self startLocation]);
+                CGPoint slingerToTouchVector = ccpSub([nextInputAction touchLocation], [transformComponent position]);
                 
                 [renderComponent playAnimation:@"shoot" withLoops:1];
                 
-                CGPoint beeVelocity = CGPointMake(30 + 1.2 * slingerVector.x, 30 + 1.2 * slingerVector.y);
+                CGPoint beeVelocity = CGPointMake(30 + 1.2 * slingerToTouchVector.x, 30 + 1.2 * slingerToTouchVector.y);
                 Entity *beeEntity = [EntityFactory createBee:_world withPosition:[transformComponent position] andVelocity:beeVelocity];
                 RenderComponent *beeRenderComponent = (RenderComponent *)[beeEntity getComponent:[RenderComponent class]];
                 [beeRenderComponent playAnimation:@"fly" withLoops:1];
