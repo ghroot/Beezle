@@ -13,6 +13,7 @@
 #import "PhysicsComponent.h"
 #import "PhysicsShape.h"
 #import "RenderComponent.h"
+#import "RenderSystem.h"
 #import "TagManager.h"
 #import "TransformComponent.h"
 
@@ -27,7 +28,8 @@
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(winSize.width / 2, winSize.height / 2)] autorelease];
     [backgroundEntity addComponent:transformComponent];
     
-    RenderComponent *renderComponent = [[[RenderComponent alloc] initWithFile:fileName] autorelease];
+    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+    RenderComponent *renderComponent = [renderSystem createRenderComponentWithFile:fileName];
     [renderComponent setZ:-5];
     [backgroundEntity addComponent:renderComponent];
     
@@ -116,7 +118,8 @@
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [slingerEntity addComponent:transformComponent];
     
-    RenderComponent *renderComponent = [[[RenderComponent alloc] initWithSpriteSheetName:@"BeeSlingerC" andFrameFormat:@"BeeSlingerC-0%i.png"] autorelease];
+    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+    RenderComponent *renderComponent = [renderSystem createRenderComponentWithSpriteSheetName:@"BeeSlingerC" andFrameFormat:@"BeeSlingerC-0%i.png"];
     [[renderComponent sprite] setAnchorPoint:CGPointMake(0.5f, 1.0f)];
     [renderComponent addAnimation:@"idle" withStartFrame:1 andEndFrame:1];
     [renderComponent addAnimation:@"stretch1" withStartFrame:2 andEndFrame:2];
@@ -148,7 +151,8 @@
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [beeEntity addComponent:transformComponent];
     
-    RenderComponent *renderComponent = [[[RenderComponent alloc] initWithSpriteSheetName:@"Bee" andFrameFormat:@"Bee-0%i.png"] autorelease];
+    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+    RenderComponent *renderComponent = [renderSystem createRenderComponentWithSpriteSheetName:@"Bee" andFrameFormat:@"Bee-0%i.png"];
     [renderComponent setZ:-2];
     [renderComponent addAnimation:@"idle" withStartFrame:1 andEndFrame:3];
     [renderComponent addAnimation:@"fly" withStartFrame:4 andEndFrame:4];
@@ -178,7 +182,8 @@
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [rampEntity addComponent:transformComponent];
     
-    RenderComponent *renderComponent = [[[RenderComponent alloc] initWithSpriteSheetName:@"Ramp" andFrameFormat:@"RampCrach [ Sketch ]-0%i.png"] autorelease];
+    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+    RenderComponent *renderComponent = [renderSystem createRenderComponentWithSpriteSheetName:@"Ramp" andFrameFormat:@"RampCrach [ Sketch ]-0%i.png"];
     [renderComponent addAnimation:@"crash" withStartFrame:1 andEndFrame:8];
     [rampEntity addComponent:renderComponent];
     
@@ -213,7 +218,8 @@
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [pollenEntity addComponent:transformComponent];
     
-    RenderComponent *renderComponent = [[[RenderComponent alloc] initWithSpriteSheetName:@"Pollen" andFrameFormat:@"Pollen-0%i.png"] autorelease];
+    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+    RenderComponent *renderComponent = [renderSystem createRenderComponentWithSpriteSheetName:@"Pollen" andFrameFormat:@"Pollen-0%i.png"];
     NSMutableArray *spinFrames = [NSMutableArray arrayWithObjects:
                                    [NSNumber numberWithInt:1],
                                    [NSNumber numberWithInt:2],
@@ -239,7 +245,7 @@
     
     [pollenEntity refresh];
     
-    [renderComponent playAnimation:@"spin" withLoops:999];
+    [renderComponent playAnimation:@"spin" withLoops:-1];
     
     return pollenEntity;
 }

@@ -14,47 +14,38 @@
 @synthesize sprite = _sprite;
 @synthesize z = _z;
 
--(id) initWithFile:(NSString *)fileName;
+-(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet
 {
     if (self = [super init])
     {
-        _spriteSheet = [[CCSpriteBatchNode batchNodeWithFile:fileName capacity:100] retain];
-        _sprite = [[CCSprite spriteWithTexture:_spriteSheet.texture] retain];
-        [_spriteSheet addChild:_sprite];
-        _z = -1;
+        _frameFormat = @"";
+        _animationsByName = [[NSMutableDictionary alloc] init];
+        
+        _spriteSheet = spriteSheet;
+        _sprite = [[CCSprite spriteWithTexture:spriteSheet.texture] retain];
     }
     return self;
 }
 
--(id) initWithSpriteSheetName:(NSString *)spriteSheetName andFrameFormat:(NSString *)frameFormat
+-(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet andFrameFormat:(NSString *)frameFormat
 {
     if (self = [super init])
     {
         _frameFormat = frameFormat;
-        _animationByName = [[NSMutableDictionary alloc] init];
+        _animationsByName = [[NSMutableDictionary alloc] init];
         
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", spriteSheetName]];
-        _spriteSheet = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png", spriteSheetName]] retain];
+        _spriteSheet = spriteSheet;
         NSString *spriteFrameName = [NSString stringWithFormat:_frameFormat, 1];
         _sprite = [[CCSprite spriteWithSpriteFrameName:spriteFrameName] retain];
-        [_spriteSheet addChild:_sprite];
     }
     return self;
 }
 
 -(void) dealloc
 {
-    [_spriteSheet release];
+    [_frameFormat release];
+    [_animationsByName release];
     [_sprite release];
-    
-    if (_frameFormat != nil)
-    {
-        [_frameFormat release];
-    }
-    if (_animationByName != nil)
-    {
-        [_animationByName release];
-    }
     
     [super dealloc];
 }
@@ -69,7 +60,7 @@
     }
     
     CCAnimation *animation = [CCAnimation animationWithFrames:aimationFrames delay:0.08f];
-    [_animationByName setObject:animation forKey:animationName];
+    [_animationsByName setObject:animation forKey:animationName];
 }
 
 -(void) addAnimation:(NSString *)animationName withFrames:(NSArray *)frames;
@@ -82,19 +73,27 @@
     }
     
     CCAnimation *animation = [CCAnimation animationWithFrames:aimationFrames delay:0.08f];
-    [_animationByName setObject:animation forKey:animationName];
+    [_animationsByName setObject:animation forKey:animationName];
 }
 
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops
 {
-    CCAnimation *animation = [_animationByName objectForKey:animationName];
-    CCAction *action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:NO] times:nLoops];
+    CCAnimation *animation = [_animationsByName objectForKey:animationName];
+    CCAction *action;
+    if (nLoops == -1)
+    {
+        action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:NO]];
+    }
+    else
+    {
+        action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:NO] times:nLoops];
+    }
     [_sprite runAction:action];
 }
 
 -(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector
 {
-    CCAnimation *animation = [_animationByName objectForKey:animationName];
+    CCAnimation *animation = [_animationsByName objectForKey:animationName];
     CCRepeat *action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:NO] times:1];
     CCCallFunc *callbackAction = [CCCallFunc actionWithTarget:target selector:selector];
     [_sprite runAction:[CCSequence actions:action, callbackAction, nil]];

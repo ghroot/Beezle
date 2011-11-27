@@ -11,20 +11,20 @@
 
 @interface RenderComponent : Component
 {
+    NSString *_frameFormat;
+    NSMutableDictionary *_animationsByName;
+    
     CCSpriteBatchNode *_spriteSheet;
     CCSprite *_sprite;
     int _z;
-    
-    NSString *_frameFormat;
-    NSMutableDictionary *_animationByName;
 }
 
-@property (nonatomic, readonly) CCSpriteBatchNode *spriteSheet;
-@property (nonatomic, readonly) CCSprite *sprite;
+@property (nonatomic, readonly, assign) CCSpriteBatchNode *spriteSheet;
+@property (nonatomic, readonly, retain) CCSprite *sprite;
 @property (nonatomic) int z;
 
--(id) initWithFile:(NSString *)fileName;
--(id) initWithSpriteSheetName:(NSString *)spriteSheetName andFrameFormat:(NSString *)frameFormat;
+-(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
+-(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet andFrameFormat:(NSString *)frameFormat;
 -(void) addAnimation:(NSString *)animationName withStartFrame:(int)startFrame andEndFrame:(int)endFrame;
 -(void) addAnimation:(NSString *)animationName withFrames:(NSArray *)frames;
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops;

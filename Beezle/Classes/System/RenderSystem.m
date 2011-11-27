@@ -17,16 +17,47 @@
     if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], [RenderComponent class], nil]])
     {
         _layer = layer;
+        _spriteSheetsByName = [[NSMutableDictionary alloc] init];
     }
     return self;
+}
+
+-(void) dealloc
+{
+    [_spriteSheetsByName release];
+    
+    [super dealloc];
+}
+
+-(RenderComponent *) createRenderComponentWithFile:(NSString *)fileName
+{
+    CCSpriteBatchNode *spriteSheet = (CCSpriteBatchNode *)[_spriteSheetsByName objectForKey:fileName];
+    if (spriteSheet == nil)
+    {
+        spriteSheet = [CCSpriteBatchNode batchNodeWithFile:fileName];
+        [_layer addChild:spriteSheet];
+        [_spriteSheetsByName setObject:spriteSheet forKey:fileName];
+    }
+    return [[[RenderComponent alloc] initWithSpriteSheet:spriteSheet] autorelease];
+}
+
+-(RenderComponent *) createRenderComponentWithSpriteSheetName:(NSString *)name andFrameFormat:(NSString *)frameFormat
+{
+    CCSpriteBatchNode *spriteSheet = (CCSpriteBatchNode *)[_spriteSheetsByName objectForKey:name];
+    if (spriteSheet == nil)
+    {
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", name]];
+        spriteSheet = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png", name]];
+        [_layer addChild:spriteSheet];
+        [_spriteSheetsByName setObject:spriteSheet forKey:name];
+    }
+    return [[[RenderComponent alloc] initWithSpriteSheet:spriteSheet andFrameFormat:frameFormat] autorelease];
 }
 
 -(void) entityAdded:(Entity *)entity
 {
     RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
-    [_layer addChild:[renderComponent spriteSheet] z:[renderComponent z]];
-    
-    // TODO: Only one instance of each sprite sheet should be added to a CCLayer
+    [[renderComponent spriteSheet] addChild:[renderComponent sprite] z:[renderComponent z]];
     
     [super entityAdded:entity];
 }
@@ -34,7 +65,7 @@
 -(void) entityRemoved:(Entity *)entity
 {
     RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
-    [_layer removeChild:[renderComponent spriteSheet] cleanup:TRUE];
+    [[renderComponent spriteSheet] removeChild:[renderComponent sprite] cleanup:TRUE];
     
     [super entityRemoved:entity];
 }

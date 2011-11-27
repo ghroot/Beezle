@@ -113,7 +113,8 @@
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(randomPosition.x, randomPosition.y)] autorelease];
     [entity addComponent:transformComponent];
     
-    RenderComponent *renderComponent = [[[RenderComponent alloc] initWithSpriteSheetName:@"Beeater" andFrameFormat:@"Beeater-0%i.png"] autorelease];
+    RenderSystem *renderSystem = (RenderSystem *)[[_world systemManager] getSystem:[RenderSystem class]];
+    RenderComponent *renderComponent = [renderSystem createRenderComponentWithSpriteSheetName:@"Beeater" andFrameFormat:@"Beeater-0%i.png"];
     [renderComponent addAnimation:@"idle" withStartFrame:1 andEndFrame:9];
     [entity addComponent:renderComponent];
     

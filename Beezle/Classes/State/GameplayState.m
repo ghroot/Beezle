@@ -84,8 +84,6 @@
     [EntityFactory createPollen:_world withPosition:CGPointMake(300, 250)];
     [EntityFactory createPollen:_world withPosition:CGPointMake(350, 250)];
     [EntityFactory createPollen:_world withPosition:CGPointMake(400, 250)];
-
-
 }
 
 -(void) update:(int)delta
