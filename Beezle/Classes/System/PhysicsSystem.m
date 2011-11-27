@@ -26,11 +26,6 @@
 
 -(void) dealloc
 {
-    for (int i = 0; i < 4; i++)
-    {
-		cpShapeFree(_walls[i]);
-	}
-    
     cpSpaceFree(_space);
     _space = NULL;
     
@@ -77,21 +72,10 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     cpSpaceSetUserData(_space, self);
     _space->gravity = CGPointMake(0, -100);
     
-    CGSize size = [[CCDirector sharedDirector] winSize];
-	_walls[0] = cpSegmentShapeNew(_space->staticBody, ccp(0,0), ccp(size.width,0), 0.0f);
-	_walls[1] = cpSegmentShapeNew(_space->staticBody, ccp(0,size.height), ccp(size.width,size.height), 0.0f);
-	_walls[2] = cpSegmentShapeNew(_space->staticBody, ccp(0,0), ccp(0,size.height), 0.0f);
-	_walls[3] = cpSegmentShapeNew(_space->staticBody, ccp(size.width,0), ccp(size.width,size.height), 0.0f);
-	for (int i = 0; i < 4; i++)
-    {
-		_walls[i]->e = 0.1f;
-		_walls[i]->u = 1.0f;
-		cpSpaceAddStaticShape(_space, _walls[i]);
-	}
-    
     cpSpaceAddCollisionHandler(_space, COLLISION_TYPE_BEE, COLLISION_TYPE_RAMP, NULL, NULL, &postSolveCollision, NULL, NULL);
 	cpSpaceAddCollisionHandler(_space, COLLISION_TYPE_BEE, COLLISION_TYPE_BEEATER, NULL, NULL, &postSolveCollision, NULL, NULL);
     cpSpaceAddCollisionHandler(_space, COLLISION_TYPE_BEE, COLLISION_TYPE_BACKGROUND, NULL, NULL, &postSolveCollision, NULL, NULL);
+    cpSpaceAddCollisionHandler(_space, COLLISION_TYPE_BEE, COLLISION_TYPE_EDGE, NULL, NULL, &postSolveCollision, NULL, NULL);
     cpSpaceAddCollisionHandler(_space, COLLISION_TYPE_BEE, COLLISION_TYPE_POLLEN, &beginCollision, NULL, NULL, NULL, NULL);
 }
 

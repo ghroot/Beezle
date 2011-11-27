@@ -13,6 +13,7 @@
 @interface EntityFactory : NSObject
 
 +(Entity *) createBackground:(World *)world withFileName:(NSString *)fileName;
++(Entity *) createEdge:(World *)world  withSize:(CGSize)size;
 +(Entity *) createSlinger:(World *)world withPosition:(CGPoint)position;
 +(Entity *) createBee:(World *)world withPosition:(CGPoint)position andVelocity:(CGPoint)velocity;
 +(Entity *) createRamp:(World *)world withPosition:(CGPoint)position andRotation:(float)rotation;

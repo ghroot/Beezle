@@ -57,6 +57,10 @@
             {
                 [self handleCollisionBee:[collision firstEntity] withBackground:[collision secondEntity]];
             }
+            else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_EDGE)
+            {
+                [self handleCollisionBee:[collision firstEntity] withEdge:[collision secondEntity]];
+            }
             else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_POLLEN)
             {
                 [self handleCollisionBee:[collision firstEntity] withPollen:[collision secondEntity]];
@@ -96,6 +100,12 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity
 {
+}
+
+-(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity
+{
+	// Remove bee
+	[beeEntity deleteEntity];
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity

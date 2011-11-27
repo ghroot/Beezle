@@ -51,6 +51,7 @@
 
 -(void) initialise
 {
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
 	SystemManager *systemManager = [_world systemManager];
 	
 	_physicsSystem = [[PhysicsSystem alloc] init];
@@ -74,6 +75,7 @@
     [systemManager initialiseAll];
     
     [EntityFactory createBackground:_world withFileName:@"Background-01.jpg"];
+    [EntityFactory createEdge:_world withSize:winSize];
     [EntityFactory createSlinger:_world withPosition:CGPointMake(100, 300)];
     [EntityFactory createRamp:_world withPosition:CGPointMake(150, 100) andRotation:0.0f];
     [EntityFactory createRamp:_world withPosition:CGPointMake(150, 140) andRotation:0.1f];

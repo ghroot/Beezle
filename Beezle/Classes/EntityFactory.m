@@ -72,6 +72,43 @@
     return backgroundEntity;
 }
 
++(Entity *) createEdge:(World *)world  withSize:(CGSize)size
+{
+    Entity *edgeEntity = [world createEntity];
+    
+    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(0.0f, 0.0f)] autorelease];
+    [edgeEntity addComponent:transformComponent];
+    
+    int num = 4;
+    CGPoint verts[] = {
+        cpv(0.0f, 0.0f),
+        cpv(size.width, 0.0f),
+        cpv(size.width, size.height),
+        cpv(0.0f, size.height)
+    };
+    cpBody *body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
+    cpBodyInitStatic(body);
+    NSMutableArray *physicsShapes = [[[NSMutableArray alloc] init] autorelease];
+    for (int i = 0; i < num; i++)
+    {
+        int nextI = i == num - 1 ? 0 : i + 1;
+        cpShape *shape = cpSegmentShapeNew(body, verts[i], verts[nextI], 0);
+        shape->e = 0.0f;
+        shape->u = 0.5f;
+        shape->collision_type = COLLISION_TYPE_EDGE;
+        
+        PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:shape] autorelease];
+        [physicsShapes addObject:physicsShape];
+    }
+    PhysicsBody *physicsBody = [[[PhysicsBody alloc] initWithBody:body] autorelease];
+    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShapes:physicsShapes] autorelease];
+    [edgeEntity addComponent:physicsComponent];
+    
+    [edgeEntity refresh];
+    
+    return edgeEntity;
+}
+
 +(Entity *) createSlinger:(World *)world withPosition:(CGPoint)position
 {
     Entity *slingerEntity = [world createEntity];

@@ -14,7 +14,6 @@
 @interface PhysicsSystem : EntityComponentSystem
 {
     cpSpace *_space;
-    cpShape *_walls[4];
 }
 
 @property (nonatomic, readonly) cpSpace *space;
