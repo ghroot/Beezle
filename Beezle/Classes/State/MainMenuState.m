@@ -16,20 +16,10 @@
 {
     _game = game;
     
-    _startGameButton = [CCMenuItemImage
-                                    itemFromNormalImage:@"Icon-72.png"
-                                    selectedImage:@"Icon-72.png"
-                                    target:self
-                                    selector:@selector(startGame:)];
-    
-    _startTestButton = [CCMenuItemImage
-                                   itemFromNormalImage:@"Icon-Small-50.png"
-                                   selectedImage:@"Icon-Small-50.png"
-                                   target:self
-                                   selector:@selector(startTest:)];
-    
-    _menu = [CCMenu menuWithItems: _startGameButton, _startTestButton, nil];
-    [_menu alignItemsHorizontallyWithPadding:40.0f];
+    CCMenuItem *playMenuItem = [CCMenuItemFont itemFromString:@"Play" target:self selector:@selector(startGame:)];
+    CCMenuItem *testMenuItem = [CCMenuItemFont itemFromString:@"Test" target:self selector:@selector(startTest:)];
+    _menu = [CCMenu menuWithItems: playMenuItem, testMenuItem, nil];
+    [_menu alignItemsVerticallyWithPadding:20.0f];
     
     [_layer addChild:_menu];
 }

@@ -14,8 +14,6 @@
 {
     StateBasedGame *_game;
     CCMenu *_menu;
-    CCMenuItemImage *_startGameButton;
-    CCMenuItemImage *_startTestButton;
 }
 
 -(void) startGame:(id)sender;
