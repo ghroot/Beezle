@@ -53,7 +53,7 @@
 		2CD33EE4147DAF63000869C1 /* Touch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE3147DAF62000869C1 /* Touch.m */; };
 		2CD33EE7147EE3C6000869C1 /* EntityComponentSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE6147EE3C6000869C1 /* EntityComponentSystem.m */; };
 		2CD33EEA147EE7AD000869C1 /* TestState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE9147EE7AD000869C1 /* TestState.m */; };
-		2CD33EF3147EFFA8000869C1 /* MenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EF2147EFFA7000869C1 /* MenuState.m */; };
+		2CD33EF3147EFFA8000869C1 /* MainMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EF2147EFFA7000869C1 /* MainMenuState.m */; };
 		2CD48B8B14801833007D90D9 /* Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48B8A14801833007D90D9 /* Manager.m */; };
 		2CD48B8E14801A4F007D90D9 /* EntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48B8D14801A4E007D90D9 /* EntitySystem.m */; };
 		2CD48B9114802E51007D90D9 /* CocosGameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48B9014802E51007D90D9 /* CocosGameState.m */; };
@@ -354,8 +354,8 @@
 		2CD33EE6147EE3C6000869C1 /* EntityComponentSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityComponentSystem.m; path = Classes/Artemis/EntityComponentSystem.m; sourceTree = "<group>"; };
 		2CD33EE8147EE7AD000869C1 /* TestState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestState.h; sourceTree = "<group>"; };
 		2CD33EE9147EE7AD000869C1 /* TestState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestState.m; sourceTree = "<group>"; };
-		2CD33EF1147EFFA7000869C1 /* MenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuState.h; sourceTree = "<group>"; };
-		2CD33EF2147EFFA7000869C1 /* MenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuState.m; sourceTree = "<group>"; };
+		2CD33EF1147EFFA7000869C1 /* MainMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MainMenuState.h; sourceTree = "<group>"; };
+		2CD33EF2147EFFA7000869C1 /* MainMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuState.m; sourceTree = "<group>"; };
 		2CD48B8914801833007D90D9 /* Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Manager.h; path = Classes/Artemis/Manager.h; sourceTree = "<group>"; };
 		2CD48B8A14801833007D90D9 /* Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Manager.m; path = Classes/Artemis/Manager.m; sourceTree = "<group>"; };
 		2CD48B8C14801A4E007D90D9 /* EntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntitySystem.h; path = Classes/Artemis/EntitySystem.h; sourceTree = "<group>"; };
@@ -882,8 +882,8 @@
 			children = (
 				2CD48B8F14802E51007D90D9 /* CocosGameState.h */,
 				2CD48B9014802E51007D90D9 /* CocosGameState.m */,
-				2CD33EF1147EFFA7000869C1 /* MenuState.h */,
-				2CD33EF2147EFFA7000869C1 /* MenuState.m */,
+				2CD33EF1147EFFA7000869C1 /* MainMenuState.h */,
+				2CD33EF2147EFFA7000869C1 /* MainMenuState.m */,
 				2CD33ED6147D72AD000869C1 /* GameplayState.h */,
 				2CD33ED7147D72AD000869C1 /* GameplayState.m */,
 				2CD33EE8147EE7AD000869C1 /* TestState.h */,
@@ -1958,7 +1958,7 @@
 				2CD33EE4147DAF63000869C1 /* Touch.m in Sources */,
 				2CD33EE7147EE3C6000869C1 /* EntityComponentSystem.m in Sources */,
 				2CD33EEA147EE7AD000869C1 /* TestState.m in Sources */,
-				2CD33EF3147EFFA8000869C1 /* MenuState.m in Sources */,
+				2CD33EF3147EFFA8000869C1 /* MainMenuState.m in Sources */,
 				2CD48B8B14801833007D90D9 /* Manager.m in Sources */,
 				2CD48B8E14801A4F007D90D9 /* EntitySystem.m in Sources */,
 				2CD48B9114802E51007D90D9 /* CocosGameState.m in Sources */,

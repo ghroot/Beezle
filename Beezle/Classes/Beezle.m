@@ -8,14 +8,14 @@
 
 #import "Beezle.h"
 #import "GameplayState.h"
-#import "MenuState.h"
+#import "MainMenuState.h"
 #import "TestState.h"
 
 @implementation Beezle
 
 -(void) initialiseStatesListWithContainer:(GameContainer *)container
 {
-    [self addState:[[[MenuState alloc] initWithId:STATE_MENU] autorelease]];
+    [self addState:[[[MainMenuState alloc] initWithId:STATE_MAIN_MENU] autorelease]];
     [self addState:[[[TestState alloc] initWithId:STATE_TEST] autorelease]];
 	[self addState:[[[GameplayState alloc] initWithId:STATE_GAMEPLAY] autorelease]];
 }

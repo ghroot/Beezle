@@ -6,11 +6,11 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "MenuState.h"
+#import "MainMenuState.h"
 #import "Beezle.h"
 #import "CocosGameContainer.h"
 
-@implementation MenuState
+@implementation MainMenuState
 
 -(void) initialiseWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game
 {

@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "slick.h"
 
-@interface MenuState : CocosGameState
+@interface MainMenuState : CocosGameState
 {
     StateBasedGame *_game;
     CCMenu *_menu;

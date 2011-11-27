@@ -9,7 +9,7 @@
 #import "slick.h"
 
 typedef enum {
-	STATE_MENU,
+	STATE_MAIN_MENU,
 	STATE_GAMEPLAY,
     STATE_TEST,
 } gameStates;
