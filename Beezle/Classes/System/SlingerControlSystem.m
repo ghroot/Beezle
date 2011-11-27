@@ -23,19 +23,6 @@
     return self;
 }
 
--(void) begin
-{
-    InputSystem *inputSystem = (InputSystem *)[[_world systemManager] getSystem:[InputSystem class]];
-    if ([inputSystem hasInputActions])
-    {
-        InputAction *nextInputAction = [inputSystem peekInputAction];
-        if ([nextInputAction touchType] == TOUCH_START)
-        {
-            [self setStartLocation:[nextInputAction touchLocation]];
-        }
-    }
-}
-
 -(void) processTaggedEntity:(Entity *)entity
 {
     InputSystem *inputSystem = (InputSystem *)[[_world systemManager] getSystem:[InputSystem class]];
@@ -50,29 +37,55 @@
         {
             case TOUCH_START:
             {
+                [self setStartLocation:[nextInputAction touchLocation]];
                 break;
             }
             case TOUCH_MOVE:
             {
-                CGPoint touchVector = ccpSub([nextInputAction touchLocation], [self startLocation]);
+                CGPoint slingerToTouchVector = ccpSub([nextInputAction touchLocation], [transformComponent position]);
+                CGPoint slingerToStartVector = ccpSub([self startLocation], [transformComponent position]);
                 
-                float angle = CC_RADIANS_TO_DEGREES(ccpToAngle(touchVector));
-                angle = 360 - angle + 90;
+                float angle = CC_RADIANS_TO_DEGREES(ccpToAngle(slingerToTouchVector));
+                angle = 360 - angle + 90 + 180;
                 [transformComponent setRotation:angle];
                 
-                float touchVectorLength = sqrtf(touchVector.x * touchVector.x + touchVector.y * touchVector.y);
-                [transformComponent setScale:CGPointMake(1.0f, 1.0f + touchVectorLength / 100)];
+                float slingerToStartVectorLength = sqrtf(slingerToStartVector.x * slingerToStartVector.x + slingerToStartVector.y * slingerToStartVector.y);
+                float slingerToTouchVectorLength = sqrtf(slingerToTouchVector.x * slingerToTouchVector.x + slingerToTouchVector.y * slingerToTouchVector.y);
+                float vectorLengthDifference = slingerToTouchVectorLength - slingerToStartVectorLength;
+                if (vectorLengthDifference < 0)
+                {
+                    vectorLengthDifference = 0;
+                }
+                int stretchLevelDistance = 40;
+                NSString *strechAnimationName;
+                if (vectorLengthDifference < stretchLevelDistance)
+                {
+                    strechAnimationName = @"stretch1";
+                }
+                else if (vectorLengthDifference < 2 * stretchLevelDistance)
+                {
+                    strechAnimationName = @"stretch2";
+                }
+                else if (vectorLengthDifference < 3 * stretchLevelDistance)
+                {
+                    strechAnimationName = @"stretch3";
+                }
+                else
+                {
+                    strechAnimationName = @"stretch4";
+                }
+                [renderComponent playAnimation:strechAnimationName withLoops:1];
                 
                 break;
             }
             case TOUCH_END:
             {
-                [transformComponent setScale:CGPointMake(1.0f, 1.0f)];
+                CGPoint slingerVector = ccpSub([nextInputAction touchLocation], [transformComponent position]);
+                CGPoint touchVector = ccpSub([nextInputAction touchLocation], [self startLocation]);
                 
                 [renderComponent playAnimation:@"shoot" withLoops:1];
                 
-                CGPoint touchVector = ccpSub([nextInputAction touchLocation], [self startLocation]);
-                CGPoint beeVelocity = CGPointMake(1.5 * -touchVector.x, 1.5 * -touchVector.y);
+                CGPoint beeVelocity = CGPointMake(30 + 1.2 * slingerVector.x, 30 + 1.2 * slingerVector.y);
                 Entity *beeEntity = [EntityFactory createBee:_world withPosition:[transformComponent position] andVelocity:beeVelocity];
                 RenderComponent *beeRenderComponent = (RenderComponent *)[beeEntity getComponent:[RenderComponent class]];
                 [beeRenderComponent playAnimation:@"fly" withLoops:1];

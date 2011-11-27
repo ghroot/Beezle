@@ -11,6 +11,8 @@
 @implementation RenderComponent
 
 @synthesize spriteSheet = _spriteSheet;
+@synthesize sprite = _sprite;
+@synthesize z = _z;
 
 -(id) initWithFile:(NSString *)fileName;
 {
@@ -19,6 +21,7 @@
         _spriteSheet = [[CCSpriteBatchNode batchNodeWithFile:fileName capacity:100] retain];
         _sprite = [[CCSprite spriteWithTexture:_spriteSheet.texture] retain];
         [_spriteSheet addChild:_sprite];
+        _z = -1;
     }
     return self;
 }

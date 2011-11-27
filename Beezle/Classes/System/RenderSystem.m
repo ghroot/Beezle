@@ -24,8 +24,7 @@
 -(void) entityAdded:(Entity *)entity
 {
     RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
-//    [_layer addChild:[renderComponent spriteSheet]];
-    [_layer addChild:[renderComponent spriteSheet] z:-1];
+    [_layer addChild:[renderComponent spriteSheet] z:[renderComponent z]];
     
     // TODO: Only one instance of each sprite sheet should be added to a CCLayer
     
@@ -45,10 +44,10 @@
     TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
     RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
     
-    [[renderComponent spriteSheet] setPosition:[transformComponent position]];
-    [[renderComponent spriteSheet] setRotation:[transformComponent rotation]];
-    [[renderComponent spriteSheet] setScaleX:[transformComponent scale].x];
-    [[renderComponent spriteSheet] setScaleY:[transformComponent scale].y];
+    [[renderComponent sprite] setPosition:[transformComponent position]];
+    [[renderComponent sprite] setRotation:[transformComponent rotation]];
+    [[renderComponent sprite] setScaleX:[transformComponent scale].x];
+    [[renderComponent sprite] setScaleY:[transformComponent scale].y];
 }
 
 @end

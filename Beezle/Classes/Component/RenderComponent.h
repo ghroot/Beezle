@@ -13,12 +13,15 @@
 {
     CCSpriteBatchNode *_spriteSheet;
     CCSprite *_sprite;
+    int _z;
     
     NSString *_frameFormat;
     NSMutableDictionary *_animationByName;
 }
 
 @property (nonatomic, readonly) CCSpriteBatchNode *spriteSheet;
+@property (nonatomic, readonly) CCSprite *sprite;
+@property (nonatomic) int z;
 
 -(id) initWithFile:(NSString *)fileName;
 -(id) initWithSpriteSheetName:(NSString *)spriteSheetName andFrameFormat:(NSString *)frameFormat;

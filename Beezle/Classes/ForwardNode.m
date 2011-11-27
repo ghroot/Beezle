@@ -15,7 +15,7 @@
 {
     if (self = [super init])
     {
-        self.isTouchEnabled = TRUE;
+        [self setIsTouchEnabled:TRUE];
     }
     return self;
 }

@@ -28,6 +28,7 @@
     [backgroundEntity addComponent:transformComponent];
     
     RenderComponent *renderComponent = [[[RenderComponent alloc] initWithFile:fileName] autorelease];
+    [renderComponent setZ:-5];
     [backgroundEntity addComponent:renderComponent];
     
     int num = 16;
@@ -79,14 +80,12 @@
     [slingerEntity addComponent:transformComponent];
     
     RenderComponent *renderComponent = [[[RenderComponent alloc] initWithSpriteSheetName:@"BeeSlingerC" andFrameFormat:@"BeeSlingerC-0%i.png"] autorelease];
+    [[renderComponent sprite] setAnchorPoint:CGPointMake(0.5f, 1.0f)];
     [renderComponent addAnimation:@"idle" withStartFrame:1 andEndFrame:1];
-    NSMutableArray *strechFrames = [NSMutableArray arrayWithObjects:
-                                   [NSNumber numberWithInt:2],
-                                   [NSNumber numberWithInt:3],
-                                   [NSNumber numberWithInt:4],
-                                   [NSNumber numberWithInt:5],
-                                   nil];
-    [renderComponent addAnimation:@"strech" withFrames:strechFrames];
+    [renderComponent addAnimation:@"stretch1" withStartFrame:2 andEndFrame:2];
+    [renderComponent addAnimation:@"stretch2" withStartFrame:3 andEndFrame:3];
+    [renderComponent addAnimation:@"stretch3" withStartFrame:4 andEndFrame:4];
+    [renderComponent addAnimation:@"stretch4" withStartFrame:5 andEndFrame:5];
     NSMutableArray *shootFrames = [NSMutableArray arrayWithObjects:
                                    [NSNumber numberWithInt:6],
                                    [NSNumber numberWithInt:7],
@@ -113,6 +112,7 @@
     [beeEntity addComponent:transformComponent];
     
     RenderComponent *renderComponent = [[[RenderComponent alloc] initWithSpriteSheetName:@"Bee" andFrameFormat:@"Bee-0%i.png"] autorelease];
+    [renderComponent setZ:-2];
     [renderComponent addAnimation:@"idle" withStartFrame:1 andEndFrame:3];
     [renderComponent addAnimation:@"fly" withStartFrame:4 andEndFrame:4];
     [beeEntity addComponent:renderComponent];

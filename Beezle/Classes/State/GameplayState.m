@@ -25,7 +25,7 @@
 {
     if (self = [super initWithId:gameStateId])
     {
-		_debug = TRUE;
+		_debug = FALSE;
 		_world = [[World alloc] init];
     }
     return self;
@@ -74,7 +74,7 @@
     [systemManager initialiseAll];
     
     [EntityFactory createBackground:_world withFileName:@"Background-01.jpg"];
-    [EntityFactory createSlinger:_world withPosition:CGPointMake(80, 270)];
+    [EntityFactory createSlinger:_world withPosition:CGPointMake(100, 300)];
     [EntityFactory createRamp:_world withPosition:CGPointMake(150, 100) andRotation:0.0f];
     [EntityFactory createRamp:_world withPosition:CGPointMake(150, 140) andRotation:0.1f];
     [EntityFactory createRamp:_world withPosition:CGPointMake(150, 180) andRotation:-0.1f];

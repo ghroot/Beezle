@@ -16,7 +16,6 @@
 }
 
 -(void) pushInputAction:(InputAction *)inputAction;
--(InputAction *) peekInputAction;
 -(InputAction *) popInputAction;
 -(BOOL) hasInputActions;
 

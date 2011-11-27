@@ -25,11 +25,6 @@
     [_inputActions addObject:inputAction];
 }
 
--(InputAction *) peekInputAction
-{
-    return [_inputActions objectAtIndex:0];
-}
-
 -(InputAction *) popInputAction
 {
     InputAction *nextInputAction = [[[_inputActions objectAtIndex:0] retain] autorelease];
