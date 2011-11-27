@@ -57,6 +57,10 @@
             {
                 [self handleCollisionBee:[collision firstEntity] withBackground:[collision secondEntity]];
             }
+            else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_POLLEN)
+            {
+                [self handleCollisionBee:[collision firstEntity] withPollen:[collision secondEntity]];
+            }
         }
     }
     [_collisions removeAllObjects];    
@@ -92,6 +96,11 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity
 {
+}
+
+-(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity
+{
+    [pollenEntity deleteEntity];
 }
 
 -(void) dealloc

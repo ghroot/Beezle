@@ -25,7 +25,7 @@
 {
     if (self = [super initWithId:gameStateId])
     {
-		_debug = FALSE;
+		_debug = TRUE;
 		_world = [[World alloc] init];
     }
     return self;
@@ -79,6 +79,11 @@
     [EntityFactory createRamp:_world withPosition:CGPointMake(150, 140) andRotation:0.1f];
     [EntityFactory createRamp:_world withPosition:CGPointMake(150, 180) andRotation:-0.1f];
     [EntityFactory createPollen:_world withPosition:CGPointMake(250, 250)];
+    [EntityFactory createPollen:_world withPosition:CGPointMake(300, 250)];
+    [EntityFactory createPollen:_world withPosition:CGPointMake(350, 250)];
+    [EntityFactory createPollen:_world withPosition:CGPointMake(400, 250)];
+
+
 }
 
 -(void) updateWithContainer:(GameContainer *)container andGame:(StateBasedGame *)game delta:(int)delta

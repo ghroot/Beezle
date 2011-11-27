@@ -37,6 +37,23 @@
     [super dealloc];
 }
 
+int beginCollision(cpArbiter *arbiter, cpSpace *space, void *data)
+{
+    cpShape *firstShape;
+    cpShape *secondShape;
+    cpArbiterGetShapes(arbiter, &firstShape, &secondShape);
+    
+    Entity *firstEntity = (Entity *)firstShape->data;
+    Entity *secondEntity = (Entity *)secondShape->data;
+    
+    PhysicsSystem *physicsSystem = (PhysicsSystem *)cpSpaceGetUserData(space);
+    CollisionSystem *collisionSystem = (CollisionSystem *)[[[physicsSystem world] systemManager] getSystem:[CollisionSystem class]];
+    Collision *collision = [[[Collision alloc] initWithFirstEntity:firstEntity andSecondEntity:secondEntity] autorelease];
+    [collisionSystem pushCollision:collision];
+    
+    return 0;
+}
+
 void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
 {
     cpShape *firstShape;
@@ -75,6 +92,7 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     cpSpaceAddCollisionHandler(_space, COLLISION_TYPE_BEE, COLLISION_TYPE_RAMP, NULL, NULL, &postSolveCollision, NULL, NULL);
 	cpSpaceAddCollisionHandler(_space, COLLISION_TYPE_BEE, COLLISION_TYPE_BEEATER, NULL, NULL, &postSolveCollision, NULL, NULL);
     cpSpaceAddCollisionHandler(_space, COLLISION_TYPE_BEE, COLLISION_TYPE_BACKGROUND, NULL, NULL, &postSolveCollision, NULL, NULL);
+    cpSpaceAddCollisionHandler(_space, COLLISION_TYPE_BEE, COLLISION_TYPE_POLLEN, &beginCollision, NULL, NULL, NULL, NULL);
 }
 
 -(void) entityAdded:(Entity *)entity

@@ -188,6 +188,18 @@
     [renderComponent addAnimation:@"spin" withFrames:spinFrames];
     [pollenEntity addComponent:renderComponent];
     
+    cpBody *body = cpBodyNew(1.0f, 1.0f);
+    cpBodyInitStatic(body);
+    cpShape *shape = cpCircleShapeNew(body, 15, cpv(0, 0));
+    cpShapeSetSensor(shape, TRUE);
+    shape->e = 0.8f;
+    shape->u = 0.5f;
+    shape->collision_type = COLLISION_TYPE_POLLEN;
+    PhysicsBody *physicsBody = [[[PhysicsBody alloc] initWithBody:body] autorelease];
+    PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:shape] autorelease];
+    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShape:physicsShape] autorelease];
+    [pollenEntity addComponent:physicsComponent];
+    
     [pollenEntity refresh];
     
     [renderComponent playAnimation:@"spin" withLoops:999];

@@ -20,6 +20,7 @@ typedef enum
     COLLISION_TYPE_BEE,
 	COLLISION_TYPE_BEEATER,
     COLLISION_TYPE_RAMP,
+    COLLISION_TYPE_POLLEN,
 } collisionTypes;
 
 @interface PhysicsComponent : Component
