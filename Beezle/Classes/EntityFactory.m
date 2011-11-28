@@ -13,11 +13,22 @@
 #import "PhysicsComponent.h"
 #import "PhysicsShape.h"
 #import "RenderComponent.h"
+#import "RenderSprite.h"
 #import "RenderSystem.h"
 #import "TagManager.h"
 #import "TransformComponent.h"
 
 @implementation EntityFactory
+
++(RenderComponent *) createRenderComponent:(World *)world withFile:(NSString *)fileName
+{
+    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+	CCSpriteBatchNode *spriteSheet = [renderSystem getSpriteSheetWithFile:fileName];
+	RenderSprite *renderSprite = [RenderSprite renderSpriteWithSpriteSheet:spriteSheet];
+    RenderComponent *renderComponent = [[[RenderComponent alloc] init] autorelease];
+	[renderComponent addRenderSprite:renderSprite];
+	return renderComponent;
+}
 
 +(Entity *) createBackground:(World *)world withFileName:(NSString *)fileName
 {
@@ -28,8 +39,7 @@
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(winSize.width / 2, winSize.height / 2)] autorelease];
     [backgroundEntity addComponent:transformComponent];
     
-    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-    RenderComponent *renderComponent = [renderSystem createRenderComponentWithFile:fileName];
+    RenderComponent *renderComponent = [EntityFactory createRenderComponent:world withFile:fileName];
     [renderComponent setZ:-5];
     [backgroundEntity addComponent:renderComponent];
     
@@ -117,15 +127,16 @@
     
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [slingerEntity addComponent:transformComponent];
-    
-    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-    RenderComponent *renderComponent = [renderSystem createRenderComponentWithSpriteSheetName:@"BeeSlingerC" andFrameFormat:@"BeeSlingerC-0%i.png"];
-    [[renderComponent sprite] setAnchorPoint:CGPointMake(0.5f, 1.0f)];
-    [renderComponent addAnimation:@"idle" withStartFrame:1 andEndFrame:1];
-    [renderComponent addAnimation:@"stretch1" withStartFrame:2 andEndFrame:2];
-    [renderComponent addAnimation:@"stretch2" withStartFrame:3 andEndFrame:3];
-    [renderComponent addAnimation:@"stretch3" withStartFrame:4 andEndFrame:4];
-    [renderComponent addAnimation:@"stretch4" withStartFrame:5 andEndFrame:5];
+	
+	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+	CCSpriteBatchNode *spriteSheet = [renderSystem getSpriteSheetWithName:@"BeeSlingerC"];
+	RenderSprite *renderSprite = [RenderSprite renderSpriteWithSpriteSheet:spriteSheet andFrameFormat:@"BeeSlingerC-0%i.png"];
+	[[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 1.0f)];
+    [renderSprite addAnimation:@"idle" withStartFrame:1 andEndFrame:1];
+    [renderSprite addAnimation:@"stretch1" withStartFrame:2 andEndFrame:2];
+    [renderSprite addAnimation:@"stretch2" withStartFrame:3 andEndFrame:3];
+    [renderSprite addAnimation:@"stretch3" withStartFrame:4 andEndFrame:4];
+    [renderSprite addAnimation:@"stretch4" withStartFrame:5 andEndFrame:5];
     NSMutableArray *shootFrames = [NSMutableArray arrayWithObjects:
                                    [NSNumber numberWithInt:6],
                                    [NSNumber numberWithInt:7],
@@ -133,7 +144,8 @@
                                    [NSNumber numberWithInt:9],
                                    [NSNumber numberWithInt:1],
                                    nil];
-    [renderComponent addAnimation:@"shoot" withFrames:shootFrames];
+    [renderSprite addAnimation:@"shoot" withFrames:shootFrames];
+    RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
     [slingerEntity addComponent:renderComponent];
     
 	TagManager *tagManager = (TagManager *)[world getManager:[TagManager class]];
@@ -151,13 +163,15 @@
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [beeEntity addComponent:transformComponent];
     
-    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-    RenderComponent *renderComponent = [renderSystem createRenderComponentWithSpriteSheetName:@"Bee" andFrameFormat:@"Bee-0%i.png"];
-    [renderComponent setZ:-2];
-    [renderComponent addAnimation:@"idle" withStartFrame:1 andEndFrame:3];
-    [renderComponent addAnimation:@"fly" withStartFrame:4 andEndFrame:4];
+	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+	CCSpriteBatchNode *spriteSheet = [renderSystem getSpriteSheetWithName:@"Bee"];
+	RenderSprite *renderSprite = [RenderSprite renderSpriteWithSpriteSheet:spriteSheet andFrameFormat:@"Bee-0%i.png"];
+    [renderSprite addAnimation:@"idle" withStartFrame:1 andEndFrame:3];
+    [renderSprite addAnimation:@"fly" withStartFrame:4 andEndFrame:4];
+    RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
+	[renderComponent setZ:-2];
     [beeEntity addComponent:renderComponent];
-    
+	
     cpBody *body = cpBodyNew(1.0f, 1.0f);
     body->v = cpv(velocity.x, velocity.y);
     cpShape *shape = cpCircleShapeNew(body, 10, cpv(0, 0));
@@ -182,11 +196,14 @@
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [rampEntity addComponent:transformComponent];
     
-    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-    RenderComponent *renderComponent = [renderSystem createRenderComponentWithSpriteSheetName:@"Ramp" andFrameFormat:@"RampCrach [ Sketch ]-0%i.png"];
-    [renderComponent addAnimation:@"crash" withStartFrame:1 andEndFrame:8];
+	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+	CCSpriteBatchNode *spriteSheet = [renderSystem getSpriteSheetWithName:@"Ramp"];
+	RenderSprite *renderSprite = [RenderSprite renderSpriteWithSpriteSheet:spriteSheet andFrameFormat:@"RampCrach [ Sketch ]-0%i.png"];
+	[renderSprite addAnimation:@"idle" withStartFrame:1 andEndFrame:1];
+	[renderSprite addAnimation:@"crash" withStartFrame:2 andEndFrame:8];
+    RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
     [rampEntity addComponent:renderComponent];
-    
+	
     int num = 4;
     CGPoint verts[] = {
         CGPointMake(-90,-5),
@@ -218,8 +235,9 @@
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [pollenEntity addComponent:transformComponent];
     
-    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-    RenderComponent *renderComponent = [renderSystem createRenderComponentWithSpriteSheetName:@"Pollen" andFrameFormat:@"Pollen-0%i.png"];
+	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+	CCSpriteBatchNode *spriteSheet = [renderSystem getSpriteSheetWithName:@"Pollen"];
+	RenderSprite *renderSprite = [RenderSprite renderSpriteWithSpriteSheet:spriteSheet andFrameFormat:@"Pollen-0%i.png"];
     NSMutableArray *spinFrames = [NSMutableArray arrayWithObjects:
                                    [NSNumber numberWithInt:1],
                                    [NSNumber numberWithInt:2],
@@ -228,9 +246,10 @@
                                    [NSNumber numberWithInt:3],
                                    [NSNumber numberWithInt:2],
                                    nil];
-    [renderComponent addAnimation:@"spin" withFrames:spinFrames];
+    [renderSprite addAnimation:@"spin" withFrames:spinFrames];
+    RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
     [pollenEntity addComponent:renderComponent];
-    
+	
     cpBody *body = cpBodyNew(1.0f, 1.0f);
     cpBodyInitStatic(body);
     cpShape *shape = cpCircleShapeNew(body, 15, cpv(0, 0));

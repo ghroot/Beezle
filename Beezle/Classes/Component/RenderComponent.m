@@ -7,96 +7,53 @@
 //
 
 #import "RenderComponent.h"
+#import "RenderSprite.h"
 
 @implementation RenderComponent
 
-@synthesize spriteSheet = _spriteSheet;
-@synthesize sprite = _sprite;
+@synthesize renderSprites = _renderSprites;
 @synthesize z = _z;
 
--(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet
+-(id) init
 {
-    if (self = [super init])
-    {
-        _frameFormat = @"";
-        _animationsByName = [[NSMutableDictionary alloc] init];
-        
-        _spriteSheet = spriteSheet;
-        _sprite = [[CCSprite spriteWithTexture:spriteSheet.texture] retain];
-    }
-    return self;
-}
-
--(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet andFrameFormat:(NSString *)frameFormat
-{
-    if (self = [super init])
-    {
-        _frameFormat = frameFormat;
-        _animationsByName = [[NSMutableDictionary alloc] init];
-        
-        _spriteSheet = spriteSheet;
-        NSString *spriteFrameName = [NSString stringWithFormat:_frameFormat, 1];
-        _sprite = [[CCSprite spriteWithSpriteFrameName:spriteFrameName] retain];
-    }
-    return self;
+	if (self = [super init])
+	{
+		_renderSprites = [[NSMutableArray alloc] init];
+	}
+	return self;
 }
 
 -(void) dealloc
 {
-    [_frameFormat release];
-    [_animationsByName release];
-    [_sprite release];
+    [_renderSprites release];
     
     [super dealloc];
 }
 
--(void) addAnimation:(NSString *)animationName withStartFrame:(int)startFrame andEndFrame:(int)endFrame
++(RenderComponent *) renderComponentWithRenderSprite:(RenderSprite *)renderSprite
 {
-    NSMutableArray *aimationFrames = [NSMutableArray array];
-    for (int i = startFrame; i <= endFrame; i++)
-    {
-        CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:_frameFormat, i]];
-        [aimationFrames addObject:frame];
-    }
-    
-    CCAnimation *animation = [CCAnimation animationWithFrames:aimationFrames delay:0.08f];
-    [_animationsByName setObject:animation forKey:animationName];
+	RenderCompoent *renderComponent = [[[RenderComponent alloc] init] autorelease];
+	[renderComponent addRenderSprite:renderSprite];
+	return renderComponent;
 }
 
--(void) addAnimation:(NSString *)animationName withFrames:(NSArray *)frames;
+-(void) addRenderSprite:(RenderSprite *)renderSprite
 {
-    NSMutableArray *aimationFrames = [NSMutableArray array];
-    for (NSNumber *frameIndex in frames)
-    {
-        CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:_frameFormat, [frameIndex intValue]]];
-        [aimationFrames addObject:frame];
-    }
-    
-    CCAnimation *animation = [CCAnimation animationWithFrames:aimationFrames delay:0.08f];
-    [_animationsByName setObject:animation forKey:animationName];
+	[_renderSprites addObject:renderSprite];
 }
 
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops
 {
-    CCAnimation *animation = [_animationsByName objectForKey:animationName];
-    CCAction *action;
-    if (nLoops == -1)
-    {
-        action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:NO]];
-    }
-    else
-    {
-        action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:NO] times:nLoops];
-    }
-    [_sprite runAction:action];
+	// TEMP: Simply forward to first render sprite for now
+	RenderSprite *firstRenderSprite = (RenderSprite *)[_renderSprites objectAtIndex:0];
+	[firstRenderSprite playAnimation:animationName withLoops:nLoops];
 }
 
 -(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector
 {
-    CCAnimation *animation = [_animationsByName objectForKey:animationName];
-    CCRepeat *action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:NO] times:1];
-    CCCallFunc *callbackAction = [CCCallFunc actionWithTarget:target selector:selector];
-    [_sprite runAction:[CCSequence actions:action, callbackAction, nil]];
+	// TEMP: Simply forward to first render sprite for now
+	RenderSprite *firstRenderSprite = (RenderSprite *)[_renderSprites objectAtIndex:0];
+	[firstRenderSprite playAnimation:animationName withCallbackTarget:target andCallbackSelector:selector];
 }
 
 @end

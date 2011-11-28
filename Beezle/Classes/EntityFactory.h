@@ -12,6 +12,8 @@
 
 @interface EntityFactory : NSObject
 
++(RenderComponent *) createRenderComponent:(World *) withFile:(NSString *)fileName;
+
 +(Entity *) createBackground:(World *)world withFileName:(NSString *)fileName;
 +(Entity *) createEdge:(World *)world  withSize:(CGSize)size;
 +(Entity *) createSlinger:(World *)world withPosition:(CGPoint)position;
