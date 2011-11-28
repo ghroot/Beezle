@@ -90,9 +90,8 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity
 {
-	// Eat animation
-    RenderComponent *beeaterRenderComponent = (RenderComponent *)[beeaterEntity getComponent:[RenderComponent class]];
-    [beeaterRenderComponent playAnimation:@"eat" withLoops:1];
+	// Remove beeater
+    [beeaterEntity deleteEntity];
 	
 	// Remove bee
 	[beeEntity deleteEntity];
