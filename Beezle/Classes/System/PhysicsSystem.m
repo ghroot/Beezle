@@ -71,12 +71,12 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     _space = cpSpaceNew();
     cpSpaceSetUserData(_space, self);
     _space->gravity = CGPointMake(0, -100);
-    
-    cpSpaceAddCollisionHandler(_space, COLLISION_TYPE_BEE, COLLISION_TYPE_RAMP, NULL, NULL, &postSolveCollision, NULL, NULL);
-	cpSpaceAddCollisionHandler(_space, COLLISION_TYPE_BEE, COLLISION_TYPE_BEEATER, NULL, NULL, &postSolveCollision, NULL, NULL);
-    cpSpaceAddCollisionHandler(_space, COLLISION_TYPE_BEE, COLLISION_TYPE_BACKGROUND, NULL, NULL, &postSolveCollision, NULL, NULL);
-    cpSpaceAddCollisionHandler(_space, COLLISION_TYPE_BEE, COLLISION_TYPE_EDGE, NULL, NULL, &postSolveCollision, NULL, NULL);
-    cpSpaceAddCollisionHandler(_space, COLLISION_TYPE_BEE, COLLISION_TYPE_POLLEN, &beginCollision, NULL, NULL, NULL, NULL);
+}
+
+-(void) detectCollisionsBetween:(CollisionType)type1 and:(CollisionType)type2
+{
+	cpSpaceAddCollisionHandler(_space, type1, type2, NULL, NULL, &postSolveCollision, NULL, NULL);
+//	cpSpaceAddCollisionHandler(_space, type1, type2, &beginCollision, NULL, NULL, NULL, NULL);
 }
 
 -(void) entityAdded:(Entity *)entity

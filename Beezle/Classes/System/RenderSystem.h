@@ -10,7 +10,7 @@
 #import "artemis.h"
 #import "cocos2d.h"
 
-@class RenderComponent;
+@class RenderSprite;
 
 @interface RenderSystem : EntityComponentSystem
 {
@@ -19,7 +19,7 @@
 }
 
 -(id) initWithLayer:(CCLayer *)layer;
--(RenderComponent *) createRenderComponentWithFile:(NSString *)fileName;
--(RenderComponent *) createRenderComponentWithSpriteSheetName:(NSString *)name andFrameFormat:(NSString *)frameFormat;
+-(RenderSprite *) createRenderSpriteWithFile:(NSString *)fileName;
+-(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name;
 
 @end

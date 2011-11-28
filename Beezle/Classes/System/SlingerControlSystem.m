@@ -46,7 +46,7 @@
                 CGPoint slingerToStartVector = ccpSub([self startLocation], [transformComponent position]);
                 
                 float angle = CC_RADIANS_TO_DEGREES(ccpToAngle(slingerToTouchVector));
-                angle = 360 - angle + 90 + 180;
+                angle = 360 - angle + 90;
                 [transformComponent setRotation:angle];
                 
                 float slingerToStartVectorLength = sqrtf(slingerToStartVector.x * slingerToStartVector.x + slingerToStartVector.y * slingerToStartVector.y);

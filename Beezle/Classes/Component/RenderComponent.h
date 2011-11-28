@@ -9,24 +9,21 @@
 #import "Component.h"
 #import "cocos2d.h"
 
+@class RenderSprite;
+
 @interface RenderComponent : Component
 {
-    NSString *_frameFormat;
-    NSMutableDictionary *_animationsByName;
-    
-    CCSpriteBatchNode *_spriteSheet;
-    CCSprite *_sprite;
+	NSMutableArray *_renderSprites;
     int _z;
 }
 
-@property (nonatomic, readonly, assign) CCSpriteBatchNode *spriteSheet;
-@property (nonatomic, readonly, retain) CCSprite *sprite;
+@property (nonatomic, readonly) NSArray *renderSprites;
 @property (nonatomic) int z;
 
--(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
--(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet andFrameFormat:(NSString *)frameFormat;
--(void) addAnimation:(NSString *)animationName withStartFrame:(int)startFrame andEndFrame:(int)endFrame;
--(void) addAnimation:(NSString *)animationName withFrames:(NSArray *)frames;
++(RenderComponent *) renderComponentWithRenderSprites:(NSArray *)renderSprites;
++(RenderComponent *) renderComponentWithRenderSprite:(RenderSprite *)renderSprite;
+
+-(void) addRenderSprite:(RenderSprite *)renderSprite;
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops;
 -(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector;
 

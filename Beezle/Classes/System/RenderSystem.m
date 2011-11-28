@@ -8,6 +8,7 @@
 
 #import "RenderSystem.h"
 #import "RenderComponent.h"
+#import "RenderSprite.h"
 #import "TransformComponent.h"
 
 @implementation RenderSystem
@@ -29,35 +30,39 @@
     [super dealloc];
 }
 
--(RenderComponent *) createRenderComponentWithFile:(NSString *)fileName
+-(RenderSprite *) createRenderSpriteWithFile:(NSString *)fileName
 {
     CCSpriteBatchNode *spriteSheet = (CCSpriteBatchNode *)[_spriteSheetsByName objectForKey:fileName];
     if (spriteSheet == nil)
     {
         spriteSheet = [CCSpriteBatchNode batchNodeWithFile:fileName];
         [_layer addChild:spriteSheet];
-        [_spriteSheetsByName setObject:spriteSheet forKey:fileName];
+        [_spriteSheetsByName setObject:spriteSheet forKey:name];
     }
-    return [[[RenderComponent alloc] initWithSpriteSheet:spriteSheet] autorelease];
+	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet];
 }
 
--(RenderComponent *) createRenderComponentWithSpriteSheetName:(NSString *)name andFrameFormat:(NSString *)frameFormat
+-(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name
 {
     CCSpriteBatchNode *spriteSheet = (CCSpriteBatchNode *)[_spriteSheetsByName objectForKey:name];
     if (spriteSheet == nil)
     {
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", name]];
         spriteSheet = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png", name]];
         [_layer addChild:spriteSheet];
         [_spriteSheetsByName setObject:spriteSheet forKey:name];
+		
+		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", name]];
     }
-    return [[[RenderComponent alloc] initWithSpriteSheet:spriteSheet andFrameFormat:frameFormat] autorelease];
+	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet];
 }
 
 -(void) entityAdded:(Entity *)entity
 {
     RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
-    [[renderComponent spriteSheet] addChild:[renderComponent sprite] z:[renderComponent z]];
+	for (RenderSprite *renderSprite in [renderComponent renderSprites])
+	{
+		[[renderSprite spriteSheet] addChild:[renderSprite sprite] z:[renderComponent z]];
+	}
     
     [super entityAdded:entity];
 }
@@ -65,7 +70,10 @@
 -(void) entityRemoved:(Entity *)entity
 {
     RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
-    [[renderComponent spriteSheet] removeChild:[renderComponent sprite] cleanup:TRUE];
+	for (RenderSprite *renderSprite in [renderComponent renderSprites])
+	{
+		[[renderSprite spriteSheet] removeChild:[renderSprite sprite] cleanup:TRUE];
+	}
     
     [super entityRemoved:entity];
 }
@@ -74,11 +82,14 @@
 {
     TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
     RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
-    
-    [[renderComponent sprite] setPosition:[transformComponent position]];
-    [[renderComponent sprite] setRotation:[transformComponent rotation]];
-    [[renderComponent sprite] setScaleX:[transformComponent scale].x];
-    [[renderComponent sprite] setScaleY:[transformComponent scale].y];
+	
+    for (RenderSprite *renderSprite in [renderComponent renderSprites])
+	{
+		[[renderSprite sprite] setPosition:[transformComponent position]];
+		[[renderSprite sprite] setRotation:[transformComponent rotation]];
+		[[renderSprite sprite] setScaleX:[transformComponent scale].x];
+		[[renderSprite sprite] setScaleY:[transformComponent scale].y];
+	}
 }
 
 @end

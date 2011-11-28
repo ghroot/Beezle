@@ -9,9 +9,11 @@
 #import "CollisionSystem.h"
 #import "cocos2d.h"
 #import "Collision.h"
+#import "CollisionTypes.h"
 #import "PhysicsBody.h"
 #import "PhysicsComponent.h"
 #import "PhysicsShape.h"
+#import "PhysicsSystem.h"
 #import "RenderComponent.h"
 
 @implementation CollisionSystem
@@ -28,6 +30,17 @@
 -(void) pushCollision:(Collision *)collision
 {
     [_collisions addObject:collision];
+}
+
+-(void) initialise
+{   
+    PhysicsSystem *physicsSystem = (PhysicsSystem *)[[_world systemManager] getSystem:[PhysicsSystem class]];
+	
+	[physicsSystem detectCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_BACKGROUND];
+	[physicsSystem detectCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_BEEATER];
+	[physicsSystem detectCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_EDGE];
+	[physicsSystem detectCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_POLLEN];
+	[physicsSystem detectCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_RAMP];
 }
 
 -(void) begin
@@ -90,9 +103,8 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity
 {
-	// Eat animation
-    RenderComponent *beeaterRenderComponent = (RenderComponent *)[beeaterEntity getComponent:[RenderComponent class]];
-    [beeaterRenderComponent playAnimation:@"eat" withLoops:1];
+	// Remove beeater
+    [beeaterEntity deleteEntity];
 	
 	// Remove bee
 	[beeEntity deleteEntity];
