@@ -30,6 +30,16 @@
     [super dealloc];
 }
 
++(RenderComponent *) renderComponentWithRenderSprites:(NSArray *)renderSprites
+{
+	RenderCompoent *renderComponent = [[[RenderComponent alloc] init] autorelease];
+	for (RenderSprite *renderSprite in renderSprites)
+	{
+		[renderComponent addRenderSprite:renderSprite];
+	}
+	return renderComponent;
+}
+
 +(RenderComponent *) renderComponentWithRenderSprite:(RenderSprite *)renderSprite
 {
 	RenderCompoent *renderComponent = [[[RenderComponent alloc] init] autorelease];

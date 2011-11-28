@@ -12,12 +12,11 @@
 
 @interface EntityFactory : NSObject
 
-+(RenderComponent *) createRenderComponent:(World *) withFile:(NSString *)fileName;
-
 +(Entity *) createBackground:(World *)world withFileName:(NSString *)fileName;
 +(Entity *) createEdge:(World *)world  withSize:(CGSize)size;
 +(Entity *) createSlinger:(World *)world withPosition:(CGPoint)position;
 +(Entity *) createBee:(World *)world withPosition:(CGPoint)position andVelocity:(CGPoint)velocity;
++(Entity *) createBeeater:(World *)world withPosition:(CGPoint)position;
 +(Entity *) createRamp:(World *)world withPosition:(CGPoint)position andRotation:(float)rotation;
 +(Entity *) createPollen:(World *)world withPosition:(CGPoint)position;
 

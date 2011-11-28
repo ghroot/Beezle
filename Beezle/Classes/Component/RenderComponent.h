@@ -20,6 +20,7 @@
 @property (nonatomic, readonly) NSArray *renderSprites;
 @property (nonatomic) int z;
 
++(RenderComponent *) renderComponentWithRenderSprites:(NSArray *)renderSprites;
 +(RenderComponent *) renderComponentWithRenderSprite:(RenderSprite *)renderSprite;
 
 -(void) addRenderSprite:(RenderSprite *)renderSprite;

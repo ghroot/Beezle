@@ -17,32 +17,15 @@
 {
     if (self = [super init])
     {
-        _frameFormat = @"";
         _animationsByName = [[NSMutableDictionary alloc] init];
-        
         _spriteSheet = spriteSheet;
-        _sprite = [[CCSprite spriteWithTexture:spriteSheet.texture] retain];
-    }
-    return self;
-}
-
--(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet andFrameFormat:(NSString *)frameFormat
-{
-    if (self = [super init])
-    {
-        _frameFormat = frameFormat;
-        _animationsByName = [[NSMutableDictionary alloc] init];
-        
-        _spriteSheet = spriteSheet;
-        NSString *spriteFrameName = [NSString stringWithFormat:_frameFormat, 1];
-        _sprite = [[CCSprite spriteWithSpriteFrameName:spriteFrameName] retain];
+        _sprite = [[CCSprite alloc] initWithTexture:[spriteSheet texture]];
     }
     return self;
 }
 
 -(void) dealloc
 {
-    [_frameFormat release];
     [_animationsByName release];
     [_sprite release];
     
@@ -54,32 +37,23 @@
 	return [[[RenderSprite alloc] initWithSpriteSheet:spriteSheet] autorelease];
 }
 
-+(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet andFrameFormat:(NSString *)frameFormat
+-(void) addAnimation:(NSString *)animationName withFrameName:(NSString *)frameName
 {
-	return [[[RenderSprite alloc] initWithSpriteSheet:spriteSheet andFrameFormat:frameFormat] autorelease];
-}
-
--(void) addAnimation:(NSString *)animationName withFrames:(NSArray *)frames;
-{
-    NSMutableArray *aimationFrames = [NSMutableArray array];
-    for (NSNumber *frameIndex in frames)
-    {
-        CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:_frameFormat, [frameIndex intValue]]];
-        [aimationFrames addObject:frame];
-    }
-    
-    CCAnimation *animation = [CCAnimation animationWithFrames:aimationFrames delay:0.08f];
+    CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
+    CCAnimation *animation = [CCAnimation animationWithFrames:[NSArray arrayWithObject:frame] delay:0.08f];
     [_animationsByName setObject:animation forKey:animationName];
 }
 
--(void) addAnimation:(NSString *)animationName withStartFrame:(int)startFrame andEndFrame:(int)endFrame
+-(void) addAnimation:(NSString *)animationName withFrameNames:(NSArray *)frameNames
 {
     NSMutableArray *frames = [NSMutableArray array];
-    for (int i = startFrame; i <= endFrame; i++)
+    for (NSString *frameName in frameNames)
     {
-        [frames addObject:[NSNumber numberWithInt:i]];
+        CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
+        [frames addObject:frame];
     }
-	[self addAnimation:animationName withFrames:frames];
+    CCAnimation *animation = [CCAnimation animationWithFrames:frames delay:0.08f];
+    [_animationsByName setObject:animation forKey:animationName];
 }
 
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops

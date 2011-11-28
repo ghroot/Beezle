@@ -30,29 +30,30 @@
     [super dealloc];
 }
 
--(CCSpriteBatchNode *) getSpriteSheetWithFile:(NSString *)fileName
+-(RenderSprite *) createRenderSpriteWithFile:(NSString *)fileName
 {
     CCSpriteBatchNode *spriteSheet = (CCSpriteBatchNode *)[_spriteSheetsByName objectForKey:fileName];
     if (spriteSheet == nil)
     {
         spriteSheet = [CCSpriteBatchNode batchNodeWithFile:fileName];
         [_layer addChild:spriteSheet];
-        [_spriteSheetsByName setObject:spriteSheet forKey:fileName];
+        [_spriteSheetsByName setObject:spriteSheet forKey:name];
     }
-	return spriteSheet;
+	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet];
 }
 
--(CCSpriteBatchNode *) getSpriteSheetWithName:(NSString *)name
+-(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name
 {
     CCSpriteBatchNode *spriteSheet = (CCSpriteBatchNode *)[_spriteSheetsByName objectForKey:name];
     if (spriteSheet == nil)
     {
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", name]];
         spriteSheet = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png", name]];
         [_layer addChild:spriteSheet];
         [_spriteSheetsByName setObject:spriteSheet forKey:name];
+		
+		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", name]];
     }
-	return spriteSheet;
+	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet];
 }
 
 -(void) entityAdded:(Entity *)entity
