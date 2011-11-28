@@ -18,4 +18,6 @@
 
 @property (nonatomic, readonly) cpSpace *space;
 
+-(void) detectCollisionsBetween:(CollisionType)type1 and:(CollisionType)type2;
+
 @end

@@ -9,6 +9,7 @@
 #import "EntityFactory.h"
 #import "BoundryComponent.h"
 #import "CircularBoundry.h"
+#import "CollisionTypes.h"
 #import "PhysicsBody.h"
 #import "PhysicsComponent.h"
 #import "PhysicsShape.h"
