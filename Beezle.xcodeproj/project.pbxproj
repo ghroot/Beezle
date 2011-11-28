@@ -26,6 +26,13 @@
 		2C7CE62B146FE123001F331F /* BoundryComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE62A146FE123001F331F /* BoundryComponent.m */; };
 		2C7CE62E146FE14E001F331F /* Boundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE62D146FE14D001F331F /* Boundry.m */; };
 		2C7CE631146FE161001F331F /* CircularBoundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE630146FE160001F331F /* CircularBoundry.m */; };
+		2C827D3814840C4900517C8F /* RenderSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C827D3714840C4700517C8F /* RenderSprite.m */; };
+		2C827D3B148431A100517C8F /* Beeater-Head.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C827D39148431A100517C8F /* Beeater-Head.plist */; };
+		2C827D3C148431A100517C8F /* Beeater-Head.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C827D3A148431A100517C8F /* Beeater-Head.png */; };
+		2C827D3F1484326700517C8F /* Beeater-Body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C827D3D1484326700517C8F /* Beeater-Body.plist */; };
+		2C827D401484326700517C8F /* Beeater-Body.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C827D3E1484326700517C8F /* Beeater-Body.png */; };
+		2C827D44148446FD00517C8F /* Mushroom.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C827D42148446FD00517C8F /* Mushroom.plist */; };
+		2C827D45148446FD00517C8F /* Mushroom.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C827D43148446FD00517C8F /* Mushroom.png */; };
 		2CA9E3951479BDE60058C496 /* Beeater.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CA9E3931479BDE60058C496 /* Beeater.plist */; };
 		2CA9E3961479BDE60058C496 /* Beeater.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA9E3941479BDE60058C496 /* Beeater.png */; };
 		2CA9E3A2147B0EEE0058C496 /* GroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA9E3A1147B0EED0058C496 /* GroupManager.m */; };
@@ -251,7 +258,6 @@
 		2CEA3478145F66F9000FF575 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA3477145F66F9000FF575 /* main.m */; };
 		2CEA347B145F66F9000FF575 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA347A145F66F9000FF575 /* AppDelegate.m */; };
 		2CEA347E145F66F9000FF575 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA347D145F66F9000FF575 /* RootViewController.m */; };
-		2CEA3483145F66F9000FF575 /* grossini_dance_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CEA3482145F66F9000FF575 /* grossini_dance_atlas.png */; };
 		2CEA35271466B1FB000FF575 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA35261466B1FB000FF575 /* Entity.m */; };
 		2CEA352B1466B21E000FF575 /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA352A1466B21E000FF575 /* Component.m */; };
 		2CEA352E1466B2B5000FF575 /* RenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA352D1466B2B5000FF575 /* RenderComponent.m */; };
@@ -305,6 +311,15 @@
 		2C7CE62D146FE14D001F331F /* Boundry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Boundry.m; path = Classes/Component/Boundry.m; sourceTree = "<group>"; };
 		2C7CE62F146FE160001F331F /* CircularBoundry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircularBoundry.h; path = Classes/Component/CircularBoundry.h; sourceTree = "<group>"; };
 		2C7CE630146FE160001F331F /* CircularBoundry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircularBoundry.m; path = Classes/Component/CircularBoundry.m; sourceTree = "<group>"; };
+		2C827D3514840C3500517C8F /* CollisionTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionTypes.h; path = Classes/CollisionTypes.h; sourceTree = "<group>"; };
+		2C827D3614840C4600517C8F /* RenderSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderSprite.h; path = Classes/Component/RenderSprite.h; sourceTree = "<group>"; };
+		2C827D3714840C4700517C8F /* RenderSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSprite.m; path = Classes/Component/RenderSprite.m; sourceTree = "<group>"; };
+		2C827D39148431A100517C8F /* Beeater-Head.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Head.plist"; sourceTree = "<group>"; };
+		2C827D3A148431A100517C8F /* Beeater-Head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Beeater-Head.png"; sourceTree = "<group>"; };
+		2C827D3D1484326700517C8F /* Beeater-Body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Body.plist"; sourceTree = "<group>"; };
+		2C827D3E1484326700517C8F /* Beeater-Body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Beeater-Body.png"; sourceTree = "<group>"; };
+		2C827D42148446FD00517C8F /* Mushroom.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Mushroom.plist; sourceTree = "<group>"; };
+		2C827D43148446FD00517C8F /* Mushroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mushroom.png; sourceTree = "<group>"; };
 		2CA9E3931479BDE60058C496 /* Beeater.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Beeater.plist; sourceTree = "<group>"; };
 		2CA9E3941479BDE60058C496 /* Beeater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Beeater.png; sourceTree = "<group>"; };
 		2CA9E39F147AF9910058C496 /* artemis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = artemis.h; path = Classes/Artemis/artemis.h; sourceTree = "<group>"; };
@@ -354,7 +369,7 @@
 		2CD33EE6147EE3C6000869C1 /* EntityComponentSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityComponentSystem.m; path = Classes/Artemis/EntityComponentSystem.m; sourceTree = "<group>"; };
 		2CD33EE8147EE7AD000869C1 /* TestState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestState.h; sourceTree = "<group>"; };
 		2CD33EE9147EE7AD000869C1 /* TestState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestState.m; sourceTree = "<group>"; };
-		2CD33EF1147EFFA7000869C1 /* MainMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MainMenuState.h; sourceTree = "<group>"; };
+		2CD33EF1147EFFA7000869C1 /* MainMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuState.h; sourceTree = "<group>"; };
 		2CD33EF2147EFFA7000869C1 /* MainMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuState.m; sourceTree = "<group>"; };
 		2CD48B8914801833007D90D9 /* Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Manager.h; path = Classes/Artemis/Manager.h; sourceTree = "<group>"; };
 		2CD48B8A14801833007D90D9 /* Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Manager.m; path = Classes/Artemis/Manager.m; sourceTree = "<group>"; };
@@ -721,7 +736,6 @@
 		2CEA347A145F66F9000FF575 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		2CEA347C145F66F9000FF575 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = Classes/RootViewController.h; sourceTree = "<group>"; };
 		2CEA347D145F66F9000FF575 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = Classes/RootViewController.m; sourceTree = "<group>"; };
-		2CEA3482145F66F9000FF575 /* grossini_dance_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grossini_dance_atlas.png; path = Resources/grossini_dance_atlas.png; sourceTree = "<group>"; };
 		2CEA35251466B1FB000FF575 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = Entity.h; path = Classes/Artemis/Entity.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2CEA35261466B1FB000FF575 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = Entity.m; path = Classes/Artemis/Entity.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2CEA35291466B21E000FF575 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Component.h; path = Classes/Artemis/Component.h; sourceTree = "<group>"; };
@@ -828,6 +842,16 @@
 				2CA9E3A1147B0EED0058C496 /* GroupManager.m */,
 			);
 			name = Artemis;
+			sourceTree = "<group>";
+		};
+		2C827D41148446FD00517C8F /* Mushroom */ = {
+			isa = PBXGroup;
+			children = (
+				2C827D42148446FD00517C8F /* Mushroom.plist */,
+				2C827D43148446FD00517C8F /* Mushroom.png */,
+			);
+			name = Mushroom;
+			path = Resources/Mushroom;
 			sourceTree = "<group>";
 		};
 		2CADCC6E1470808100302475 /* Ramp */ = {
@@ -1063,6 +1087,7 @@
 		2CEA3288145F66F7000FF575 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C827D41148446FD00517C8F /* Mushroom */,
 				2CD48B9B148147BE007D90D9 /* Pollen */,
 				2CD48B9614812FB7007D90D9 /* Bee */,
 				2CD33EB5147C5579000869C1 /* Background-01.jpg */,
@@ -1080,7 +1105,6 @@
 				2CEA3299145F66F7000FF575 /* Icon@2x.png */,
 				2CEA329B145F66F7000FF575 /* Info.plist */,
 				2CEA329C145F66F7000FF575 /* iTunesArtwork */,
-				2CEA3482145F66F9000FF575 /* grossini_dance_atlas.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1565,6 +1589,7 @@
 				2CEA347A145F66F9000FF575 /* AppDelegate.m */,
 				2CEA347C145F66F9000FF575 /* RootViewController.h */,
 				2CEA347D145F66F9000FF575 /* RootViewController.m */,
+				2C827D3514840C3500517C8F /* CollisionTypes.h */,
 				2CD33EDB147D72BC000869C1 /* CocosGameContainer.h */,
 				2CD33EDC147D72BC000869C1 /* CocosGameContainer.m */,
 				2CD33ED9147D72BB000869C1 /* Beezle.h */,
@@ -1584,6 +1609,8 @@
 			children = (
 				2CEA352C1466B2B5000FF575 /* RenderComponent.h */,
 				2CEA352D1466B2B5000FF575 /* RenderComponent.m */,
+				2C827D3614840C4600517C8F /* RenderSprite.h */,
+				2C827D3714840C4700517C8F /* RenderSprite.m */,
 				2CEA352F1466B2C9000FF575 /* PhysicsComponent.h */,
 				2CEA35301466B2C9000FF575 /* PhysicsComponent.m */,
 				2CD33EBC147C5DAB000869C1 /* PhysicsShape.h */,
@@ -1605,6 +1632,10 @@
 		2CEA353A1466BD06000FF575 /* Beeater */ = {
 			isa = PBXGroup;
 			children = (
+				2C827D3D1484326700517C8F /* Beeater-Body.plist */,
+				2C827D3E1484326700517C8F /* Beeater-Body.png */,
+				2C827D39148431A100517C8F /* Beeater-Head.plist */,
+				2C827D3A148431A100517C8F /* Beeater-Head.png */,
 				2CA9E3931479BDE60058C496 /* Beeater.plist */,
 				2CA9E3941479BDE60058C496 /* Beeater.png */,
 				2CEA353B1466BD06000FF575 /* Beeater-01.png */,
@@ -1729,7 +1760,6 @@
 				2CEA32D2145F66F8000FF575 /* Twist.fsh in Resources */,
 				2CEA32D4145F66F8000FF575 /* Twist.vsh in Resources */,
 				2CEA33F7145F66F9000FF575 /* ChangeLog in Resources */,
-				2CEA3483145F66F9000FF575 /* grossini_dance_atlas.png in Resources */,
 				2CEA353C1466BD06000FF575 /* Beeater-01.png in Resources */,
 				2C06880D14670EFB003E200D /* BeeSlingerC-01.png in Resources */,
 				2CADCC6D1470807E00302475 /* RampCrach [ Sketch ]-01.png in Resources */,
@@ -1744,6 +1774,12 @@
 				2CD48B9A14812FB7007D90D9 /* Bee.png in Resources */,
 				2CD48B9E148147BF007D90D9 /* Pollen.plist in Resources */,
 				2CD48B9F148147BF007D90D9 /* Pollen.png in Resources */,
+				2C827D3B148431A100517C8F /* Beeater-Head.plist in Resources */,
+				2C827D3C148431A100517C8F /* Beeater-Head.png in Resources */,
+				2C827D3F1484326700517C8F /* Beeater-Body.plist in Resources */,
+				2C827D401484326700517C8F /* Beeater-Body.png in Resources */,
+				2C827D44148446FD00517C8F /* Mushroom.plist in Resources */,
+				2C827D45148446FD00517C8F /* Mushroom.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1962,6 +1998,7 @@
 				2CD48B8B14801833007D90D9 /* Manager.m in Sources */,
 				2CD48B8E14801A4F007D90D9 /* EntitySystem.m in Sources */,
 				2CD48B9114802E51007D90D9 /* CocosGameState.m in Sources */,
+				2C827D3814840C4900517C8F /* RenderSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

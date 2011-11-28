@@ -73,10 +73,14 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     _space->gravity = CGPointMake(0, -100);
 }
 
--(void) detectCollisionsBetween:(CollisionType)type1 and:(CollisionType)type2
+-(void) detectBeforeCollisionsBetween:(CollisionType)type1 and:(CollisionType)type2
 {
-	cpSpaceAddCollisionHandler(_space, type1, type2, NULL, NULL, &postSolveCollision, NULL, NULL);
-//	cpSpaceAddCollisionHandler(_space, type1, type2, &beginCollision, NULL, NULL, NULL, NULL);
+	cpSpaceAddCollisionHandler(_space, type1, type2, &beginCollision, NULL, NULL, NULL, NULL);
+}
+
+-(void) detectAfterCollisionsBetween:(CollisionType)type1 and:(CollisionType)type2
+{
+    cpSpaceAddCollisionHandler(_space, type1, type2, NULL, NULL, &postSolveCollision, NULL, NULL);
 }
 
 -(void) entityAdded:(Entity *)entity

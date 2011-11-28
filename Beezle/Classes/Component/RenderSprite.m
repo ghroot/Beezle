@@ -37,14 +37,19 @@
 	return [[[RenderSprite alloc] initWithSpriteSheet:spriteSheet] autorelease];
 }
 
--(void) addAnimation:(NSString *)animationName withFrameName:(NSString *)frameName
+-(void) addAnimation:(NSString *)animationName withFrameName:(NSString *)frameName delay:(float)delay
 {
     CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
-    CCAnimation *animation = [CCAnimation animationWithFrames:[NSArray arrayWithObject:frame] delay:0.08f];
+    CCAnimation *animation = [CCAnimation animationWithFrames:[NSArray arrayWithObject:frame] delay:delay];
     [_animationsByName setObject:animation forKey:animationName];
 }
 
--(void) addAnimation:(NSString *)animationName withFrameNames:(NSArray *)frameNames
+-(void) addAnimation:(NSString *)animationName withFrameName:(NSString *)frameName
+{
+    [self addAnimation:animationName withFrameName:frameName delay:0.08f];
+}
+
+-(void) addAnimation:(NSString *)animationName withFrameNames:(NSArray *)frameNames delay:(float)delay
 {
     NSMutableArray *frames = [NSMutableArray array];
     for (NSString *frameName in frameNames)
@@ -52,8 +57,13 @@
         CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
         [frames addObject:frame];
     }
-    CCAnimation *animation = [CCAnimation animationWithFrames:frames delay:0.08f];
+    CCAnimation *animation = [CCAnimation animationWithFrames:frames delay:delay];
     [_animationsByName setObject:animation forKey:animationName];
+}
+
+-(void) addAnimation:(NSString *)animationName withFrameNames:(NSArray *)frameNames
+{
+    [self addAnimation:animationName withFrameNames:frameNames delay:0.08f];
 }
 
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops
@@ -68,6 +78,10 @@
     {
         action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:NO] times:nLoops];
     }
+    
+    // This instantly sets the frame instead of waiting for the first update
+    [_sprite setDisplayFrame:[[animation frames] objectAtIndex:0]];
+    
     [_sprite runAction:action];
 }
 
@@ -76,7 +90,29 @@
     CCAnimation *animation = [_animationsByName objectForKey:animationName];
     CCRepeat *action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:NO] times:1];
     CCCallFunc *callbackAction = [CCCallFunc actionWithTarget:target selector:selector];
+    
+    // This instantly sets the frame instead of waiting for the first update
+    [_sprite setDisplayFrame:[[animation frames] objectAtIndex:0]];
+    
     [_sprite runAction:[CCSequence actions:action, callbackAction, nil]];
+}
+
+-(void) playAnimations:(NSArray *)animationNames
+{
+    NSMutableArray *actions = [NSMutableArray array];
+    for (NSString *animationName in animationNames)
+    {
+        CCAnimation *animation = [_animationsByName objectForKey:animationName];
+        int nLoops = animationName == [animationNames lastObject] ? -1 : 1;
+        CCRepeat *action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:NO] times:nLoops];
+        [actions addObject:action];
+    }
+    
+    // This instantly sets the frame instead of waiting for the first update
+    CCAnimation *firstAnimation = [_animationsByName objectForKey:[animationNames objectAtIndex:0]];
+    [_sprite setDisplayFrame:[[firstAnimation frames] objectAtIndex:0]];
+    
+    [_sprite runAction:[CCSequence actionsWithArray:actions]];
 }
 
 @end

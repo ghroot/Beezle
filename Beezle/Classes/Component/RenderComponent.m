@@ -12,7 +12,6 @@
 @implementation RenderComponent
 
 @synthesize renderSprites = _renderSprites;
-@synthesize z = _z;
 
 -(id) init
 {
@@ -32,7 +31,7 @@
 
 +(RenderComponent *) renderComponentWithRenderSprites:(NSArray *)renderSprites
 {
-	RenderCompoent *renderComponent = [[[RenderComponent alloc] init] autorelease];
+	RenderComponent *renderComponent = [[[RenderComponent alloc] init] autorelease];
 	for (RenderSprite *renderSprite in renderSprites)
 	{
 		[renderComponent addRenderSprite:renderSprite];
@@ -42,7 +41,7 @@
 
 +(RenderComponent *) renderComponentWithRenderSprite:(RenderSprite *)renderSprite
 {
-	RenderCompoent *renderComponent = [[[RenderComponent alloc] init] autorelease];
+	RenderComponent *renderComponent = [[[RenderComponent alloc] init] autorelease];
 	[renderComponent addRenderSprite:renderSprite];
 	return renderComponent;
 }
@@ -64,6 +63,13 @@
 	// TEMP: Simply forward to first render sprite for now
 	RenderSprite *firstRenderSprite = (RenderSprite *)[_renderSprites objectAtIndex:0];
 	[firstRenderSprite playAnimation:animationName withCallbackTarget:target andCallbackSelector:selector];
+}
+
+-(void) playAnimations:(NSArray *)animationNames
+{
+	// TEMP: Simply forward to first render sprite for now
+	RenderSprite *firstRenderSprite = (RenderSprite *)[_renderSprites objectAtIndex:0];
+	[firstRenderSprite playAnimations:animationNames];
 }
 
 @end

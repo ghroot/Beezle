@@ -10,6 +10,7 @@
 #import "artemis.h"
 #import "chipmunk.h"
 #import "cocos2d.h"
+#import "CollisionTypes.h"
 
 @interface PhysicsSystem : EntityComponentSystem
 {
@@ -18,6 +19,7 @@
 
 @property (nonatomic, readonly) cpSpace *space;
 
--(void) detectCollisionsBetween:(CollisionType)type1 and:(CollisionType)type2;
+-(void) detectBeforeCollisionsBetween:(CollisionType)type1 and:(CollisionType)type2;
+-(void) detectAfterCollisionsBetween:(CollisionType)type1 and:(CollisionType)type2;
 
 @end

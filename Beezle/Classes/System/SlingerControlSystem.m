@@ -46,12 +46,12 @@
                 CGPoint slingerToStartVector = ccpSub([self startLocation], [transformComponent position]);
                 
                 float angle = CC_RADIANS_TO_DEGREES(ccpToAngle(slingerToTouchVector));
-                angle = 360 - angle + 90;
+                angle = 360 - angle + 90 + 180;
                 [transformComponent setRotation:angle];
                 
                 float slingerToStartVectorLength = sqrtf(slingerToStartVector.x * slingerToStartVector.x + slingerToStartVector.y * slingerToStartVector.y);
                 float slingerToTouchVectorLength = sqrtf(slingerToTouchVector.x * slingerToTouchVector.x + slingerToTouchVector.y * slingerToTouchVector.y);
-                float vectorLengthDifference = slingerToTouchVectorLength - slingerToStartVectorLength;
+                float vectorLengthDifference = slingerToStartVectorLength - slingerToTouchVectorLength;
                 if (vectorLengthDifference < 0)
                 {
                     vectorLengthDifference = 0;
@@ -74,20 +74,30 @@
                 {
                     strechAnimationName = @"stretch4";
                 }
-                [renderComponent playAnimation:strechAnimationName withLoops:1];
+                [renderComponent playAnimation:strechAnimationName withLoops:-1];
                 
                 break;
             }
             case TOUCH_END:
             {
                 CGPoint slingerToTouchVector = ccpSub([nextInputAction touchLocation], [transformComponent position]);
+                CGPoint slingerToStartVector = ccpSub([self startLocation], [transformComponent position]);
                 
-                [renderComponent playAnimation:@"shoot" withLoops:1];
+                float angle = ccpToAngle(slingerToTouchVector);
                 
-                CGPoint beeVelocity = CGPointMake(30 + 1.2 * slingerToTouchVector.x, 30 + 1.2 * slingerToTouchVector.y);
+                float slingerToStartVectorLength = sqrtf(slingerToStartVector.x * slingerToStartVector.x + slingerToStartVector.y * slingerToStartVector.y);
+                float slingerToTouchVectorLength = sqrtf(slingerToTouchVector.x * slingerToTouchVector.x + slingerToTouchVector.y * slingerToTouchVector.y);
+                float vectorLengthDifference = slingerToStartVectorLength - slingerToTouchVectorLength;
+                vectorLengthDifference = max(vectorLengthDifference, 30.0f);
+                vectorLengthDifference = min(vectorLengthDifference, 160.0f);
+                vectorLengthDifference *= 2.5f;
+                
+                CGPoint beeVelocity = CGPointMake(cosf(angle) * vectorLengthDifference, sinf(angle) * vectorLengthDifference);
                 Entity *beeEntity = [EntityFactory createBee:_world withPosition:[transformComponent position] andVelocity:beeVelocity];
                 RenderComponent *beeRenderComponent = (RenderComponent *)[beeEntity getComponent:[RenderComponent class]];
-                [beeRenderComponent playAnimation:@"fly" withLoops:1];
+                [beeRenderComponent playAnimation:@"fly" withLoops:-1];
+                
+                [renderComponent playAnimations:[NSArray arrayWithObjects:@"shoot", @"idle", nil]];
                 
                 break;
             }

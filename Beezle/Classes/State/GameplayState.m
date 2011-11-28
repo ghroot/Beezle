@@ -77,13 +77,11 @@
     [EntityFactory createBackground:_world withFileName:@"Background-01.jpg"];
     [EntityFactory createEdge:_world withSize:winSize];
     [EntityFactory createSlinger:_world withPosition:CGPointMake(100, 300)];
-    [EntityFactory createRamp:_world withPosition:CGPointMake(150, 100) andRotation:0.0f];
-    [EntityFactory createRamp:_world withPosition:CGPointMake(150, 140) andRotation:0.1f];
-    [EntityFactory createRamp:_world withPosition:CGPointMake(150, 180) andRotation:-0.1f];
-    [EntityFactory createPollen:_world withPosition:CGPointMake(250, 250)];
-    [EntityFactory createPollen:_world withPosition:CGPointMake(300, 250)];
-    [EntityFactory createPollen:_world withPosition:CGPointMake(350, 250)];
-    [EntityFactory createPollen:_world withPosition:CGPointMake(400, 250)];
+    [EntityFactory createRamp:_world withPosition:CGPointMake(200, 140) andRotation:0.0f];
+    [EntityFactory createBeeater:_world withPosition:CGPointMake(365, 175)];
+    [EntityFactory createPollen:_world withPosition:CGPointMake(200, 250)];
+    [EntityFactory createPollen:_world withPosition:CGPointMake(230, 250)];
+    [EntityFactory createMushroom:_world withPosition:CGPointMake(130, 60)];
 }
 
 -(void) update:(int)delta

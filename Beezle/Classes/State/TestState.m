@@ -19,6 +19,7 @@
 #import "PhysicsShape.h"
 #import "PhysicsSystem.h"
 #import "RenderComponent.h"
+#import "RenderSprite.h"
 #import "RenderSystem.h"
 #import "SlingerControlSystem.h"
 #import "Touch.h"
@@ -114,9 +115,11 @@
     [entity addComponent:transformComponent];
     
     RenderSystem *renderSystem = (RenderSystem *)[[_world systemManager] getSystem:[RenderSystem class]];
-    RenderComponent *renderComponent = [renderSystem createRenderComponentWithSpriteSheetName:@"Beeater" andFrameFormat:@"Beeater-0%i.png"];
-    [renderComponent addAnimation:@"idle" withStartFrame:1 andEndFrame:9];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Beeater" z:0];
+	[renderSprite addAnimation:@"idle" withFrameNames:[NSArray arrayWithObjects:@"Beeater-01.png", nil]];
+    RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
     [entity addComponent:renderComponent];
+    
     
     cpBody *body = cpBodyNew(1.0f, 1.0f);
     body->p = cpv(randomPosition.x, randomPosition.y);
@@ -132,6 +135,8 @@
     [entity addComponent:physicsComponent];
     
     [entity refresh];
+    
+    [renderComponent playAnimation:@"idle" withLoops:-1];
     
     GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
     [groupManager addEntity:entity toGroup:@"ENTITIES"];

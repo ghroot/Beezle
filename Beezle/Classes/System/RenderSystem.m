@@ -30,25 +30,25 @@
     [super dealloc];
 }
 
--(RenderSprite *) createRenderSpriteWithFile:(NSString *)fileName
+-(RenderSprite *) createRenderSpriteWithFile:(NSString *)fileName z:(int)z
 {
     CCSpriteBatchNode *spriteSheet = (CCSpriteBatchNode *)[_spriteSheetsByName objectForKey:fileName];
     if (spriteSheet == nil)
     {
         spriteSheet = [CCSpriteBatchNode batchNodeWithFile:fileName];
-        [_layer addChild:spriteSheet];
-        [_spriteSheetsByName setObject:spriteSheet forKey:name];
+        [_layer addChild:spriteSheet z:z];
+        [_spriteSheetsByName setObject:spriteSheet forKey:fileName];
     }
 	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet];
 }
 
--(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name
+-(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name z:(int)z
 {
     CCSpriteBatchNode *spriteSheet = (CCSpriteBatchNode *)[_spriteSheetsByName objectForKey:name];
     if (spriteSheet == nil)
     {
         spriteSheet = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png", name]];
-        [_layer addChild:spriteSheet];
+        [_layer addChild:spriteSheet z:z];
         [_spriteSheetsByName setObject:spriteSheet forKey:name];
 		
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", name]];
@@ -61,7 +61,7 @@
     RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
 	for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
-		[[renderSprite spriteSheet] addChild:[renderSprite sprite] z:[renderComponent z]];
+		[[renderSprite spriteSheet] addChild:[renderSprite sprite]];
 	}
     
     [super entityAdded:entity];

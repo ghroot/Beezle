@@ -36,11 +36,12 @@
 {   
     PhysicsSystem *physicsSystem = (PhysicsSystem *)[[_world systemManager] getSystem:[PhysicsSystem class]];
 	
-	[physicsSystem detectCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_BACKGROUND];
-	[physicsSystem detectCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_BEEATER];
-	[physicsSystem detectCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_EDGE];
-	[physicsSystem detectCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_POLLEN];
-	[physicsSystem detectCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_RAMP];
+	[physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_BACKGROUND];
+	[physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_BEEATER];
+	[physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_EDGE];
+	[physicsSystem detectBeforeCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_POLLEN];
+	[physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_RAMP];
+    [physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_MUSHROOM];
 }
 
 -(void) begin
@@ -77,6 +78,10 @@
             else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_POLLEN)
             {
                 [self handleCollisionBee:[collision firstEntity] withPollen:[collision secondEntity]];
+            }
+            else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_MUSHROOM)
+            {
+                [self handleCollisionBee:[collision firstEntity] withMushroom:[collision secondEntity]];
             }
         }
     }
@@ -123,6 +128,12 @@
 -(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity
 {
     [pollenEntity deleteEntity];
+}
+
+-(void)handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity
+{
+    RenderComponent *mushroomRenderComponent = (RenderComponent *)[mushroomEntity getComponent:[RenderComponent class]];
+    [mushroomRenderComponent playAnimations:[NSArray arrayWithObjects:@"bounce", @"idle", nil]];
 }
 
 -(void) dealloc

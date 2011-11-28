@@ -19,7 +19,7 @@
 }
 
 -(id) initWithLayer:(CCLayer *)layer;
--(RenderSprite *) createRenderSpriteWithFile:(NSString *)fileName;
--(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name;
+-(RenderSprite *) createRenderSpriteWithFile:(NSString *)fileName z:(int)z;
+-(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name z:(int)z;
 
 @end
