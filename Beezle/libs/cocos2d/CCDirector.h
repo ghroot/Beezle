@@ -297,5 +297,9 @@ and when to execute the Scenes.
 /** creates the FPS label */
 -(void) createFPSLabel;
 
++(double) getAvailableBytes;
++(double) getAvailableKiloBytes;
++(double) getAvailableMegaBytes;
+
 @end
 
