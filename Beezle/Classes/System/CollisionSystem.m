@@ -91,7 +91,7 @@
 {
     // Crash animation (and delete entity at end of animation)
     RenderComponent *rampRenderComponent = (RenderComponent *)[rampEntity getComponent:[RenderComponent class]];
-    [rampRenderComponent playAnimation:@"crash" withCallbackTarget:rampEntity andCallbackSelector:@selector(deleteEntity)];
+    [rampRenderComponent playAnimation:@"Ramp-Crash" withCallbackTarget:rampEntity andCallbackSelector:@selector(deleteEntity)];
     
     // Disable physics component
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[rampEntity getComponent:[PhysicsComponent class]];

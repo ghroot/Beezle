@@ -115,11 +115,9 @@
     [entity addComponent:transformComponent];
     
     RenderSystem *renderSystem = (RenderSystem *)[[_world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Beeater" z:0];
-	[renderSprite addAnimation:@"idle" withFrameNames:[NSArray arrayWithObjects:@"Beeater-01.png", nil]];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Beeater-Head" z:0];
     RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
     [entity addComponent:renderComponent];
-    
     
     cpBody *body = cpBodyNew(1.0f, 1.0f);
     body->p = cpv(randomPosition.x, randomPosition.y);
@@ -136,7 +134,7 @@
     
     [entity refresh];
     
-    [renderComponent playAnimation:@"idle" withLoops:-1];
+    [renderComponent playAnimation:@"Beeater-Head-Idle"];
     
     GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
     [groupManager addEntity:entity toGroup:@"ENTITIES"];

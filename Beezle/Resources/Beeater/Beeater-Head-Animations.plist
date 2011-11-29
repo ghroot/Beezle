@@ -4,64 +4,45 @@
 <dict>
 	<key>animations</key>
 	<dict>
-	
 		<key>Beeater-Head-Idle</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<key>frame 1</key>
 				<string>Orig.png</string>
-				<key>frame 2</key>
-				<string>Beeater.png</string>
-				<key>frame 3</key>
-				<string>Beeater.png</string>
-				<key>frame 4</key>
+				<string>Orig.png</string>
+				<string>Orig.png</string>
 				<string>Blink.png</string>
 			</array>
 			<key>delay</key>
-			<Number>0.5</Number>
+			<real>0.5</real>
 		</dict>
-		
 		<key>Beeater-Head-Lick</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<key>frame 1</key>
 				<string>Lick-1.png</string>
-				<key>frame 2</key>
 				<string>Lick-2.png</string>
-				<key>frame 3</key>
 				<string>Lick-3.png</string>
-				<key>frame 4</key>
 				<string>Lick-4.png</string>
-				<key>frame 5</key>
 				<string>Lick-5.png</string>
-				<key>frame 6</key>
 				<string>Lick-6.png</string>
 			</array>
 			<key>delay</key>
-			<Number>0.2</Number>
+			<real>0.2</real>
 		</dict>
-		
 		<key>Beeater-Head-Show-Bee</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<key>frame 1</key>
-				<string>Show-Bee-1.png</string>
-				<key>frame 2</key>
-				<string>Show-Bee-2.png</string>
-				<key>frame 3</key>
-				<string>Show-Bee-3.png</string>
-				<key>frame 4</key>
-				<string>Show-Bee-4.png</string>
-				<key>frame 5</key>
-				<string>Show-Bee-5.png</string>
+				<string>ShowBee-1.png</string>
+				<string>ShowBee-2.png</string>
+				<string>ShowBee-3.png</string>
+				<string>ShowBee-4.png</string>
+				<string>ShowBee-5.png</string>
 			</array>
 			<key>delay</key>
-			<Number>0.2</Number>
+			<real>0.2</real>
 		</dict>
-		
 	</dict>
 </dict>
 </plist>

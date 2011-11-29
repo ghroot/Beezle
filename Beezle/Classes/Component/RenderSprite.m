@@ -83,7 +83,7 @@
     }
     
     // This instantly sets the frame instead of waiting for the first update
-	CCAnimation *firstAnimation = [[CCAnimationCache sharedAnimationCache] animationByName:[animationNames objectAtIndex:0]]
+	CCAnimation *firstAnimation = [[CCAnimationCache sharedAnimationCache] animationByName:[animationNames objectAtIndex:0]];
     [_sprite setDisplayFrame:[[firstAnimation frames] objectAtIndex:0]];
     
     [_sprite runAction:[CCSequence actionsWithArray:actions]];
@@ -100,7 +100,7 @@
     }
 	
 	// This instantly sets the frame instead of waiting for the first update
-    CCAnimation *firstAnimation = [[CCAnimationCache sharedAnimationCache] animationByName:[animationNames objectAtIndex:0]]
+    CCAnimation *firstAnimation = [[CCAnimationCache sharedAnimationCache] animationByName:[animationNames objectAtIndex:0]];
     [_sprite setDisplayFrame:[[firstAnimation frames] objectAtIndex:0]];
 	
 	[_sprite runAction:[CCRepeatForever actionWithAction:[CCSequence actionsWithArray:actions]]];
