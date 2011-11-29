@@ -65,11 +65,18 @@
 	[firstRenderSprite playAnimation:animationName withCallbackTarget:target andCallbackSelector:selector];
 }
 
--(void) playAnimations:(NSArray *)animationNames
+-(void) playAnimationsLoopLast:(NSArray *)animationNames
 {
 	// TEMP: Simply forward to first render sprite for now
 	RenderSprite *firstRenderSprite = (RenderSprite *)[_renderSprites objectAtIndex:0];
-	[firstRenderSprite playAnimations:animationNames];
+	[firstRenderSprite playAnimationsLoopLast:animationNames];
+}
+
+-(void) playAnimationsLoopAll:(NSArray *)animationNames
+{
+	// TEMP: Simply forward to first render sprite for now
+	RenderSprite *firstRenderSprite = (RenderSprite *)[_renderSprites objectAtIndex:0];
+	[firstRenderSprite playAnimationsLoopAll:animationNames];
 }
 
 @end

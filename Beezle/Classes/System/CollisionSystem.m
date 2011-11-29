@@ -133,7 +133,7 @@
 -(void)handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity
 {
     RenderComponent *mushroomRenderComponent = (RenderComponent *)[mushroomEntity getComponent:[RenderComponent class]];
-    [mushroomRenderComponent playAnimations:[NSArray arrayWithObjects:@"bounce", @"idle", nil]];
+    [mushroomRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"bounce", @"idle", nil]];
 }
 
 -(void) dealloc

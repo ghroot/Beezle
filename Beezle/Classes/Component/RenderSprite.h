@@ -26,6 +26,7 @@
 -(void) addAnimation:(NSString *)animationName withFrameNames:(NSArray *)frameNames;
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops;
 -(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector;
--(void) playAnimations:(NSArray *)animationNames;
+-(void) playAnimationsLoopLast:(NSArray *)animationNames;
+-(void) playAnimationsLoopAll:(NSArray *)animationNames;
 
 @end

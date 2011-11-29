@@ -97,7 +97,7 @@
                 RenderComponent *beeRenderComponent = (RenderComponent *)[beeEntity getComponent:[RenderComponent class]];
                 [beeRenderComponent playAnimation:@"fly" withLoops:-1];
                 
-                [renderComponent playAnimations:[NSArray arrayWithObjects:@"shoot", @"idle", nil]];
+                [renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"shoot", @"idle", nil]];
                 
                 break;
             }

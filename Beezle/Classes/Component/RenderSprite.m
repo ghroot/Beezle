@@ -97,7 +97,7 @@
     [_sprite runAction:[CCSequence actions:action, callbackAction, nil]];
 }
 
--(void) playAnimations:(NSArray *)animationNames
+-(void) playAnimationsLoopLast:(NSArray *)animationNames
 {
     NSMutableArray *actions = [NSMutableArray array];
     for (NSString *animationName in animationNames)
@@ -113,6 +113,23 @@
     [_sprite setDisplayFrame:[[firstAnimation frames] objectAtIndex:0]];
     
     [_sprite runAction:[CCSequence actionsWithArray:actions]];
+}
+
+-(void) playAnimationsLoopAll:(NSArray *)animationNames
+{
+    NSMutableArray *actions = [NSMutableArray array];
+    for (NSString *animationName in animationNames)
+    {
+        CCAnimation *animation = [_animationsByName objectForKey:animationName];
+        CCRepeat *action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:NO] times:1];
+        [actions addObject:action];
+    }
+	
+	// This instantly sets the frame instead of waiting for the first update
+    CCAnimation *firstAnimation = [_animationsByName objectForKey:[animationNames objectAtIndex:0]];
+    [_sprite setDisplayFrame:[[firstAnimation frames] objectAtIndex:0]];
+	
+	[_sprite runAction:[CCRepeatForever actionWithAction:[CCSequence actionsWithArray:actions]]];
 }
 
 @end
