@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>animations</key>
+	<dict>
+	
+		<key>Mushroom-Idle</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<key>frame 1</key>
+				<string>Mushroom-1.png</string>
+			</array>
+			<key>delay</key>
+			<Number>1</Number>
+		</dict>
+		
+		<key>Mushroom-Bounce</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<key>frame 1</key>
+				<string>Mushroom-2.png</string>
+				<key>frame 2</key>
+				<string>Mushroom-3.png</string>
+				<key>frame 3</key>
+				<string>Mushroom-4.png</string>
+				<key>frame 4</key>
+				<string>Mushroom-5.png</string>
+			</array>
+			<key>delay</key>
+			<Number>0.2</Number>
+		</dict>
+		
+	</dict>
+</dict>
+</plist>

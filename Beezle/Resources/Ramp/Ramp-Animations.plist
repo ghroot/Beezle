@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>animations</key>
+	<dict>
+	
+		<key>Ramp-Idle</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<key>frame 1</key>
+				<string>Ramp-1.png</string>
+			</array>
+			<key>delay</key>
+			<Number>1</Number>
+		</dict>
+		
+		<key>Ramp-Crash</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<key>frame 1</key>
+				<string>Ramp-2.png</string>
+				<key>frame 2</key>
+				<string>Ramp-3.png</string>
+				<key>frame 3</key>
+				<string>Ramp-4.png</string>
+				<key>frame 4</key>
+				<string>Ramp-5.png</string>
+				<key>frame 5</key>
+				<string>Ramp-6.png</string>
+				<key>frame 6</key>
+				<string>Ramp-7.png</string>
+			</array>
+			<key>delay</key>
+			<Number>0.2</Number>
+		</dict>
+		
+	</dict>
+</dict>
+</plist>

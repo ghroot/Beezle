@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>animations</key>
+	<dict>
+	
+		<key>Beeater-Body-Idle</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<key>frame 1</key>
+				<string>Body-1.png</string>
+			</array>
+			<key>delay</key>
+			<Number>1</Number>
+		</dict>
+		
+		<key>Beeater-Body-Wave</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<key>frame 1</key>
+				<string>Body-2.png</string>
+				<key>frame 2</key>
+				<string>Body-3.png</string>
+				<key>frame 3</key>
+				<string>Body-4.png</string>
+			</array>
+			<key>delay</key>
+			<Number>0.2</Number>
+		</dict>
+		
+	</dict>
+</dict>
+</plist>
