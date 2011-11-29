@@ -23,6 +23,7 @@
 
 -(void) addRenderSprite:(RenderSprite *)renderSprite;
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops;
+-(void) playAnimation:(NSString *)animationName;
 -(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector;
 -(void) playAnimationsLoopLast:(NSArray *)animationNames;
 -(void) playAnimationsLoopAll:(NSArray *)animationNames;

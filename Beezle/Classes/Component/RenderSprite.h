@@ -10,7 +10,6 @@
 
 @interface RenderSprite : NSObject
 {
-    NSMutableDictionary *_animationsByName;
     CCSpriteBatchNode *_spriteSheet;
     CCSprite *_sprite;
 }
@@ -20,11 +19,8 @@
 
 -(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
--(void) addAnimation:(NSString *)animationName withFrameName:(NSString *)frameName delay:(float)delay;
--(void) addAnimation:(NSString *)animationName withFrameName:(NSString *)frameName;
--(void) addAnimation:(NSString *)animationName withFrameNames:(NSArray *)frameNames delay:(float)delay;
--(void) addAnimation:(NSString *)animationName withFrameNames:(NSArray *)frameNames;
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops;
+-(void) playAnimation:(NSString *)animationName;
 -(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector;
 -(void) playAnimationsLoopLast:(NSArray *)animationNames;
 -(void) playAnimationsLoopAll:(NSArray *)animationNames;

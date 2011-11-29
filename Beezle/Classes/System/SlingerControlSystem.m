@@ -60,19 +60,19 @@
                 NSString *strechAnimationName;
                 if (vectorLengthDifference < stretchLevelDistance)
                 {
-                    strechAnimationName = @"stretch1";
+                    strechAnimationName = @"Sling-Stretch-1";
                 }
                 else if (vectorLengthDifference < 2 * stretchLevelDistance)
                 {
-                    strechAnimationName = @"stretch2";
+                    strechAnimationName = @"Sling-Stretch-2";
                 }
                 else if (vectorLengthDifference < 3 * stretchLevelDistance)
                 {
-                    strechAnimationName = @"stretch3";
+                    strechAnimationName = @"Sling-Stretch-3";
                 }
                 else
                 {
-                    strechAnimationName = @"stretch4";
+                    strechAnimationName = @"Sling-Stretch-4";
                 }
                 [renderComponent playAnimation:strechAnimationName withLoops:-1];
                 
@@ -95,9 +95,8 @@
                 CGPoint beeVelocity = CGPointMake(cosf(angle) * vectorLengthDifference, sinf(angle) * vectorLengthDifference);
                 Entity *beeEntity = [EntityFactory createBee:_world withPosition:[transformComponent position] andVelocity:beeVelocity];
                 RenderComponent *beeRenderComponent = (RenderComponent *)[beeEntity getComponent:[RenderComponent class]];
-                [beeRenderComponent playAnimation:@"fly" withLoops:-1];
                 
-                [renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"shoot", @"idle", nil]];
+                [renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];
                 
                 break;
             }

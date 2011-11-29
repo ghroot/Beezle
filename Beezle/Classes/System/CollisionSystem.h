@@ -18,7 +18,6 @@
 
 -(void) pushCollision:(Collision *)collision;
 -(void) handleCollisions;
--(void) handleCollisionBee:(Entity *)beeEntity;
 -(void) handleCollisionBee:(Entity *)beeEntity withRamp:(Entity *)rampEntity;
 -(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity;
 -(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity;

@@ -58,7 +58,6 @@
         
         if ([[firstPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_BEE)
         {
-            [self handleCollisionBee:[collision firstEntity]];
             if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_RAMP)
             {
                 [self handleCollisionBee:[collision firstEntity] withRamp:[collision secondEntity]];
@@ -86,12 +85,6 @@
         }
     }
     [_collisions removeAllObjects];    
-}
-
--(void) handleCollisionBee:(Entity *)beeEntity
-{
-    RenderComponent *beeRenderComponent = (RenderComponent *)[beeEntity getComponent:[RenderComponent class]];
-    [beeRenderComponent playAnimation:@"idle" withLoops:3];
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withRamp:(Entity *)rampEntity
@@ -133,7 +126,7 @@
 -(void)handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity
 {
     RenderComponent *mushroomRenderComponent = (RenderComponent *)[mushroomEntity getComponent:[RenderComponent class]];
-    [mushroomRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"bounce", @"idle", nil]];
+	[mushroomRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Mushroom-Bounce", @"Mushroom-Idle", nil]];
 }
 
 -(void) dealloc

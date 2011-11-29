@@ -38,6 +38,8 @@
         spriteSheet = [CCSpriteBatchNode batchNodeWithFile:fileName];
         [_layer addChild:spriteSheet z:z];
         [_spriteSheetsByName setObject:spriteSheet forKey:fileName];
+		
+		// No frames, uses whole texture
     }
 	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet];
 }
@@ -51,7 +53,11 @@
         [_layer addChild:spriteSheet z:z];
         [_spriteSheetsByName setObject:spriteSheet forKey:name];
 		
+		// Create frames from file
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", name]];
+		
+		// Create animations from file
+		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:[NSString stringWithFormat:@"%@-Animations.plist", name]];
     }
 	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet];
 }

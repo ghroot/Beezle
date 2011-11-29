@@ -1,126 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>frames</key>
-	<dict>
-		
-		<key>Bee-01.png</key>
-		<dict>
-			<key>aliases</key>
-			<array>
-			
-			</array>
-			<key>spriteColorRect</key>
-			<string>{{3, 3}, {33, 32}}</string>
-			<key>spriteOffset</key>
-			<string>{0, -0}</string>
-			<key>spriteSize</key>
-			<string>{33, 32}</string>
-			<key>spriteSourceSize</key>
-			<string>{39, 38}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{0, 0}, {33, 32}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		
-		<key>Bee-02.png</key>
-		<dict>
-			<key>aliases</key>
-			<array>
-			
-			</array>
-			<key>spriteColorRect</key>
-			<string>{{3, 6}, {33, 30}}</string>
-			<key>spriteOffset</key>
-			<string>{0, -2}</string>
-			<key>spriteSize</key>
-			<string>{33, 30}</string>
-			<key>spriteSourceSize</key>
-			<string>{39, 38}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{0, 32}, {33, 30}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		
-		<key>Bee-03.png</key>
-		<dict>
-			<key>aliases</key>
-			<array>
-			
-			</array>
-			<key>spriteColorRect</key>
-			<string>{{3, 6}, {33, 30}}</string>
-			<key>spriteOffset</key>
-			<string>{0, -2}</string>
-			<key>spriteSize</key>
-			<string>{33, 30}</string>
-			<key>spriteSourceSize</key>
-			<string>{39, 38}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{33, 0}, {33, 30}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		
-		<key>Bee-04.png</key>
-		<dict>
-			<key>aliases</key>
-			<array>
-			
-			</array>
-			<key>spriteColorRect</key>
-			<string>{{1, 8}, {37, 26}}</string>
-			<key>spriteOffset</key>
-			<string>{0, -2}</string>
-			<key>spriteSize</key>
-			<string>{37, 26}</string>
-			<key>spriteSourceSize</key>
-			<string>{39, 38}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{33, 29}, {37, 26}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		
-	</dict>
-	<key>metadata</key>
-	<dict>
-		<key>version</key>
-		<string>1.5 GM</string>
-		<key>format</key>
-		<integer>3</integer>
-		<key>size</key>
-		<string>{128, 64}</string>
-		<key>name</key>
-		<string>Untitled</string>
-		<key>premultipliedAlpha</key>
-		<false/>
-		<key>target</key>
-		<dict>
-			<key>name</key>
-			<string>default</string>
-			<key>textureFileName</key>
-			<string>default</string>
-			<key>textureFileExtension</key>
-			<string>.png</string>
-			<key>coordinatesFileName</key>
-			<string>default</string>
-			<key>coordinatesFileExtension</key>
-			<string>.plist</string>
-			<key>premultipliedAlpha</key>
-			<false/>
-		</dict>
-	</dict>
-</dict>
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>Bee-1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{38,37}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{38,37}}</string>
+                <key>sourceSize</key>
+                <string>{38,37}</string>
+            </dict>
+            <key>Bee-2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,41},{38,37}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{38,37}}</string>
+                <key>sourceSize</key>
+                <string>{38,37}</string>
+            </dict>
+            <key>Bee-Blink.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,80},{38,37}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{38,37}}</string>
+                <key>sourceSize</key>
+                <string>{38,37}</string>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>2</integer>
+            <key>realTextureFileName</key>
+            <string>Bee.png</string>
+            <key>size</key>
+            <string>{64,128}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:500f1e119900bc5f7c124bfe72adc9bf$</string>
+            <key>textureFileName</key>
+            <string>Bee.png</string>
+        </dict>
+    </dict>
 </plist>

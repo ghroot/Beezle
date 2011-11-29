@@ -58,6 +58,13 @@
 	[firstRenderSprite playAnimation:animationName withLoops:nLoops];
 }
 
+-(void) playAnimation:(NSString *)animationName
+{
+	// TEMP: Simply forward to first render sprite for now
+	RenderSprite *firstRenderSprite = (RenderSprite *)[_renderSprites objectAtIndex:0];
+	[firstRenderSprite playAnimation:animationName];
+}
+
 -(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector
 {
 	// TEMP: Simply forward to first render sprite for now
