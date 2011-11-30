@@ -25,7 +25,7 @@
 {
     if (self = [super initWithId:gameStateId])
     {
-		_debug = TRUE;
+		_debug = FALSE;
 		_world = [[World alloc] init];
     }
     return self;
@@ -74,15 +74,15 @@
     
     [systemManager initialiseAll];
     
-    [EntityFactory createBackground:_world withSpriteSheetName:@"Background-A-1024"];
-    // [EntityFactory createForeground:_world withFileName:@"Level-A5.png"];
-    // [EntityFactory createEdge:_world withSize:winSize];
-    // [EntityFactory createSlinger:_world withPosition:CGPointMake(100, 300)];
-    // [EntityFactory createRamp:_world withPosition:CGPointMake(200, 140) andRotation:0.0f];
-    // [EntityFactory createBeeater:_world withPosition:CGPointMake(365, 175)];
-    // [EntityFactory createPollen:_world withPosition:CGPointMake(200, 250)];
-    // [EntityFactory createPollen:_world withPosition:CGPointMake(230, 250)];
-    // [EntityFactory createMushroom:_world withPosition:CGPointMake(130, 60)];
+    [EntityFactory createBackground:_world withSpriteSheetName:@"Combined"];
+    [EntityFactory createForeground:_world withSpriteSheetName:@"Combined"];
+    [EntityFactory createEdge:_world withSize:winSize];
+    [EntityFactory createSlinger:_world withPosition:CGPointMake(100, 300)];
+    [EntityFactory createRamp:_world withPosition:CGPointMake(200, 140) andRotation:0.0f];
+    [EntityFactory createBeeater:_world withPosition:CGPointMake(365, 175)];
+//    [EntityFactory createPollen:_world withPosition:CGPointMake(200, 250)];
+//    [EntityFactory createPollen:_world withPosition:CGPointMake(230, 250)];
+    [EntityFactory createMushroom:_world withPosition:CGPointMake(130, 60)];
 }
 
 -(void) update:(int)delta

@@ -113,7 +113,7 @@
 
 -(void) setFrame:(NSString *)frameName
 {
-	CCSpriteFrame *frame = [[[CCSpriteFrameCache] sharedSpriteFrameCache] spriteFrameByName:frameName];
+	CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
 	[_sprite setDisplayFrame:frame];
 }
 

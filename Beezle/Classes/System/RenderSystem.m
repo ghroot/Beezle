@@ -49,15 +49,27 @@
     CCSpriteBatchNode *spriteSheet = (CCSpriteBatchNode *)[_spriteSheetsByName objectForKey:name];
     if (spriteSheet == nil)
     {
-        spriteSheet = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png", name]];
+        // Create sprite batch node
+        NSString *dataFileName = [NSString stringWithFormat:@"%@.plist", name];
+        NSString *dataPath = [CCFileUtils fullPathFromRelativePath:dataFileName];
+        NSDictionary *dataDict = [NSDictionary dictionaryWithContentsOfFile:dataPath];
+        NSDictionary *metadataDict = [dataDict objectForKey:@"metadata"];
+        NSString *texturePath = [metadataDict objectForKey:@"textureFileName"];
+        spriteSheet = [CCSpriteBatchNode batchNodeWithFile:texturePath];
         [_layer addChild:spriteSheet z:z];
         [_spriteSheetsByName setObject:spriteSheet forKey:name];
-		
+        
 		// Create frames from file
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", name]];
 		
 		// Create animations from file
-		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:[NSString stringWithFormat:@"%@-Animations.plist", name]];
+        NSString *animationsFileName = [NSString stringWithFormat:@"%@-Animations.plist", name];
+        NSString *path = [CCFileUtils fullPathFromRelativePath:animationsFileName];
+        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+        if (dict != nil)
+        {
+            [[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:animationsFileName];
+        }
     }
 	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet];
 }
