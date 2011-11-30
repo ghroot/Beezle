@@ -61,10 +61,14 @@
 	[director setOpenGLView:glView];
 	
 	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
-//	if( ! [director enableRetinaDisplay:TRUE] )
-//		CCLOG(@"Retina Display Not supported");
+	if(![director enableRetinaDisplay:TRUE])
+    {
+		CCLOG(@"Retina Display Not supported");
+    }
 
-	[director setDisplayFPS:TRUE];
+    [director setDisplayStats:kCCDirectorStatsFPS];
+    [director setProjection:kCCDirectorProjection2D];
+    [director setDepthTest:FALSE];
 	
 	// Enable multi touches
 //	[glView setMultipleTouchEnabled:TRUE];

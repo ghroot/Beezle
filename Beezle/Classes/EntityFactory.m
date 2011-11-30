@@ -35,24 +35,69 @@
 	RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
     [backgroundEntity addComponent:renderComponent];
     
-    int num = 16;
+    [backgroundEntity refresh];
+    
+    return backgroundEntity;
+}
+
++(Entity *) createForeground:(World *)world withFileName:(NSString *)fileName
+{
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    Entity *foregroundEntity = [world createEntity];
+    
+    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(winSize.width / 2, winSize.height / 2)] autorelease];
+    [foregroundEntity addComponent:transformComponent];
+    
+	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithFile:fileName z:-5];
+	RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
+    [foregroundEntity addComponent:renderComponent];
+    
+    int num = 42;
     CGPoint verts[] = {
-        cpv(-239.0f, 67.0f),
-        cpv(-144.0f, 52.0f),
-        cpv(-172.0f, -40.0f),
-        cpv(-162.0f, -109.0f),
-        cpv(-114.0f, -129.0f),
-        cpv(5.0f, -76.0f),
-        cpv(22.0f, -128.0f),
-        cpv(68.0f, -149.0f),
-        cpv(124.0f, -120.0f),
-        cpv(150.0f, -72.0f),
-        cpv(150.0f, -44.0f),
-        cpv(93.0f, -20.0f),
-        cpv(93.0f, 13.0f),
-        cpv(147.0f, 19.0f),
-        cpv(191.0f, 10.0f),
-        cpv(238.0f, -33.0f)
+        cpv(-238.6f, 81.0f),
+        cpv(-130.5f, 76.7f),
+        cpv(-130.5f, 64.7f),
+        cpv(-196.2f, 53.4f),
+        cpv(-213.2f, 32.9f),
+        cpv(-211.8f, 10.3f),
+        cpv(-197.6f, -8.1f),
+        cpv(-163.0f, -11.7f),
+        cpv(-119.9f, -5.3f),
+        cpv(-87.3f, 10.3f),
+        cpv(-51.3f, 13.1f),
+        cpv(-51.3f, 7.4f),
+        cpv(-105.0f, -11.0f),
+        cpv(-130.5f, -25.8f),
+        cpv(-146.7f, -50.6f),
+        cpv(-122.7f, -88.0f),
+        cpv(-98.6f, -108.5f),
+        cpv(-72.5f, -117.0f),
+        cpv(-34.3f, -111.4f),
+        cpv(37.1f, -85.2f),
+        cpv(47.0f, -85.2f),
+        cpv(84.5f, -104.3f),
+        cpv(110.0f, -112.1f),
+        cpv(143.9f, -111.4f),
+        cpv(182.8f, -100.1f),
+        cpv(196.9f, -25.1f),
+        cpv(174.3f, 8.1f),
+        cpv(138.9f, 19.4f),
+        cpv(105.7f, 25.1f),
+        cpv(68.9f, 17.3f),
+        cpv(25.8f, 5.3f),
+        cpv(23.0f, 13.8f),
+        cpv(100.1f, 37.8f),
+        cpv(139.7f, 61.2f),
+        cpv(155.2f, 88.0f),
+        cpv(156.6f, 107.8f),
+        cpv(149.6f, 124.8f),
+        cpv(138.9f, 134.0f),
+        cpv(119.1f, 143.2f),
+        cpv(95.1f, 145.3f),
+        cpv(12.4f, 146.0f),
+        cpv(8.8f, 159.5f)
     };
     cpBody *body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
     cpBodyInitStatic(body);
@@ -69,11 +114,11 @@
     }
     PhysicsBody *physicsBody = [[[PhysicsBody alloc] initWithBody:body] autorelease];
     PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShapes:physicsShapes] autorelease];
-    [backgroundEntity addComponent:physicsComponent];
+    [foregroundEntity addComponent:physicsComponent];
     
-    [backgroundEntity refresh];
+    [foregroundEntity refresh];
     
-    return backgroundEntity;
+    return foregroundEntity;    
 }
 
 +(Entity *) createEdge:(World *)world  withSize:(CGSize)size
