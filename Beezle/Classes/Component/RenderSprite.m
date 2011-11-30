@@ -35,6 +35,11 @@
 	return [[[RenderSprite alloc] initWithSpriteSheet:spriteSheet] autorelease];
 }
 
+-(void) disableBlending
+{
+	[_sprite setBlendFunc:(ccBlendFunc){GL_ONE, GL_ZERO}];
+}
+
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops
 {
     CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:animationName];
@@ -104,6 +109,12 @@
     [_sprite setDisplayFrame:[[firstAnimation frames] objectAtIndex:0]];
 	
 	[_sprite runAction:[CCRepeatForever actionWithAction:[CCSequence actionsWithArray:actions]]];
+}
+
+-(void) setFrame:(NSString *)frameName
+{
+	CCSpriteFrame *frame = [[[CCSpriteFrameCache] sharedSpriteFrameCache] spriteFrameByName:frameName];
+	[_sprite setDisplayFrame:frame];
 }
 
 @end

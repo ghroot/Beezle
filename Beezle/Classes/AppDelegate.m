@@ -69,6 +69,7 @@
     [director setDisplayStats:kCCDirectorStatsFPS];
     [director setProjection:kCCDirectorProjection2D];
     [director setDepthTest:FALSE];
+	[director setNeedDepthClear:FALSE];
 	
 	// Enable multi touches
 //	[glView setMultipleTouchEnabled:TRUE];
@@ -92,14 +93,59 @@
 	// Removes the startup flicker
 	[self removeStartupFlicker];
 	
-	// Create game
-	Beezle *beezle = [[Beezle alloc] init];
-	_container = [[CocosGameContainer alloc] initWithGame:beezle];
-	[_container setUpdateInterval:(1.0f / 60.0f)];
-	[_container start];
-    [beezle enterState:STATE_MAIN_MENU];
-}
+	BOOL simpleTest = TRUE;
+	if (simpleTest)
+	{
+		BOOL largeSheet = FALSE;
+		
+		CGSize winSize = [[CCDirector sharedDirector] winSize];
+	
+		CCScene *scene = [[CCScene alloc] init];
+	
+		CCSpriteBatchNode *spriteSheet;
+		NSMutableArray *sprites = [NSMutableArray array];
+	
+		if (largeSheet)
+		{
+			spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"BackgroundSheet2.png"];
+			CCSprite *bg = [CCSprite spriteWithTexture:[spriteSheet texture] rect:CGRectMake(2, 644, 960, 640)];
+			CCSprite *fg1 = [CCSprite spriteWithTexture:[spriteSheet texture] rect:CGRectMake(2, 2, 960, 640)];
+			CCSprite *fg2 = [CCSprite spriteWithTexture:[spriteSheet texture] rect:CGRectMake(2, 1286, 960, 610)];
 
+			[sprites addObject:bg];
+			[sprites addObject:fg1];
+			[sprites addObject:fg2];
+		}
+		else
+		{
+			spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"BackgroundSheet.png"];
+			CCSprite *bg = [CCSprite spriteWithTexture:[spriteSheet texture] rect:CGRectMake(2, 644, 960, 640)];
+			CCSprite *fg = [CCSprite spriteWithTexture:[spriteSheet texture] rect:CGRectMake(2, 2, 960, 640)];
+			
+			[sprites addObject:bg];
+			[sprites addObject:fg];
+		}
+		
+		[scene addChild:spriteSheet];
+		for (CCSprite *sprite in sprites)
+		{
+			[sprite setPosition:CGPointMake(winSize.width / 2, winSize.height / 2)];
+			[spriteSheet addChild:sprite];
+		}
+		
+		[director setAnimationInterval:(1.0f / 60.f)];
+		[director runWithScene:scene];
+	}
+	else
+	{
+		// Create game
+		Beezle *beezle = [[Beezle alloc] init];
+		_container = [[CocosGameContainer alloc] initWithGame:beezle];
+		[_container setUpdateInterval:(1.0f / 60.0f)];
+		[_container start];
+		[beezle enterState:STATE_MAIN_MENU];
+	}
+}
 
 -(void) applicationWillResignActive:(UIApplication *)application
 {

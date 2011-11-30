@@ -91,6 +91,7 @@ extern NSString * cocos2dVersion(void);
 @synthesize projectionDelegate = projectionDelegate_;
 @synthesize totalFrames = totalFrames_;
 @synthesize millisecondsPerFrame = millisecondsPerFrame_;
+@synthesize needDepthClear = _needDepthClear;
 
 //
 // singleton stuff

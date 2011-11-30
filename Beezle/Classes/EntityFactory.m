@@ -21,7 +21,7 @@
 
 @implementation EntityFactory
 
-+(Entity *) createBackground:(World *)world withFileName:(NSString *)fileName
++(Entity *) createBackground:(World *)world withSpriteSheetName:(NSString *)spriteSheetName
 {
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
@@ -31,8 +31,32 @@
     [backgroundEntity addComponent:transformComponent];
     
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithFile:fileName z:-5];
-	RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
+	
+	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB565];
+	
+	RenderSprite *topLeft = [renderSystem createRenderSpriteWithSpriteSheetName:spriteSheetName z:-5];
+	[[topLeft sprite] setAnchorPoint:CGPointMake(1.0f, 0.0f)];
+	[topLeft setFrame:@"Background-A-1"];
+	[topLeft disableBlending];
+	
+	RenderSprite *topRight = [renderSystem createRenderSpriteWithSpriteSheetName:spriteSheetName z:-5];
+	[[topRight sprite] setAnchorPoint:CGPointMake(0.0f, 0.0f)];
+	[topRight setFrame:@"Background-A-2"];
+	[topRight disableBlending];
+	
+	RenderSprite *bottomLeft = [renderSystem createRenderSpriteWithSpriteSheetName:spriteSheetName z:-5];
+	[[bottomLeft sprite] setAnchorPoint:CGPointMake(1.0f, 1.0f)];
+	[bottomLeft setFrame:@"Background-A-3"];
+	[bottomLeft disableBlending];
+	
+	RenderSprite *bottomRight = [renderSystem createRenderSpriteWithSpriteSheetName:spriteSheetName z:-5];
+	[[bottomRight sprite] setAnchorPoint:CGPointMake(0.0f, 1.0f)];
+	[bottomRight setFrame:@"Background-A-4"];
+	[bottomRight disableBlending];
+	
+	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
+	
+	RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprites:[NSArray arrayWithObjects:topLeft, topRight, bottomLeft, bottomRight, nil]];
     [backgroundEntity addComponent:renderComponent];
     
     [backgroundEntity refresh];
