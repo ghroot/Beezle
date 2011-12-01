@@ -92,6 +92,7 @@ extern NSString * cocos2dVersion(void);
 @synthesize totalFrames = totalFrames_;
 @synthesize millisecondsPerFrame = millisecondsPerFrame_;
 @synthesize needDepthClear = _needDepthClear;
+@synthesize needClear = _needClear;
 
 //
 // singleton stuff
@@ -149,6 +150,9 @@ static CCDirector *_sharedDirector = nil;
 		
 		// paused ?
 		isPaused_ = NO;
+		
+		_needDepthClear = TRUE;
+		_needClear = TRUE;
 		
 		// running thread
 		runningThread_ = nil;

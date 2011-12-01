@@ -69,7 +69,7 @@
     [director setDisplayStats:kCCDirectorStatsFPS];
     [director setProjection:kCCDirectorProjection2D];
     [director setDepthTest:FALSE];
-	[director setNeedDepthClear:FALSE];
+	[director setNeedClear:FALSE];
 	
 	// Enable multi touches
 //	[glView setMultipleTouchEnabled:TRUE];

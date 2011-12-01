@@ -121,13 +121,16 @@ CGFloat	__ccContentScaleFactor = 1;
 	if( ! isPaused_ )
 		[[CCScheduler sharedScheduler] tick: dt];	
 	
-	if (!_needDepthClear)
+	if (_needClear)
 	{
-		glClear(GL_COLOR_BUFFER_BIT);
-	}
-	else
-	{
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		if (!_needDepthClear)
+		{
+			glClear(GL_COLOR_BUFFER_BIT);
+		}
+		else
+		{
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		}
 	}
 
 	/* to avoid flickr, nextScene MUST be here: after tick and before draw.

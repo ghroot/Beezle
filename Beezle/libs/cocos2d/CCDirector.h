@@ -148,6 +148,7 @@ and when to execute the Scenes.
 	NSThread	*runningThread_;	
 	
 	BOOL _needDepthClear;
+	BOOL _needClear;
 }
 
 /** returns the cocos2d thread.
@@ -195,6 +196,7 @@ and when to execute the Scenes.
 @property (nonatomic, readwrite, retain) id<CCProjectionProtocol> projectionDelegate;
 
 @property (nonatomic, readwrite) BOOL needDepthClear;
+@property (nonatomic, readwrite) BOOL needClear;
 
 /** returns a shared instance of the director */
 +(CCDirector *)sharedDirector;
