@@ -105,7 +105,16 @@
     [beeaterEntity deleteEntity];
 	
 	// Remove bee
-	[beeEntity deleteEntity];
+//	[beeEntity deleteEntity];
+    
+    // Crash animation (and delete entity at end of animation)
+    RenderComponent *rampRenderComponent = (RenderComponent *)[beeEntity getComponent:[RenderComponent class]];
+    [rampRenderComponent playAnimation:@"Bee-Crash" withCallbackTarget:beeEntity andCallbackSelector:@selector(deleteEntity)];
+    
+    // Disable physics component
+    PhysicsComponent *physicsComponent = (PhysicsComponent *)[beeEntity getComponent:[PhysicsComponent class]];
+    [physicsComponent disable];
+    [beeEntity refresh];
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity

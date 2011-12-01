@@ -20,6 +20,7 @@
 
 -(id) initWithLayer:(CCLayer *)layer;
 -(RenderSprite *) createRenderSpriteWithFile:(NSString *)fileName z:(int)z;
+-(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name animationFile:(NSString *)animationsFileName z:(int)z;
 -(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name z:(int)z;
 
 @end

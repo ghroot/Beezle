@@ -13,6 +13,7 @@
 @interface SlingerControlSystem : TagEntitySystem
 {
     CGPoint _startLocation;
+    NSString *_lastBeeType;
 }
 
 @property (nonatomic) CGPoint startLocation;

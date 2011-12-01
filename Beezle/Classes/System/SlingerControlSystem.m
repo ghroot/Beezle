@@ -92,8 +92,23 @@
                 vectorLengthDifference = min(vectorLengthDifference, 160.0f);
                 vectorLengthDifference *= 2.5f;
                 
+                NSString *nextBeeType;
+                if (_lastBeeType == nil || _lastBeeType == @"Sawee")
+                {
+                    nextBeeType = @"Bee";
+                }
+                else if (_lastBeeType == @"Bee")
+                {
+                    nextBeeType = @"Speedee";
+                }
+                else
+                {
+                    nextBeeType = @"Sawee";
+                }
+                _lastBeeType = nextBeeType;
+                
                 CGPoint beeVelocity = CGPointMake(cosf(angle) * vectorLengthDifference, sinf(angle) * vectorLengthDifference);
-                [EntityFactory createBee:_world withPosition:[transformComponent position] andVelocity:beeVelocity];
+                [EntityFactory createBee:_world type:nextBeeType withPosition:[transformComponent position] andVelocity:beeVelocity];
                 
                 [renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];
                 

@@ -74,15 +74,14 @@
     
     [systemManager initialiseAll];
     
-    [EntityFactory createBackground:_world withSpriteSheetName:@"Combined"];
-    [EntityFactory createForeground:_world withSpriteSheetName:@"Combined"];
+    [EntityFactory createBackground:_world withSpriteSheetName:@"Level-A5"];
     [EntityFactory createEdge:_world withSize:winSize];
     [EntityFactory createSlinger:_world withPosition:CGPointMake(100, 300)];
-    [EntityFactory createRamp:_world withPosition:CGPointMake(200, 140) andRotation:0.0f];
-    [EntityFactory createBeeater:_world withPosition:CGPointMake(365, 175)];
-//    [EntityFactory createPollen:_world withPosition:CGPointMake(200, 250)];
-//    [EntityFactory createPollen:_world withPosition:CGPointMake(230, 250)];
-    [EntityFactory createMushroom:_world withPosition:CGPointMake(130, 60)];
+    [EntityFactory createRamp:_world withPosition:CGPointMake(230, 170) andRotation:0.0f];
+    [EntityFactory createBeeater:_world withPosition:CGPointMake(90, 150) mirrored:TRUE];
+    [EntityFactory createBeeater:_world withPosition:CGPointMake(175, 45) mirrored:TRUE];
+    [EntityFactory createPollen:_world withPosition:CGPointMake(300, 285)];
+    [EntityFactory createMushroom:_world withPosition:CGPointMake(360, 45)];
 }
 
 -(void) update:(int)delta

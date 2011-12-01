@@ -61,17 +61,18 @@
         
 		// Create frames from file
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", name]];
-		
-		// Create animations from file
-        NSString *animationsFileName = [NSString stringWithFormat:@"%@-Animations.plist", name];
-        NSString *path = [CCFileUtils fullPathFromRelativePath:animationsFileName];
-        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-        if (dict != nil)
-        {
-            [[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:animationsFileName];
-        }
     }
 	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet];
+}
+
+-(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name animationFile:(NSString *)animationsFileName z:(int)z;
+{
+    RenderSprite *renderSprite = [self createRenderSpriteWithSpriteSheetName:name z:z];
+    
+    // Create animations from file
+    [[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:animationsFileName];
+    
+    return renderSprite;
 }
 
 -(void) entityAdded:(Entity *)entity

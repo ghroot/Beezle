@@ -13,11 +13,10 @@
 @interface EntityFactory : NSObject
 
 +(Entity *) createBackground:(World *)world withSpriteSheetName:(NSString *)spriteSheetName;
-+(Entity *) createForeground:(World *)world withSpriteSheetName:(NSString *)spriteSheetName;
 +(Entity *) createEdge:(World *)world  withSize:(CGSize)size;
 +(Entity *) createSlinger:(World *)world withPosition:(CGPoint)position;
-+(Entity *) createBee:(World *)world withPosition:(CGPoint)position andVelocity:(CGPoint)velocity;
-+(Entity *) createBeeater:(World *)world withPosition:(CGPoint)position;
++(Entity *) createBee:(World *)world type:(NSString *)type withPosition:(CGPoint)position andVelocity:(CGPoint)velocity;
++(Entity *) createBeeater:(World *)world withPosition:(CGPoint)position mirrored:(BOOL)mirrored;
 +(Entity *) createRamp:(World *)world withPosition:(CGPoint)position andRotation:(float)rotation;
 +(Entity *) createPollen:(World *)world withPosition:(CGPoint)position;
 +(Entity *) createMushroom:(World *)world withPosition:(CGPoint)position;

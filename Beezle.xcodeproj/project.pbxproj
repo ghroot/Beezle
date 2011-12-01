@@ -10,6 +10,12 @@
 		2C068A34146858B9003E200D /* TransformComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C068A33146858B9003E200D /* TransformComponent.m */; };
 		2C3A6F5E1486EC70002721E3 /* Combined.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F5D1486EC70002721E3 /* Combined.pvr */; };
 		2C3A6F611486EF59002721E3 /* Combined.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F601486EF59002721E3 /* Combined.pvr.ccz */; };
+		2C3A6F64148800F2002721E3 /* Level-A5-BG-Sheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F62148800F2002721E3 /* Level-A5-BG-Sheet.plist */; };
+		2C3A6F65148800F2002721E3 /* Level-A5-BG-Sheet.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F63148800F2002721E3 /* Level-A5-BG-Sheet.pvr.ccz */; };
+		2C3A6F691488138B002721E3 /* Sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F671488138B002721E3 /* Sprites.plist */; };
+		2C3A6F6A1488138B002721E3 /* Sprites.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F681488138B002721E3 /* Sprites.png */; };
+		2C3A6F6D1488153C002721E3 /* Level-A5.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F6B1488153C002721E3 /* Level-A5.plist */; };
+		2C3A6F6E1488153C002721E3 /* Level-A5.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F6C1488153C002721E3 /* Level-A5.pvr.ccz */; };
 		2C44B5B7147B194C000CF537 /* TagEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C44B5B6147B194C000CF537 /* TagEntitySystem.m */; };
 		2C44B5BB147B1960000CF537 /* GroupEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C44B5BA147B1960000CF537 /* GroupEntitySystem.m */; };
 		2C5B86E01479155700028179 /* DebugRenderPhysicsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B86DF1479155700028179 /* DebugRenderPhysicsSystem.m */; };
@@ -46,8 +52,6 @@
 		2CAE05FB14705F4A0023FA94 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE05FA14705F4A0023FA94 /* EntityFactory.m */; };
 		2CCEFD21148556C60002164E /* Background-01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CCEFD1D148556C60002164E /* Background-01.jpg */; };
 		2CCEFD22148556C60002164E /* Background-A.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCEFD1E148556C60002164E /* Background-A.png */; };
-		2CCEFD23148556C60002164E /* Level-A5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCEFD1F148556C60002164E /* Level-A5.png */; };
-		2CCEFD24148556C60002164E /* Level-A9.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCEFD20148556C60002164E /* Level-A9.png */; };
 		2CCEFD27148557210002164E /* Mushroom-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCEFD26148557210002164E /* Mushroom-Animations.plist */; };
 		2CCEFD531485574A0002164E /* Pollen-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCEFD521485574A0002164E /* Pollen-Animations.plist */; };
 		2CCEFD55148557990002164E /* Bee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCEFD54148557990002164E /* Bee-Animations.plist */; };
@@ -294,6 +298,12 @@
 		2C068A33146858B9003E200D /* TransformComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransformComponent.m; path = Classes/Component/TransformComponent.m; sourceTree = "<group>"; };
 		2C3A6F5D1486EC70002721E3 /* Combined.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = Combined.pvr; sourceTree = "<group>"; };
 		2C3A6F601486EF59002721E3 /* Combined.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Combined.pvr.ccz; sourceTree = "<group>"; };
+		2C3A6F62148800F2002721E3 /* Level-A5-BG-Sheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A5-BG-Sheet.plist"; sourceTree = "<group>"; };
+		2C3A6F63148800F2002721E3 /* Level-A5-BG-Sheet.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Level-A5-BG-Sheet.pvr.ccz"; sourceTree = "<group>"; };
+		2C3A6F671488138B002721E3 /* Sprites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sprites.plist; sourceTree = "<group>"; };
+		2C3A6F681488138B002721E3 /* Sprites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sprites.png; sourceTree = "<group>"; };
+		2C3A6F6B1488153C002721E3 /* Level-A5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A5.plist"; sourceTree = "<group>"; };
+		2C3A6F6C1488153C002721E3 /* Level-A5.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Level-A5.pvr.ccz"; sourceTree = "<group>"; };
 		2C44B5B5147B194C000CF537 /* TagEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagEntitySystem.h; path = Classes/Artemis/TagEntitySystem.h; sourceTree = "<group>"; };
 		2C44B5B6147B194C000CF537 /* TagEntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagEntitySystem.m; path = Classes/Artemis/TagEntitySystem.m; sourceTree = "<group>"; };
 		2C44B5B9147B1960000CF537 /* GroupEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupEntitySystem.h; path = Classes/Artemis/GroupEntitySystem.h; sourceTree = "<group>"; };
@@ -355,8 +365,6 @@
 		2CAE05FA14705F4A0023FA94 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityFactory.m; path = Classes/EntityFactory.m; sourceTree = "<group>"; };
 		2CCEFD1D148556C60002164E /* Background-01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Background-01.jpg"; sourceTree = "<group>"; };
 		2CCEFD1E148556C60002164E /* Background-A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-A.png"; sourceTree = "<group>"; };
-		2CCEFD1F148556C60002164E /* Level-A5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level-A5.png"; sourceTree = "<group>"; };
-		2CCEFD20148556C60002164E /* Level-A9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level-A9.png"; sourceTree = "<group>"; };
 		2CCEFD26148557210002164E /* Mushroom-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Mushroom-Animations.plist"; sourceTree = "<group>"; };
 		2CCEFD521485574A0002164E /* Pollen-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Pollen-Animations.plist"; sourceTree = "<group>"; };
 		2CCEFD54148557990002164E /* Bee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bee-Animations.plist"; sourceTree = "<group>"; };
@@ -785,6 +793,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C3A6F661488138B002721E3 /* New */ = {
+			isa = PBXGroup;
+			children = (
+				2C3A6F6B1488153C002721E3 /* Level-A5.plist */,
+				2C3A6F6C1488153C002721E3 /* Level-A5.pvr.ccz */,
+				2C3A6F671488138B002721E3 /* Sprites.plist */,
+				2C3A6F681488138B002721E3 /* Sprites.png */,
+			);
+			name = New;
+			path = Resources/New;
+			sourceTree = "<group>";
+		};
 		2C7CE5F31469ACDE001F331F /* System */ = {
 			isa = PBXGroup;
 			children = (
@@ -886,6 +906,8 @@
 		2CCEFD1C148556C60002164E /* Background */ = {
 			isa = PBXGroup;
 			children = (
+				2C3A6F62148800F2002721E3 /* Level-A5-BG-Sheet.plist */,
+				2C3A6F63148800F2002721E3 /* Level-A5-BG-Sheet.pvr.ccz */,
 				2C3A6F601486EF59002721E3 /* Combined.pvr.ccz */,
 				2C3A6F5D1486EC70002721E3 /* Combined.pvr */,
 				2CFFD1FE1486D3D200913B08 /* Combined.plist */,
@@ -902,8 +924,6 @@
 				2CFFD1F11486C88E00913B08 /* BackgroundSheet2.png */,
 				2CCEFD1D148556C60002164E /* Background-01.jpg */,
 				2CCEFD1E148556C60002164E /* Background-A.png */,
-				2CCEFD1F148556C60002164E /* Level-A5.png */,
-				2CCEFD20148556C60002164E /* Level-A9.png */,
 			);
 			name = Background;
 			path = Resources/Background;
@@ -1485,6 +1505,7 @@
 		2CEA3288145F66F7000FF575 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C3A6F661488138B002721E3 /* New */,
 				2CCEFD1C148556C60002164E /* Background */,
 				2CD48B9614812FB7007D90D9 /* Bee */,
 				2CEA353A1466BD06000FF575 /* Beeater */,
@@ -1759,8 +1780,6 @@
 				2C827D45148446FD00517C8F /* Mushroom.png in Resources */,
 				2CCEFD21148556C60002164E /* Background-01.jpg in Resources */,
 				2CCEFD22148556C60002164E /* Background-A.png in Resources */,
-				2CCEFD23148556C60002164E /* Level-A5.png in Resources */,
-				2CCEFD24148556C60002164E /* Level-A9.png in Resources */,
 				2CCEFD27148557210002164E /* Mushroom-Animations.plist in Resources */,
 				2CCEFD531485574A0002164E /* Pollen-Animations.plist in Resources */,
 				2CCEFD55148557990002164E /* Bee-Animations.plist in Resources */,
@@ -1793,6 +1812,12 @@
 				2CFFD2011486D3D200913B08 /* Combined.png in Resources */,
 				2C3A6F5E1486EC70002721E3 /* Combined.pvr in Resources */,
 				2C3A6F611486EF59002721E3 /* Combined.pvr.ccz in Resources */,
+				2C3A6F64148800F2002721E3 /* Level-A5-BG-Sheet.plist in Resources */,
+				2C3A6F65148800F2002721E3 /* Level-A5-BG-Sheet.pvr.ccz in Resources */,
+				2C3A6F691488138B002721E3 /* Sprites.plist in Resources */,
+				2C3A6F6A1488138B002721E3 /* Sprites.png in Resources */,
+				2C3A6F6D1488153C002721E3 /* Level-A5.plist in Resources */,
+				2C3A6F6E1488153C002721E3 /* Level-A5.pvr.ccz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
