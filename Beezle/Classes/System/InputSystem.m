@@ -22,6 +22,15 @@
 
 -(void) pushInputAction:(InputAction *)inputAction
 {
+    if ([inputAction touchType] == TOUCH_MOVE && [_inputActions count] > 0)
+    {
+        InputAction *lastInputAction = (InputAction *)[_inputActions lastObject];
+        if (lastInputAction.touchType == TOUCH_MOVE)
+        {
+            [_inputActions removeLastObject];
+        }
+    }
+    
     [_inputActions addObject:inputAction];
 }
 
