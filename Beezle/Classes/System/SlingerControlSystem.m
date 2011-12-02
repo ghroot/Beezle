@@ -13,6 +13,18 @@
 #import "RenderComponent.h"
 #import "TransformComponent.h"
 
+#define SLINGER_POWER_SENSITIVITY 2.5
+#define SLINGER_MIN_POWER = 50.0
+#define SLINGER_MAX_POWER = 300.0
+#define SLINGER_AIM_SENSITIVITY 2.0
+
+@interface SlingerControlSystem()
+
+-(float) calculateAimAngle:(CGPoint)touchLocation slingerLocation:(CGPoint)slingerLocation;
+-(float) calculatePower:(CGPoint)touchLocation slingerLocation:(CGPoint)slingerLocation;
+
+@end
+
 @implementation SlingerControlSystem
 
 @synthesize startLocation;
@@ -42,72 +54,51 @@
             }
             case TOUCH_MOVE:
             {
-                CGPoint slingerToTouchVector = ccpSub([nextInputAction touchLocation], [transformComponent position]);
-                CGPoint slingerToStartVector = ccpSub([self startLocation], [transformComponent position]);
-                
-                float angle = CC_RADIANS_TO_DEGREES(ccpToAngle(slingerToTouchVector));
-                angle = 360 - angle + 90 + 180;
-                [transformComponent setRotation:angle];
-                
-                float slingerToStartVectorLength = sqrtf(slingerToStartVector.x * slingerToStartVector.x + slingerToStartVector.y * slingerToStartVector.y);
-                float slingerToTouchVectorLength = sqrtf(slingerToTouchVector.x * slingerToTouchVector.x + slingerToTouchVector.y * slingerToTouchVector.y);
-                float vectorLengthDifference = slingerToStartVectorLength - slingerToTouchVectorLength;
-                if (vectorLengthDifference < 0)
-                {
-                    vectorLengthDifference = 0;
-                }
-                int stretchLevelDistance = 40;
-                NSString *strechAnimationName;
-                if (vectorLengthDifference < stretchLevelDistance)
-                {
-                    strechAnimationName = @"Sling-Stretch-1";
-                }
-                else if (vectorLengthDifference < 2 * stretchLevelDistance)
-                {
-                    strechAnimationName = @"Sling-Stretch-2";
-                }
-                else if (vectorLengthDifference < 3 * stretchLevelDistance)
-                {
-                    strechAnimationName = @"Sling-Stretch-3";
-                }
-                else
-                {
-                    strechAnimationName = @"Sling-Stretch-4";
-                }
-                [renderComponent playAnimation:strechAnimationName withLoops:-1];
+				float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
+				float power = [self calculatePower:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
+				
+				// Rotation
+                float compatibleAimAngle = 360 - aimAngle + 90 + 180;
+                [transformComponent setRotation:compatibleAimAngle];
+				
+				// Stretch animation
+				NSArray *stretchAnimationNames = [NSArray arrayWithObjects:@"Sling-Stretch-1", @"Sling-Stretch-2", @"Sling-Stretch-3", @"Sling-Stretch-4", nil];
+				float powerPerAnimation = (SLINGER_MAX_POWER - SLINGER_MIN_POWER) / [stretchAnimationNames count];
+				int animationIndex = (int)floor((power - SLINGER_MIN_POWER) / powerPerAnimation);
+				if (animationIndex >= [stretchAnimationNames count])
+				{
+					// This can happen if power is exactly maximum, then we use the last animation
+					animationIndex = [stretchAnimationNames count] - 1;
+				}
+				NSString *strechAnimationName = (NSString *)[stretchAnimationNames objectAtIndex:animationIndex];
+				[renderComponent playAnimation:strechAnimationName withLoops:-1];
                 
                 break;
             }
             case TOUCH_END:
             {
-                CGPoint slingerToTouchVector = ccpSub([nextInputAction touchLocation], [transformComponent position]);
-                CGPoint slingerToStartVector = ccpSub([self startLocation], [transformComponent position]);
-                
-                float angle = ccpToAngle(slingerToTouchVector);
-                
-                float slingerToStartVectorLength = sqrtf(slingerToStartVector.x * slingerToStartVector.x + slingerToStartVector.y * slingerToStartVector.y);
-                float slingerToTouchVectorLength = sqrtf(slingerToTouchVector.x * slingerToTouchVector.x + slingerToTouchVector.y * slingerToTouchVector.y);
-                float vectorLengthDifference = slingerToStartVectorLength - slingerToTouchVectorLength;
-                vectorLengthDifference = max(vectorLengthDifference, 30.0f);
-                vectorLengthDifference = min(vectorLengthDifference, 160.0f);
-                vectorLengthDifference *= 2.5f;
-                
-                NSString *nextBeeType;
-                if (_lastBeeType == nil || _lastBeeType == @"Sawee")
-                {
-                    nextBeeType = @"Bee";
-                }
-                else if (_lastBeeType == @"Bee")
-                {
-                    nextBeeType = @"Speedee";
-                }
-                else
-                {
-                    nextBeeType = @"Sawee";
-                }
+				// TEMP: Set next bee type
+				NSArray *beeTypes = [NSArray arrayWithObjects:@"Bee", @"Speedee", @"Sawee", @"Bombee", nil];
+				int nextIndex;
+				if (_lastBeeType == nil)
+				{
+					nextIndex = 0;
+				}
+				else
+				{
+					int lastIndex = [beeTypes indexOfObject:_lastBeeType];
+					nextIndex = lastIndex + 1;
+					if (nextIndex >= [beeTypes count])
+					{
+						nextIndex = 0;
+					}
+				}
+                NSString *nextBeeType = [beeTypes objectAtIndex:nextIndex];
                 _lastBeeType = nextBeeType;
-                
-                CGPoint beeVelocity = CGPointMake(cosf(angle) * vectorLengthDifference, sinf(angle) * vectorLengthDifference);
+				
+				float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
+				float power = [self calculatePower:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
+                CGPoint beeVelocity = CGPointMake(cosf(aimAngle) * power, sinf(aimAngle) * power);
                 [EntityFactory createBee:_world type:nextBeeType withPosition:[transformComponent position] andVelocity:beeVelocity];
                 
                 [renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];
@@ -116,6 +107,35 @@
             }
         }
     }
+}
+
+-(float) calculateAimAngle:(CGPoint)touchLocation slingerLocation:(CGPoint)slingerLocation
+{
+	CGPoint slingerToStartVector = ccpSub([self startLocation], slingerLocation);
+	CGPoint slingerToTouchVector = ccpSub(touchLocation, slingerLocation);
+	
+	float startAngle = ccpToAngle(slingerToStartVector);
+	float touchAngle = ccpToAngle(slingerToTouchVector);
+	float angleDifference = touchAngle - startAngle;
+	float aimAngle = startAngle + SLINGER_AIM_SENSITIVITY * angleDifference;
+	
+	return aimAngle;
+}
+
+-(float) calculatePower:(CGPoint)touchLocation slingerLocation:(CGPoint)slingerLocation
+{
+	CGPoint slingerToStartVector = ccpSub([self startLocation], slingerLocation);
+	CGPoint slingerToTouchVector = ccpSub(touchLocation, slingerLocation);
+	
+	float slingerToStartVectorLength = sqrtf(slingerToStartVector.x * slingerToStartVector.x + slingerToStartVector.y * slingerToStartVector.y);
+	float slingerToTouchVectorLength = sqrtf(slingerToTouchVector.x * slingerToTouchVector.x + slingerToTouchVector.y * slingerToTouchVector.y);
+	float vectorLengthDifference = slingerToStartVectorLength - slingerToTouchVectorLength;
+	float power = vectorLengthDifference; 
+	power *= SLINGER_POWER_SENSITIVITY;
+	power = max(power, SLINGER_MIN_POWER);
+	power = min(power, SLINGER_MAX_POWER);
+	
+	return power;
 }
 
 @end
