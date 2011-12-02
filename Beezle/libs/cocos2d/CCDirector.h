@@ -208,6 +208,10 @@ and when to execute the Scenes.
  */
 -(void) setDisplayFPS:(BOOL)display DEPRECATED_ATTRIBUTE;
 
++(double) getAvailableBytes;
++(double) getAvailableKiloBytes;
++(double) getAvailableMegaBytes;
+
 // Window size
 
 /** returns the size of the OpenGL view in points */

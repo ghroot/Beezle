@@ -64,6 +64,10 @@
 
 #import "Support/CCProfiling.h"
 
+#include <sys/sysctl.h>  
+#import <mach/mach.h>
+#import <mach/mach_host.h>
+
 #define kDefaultFPS		60.0	// 60 frames per second
 
 extern NSString * cocos2dVersion(void);
@@ -517,8 +521,8 @@ static CCDirector *_sharedDirector = nil;
 
 //		sprintf(format,"%.1f",frameRate);
 //		[FPSLabel setCString:format];
-
-		NSString *str = [[NSString alloc] initWithFormat:@"%.1f", frameRate_];
+        
+        NSString *str = [[NSString alloc] initWithFormat:@"%.1f   %.1f", frameRate_, [CCDirector getAvailableMegaBytes]];
 		[FPSLabel_ setString:str];
 		[str release];
 	}
@@ -531,6 +535,30 @@ static CCDirector *_sharedDirector = nil;
 		self.displayStats = kCCDirectorStatsFPS;
 	else
 		self.displayStats = kCCDirectorStatsNone;
+}
+
++(double) getAvailableBytes
+{
+    vm_statistics_data_t vmStats;
+    mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;
+    kern_return_t kernReturn = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vmStats, &infoCount);
+    
+    if (kernReturn != KERN_SUCCESS)
+    {
+        return NSNotFound;
+    }
+    
+    return (vm_page_size * vmStats.free_count);
+}
+
++(double) getAvailableKiloBytes
+{
+    return [CCDirector getAvailableBytes] / 1024.0;
+}
+
++(double) getAvailableMegaBytes
+{
+    return [CCDirector getAvailableKiloBytes] / 1024.0;
 }
 
 -(void) calculateMPF
