@@ -271,8 +271,8 @@
 	
     [beeaterEntity refresh];
 	
-	[bodyRenderSprite playAnimation:@"Beeater-Body-Idle"];
-	[headRenderSprite playAnimation:@"Beeater-Head-Idle"];
+    [bodyRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:@"Beeater-Body-Idle", @"Beeater-Body-Wave", nil]];
+    [headRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:@"Beeater-Head-Idle", @"Beeater-Head-Lick", nil]];
     
     return beeaterEntity;
 }
