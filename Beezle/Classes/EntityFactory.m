@@ -7,6 +7,7 @@
 //
 
 #import "EntityFactory.h"
+#import "BeeComponent.h"
 #import "BoundryComponent.h"
 #import "CircularBoundry.h"
 #import "CollisionTypes.h"
@@ -168,15 +169,39 @@
     return slingerEntity;
 }
 
-+(Entity *) createBee:(World *)world type:(NSString *)type withPosition:(CGPoint)position andVelocity:(CGPoint)velocity
++(Entity *) createBee:(World *)world type:(BeeType)type withPosition:(CGPoint)position andVelocity:(CGPoint)velocity
 {
     Entity *beeEntity = [world createEntity];
-    
+	
+	BeeComponent *beeComponent = [[[BeeComponent alloc] initWithType:type] autorelease];
+	[beeEntity addComponent:beeComponent];
+	
+	// TEMP
+	NSString *typeAsString;
+	if (type == BEE_TYPE_BEE)
+	{
+		typeAsString = @"Bee";
+	}
+	else if (type == BEE_TYPE_SAWEE)
+	{
+		typeAsString = @"Sawee";
+	}
+	else if (type == BEE_TYPE_SPEEDEE)
+	{
+		typeAsString = @"Speedee";
+	}
+	else if (type == BEE_TYPE_BOMBEE)
+	{
+		typeAsString = @"Bombee";
+	}
+	NSString *animationFile = [NSString stringWithFormat:@"%@-Animations.plist", typeAsString];
+	NSString *idleAnimation = [NSString stringWithFormat:@"%@-Idle", typeAsString];
+	
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [beeEntity addComponent:transformComponent];
     
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:[NSString stringWithFormat:@"%@-Animations.plist", type] z:-3];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:animationFile z:-3];
     RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
     [beeEntity addComponent:renderComponent];
 	
@@ -191,10 +216,10 @@
     PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:shape] autorelease];
     PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShape:physicsShape] autorelease];
     [beeEntity addComponent:physicsComponent];
-    
+	
     [beeEntity refresh];
 	
-	[renderComponent playAnimation:[NSString stringWithFormat:@"%@-Idle", type]];
+	[renderComponent playAnimation:idleAnimation];
     
     return beeEntity;
 }

@@ -31,7 +31,10 @@
 
 -(id) init
 {
-    self = [super initWithTag:@"SLINGER"];
+    if (self = [super initWithTag:@"SLINGER"])
+	{
+		_lastBeeType = BEE_TYPE_NONE;
+	}
     return self;
 }
 
@@ -78,22 +81,27 @@
             case TOUCH_END:
             {
 				// TEMP: Set next bee type
-				NSArray *beeTypes = [NSArray arrayWithObjects:@"Bee", @"Speedee", @"Sawee", @"Bombee", nil];
-				int nextIndex;
-				if (_lastBeeType == nil)
+                BeeType nextBeeType;
+				if (_lastBeeType == BEE_TYPE_NONE)
 				{
-					nextIndex = 0;
+					nextBeeType = BEE_TYPE_BEE;
 				}
-				else
+				else if (_lastBeeType == BEE_TYPE_BEE)
 				{
-					int lastIndex = [beeTypes indexOfObject:_lastBeeType];
-					nextIndex = lastIndex + 1;
-					if (nextIndex >= [beeTypes count])
-					{
-						nextIndex = 0;
-					}
+					nextBeeType = BEE_TYPE_SAWEE;
 				}
-                NSString *nextBeeType = [beeTypes objectAtIndex:nextIndex];
+				else if (_lastBeeType == BEE_TYPE_SAWEE)
+				{
+					nextBeeType = BEE_TYPE_SPEEDEE;
+				}
+				else if (_lastBeeType == BEE_TYPE_SPEEDEE)
+				{
+					nextBeeType = BEE_TYPE_BOMBEE;
+				}
+				else if (_lastBeeType == BEE_TYPE_BOMBEE)
+				{
+					nextBeeType = BEE_TYPE_BEE;
+				}
                 _lastBeeType = nextBeeType;
 				
 				float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];

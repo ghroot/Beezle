@@ -9,11 +9,12 @@
 #import "TagEntitySystem.h"
 #import "artemis.h"
 #import "cocos2d.h"
+#import "BeeTypes.h"
 
 @interface SlingerControlSystem : TagEntitySystem
 {
     CGPoint _startLocation;
-    NSString *_lastBeeType;
+    BeeType _lastBeeType;
 }
 
 @property (nonatomic) CGPoint startLocation;
