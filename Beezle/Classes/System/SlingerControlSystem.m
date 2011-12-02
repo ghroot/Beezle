@@ -13,10 +13,10 @@
 #import "RenderComponent.h"
 #import "TransformComponent.h"
 
-#define SLINGER_POWER_SENSITIVITY 2.5
-#define SLINGER_MIN_POWER = 50.0
-#define SLINGER_MAX_POWER = 300.0
-#define SLINGER_AIM_SENSITIVITY 2.0
+#define SLINGER_POWER_SENSITIVITY 3.0
+#define SLINGER_MIN_POWER 150.0
+#define SLINGER_MAX_POWER 350.0
+#define SLINGER_AIM_SENSITIVITY 3.0
 
 @interface SlingerControlSystem()
 
@@ -59,9 +59,9 @@
             {
 				float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
 				float power = [self calculatePower:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
-				
+                
 				// Rotation
-                float compatibleAimAngle = 360 - aimAngle + 90 + 180;
+                float compatibleAimAngle = 360 - CC_RADIANS_TO_DEGREES(aimAngle) + 90 + 180;
                 [transformComponent setRotation:compatibleAimAngle];
 				
 				// Stretch animation
