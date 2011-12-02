@@ -35,7 +35,7 @@
     
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
     RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:spriteSheetName z:-5];
-	[renderSprite setFrame:@"Level-A5.png"];
+	[renderSprite setFrame:@"Level-A5-BG.png"];
     [renderSprite disableBlending];
 	RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
     [backgroundEntity addComponent:renderComponent];
