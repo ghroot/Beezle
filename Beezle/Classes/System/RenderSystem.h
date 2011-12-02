@@ -6,7 +6,6 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "EntityComponentSystem.h"
 #import "artemis.h"
 #import "cocos2d.h"
 
