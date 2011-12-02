@@ -207,13 +207,22 @@
 	
     cpBody *body = cpBodyNew(1.0f, 1.0f);
     body->v = cpv(velocity.x, velocity.y);
-    cpShape *shape = cpCircleShapeNew(body, 6, cpv(0, 0));
-    shape->e = 0.8f;
-    shape->u = 0.5f;
-    shape->collision_type = COLLISION_TYPE_BEE;
-//    cpShapeSetGroup(shape, 1);
+    CGPoint verts[] = {
+        cpv(-2.0f, 6.0f),
+        cpv(2.0f, 6.0f),
+        cpv(6.0f, 2.0f),
+        cpv(6.0f, -2.0f),
+        cpv(2.0f, -6.0f),
+        cpv(-2.0f, -6.0f),
+        cpv(-6.0f, -2.0f),
+        cpv(-6.0f, 2.0f)
+    };
+    cpShape *polyShape = cpPolyShapeNew(body, 8, verts, cpv(0, 0));
+    polyShape->e = 0.8f;
+    polyShape->u = 1.0f;
+    polyShape->collision_type = COLLISION_TYPE_BEE;
     PhysicsBody *physicsBody = [[[PhysicsBody alloc] initWithBody:body] autorelease];
-    PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:shape] autorelease];
+    PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:polyShape] autorelease];
     PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShape:physicsShape] autorelease];
     [beeEntity addComponent:physicsComponent];
 	

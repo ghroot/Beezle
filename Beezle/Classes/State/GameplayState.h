@@ -18,6 +18,7 @@
 @class PhysicsSystem;
 @class RenderSystem;
 @class SlingerControlSystem;
+@class BeeSystem;
 
 @interface GameplayState : CocosGameState
 {
@@ -32,6 +33,7 @@
     InputSystem *_inputSystem;
     SlingerControlSystem *_slingerControlSystem;
     BoundrySystem *_boundrySystem;
+    BeeSystem *_beeSystem;
 }
 
 @end

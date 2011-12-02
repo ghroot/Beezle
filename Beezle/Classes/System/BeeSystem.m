@@ -11,6 +11,7 @@
 #import "PhysicsBody.h"
 #import "PhysicsComponent.h"
 #import "PhysicsShape.h"
+#import "RenderComponent.h"
 
 @implementation BeeSystem
 
@@ -22,15 +23,19 @@
 
 -(void) processEntity:(Entity *)entity
 {
-    BeeComponent *beeComponent = (BeeComponent *)[entity getComponent:[BeeComponent class]];
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
 	
 	PhysicsBody *physicsBody = [physicsComponent physicsBody];
 	cpBody *body = [physicsBody body];
-	float velocityLength = sqrtf(body->v.x * body->v.x + body->v.y + body->v.y);
-	if (velocityLength <= 10.0f)
+	if (cpBodyIsSleeping(body))
 	{
-		// TODO: Destroy bee
+        // Crash animation (and delete entity at end of animation)
+        RenderComponent *rampRenderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
+        [rampRenderComponent playAnimation:@"Bee-Crash" withCallbackTarget:entity andCallbackSelector:@selector(deleteEntity)];
+        
+        // Disable physics component
+        [physicsComponent disable];
+        [entity refresh];
 	}
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "GameplayState.h"
+#import "BeeSystem.h"
 #import "BoundrySystem.h"
 #import "CocosGameContainer.h"
 #import "CollisionSystem.h"
@@ -45,6 +46,7 @@
     [_inputSystem release];
     [_slingerControlSystem release];
     [_boundrySystem release];
+    [_beeSystem release];
 	
 	[super dealloc];
 }
@@ -71,6 +73,8 @@
 	[systemManager setSystem:_slingerControlSystem];
 	_boundrySystem = [[BoundrySystem alloc] init];
 	[systemManager setSystem:_boundrySystem];
+    _beeSystem = [[BeeSystem alloc] init];
+    [systemManager setSystem:_beeSystem];
     
     [systemManager initialiseAll];
     
@@ -95,6 +99,7 @@
     [_inputSystem process];
     [_slingerControlSystem process];
     [_boundrySystem process];
+    [_beeSystem process];
 }
 
 -(void) render

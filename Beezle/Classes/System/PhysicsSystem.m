@@ -69,6 +69,7 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     cpInitChipmunk();
     
     _space = cpSpaceNew();
+    cpSpaceSetSleepTimeThreshold(_space, 1.0f);
     cpSpaceSetUserData(_space, self);
     _space->gravity = CGPointMake(0, -100);
 }
