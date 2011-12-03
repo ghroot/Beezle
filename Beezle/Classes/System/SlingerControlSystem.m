@@ -13,7 +13,7 @@
 #import "RenderComponent.h"
 #import "TransformComponent.h"
 
-#define SLINGER_POWER_SENSITIVITY 3.0
+#define SLINGER_POWER_SENSITIVITY 5.0
 #define SLINGER_MIN_POWER 150.0
 #define SLINGER_MAX_POWER 350.0
 #define SLINGER_AIM_SENSITIVITY 3.0
@@ -81,7 +81,7 @@
             case TOUCH_END:
             {
 				// TEMP: Set next bee type
-                BeeType nextBeeType;
+                BeeType nextBeeType = BEE_TYPE_NONE;
 				if (_lastBeeType == BEE_TYPE_NONE)
 				{
 					nextBeeType = BEE_TYPE_BEE;
