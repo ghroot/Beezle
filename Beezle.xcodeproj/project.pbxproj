@@ -43,7 +43,7 @@
 		2C764EA2148A937D00820587 /* 18339__jppi-stu__sw-paper-crumple-1.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C764E9E148A937D00820587 /* 18339__jppi-stu__sw-paper-crumple-1.aiff */; };
 		2C764EA3148A937D00820587 /* 27134__zippi1__fart1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2C764E9F148A937D00820587 /* 27134__zippi1__fart1.wav */; };
 		2C764EA4148A937D00820587 /* 33369__herbertboland__mouthpop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2C764EA0148A937D00820587 /* 33369__herbertboland__mouthpop.wav */; };
-		2C764EA5148A937D00820587 /* 52144__blaukreuz__imp-02.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2C764EA1148A937D00820587 /* 52144__blaukreuz__imp-02.wav */; };
+		2C764EB2148A9D3000820587 /* 52144__blaukreuz__imp-02.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C764EB1148A9D3000820587 /* 52144__blaukreuz__imp-02.m4a */; };
 		2C7CE5F71469AD06001F331F /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5F61469AD06001F331F /* RenderSystem.m */; };
 		2C7CE5FA1469D092001F331F /* PhysicsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5F91469D092001F331F /* PhysicsSystem.m */; };
 		2C7CE5FD1469D21A001F331F /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5FC1469D219001F331F /* EntityManager.m */; };
@@ -323,7 +323,7 @@
 		2C764E9E148A937D00820587 /* 18339__jppi-stu__sw-paper-crumple-1.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "18339__jppi-stu__sw-paper-crumple-1.aiff"; sourceTree = "<group>"; };
 		2C764E9F148A937D00820587 /* 27134__zippi1__fart1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 27134__zippi1__fart1.wav; sourceTree = "<group>"; };
 		2C764EA0148A937D00820587 /* 33369__herbertboland__mouthpop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 33369__herbertboland__mouthpop.wav; sourceTree = "<group>"; };
-		2C764EA1148A937D00820587 /* 52144__blaukreuz__imp-02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "52144__blaukreuz__imp-02.wav"; sourceTree = "<group>"; };
+		2C764EB1148A9D3000820587 /* 52144__blaukreuz__imp-02.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "52144__blaukreuz__imp-02.m4a"; sourceTree = "<group>"; };
 		2C7CE5F51469AD06001F331F /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderSystem.h; path = Classes/System/RenderSystem.h; sourceTree = "<group>"; };
 		2C7CE5F61469AD06001F331F /* RenderSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSystem.m; path = Classes/System/RenderSystem.m; sourceTree = "<group>"; };
 		2C7CE5F81469D092001F331F /* PhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsSystem.h; path = Classes/System/PhysicsSystem.h; sourceTree = "<group>"; };
@@ -803,10 +803,10 @@
 		2C764E9B148A917300820587 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				2C764EB1148A9D3000820587 /* 52144__blaukreuz__imp-02.m4a */,
 				2C764E9E148A937D00820587 /* 18339__jppi-stu__sw-paper-crumple-1.aiff */,
 				2C764E9F148A937D00820587 /* 27134__zippi1__fart1.wav */,
 				2C764EA0148A937D00820587 /* 33369__herbertboland__mouthpop.wav */,
-				2C764EA1148A937D00820587 /* 52144__blaukreuz__imp-02.wav */,
 				2C764E9C148A917300820587 /* 11097__a43__a43-blipp.aif */,
 			);
 			name = Sounds;
@@ -1679,7 +1679,7 @@
 				2C764EA2148A937D00820587 /* 18339__jppi-stu__sw-paper-crumple-1.aiff in Resources */,
 				2C764EA3148A937D00820587 /* 27134__zippi1__fart1.wav in Resources */,
 				2C764EA4148A937D00820587 /* 33369__herbertboland__mouthpop.wav in Resources */,
-				2C764EA5148A937D00820587 /* 52144__blaukreuz__imp-02.wav in Resources */,
+				2C764EB2148A9D3000820587 /* 52144__blaukreuz__imp-02.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

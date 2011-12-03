@@ -104,7 +104,7 @@
     [physicsComponent disable];
     [rampEntity refresh];
     
-    [[SimpleAudioEngine sharedEngine] playEffect:@"52144__blaukreuz__imp-02.wav"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"52144__blaukreuz__imp-02.m4a"];
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity
