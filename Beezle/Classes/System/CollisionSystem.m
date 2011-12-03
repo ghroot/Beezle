@@ -14,6 +14,7 @@
 #import "PhysicsComponent.h"
 #import "PhysicsShape.h"
 #import "PhysicsSystem.h"
+#import "SimpleAudioEngine.h"
 #import "RenderComponent.h"
 
 @implementation CollisionSystem
@@ -102,6 +103,8 @@
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[rampEntity getComponent:[PhysicsComponent class]];
     [physicsComponent disable];
     [rampEntity refresh];
+    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"52144__blaukreuz__imp-02.wav"];
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity
@@ -120,6 +123,8 @@
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[beeEntity getComponent:[PhysicsComponent class]];
     [physicsComponent disable];
     [beeEntity refresh];
+    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"27134__zippi1__fart1.wav"];
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity
@@ -141,6 +146,8 @@
 {
     RenderComponent *mushroomRenderComponent = (RenderComponent *)[mushroomEntity getComponent:[RenderComponent class]];
 	[mushroomRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Mushroom-Bounce", @"Mushroom-Idle", nil]];
+    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"11097__a43__a43-blipp.aif"];
 }
 
 -(void)handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity
@@ -154,6 +161,8 @@
     PhysicsComponent *woodPhysicsComponent = (PhysicsComponent *)[woodEntity getComponent:[PhysicsComponent class]];
     [woodPhysicsComponent disable];
     [woodEntity refresh];
+    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
 }
 
 -(void) dealloc

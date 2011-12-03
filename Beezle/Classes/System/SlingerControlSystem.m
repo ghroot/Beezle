@@ -11,6 +11,7 @@
 #import "InputAction.h"
 #import "InputSystem.h"
 #import "RenderComponent.h"
+#import "SimpleAudioEngine.h"
 #import "TransformComponent.h"
 
 #define SLINGER_POWER_SENSITIVITY 5.0
@@ -110,6 +111,8 @@
                 [EntityFactory createBee:_world type:nextBeeType withPosition:[transformComponent position] andVelocity:beeVelocity];
                 
                 [renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];
+                
+                [[SimpleAudioEngine sharedEngine] playEffect:@"33369__herbertboland__mouthpop.wav"];
                 
                 break;
             }
