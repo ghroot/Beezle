@@ -24,5 +24,6 @@
 -(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity;
 -(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity;
 -(void) handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity;
+-(void) handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity;
 
 @end

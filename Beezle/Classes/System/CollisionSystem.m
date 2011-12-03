@@ -42,6 +42,7 @@
 	[physicsSystem detectBeforeCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_POLLEN];
 	[physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_RAMP];
     [physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_MUSHROOM];
+    [physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_WOOD];
 }
 
 -(void) begin
@@ -81,6 +82,10 @@
             else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_MUSHROOM)
             {
                 [self handleCollisionBee:[collision firstEntity] withMushroom:[collision secondEntity]];
+            }
+            else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_WOOD)
+            {
+                [self handleCollisionBee:[collision firstEntity] withWood:[collision secondEntity]];
             }
         }
     }
@@ -136,6 +141,19 @@
 {
     RenderComponent *mushroomRenderComponent = (RenderComponent *)[mushroomEntity getComponent:[RenderComponent class]];
 	[mushroomRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Mushroom-Bounce", @"Mushroom-Idle", nil]];
+}
+
+-(void)handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity
+{
+    [beeEntity deleteEntity];
+    
+    RenderComponent *woodRenderComponent = (RenderComponent *)[woodEntity getComponent:[RenderComponent class]];
+	[woodRenderComponent playAnimation:@"Wood-Destroy" withCallbackTarget:woodEntity andCallbackSelector:@selector(deleteEntity)];
+    
+    // Disable physics component
+    PhysicsComponent *woodPhysicsComponent = (PhysicsComponent *)[woodEntity getComponent:[PhysicsComponent class]];
+    [woodPhysicsComponent disable];
+    [woodEntity refresh];
 }
 
 -(void) dealloc

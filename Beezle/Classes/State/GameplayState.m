@@ -119,6 +119,10 @@
         {
             [EntityFactory createMushroom:_world withPosition:[levelLayoutEntry position]];
         }
+        else if ([[levelLayoutEntry type] isEqualToString:@"WOOD"])
+        {
+            [EntityFactory createWood:_world withPosition:[levelLayoutEntry position]];
+        }
     }
 }
 

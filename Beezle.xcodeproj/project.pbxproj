@@ -38,6 +38,7 @@
 		2C764E93148A794300820587 /* LevelLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764E92148A794300820587 /* LevelLayout.m */; };
 		2C764E96148A7C4F00820587 /* LevelLayoutEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764E95148A7C4F00820587 /* LevelLayoutEntry.m */; };
 		2C764E98148A895000820587 /* Level-A9-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C764E97148A894F00820587 /* Level-A9-Layout.plist */; };
+		2C764E9A148A8CAE00820587 /* Wood-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C764E99148A8CAE00820587 /* Wood-Animations.plist */; };
 		2C7CE5F71469AD06001F331F /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5F61469AD06001F331F /* RenderSystem.m */; };
 		2C7CE5FA1469D092001F331F /* PhysicsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5F91469D092001F331F /* PhysicsSystem.m */; };
 		2C7CE5FD1469D21A001F331F /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5FC1469D219001F331F /* EntityManager.m */; };
@@ -312,6 +313,7 @@
 		2C764E94148A7C4E00820587 /* LevelLayoutEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelLayoutEntry.h; path = Classes/LevelLayoutEntry.h; sourceTree = "<group>"; };
 		2C764E95148A7C4F00820587 /* LevelLayoutEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelLayoutEntry.m; path = Classes/LevelLayoutEntry.m; sourceTree = "<group>"; };
 		2C764E97148A894F00820587 /* Level-A9-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A9-Layout.plist"; sourceTree = "<group>"; };
+		2C764E99148A8CAE00820587 /* Wood-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Wood-Animations.plist"; sourceTree = "<group>"; };
 		2C7CE5F51469AD06001F331F /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderSystem.h; path = Classes/System/RenderSystem.h; sourceTree = "<group>"; };
 		2C7CE5F61469AD06001F331F /* RenderSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSystem.m; path = Classes/System/RenderSystem.m; sourceTree = "<group>"; };
 		2C7CE5F81469D092001F331F /* PhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsSystem.h; path = Classes/System/PhysicsSystem.h; sourceTree = "<group>"; };
@@ -782,6 +784,7 @@
 				2C3A6F7C14898085002721E3 /* Sawee-Animations.plist */,
 				2C3A6F7D14898085002721E3 /* Sling-Animations.plist */,
 				2C3A6F7E14898085002721E3 /* Speedee-Animations.plist */,
+				2C764E99148A8CAE00820587 /* Wood-Animations.plist */,
 			);
 			name = Sprites;
 			path = Resources/Sprites;
@@ -1647,6 +1650,7 @@
 				2C764DEB148A5CD600820587 /* Sprites-hd.png in Resources */,
 				2C764DED148A627700820587 /* Level-A5-Layout.plist in Resources */,
 				2C764E98148A895000820587 /* Level-A9-Layout.plist in Resources */,
+				2C764E9A148A8CAE00820587 /* Wood-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

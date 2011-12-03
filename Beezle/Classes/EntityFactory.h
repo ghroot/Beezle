@@ -21,5 +21,6 @@
 +(Entity *) createRamp:(World *)world withPosition:(CGPoint)position andRotation:(float)rotation;
 +(Entity *) createPollen:(World *)world withPosition:(CGPoint)position;
 +(Entity *) createMushroom:(World *)world withPosition:(CGPoint)position;
++(Entity *) createWood:(World *)world withPosition:(CGPoint)position;
 
 @end

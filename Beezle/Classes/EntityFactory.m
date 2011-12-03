@@ -346,4 +346,45 @@
     return mushroomEntity;
 }
 
++(Entity *) createWood:(World *)world withPosition:(CGPoint)position
+{
+    Entity *woodEntity = [world createEntity];
+    
+    // Transform
+    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
+    [woodEntity addComponent:transformComponent];
+    
+    // Render
+    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Wood-Animations.plist" z:-1];
+    [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 0.5f)];
+    RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
+    [woodEntity addComponent:renderComponent];
+    
+    // Physics
+    int num = 4;
+    CGPoint verts[] = {
+        CGPointMake(-5,-35),
+        CGPointMake(-5, 35),
+        CGPointMake( 5, 35),
+        CGPointMake( 5,-35),
+    };
+    cpBody *body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
+    cpBodyInitStatic(body);
+    cpShape *shape = cpPolyShapeNew(body, num, verts, CGPointZero);
+    shape->e = 0.8f;
+    shape->u = 0.5f;
+    shape->collision_type = COLLISION_TYPE_WOOD;
+    PhysicsBody *physicsBody = [[[PhysicsBody alloc] initWithBody:body] autorelease];
+    PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:shape] autorelease];
+    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShape:physicsShape] autorelease];
+    [woodEntity addComponent:physicsComponent];
+    
+    [woodEntity refresh];
+    
+    [renderComponent playAnimation:@"Wood-Idle"];
+    
+    return woodEntity;
+}
+
 @end
