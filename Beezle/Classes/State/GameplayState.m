@@ -26,7 +26,7 @@
 {
     if (self = [super initWithId:gameStateId])
     {
-		_debug = FALSE;
+		_debug = TRUE;
 		_world = [[World alloc] init];
     }
     return self;
@@ -78,7 +78,7 @@
     
     [systemManager initialiseAll];
     
-    [EntityFactory createBackground:_world withSpriteSheetName:@"Level-A5"];
+    [EntityFactory createBackground:_world withLevelName:@"Level-A5"];
     [EntityFactory createEdge:_world withSize:winSize];
     [EntityFactory createSlinger:_world withPosition:CGPointMake(100, 300)];
     [EntityFactory createRamp:_world withPosition:CGPointMake(230, 170) andRotation:0.0f];

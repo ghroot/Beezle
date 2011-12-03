@@ -11,9 +11,11 @@
 #import "BoundryComponent.h"
 #import "CircularBoundry.h"
 #import "CollisionTypes.h"
+#import "GCpShapeCache.h"
 #import "PhysicsBody.h"
 #import "PhysicsComponent.h"
 #import "PhysicsShape.h"
+#import "PhysicsSystem.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "RenderSystem.h"
@@ -22,86 +24,31 @@
 
 @implementation EntityFactory
 
-+(Entity *) createBackground:(World *)world withSpriteSheetName:(NSString *)spriteSheetName
++(Entity *) createBackground:(World *)world withLevelName:(NSString *)name
 {
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
     Entity *backgroundEntity = [world createEntity];
     
+    // Transform
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(winSize.width / 2, winSize.height / 2)] autorelease];
     [backgroundEntity addComponent:transformComponent];
     
+    // Render
     [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB565];
-    
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-    RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:spriteSheetName z:-5];
-	[renderSprite setFrame:@"Level-A5-BG.png"];
+    RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:name z:-5];
+    NSString *frameName = [NSString stringWithFormat:@"%@-Combined-hd.png", name]; // TODO: Need to exclude 'hd' when not in HD
+	[renderSprite setFrame:frameName];
     [renderSprite disableBlending];
 	RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
     [backgroundEntity addComponent:renderComponent];
-    
     [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
     
-    int num = 42;
-    CGPoint verts[] = {
-        cpv(-238.6f, 81.0f),
-        cpv(-130.5f, 76.7f),
-        cpv(-130.5f, 64.7f),
-        cpv(-196.2f, 53.4f),
-        cpv(-213.2f, 32.9f),
-        cpv(-211.8f, 10.3f),
-        cpv(-197.6f, -8.1f),
-        cpv(-163.0f, -11.7f),
-        cpv(-119.9f, -5.3f),
-        cpv(-87.3f, 10.3f),
-        cpv(-51.3f, 13.1f),
-        cpv(-51.3f, 7.4f),
-        cpv(-105.0f, -11.0f),
-        cpv(-130.5f, -25.8f),
-        cpv(-146.7f, -50.6f),
-        cpv(-122.7f, -88.0f),
-        cpv(-98.6f, -108.5f),
-        cpv(-72.5f, -117.0f),
-        cpv(-34.3f, -111.4f),
-        cpv(37.1f, -85.2f),
-        cpv(47.0f, -85.2f),
-        cpv(84.5f, -104.3f),
-        cpv(110.0f, -112.1f),
-        cpv(143.9f, -111.4f),
-        cpv(182.8f, -100.1f),
-        cpv(196.9f, -25.1f),
-        cpv(174.3f, 8.1f),
-        cpv(138.9f, 19.4f),
-        cpv(105.7f, 25.1f),
-        cpv(68.9f, 17.3f),
-        cpv(25.8f, 5.3f),
-        cpv(23.0f, 13.8f),
-        cpv(100.1f, 37.8f),
-        cpv(139.7f, 61.2f),
-        cpv(155.2f, 88.0f),
-        cpv(156.6f, 107.8f),
-        cpv(149.6f, 124.8f),
-        cpv(138.9f, 134.0f),
-        cpv(119.1f, 143.2f),
-        cpv(95.1f, 145.3f),
-        cpv(12.4f, 146.0f),
-        cpv(8.8f, 159.5f)
-    };
-    cpBody *body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
-    cpBodyInitStatic(body);
-    NSMutableArray *physicsShapes = [[[NSMutableArray alloc] init] autorelease];
-    for (int i = 0; i < num - 1; i++)
-    {
-        cpShape *shape = cpSegmentShapeNew(body, verts[i], verts[i + 1], 0);
-        shape->e = 0.4f;
-        shape->u = 0.5f;
-        shape->collision_type = COLLISION_TYPE_BACKGROUND;
-        
-        PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:shape] autorelease];
-        [physicsShapes addObject:physicsShape];
-    }
-    PhysicsBody *physicsBody = [[[PhysicsBody alloc] initWithBody:body] autorelease];
-    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShapes:physicsShapes] autorelease];
+    // Physics
+    PhysicsSystem *physicsSystem = (PhysicsSystem *)[[world systemManager] getSystem:[PhysicsSystem class]];
+    NSString *shapesFileName = [NSString stringWithFormat:@"%@-Shapes.plist", name];
+    PhysicsComponent *physicsComponent = [physicsSystem createPhysicsComponentWithFile:shapesFileName bodyName:name isStatic:TRUE collisionType:COLLISION_TYPE_BACKGROUND];
     [backgroundEntity addComponent:physicsComponent];
     
     [backgroundEntity refresh];
@@ -113,9 +60,11 @@
 {
     Entity *edgeEntity = [world createEntity];
     
+    // Transform
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(0.0f, 0.0f)] autorelease];
     [edgeEntity addComponent:transformComponent];
     
+    // Physics
     int num = 4;
     CGPoint verts[] = {
         cpv(0.0f, 0.0f),
@@ -150,9 +99,11 @@
 {
     Entity *slingerEntity = [world createEntity];
     
+    // Transform
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [slingerEntity addComponent:transformComponent];
 	
+    // Render
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
 	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Sling-Animations.plist" z:-2];
     [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 1.0f)];
@@ -173,11 +124,12 @@
 {
     Entity *beeEntity = [world createEntity];
 	
+    // Bee
 	BeeComponent *beeComponent = [[[BeeComponent alloc] initWithType:type] autorelease];
 	[beeEntity addComponent:beeComponent];
 	
 	// TEMP
-	NSString *typeAsString;
+	NSString *typeAsString = @"";
 	if (type == BEE_TYPE_BEE)
 	{
 		typeAsString = @"Bee";
@@ -197,14 +149,17 @@
 	NSString *animationFile = [NSString stringWithFormat:@"%@-Animations.plist", typeAsString];
 	NSString *idleAnimation = [NSString stringWithFormat:@"%@-Idle", typeAsString];
 	
+    // Transform
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [beeEntity addComponent:transformComponent];
     
+    // Render
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
 	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:animationFile z:-3];
     RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
     [beeEntity addComponent:renderComponent];
 	
+    // Physics
     cpBody *body = cpBodyNew(1.0f, 1.0f);
     body->v = cpv(velocity.x, velocity.y);
     CGPoint verts[] = {
@@ -237,6 +192,7 @@
 {
 	Entity *beeaterEntity = [world createEntity];
 	
+    // Transform
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     if (mirrored)
     {
@@ -244,6 +200,7 @@
     }
     [beeaterEntity addComponent:transformComponent];
 	
+    // Render
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
 	RenderSprite *bodyRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Beeater-Body-Animations.plist" z:-2];
 	[[bodyRenderSprite sprite] setAnchorPoint:CGPointMake(0.6f, 0.0f)];
@@ -252,6 +209,7 @@
     RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprites:[NSArray arrayWithObjects:bodyRenderSprite, headRenderSprite, nil]];
     [beeaterEntity addComponent:renderComponent];
 	
+    // Physics
     cpBody *body = cpBodyNew(1.0f, 1.0f);
     cpBodyInitStatic(body);
     CGPoint verts[] = {
@@ -281,14 +239,17 @@
 {
     Entity *rampEntity = [world createEntity];
     
+    // Transform
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [rampEntity addComponent:transformComponent];
     
+    // Render
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
 	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Ramp-Animations.plist" z:-2];
     RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
     [rampEntity addComponent:renderComponent];
 	
+    // Physics
     int num = 4;
     CGPoint verts[] = {
         CGPointMake(-50,-4),
@@ -319,14 +280,17 @@
 {
     Entity *pollenEntity = [world createEntity];
     
+    // Transform
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [pollenEntity addComponent:transformComponent];
     
+    // Render
     RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
 	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Pollen-Animations.plist" z:-1];
     RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
     [pollenEntity addComponent:renderComponent];
     
+    // Physics
     cpBody *body = cpBodyNew(1.0f, 1.0f);
     cpBodyInitStatic(body);
     cpShape *shape = cpCircleShapeNew(body, 8, cpv(0, 0));
@@ -350,15 +314,18 @@
 {
     Entity *mushroomEntity = [world createEntity];
     
+    // Transform
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     [mushroomEntity addComponent:transformComponent];
     
+    // Render
     RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
 	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Mushroom-Animations.plist" z:-1];
     [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 0.0f)];
     RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
     [mushroomEntity addComponent:renderComponent];
     
+    // Physics
     cpBody *body = cpBodyNew(1.0f, 1.0f);
     cpBodyInitStatic(body);
     cpShape *shape = cpCircleShapeNew(body, 25, cpv(0, 20));

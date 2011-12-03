@@ -94,7 +94,7 @@
 	[self removeStartupFlicker];
 	
     // Create game
-    Beezle *beezle = [[Beezle alloc] init];
+    Beezle *beezle = [[[Beezle alloc] init] autorelease];
     _container = [[CocosGameContainer alloc] initWithGame:beezle];
     [_container setUpdateInterval:(1.0 / 60)];
     [_container start];

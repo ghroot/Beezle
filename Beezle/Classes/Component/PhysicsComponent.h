@@ -16,13 +16,13 @@
 @interface PhysicsComponent : Component
 {
     PhysicsBody *_physicsBody;
-    NSMutableArray *_physicsShapes;
+    NSArray *_physicsShapes;
 }
 
 @property (nonatomic, readonly) PhysicsBody *physicsBody;
-@property (nonatomic, readonly) NSMutableArray *physicsShapes;
+@property (nonatomic, readonly) NSArray *physicsShapes;
 
--(id) initWithBody:(PhysicsBody *)body andShapes:(NSMutableArray *)shapes;
+-(id) initWithBody:(PhysicsBody *)body andShapes:(NSArray *)shapes;
 -(id) initWithBody:(PhysicsBody *)body andShape:(PhysicsShape *)shape;
 -(PhysicsShape *) firstPhysicsShape;
 

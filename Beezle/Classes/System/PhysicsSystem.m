@@ -7,8 +7,10 @@
 //
 
 #import "PhysicsSystem.h"
+#import "BodyInfo.h"
 #import "CollisionSystem.h"
 #import "Collision.h"
+#import "GCpShapeCache.h"
 #import "PhysicsBody.h"
 #import "PhysicsComponent.h"
 #import "PhysicsShape.h"
@@ -72,6 +74,28 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     cpSpaceSetSleepTimeThreshold(_space, 1.0f);
     cpSpaceSetUserData(_space, self);
     _space->gravity = CGPointMake(0, -100);
+}
+
+-(PhysicsComponent *) createPhysicsComponentWithFile:(NSString *)fileName bodyName:(NSString *)bodyName isStatic:(BOOL)isStatic collisionType:(int)collisionType
+{
+    // TODO: Don't add if already in the cache
+    [[GCpShapeCache sharedShapeCache] addShapesWithFile:fileName];
+    
+    BodyInfo *bodyInfo = [[GCpShapeCache sharedShapeCache] createBodyWithName:bodyName];
+    
+    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:[bodyInfo physicsBody] andShapes:[bodyInfo physicsShapes]] autorelease];
+    
+    if (isStatic)
+    {
+        cpBodyInitStatic([[physicsComponent physicsBody] body]);
+    }
+    
+    for (PhysicsShape *physicsShape in [physicsComponent physicsShapes])
+    {
+        cpShapeSetCollisionType([physicsShape shape], collisionType);
+    }
+    
+    return physicsComponent;
 }
 
 -(void) detectBeforeCollisionsBetween:(CollisionType)type1 and:(CollisionType)type2

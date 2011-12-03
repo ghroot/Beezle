@@ -12,6 +12,8 @@
 #import "cocos2d.h"
 #import "CollisionTypes.h"
 
+@class PhysicsComponent;
+
 @interface PhysicsSystem : EntityComponentSystem
 {
     cpSpace *_space;
@@ -19,6 +21,7 @@
 
 @property (nonatomic, readonly) cpSpace *space;
 
+-(PhysicsComponent *) createPhysicsComponentWithFile:(NSString *)fileName bodyName:(NSString *)bodyName isStatic:(BOOL)isStatic collisionType:(int)collisionType;
 -(void) detectBeforeCollisionsBetween:(CollisionType)type1 and:(CollisionType)type2;
 -(void) detectAfterCollisionsBetween:(CollisionType)type1 and:(CollisionType)type2;
 

@@ -15,7 +15,7 @@
 @synthesize physicsBody = _physicsBody;
 @synthesize physicsShapes = _physicsShapes;
 
--(id) initWithBody:(PhysicsBody *)body andShapes:(NSMutableArray *)shapes
+-(id) initWithBody:(PhysicsBody *)body andShapes:(NSArray *)shapes
 {
     if (self = [super init])
     {
