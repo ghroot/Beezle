@@ -15,10 +15,19 @@
 #import "EntityFactory.h"
 #import "InputAction.h"
 #import "InputSystem.h"
+#import "LevelLayout.h"
+#import "LevelLayoutCache.h"
+#import "LevelLayoutEntry.h"
 #import "PhysicsSystem.h"
 #import "RenderSystem.h"
 #import "SlingerControlSystem.h"
 #import "Touch.h"
+
+@interface GameplayState()
+
+-(void) loadLevel:(NSString *)levelName;
+
+@end
 
 @implementation GameplayState
 
@@ -53,7 +62,6 @@
 
 -(void) initialise
 {
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
 	SystemManager *systemManager = [_world systemManager];
 	
 	_physicsSystem = [[PhysicsSystem alloc] init];
@@ -78,14 +86,40 @@
     
     [systemManager initialiseAll];
     
-    [EntityFactory createBackground:_world withLevelName:@"Level-A5"];
-    [EntityFactory createEdge:_world withSize:winSize];
-    [EntityFactory createSlinger:_world withPosition:CGPointMake(100, 300)];
-    [EntityFactory createRamp:_world withPosition:CGPointMake(230, 170) andRotation:0.0f];
-    [EntityFactory createBeeater:_world withPosition:CGPointMake(90, 150) mirrored:TRUE];
-    [EntityFactory createBeeater:_world withPosition:CGPointMake(175, 45) mirrored:TRUE];
-    [EntityFactory createPollen:_world withPosition:CGPointMake(300, 285)];
-    [EntityFactory createMushroom:_world withPosition:CGPointMake(360, 45)];
+    [self loadLevel:@"Level-A9"];
+}
+
+-(void) loadLevel:(NSString *)levelName
+{
+    [EntityFactory createBackground:_world withLevelName:levelName];
+    [EntityFactory createEdge:_world];
+    
+    NSString *layoutFile = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
+    [[LevelLayoutCache sharedLevelLayoutCache] addLevelLayoutsWithFile:layoutFile];
+    LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+    for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
+    {
+        if ([[levelLayoutEntry type] isEqualToString:@"SLINGER"])
+        {
+            [EntityFactory createSlinger:_world withPosition:[levelLayoutEntry position]];
+        }
+        else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER"])
+        {
+            [EntityFactory createBeeater:_world withPosition:[levelLayoutEntry position] mirrored:[levelLayoutEntry mirrored]];
+        }
+        else if ([[levelLayoutEntry type] isEqualToString:@"RAMP"])
+        {
+            [EntityFactory createRamp:_world withPosition:[levelLayoutEntry position] andRotation:[levelLayoutEntry rotation]];
+        }
+        else if ([[levelLayoutEntry type] isEqualToString:@"POLLEN"])
+        {
+            [EntityFactory createPollen:_world withPosition:[levelLayoutEntry position]];
+        }
+        else if ([[levelLayoutEntry type] isEqualToString:@"MUSHROOM"])
+        {
+            [EntityFactory createMushroom:_world withPosition:[levelLayoutEntry position]];
+        }
+    }
 }
 
 -(void) update:(int)delta

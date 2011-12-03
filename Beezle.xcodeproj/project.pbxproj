@@ -33,6 +33,11 @@
 		2C764DE7148A588B00820587 /* Level-A9-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 2C764DE3148A588B00820587 /* Level-A9-hd.pvr.ccz */; };
 		2C764DEA148A5CD600820587 /* Sprites-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C764DE8148A5CD600820587 /* Sprites-hd.plist */; };
 		2C764DEB148A5CD600820587 /* Sprites-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C764DE9148A5CD600820587 /* Sprites-hd.png */; };
+		2C764DED148A627700820587 /* Level-A5-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C764DEC148A627700820587 /* Level-A5-Layout.plist */; };
+		2C764DF0148A71C400820587 /* LevelLayoutCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DEF148A71C400820587 /* LevelLayoutCache.m */; };
+		2C764E93148A794300820587 /* LevelLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764E92148A794300820587 /* LevelLayout.m */; };
+		2C764E96148A7C4F00820587 /* LevelLayoutEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764E95148A7C4F00820587 /* LevelLayoutEntry.m */; };
+		2C764E98148A895000820587 /* Level-A9-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C764E97148A894F00820587 /* Level-A9-Layout.plist */; };
 		2C7CE5F71469AD06001F331F /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5F61469AD06001F331F /* RenderSystem.m */; };
 		2C7CE5FA1469D092001F331F /* PhysicsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5F91469D092001F331F /* PhysicsSystem.m */; };
 		2C7CE5FD1469D21A001F331F /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5FC1469D219001F331F /* EntityManager.m */; };
@@ -299,6 +304,14 @@
 		2C764DE3148A588B00820587 /* Level-A9-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Level-A9-hd.pvr.ccz"; sourceTree = "<group>"; };
 		2C764DE8148A5CD600820587 /* Sprites-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sprites-hd.plist"; sourceTree = "<group>"; };
 		2C764DE9148A5CD600820587 /* Sprites-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sprites-hd.png"; sourceTree = "<group>"; };
+		2C764DEC148A627700820587 /* Level-A5-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A5-Layout.plist"; sourceTree = "<group>"; };
+		2C764DEE148A71C400820587 /* LevelLayoutCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelLayoutCache.h; path = Classes/LevelLayoutCache.h; sourceTree = "<group>"; };
+		2C764DEF148A71C400820587 /* LevelLayoutCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelLayoutCache.m; path = Classes/LevelLayoutCache.m; sourceTree = "<group>"; };
+		2C764E91148A794200820587 /* LevelLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelLayout.h; path = Classes/LevelLayout.h; sourceTree = "<group>"; };
+		2C764E92148A794300820587 /* LevelLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelLayout.m; path = Classes/LevelLayout.m; sourceTree = "<group>"; };
+		2C764E94148A7C4E00820587 /* LevelLayoutEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelLayoutEntry.h; path = Classes/LevelLayoutEntry.h; sourceTree = "<group>"; };
+		2C764E95148A7C4F00820587 /* LevelLayoutEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelLayoutEntry.m; path = Classes/LevelLayoutEntry.m; sourceTree = "<group>"; };
+		2C764E97148A894F00820587 /* Level-A9-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A9-Layout.plist"; sourceTree = "<group>"; };
 		2C7CE5F51469AD06001F331F /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderSystem.h; path = Classes/System/RenderSystem.h; sourceTree = "<group>"; };
 		2C7CE5F61469AD06001F331F /* RenderSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSystem.m; path = Classes/System/RenderSystem.m; sourceTree = "<group>"; };
 		2C7CE5F81469D092001F331F /* PhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsSystem.h; path = Classes/System/PhysicsSystem.h; sourceTree = "<group>"; };
@@ -741,12 +754,14 @@
 		2C3A6F6F14898085002721E3 /* Level */ = {
 			isa = PBXGroup;
 			children = (
+				2C764E97148A894F00820587 /* Level-A9-Layout.plist */,
 				2C764DE0148A588B00820587 /* Level-A5-hd.plist */,
 				2C764DE1148A588B00820587 /* Level-A5-hd.pvr.ccz */,
 				2C764DE2148A588B00820587 /* Level-A9-hd.plist */,
 				2C764DE3148A588B00820587 /* Level-A9-hd.pvr.ccz */,
 				2C764DDE148A525B00820587 /* Level-A5-Shapes.plist */,
 				2C764DD3148A1C5F00820587 /* Level-A9-Shapes.plist */,
+				2C764DEC148A627700820587 /* Level-A5-Layout.plist */,
 			);
 			name = Level;
 			path = Resources/Level;
@@ -1460,6 +1475,12 @@
 				2CEA347D145F66F9000FF575 /* RootViewController.m */,
 				2CD33EE2147DAF60000869C1 /* Touch.h */,
 				2CD33EE3147DAF62000869C1 /* Touch.m */,
+				2C764DEE148A71C400820587 /* LevelLayoutCache.h */,
+				2C764DEF148A71C400820587 /* LevelLayoutCache.m */,
+				2C764E91148A794200820587 /* LevelLayout.h */,
+				2C764E92148A794300820587 /* LevelLayout.m */,
+				2C764E94148A7C4E00820587 /* LevelLayoutEntry.h */,
+				2C764E95148A7C4F00820587 /* LevelLayoutEntry.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1624,6 +1645,8 @@
 				2C764DE7148A588B00820587 /* Level-A9-hd.pvr.ccz in Resources */,
 				2C764DEA148A5CD600820587 /* Sprites-hd.plist in Resources */,
 				2C764DEB148A5CD600820587 /* Sprites-hd.png in Resources */,
+				2C764DED148A627700820587 /* Level-A5-Layout.plist in Resources */,
+				2C764E98148A895000820587 /* Level-A9-Layout.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1834,6 +1857,9 @@
 				2C3A6F96148980AF002721E3 /* BeeComponent.m in Sources */,
 				2C764DDA148A1F4000820587 /* GCpShapeCache.m in Sources */,
 				2C764DDD148A1FF100820587 /* BodyInfo.m in Sources */,
+				2C764DF0148A71C400820587 /* LevelLayoutCache.m in Sources */,
+				2C764E93148A794300820587 /* LevelLayout.m in Sources */,
+				2C764E96148A7C4F00820587 /* LevelLayoutEntry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

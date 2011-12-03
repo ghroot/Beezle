@@ -14,7 +14,7 @@
 @interface EntityFactory : NSObject
 
 +(Entity *) createBackground:(World *)world withLevelName:(NSString *)name;
-+(Entity *) createEdge:(World *)world  withSize:(CGSize)size;
++(Entity *) createEdge:(World *)world;
 +(Entity *) createSlinger:(World *)world withPosition:(CGPoint)position;
 +(Entity *) createBee:(World *)world type:(BeeType)type withPosition:(CGPoint)position andVelocity:(CGPoint)velocity;
 +(Entity *) createBeeater:(World *)world withPosition:(CGPoint)position mirrored:(BOOL)mirrored;

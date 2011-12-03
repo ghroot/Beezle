@@ -56,8 +56,10 @@
     return backgroundEntity;    
 }
 
-+(Entity *) createEdge:(World *)world  withSize:(CGSize)size
++(Entity *) createEdge:(World *)world
 {
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
     Entity *edgeEntity = [world createEntity];
     
     // Transform
@@ -68,9 +70,9 @@
     int num = 4;
     CGPoint verts[] = {
         cpv(0.0f, 0.0f),
-        cpv(size.width, 0.0f),
-        cpv(size.width, size.height),
-        cpv(0.0f, size.height)
+        cpv(winSize.width, 0.0f),
+        cpv(winSize.width, winSize.height),
+        cpv(0.0f, winSize.height)
     };
     cpBody *body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
     cpBodyInitStatic(body);
