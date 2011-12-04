@@ -16,25 +16,6 @@
 @synthesize window = _window;
 @synthesize viewController = _viewController;
 
--(void) removeStartupFlicker
-{
-	//
-	// THIS CODE REMOVES THE STARTUP FLICKER
-	//
-	// Uncomment the following code if your Application only supports landscape mode
-	//
-
-//	CC_ENABLE_DEFAULT_GL_STATES();
-//	CCDirector *director = [CCDirector sharedDirector];
-//	CGSize size = [director winSize];
-//	CCSprite *sprite = [CCSprite spriteWithFile:@"Default.png"];
-//	sprite.position = ccp(size.width/2, size.height/2);
-//	sprite.rotation = -90;
-//	[sprite visit];
-//	[[director openGLView] swapBuffers];
-//	CC_ENABLE_DEFAULT_GL_STATES();
-}
-
 -(void) applicationDidFinishLaunching:(UIApplication*)application
 {
 	// Init the window
@@ -66,13 +47,13 @@
 		CCLOG(@"Retina Display Not supported");
     }
 
+    // Settings
     [director setDisplayStats:kCCDirectorStatsFPS];
     [director setProjection:kCCDirectorProjection2D];
     [director setDepthTest:FALSE];
 	[director setNeedClear:FALSE];
-	
-	// Enable multi touches
-//	[glView setMultipleTouchEnabled:TRUE];
+    [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
+    [CCTexture2D PVRImagesHavePremultipliedAlpha:TRUE];
 
 	// Make the OpenGLView a child of the view controller
 	[_viewController setView:glView];
@@ -81,17 +62,6 @@
 	[_window addSubview: _viewController.view];
 	
 	[_window makeKeyAndVisible];
-	
-	// Default texture format for PNG/BMP/TIFF/JPEG/GIF images
-	// It can be RGBA8888, RGBA4444, RGB5_A1, RGB565
-	// You can change anytime.
-	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
-	
-	// PVR Textures have alpha premultiplied
-	[CCTexture2D PVRImagesHavePremultipliedAlpha:TRUE];
-	
-	// Removes the startup flicker
-	[self removeStartupFlicker];
 	
     // Create game
     Beezle *beezle = [[[Beezle alloc] init] autorelease];
