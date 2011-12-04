@@ -19,6 +19,7 @@
     {
         _layer = layer;
         _spriteSheetsByName = [[NSMutableDictionary alloc] init];
+        _loadedAnimationFileNames = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -26,6 +27,7 @@
 -(void) dealloc
 {
     [_spriteSheetsByName release];
+    [_loadedAnimationFileNames release];
     
     [super dealloc];
 }
@@ -46,6 +48,11 @@
 
 -(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name z:(int)z
 {
+    return [self createRenderSpriteWithSpriteSheetName:name animationFile:nil z:z];
+}
+
+-(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name animationFile:(NSString *)animationsFileName z:(int)z;
+{
     CCSpriteBatchNode *spriteSheet = (CCSpriteBatchNode *)[_spriteSheetsByName objectForKey:name];
     if (spriteSheet == nil)
     {
@@ -62,17 +69,17 @@
 		// Create frames from file
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", name]];
     }
+    
+    if (animationsFileName != nil &&
+        ![_loadedAnimationFileNames containsObject:animationsFileName])
+    {
+        // Create animations from file
+        [[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:animationsFileName];
+        
+        [_loadedAnimationFileNames addObject:animationsFileName];
+    }
+    
 	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet];
-}
-
--(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name animationFile:(NSString *)animationsFileName z:(int)z;
-{
-    RenderSprite *renderSprite = [self createRenderSpriteWithSpriteSheetName:name z:z];
-    
-    // Create animations from file
-    [[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:animationsFileName];
-    
-    return renderSprite;
 }
 
 -(void) entityAdded:(Entity *)entity
