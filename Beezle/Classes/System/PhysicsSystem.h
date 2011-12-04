@@ -17,6 +17,7 @@
 @interface PhysicsSystem : EntityComponentSystem
 {
     cpSpace *_space;
+    NSMutableArray *_loadedShapeFileNames;
 }
 
 @property (nonatomic, readonly) cpSpace *space;

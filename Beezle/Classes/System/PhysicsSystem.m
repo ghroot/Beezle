@@ -22,7 +22,10 @@
 
 -(id) init
 {
-    self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], [PhysicsComponent class], nil]];
+    if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], [PhysicsComponent class], nil]])
+    {
+        _loadedShapeFileNames = [[NSMutableArray alloc] init];
+    }
     return self;
 }
 
@@ -30,6 +33,8 @@
 {
     cpSpaceFree(_space);
     _space = NULL;
+    
+    [_loadedShapeFileNames release];
     
     [super dealloc];
 }
@@ -78,8 +83,11 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
 
 -(PhysicsComponent *) createPhysicsComponentWithFile:(NSString *)fileName bodyName:(NSString *)bodyName isStatic:(BOOL)isStatic collisionType:(int)collisionType
 {
-    // TODO: Don't add if already in the cache
-    [[GCpShapeCache sharedShapeCache] addShapesWithFile:fileName];
+    if (![_loadedShapeFileNames containsObject:fileName])
+    {
+        [[GCpShapeCache sharedShapeCache] addShapesWithFile:fileName];
+        [_loadedShapeFileNames addObject:fileName];
+    }
     
     BodyInfo *bodyInfo = [[GCpShapeCache sharedShapeCache] createBodyWithName:bodyName];
     
