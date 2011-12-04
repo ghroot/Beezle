@@ -222,8 +222,7 @@ typedef enum
 -(BodyInfo *) createBodyWithName:(NSString*)name
 {
     GBodyDef *bd = [bodyDefs objectForKey:name];
-    NSString *errorString = [NSString stringWithFormat:@"Body not found: %@", name];
-    NSAssert(bd != 0, errorString);
+    NSAssert(bd != 0, @"Body not found");
     if(!bd)
     {
         return nil;
