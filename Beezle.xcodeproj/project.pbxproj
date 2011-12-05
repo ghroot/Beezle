@@ -147,6 +147,8 @@
 		2C1147DC148BF2E7002E4DBD /* Sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C1147DA148BF2E7002E4DBD /* Sprites.plist */; };
 		2C1147DD148BF2E7002E4DBD /* Sprites.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1147DB148BF2E7002E4DBD /* Sprites.png */; };
 		2C1147E1148BF77C002E4DBD /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1147E0148BF77C002E4DBD /* Utils.m */; };
+		2C1147E6148D4293002E4DBD /* BeeaterComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1147E3148D4291002E4DBD /* BeeaterComponent.m */; };
+		2C1147E7148D4293002E4DBD /* SlingerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1147E5148D4292002E4DBD /* SlingerComponent.m */; };
 		2C3A6F8514898085002721E3 /* Bee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7514898085002721E3 /* Bee-Animations.plist */; };
 		2C3A6F8614898085002721E3 /* Beeater-Body-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */; };
 		2C3A6F8714898085002721E3 /* Beeater-Head-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */; };
@@ -569,6 +571,10 @@
 		2C1147DB148BF2E7002E4DBD /* Sprites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sprites.png; sourceTree = "<group>"; };
 		2C1147DF148BF77C002E4DBD /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		2C1147E0148BF77C002E4DBD /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		2C1147E2148D4290002E4DBD /* BeeaterComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeaterComponent.h; path = Classes/Component/BeeaterComponent.h; sourceTree = "<group>"; };
+		2C1147E3148D4291002E4DBD /* BeeaterComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeaterComponent.m; path = Classes/Component/BeeaterComponent.m; sourceTree = "<group>"; };
+		2C1147E4148D4291002E4DBD /* SlingerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlingerComponent.h; path = Classes/Component/SlingerComponent.h; sourceTree = "<group>"; };
+		2C1147E5148D4292002E4DBD /* SlingerComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlingerComponent.m; path = Classes/Component/SlingerComponent.m; sourceTree = "<group>"; };
 		2C3A6F7514898085002721E3 /* Bee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bee-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Body-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Head-Animations.plist"; sourceTree = "<group>"; };
@@ -1545,6 +1551,10 @@
 		2CEA35281466B202000FF575 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2C1147E2148D4290002E4DBD /* BeeaterComponent.h */,
+				2C1147E3148D4291002E4DBD /* BeeaterComponent.m */,
+				2C1147E4148D4291002E4DBD /* SlingerComponent.h */,
+				2C1147E5148D4292002E4DBD /* SlingerComponent.m */,
 				2C3A6F94148980AF002721E3 /* BeeComponent.h */,
 				2C3A6F95148980AF002721E3 /* BeeComponent.m */,
 				2CEA352C1466B2B5000FF575 /* RenderComponent.h */,
@@ -1936,6 +1946,8 @@
 				2C1147C8148B9459002E4DBD /* vec3.c in Sources */,
 				2C1147C9148B9459002E4DBD /* vec4.c in Sources */,
 				2C1147E1148BF77C002E4DBD /* Utils.m in Sources */,
+				2C1147E6148D4293002E4DBD /* BeeaterComponent.m in Sources */,
+				2C1147E7148D4293002E4DBD /* SlingerComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

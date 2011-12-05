@@ -206,7 +206,7 @@
 	
 	// Beeater
 	BeeaterComponent *beeaterComponent = [[[BeeaterComponent alloc] init] autorelease];
-	[beeEntity addComponent:beeaterComponent];
+	[beeaterEntity addComponent:beeaterComponent];
 	
     // Transform
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
