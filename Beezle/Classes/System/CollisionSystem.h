@@ -8,6 +8,7 @@
 
 #import "EntitySystem.h"
 #import "artemis.h"
+#import "cocos2d.h"
 
 @class Collision;
 

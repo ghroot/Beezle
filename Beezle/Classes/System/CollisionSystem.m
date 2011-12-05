@@ -7,15 +7,18 @@
 //
 
 #import "CollisionSystem.h"
-#import "cocos2d.h"
+#import "BeeaterComponent.h"
+#import "BeeComponent.h"
 #import "Collision.h"
 #import "CollisionTypes.h"
 #import "PhysicsBody.h"
 #import "PhysicsComponent.h"
 #import "PhysicsShape.h"
 #import "PhysicsSystem.h"
-#import "SimpleAudioEngine.h"
 #import "RenderComponent.h"
+#import "SimpleAudioEngine.h"
+#import "SlingerComponent.h"
+#import "TagManager.h"
 
 @implementation CollisionSystem
 
@@ -116,22 +119,29 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity
 {
-	// Remove beeater
-    [beeaterEntity deleteEntity];
+	TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
+	Entity *slingerEntity = (Entity *)[tagManager getEntity:@"SLINGER"];
+	SlingerComponent *slingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
+
+	BeeaterComponent *beeaterComponent = (BeeaterComponent *)[beeaterEntity getComponent:[BeeaterComponent class]];
+	BeeComponent *beeComponent = (BeeComponent *)[beeEntity getComponent:[BeeComponent class]];
 	
-	// Remove bee
-//	[beeEntity deleteEntity];
-    
-    // Crash animation (and delete entity at end of animation)
-    RenderComponent *rampRenderComponent = (RenderComponent *)[beeEntity getComponent:[RenderComponent class]];
-    [rampRenderComponent playAnimation:@"Bee-Crash" withCallbackTarget:beeEntity andCallbackSelector:@selector(deleteEntity)];
-    
-    // Disable physics component
-    PhysicsComponent *physicsComponent = (PhysicsComponent *)[beeEntity getComponent:[PhysicsComponent class]];
-    [physicsComponent disable];
-    [beeEntity refresh];
-    
-    [[SimpleAudioEngine sharedEngine] playEffect:@"27134__zippi1__fart1.wav"];
+	if ([beeaterComponent hasContainedBee])
+	{
+		// Bee is freed
+		[slingerComponent pushBeeType:[beeaterComponent containedBeeType]];
+		
+		// Beater is destroyed
+		[beeaterEntity deleteEntity];
+	}
+	else
+	{
+		// Beeater eats bee
+		[beeaterComponent setContainedBeeType:[beeComponent type]];
+	}
+	
+	// Bee is destroyed
+	[beeEntity deleteEntity];
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity

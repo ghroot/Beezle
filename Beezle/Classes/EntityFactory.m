@@ -7,6 +7,7 @@
 //
 
 #import "EntityFactory.h"
+#import "BeeaterComponent.h"
 #import "BeeComponent.h"
 #import "BoundryComponent.h"
 #import "CircularBoundry.h"
@@ -19,6 +20,7 @@
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "RenderSystem.h"
+#import "SlingerComponent.h"
 #import "TagManager.h"
 #import "TransformComponent.h"
 
@@ -100,6 +102,13 @@
 +(Entity *) createSlinger:(World *)world withPosition:(CGPoint)position
 {
     Entity *slingerEntity = [world createEntity];
+	
+	// Slinger
+	SlingerComponent *slingerComponent = [[[SlingerComponent alloc] init] autorelease];
+	[slingerComponent pushBeeType:BEE_TYPE_BEE];		// -
+	[slingerComponent pushBeeType:BEE_TYPE_BEE];		//  |- TODO: Read from level description
+	[slingerComponent pushBeeType:BEE_TYPE_BOMBEE];		// -
+	[slingerEntity addComponent:slingerComponent];
     
     // Transform
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
@@ -131,7 +140,7 @@
 	[beeEntity addComponent:beeComponent];
 	
 	// TEMP
-	NSString *typeAsString = @"";
+	NSString *typeAsString = nil;
 	if (type == BEE_TYPE_BEE)
 	{
 		typeAsString = @"Bee";
@@ -164,7 +173,8 @@
     // Physics
     cpBody *body = cpBodyNew(1.0f, 1.0f);
     body->v = cpv(velocity.x, velocity.y);
-    CGPoint verts[] = {
+    CGPoint verts[] =
+	{
         cpv(-2.0f, 6.0f),
         cpv(2.0f, 6.0f),
         cpv(6.0f, 2.0f),
@@ -194,6 +204,10 @@
 {
 	Entity *beeaterEntity = [world createEntity];
 	
+	// Beeater
+	BeeaterComponent *beeaterComponent = [[[BeeaterComponent alloc] init] autorelease];
+	[beeEntity addComponent:beeaterComponent];
+	
     // Transform
     TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
     if (mirrored)
@@ -214,7 +228,8 @@
     // Physics
     cpBody *body = cpBodyNew(1.0f, 1.0f);
     cpBodyInitStatic(body);
-    CGPoint verts[] = {
+    CGPoint verts[] =
+	{
         cpv(-15.0f, 0.0f),
         cpv(-15.0f, 40.0f),
         cpv(15.0f, 40.0f),
@@ -253,7 +268,8 @@
 	
     // Physics
     int num = 4;
-    CGPoint verts[] = {
+    CGPoint verts[] =
+	{
         CGPointMake(-50,-4),
         CGPointMake(-50, 4),
         CGPointMake( 50, 4),
@@ -363,7 +379,8 @@
     
     // Physics
     int num = 4;
-    CGPoint verts[] = {
+    CGPoint verts[] =
+	{
         CGPointMake(-5,-35),
         CGPointMake(-5, 35),
         CGPointMake( 5, 35),

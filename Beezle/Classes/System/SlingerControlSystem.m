@@ -7,11 +7,13 @@
 //
 
 #import "SlingerControlSystem.h"
+#import "BeeTypes.h"
 #import "EntityFactory.h"
 #import "InputAction.h"
 #import "InputSystem.h"
 #import "RenderComponent.h"
 #import "SimpleAudioEngine.h"
+#import "SlingerComponent.h"
 #import "TransformComponent.h"
 
 #define SLINGER_POWER_SENSITIVITY 5.0
@@ -32,10 +34,7 @@
 
 -(id) init
 {
-    if (self = [super initWithTag:@"SLINGER"])
-	{
-		_lastBeeType = BEE_TYPE_NONE;
-	}
+    self = [super initWithTag:@"SLINGER"];
     return self;
 }
 
@@ -46,6 +45,7 @@
     {
         InputAction *nextInputAction = [inputSystem popInputAction];
         
+		SlingerComponent *slingerComponent = (SlingerComponent *)[entity getComponent:[SlingerComponent class]];
         TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
         RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
         
@@ -81,34 +81,14 @@
             }
             case TOUCH_END:
             {
-				// TEMP: Set next bee type
-                BeeType nextBeeType = BEE_TYPE_NONE;
-				if (_lastBeeType == BEE_TYPE_NONE)
+				if ([slingerComponent hasMoreBees])
 				{
-					nextBeeType = BEE_TYPE_BEE;
+					BeeType nextBeeType = [slingerComponent popNextBeeType];
+					float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
+					float power = [self calculatePower:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
+					CGPoint beeVelocity = CGPointMake(cosf(aimAngle) * power, sinf(aimAngle) * power);
+					[EntityFactory createBee:_world type:nextBeeType withPosition:[transformComponent position] andVelocity:beeVelocity];
 				}
-				else if (_lastBeeType == BEE_TYPE_BEE)
-				{
-					nextBeeType = BEE_TYPE_SAWEE;
-				}
-				else if (_lastBeeType == BEE_TYPE_SAWEE)
-				{
-					nextBeeType = BEE_TYPE_SPEEDEE;
-				}
-				else if (_lastBeeType == BEE_TYPE_SPEEDEE)
-				{
-					nextBeeType = BEE_TYPE_BOMBEE;
-				}
-				else if (_lastBeeType == BEE_TYPE_BOMBEE)
-				{
-					nextBeeType = BEE_TYPE_BEE;
-				}
-                _lastBeeType = nextBeeType;
-				
-				float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
-				float power = [self calculatePower:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
-                CGPoint beeVelocity = CGPointMake(cosf(aimAngle) * power, sinf(aimAngle) * power);
-                [EntityFactory createBee:_world type:nextBeeType withPosition:[transformComponent position] andVelocity:beeVelocity];
                 
                 [renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];
                 
