@@ -20,6 +20,13 @@
     return self;
 }
 
+-(void) dealloc
+{
+    [_forwardNode release];
+    
+    [super dealloc];
+}
+
 -(void) startInterval
 {
     [[CCDirector sharedDirector] setAnimationInterval:_updateInterval];
