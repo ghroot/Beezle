@@ -11,7 +11,6 @@
 #import "cocos2d.h"
 #import "slick.h"
 
-@class BoundrySystem;
 @class CollisionSystem;
 @class DebugRenderPhysicsSystem;
 @class InputSystem;
@@ -32,7 +31,6 @@
     DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
     InputSystem *_inputSystem;
     SlingerControlSystem *_slingerControlSystem;
-    BoundrySystem *_boundrySystem;
     BeeSystem *_beeSystem;
 }
 

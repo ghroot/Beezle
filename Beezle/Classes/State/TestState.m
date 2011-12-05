@@ -51,10 +51,7 @@
 	[_world release];
 	
     [_physicsSystem release];
-    [_collisionSystem release];
     [_renderSystem release];
-    [_slingerControlSystem release];
-    [_boundrySystem release];
     
     [_label release];
 	
@@ -63,22 +60,20 @@
 
 -(void) initialise
 {
+    [[CCDirector sharedDirector] setNeedClear:TRUE];
+    
 	SystemManager *systemManager = [_world systemManager];
 	
 	_physicsSystem = [[PhysicsSystem alloc] init];
 	[systemManager setSystem:_physicsSystem];
-	_collisionSystem = [[CollisionSystem alloc] init];
-	[systemManager setSystem:_collisionSystem];
 	_renderSystem = [[RenderSystem alloc] initWithLayer:_layer];
 	[systemManager setSystem:_renderSystem];
-	_slingerControlSystem = [[SlingerControlSystem alloc] init];
-	[systemManager setSystem:_slingerControlSystem];
-	_boundrySystem = [[BoundrySystem alloc] init];
-	[systemManager setSystem:_boundrySystem];
+    _debugRenderPhysicsSystem = [[DebugRenderPhysicsSystem alloc] init];
+    [systemManager setSystem:_debugRenderPhysicsSystem];
     
     [systemManager initialiseAll];
     
-	_interval = 10;
+	_interval = 5;
     _countdown = _interval;
 	
     [_label setPosition:CGPointMake(15, 310)];
@@ -104,37 +99,17 @@
     [_label setString:[NSString stringWithFormat:@"%i", [entities count]]];
 }
 
+-(void) render
+{
+    [_debugRenderPhysicsSystem process];
+}
+
 -(void) spawnEntity
 {
-    Entity *entity = [_world createEntity];
-    
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     CGPoint randomPosition = CGPointMake(RANDOM_INT(0, (int)winSize.width), RANDOM_INT(0, (int)winSize.height));
     
-    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(randomPosition.x, randomPosition.y)] autorelease];
-    [entity addComponent:transformComponent];
-    
-    RenderSystem *renderSystem = (RenderSystem *)[[_world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Beeater-Head" z:0];
-    RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
-    [entity addComponent:renderComponent];
-    
-    cpBody *body = cpBodyNew(1.0f, 1.0f);
-    body->p = cpv(randomPosition.x, randomPosition.y);
-    int rotation = RANDOM_INT(0, 359);
-    body->a = CC_DEGREES_TO_RADIANS(rotation);
-    cpShape *shape = cpCircleShapeNew(body, 25, cpv(0, 0));
-    shape->e = 0.5f;
-    shape->u = 0.5f;
-//    cpShapeSetGroup(shape, 1);
-    PhysicsBody *physicsBody = [[[PhysicsBody alloc] initWithBody:body] autorelease];
-    PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:shape] autorelease];
-    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShape:physicsShape] autorelease];
-    [entity addComponent:physicsComponent];
-    
-    [entity refresh];
-    
-    [renderComponent playAnimation:@"Beeater-Head-Idle"];
+    Entity *entity = [EntityFactory createPollen:_world withPosition:randomPosition];
     
     GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
     [groupManager addEntity:entity toGroup:@"ENTITIES"];

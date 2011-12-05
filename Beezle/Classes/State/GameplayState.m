@@ -55,7 +55,6 @@
 	}
     [_inputSystem release];
     [_slingerControlSystem release];
-    [_boundrySystem release];
     [_beeSystem release];
 	
 	[super dealloc];
@@ -80,8 +79,6 @@
 	[systemManager setSystem:_inputSystem];
 	_slingerControlSystem = [[SlingerControlSystem alloc] init];
 	[systemManager setSystem:_slingerControlSystem];
-	_boundrySystem = [[BoundrySystem alloc] init];
-	[systemManager setSystem:_boundrySystem];
     _beeSystem = [[BeeSystem alloc] init];
     [systemManager setSystem:_beeSystem];
     
@@ -124,7 +121,7 @@
         }
         else if ([[levelLayoutEntry type] isEqualToString:@"MUSHROOM"])
         {
-            [EntityFactory createMushroom:_world withPosition:[levelLayoutEntry position]];
+//            [EntityFactory createMushroom:_world withPosition:[levelLayoutEntry position]];
         }
         else if ([[levelLayoutEntry type] isEqualToString:@"WOOD"])
         {
@@ -143,7 +140,6 @@
     [_renderSystem process];
     [_inputSystem process];
     [_slingerControlSystem process];
-    [_boundrySystem process];
     [_beeSystem process];
 }
 

@@ -6,12 +6,12 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "EntityComponentSystem.h"
+#import "EntitySystem.h"
 #import "artemis.h"
 
 @class Collision;
 
-@interface CollisionSystem : EntityComponentSystem
+@interface CollisionSystem : EntitySystem
 {
     NSMutableArray *_collisions;
 }

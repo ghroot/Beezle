@@ -161,6 +161,8 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     {
         cpShape *shape = [physicsShape shape];
         
+        shape->data = NULL;
+        
         if (cpBodyIsStatic(body))
         {
             cpSpaceRemoveStaticShape(_space, shape);

@@ -12,23 +12,17 @@
 #import "cocos2d.h"
 #import "slick.h"
 
-@class BoundrySystem;
-@class CollisionSystem;
 @class DebugRenderPhysicsSystem;
 @class PhysicsSystem;
 @class RenderSystem;
-@class SlingerControlSystem;
 
 @interface TestState : CocosGameState
 {
     World *_world;
     
     PhysicsSystem *_physicsSystem;
-    CollisionSystem *_collisionSystem;
     RenderSystem *_renderSystem;
     DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
-    SlingerControlSystem *_slingerControlSystem;
-    BoundrySystem *_boundrySystem;
     
 	int _interval;
     int _countdown;

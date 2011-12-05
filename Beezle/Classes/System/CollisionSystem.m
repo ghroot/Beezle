@@ -28,6 +28,13 @@
     return self;
 }
 
+-(void) dealloc
+{
+    [_collisions release];
+    
+    [super dealloc];
+}
+
 -(void) pushCollision:(Collision *)collision
 {
     [_collisions addObject:collision];
@@ -163,13 +170,6 @@
     [woodEntity refresh];
     
     [[SimpleAudioEngine sharedEngine] playEffect:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
-}
-
--(void) dealloc
-{
-    [_collisions release];
-    
-    [super dealloc];
 }
 
 @end
