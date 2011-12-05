@@ -39,9 +39,8 @@
     // Render
     [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB565];
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-    RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:name z:-5];
-    NSString *frameName = [NSString stringWithFormat:@"%@-Combined-hd.png", name]; // TODO: Need to exclude 'hd' when not in HD
-	[renderSprite setFrame:frameName];
+    NSString *imageFileName = [NSString stringWithFormat:@"%@.png", name];
+    RenderSprite *renderSprite = [renderSystem createRenderSpriteWithFile:imageFileName z:-5];
     [renderSprite disableBlending];
 	RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
     [backgroundEntity addComponent:renderComponent];
@@ -108,6 +107,10 @@
 	[slingerComponent pushBeeType:BEE_TYPE_BEE];		// -
 	[slingerComponent pushBeeType:BEE_TYPE_BEE];		//  |- TODO: Read from level description
 	[slingerComponent pushBeeType:BEE_TYPE_BOMBEE];		// -
+    for (int i = 0; i < 500; i++)
+    {
+        [slingerComponent pushBeeType:BEE_TYPE_BEE];
+    }
 	[slingerEntity addComponent:slingerComponent];
     
     // Transform
