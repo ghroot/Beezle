@@ -57,17 +57,24 @@
 
 -(BOOL) shouldContainEntity:(Entity *)entity
 {
-    BOOL hasAllUsedComponents = TRUE;
-    for (Class usedComponentClass in _usedComponentClasses)
+    if ([_usedComponentClasses count] == 0)
     {
-        Component *component = [entity getComponent:usedComponentClass];
-        if (component == nil || ![component enabled])
-        {
-            hasAllUsedComponents = FALSE;
-            break;
-        }
+        return FALSE;
     }
-    return hasAllUsedComponents;
+    else
+    {
+        BOOL hasAllUsedComponents = TRUE;
+        for (Class usedComponentClass in _usedComponentClasses)
+        {
+            Component *component = [entity getComponent:usedComponentClass];
+            if (component == nil || ![component enabled])
+            {
+                hasAllUsedComponents = FALSE;
+                break;
+            }
+        }
+        return hasAllUsedComponents;
+    }
 }
 
 @end
