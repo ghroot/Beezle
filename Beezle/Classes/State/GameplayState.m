@@ -26,6 +26,8 @@
 
 @interface GameplayState()
 
+-(void) createSystems;
+-(void) preloadSounds;
 -(void) loadLevel:(NSString *)levelName;
 
 @end
@@ -62,6 +64,13 @@
 
 -(void) initialise
 {
+    [self createSystems];
+    [self preloadSounds];
+    [self loadLevel:@"Level-A5"];
+}
+
+-(void) createSystems
+{
 	SystemManager *systemManager = [_world systemManager];
 	
 	_physicsSystem = [[PhysicsSystem alloc] init];
@@ -83,14 +92,15 @@
     [systemManager setSystem:_beeSystem];
     
     [systemManager initialiseAll];
-    
+}
+
+-(void) preloadSounds
+{
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"11097__a43__a43-blipp.aif"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"27134__zippi1__fart1.wav"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"52144__blaukreuz__imp-02.m4a"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"33369__herbertboland__mouthpop.wav"];
-    
-    [self loadLevel:@"Level-A5"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"33369__herbertboland__mouthpop.wav"];    
 }
 
 -(void) loadLevel:(NSString *)levelName
