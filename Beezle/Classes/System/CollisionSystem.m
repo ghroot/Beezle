@@ -125,7 +125,10 @@
 
 	BeeaterComponent *beeaterComponent = (BeeaterComponent *)[beeaterEntity getComponent:[BeeaterComponent class]];
 	BeeComponent *beeComponent = (BeeComponent *)[beeEntity getComponent:[BeeComponent class]];
-	
+    
+    RenderComponent *beeaterRenderComponent = (RenderComponent *)[beeaterEntity getComponent:[RenderComponent class]];
+	RenderSprite *headRenderSprite = (RenderSprite *)[[beeaterRenderComponent renderSprites] objectAtIndex:1];
+    
 	if ([beeaterComponent hasContainedBee])
 	{
 		// Bee is freed
@@ -133,11 +136,15 @@
 		
 		// Beater is destroyed
 		[beeaterEntity deleteEntity];
+        
+        [headRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:@"Beeater-Head-Idle", @"Beeater-Head-Lick", nil]];
 	}
 	else
 	{
 		// Beeater eats bee
 		[beeaterComponent setContainedBeeType:[beeComponent type]];
+        
+        [headRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:@"Beeater-Head-Idle", @"Beeater-Head-Show-Bee", nil]];
 	}
 	
 	// Bee is destroyed
