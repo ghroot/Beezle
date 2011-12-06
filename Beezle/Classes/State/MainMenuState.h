@@ -1,5 +1,5 @@
 //
-//  MenuState.h
+//  MainMenuState.h
 //  Beezle
 //
 //  Created by Me on 24/11/2011.
