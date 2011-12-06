@@ -10,6 +10,7 @@
 #import "BeeSystem.h"
 #import "BoundrySystem.h"
 #import "CocosGameContainer.h"
+#import "CocosStateBasedGame.h"
 #import "CollisionSystem.h"
 #import "DebugRenderPhysicsSystem.h"
 #import "EntityFactory.h"
@@ -163,8 +164,18 @@
 
 -(void) touchBegan:(Touch *)touch
 {
-    InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_START andTouchLocation:[touch point]] autorelease];
-    [_inputSystem pushInputAction:inputAction];
+	// TEMP: Go to ingame menu by touching top left corner
+	CCSize winSize = [[CCDirector sharedDirector] winSize];
+	if ([touch point].x <= 20 && [touch point].y >= winSize.height - 20)
+	{
+		CocosStateBasedGame *cocosStateBasedGame = (CocosStateBasedGame *)[self game];
+		[cocosStateBasedGame enterStateKeepCurrent:STATE_INGAME_MENU];
+	}
+	else
+	{
+		InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_START andTouchLocation:[touch point]] autorelease];
+		[_inputSystem pushInputAction:inputAction];
+	}
 }
 
 -(void) touchMoved:(Touch *)touch

@@ -6,14 +6,16 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import "CocosStateBasedGame.h"
 #import "slick.h"
 
 typedef enum {
 	STATE_MAIN_MENU,
 	STATE_GAMEPLAY,
+	STATE_INGAME_MENU,
     STATE_TEST,
 } gameStates;
 
-@interface Beezle : StateBasedGame
+@interface Beezle : CocosStateBasedGame
 
 @end

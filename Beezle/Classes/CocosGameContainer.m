@@ -9,6 +9,13 @@
 #import "CocosGameContainer.h"
 #import "ForwardNode.h"
 
+@interface CocosGameContainer()
+
+-(void) addForwardNodeToScene;
+-(void) removeForwardNodeFromScene;
+
+@end
+
 @implementation CocosGameContainer
 
 -(id) initWithGame:(Game *)game
@@ -27,6 +34,15 @@
     [super dealloc];
 }
 
+-(void) setup
+{
+	// This assumes CCDirector retains the default scene
+	CCScene *defaultScene = [[[CCScene alloc] init] autorelease];
+	[[CCDirector sharedDirector] runWithScene:defaultScene];
+
+    [super setup];
+}
+
 -(void) startInterval
 {
     [[CCDirector sharedDirector] setAnimationInterval:_updateInterval];
@@ -39,21 +55,39 @@
     [_forwardNode setTouchEndedSelector:@selector(onTouchEnded:)];
 }
 
--(void) setScene:(CCScene *)scene
+-(void) addForwardNodeToScene
 {
-    if (_currentScene == nil)
-    {
-        [[CCDirector sharedDirector] runWithScene:scene];
-    }
-    else
-    {
-        [_forwardNode unscheduleAllSelectors];
-        [_currentScene removeChild:_forwardNode cleanup:TRUE];
-        [[CCDirector sharedDirector] replaceScene:scene];
-    }
-    [scene addChild:_forwardNode];
+	CCScene *runningScene = [[CCDirector sharedDirector] runningScene];
+    [runningScene addChild:_forwardNode];
     [_forwardNode scheduleUpdate];
-    _currentScene = scene;
+}
+
+-(void) removeForwardNodeFromScene
+{
+	CCScene *runningScene = [[CCDirector sharedDirector] runningScene];
+    [_forwardNode unscheduleAllSelectors];
+    [runningScene removeChild:_forwardNode cleanup:TRUE];
+}
+
+-(void) setScene:(CCScene *)scene keepCurrent:(BOOL)keepCurrent
+{
+    [self removeForwardNodeFromScene];
+	if (keepCurrent)
+	{
+		[[CCDirector sharedDirector] pushScene:scene];
+	}
+	else
+	{
+		[[CCDirector sharedDirector] replaceScene:scene];
+	}
+    [self addForwardNodeToScene];
+}
+
+-(void) gotoPreviousScene
+{
+	[self removeForwardNodeFromScene];
+	[[CCDirector sharedDirector] popScene];
+	[self addForwardNodeToScene];
 }
 
 -(void) onUpdate:(NSNumber *)delta

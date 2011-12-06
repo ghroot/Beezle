@@ -11,6 +11,8 @@
 
 @implementation CocosGameState
 
+@synthesize scene = _scene;
+
 -(id) initWithId:(int)stateId
 {
     if (self = [super initWithId:stateId])
@@ -28,12 +30,6 @@
     [_layer release];
     
     [super dealloc];
-}
-
--(void) enter
-{
-    CocosGameContainer *cocosGameContainer = (CocosGameContainer *)[_game container];
-    [cocosGameContainer setScene:_scene];
 }
 
 @end

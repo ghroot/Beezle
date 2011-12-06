@@ -15,4 +15,6 @@
     CCLayer *_layer;
 }
 
+@property (nonatomic, readonly) CCScene *scene;
+
 @end

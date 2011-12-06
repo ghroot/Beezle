@@ -117,13 +117,22 @@
 
 -(void) touchBegan:(Touch *)touch
 {
-	// Delete all entities when tapping the screen
-    GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
-    NSArray *entities = [groupManager getEntitiesInGroup:@"ENTITIES"];
-    for (Entity *entity in entities)
-    {
-        [entity deleteEntity];
-    }
+	// TEMP: Go to main menu by touching top left corner
+	CCSize winSize = [[CCDirector sharedDirector] winSize];
+	if ([touch point].x <= 20 && [touch point].y >= winSize.height - 20)
+	{
+		[_game enterState:STATE_MAIN_MENU];
+	}
+	else
+	{
+		// Delete all entities when tapping the screen
+		GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
+		NSArray *entities = [groupManager getEntitiesInGroup:@"ENTITIES"];
+		for (Entity *entity in entities)
+		{
+			[entity deleteEntity];
+		}
+	}
 }
 
 @end

@@ -14,11 +14,12 @@
 
 @interface CocosGameContainer : GameContainer
 {
-    CCScene *_currentScene;
     ForwardNode *_forwardNode;
 }
 
--(void) setScene:(CCScene *)scene;
+-(void) setScene:(CCScene *)scene keepCurrent:(BOOL)keepCurrent;
+-(void) gotoPreviousScene;
+
 -(void) onUpdate:(NSNumber *)delta;
 -(void) onDraw;
 -(void) onTouchBegan:(Touch *)touch;
