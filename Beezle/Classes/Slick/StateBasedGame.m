@@ -30,7 +30,7 @@
 		_statesById = [[NSMutableDictionary alloc] init];
 		
 		// Empty state on creation to avoid nil issues
-         GameState *emptyState = [[[GameState alloc] initWithId:-1] autorelease];
+        GameState *emptyState = [[[GameState alloc] initWithId:-1] autorelease];
         [self addState:emptyState];
 		_currentState = emptyState;
     }
