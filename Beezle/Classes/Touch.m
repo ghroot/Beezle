@@ -1,5 +1,5 @@
 //
-//  TouchLocation.m
+//  Touch.m
 //  Beezle
 //
 //  Created by Me on 23/11/2011.
