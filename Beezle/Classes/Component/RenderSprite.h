@@ -19,7 +19,7 @@
 
 -(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
--(void) disableBlending;
+-(void) markAsBackground;
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops;
 -(void) playAnimation:(NSString *)animationName;
 -(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector;

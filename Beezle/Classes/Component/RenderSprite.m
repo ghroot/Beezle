@@ -35,9 +35,16 @@
 	return [[[RenderSprite alloc] initWithSpriteSheet:spriteSheet] autorelease];
 }
 
--(void) disableBlending
+/**
+* Applies settings that increase performance on large static textures
+*/
+-(void) markAsBackground
 {
 	[_sprite setBlendFunc:(ccBlendFunc){GL_ONE, GL_ZERO}];
+	[_spriteSheet setBlendFunc:(ccBlendFunc){GL_ONE, GL_ZERO}];
+	
+	ccTexParams params = {GL_NEAREST, GL_REPEAT, GL_REPEAT};
+	[_spriteSheet.texture setTexParameters: &params];
 }
 
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops
