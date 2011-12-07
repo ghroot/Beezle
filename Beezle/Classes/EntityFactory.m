@@ -39,7 +39,7 @@
     // Render
     [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB565];
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-    NSString *imageFileName = [NSString stringWithFormat:@"%@.png", name];
+    NSString *imageFileName = [NSString stringWithFormat:@"%@.jpg", name];
     RenderSprite *renderSprite = [renderSystem createRenderSpriteWithFile:imageFileName z:-5];
     [renderSprite markAsBackground];
 	RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
