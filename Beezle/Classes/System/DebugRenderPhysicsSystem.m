@@ -7,16 +7,35 @@
 //
 
 #import "DebugRenderPhysicsSystem.h"
+#import "DebugRenderPhysicsLayer.h"
 #import "PhysicsComponent.h"
 #import "PhysicsShape.h"
 #import "PhysicsSystem.h"
 
 @implementation DebugRenderPhysicsSystem
 
--(id) init
+-(id) initWithScene:(CCScene *)scene
 {
-    self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[PhysicsComponent class], nil]];
+    if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[PhysicsComponent class], nil]])
+    {
+        _scene = scene;
+        _debugRenderPhysicsLayer = [[DebugRenderPhysicsLayer alloc] init];
+        [_scene addChild:_debugRenderPhysicsLayer];
+    }
     return self;
+}
+
+-(void) dealloc
+{
+    [_scene removeChild:_debugRenderPhysicsLayer cleanup:TRUE];
+    [_debugRenderPhysicsLayer release];
+    
+    [super release];
+}
+
+-(void) begin
+{
+    [[_debugRenderPhysicsLayer shapesToDraw] removeAllObjects];
 }
 
 -(void) processEntity:(Entity *)entity
@@ -25,34 +44,7 @@
     
     for (PhysicsShape *physicsShape in [physicsComponent physicsShapes])
     {
-        cpShape *shape = [physicsShape shape];   
-        [self drawShape:shape];   
-    }
-}
-
--(void) drawShape:(cpShape *)shape
-{
-    if (shape->klass_private->type == CP_CIRCLE_SHAPE)
-    {
-        
-        cpCircleShape* circleShape = (cpCircleShape*)shape;
-        cpVect c = cpvadd(shape->body->p, cpvrotate(circleShape->c, shape->body->rot));
-        ccDrawCircle(c, circleShape->r, shape->body->a, 20, TRUE);
-    }
-    else if (shape->klass_private->type == CP_POLY_SHAPE)
-    {
-        cpPolyShape* polyShape = (cpPolyShape*)shape;
-        ccDrawPoly(polyShape->tVerts, polyShape->numVerts, YES);
-    }
-    else if (shape->klass_private->type == CP_SEGMENT_SHAPE)
-    {
-        cpSegmentShape* segmentShape = (cpSegmentShape*)shape;
-        ccDrawLine(segmentShape->ta, segmentShape->tb);
-    }
-    else
-    {
-        cpSegmentShape* segmentShape = (cpSegmentShape*)shape;
-        ccDrawLine(segmentShape->ta, segmentShape->tb);
+        [[_debugRenderPhysicsLayer shapesToDraw] addObject:physicsShape];
     }
 }
 

@@ -88,7 +88,8 @@
 					float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
 					float power = [self calculatePower:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
 					CGPoint beeVelocity = CGPointMake(cosf(aimAngle) * power, sinf(aimAngle) * power);
-					CGPoint slingerTipVector = CGPointMake(cosf(aimAngle) * [[renderComponent renderSprite] sprite].height, sinf(aimAngle) * [[renderComponent renderSprite] sprite].height);
+                    
+					CGPoint slingerTipVector = CGPointMake(cosf(aimAngle) * 50.0f, sinf(aimAngle) * 50.0f);
 					CGPoint beePosition = CGPointMake([transformComponent position].x + slingerTipVector.x, [transformComponent position].y + slingerTipVector.y);
 					[EntityFactory createBee:_world type:nextBeeType withPosition:beePosition andVelocity:beeVelocity];
 				}

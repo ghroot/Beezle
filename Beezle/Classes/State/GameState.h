@@ -7,7 +7,6 @@
 //
 
 #import "cocos2d.h"
-#import "GameStateIds.h"
 
 @class Game;
 

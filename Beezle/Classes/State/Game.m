@@ -7,6 +7,7 @@
 //
 
 #import "Game.h"
+#import "GameState.h"
 
 @implementation Game
 

@@ -16,6 +16,8 @@
 {
 	if (self = [super init])
 	{
+        [[CCDirector sharedDirector] setNeedClear:TRUE];
+        
 		CCMenuItem *resumeMenuItem = [CCMenuItemFont itemFromString:@"Resume" target:self selector:@selector(resumeGame:)];
 		CCMenuItem *quitMenuItem = [CCMenuItemFont itemFromString:@"Quit" target:self selector:@selector(gotoMainMenu:)];
 		_menu = [CCMenu menuWithItems: resumeMenuItem, quitMenuItem, nil];
@@ -23,6 +25,7 @@
 		
 		[self addChild:_menu];
 	}
+    return self;
 }
 
 -(void) resumeGame:(id)sender

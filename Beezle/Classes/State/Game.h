@@ -6,7 +6,9 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "cocos2d.h
+#import "cocos2d.h"
+
+@class GameState;
 
 @interface Game : NSObject
 

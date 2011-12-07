@@ -55,7 +55,12 @@
 		[self addChild:_uiLayer];
 		
 		CCMenuItemImage *pauseMenuItem = [CCMenuItemImage itemFromNormalImage:@"Pause.png" selectedImage:@"Pause.png" target:self selector:@selector(pauseGame:)];
-		[_uiLayer addChild:_pauseMenuItem];
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        [pauseMenuItem setPosition:CGPointMake(0.0f, winSize.height)];
+        [pauseMenuItem setAnchorPoint:CGPointMake(0.0f, 1.0f)];
+        CCMenu *menu = [CCMenu menuWithItems:pauseMenuItem, nil];
+        [menu setPosition:CGPointZero];
+		[_uiLayer addChild:menu];
 		
 		_world = [[World alloc] init];
 		
@@ -85,7 +90,7 @@
 	[systemManager setSystem:_renderSystem];
 	if (_debug)
 	{
-		_debugRenderPhysicsSystem = [[DebugRenderPhysicsSystem alloc] init];
+		_debugRenderPhysicsSystem = [[DebugRenderPhysicsSystem alloc] initWithScene:self];
 		[systemManager setSystem:_debugRenderPhysicsSystem];
 	}
 	_inputSystem = [[InputSystem alloc] init];
@@ -168,7 +173,7 @@
 -(void) update:(ccTime)delta
 {
 	[_world loopStart];
-	[_world setDelta:delta];
+	[_world setDelta:(1000.0f * delta)];
 	
     [_physicsSystem process];
     [_collisionSystem process];

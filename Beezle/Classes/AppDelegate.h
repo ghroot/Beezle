@@ -16,6 +16,8 @@
 {
 	UIWindow *_window;
 	RootViewController *_viewController;
+    
+    Game *_game;
 }
 
 @property (nonatomic, retain) UIWindow *window;

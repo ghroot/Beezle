@@ -13,15 +13,21 @@
 
 @implementation MainMenuState
 
--(void) initialise
+-(id) init
 {
-    CCMenuItem *play1MenuItem = [CCMenuItemFont itemFromString:@"Play A5" target:self selector:@selector(startGameA5:)];
-	CCMenuItem *play2MenuItem = [CCMenuItemFont itemFromString:@"Play A9" target:self selector:@selector(startGameA9:)];
-    CCMenuItem *testMenuItem = [CCMenuItemFont itemFromString:@"Test" target:self selector:@selector(startTest:)];
-    _menu = [CCMenu menuWithItems: play1MenuItem, play2MenuItem, testMenuItem, nil];
-    [_menu alignItemsVerticallyWithPadding:20.0f];
-    
-    [self addChild:_menu];
+    if (self = [super init])
+    {   
+        [[CCDirector sharedDirector] setNeedClear:TRUE];
+        
+        CCMenuItem *play1MenuItem = [CCMenuItemFont itemFromString:@"Play A5" target:self selector:@selector(startGameA5:)];
+        CCMenuItem *play2MenuItem = [CCMenuItemFont itemFromString:@"Play A9" target:self selector:@selector(startGameA9:)];
+        CCMenuItem *testMenuItem = [CCMenuItemFont itemFromString:@"Test" target:self selector:@selector(startTest:)];
+        _menu = [CCMenu menuWithItems: play1MenuItem, play2MenuItem, testMenuItem, nil];
+        [_menu alignItemsVerticallyWithPadding:20.0f];
+        
+        [self addChild:_menu];
+    }
+    return self;
 }
 
 -(void) startGameA5:(id)sender

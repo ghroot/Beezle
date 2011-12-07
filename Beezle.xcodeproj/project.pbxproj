@@ -149,8 +149,23 @@
 		2C1147F1148D45C7002E4DBD /* Level-A5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1147ED148D45BF002E4DBD /* Level-A5.png */; };
 		2C1147F2148D45C7002E4DBD /* Level-A9-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1147EE148D45C1002E4DBD /* Level-A9-hd.png */; };
 		2C1147F3148D45C7002E4DBD /* Level-A9.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1147EF148D45C3002E4DBD /* Level-A9.png */; };
-		2C114806148E923F002E4DBD /* CocosStateBasedGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C114805148E923B002E4DBD /* CocosStateBasedGame.m */; };
 		2C114809148E9317002E4DBD /* IngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C114808148E9317002E4DBD /* IngameMenuState.m */; };
+		2C157BF0148FEA8E003F9040 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157BED148FEA8E003F9040 /* Game.m */; };
+		2C157BF1148FEA8E003F9040 /* GameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157BEF148FEA8E003F9040 /* GameState.m */; };
+		2C157BF3149009F9003F9040 /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BF2149009F9003F9040 /* Pause.png */; };
+		2C157C0014900A3C003F9040 /* Level-A5-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BF414900A3C003F9040 /* Level-A5-hd.jpg */; };
+		2C157C0114900A3C003F9040 /* Level-A5-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BF514900A3C003F9040 /* Level-A5-hd.plist */; };
+		2C157C0214900A3C003F9040 /* Level-A5-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BF614900A3C003F9040 /* Level-A5-hd.pvr.ccz */; };
+		2C157C0314900A3C003F9040 /* Level-A5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BF714900A3C003F9040 /* Level-A5.jpg */; };
+		2C157C0414900A3C003F9040 /* Level-A5.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BF814900A3C003F9040 /* Level-A5.plist */; };
+		2C157C0514900A3C003F9040 /* Level-A5.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BF914900A3C003F9040 /* Level-A5.pvr.ccz */; };
+		2C157C0614900A3C003F9040 /* Level-A9-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BFA14900A3C003F9040 /* Level-A9-hd.jpg */; };
+		2C157C0714900A3C003F9040 /* Level-A9-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BFB14900A3C003F9040 /* Level-A9-hd.plist */; };
+		2C157C0814900A3C003F9040 /* Level-A9-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BFC14900A3C003F9040 /* Level-A9-hd.pvr.ccz */; };
+		2C157C0914900A3C003F9040 /* Level-A9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BFD14900A3C003F9040 /* Level-A9.jpg */; };
+		2C157C0A14900A3C003F9040 /* Level-A9.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BFE14900A3C003F9040 /* Level-A9.plist */; };
+		2C157C0B14900A3C003F9040 /* Level-A9.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BFF14900A3C003F9040 /* Level-A9.pvr.ccz */; };
+		2C157C0E14901B88003F9040 /* DebugRenderPhysicsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C0D14901B88003F9040 /* DebugRenderPhysicsLayer.m */; };
 		2C3A6F8514898085002721E3 /* Bee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7514898085002721E3 /* Bee-Animations.plist */; };
 		2C3A6F8614898085002721E3 /* Beeater-Body-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */; };
 		2C3A6F8714898085002721E3 /* Beeater-Head-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */; };
@@ -208,21 +223,12 @@
 		2CAE05FB14705F4A0023FA94 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE05FA14705F4A0023FA94 /* EntityFactory.m */; };
 		2CD33EBE147C5DAC000869C1 /* PhysicsShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EBD147C5DAB000869C1 /* PhysicsShape.m */; };
 		2CD33EC1147C5DBF000869C1 /* PhysicsBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EC0147C5DBF000869C1 /* PhysicsBody.m */; };
-		2CD33ED0147D72A2000869C1 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EC8147D72A2000869C1 /* Game.m */; };
-		2CD33ED1147D72A2000869C1 /* GameContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33ECA147D72A2000869C1 /* GameContainer.m */; };
-		2CD33ED2147D72A2000869C1 /* GameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33ECC147D72A2000869C1 /* GameState.m */; };
-		2CD33ED3147D72A2000869C1 /* StateBasedGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33ECF147D72A2000869C1 /* StateBasedGame.m */; };
 		2CD33ED8147D72AD000869C1 /* GameplayState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33ED7147D72AD000869C1 /* GameplayState.m */; };
-		2CD33EDD147D72BC000869C1 /* Beezle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EDA147D72BB000869C1 /* Beezle.m */; };
-		2CD33EDE147D72BC000869C1 /* CocosGameContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EDC147D72BC000869C1 /* CocosGameContainer.m */; };
-		2CD33EE1147DA02B000869C1 /* ForwardLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE0147DA02A000869C1 /* ForwardLayer.m */; };
-		2CD33EE4147DAF63000869C1 /* Touch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE3147DAF62000869C1 /* Touch.m */; };
 		2CD33EE7147EE3C6000869C1 /* EntityComponentSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE6147EE3C6000869C1 /* EntityComponentSystem.m */; };
 		2CD33EEA147EE7AD000869C1 /* TestState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE9147EE7AD000869C1 /* TestState.m */; };
 		2CD33EF3147EFFA8000869C1 /* MainMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EF2147EFFA7000869C1 /* MainMenuState.m */; };
 		2CD48B8B14801833007D90D9 /* Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48B8A14801833007D90D9 /* Manager.m */; };
 		2CD48B8E14801A4F007D90D9 /* EntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48B8D14801A4E007D90D9 /* EntitySystem.m */; };
-		2CD48B9114802E51007D90D9 /* CocosGameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48B9014802E51007D90D9 /* CocosGameState.m */; };
 		2CEA3278145F66F7000FF575 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3277145F66F7000FF575 /* QuartzCore.framework */; };
 		2CEA327A145F66F7000FF575 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3279145F66F7000FF575 /* OpenGLES.framework */; };
 		2CEA327C145F66F7000FF575 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA327B145F66F7000FF575 /* OpenAL.framework */; };
@@ -573,10 +579,28 @@
 		2C1147ED148D45BF002E4DBD /* Level-A5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level-A5.png"; sourceTree = "<group>"; };
 		2C1147EE148D45C1002E4DBD /* Level-A9-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level-A9-hd.png"; sourceTree = "<group>"; };
 		2C1147EF148D45C3002E4DBD /* Level-A9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level-A9.png"; sourceTree = "<group>"; };
-		2C114804148E923A002E4DBD /* CocosStateBasedGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocosStateBasedGame.h; path = Classes/CocosStateBasedGame.h; sourceTree = "<group>"; };
-		2C114805148E923B002E4DBD /* CocosStateBasedGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CocosStateBasedGame.m; path = Classes/CocosStateBasedGame.m; sourceTree = "<group>"; };
 		2C114807148E9317002E4DBD /* IngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngameMenuState.h; sourceTree = "<group>"; };
 		2C114808148E9317002E4DBD /* IngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngameMenuState.m; sourceTree = "<group>"; };
+		2C157BEB148FE920003F9040 /* TouchTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchTypes.h; path = Classes/TouchTypes.h; sourceTree = "<group>"; };
+		2C157BEC148FEA8E003F9040 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		2C157BED148FEA8E003F9040 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		2C157BEE148FEA8E003F9040 /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
+		2C157BEF148FEA8E003F9040 /* GameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameState.m; sourceTree = "<group>"; };
+		2C157BF2149009F9003F9040 /* Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Pause.png; path = Resources/Pause.png; sourceTree = "<group>"; };
+		2C157BF414900A3C003F9040 /* Level-A5-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A5-hd.jpg"; sourceTree = "<group>"; };
+		2C157BF514900A3C003F9040 /* Level-A5-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A5-hd.plist"; sourceTree = "<group>"; };
+		2C157BF614900A3C003F9040 /* Level-A5-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Level-A5-hd.pvr.ccz"; sourceTree = "<group>"; };
+		2C157BF714900A3C003F9040 /* Level-A5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A5.jpg"; sourceTree = "<group>"; };
+		2C157BF814900A3C003F9040 /* Level-A5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A5.plist"; sourceTree = "<group>"; };
+		2C157BF914900A3C003F9040 /* Level-A5.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Level-A5.pvr.ccz"; sourceTree = "<group>"; };
+		2C157BFA14900A3C003F9040 /* Level-A9-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A9-hd.jpg"; sourceTree = "<group>"; };
+		2C157BFB14900A3C003F9040 /* Level-A9-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A9-hd.plist"; sourceTree = "<group>"; };
+		2C157BFC14900A3C003F9040 /* Level-A9-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Level-A9-hd.pvr.ccz"; sourceTree = "<group>"; };
+		2C157BFD14900A3C003F9040 /* Level-A9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A9.jpg"; sourceTree = "<group>"; };
+		2C157BFE14900A3C003F9040 /* Level-A9.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A9.plist"; sourceTree = "<group>"; };
+		2C157BFF14900A3C003F9040 /* Level-A9.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Level-A9.pvr.ccz"; sourceTree = "<group>"; };
+		2C157C0C14901B88003F9040 /* DebugRenderPhysicsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugRenderPhysicsLayer.h; path = Classes/System/DebugRenderPhysicsLayer.h; sourceTree = "<group>"; };
+		2C157C0D14901B88003F9040 /* DebugRenderPhysicsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugRenderPhysicsLayer.m; path = Classes/System/DebugRenderPhysicsLayer.m; sourceTree = "<group>"; };
 		2C3A6F7514898085002721E3 /* Bee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bee-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Body-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Head-Animations.plist"; sourceTree = "<group>"; };
@@ -669,25 +693,8 @@
 		2CD33EBD147C5DAB000869C1 /* PhysicsShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhysicsShape.m; path = Classes/Component/PhysicsShape.m; sourceTree = "<group>"; };
 		2CD33EBF147C5DBF000869C1 /* PhysicsBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsBody.h; path = Classes/Component/PhysicsBody.h; sourceTree = "<group>"; };
 		2CD33EC0147C5DBF000869C1 /* PhysicsBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhysicsBody.m; path = Classes/Component/PhysicsBody.m; sourceTree = "<group>"; };
-		2CD33EC7147D72A2000869C1 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
-		2CD33EC8147D72A2000869C1 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
-		2CD33EC9147D72A2000869C1 /* GameContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameContainer.h; sourceTree = "<group>"; };
-		2CD33ECA147D72A2000869C1 /* GameContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameContainer.m; sourceTree = "<group>"; };
-		2CD33ECB147D72A2000869C1 /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
-		2CD33ECC147D72A2000869C1 /* GameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameState.m; sourceTree = "<group>"; };
-		2CD33ECD147D72A2000869C1 /* slick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = slick.h; sourceTree = "<group>"; };
-		2CD33ECE147D72A2000869C1 /* StateBasedGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateBasedGame.h; sourceTree = "<group>"; };
-		2CD33ECF147D72A2000869C1 /* StateBasedGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateBasedGame.m; sourceTree = "<group>"; };
 		2CD33ED6147D72AD000869C1 /* GameplayState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameplayState.h; sourceTree = "<group>"; };
 		2CD33ED7147D72AD000869C1 /* GameplayState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameplayState.m; sourceTree = "<group>"; };
-		2CD33ED9147D72BB000869C1 /* Beezle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Beezle.h; path = Classes/Beezle.h; sourceTree = "<group>"; };
-		2CD33EDA147D72BB000869C1 /* Beezle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Beezle.m; path = Classes/Beezle.m; sourceTree = "<group>"; };
-		2CD33EDB147D72BC000869C1 /* CocosGameContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocosGameContainer.h; path = Classes/CocosGameContainer.h; sourceTree = "<group>"; };
-		2CD33EDC147D72BC000869C1 /* CocosGameContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CocosGameContainer.m; path = Classes/CocosGameContainer.m; sourceTree = "<group>"; };
-		2CD33EDF147DA028000869C1 /* ForwardLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; name = ForwardLayer.h; path = Classes/ForwardLayer.h; sourceTree = "<group>"; };
-		2CD33EE0147DA02A000869C1 /* ForwardLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForwardLayer.m; path = Classes/ForwardLayer.m; sourceTree = "<group>"; };
-		2CD33EE2147DAF60000869C1 /* Touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Touch.h; path = Classes/Touch.h; sourceTree = "<group>"; };
-		2CD33EE3147DAF62000869C1 /* Touch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Touch.m; path = Classes/Touch.m; sourceTree = "<group>"; };
 		2CD33EE5147EE3C6000869C1 /* EntityComponentSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityComponentSystem.h; path = Classes/Artemis/EntityComponentSystem.h; sourceTree = "<group>"; };
 		2CD33EE6147EE3C6000869C1 /* EntityComponentSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityComponentSystem.m; path = Classes/Artemis/EntityComponentSystem.m; sourceTree = "<group>"; };
 		2CD33EE8147EE7AD000869C1 /* TestState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestState.h; sourceTree = "<group>"; };
@@ -698,8 +705,6 @@
 		2CD48B8A14801833007D90D9 /* Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Manager.m; path = Classes/Artemis/Manager.m; sourceTree = "<group>"; };
 		2CD48B8C14801A4E007D90D9 /* EntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntitySystem.h; path = Classes/Artemis/EntitySystem.h; sourceTree = "<group>"; };
 		2CD48B8D14801A4E007D90D9 /* EntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntitySystem.m; path = Classes/Artemis/EntitySystem.m; sourceTree = "<group>"; };
-		2CD48B8F14802E51007D90D9 /* CocosGameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosGameState.h; sourceTree = "<group>"; };
-		2CD48B9014802E51007D90D9 /* CocosGameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosGameState.m; sourceTree = "<group>"; };
 		2CEA3273145F66F7000FF575 /* Beezle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beezle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CEA3277145F66F7000FF575 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2CEA3279145F66F7000FF575 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1216,14 +1221,26 @@
 		2C3A6F6F14898085002721E3 /* Level */ = {
 			isa = PBXGroup;
 			children = (
+				2C157BF414900A3C003F9040 /* Level-A5-hd.jpg */,
+				2C157BF514900A3C003F9040 /* Level-A5-hd.plist */,
 				2C1147EC148D45BF002E4DBD /* Level-A5-hd.png */,
-				2C1147ED148D45BF002E4DBD /* Level-A5.png */,
-				2C1147EE148D45C1002E4DBD /* Level-A9-hd.png */,
-				2C1147EF148D45C3002E4DBD /* Level-A9.png */,
-				2C764E97148A894F00820587 /* Level-A9-Layout.plist */,
-				2C764DDE148A525B00820587 /* Level-A5-Shapes.plist */,
-				2C764DD3148A1C5F00820587 /* Level-A9-Shapes.plist */,
+				2C157BF614900A3C003F9040 /* Level-A5-hd.pvr.ccz */,
 				2C764DEC148A627700820587 /* Level-A5-Layout.plist */,
+				2C764DDE148A525B00820587 /* Level-A5-Shapes.plist */,
+				2C157BF714900A3C003F9040 /* Level-A5.jpg */,
+				2C157BF814900A3C003F9040 /* Level-A5.plist */,
+				2C1147ED148D45BF002E4DBD /* Level-A5.png */,
+				2C157BF914900A3C003F9040 /* Level-A5.pvr.ccz */,
+				2C157BFA14900A3C003F9040 /* Level-A9-hd.jpg */,
+				2C157BFB14900A3C003F9040 /* Level-A9-hd.plist */,
+				2C1147EE148D45C1002E4DBD /* Level-A9-hd.png */,
+				2C157BFC14900A3C003F9040 /* Level-A9-hd.pvr.ccz */,
+				2C764E97148A894F00820587 /* Level-A9-Layout.plist */,
+				2C764DD3148A1C5F00820587 /* Level-A9-Shapes.plist */,
+				2C157BFD14900A3C003F9040 /* Level-A9.jpg */,
+				2C157BFE14900A3C003F9040 /* Level-A9.plist */,
+				2C1147EF148D45C3002E4DBD /* Level-A9.png */,
+				2C157BFF14900A3C003F9040 /* Level-A9.pvr.ccz */,
 			);
 			name = Level;
 			path = Resources/Level;
@@ -1278,6 +1295,8 @@
 				2CADCC7614732ADB00302475 /* CollisionSystem.m */,
 				2C5B86DE1479155700028179 /* DebugRenderPhysicsSystem.h */,
 				2C5B86DF1479155700028179 /* DebugRenderPhysicsSystem.m */,
+				2C157C0C14901B88003F9040 /* DebugRenderPhysicsLayer.h */,
+				2C157C0D14901B88003F9040 /* DebugRenderPhysicsLayer.m */,
 				2CADCC6F1471C76400302475 /* InputAction.h */,
 				2CADCC701471C76400302475 /* InputAction.m */,
 				2C7CE61A146C73FE001F331F /* InputSystem.h */,
@@ -1348,28 +1367,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2CD33EC6147D72A1000869C1 /* Slick */ = {
-			isa = PBXGroup;
-			children = (
-				2CD33ECD147D72A2000869C1 /* slick.h */,
-				2CD33EC7147D72A2000869C1 /* Game.h */,
-				2CD33EC8147D72A2000869C1 /* Game.m */,
-				2CD33ECE147D72A2000869C1 /* StateBasedGame.h */,
-				2CD33ECF147D72A2000869C1 /* StateBasedGame.m */,
-				2CD33EC9147D72A2000869C1 /* GameContainer.h */,
-				2CD33ECA147D72A2000869C1 /* GameContainer.m */,
-				2CD33ECB147D72A2000869C1 /* GameState.h */,
-				2CD33ECC147D72A2000869C1 /* GameState.m */,
-			);
-			name = Slick;
-			path = Classes/Slick;
-			sourceTree = "<group>";
-		};
 		2CD33ED5147D72AC000869C1 /* State */ = {
 			isa = PBXGroup;
 			children = (
-				2CD48B8F14802E51007D90D9 /* CocosGameState.h */,
-				2CD48B9014802E51007D90D9 /* CocosGameState.m */,
+				2C157BEC148FEA8E003F9040 /* Game.h */,
+				2C157BED148FEA8E003F9040 /* Game.m */,
+				2C157BEE148FEA8E003F9040 /* GameState.h */,
+				2C157BEF148FEA8E003F9040 /* GameState.m */,
 				2CD33EF1147EFFA7000869C1 /* MainMenuState.h */,
 				2CD33EF2147EFFA7000869C1 /* MainMenuState.m */,
 				2C114807148E9317002E4DBD /* IngameMenuState.h */,
@@ -1433,6 +1437,7 @@
 		2CEA3288145F66F7000FF575 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C157BF2149009F9003F9040 /* Pause.png */,
 				2C764E9B148A917300820587 /* Sounds */,
 				2C3A6F6F14898085002721E3 /* Level */,
 				2C3A6F7414898085002721E3 /* Sprites */,
@@ -1514,34 +1519,24 @@
 			children = (
 				2C1147DE148BF75C002E4DBD /* Utils */,
 				2C7CE613146B356D001F331F /* Artemis */,
-				2CD33EC6147D72A1000869C1 /* Slick */,
 				2CD33ED5147D72AC000869C1 /* State */,
 				2CEA35281466B202000FF575 /* Component */,
 				2C7CE5F31469ACDE001F331F /* System */,
 				2CEA3479145F66F9000FF575 /* AppDelegate.h */,
 				2CEA347A145F66F9000FF575 /* AppDelegate.m */,
 				2C3A6F97148980BE002721E3 /* BeeTypes.h */,
-				2CD33ED9147D72BB000869C1 /* Beezle.h */,
-				2CD33EDA147D72BB000869C1 /* Beezle.m */,
-				2CD33EDB147D72BC000869C1 /* CocosGameContainer.h */,
-				2CD33EDC147D72BC000869C1 /* CocosGameContainer.m */,
-				2C114804148E923A002E4DBD /* CocosStateBasedGame.h */,
-				2C114805148E923B002E4DBD /* CocosStateBasedGame.m */,
 				2C827D3514840C3500517C8F /* CollisionTypes.h */,
 				2CAE05F914705F490023FA94 /* EntityFactory.h */,
 				2CAE05FA14705F4A0023FA94 /* EntityFactory.m */,
-				2CD33EDF147DA028000869C1 /* ForwardLayer.h */,
-				2CD33EE0147DA02A000869C1 /* ForwardLayer.m */,
 				2CEA347C145F66F9000FF575 /* RootViewController.h */,
 				2CEA347D145F66F9000FF575 /* RootViewController.m */,
-				2CD33EE2147DAF60000869C1 /* Touch.h */,
-				2CD33EE3147DAF62000869C1 /* Touch.m */,
 				2C764DEE148A71C400820587 /* LevelLayoutCache.h */,
 				2C764DEF148A71C400820587 /* LevelLayoutCache.m */,
 				2C764E91148A794200820587 /* LevelLayout.h */,
 				2C764E92148A794300820587 /* LevelLayout.m */,
 				2C764E94148A7C4E00820587 /* LevelLayoutEntry.h */,
 				2C764E95148A7C4F00820587 /* LevelLayoutEntry.m */,
+				2C157BEB148FE920003F9040 /* TouchTypes.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1728,6 +1723,19 @@
 				2C1147F1148D45C7002E4DBD /* Level-A5.png in Resources */,
 				2C1147F2148D45C7002E4DBD /* Level-A9-hd.png in Resources */,
 				2C1147F3148D45C7002E4DBD /* Level-A9.png in Resources */,
+				2C157BF3149009F9003F9040 /* Pause.png in Resources */,
+				2C157C0014900A3C003F9040 /* Level-A5-hd.jpg in Resources */,
+				2C157C0114900A3C003F9040 /* Level-A5-hd.plist in Resources */,
+				2C157C0214900A3C003F9040 /* Level-A5-hd.pvr.ccz in Resources */,
+				2C157C0314900A3C003F9040 /* Level-A5.jpg in Resources */,
+				2C157C0414900A3C003F9040 /* Level-A5.plist in Resources */,
+				2C157C0514900A3C003F9040 /* Level-A5.pvr.ccz in Resources */,
+				2C157C0614900A3C003F9040 /* Level-A9-hd.jpg in Resources */,
+				2C157C0714900A3C003F9040 /* Level-A9-hd.plist in Resources */,
+				2C157C0814900A3C003F9040 /* Level-A9-hd.pvr.ccz in Resources */,
+				2C157C0914900A3C003F9040 /* Level-A9.jpg in Resources */,
+				2C157C0A14900A3C003F9040 /* Level-A9.plist in Resources */,
+				2C157C0B14900A3C003F9040 /* Level-A9.pvr.ccz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1792,21 +1800,12 @@
 				2C44B5BB147B1960000CF537 /* GroupEntitySystem.m in Sources */,
 				2CD33EBE147C5DAC000869C1 /* PhysicsShape.m in Sources */,
 				2CD33EC1147C5DBF000869C1 /* PhysicsBody.m in Sources */,
-				2CD33ED0147D72A2000869C1 /* Game.m in Sources */,
-				2CD33ED1147D72A2000869C1 /* GameContainer.m in Sources */,
-				2CD33ED2147D72A2000869C1 /* GameState.m in Sources */,
-				2CD33ED3147D72A2000869C1 /* StateBasedGame.m in Sources */,
 				2CD33ED8147D72AD000869C1 /* GameplayState.m in Sources */,
-				2CD33EDD147D72BC000869C1 /* Beezle.m in Sources */,
-				2CD33EDE147D72BC000869C1 /* CocosGameContainer.m in Sources */,
-				2CD33EE1147DA02B000869C1 /* ForwardLayer.m in Sources */,
-				2CD33EE4147DAF63000869C1 /* Touch.m in Sources */,
 				2CD33EE7147EE3C6000869C1 /* EntityComponentSystem.m in Sources */,
 				2CD33EEA147EE7AD000869C1 /* TestState.m in Sources */,
 				2CD33EF3147EFFA8000869C1 /* MainMenuState.m in Sources */,
 				2CD48B8B14801833007D90D9 /* Manager.m in Sources */,
 				2CD48B8E14801A4F007D90D9 /* EntitySystem.m in Sources */,
-				2CD48B9114802E51007D90D9 /* CocosGameState.m in Sources */,
 				2C827D3814840C4900517C8F /* RenderSprite.m in Sources */,
 				2C3A6F931489809F002721E3 /* BeeSystem.m in Sources */,
 				2C3A6F96148980AF002721E3 /* BeeComponent.m in Sources */,
@@ -1942,8 +1941,10 @@
 				2C1147E1148BF77C002E4DBD /* Utils.m in Sources */,
 				2C1147E6148D4293002E4DBD /* BeeaterComponent.m in Sources */,
 				2C1147E7148D4293002E4DBD /* SlingerComponent.m in Sources */,
-				2C114806148E923F002E4DBD /* CocosStateBasedGame.m in Sources */,
 				2C114809148E9317002E4DBD /* IngameMenuState.m in Sources */,
+				2C157BF0148FEA8E003F9040 /* Game.m in Sources */,
+				2C157BF1148FEA8E003F9040 /* GameState.m in Sources */,
+				2C157C0E14901B88003F9040 /* DebugRenderPhysicsLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,7 +24,7 @@
 
 -(void) dealloc
 {
-	[self unScheduleUpdate];
+	[self unscheduleUpdate];
 	
 	[super dealloc];
 }

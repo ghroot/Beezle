@@ -6,13 +6,17 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "EntityComponentSystem.h"
 #import "artemis.h"
-#import "chipmunk.h"
 #import "cocos2d.h"
 
-@interface DebugRenderPhysicsSystem : EntityComponentSystem
+@class DebugRenderPhysicsLayer;
 
--(void) drawShape:(cpShape *)shape;
+@interface DebugRenderPhysicsSystem : EntityComponentSystem
+{
+    CCScene *_scene;
+    DebugRenderPhysicsLayer *_debugRenderPhysicsLayer;
+}
+
+-(id) initWithScene:(CCScene *)scene;
 
 @end

@@ -91,7 +91,7 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     
     BodyInfo *bodyInfo = [[GCpShapeCache sharedShapeCache] createBodyWithName:bodyName];
     
-    PhysicsComponent *physicsComponent = [PhysicsComponent physicsBodyWithBody:[bodyInfo physicsBody] andShapes:[bodyInfo physicsShapes]];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:[bodyInfo physicsBody] andShapes:[bodyInfo physicsShapes]];
     
     if (isStatic)
     {

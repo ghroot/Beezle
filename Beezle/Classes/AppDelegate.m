@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "Game.h"
+#import "GameplayState.h"
+#import "MainMenuState.h"
 #import "RootViewController.h"
 
 @implementation AppDelegate
@@ -65,6 +67,7 @@
     // Create game
     _game = [[Game alloc] init];
 	[_game startWithState:[MainMenuState state]];
+//    [_game startWithState:[GameplayState stateWithLevelName:@"Level-A5"]];
 }
 
 -(void) applicationWillResignActive:(UIApplication *)application

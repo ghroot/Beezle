@@ -41,6 +41,8 @@
 {
     if (self = [super init])
     {
+        [[CCDirector sharedDirector] setNeedClear:TRUE];
+        
 		_layer = [[CCLayer alloc] init];
 		[self addChild:_layer];
 		
@@ -52,7 +54,7 @@
 		[systemManager setSystem:_physicsSystem];
 		_renderSystem = [[RenderSystem alloc] initWithLayer:_layer];
 		[systemManager setSystem:_renderSystem];
-		_debugRenderPhysicsSystem = [[DebugRenderPhysicsSystem alloc] init];
+		_debugRenderPhysicsSystem = [[DebugRenderPhysicsSystem alloc] initWithScene:self];
 		[systemManager setSystem:_debugRenderPhysicsSystem];
     
 		[systemManager initialiseAll];
@@ -63,12 +65,16 @@
 		
 		_interval = 5;
 		_countdown = _interval;
+        
+        [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:TRUE];
     }
     return self;
 }
 
 -(void) dealloc
 {
+    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+    
 	[_world release];
 	
     [_physicsSystem release];
@@ -84,7 +90,7 @@
 -(void) update:(ccTime)delta
 {
 	[_world loopStart];
-	[_world setDelta:delta];
+	[_world setDelta:(1000.0f * delta)];
 	
     [[_world systemManager] processAll];
 	
@@ -142,11 +148,6 @@
 	}
 	
 	return TRUE;
-}
-
--(void) touchBegan:(Touch *)touch
-{
-
 }
 
 @end
