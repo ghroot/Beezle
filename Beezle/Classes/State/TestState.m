@@ -7,11 +7,13 @@
 //
 
 #import "TestState.h"
+#import "Beezle.h"
 #import "BoundrySystem.h"
 #import "CocosGameContainer.h"
 #import "CollisionSystem.h"
 #import "DebugRenderPhysicsSystem.h"
 #import "EntityFactory.h"
+#import "ForwardLayer.h"
 #import "InputAction.h"
 #import "InputSystem.h"
 #import "PhysicsBody.h"
@@ -118,7 +120,7 @@
 -(void) touchBegan:(Touch *)touch
 {
 	// TEMP: Go to main menu by touching top left corner
-	CCSize winSize = [[CCDirector sharedDirector] winSize];
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	if ([touch point].x <= 20 && [touch point].y >= winSize.height - 20)
 	{
 		[_game enterState:STATE_MAIN_MENU];

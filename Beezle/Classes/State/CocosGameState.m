@@ -8,17 +8,19 @@
 
 #import "CocosGameState.h"
 #import "CocosGameContainer.h"
+#import "ForwardLayer.h"
 
 @implementation CocosGameState
 
 @synthesize scene = _scene;
+@synthesize layer = _layer;
 
 -(id) initWithId:(int)stateId
 {
     if (self = [super initWithId:stateId])
     {
         _scene = [[CCScene alloc] init];
-        _layer = [[CCLayer alloc] init];
+        _layer = [[ForwardLayer alloc] init];
         [_scene addChild:_layer];
     }
     return self;

@@ -9,16 +9,9 @@
 #import "cocos2d.h"
 #import "slick.h"
 
-@class ForwardNode;
 @class Touch;
 
 @interface CocosGameContainer : GameContainer
-{
-    ForwardNode *_forwardNode;
-}
-
--(void) setScene:(CCScene *)scene keepCurrent:(BOOL)keepCurrent;
--(void) gotoPreviousScene;
 
 -(void) onUpdate:(NSNumber *)delta;
 -(void) onDraw;

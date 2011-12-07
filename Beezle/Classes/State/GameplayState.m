@@ -8,12 +8,14 @@
 
 #import "GameplayState.h"
 #import "BeeSystem.h"
+#import "Beezle.h"
 #import "BoundrySystem.h"
 #import "CocosGameContainer.h"
 #import "CocosStateBasedGame.h"
 #import "CollisionSystem.h"
 #import "DebugRenderPhysicsSystem.h"
 #import "EntityFactory.h"
+#import "ForwardLayer.h"
 #import "InputAction.h"
 #import "InputSystem.h"
 #import "LevelLayout.h"
@@ -132,7 +134,7 @@
         }
         else if ([[levelLayoutEntry type] isEqualToString:@"MUSHROOM"])
         {
-//            [EntityFactory createMushroom:_world withPosition:[levelLayoutEntry position]];
+            [EntityFactory createMushroom:_world withPosition:[levelLayoutEntry position]];
         }
         else if ([[levelLayoutEntry type] isEqualToString:@"WOOD"])
         {
@@ -165,7 +167,7 @@
 -(void) touchBegan:(Touch *)touch
 {
 	// TEMP: Go to ingame menu by touching top left corner
-	CCSize winSize = [[CCDirector sharedDirector] winSize];
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	if ([touch point].x <= 20 && [touch point].y >= winSize.height - 20)
 	{
 		CocosStateBasedGame *cocosStateBasedGame = (CocosStateBasedGame *)[self game];

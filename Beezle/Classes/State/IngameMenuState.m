@@ -7,6 +7,7 @@
 //
 
 #import "IngameMenuState.h"
+#import "Beezle.h"
 #import "CocosGameContainer.h"
 #import "CocosStateBasedGame.h"
 

@@ -31,7 +31,6 @@
 		
 		// Empty state on creation to avoid nil issues
         GameState *emptyState = [[[GameState alloc] initWithId:-1] autorelease];
-        [self addState:emptyState];
 		_currentState = emptyState;
     }
     return self;
@@ -70,6 +69,11 @@
 -(GameState *) getState:(int)stateId
 {
 	return [_statesById objectForKey:[NSNumber numberWithInt:stateId]];
+}
+
+-(NSArray *) states
+{
+    return [_statesById allValues];
 }
 
 -(void) initialise

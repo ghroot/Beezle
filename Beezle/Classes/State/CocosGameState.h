@@ -9,12 +9,15 @@
 #import "GameState.h"
 #import "cocos2d.h"
 
+@class ForwardLayer;
+
 @interface CocosGameState : GameState
 {
     CCScene *_scene;
-    CCLayer *_layer;
+    ForwardLayer *_layer;
 }
 
 @property (nonatomic, readonly) CCScene *scene;
+@property (nonatomic, readonly) ForwardLayer *layer;
 
 @end

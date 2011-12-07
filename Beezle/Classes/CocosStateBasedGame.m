@@ -7,16 +7,19 @@
 //
 
 #import "CocosStateBasedGame.h"
+#import "CocosGameContainer.h"
+#import "CocosGameState.h"
+#import "ForwardLayer.h"
 
 @implementation CocosStateBasedGame
 
--(void) init
+-(id) init
 {
 	if (self = [super init])
 	{
 		_stateStack = [[NSMutableArray alloc] init];
 	}
-	return self
+	return self;
 }
 
 -(void) dealloc
@@ -35,9 +38,10 @@
 	[_currentState leave];
 	_currentState = [self getState:stateId];
 
-	CocosGameContainer *cocosGameContainer = (CocosGameContainer *)[self container];
 	CocosGameState *cocosGameState = (CocosGameState *)_currentState;
-	[cocosGameContainer setScene:[cocosGameState scene] keepCurrent:FALSE];
+    [[CCDirector sharedDirector] replaceScene:[cocosGameState scene]];
+    [[cocosGameState layer] unscheduleUpdate];
+    [[cocosGameState layer] scheduleUpdate];
 	
 	[_currentState enter];
 }
@@ -51,9 +55,10 @@
 	[_currentState leave];
 	_currentState = [self getState:stateId];
 
-	CocosGameContainer *cocosGameContainer = (CocosGameContainer *)[self container];
 	CocosGameState *cocosGameState = (CocosGameState *)_currentState;
-	[cocosGameContainer setScene:[cocosGameState scene] keepCurrent:TRUE];
+    [[CCDirector sharedDirector] pushScene:[cocosGameState scene]];
+    [[cocosGameState layer] unscheduleUpdate];
+    [[cocosGameState layer] scheduleUpdate];
 	
 	[_currentState enter];
 }
@@ -69,10 +74,11 @@
 	[_currentState leave];
 	_currentState = [self getState:stateId];
 
-	CocosGameContainer *cocosGameContainer = (CocosGameContainer *)[self container];
 	CocosGameState *cocosGameState = (CocosGameState *)_currentState;
-	[cocosGameContainer gotoPreviousScene];
-	[cocosGameContainer setScene:[cocosGameState scene] keepCurrent:FALSE];
+    [[CCDirector sharedDirector] popScene];
+    [[CCDirector sharedDirector] replaceScene:[cocosGameState scene]];
+    [[cocosGameState layer] unscheduleUpdate];
+    [[cocosGameState layer] scheduleUpdate];
 	
 	[_currentState enter];
 }
@@ -86,8 +92,10 @@
 	_currentState = [_stateStack lastObject];
 	[_stateStack removeLastObject];
 	
-	CocosGameContainer *cocosGameContainer = (CocosGameContainer *)[self container];
-	[cocosGameContainer gotoPreviousScene];
+    CocosGameState *cocosGameState = (CocosGameState *)_currentState;
+	[[CCDirector sharedDirector] popScene];
+    [[cocosGameState layer] unscheduleUpdate];
+    [[cocosGameState layer] scheduleUpdate];
 	
 	[_currentState enter];
 }

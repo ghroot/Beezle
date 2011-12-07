@@ -33,5 +33,6 @@
 -(GameState *) getCurrentState;
 -(int) getCurrentStateId;
 -(GameState *) getState:(int)stateId;
+-(NSArray *) states;
 
 @end

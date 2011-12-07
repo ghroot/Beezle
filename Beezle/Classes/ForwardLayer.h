@@ -8,7 +8,7 @@
 
 #import "cocos2d.h"
 
-@interface ForwardNode : CCLayer
+@interface ForwardLayer : CCLayer
 {
     id _target;
     SEL _updateSelector;

@@ -18,7 +18,7 @@
 {
     [self addState:[[[MainMenuState alloc] initWithId:STATE_MAIN_MENU] autorelease]];
     [self addState:[[[TestState alloc] initWithId:STATE_TEST] autorelease]];
-	[self addState:[[[InGameMenuState alloc] initWithId:STATE_INGAME_MENU] autorelease]];
+	[self addState:[[[IngameMenuState alloc] initWithId:STATE_INGAME_MENU] autorelease]];
 	[self addState:[[[GameplayState alloc] initWithId:STATE_GAMEPLAY] autorelease]];
 }
 

@@ -149,6 +149,8 @@
 		2C1147F1148D45C7002E4DBD /* Level-A5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1147ED148D45BF002E4DBD /* Level-A5.png */; };
 		2C1147F2148D45C7002E4DBD /* Level-A9-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1147EE148D45C1002E4DBD /* Level-A9-hd.png */; };
 		2C1147F3148D45C7002E4DBD /* Level-A9.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1147EF148D45C3002E4DBD /* Level-A9.png */; };
+		2C114806148E923F002E4DBD /* CocosStateBasedGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C114805148E923B002E4DBD /* CocosStateBasedGame.m */; };
+		2C114809148E9317002E4DBD /* IngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C114808148E9317002E4DBD /* IngameMenuState.m */; };
 		2C3A6F8514898085002721E3 /* Bee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7514898085002721E3 /* Bee-Animations.plist */; };
 		2C3A6F8614898085002721E3 /* Beeater-Body-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */; };
 		2C3A6F8714898085002721E3 /* Beeater-Head-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */; };
@@ -213,7 +215,7 @@
 		2CD33ED8147D72AD000869C1 /* GameplayState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33ED7147D72AD000869C1 /* GameplayState.m */; };
 		2CD33EDD147D72BC000869C1 /* Beezle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EDA147D72BB000869C1 /* Beezle.m */; };
 		2CD33EDE147D72BC000869C1 /* CocosGameContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EDC147D72BC000869C1 /* CocosGameContainer.m */; };
-		2CD33EE1147DA02B000869C1 /* ForwardNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE0147DA02A000869C1 /* ForwardNode.m */; };
+		2CD33EE1147DA02B000869C1 /* ForwardLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE0147DA02A000869C1 /* ForwardLayer.m */; };
 		2CD33EE4147DAF63000869C1 /* Touch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE3147DAF62000869C1 /* Touch.m */; };
 		2CD33EE7147EE3C6000869C1 /* EntityComponentSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE6147EE3C6000869C1 /* EntityComponentSystem.m */; };
 		2CD33EEA147EE7AD000869C1 /* TestState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE9147EE7AD000869C1 /* TestState.m */; };
@@ -571,6 +573,10 @@
 		2C1147ED148D45BF002E4DBD /* Level-A5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level-A5.png"; sourceTree = "<group>"; };
 		2C1147EE148D45C1002E4DBD /* Level-A9-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level-A9-hd.png"; sourceTree = "<group>"; };
 		2C1147EF148D45C3002E4DBD /* Level-A9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level-A9.png"; sourceTree = "<group>"; };
+		2C114804148E923A002E4DBD /* CocosStateBasedGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocosStateBasedGame.h; path = Classes/CocosStateBasedGame.h; sourceTree = "<group>"; };
+		2C114805148E923B002E4DBD /* CocosStateBasedGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CocosStateBasedGame.m; path = Classes/CocosStateBasedGame.m; sourceTree = "<group>"; };
+		2C114807148E9317002E4DBD /* IngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngameMenuState.h; sourceTree = "<group>"; };
+		2C114808148E9317002E4DBD /* IngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngameMenuState.m; sourceTree = "<group>"; };
 		2C3A6F7514898085002721E3 /* Bee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bee-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Body-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Head-Animations.plist"; sourceTree = "<group>"; };
@@ -678,8 +684,8 @@
 		2CD33EDA147D72BB000869C1 /* Beezle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Beezle.m; path = Classes/Beezle.m; sourceTree = "<group>"; };
 		2CD33EDB147D72BC000869C1 /* CocosGameContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocosGameContainer.h; path = Classes/CocosGameContainer.h; sourceTree = "<group>"; };
 		2CD33EDC147D72BC000869C1 /* CocosGameContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CocosGameContainer.m; path = Classes/CocosGameContainer.m; sourceTree = "<group>"; };
-		2CD33EDF147DA028000869C1 /* ForwardNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForwardNode.h; path = Classes/ForwardNode.h; sourceTree = "<group>"; };
-		2CD33EE0147DA02A000869C1 /* ForwardNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForwardNode.m; path = Classes/ForwardNode.m; sourceTree = "<group>"; };
+		2CD33EDF147DA028000869C1 /* ForwardLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; name = ForwardLayer.h; path = Classes/ForwardLayer.h; sourceTree = "<group>"; };
+		2CD33EE0147DA02A000869C1 /* ForwardLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForwardLayer.m; path = Classes/ForwardLayer.m; sourceTree = "<group>"; };
 		2CD33EE2147DAF60000869C1 /* Touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Touch.h; path = Classes/Touch.h; sourceTree = "<group>"; };
 		2CD33EE3147DAF62000869C1 /* Touch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Touch.m; path = Classes/Touch.m; sourceTree = "<group>"; };
 		2CD33EE5147EE3C6000869C1 /* EntityComponentSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityComponentSystem.h; path = Classes/Artemis/EntityComponentSystem.h; sourceTree = "<group>"; };
@@ -1366,6 +1372,8 @@
 				2CD48B9014802E51007D90D9 /* CocosGameState.m */,
 				2CD33EF1147EFFA7000869C1 /* MainMenuState.h */,
 				2CD33EF2147EFFA7000869C1 /* MainMenuState.m */,
+				2C114807148E9317002E4DBD /* IngameMenuState.h */,
+				2C114808148E9317002E4DBD /* IngameMenuState.m */,
 				2CD33ED6147D72AD000869C1 /* GameplayState.h */,
 				2CD33ED7147D72AD000869C1 /* GameplayState.m */,
 				2CD33EE8147EE7AD000869C1 /* TestState.h */,
@@ -1517,11 +1525,13 @@
 				2CD33EDA147D72BB000869C1 /* Beezle.m */,
 				2CD33EDB147D72BC000869C1 /* CocosGameContainer.h */,
 				2CD33EDC147D72BC000869C1 /* CocosGameContainer.m */,
+				2C114804148E923A002E4DBD /* CocosStateBasedGame.h */,
+				2C114805148E923B002E4DBD /* CocosStateBasedGame.m */,
 				2C827D3514840C3500517C8F /* CollisionTypes.h */,
 				2CAE05F914705F490023FA94 /* EntityFactory.h */,
 				2CAE05FA14705F4A0023FA94 /* EntityFactory.m */,
-				2CD33EDF147DA028000869C1 /* ForwardNode.h */,
-				2CD33EE0147DA02A000869C1 /* ForwardNode.m */,
+				2CD33EDF147DA028000869C1 /* ForwardLayer.h */,
+				2CD33EE0147DA02A000869C1 /* ForwardLayer.m */,
 				2CEA347C145F66F9000FF575 /* RootViewController.h */,
 				2CEA347D145F66F9000FF575 /* RootViewController.m */,
 				2CD33EE2147DAF60000869C1 /* Touch.h */,
@@ -1789,7 +1799,7 @@
 				2CD33ED8147D72AD000869C1 /* GameplayState.m in Sources */,
 				2CD33EDD147D72BC000869C1 /* Beezle.m in Sources */,
 				2CD33EDE147D72BC000869C1 /* CocosGameContainer.m in Sources */,
-				2CD33EE1147DA02B000869C1 /* ForwardNode.m in Sources */,
+				2CD33EE1147DA02B000869C1 /* ForwardLayer.m in Sources */,
 				2CD33EE4147DAF63000869C1 /* Touch.m in Sources */,
 				2CD33EE7147EE3C6000869C1 /* EntityComponentSystem.m in Sources */,
 				2CD33EEA147EE7AD000869C1 /* TestState.m in Sources */,
@@ -1932,6 +1942,8 @@
 				2C1147E1148BF77C002E4DBD /* Utils.m in Sources */,
 				2C1147E6148D4293002E4DBD /* BeeaterComponent.m in Sources */,
 				2C1147E7148D4293002E4DBD /* SlingerComponent.m in Sources */,
+				2C114806148E923F002E4DBD /* CocosStateBasedGame.m in Sources */,
+				2C114809148E9317002E4DBD /* IngameMenuState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
