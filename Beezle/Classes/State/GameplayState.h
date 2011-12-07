@@ -6,21 +6,23 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "CocosGameState.h"
+#import "GameState.h"
 #import "artemis.h"
 #import "cocos2d.h"
-#import "slick.h"
 
+@class BeeSystem;
 @class CollisionSystem;
 @class DebugRenderPhysicsSystem;
 @class InputSystem;
 @class PhysicsSystem;
 @class RenderSystem;
 @class SlingerControlSystem;
-@class BeeSystem;
 
-@interface GameplayState : CocosGameState
+@interface GameplayState : GameState
 {
+	CCLayer *_gameLayer;
+	CCLayer *_uiLayer;
+
 	World *_world;
 	
 	BOOL _debug;
@@ -33,5 +35,7 @@
     SlingerControlSystem *_slingerControlSystem;
     BeeSystem *_beeSystem;
 }
+
+-(void) pauseGame:(id)sender;
 
 @end

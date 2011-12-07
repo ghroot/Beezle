@@ -7,8 +7,9 @@
 //
 
 #import "MainMenuState.h"
-#import "Beezle.h"
-#import "CocosGameContainer.h"
+#import "Game.h"
+#import "GameplayState.h"
+#import "TestState.h"
 
 @implementation MainMenuState
 
@@ -19,17 +20,19 @@
     _menu = [CCMenu menuWithItems: playMenuItem, testMenuItem, nil];
     [_menu alignItemsVerticallyWithPadding:30.0f];
     
-    [_layer addChild:_menu];
+    [self addChild:_menu];
 }
 
 -(void) startGame:(id)sender
 {
-	[_game enterState:STATE_GAMEPLAY];
+	GameplayState *gameplayState = [[[GameplayState alloc] init] autorelease];
+	[_game replaceState:gameplayState];
 }
 
 -(void) startTest:(id)sender
 {
-	[_game enterState:STATE_TEST];
+	TestState *testState = [[[TestState alloc] init] autorelease];
+	[_game replaceState:testState];
 }
 
 @end

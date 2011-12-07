@@ -7,34 +7,35 @@
 //
 
 #import "IngameMenuState.h"
-#import "Beezle.h"
-#import "CocosGameContainer.h"
-#import "CocosStateBasedGame.h"
+#import "Game.h"
+#import "MainMenuState.h"
 
 @implementation IngameMenuState
 
--(void) initialise
+-(id) init
 {
-    CCMenuItem *resumeMenuItem = [CCMenuItemFont itemFromString:@"Resume" target:self selector:@selector(resumeGame:)];
-	CCMenuItem *quitMenuItem = [CCMenuItemFont itemFromString:@"Quit" target:self selector:@selector(gotoMainMenu:)];
-    _menu = [CCMenu menuWithItems: resumeMenuItem, quitMenuItem, nil];
-	[_menu alignItemsVerticallyWithPadding:30.0f];
-    
-    [_layer addChild:_menu];
+	if (self = [super init])
+	{
+		CCMenuItem *resumeMenuItem = [CCMenuItemFont itemFromString:@"Resume" target:self selector:@selector(resumeGame:)];
+		CCMenuItem *quitMenuItem = [CCMenuItemFont itemFromString:@"Quit" target:self selector:@selector(gotoMainMenu:)];
+		_menu = [CCMenu menuWithItems: resumeMenuItem, quitMenuItem, nil];
+		[_menu alignItemsVerticallyWithPadding:30.0f];
+		
+		[self addChild:_menu];
+	}
 }
 
 -(void) resumeGame:(id)sender
 {
 	// This assumes the previous state was the game play state
-	CocosStateBasedGame *cocosStateBasedGame = (CocosStateBasedGame *)[self game];
-	[cocosStateBasedGame enterPreviousState];
+	[_game popState];
 }
 
 -(void) gotoMainMenu:(id)sender
 {
 	// This assumes the previous state was the game play state
-	CocosStateBasedGame *cocosStateBasedGame = (CocosStateBasedGame *)[self game];
-	[cocosStateBasedGame enterStateDiscardPrevious:STATE_MAIN_MENU];
+	MainMenuState *mainMenuState = [[[MainMenuState alloc] init] autorelease];
+	[_game popAndReplaceState:mainMenuState];
 }
 
 @end

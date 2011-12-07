@@ -8,14 +8,12 @@
 
 #import "GameplayState.h"
 #import "BeeSystem.h"
-#import "Beezle.h"
 #import "BoundrySystem.h"
-#import "CocosGameContainer.h"
-#import "CocosStateBasedGame.h"
 #import "CollisionSystem.h"
 #import "DebugRenderPhysicsSystem.h"
 #import "EntityFactory.h"
-#import "ForwardLayer.h"
+#import "Game.h"
+#import "IngameMenuState.h"
 #import "InputAction.h"
 #import "InputSystem.h"
 #import "LevelLayout.h"
@@ -25,7 +23,6 @@
 #import "RenderSystem.h"
 #import "SimpleAudioEngine.h"
 #import "SlingerControlSystem.h"
-#import "Touch.h"
 
 @interface GameplayState()
 
@@ -37,18 +34,64 @@
 
 @implementation GameplayState
 
--(id) initWithId:(int)gameStateId
+-(id) init
 {
-    if (self = [super initWithId:gameStateId])
+    if (self = [super init])
     {
+		[[CCDirector sharedDirector] setNeedClear:FALSE];
+		
 		_debug = TRUE;
+		
+		_gameLayer = [[CCLayer alloc] init];
+		[self addChild:_gameLayer];
+		
+		_uiLayer = [[CCLayer alloc] init];
+		[self addChild:_uiLayer];
+		
+		CCMenuItemImage *pauseMenuItem = [CCMenuItemImage itemFromNormalImage:@"Pause.png" selectedImage:@"Pause.png" target:self selector:@selector(pauseGame:)];
+		[_uiLayer addChild:_pauseMenuItem];
+		
 		_world = [[World alloc] init];
+		
+		[self createSystems];
+		
+		[self preloadSounds];
+		
+		[self loadLevel:@"Level-A5"];
     }
     return self;
 }
 
+-(void) createSystems
+{
+	SystemManager *systemManager = [_world systemManager];
+	
+	_physicsSystem = [[PhysicsSystem alloc] init];
+	[systemManager setSystem:_physicsSystem];
+	_collisionSystem = [[CollisionSystem alloc] init];
+	[systemManager setSystem:_collisionSystem];
+	_renderSystem = [[RenderSystem alloc] initWithLayer:_gameLayer];
+	[systemManager setSystem:_renderSystem];
+	if (_debug)
+	{
+		_debugRenderPhysicsSystem = [[DebugRenderPhysicsSystem alloc] init];
+		[systemManager setSystem:_debugRenderPhysicsSystem];
+	}
+	_inputSystem = [[InputSystem alloc] init];
+	[systemManager setSystem:_inputSystem];
+	_slingerControlSystem = [[SlingerControlSystem alloc] init];
+	[systemManager setSystem:_slingerControlSystem];
+	_beeSystem = [[BeeSystem alloc] init];
+	[systemManager setSystem:_beeSystem];
+	
+	[systemManager initialiseAll];
+}
+
 -(void) dealloc
 {
+	[_gameLayer release];
+	[_uiLayer release];
+
 	[_world release];
 	
     [_physicsSystem release];
@@ -65,45 +108,13 @@
 	[super dealloc];
 }
 
--(void) initialise
-{
-    [self createSystems];
-    [self preloadSounds];
-    [self loadLevel:@"Level-A5"];
-}
-
--(void) createSystems
-{
-	SystemManager *systemManager = [_world systemManager];
-	
-	_physicsSystem = [[PhysicsSystem alloc] init];
-	[systemManager setSystem:_physicsSystem];
-	_collisionSystem = [[CollisionSystem alloc] init];
-	[systemManager setSystem:_collisionSystem];
-	_renderSystem = [[RenderSystem alloc] initWithLayer:_layer];
-	[systemManager setSystem:_renderSystem];
-	if (_debug)
-	{
-		_debugRenderPhysicsSystem = [[DebugRenderPhysicsSystem alloc] init];
-		[systemManager setSystem:_debugRenderPhysicsSystem];
-	}
-	_inputSystem = [[InputSystem alloc] init];
-	[systemManager setSystem:_inputSystem];
-	_slingerControlSystem = [[SlingerControlSystem alloc] init];
-	[systemManager setSystem:_slingerControlSystem];
-    _beeSystem = [[BeeSystem alloc] init];
-    [systemManager setSystem:_beeSystem];
-    
-    [systemManager initialiseAll];
-}
-
 -(void) preloadSounds
 {
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"11097__a43__a43-blipp.aif"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"27134__zippi1__fart1.wav"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"52144__blaukreuz__imp-02.m4a"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"33369__herbertboland__mouthpop.wav"];    
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"33369__herbertboland__mouthpop.wav"];
 }
 
 -(void) loadLevel:(NSString *)levelName
@@ -143,7 +154,7 @@
     }
 }
 
--(void) update:(int)delta
+-(void) update:(ccTime)delta
 {
 	[_world loopStart];
 	[_world setDelta:delta];
@@ -156,7 +167,7 @@
     [_beeSystem process];
 }
 
--(void) render
+-(void) draw
 {
 	if (_debug)
 	{
@@ -164,32 +175,10 @@
 	}
 }
 
--(void) touchBegan:(Touch *)touch
+-(void) pauseGame:(id)sender
 {
-	// TEMP: Go to ingame menu by touching top left corner
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	if ([touch point].x <= 20 && [touch point].y >= winSize.height - 20)
-	{
-		CocosStateBasedGame *cocosStateBasedGame = (CocosStateBasedGame *)[self game];
-		[cocosStateBasedGame enterStateKeepCurrent:STATE_INGAME_MENU];
-	}
-	else
-	{
-		InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_START andTouchLocation:[touch point]] autorelease];
-		[_inputSystem pushInputAction:inputAction];
-	}
-}
-
--(void) touchMoved:(Touch *)touch
-{
-    InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_MOVE andTouchLocation:[touch point]] autorelease];
-    [_inputSystem pushInputAction:inputAction];
-}
-
--(void) touchEnded:(Touch *)touch
-{
-    InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_END andTouchLocation:[touch point]] autorelease];
-    [_inputSystem pushInputAction:inputAction];
+	IngameMenuState *ingameMenuState = [[[IngameMenuState alloc] init] autorelease];
+	[_game pushState:ingameMenuState];
 }
 
 @end

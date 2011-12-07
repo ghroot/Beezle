@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "Beezle.h"
-#import "CocosGameContainer.h"
+#import "Game.h"
 #import "RootViewController.h"
 
 @implementation AppDelegate
@@ -48,10 +47,10 @@
     }
 
     // Settings
+	[[CCDirector sharedDirector] setAnimationInterval:(1.0f / 60.0f)];
     [director setDisplayStats:kCCDirectorStatsFPS];
     [director setProjection:kCCDirectorProjection2D];
     [director setDepthTest:FALSE];
-	[director setNeedClear:FALSE];
     [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
     [CCTexture2D PVRImagesHavePremultipliedAlpha:TRUE];
 
@@ -64,11 +63,9 @@
 	[_window makeKeyAndVisible];
 	
     // Create game
-    Beezle *beezle = [[[Beezle alloc] init] autorelease];
-    _container = [[CocosGameContainer alloc] initWithGame:beezle];
-    [_container setUpdateInterval:(1.0 / 60)];
-    [_container start];
-    [beezle enterState:STATE_MAIN_MENU];
+    _game = [[Game alloc] init];
+	MainMenuState *mainMenuState = [[[MainMenuState alloc] init] autorelease];
+	[_game startWithState:mainMenuState];
 }
 
 -(void) applicationWillResignActive:(UIApplication *)application
@@ -117,10 +114,11 @@
 -(void) dealloc
 {
 	[[CCDirector sharedDirector] end];
+	
+	[_game release];
 
 	[_window release];
 	[_viewController release];
-	[_container release];
     
 	[super dealloc];
 }

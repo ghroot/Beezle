@@ -13,7 +13,7 @@
 @synthesize touchType = _touchType;
 @synthesize touchLocation = _touchLocation;
 
--(id) initWithTouchType:(int)touchType andTouchLocation:(CGPoint)touchLocation
+-(id) initWithTouchType:(TouchType)touchType andTouchLocation:(CGPoint)touchLocation
 {
     if (self = [super init])
     {

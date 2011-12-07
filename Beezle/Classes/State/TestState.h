@@ -6,18 +6,19 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "CocosGameState.h"
+#import "GameState.h"
 #import "artemis.h"
 #import "chipmunk.h"
 #import "cocos2d.h"
-#import "slick.h"
 
 @class DebugRenderPhysicsSystem;
 @class PhysicsSystem;
 @class RenderSystem;
 
-@interface TestState : CocosGameState
+@interface TestState : GameState <CCTargetedTouchDelegate>
 {
+	CCLayer *_layer;
+
     World *_world;
     
     PhysicsSystem *_physicsSystem;
@@ -29,5 +30,7 @@
 	
     CCLabelTTF *_label;
 }
+
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;
 
 @end

@@ -7,15 +7,14 @@
 //
 
 #import "TestState.h"
-#import "Beezle.h"
+#import "Game.h"
 #import "BoundrySystem.h"
-#import "CocosGameContainer.h"
 #import "CollisionSystem.h"
 #import "DebugRenderPhysicsSystem.h"
 #import "EntityFactory.h"
-#import "ForwardLayer.h"
 #import "InputAction.h"
 #import "InputSystem.h"
+#import "MainMenuState.h"
 #import "PhysicsBody.h"
 #import "PhysicsComponent.h"
 #import "PhysicsShape.h"
@@ -24,7 +23,6 @@
 #import "RenderSprite.h"
 #import "RenderSystem.h"
 #import "SlingerControlSystem.h"
-#import "Touch.h"
 #import "TransformComponent.h"
 
 #define RANDOM_SEED() srandom(time(NULL))
@@ -33,17 +31,38 @@
 @interface TestState()
 
 -(void) spawnEntity;
+-(void) deleteAllEntities;
 
 @end
 
 @implementation TestState
 
--(id) initWithId:(int)gameStateId
+-(id) init
 {
-    if (self = [super initWithId:gameStateId])
+    if (self = [super init])
     {
+		_layer = [[CCLayer alloc] init];
+		[self addChild:_layer];
+		
 		_world = [[World alloc] init];
+		
+		SystemManager *systemManager = [_world systemManager];
+	
+		_physicsSystem = [[PhysicsSystem alloc] init];
+		[systemManager setSystem:_physicsSystem];
+		_renderSystem = [[RenderSystem alloc] initWithLayer:_layer];
+		[systemManager setSystem:_renderSystem];
+		_debugRenderPhysicsSystem = [[DebugRenderPhysicsSystem alloc] init];
+		[systemManager setSystem:_debugRenderPhysicsSystem];
+    
+		[systemManager initialiseAll];
+	
         _label = [[CCLabelTTF alloc] initWithString:@"0" fontName:@"Arial" fontSize:20];
+		[_label setPosition:CGPointMake(15, 310)];
+		[_layer addChild:_label];
+		
+		_interval = 5;
+		_countdown = _interval;
     }
     return self;
 }
@@ -54,35 +73,15 @@
 	
     [_physicsSystem release];
     [_renderSystem release];
+	[_debugRenderPhysicsSystem release];
     
     [_label release];
+	[_layer release];
 	
 	[super dealloc];
 }
 
--(void) initialise
-{
-    [[CCDirector sharedDirector] setNeedClear:TRUE];
-    
-	SystemManager *systemManager = [_world systemManager];
-	
-	_physicsSystem = [[PhysicsSystem alloc] init];
-	[systemManager setSystem:_physicsSystem];
-	_renderSystem = [[RenderSystem alloc] initWithLayer:_layer];
-	[systemManager setSystem:_renderSystem];
-    _debugRenderPhysicsSystem = [[DebugRenderPhysicsSystem alloc] init];
-    [systemManager setSystem:_debugRenderPhysicsSystem];
-    
-    [systemManager initialiseAll];
-    
-	_interval = 5;
-    _countdown = _interval;
-	
-    [_label setPosition:CGPointMake(15, 310)];
-    [_layer addChild:_label];
-}
-
--(void) update:(int)delta
+-(void) update:(ccTime)delta
 {
 	[_world loopStart];
 	[_world setDelta:delta];
@@ -101,7 +100,7 @@
     [_label setString:[NSString stringWithFormat:@"%i", [entities count]]];
 }
 
--(void) render
+-(void) draw
 {
     [_debugRenderPhysicsSystem process];
 }
@@ -117,24 +116,38 @@
     [groupManager addEntity:entity toGroup:@"ENTITIES"];
 }
 
--(void) touchBegan:(Touch *)touch
+-(void) deleteAllEntities
 {
-	// TEMP: Go to main menu by touching top left corner
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	if ([touch point].x <= 20 && [touch point].y >= winSize.height - 20)
+	GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
+	NSArray *entities = [groupManager getEntitiesInGroup:@"ENTITIES"];
+	for (Entity *entity in entities)
 	{
-		[_game enterState:STATE_MAIN_MENU];
+		[entity deleteEntity];
+	}
+}
+
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	CGPoint location = [touch locationInView: [touch view]];
+	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+	
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	if (convertedLocation.x <= 20 && convertedLocation.y >= winSize.height - 20)
+	{
+		MainMenuState *mainMenuState = [[[MainMenuState alloc] init] autorelease];
+		[_game replaceState:mainMenuState];
 	}
 	else
 	{
-		// Delete all entities when tapping the screen
-		GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
-		NSArray *entities = [groupManager getEntitiesInGroup:@"ENTITIES"];
-		for (Entity *entity in entities)
-		{
-			[entity deleteEntity];
-		}
+		[self deleteAllEntities];
 	}
+	
+	return TRUE;
+}
+
+-(void) touchBegan:(Touch *)touch
+{
+
 }
 
 @end

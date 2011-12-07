@@ -8,6 +8,13 @@
 
 #import "InputSystem.h"
 #import "InputAction.h"
+#import "TouchTypes.h"
+
+@interface InputSystem()
+
+-(void) pushInputAction:(InputAction *)inputAction;
+
+@end
 
 @implementation InputSystem
 
@@ -16,22 +23,19 @@
     if (self = [super init])
     {
         _inputActions = [[NSMutableArray alloc] init];
+		
+		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:TRUE];
     }
     return self;
 }
 
--(void) pushInputAction:(InputAction *)inputAction
+-(void) dealloc
 {
-    if ([inputAction touchType] == TOUCH_MOVE && [_inputActions count] > 0)
-    {
-        InputAction *lastInputAction = (InputAction *)[_inputActions lastObject];
-        if (lastInputAction.touchType == TOUCH_MOVE)
-        {
-            [_inputActions removeLastObject];
-        }
-    }
+	[[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+	
+    [_inputActions release];
     
-    [_inputActions addObject:inputAction];
+    [super dealloc];
 }
 
 -(InputAction *) popInputAction
@@ -46,11 +50,48 @@
     return [_inputActions count] > 0;
 }
 
--(void) dealloc
+-(void) pushInputAction:(InputAction *)inputAction
 {
-    [_inputActions release];
-    
-    [super dealloc];
+    if ([inputAction touchType] == TOUCH_MOVE && [_inputActions count] > 0)
+    {
+        InputAction *lastInputAction = (InputAction *)[_inputActions lastObject];
+        if (lastInputAction.touchType == TOUCH_MOVE)
+        {
+            [_inputActions removeLastObject];
+        }
+    }
+    [_inputActions addObject:inputAction];
+}
+
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	CGPoint location = [touch locationInView: [touch view]];
+	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+	InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_BEGAN andTouchLocation:convertedLocation] autorelease];
+	[self pushInputAction:inputAction];
+	
+	return TRUE;
+}
+
+-(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	CGPoint location = [touch locationInView: [touch view]];
+	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+	InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_MOVED andTouchLocation:convertedLocation] autorelease];
+	[self pushInputAction:inputAction];
+}
+
+-(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	CGPoint location = [touch locationInView: [touch view]];
+	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+	InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_ENDED andTouchLocation:convertedLocation] autorelease];
+	[self pushInputAction:inputAction];
+}
+
+-(void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	[self ccTouchEnded:touch withEvent:event];
 }
 
 @end

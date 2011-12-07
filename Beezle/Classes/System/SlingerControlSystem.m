@@ -14,6 +14,7 @@
 #import "RenderComponent.h"
 #import "SimpleAudioEngine.h"
 #import "SlingerComponent.h"
+#import "TouchTypes.h"
 #import "TransformComponent.h"
 
 #define SLINGER_POWER_SENSITIVITY 5.0
@@ -51,12 +52,12 @@
         
         switch ([nextInputAction touchType])
         {
-            case TOUCH_START:
+            case TOUCH_BEGAN:
             {
                 [self setStartLocation:[nextInputAction touchLocation]];
                 break;
             }
-            case TOUCH_MOVE:
+            case TOUCH_MOVED:
             {
 				float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
 				float power = [self calculatePower:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
@@ -79,7 +80,7 @@
                 
                 break;
             }
-            case TOUCH_END:
+            case TOUCH_ENDED:
             {
 				if ([slingerComponent hasMoreBees])
 				{
@@ -87,7 +88,9 @@
 					float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
 					float power = [self calculatePower:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
 					CGPoint beeVelocity = CGPointMake(cosf(aimAngle) * power, sinf(aimAngle) * power);
-					[EntityFactory createBee:_world type:nextBeeType withPosition:[transformComponent position] andVelocity:beeVelocity];
+					CGPoint slingerTipVector = CGPointMake(cosf(aimAngle) * [[renderComponent renderSprite] sprite].height, sinf(aimAngle) * [[renderComponent renderSprite] sprite].height);
+					CGPoint beePosition = CGPointMake([transformComponent position].x + slingerTipVector.x, [transformComponent position].y + slingerTipVector.y);
+					[EntityFactory createBee:_world type:nextBeeType withPosition:beePosition andVelocity:beeVelocity];
 				}
                 
                 [renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];

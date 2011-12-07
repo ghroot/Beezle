@@ -7,16 +7,21 @@
 //
 
 #import "EntitySystem.h"
+#import "cocos2d.h"
 
 @class InputAction;
 
-@interface InputSystem : EntitySystem
+@interface InputSystem : EntitySystem <CCTargetedTouchDelegate>
 {
     NSMutableArray *_inputActions;
 }
 
--(void) pushInputAction:(InputAction *)inputAction;
 -(InputAction *) popInputAction;
 -(BOOL) hasInputActions;
+
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;
+-(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event;
+-(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event;
+-(void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event;
 
 @end
