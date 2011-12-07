@@ -11,33 +11,73 @@
 
 @implementation Game
 
+-(id) init
+{
+    if (self = [super init])
+    {
+        _gameStateStack = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+-(void) dealloc
+{
+    [_gameStateStack release];
+    
+    [super dealloc];
+}
+
 -(void) startWithState:(GameState *)gameState
 {
+    [_gameStateStack addObject:gameState];
 	[gameState setGame:self];
+    [gameState enter];
 	[[CCDirector sharedDirector] runWithScene:gameState];
 }
 
 -(void) replaceState:(GameState *)gameState
 {
-	[gameState setGame:self];
+    GameState *previousGameState = [_gameStateStack lastObject];
+    [_gameStateStack removeLastObject];
+    [previousGameState leave];
+    [_gameStateStack addObject:gameState];
+    [gameState setGame:self];
+    [gameState enter];
 	[[CCDirector sharedDirector] replaceScene:gameState];
 }
 
 -(void) pushState:(GameState *)gameState
 {
+    GameState *previousGameState = [_gameStateStack lastObject];
+    [previousGameState leave];
+    [_gameStateStack addObject:gameState];
 	[gameState setGame:self];
+    [gameState enter];
 	[[CCDirector sharedDirector] pushScene:gameState];
 }
 
 -(void) popState
 {
+    GameState *previousGameState = [_gameStateStack lastObject];
+    [_gameStateStack removeLastObject];
+    [previousGameState leave];
+    GameState *newGameState = [_gameStateStack lastObject];
+    [newGameState enter];
 	[[CCDirector sharedDirector] popScene];
 }
 
 -(void) popAndReplaceState:(GameState *)gameState
 {
+    GameState *previousGameState = [_gameStateStack lastObject];
+    [_gameStateStack removeLastObject];
+    [previousGameState leave];
+    [[CCDirector sharedDirector] popScene];
+    
+    [_gameStateStack removeLastObject];
+    
+    [_gameStateStack addObject:gameState];
 	[gameState setGame:self];
-	[[CCDirector sharedDirector] popScene];
+    [gameState enter];
 	[[CCDirector sharedDirector] replaceScene:gameState];
 }
 

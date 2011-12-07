@@ -170,6 +170,22 @@
     }
 }
 
+-(void) enter
+{
+    [super enter];
+    
+    // This should maybe be done inside InputSystem, but we want to make sure it is removed properly
+    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:_inputSystem priority:0 swallowsTouches:TRUE];
+}
+
+-(void) leave
+{
+    // This should maybe be done inside InputSystem, but we want to make sure it is removed properly
+    [[CCTouchDispatcher sharedDispatcher] removeDelegate:_inputSystem];
+    
+    [super leave];
+}
+
 -(void) update:(ccTime)delta
 {
 	[_world loopStart];

@@ -30,7 +30,7 @@
     [_scene removeChild:_debugRenderPhysicsLayer cleanup:TRUE];
     [_debugRenderPhysicsLayer release];
     
-    [super release];
+    [super dealloc];
 }
 
 -(void) begin

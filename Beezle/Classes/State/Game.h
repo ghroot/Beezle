@@ -11,6 +11,9 @@
 @class GameState;
 
 @interface Game : NSObject
+{
+    NSMutableArray *_gameStateStack;
+}
 
 -(void) startWithState:(GameState *)gameState;
 -(void) replaceState:(GameState *)gameState;

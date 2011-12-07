@@ -10,7 +10,7 @@
 
 @class Game;
 
-@interface GameState : CCScene
+@interface GameState : CCScene <CCTargetedTouchDelegate>
 {
     Game *_game;
 }
@@ -19,6 +19,12 @@
 
 +(id) state;
 
+-(void) enter;
+-(void) leave;
 -(void) update:(ccTime)delta;
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;
+-(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event;
+-(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event;
+-(void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event;
 
 @end

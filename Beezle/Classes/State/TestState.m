@@ -65,16 +65,12 @@
 		
 		_interval = 5;
 		_countdown = _interval;
-        
-        [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:TRUE];
     }
     return self;
 }
 
 -(void) dealloc
 {
-    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
-    
 	[_world release];
 	
     [_physicsSystem release];

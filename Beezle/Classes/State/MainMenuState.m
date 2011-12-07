@@ -7,6 +7,7 @@
 //
 
 #import "MainMenuState.h"
+#import "EmptyState.h"
 #import "Game.h"
 #import "GameplayState.h"
 #import "TestState.h"
@@ -22,7 +23,8 @@
         CCMenuItem *play1MenuItem = [CCMenuItemFont itemFromString:@"Play A5" target:self selector:@selector(startGameA5:)];
         CCMenuItem *play2MenuItem = [CCMenuItemFont itemFromString:@"Play A9" target:self selector:@selector(startGameA9:)];
         CCMenuItem *testMenuItem = [CCMenuItemFont itemFromString:@"Test" target:self selector:@selector(startTest:)];
-        _menu = [CCMenu menuWithItems: play1MenuItem, play2MenuItem, testMenuItem, nil];
+        CCMenuItem *emptyMenuItem = [CCMenuItemFont itemFromString:@"Empty" target:self selector:@selector(startEmpty:)];
+        _menu = [CCMenu menuWithItems: play1MenuItem, play2MenuItem, testMenuItem, emptyMenuItem, nil];
         [_menu alignItemsVerticallyWithPadding:20.0f];
         
         [self addChild:_menu];
@@ -43,6 +45,11 @@
 -(void) startTest:(id)sender
 {
 	[_game replaceState:[TestState state]];
+}
+
+-(void) startEmpty:(id)sender
+{
+	[_game replaceState:[EmptyState state]];
 }
 
 @end

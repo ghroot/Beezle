@@ -23,16 +23,12 @@
     if (self = [super init])
     {
         _inputActions = [[NSMutableArray alloc] init];
-		
-		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:TRUE];
     }
     return self;
 }
 
 -(void) dealloc
 {
-	[[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
-	
     [_inputActions release];
     
     [super dealloc];

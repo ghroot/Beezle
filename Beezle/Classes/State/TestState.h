@@ -15,7 +15,7 @@
 @class PhysicsSystem;
 @class RenderSystem;
 
-@interface TestState : GameState <CCTargetedTouchDelegate>
+@interface TestState : GameState
 {
 	CCLayer *_layer;
 
@@ -30,7 +30,5 @@
 	
     CCLabelTTF *_label;
 }
-
--(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;
 
 @end

@@ -22,6 +22,13 @@
     return self;
 }
 
+-(void) dealloc
+{
+    [_shapesToDraw release];
+    
+    [super dealloc];
+}
+
 -(void) draw
 {
     for (PhysicsShape *physicsShape in _shapesToDraw)

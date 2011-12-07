@@ -166,6 +166,7 @@
 		2C157C0A14900A3C003F9040 /* Level-A9.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BFE14900A3C003F9040 /* Level-A9.plist */; };
 		2C157C0B14900A3C003F9040 /* Level-A9.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BFF14900A3C003F9040 /* Level-A9.pvr.ccz */; };
 		2C157C0E14901B88003F9040 /* DebugRenderPhysicsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C0D14901B88003F9040 /* DebugRenderPhysicsLayer.m */; };
+		2C157C111490208F003F9040 /* EmptyState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C101490208F003F9040 /* EmptyState.m */; };
 		2C3A6F8514898085002721E3 /* Bee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7514898085002721E3 /* Bee-Animations.plist */; };
 		2C3A6F8614898085002721E3 /* Beeater-Body-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */; };
 		2C3A6F8714898085002721E3 /* Beeater-Head-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */; };
@@ -601,6 +602,8 @@
 		2C157BFF14900A3C003F9040 /* Level-A9.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Level-A9.pvr.ccz"; sourceTree = "<group>"; };
 		2C157C0C14901B88003F9040 /* DebugRenderPhysicsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugRenderPhysicsLayer.h; path = Classes/System/DebugRenderPhysicsLayer.h; sourceTree = "<group>"; };
 		2C157C0D14901B88003F9040 /* DebugRenderPhysicsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugRenderPhysicsLayer.m; path = Classes/System/DebugRenderPhysicsLayer.m; sourceTree = "<group>"; };
+		2C157C0F1490208E003F9040 /* EmptyState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyState.h; sourceTree = "<group>"; };
+		2C157C101490208F003F9040 /* EmptyState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyState.m; sourceTree = "<group>"; };
 		2C3A6F7514898085002721E3 /* Bee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bee-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Body-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Head-Animations.plist"; sourceTree = "<group>"; };
@@ -1382,6 +1385,8 @@
 				2CD33ED7147D72AD000869C1 /* GameplayState.m */,
 				2CD33EE8147EE7AD000869C1 /* TestState.h */,
 				2CD33EE9147EE7AD000869C1 /* TestState.m */,
+				2C157C0F1490208E003F9040 /* EmptyState.h */,
+				2C157C101490208F003F9040 /* EmptyState.m */,
 			);
 			name = State;
 			path = Classes/State;
@@ -1945,6 +1950,7 @@
 				2C157BF0148FEA8E003F9040 /* Game.m in Sources */,
 				2C157BF1148FEA8E003F9040 /* GameState.m in Sources */,
 				2C157C0E14901B88003F9040 /* DebugRenderPhysicsLayer.m in Sources */,
+				2C157C111490208F003F9040 /* EmptyState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
