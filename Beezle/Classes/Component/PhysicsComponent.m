@@ -15,6 +15,16 @@
 @synthesize physicsBody = _physicsBody;
 @synthesize physicsShapes = _physicsShapes;
 
++(id) componentWithBody:(PhysicsBody *)body andShapes:(NSArray *)shapes
+{
+	return [[[self alloc] initWithBody:body andShapes:shapes] autorelease];
+}
+
++(id) componentWithBody:(PhysicsBody *)body andShape:(PhysicsShape *)shape
+{
+	return [[[self alloc] initWithBody:body andShape:shape] autorelease];
+}
+
 -(id) initWithBody:(PhysicsBody *)body andShapes:(NSArray *)shapes
 {
     if (self = [super init])

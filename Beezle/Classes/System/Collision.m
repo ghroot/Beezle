@@ -13,6 +13,11 @@
 @synthesize firstEntity = _firstEntity;
 @synthesize secondEntity = _secondEntity;
 
++(id) collisionWithFirstEntity:(Entity *)firstEntity andSecondEntity:(Entity *)secondEntity
+{
+	return [[[self alloc] initWithFirstEntity:firstEntity andSecondEntity:secondEntity] autorelease];
+}
+
 -(id) initWithFirstEntity:(Entity *)firstEntity andSecondEntity:(Entity *)secondEntity
 {
     if (self = [super init])

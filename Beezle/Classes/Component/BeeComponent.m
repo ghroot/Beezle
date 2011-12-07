@@ -12,6 +12,11 @@
 
 @synthesize type = _type;
 
++(id) componentWithType:(BeeType)type
+{
+	return [[[self alloc] initWithType:type] autorelease];
+}
+
 -(id) initWithType:(BeeType)type
 {
 	if (self = [super init])

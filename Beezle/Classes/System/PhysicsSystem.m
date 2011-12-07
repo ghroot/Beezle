@@ -50,7 +50,7 @@ int beginCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     
     PhysicsSystem *physicsSystem = (PhysicsSystem *)cpSpaceGetUserData(space);
     CollisionSystem *collisionSystem = (CollisionSystem *)[[[physicsSystem world] systemManager] getSystem:[CollisionSystem class]];
-    Collision *collision = [[[Collision alloc] initWithFirstEntity:firstEntity andSecondEntity:secondEntity] autorelease];
+    Collision *collision = [Collision collisionWithFirstEntity:firstEntity andSecondEntity:secondEntity];
     [collisionSystem pushCollision:collision];
     
     return 0;
@@ -67,7 +67,7 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     
     PhysicsSystem *physicsSystem = (PhysicsSystem *)cpSpaceGetUserData(space);
     CollisionSystem *collisionSystem = (CollisionSystem *)[[[physicsSystem world] systemManager] getSystem:[CollisionSystem class]];
-    Collision *collision = [[[Collision alloc] initWithFirstEntity:firstEntity andSecondEntity:secondEntity] autorelease];
+    Collision *collision = [Collision collisionWithFirstEntity:firstEntity andSecondEntity:secondEntity];
     [collisionSystem pushCollision:collision];
 }
 
@@ -91,7 +91,7 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     
     BodyInfo *bodyInfo = [[GCpShapeCache sharedShapeCache] createBodyWithName:bodyName];
     
-    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:[bodyInfo physicsBody] andShapes:[bodyInfo physicsShapes]] autorelease];
+    PhysicsComponent *physicsComponent = [PhysicsComponent physicsBodyWithBody:[bodyInfo physicsBody] andShapes:[bodyInfo physicsShapes]];
     
     if (isStatic)
     {

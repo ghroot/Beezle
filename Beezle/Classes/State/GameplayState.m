@@ -34,7 +34,13 @@
 
 @implementation GameplayState
 
--(id) init
++(id) stateWithLevelName:(NSString *)levelName
+{
+	return [[[self alloc] initWithLevelName:levelName] autorelease];
+}
+
+// Designated initialiser
+-(id) initWithLevelName:(NSString *)levelName
 {
     if (self = [super init])
     {
@@ -57,9 +63,14 @@
 		
 		[self preloadSounds];
 		
-		[self loadLevel:@"Level-A5"];
+		[self loadLevel:levelName];
     }
     return self;
+}
+
+-(id) init
+{
+	return [self initWithLevelName:nil];
 }
 
 -(void) createSystems
@@ -177,8 +188,7 @@
 
 -(void) pauseGame:(id)sender
 {
-	IngameMenuState *ingameMenuState = [[[IngameMenuState alloc] init] autorelease];
-	[_game pushState:ingameMenuState];
+	[_game pushState:[IngameMenuState state]];
 }
 
 @end

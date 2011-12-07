@@ -12,6 +12,11 @@
 
 @synthesize shape = _shape;
 
++(id) physicsShapeWithShape:(cpShape *)shape
+{
+	return [[[self alloc] initWithShape:shape] autorelease];
+}
+
 -(id) initWithShape:(cpShape *)shape
 {
     if (self = [super init])

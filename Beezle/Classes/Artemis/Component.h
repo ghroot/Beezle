@@ -35,6 +35,8 @@
 
 @property (nonatomic, readonly) BOOL enabled;
 
++(id) component;
+
 -(void) enable;
 -(void) disable;
 

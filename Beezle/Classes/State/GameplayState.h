@@ -36,6 +36,9 @@
     BeeSystem *_beeSystem;
 }
 
++(id) stateWithLevelName:(NSString *)levelName;
+
+-(id) initWithLevelName:(NSString *)levelName;
 -(void) pauseGame:(id)sender;
 
 @end

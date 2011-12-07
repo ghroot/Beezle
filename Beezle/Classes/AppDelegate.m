@@ -64,8 +64,7 @@
 	
     // Create game
     _game = [[Game alloc] init];
-	MainMenuState *mainMenuState = [[[MainMenuState alloc] init] autorelease];
-	[_game startWithState:mainMenuState];
+	[_game startWithState:[MainMenuState state]];
 }
 
 -(void) applicationWillResignActive:(UIApplication *)application

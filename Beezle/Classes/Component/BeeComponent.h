@@ -16,6 +16,8 @@
 
 @property (nonatomic, readonly) BeeType type;
 
++(id) componentWithType:(BeeType)type;
+
 -(id) initWithType:(BeeType)type;
 
 @end

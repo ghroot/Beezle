@@ -134,8 +134,7 @@
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	if (convertedLocation.x <= 20 && convertedLocation.y >= winSize.height - 20)
 	{
-		MainMenuState *mainMenuState = [[[MainMenuState alloc] init] autorelease];
-		[_game replaceState:mainMenuState];
+		[_game replaceState:[MainMenuState state]];
 	}
 	else
 	{

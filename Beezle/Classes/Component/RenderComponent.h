@@ -18,8 +18,8 @@
 
 @property (nonatomic, readonly) NSArray *renderSprites;
 
-+(RenderComponent *) renderComponentWithRenderSprites:(NSArray *)renderSprites;
-+(RenderComponent *) renderComponentWithRenderSprite:(RenderSprite *)renderSprite;
++(RenderComponent *) componentWithRenderSprites:(NSArray *)renderSprites;
++(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite;
 
 -(void) addRenderSprite:(RenderSprite *)renderSprite;
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops;

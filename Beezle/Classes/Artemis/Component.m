@@ -43,6 +43,11 @@
     return self;
 }
 
++(id) component
+{
+	return [[[self alloc] init] autorelease];
+}
+
 -(void) enable
 {
     _enabled = TRUE;

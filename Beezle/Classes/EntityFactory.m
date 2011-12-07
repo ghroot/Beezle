@@ -33,7 +33,7 @@
     Entity *backgroundEntity = [world createEntity];
     
     // Transform
-    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(winSize.width / 2, winSize.height / 2)] autorelease];
+    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(winSize.width / 2, winSize.height / 2)];
     [backgroundEntity addComponent:transformComponent];
     
     // Render
@@ -42,7 +42,7 @@
     NSString *imageFileName = [NSString stringWithFormat:@"%@.jpg", name];
     RenderSprite *renderSprite = [renderSystem createRenderSpriteWithFile:imageFileName z:-5];
     [renderSprite markAsBackground];
-	RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
+	RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [backgroundEntity addComponent:renderComponent];
     [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
     
@@ -64,7 +64,7 @@
     Entity *edgeEntity = [world createEntity];
     
     // Transform
-    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(0.0f, 0.0f)] autorelease];
+    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(0.0f, 0.0f)];
     [edgeEntity addComponent:transformComponent];
     
     // Physics
@@ -86,11 +86,11 @@
         shape->u = 0.5f;
         shape->collision_type = COLLISION_TYPE_EDGE;
         
-        PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:shape] autorelease];
+        PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:shape];
         [physicsShapes addObject:physicsShape];
     }
-    PhysicsBody *physicsBody = [[[PhysicsBody alloc] initWithBody:body] autorelease];
-    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShapes:physicsShapes] autorelease];
+    PhysicsBody *physicsBody = [PhysicsBody physicsBodyWithBody:body];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShapes:physicsShapes];
     [edgeEntity addComponent:physicsComponent];
     
     [edgeEntity refresh];
@@ -103,7 +103,7 @@
     Entity *slingerEntity = [world createEntity];
 	
 	// Slinger
-	SlingerComponent *slingerComponent = [[[SlingerComponent alloc] init] autorelease];
+	SlingerComponent *slingerComponent = [SlingerComponent component];
 	[slingerComponent pushBeeType:BEE_TYPE_BEE];		// -
 	[slingerComponent pushBeeType:BEE_TYPE_BEE];		//  |- TODO: Read from level description
 	[slingerComponent pushBeeType:BEE_TYPE_BOMBEE];		// -
@@ -114,14 +114,14 @@
 	[slingerEntity addComponent:slingerComponent];
     
     // Transform
-    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
+    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
     [slingerEntity addComponent:transformComponent];
 	
     // Render
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
 	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Sling-Animations.plist" z:-2];
     [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 1.0f)];
-    RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
+    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [slingerEntity addComponent:renderComponent];
 	
 	TagManager *tagManager = (TagManager *)[world getManager:[TagManager class]];
@@ -139,7 +139,7 @@
     Entity *beeEntity = [world createEntity];
 	
     // Bee
-	BeeComponent *beeComponent = [[[BeeComponent alloc] initWithType:type] autorelease];
+	BeeComponent *beeComponent = [BeeComponent componentWithType:type];
 	[beeEntity addComponent:beeComponent];
 	
 	// TEMP
@@ -164,13 +164,13 @@
 	NSString *idleAnimation = [NSString stringWithFormat:@"%@-Idle", typeAsString];
 	
     // Transform
-    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
+    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
     [beeEntity addComponent:transformComponent];
     
     // Render
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
 	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:animationFile z:-3];
-    RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
+    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [beeEntity addComponent:renderComponent];
 	
     // Physics
@@ -191,9 +191,9 @@
     polyShape->e = 0.8f;
     polyShape->u = 1.0f;
     polyShape->collision_type = COLLISION_TYPE_BEE;
-    PhysicsBody *physicsBody = [[[PhysicsBody alloc] initWithBody:body] autorelease];
-    PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:polyShape] autorelease];
-    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShape:physicsShape] autorelease];
+    PhysicsBody *physicsBody = [PhysicsBody physicsBodyWithBody:body];
+    PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:polyShape];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
     [beeEntity addComponent:physicsComponent];
 	
     [beeEntity refresh];
@@ -208,11 +208,11 @@
 	Entity *beeaterEntity = [world createEntity];
 	
 	// Beeater
-	BeeaterComponent *beeaterComponent = [[[BeeaterComponent alloc] init] autorelease];
+	BeeaterComponent *beeaterComponent = [BeeaterComponent component];
 	[beeaterEntity addComponent:beeaterComponent];
 	
     // Transform
-    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
+    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
     if (mirrored)
     {
         [transformComponent setScale:CGPointMake(-1.0f, 1.0f)];
@@ -225,7 +225,7 @@
 	[[bodyRenderSprite sprite] setAnchorPoint:CGPointMake(0.6f, 0.0f)];
 	RenderSprite *headRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Beeater-Head-Animations.plist" z:-1];
 	[[headRenderSprite sprite] setAnchorPoint:CGPointMake(0.8f, -0.3f)];
-    RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprites:[NSArray arrayWithObjects:bodyRenderSprite, headRenderSprite, nil]];
+    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprites:[NSArray arrayWithObjects:bodyRenderSprite, headRenderSprite, nil]];
     [beeaterEntity addComponent:renderComponent];
 	
     // Physics
@@ -242,9 +242,9 @@
     polyShape->e = 0.8f;
     polyShape->u = 0.5f;
     polyShape->collision_type = COLLISION_TYPE_BEEATER;
-    PhysicsBody *physicsBody = [[[PhysicsBody alloc] initWithBody:body] autorelease];
-    PhysicsShape *polyPhysicsShape = [[[PhysicsShape alloc] initWithShape:polyShape] autorelease];
-    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShape:polyPhysicsShape] autorelease];
+    PhysicsBody *physicsBody = [PhysicsBody physicsBodyWithBody:body];
+    PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:polyShape];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
     [beeaterEntity addComponent:physicsComponent];
 	
     [beeaterEntity refresh];
@@ -260,13 +260,13 @@
     Entity *rampEntity = [world createEntity];
     
     // Transform
-    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
+    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
     [rampEntity addComponent:transformComponent];
     
     // Render
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
 	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Ramp-Animations.plist" z:-2];
-    RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
+    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [rampEntity addComponent:renderComponent];
 	
     // Physics
@@ -285,9 +285,9 @@
     shape->u = 0.5f;
     shape->collision_type = COLLISION_TYPE_RAMP;
     cpBodySetAngle(body, rotation);
-    PhysicsBody *physicsBody = [[[PhysicsBody alloc] initWithBody:body] autorelease];
-    PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:shape] autorelease];
-    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShape:physicsShape] autorelease];
+    PhysicsBody *physicsBody = [PhysicsBody physicsBodyWithBody:body];
+    PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:shape];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
     [rampEntity addComponent:physicsComponent];
     
     [rampEntity refresh];
@@ -302,13 +302,13 @@
     Entity *pollenEntity = [world createEntity];
     
     // Transform
-    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
+    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
     [pollenEntity addComponent:transformComponent];
     
     // Render
     RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
 	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Pollen-Animations.plist" z:-1];
-    RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
+    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [pollenEntity addComponent:renderComponent];
     
     // Physics
@@ -319,9 +319,9 @@
     shape->e = 0.8f;
     shape->u = 0.5f;
     shape->collision_type = COLLISION_TYPE_POLLEN;
-    PhysicsBody *physicsBody = [[[PhysicsBody alloc] initWithBody:body] autorelease];
-    PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:shape] autorelease];
-    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShape:physicsShape] autorelease];
+    PhysicsBody *physicsBody = [PhysicsBody physicsBodyWithBody:body];
+    PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:shape];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
     [pollenEntity addComponent:physicsComponent];
     
     [pollenEntity refresh];
@@ -336,14 +336,14 @@
     Entity *mushroomEntity = [world createEntity];
     
     // Transform
-    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
+    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
     [mushroomEntity addComponent:transformComponent];
     
     // Render
     RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
 	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Mushroom-Animations.plist" z:-1];
     [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 0.0f)];
-    RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
+    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [mushroomEntity addComponent:renderComponent];
     
     // Physics
@@ -353,9 +353,9 @@
     shape->e = 1.5f;
     shape->u = 0.5f;
     shape->collision_type = COLLISION_TYPE_MUSHROOM;
-    PhysicsBody *physicsBody = [[[PhysicsBody alloc] initWithBody:body] autorelease];
-    PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:shape] autorelease];
-    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShape:physicsShape] autorelease];
+    PhysicsBody *physicsBody = [PhysicsBody physicsBodyWithBody:body];
+    PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:shape];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
     [mushroomEntity addComponent:physicsComponent];
     
     [mushroomEntity refresh];
@@ -370,14 +370,14 @@
     Entity *woodEntity = [world createEntity];
     
     // Transform
-    TransformComponent *transformComponent = [[[TransformComponent alloc] initWithPosition:CGPointMake(position.x, position.y)] autorelease];
+    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
     [woodEntity addComponent:transformComponent];
     
     // Render
     RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
 	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Wood-Animations.plist" z:-1];
     [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 0.5f)];
-    RenderComponent *renderComponent = [RenderComponent renderComponentWithRenderSprite:renderSprite];
+    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [woodEntity addComponent:renderComponent];
     
     // Physics
@@ -395,9 +395,9 @@
     shape->e = 0.8f;
     shape->u = 0.5f;
     shape->collision_type = COLLISION_TYPE_WOOD;
-    PhysicsBody *physicsBody = [[[PhysicsBody alloc] initWithBody:body] autorelease];
-    PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:shape] autorelease];
-    PhysicsComponent *physicsComponent = [[[PhysicsComponent alloc] initWithBody:physicsBody andShape:physicsShape] autorelease];
+    PhysicsBody *physicsBody = [PhysicsBody physicsBodyWithBody:body];
+    PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:shape];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
     [woodEntity addComponent:physicsComponent];
     
     [woodEntity refresh];

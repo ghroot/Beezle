@@ -18,6 +18,8 @@
 
 @property (nonatomic, assign) Game *game;
 
++(id) state;
+
 -(void) update:(ccTime)delta;
 
 @end

@@ -15,6 +15,8 @@
 
 @property (nonatomic, readonly) cpBody *body;
 
++(id) physicsBodyWithBody:(cpBody *)body;
+
 -(id) initWithBody:(cpBody *)body;
 
 @end

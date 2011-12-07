@@ -19,6 +19,8 @@
 @property (nonatomic, readonly) Entity *firstEntity;
 @property (nonatomic, readonly) Entity *secondEntity;
 
++(id) collisionWithFirstEntity:(Entity *)firstEntity andSecondEntity:(Entity *)secondEntity;
+
 -(id) initWithFirstEntity:(Entity *)firstEntity andSecondEntity:(Entity *)secondEntity;
 
 @end

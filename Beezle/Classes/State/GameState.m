@@ -29,6 +29,11 @@
 	[super dealloc];
 }
 
++(id) state
+{
+	return [[[self alloc] init] autorelease];
+}
+
 -(void) update:(ccTime)delta
 {
 }

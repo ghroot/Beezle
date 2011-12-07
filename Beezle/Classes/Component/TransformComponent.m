@@ -14,6 +14,11 @@
 @synthesize rotation = _rotation;
 @synthesize scale = _scale;
 
++(id) componentWithPosition:(CGPoint)position
+{
+	return [[[self alloc] initWithPosition:position] autorelease];
+}
+
 -(id) initWithPosition:(CGPoint)position
 {
     if (self = [self init])

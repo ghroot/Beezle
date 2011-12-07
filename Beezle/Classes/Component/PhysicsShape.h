@@ -15,6 +15,8 @@
 
 @property (nonatomic, readonly) cpShape *shape;
 
++(id) physicsShapeWithShape:(cpShape *)shape;
+
 -(id) initWithShape:(cpShape *)shape;
 
 @end

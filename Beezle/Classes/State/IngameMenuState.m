@@ -34,8 +34,7 @@
 -(void) gotoMainMenu:(id)sender
 {
 	// This assumes the previous state was the game play state
-	MainMenuState *mainMenuState = [[[MainMenuState alloc] init] autorelease];
-	[_game popAndReplaceState:mainMenuState];
+	[_game popAndReplaceState:[MainMenuState state]];
 }
 
 @end

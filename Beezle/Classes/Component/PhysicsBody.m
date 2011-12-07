@@ -12,6 +12,11 @@
 
 @synthesize body = _body;
 
++(id) physicsBodyWithBody:(cpBody *)body
+{
+	return [[[self alloc] initWithBody:body] autorelease];
+}
+
 -(id) initWithBody:(cpBody *)body
 {
     if (self = [super init])

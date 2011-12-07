@@ -13,6 +13,23 @@
 
 @synthesize renderSprites = _renderSprites;
 
++(RenderComponent *) componentWithRenderSprites:(NSArray *)renderSprites
+{
+	RenderComponent *renderComponent = [[[RenderComponent alloc] init] autorelease];
+	for (RenderSprite *renderSprite in renderSprites)
+	{
+		[renderComponent addRenderSprite:renderSprite];
+	}
+	return renderComponent;
+}
+
++(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite
+{
+	RenderComponent *renderComponent = [[[RenderComponent alloc] init] autorelease];
+	[renderComponent addRenderSprite:renderSprite];
+	return renderComponent;
+}
+
 -(id) init
 {
 	if (self = [super init])
@@ -27,23 +44,6 @@
     [_renderSprites release];
     
     [super dealloc];
-}
-
-+(RenderComponent *) renderComponentWithRenderSprites:(NSArray *)renderSprites
-{
-	RenderComponent *renderComponent = [[[RenderComponent alloc] init] autorelease];
-	for (RenderSprite *renderSprite in renderSprites)
-	{
-		[renderComponent addRenderSprite:renderSprite];
-	}
-	return renderComponent;
-}
-
-+(RenderComponent *) renderComponentWithRenderSprite:(RenderSprite *)renderSprite
-{
-	RenderComponent *renderComponent = [[[RenderComponent alloc] init] autorelease];
-	[renderComponent addRenderSprite:renderSprite];
-	return renderComponent;
 }
 
 -(void) addRenderSprite:(RenderSprite *)renderSprite

@@ -19,6 +19,8 @@
 @property (nonatomic) float rotation;
 @property (nonatomic) CGPoint scale;
 
++(id) componentWithPosition:(CGPoint)position;
+
 -(id) initWithPosition:(CGPoint)position;
 
 @end

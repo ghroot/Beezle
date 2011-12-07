@@ -15,24 +15,28 @@
 
 -(void) initialise
 {
-    CCMenuItem *playMenuItem = [CCMenuItemFont itemFromString:@"Play" target:self selector:@selector(startGame:)];
+    CCMenuItem *play1MenuItem = [CCMenuItemFont itemFromString:@"Play A5" target:self selector:@selector(startGameA5:)];
+	CCMenuItem *play2MenuItem = [CCMenuItemFont itemFromString:@"Play A9" target:self selector:@selector(startGameA9:)];
     CCMenuItem *testMenuItem = [CCMenuItemFont itemFromString:@"Test" target:self selector:@selector(startTest:)];
-    _menu = [CCMenu menuWithItems: playMenuItem, testMenuItem, nil];
-    [_menu alignItemsVerticallyWithPadding:30.0f];
+    _menu = [CCMenu menuWithItems: play1MenuItem, play2MenuItem, testMenuItem, nil];
+    [_menu alignItemsVerticallyWithPadding:20.0f];
     
     [self addChild:_menu];
 }
 
--(void) startGame:(id)sender
+-(void) startGameA5:(id)sender
 {
-	GameplayState *gameplayState = [[[GameplayState alloc] init] autorelease];
-	[_game replaceState:gameplayState];
+	[_game replaceState:[GameplayState stateWithLevelName:@"Level-A5"]];
+}
+
+-(void) startGameA9:(id)sender
+{
+	[_game replaceState:[GameplayState stateWithLevelName:@"Level-A9"]];
 }
 
 -(void) startTest:(id)sender
 {
-	TestState *testState = [[[TestState alloc] init] autorelease];
-	[_game replaceState:testState];
+	[_game replaceState:[TestState state]];
 }
 
 @end
