@@ -43,8 +43,8 @@
 	[_sprite setBlendFunc:(ccBlendFunc){GL_ONE, GL_ZERO}];
 	[_spriteSheet setBlendFunc:(ccBlendFunc){GL_ONE, GL_ZERO}];
 	
-	ccTexParams params = {GL_NEAREST, GL_REPEAT, GL_REPEAT};
-	[_spriteSheet.texture setTexParameters: &params];
+//	ccTexParams params = {GL_NEAREST, GL_REPEAT, GL_REPEAT};
+//	[_spriteSheet.texture setTexParameters: &params];
 }
 
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops
