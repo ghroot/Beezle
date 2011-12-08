@@ -8,8 +8,8 @@
 
 #import "RenderTrajectoryLayer.h"
 
-#define N_POINTS_TO_DRAW 20
 #define GRANULARITY 20
+#define MAX_TOTAL_LINE_LENGTH 120
 
 @implementation RenderTrajectoryLayer
 
@@ -21,22 +21,23 @@
 {
 	if (_startVelocity.x != 0 || _startVelocity.y != 0)
 	{
-		CGPoint vertices[N_POINTS_TO_DRAW];
 		CGPoint currentPoint = CGPointMake(_startPoint.x, _startPoint.y);
 		CGPoint currentVelocity = CGPointMake(_startVelocity.x, _startVelocity.y);
-		for (int i = 0; i < N_POINTS_TO_DRAW; i++)
+        float totalLineLength = 0;
+		while (totalLineLength < MAX_TOTAL_LINE_LENGTH)
 		{
-			vertices[i] = CGPointMake(currentPoint.x, currentPoint.y);
-			
+            CGPoint nextPoint = CGPointMake(currentPoint.x + currentVelocity.x / GRANULARITY, currentPoint.y + currentVelocity.y / GRANULARITY);
+            
+            int alpha = 255 - ((totalLineLength / MAX_TOTAL_LINE_LENGTH) * 255);
+            ccDrawColor4B(255,0,0,alpha);
+            ccDrawLine(currentPoint, nextPoint);
+            
 			currentVelocity.x += _gravity.x / GRANULARITY;
 			currentVelocity.y += _gravity.y / GRANULARITY;
 			
-			currentPoint.x += currentVelocity.x / GRANULARITY;
-			currentPoint.y += currentVelocity.y / GRANULARITY;
+            totalLineLength += ccpDistance(currentPoint, nextPoint);
+			currentPoint = nextPoint;
 		}
-		
-        ccDrawColor4f(200.0f, 0.0f, 0.0f, 0.4f);
-		ccDrawPoly(vertices, N_POINTS_TO_DRAW, FALSE);
 	}
 }
 
