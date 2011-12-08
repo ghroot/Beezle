@@ -8,7 +8,8 @@
 
 #import "RenderTrajectoryLayer.h"
 
-#define N_POINTS_TO_DRAW 10
+#define N_POINTS_TO_DRAW 20
+#define GRANULARITY 20
 
 @implementation RenderTrajectoryLayer
 
@@ -18,7 +19,7 @@
 
 -(void) draw
 {
-	if (_startVelocity.x > 0 && _startVelocity.y > 0)
+	if (_startVelocity.x != 0 || _startVelocity.y != 0)
 	{
 		CGPoint vertices[N_POINTS_TO_DRAW];
 		CGPoint currentPoint = CGPointMake(_startPoint.x, _startPoint.y);
@@ -27,13 +28,14 @@
 		{
 			vertices[i] = CGPointMake(currentPoint.x, currentPoint.y);
 			
-			currentVelocity.x += _gravity.x;
-			currentVelocity.y += _gravity.y;
+			currentVelocity.x += _gravity.x / GRANULARITY;
+			currentVelocity.y += _gravity.y / GRANULARITY;
 			
-			currentPoint.x += currentVelocity.x;
-			currentPoint.y += currentVelocity.y;
+			currentPoint.x += currentVelocity.x / GRANULARITY;
+			currentPoint.y += currentVelocity.y / GRANULARITY;
 		}
 		
+        ccDrawColor4f(200.0f, 0.0f, 0.0f, 0.4f);
 		ccDrawPoly(vertices, N_POINTS_TO_DRAW, FALSE);
 	}
 }

@@ -40,14 +40,14 @@
 
 -(void) entityAdded:(Entity *)entity
 {
-	PhysicsSystem *physicsSystem = [_world getSystem:[PhysicsSystem class]];
+	PhysicsSystem *physicsSystem = (PhysicsSystem *)[[_world systemManager] getSystem:[PhysicsSystem class]];
 	
 	[_renderTrajectoryLayer setGravity:cpSpaceGetGravity([physicsSystem space])];
 }
 
 -(void) processEntity:(Entity *)entity
 {
-	TrajectoryComponent *trajectoryComponent = [entity getComponent:[TrajectoryComponent class]];
+	TrajectoryComponent *trajectoryComponent = (TrajectoryComponent *)[entity getComponent:[TrajectoryComponent class]];
 	
 	CGPoint startVelocity = CGPointMake(cosf([trajectoryComponent angle]) * [trajectoryComponent power], sinf([trajectoryComponent angle]) * [trajectoryComponent power]);
 	

@@ -167,6 +167,9 @@
 		2C157C0B14900A3C003F9040 /* Level-A9.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BFF14900A3C003F9040 /* Level-A9.pvr.ccz */; };
 		2C157C0E14901B88003F9040 /* DebugRenderPhysicsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C0D14901B88003F9040 /* DebugRenderPhysicsLayer.m */; };
 		2C157C111490208F003F9040 /* EmptyState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C101490208F003F9040 /* EmptyState.m */; };
+		2C157C1614914F5D003F9040 /* RenderTrajectoryLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1314914F5C003F9040 /* RenderTrajectoryLayer.m */; };
+		2C157C1714914F5D003F9040 /* RenderTrajectorySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1514914F5D003F9040 /* RenderTrajectorySystem.m */; };
+		2C157C1A14914F6A003F9040 /* TrajectoryComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1914914F6A003F9040 /* TrajectoryComponent.m */; };
 		2C3A6F8514898085002721E3 /* Bee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7514898085002721E3 /* Bee-Animations.plist */; };
 		2C3A6F8614898085002721E3 /* Beeater-Body-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */; };
 		2C3A6F8714898085002721E3 /* Beeater-Head-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */; };
@@ -604,6 +607,12 @@
 		2C157C0D14901B88003F9040 /* DebugRenderPhysicsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugRenderPhysicsLayer.m; path = Classes/System/DebugRenderPhysicsLayer.m; sourceTree = "<group>"; };
 		2C157C0F1490208E003F9040 /* EmptyState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyState.h; sourceTree = "<group>"; };
 		2C157C101490208F003F9040 /* EmptyState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyState.m; sourceTree = "<group>"; };
+		2C157C1214914F5C003F9040 /* RenderTrajectoryLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderTrajectoryLayer.h; path = Classes/System/RenderTrajectoryLayer.h; sourceTree = "<group>"; };
+		2C157C1314914F5C003F9040 /* RenderTrajectoryLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderTrajectoryLayer.m; path = Classes/System/RenderTrajectoryLayer.m; sourceTree = "<group>"; };
+		2C157C1414914F5C003F9040 /* RenderTrajectorySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderTrajectorySystem.h; path = Classes/System/RenderTrajectorySystem.h; sourceTree = "<group>"; };
+		2C157C1514914F5D003F9040 /* RenderTrajectorySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderTrajectorySystem.m; path = Classes/System/RenderTrajectorySystem.m; sourceTree = "<group>"; };
+		2C157C1814914F6A003F9040 /* TrajectoryComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrajectoryComponent.h; path = Classes/Component/TrajectoryComponent.h; sourceTree = "<group>"; };
+		2C157C1914914F6A003F9040 /* TrajectoryComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrajectoryComponent.m; path = Classes/Component/TrajectoryComponent.m; sourceTree = "<group>"; };
 		2C3A6F7514898085002721E3 /* Bee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bee-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Body-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Head-Animations.plist"; sourceTree = "<group>"; };
@@ -1288,6 +1297,10 @@
 		2C7CE5F31469ACDE001F331F /* System */ = {
 			isa = PBXGroup;
 			children = (
+				2C157C1414914F5C003F9040 /* RenderTrajectorySystem.h */,
+				2C157C1514914F5D003F9040 /* RenderTrajectorySystem.m */,
+				2C157C1214914F5C003F9040 /* RenderTrajectoryLayer.h */,
+				2C157C1314914F5C003F9040 /* RenderTrajectoryLayer.m */,
 				2C3A6F911489809F002721E3 /* BeeSystem.h */,
 				2C3A6F921489809F002721E3 /* BeeSystem.m */,
 				2C7CE626146FE110001F331F /* BoundrySystem.h */,
@@ -1549,6 +1562,8 @@
 		2CEA35281466B202000FF575 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2C157C1814914F6A003F9040 /* TrajectoryComponent.h */,
+				2C157C1914914F6A003F9040 /* TrajectoryComponent.m */,
 				2C1147E2148D4290002E4DBD /* BeeaterComponent.h */,
 				2C1147E3148D4291002E4DBD /* BeeaterComponent.m */,
 				2C1147E4148D4291002E4DBD /* SlingerComponent.h */,
@@ -1951,6 +1966,9 @@
 				2C157BF1148FEA8E003F9040 /* GameState.m in Sources */,
 				2C157C0E14901B88003F9040 /* DebugRenderPhysicsLayer.m in Sources */,
 				2C157C111490208F003F9040 /* EmptyState.m in Sources */,
+				2C157C1614914F5D003F9040 /* RenderTrajectoryLayer.m in Sources */,
+				2C157C1714914F5D003F9040 /* RenderTrajectorySystem.m in Sources */,
+				2C157C1A14914F6A003F9040 /* TrajectoryComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

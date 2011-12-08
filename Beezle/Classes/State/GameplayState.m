@@ -47,7 +47,7 @@
     {
 		[[CCDirector sharedDirector] setNeedClear:FALSE];
 		
-		_debug = TRUE;
+		_debug = FALSE;
 		
 		_gameLayer = [[CCLayer alloc] init];
 		[self addChild:_gameLayer];
@@ -94,7 +94,7 @@
 		_debugRenderPhysicsSystem = [[DebugRenderPhysicsSystem alloc] initWithScene:self];
 		[systemManager setSystem:_debugRenderPhysicsSystem];
 	}
-	_renderTrajectorySystem = [[RenderTrajectorySystem alloc] initWithTag:@"SLINGER" andScene:self];
+	_renderTrajectorySystem = [[RenderTrajectorySystem alloc] initWithScene:self];
 	[systemManager setSystem:_renderTrajectorySystem];
 	_inputSystem = [[InputSystem alloc] init];
 	[systemManager setSystem:_inputSystem];

@@ -39,6 +39,7 @@
 
 -(void) drawShape:(cpShape *)shape
 {
+    ccDrawColor4f(255.0f, 255.0f, 255.0f, 1.0f);
     if (shape->klass_private->type == CP_CIRCLE_SHAPE)
     {
         cpCircleShape* circleShape = (cpCircleShape*)shape;

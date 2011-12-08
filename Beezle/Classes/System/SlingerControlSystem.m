@@ -47,10 +47,10 @@
     {
         InputAction *nextInputAction = [inputSystem popInputAction];
         
-		SlingerComponent *slingerComponent = [entity getComponent:[SlingerComponent class]];
-        TransformComponent *transformComponent = [entity getComponent:[TransformComponent class]];
-        RenderComponent *renderComponent = [entity getComponent:[RenderComponent class]];
-		RenderComponent *trajectoryComponent = [entity getComponent:[TrajectoryComponent class]];
+		SlingerComponent *slingerComponent = (SlingerComponent *)[entity getComponent:[SlingerComponent class]];
+        TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
+        RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
+		TrajectoryComponent *trajectoryComponent = (TrajectoryComponent *)[entity getComponent:[TrajectoryComponent class]];
         
         switch ([nextInputAction touchType])
         {

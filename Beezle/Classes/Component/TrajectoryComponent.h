@@ -17,7 +17,7 @@
 
 @property (nonatomic) CGPoint startPoint;
 @property (nonatomic) float power;
-@property (nonatmoic) float angle;
+@property (nonatomic) float angle;
 
 -(BOOL) isZero;
 -(void) reset;

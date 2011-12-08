@@ -12,7 +12,7 @@
 
 @class RenderTrajectoryLayer;
 
-@interface RenderTrajectorySystem : ComponentEntitySystem
+@interface RenderTrajectorySystem : EntityComponentSystem
 {
 	CCScene *_scene;
 	RenderTrajectoryLayer *_renderTrajectoryLayer;
