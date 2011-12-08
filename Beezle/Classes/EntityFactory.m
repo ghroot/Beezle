@@ -22,6 +22,7 @@
 #import "RenderSystem.h"
 #import "SlingerComponent.h"
 #import "TagManager.h"
+#import "TrajectoryComponent.h"
 #import "TransformComponent.h"
 
 @implementation EntityFactory
@@ -116,6 +117,10 @@
     // Transform
     TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
     [slingerEntity addComponent:transformComponent];
+	
+	// Trajectory
+	TrajectoryComponent *trajectoryComponent = [TrajectoryComponent component];
+	[slingerEntity addComponent:trajectoryComponent];
 	
     // Render
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];

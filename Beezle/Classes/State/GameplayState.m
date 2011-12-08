@@ -21,6 +21,7 @@
 #import "LevelLayoutEntry.h"
 #import "PhysicsSystem.h"
 #import "RenderSystem.h"
+#import "RenderTrajectorySystem.h"
 #import "SimpleAudioEngine.h"
 #import "SlingerControlSystem.h"
 
@@ -93,6 +94,8 @@
 		_debugRenderPhysicsSystem = [[DebugRenderPhysicsSystem alloc] initWithScene:self];
 		[systemManager setSystem:_debugRenderPhysicsSystem];
 	}
+	_renderTrajectorySystem = [[RenderTrajectorySystem alloc] initWithTag:@"SLINGER" andScene:self];
+	[systemManager setSystem:_renderTrajectorySystem];
 	_inputSystem = [[InputSystem alloc] init];
 	[systemManager setSystem:_inputSystem];
 	_slingerControlSystem = [[SlingerControlSystem alloc] init];
@@ -117,6 +120,7 @@
 	{
 		[_debugRenderPhysicsSystem release];
 	}
+	[_renderTrajectorySystem release];
     [_inputSystem release];
     [_slingerControlSystem release];
     [_beeSystem release];
@@ -201,6 +205,7 @@
 
 -(void) draw
 {
+	[_renderTrajectorySystem process];
 	if (_debug)
 	{
 		[_debugRenderPhysicsSystem process];

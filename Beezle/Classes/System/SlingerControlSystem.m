@@ -1,5 +1,5 @@
 //
-//  DragSystem.m
+//  SlingerControlSystem.m
 //  Beezle
 //
 //  Created by Me on 13/11/2011.
@@ -15,6 +15,7 @@
 #import "SimpleAudioEngine.h"
 #import "SlingerComponent.h"
 #import "TouchTypes.h"
+#import "TrajectoryComponent.h"
 #import "TransformComponent.h"
 
 #define SLINGER_POWER_SENSITIVITY 5.0
@@ -46,21 +47,30 @@
     {
         InputAction *nextInputAction = [inputSystem popInputAction];
         
-		SlingerComponent *slingerComponent = (SlingerComponent *)[entity getComponent:[SlingerComponent class]];
-        TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
-        RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
+		SlingerComponent *slingerComponent = [entity getComponent:[SlingerComponent class]];
+        TransformComponent *transformComponent = [entity getComponent:[TransformComponent class]];
+        RenderComponent *renderComponent = [entity getComponent:[RenderComponent class]];
+		RenderComponent *trajectoryComponent = [entity getComponent:[TrajectoryComponent class]];
         
         switch ([nextInputAction touchType])
         {
             case TOUCH_BEGAN:
             {
                 [self setStartLocation:[nextInputAction touchLocation]];
+				[trajectoryComponent reset];
                 break;
             }
             case TOUCH_MOVED:
             {
 				float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
 				float power = [self calculatePower:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
+				
+				// Trajectory
+				CGPoint slingerTipVector = CGPointMake(cosf(aimAngle) * 50.0f, sinf(aimAngle) * 50.0f);
+				CGPoint tipPosition = CGPointMake([transformComponent position].x + slingerTipVector.x, [transformComponent position].y + slingerTipVector.y);
+				[trajectoryComponent setStartPoint:tipPosition];
+				[trajectoryComponent setAngle:aimAngle];
+				[trajectoryComponent setPower:power];
                 
 				// Rotation
                 float compatibleAimAngle = 360 - CC_RADIANS_TO_DEGREES(aimAngle) + 90 + 180;
@@ -82,22 +92,21 @@
             }
             case TOUCH_ENDED:
             {
-				if ([slingerComponent hasMoreBees])
+				if (![trajectoryComponent isZero])
 				{
-					BeeType nextBeeType = [slingerComponent popNextBeeType];
-					float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
-					float power = [self calculatePower:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
-					CGPoint beeVelocity = CGPointMake(cosf(aimAngle) * power, sinf(aimAngle) * power);
-                    
-					CGPoint slingerTipVector = CGPointMake(cosf(aimAngle) * 50.0f, sinf(aimAngle) * 50.0f);
-					CGPoint beePosition = CGPointMake([transformComponent position].x + slingerTipVector.x, [transformComponent position].y + slingerTipVector.y);
-					[EntityFactory createBee:_world type:nextBeeType withPosition:beePosition andVelocity:beeVelocity];
-				}
-                
-                [renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];
-                
-                [[SimpleAudioEngine sharedEngine] playEffect:@"33369__herbertboland__mouthpop.wav"];
-                
+					if ([slingerComponent hasMoreBees])
+					{
+						BeeType beeType = [slingerComponent popNextBeeType];
+						CGPoint beeVelocity = CGPointMake(cosf([trajectoryComponent angle]) * [trajectoryComponent power], sinf([trajectoryComponent angle]) * [trajectoryComponent power]);
+						[EntityFactory createBee:_world type:beeType withPosition:[trajectoryComponent startPoint] andVelocity:beeVelocity];
+					}
+					
+					[renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];
+					
+					[[SimpleAudioEngine sharedEngine] playEffect:@"33369__herbertboland__mouthpop.wav"];
+					
+					[trajectoryComponent reset];
+                }
                 break;
             }
         }
