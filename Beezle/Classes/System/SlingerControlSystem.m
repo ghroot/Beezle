@@ -19,8 +19,8 @@
 #import "TransformComponent.h"
 
 #define SLINGER_POWER_SENSITIVITY 5.0
-#define SLINGER_MIN_POWER 150.0
-#define SLINGER_MAX_POWER 350.0
+#define SLINGER_MIN_POWER 100
+#define SLINGER_MAX_POWER 350
 #define SLINGER_AIM_SENSITIVITY 3.0
 
 @interface SlingerControlSystem()
