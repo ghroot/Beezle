@@ -16,9 +16,11 @@
 #import "PhysicsShape.h"
 #import "PhysicsSystem.h"
 #import "RenderComponent.h"
+#import "RenderSprite.h"
 #import "SimpleAudioEngine.h"
 #import "SlingerComponent.h"
 #import "TagManager.h"
+#import "TransformComponent.h"
 
 @implementation CollisionSystem
 
@@ -132,7 +134,11 @@
 	BeeComponent *beeComponent = (BeeComponent *)[beeEntity getComponent:[BeeComponent class]];
     
     RenderComponent *beeaterRenderComponent = (RenderComponent *)[beeaterEntity getComponent:[RenderComponent class]];
+    RenderSprite *beeaterBodyRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"body"];
 	RenderSprite *beeaterHeadRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"head"];
+    
+    TransformComponent *beeaterTransformComponent = (TransformComponent *)[beeaterEntity getComponent:[TransformComponent class]];
+    PhysicsComponent *beeaterPhysicsComponent = (PhysicsComponent *)[beeaterEntity getComponent:[PhysicsComponent class]];
     
 	if ([beeaterComponent hasContainedBee])
 	{
@@ -140,7 +146,11 @@
 		[slingerComponent pushBeeType:[beeaterComponent containedBeeType]];
 		
 		// Beater is destroyed
-		[beeaterEntity deleteEntity];
+        [beeaterTransformComponent setScale:CGPointMake(1.0f, 1.0f)];
+        [beeaterHeadRenderSprite hide];
+        [beeaterBodyRenderSprite playAnimation:@"Beeater-Body-Destroy" withCallbackTarget:beeaterEntity andCallbackSelector:@selector(deleteEntity)];
+        [beeaterPhysicsComponent disable];
+        [beeaterEntity refresh];
 	}
 	else
 	{
@@ -194,7 +204,7 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity
 {
-    [beeEntity deleteEntity];
+//    [beeEntity deleteEntity];
     
     RenderComponent *nutRenderComponent = (RenderComponent *)[nutEntity getComponent:[RenderComponent class]];
 	[nutRenderComponent playAnimation:@"Nut-Collect" withCallbackTarget:nutEntity andCallbackSelector:@selector(deleteEntity)];

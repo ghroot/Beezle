@@ -26,5 +26,7 @@
 -(void) playAnimationsLoopLast:(NSArray *)animationNames;
 -(void) playAnimationsLoopAll:(NSArray *)animationNames;
 -(void) setFrame:(NSString *)frameName;
+-(void) hide;
+-(void) show;
 
 @end

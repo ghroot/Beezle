@@ -144,4 +144,14 @@ typedef enum
 	[_sprite setDisplayFrame:frame];
 }
 
+-(void) hide
+{
+    [_sprite setVisible:FALSE];
+}
+
+-(void) show
+{
+    [_sprite setVisible:TRUE];
+}
+
 @end
