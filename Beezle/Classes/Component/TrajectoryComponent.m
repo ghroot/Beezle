@@ -37,4 +37,9 @@
 	_angle = 0.0f;
 }
 
+-(CGPoint) startVelocity
+{
+    return CGPointMake(cosf(_angle) * _power, sinf(_angle) * _power);
+}
+
 @end

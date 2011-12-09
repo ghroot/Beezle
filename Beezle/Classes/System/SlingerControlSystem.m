@@ -171,8 +171,7 @@
         _aimPollenCountdown--;
         if (_aimPollenCountdown == 0)
         {
-            CGPoint velocity = CGPointMake(cosf([trajectoryComponent angle]) * [trajectoryComponent power], sinf([trajectoryComponent angle]) * [trajectoryComponent power]);
-            [EntityFactory createAimPollen:_world withPosition:[trajectoryComponent startPoint] andVelocity:velocity];
+            [EntityFactory createAimPollen:_world withPosition:[trajectoryComponent startPoint] andVelocity:[trajectoryComponent startVelocity]];
             
             _aimPollenCountdown = AIM_POLLEN_INTERVAL;
         }

@@ -21,5 +21,6 @@
 
 -(BOOL) isZero;
 -(void) reset;
+-(CGPoint) startVelocity;
 
 @end

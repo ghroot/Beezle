@@ -49,10 +49,8 @@
 {
 	TrajectoryComponent *trajectoryComponent = (TrajectoryComponent *)[entity getComponent:[TrajectoryComponent class]];
 	
-	CGPoint startVelocity = CGPointMake(cosf([trajectoryComponent angle]) * [trajectoryComponent power], sinf([trajectoryComponent angle]) * [trajectoryComponent power]);
-	
 	[_renderTrajectoryLayer setStartPoint:[trajectoryComponent startPoint]];
-	[_renderTrajectoryLayer setStartVelocity:startVelocity];
+	[_renderTrajectoryLayer setStartVelocity:[trajectoryComponent startVelocity]];
 }
 
 @end
