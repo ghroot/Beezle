@@ -167,6 +167,10 @@
         {
             [EntityFactory createWood:_world withPosition:[levelLayoutEntry position]];
         }
+        else if ([[levelLayoutEntry type] isEqualToString:@"NUT"])
+        {
+            [EntityFactory createNut:_world withPosition:[levelLayoutEntry position]];
+        }
     }
 }
 

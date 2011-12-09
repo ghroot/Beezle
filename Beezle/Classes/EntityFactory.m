@@ -415,6 +415,40 @@
     return woodEntity;
 }
 
++(Entity *) createNut:(World *)world withPosition:(CGPoint)position
+{
+    Entity *nutEntity = [world createEntity];
+    
+    // Transform
+    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
+    [nutEntity addComponent:transformComponent];
+    
+    // Render
+    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Nut-Animations.plist" z:-1];
+    [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 0.0f)];
+    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
+    [nutEntity addComponent:renderComponent];
+    
+    // Physics
+    cpBody *body = cpBodyNew(1.0f, 1.0f);
+    cpBodyInitStatic(body);
+    cpShape *shape = cpCircleShapeNew(body, 20, cpv(0, 20));
+    shape->e = 1.5f;
+    shape->u = 0.5f;
+    shape->collision_type = COLLISION_TYPE_NUT;
+    PhysicsBody *physicsBody = [PhysicsBody physicsBodyWithBody:body];
+    PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:shape];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
+    [nutEntity addComponent:physicsComponent];
+    
+    [nutEntity refresh];
+    
+    [renderComponent playAnimation:@"Nut-Idle"];
+    
+    return nutEntity;
+}
+
 +(Entity *) createAimPollen:(World *)world withPosition:(CGPoint)position andVelocity:(CGPoint)velocity
 {
     Entity *aimPollenEntity = [world createEntity];

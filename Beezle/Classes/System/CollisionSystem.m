@@ -54,6 +54,7 @@
 	[physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_RAMP];
     [physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_MUSHROOM];
     [physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_WOOD];
+    [physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_NUT];
 }
 
 -(void) begin
@@ -97,6 +98,10 @@
             else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_WOOD)
             {
                 [self handleCollisionBee:[collision firstEntity] withWood:[collision secondEntity]];
+            }
+            else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_NUT)
+            {
+                [self handleCollisionBee:[collision firstEntity] withNut:[collision secondEntity]];
             }
         }
     }
@@ -185,6 +190,19 @@
     [woodEntity refresh];
     
     [[SimpleAudioEngine sharedEngine] playEffect:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
+}
+
+-(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity
+{
+    [beeEntity deleteEntity];
+    
+    RenderComponent *nutRenderComponent = (RenderComponent *)[nutEntity getComponent:[RenderComponent class]];
+	[nutRenderComponent playAnimation:@"Nut-Collect" withCallbackTarget:nutEntity andCallbackSelector:@selector(deleteEntity)];
+    
+    // Disable physics component
+    PhysicsComponent *nutPhysicsComponent = (PhysicsComponent *)[nutEntity getComponent:[PhysicsComponent class]];
+    [nutPhysicsComponent disable];
+    [nutEntity refresh];
 }
 
 @end

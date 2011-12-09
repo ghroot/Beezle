@@ -22,6 +22,7 @@
 +(Entity *) createPollen:(World *)world withPosition:(CGPoint)position;
 +(Entity *) createMushroom:(World *)world withPosition:(CGPoint)position;
 +(Entity *) createWood:(World *)world withPosition:(CGPoint)position;
++(Entity *) createNut:(World *)world withPosition:(CGPoint)position;
 +(Entity *) createAimPollen:(World *)world withPosition:(CGPoint)position andVelocity:(CGPoint)velocity;
 
 @end

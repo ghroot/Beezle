@@ -170,6 +170,7 @@
 		2C157C1614914F5D003F9040 /* RenderTrajectoryLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1314914F5C003F9040 /* RenderTrajectoryLayer.m */; };
 		2C157C1714914F5D003F9040 /* RenderTrajectorySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1514914F5D003F9040 /* RenderTrajectorySystem.m */; };
 		2C157C1A14914F6A003F9040 /* TrajectoryComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1914914F6A003F9040 /* TrajectoryComponent.m */; };
+		2C157C1C14926BE1003F9040 /* Nut-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C157C1B14926BE1003F9040 /* Nut-Animations.plist */; };
 		2C3A6F8514898085002721E3 /* Bee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7514898085002721E3 /* Bee-Animations.plist */; };
 		2C3A6F8614898085002721E3 /* Beeater-Body-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */; };
 		2C3A6F8714898085002721E3 /* Beeater-Head-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */; };
@@ -613,6 +614,7 @@
 		2C157C1514914F5D003F9040 /* RenderTrajectorySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderTrajectorySystem.m; path = Classes/System/RenderTrajectorySystem.m; sourceTree = "<group>"; };
 		2C157C1814914F6A003F9040 /* TrajectoryComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrajectoryComponent.h; path = Classes/Component/TrajectoryComponent.h; sourceTree = "<group>"; };
 		2C157C1914914F6A003F9040 /* TrajectoryComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrajectoryComponent.m; path = Classes/Component/TrajectoryComponent.m; sourceTree = "<group>"; };
+		2C157C1B14926BE1003F9040 /* Nut-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Nut-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7514898085002721E3 /* Bee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bee-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Body-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Head-Animations.plist"; sourceTree = "<group>"; };
@@ -1270,6 +1272,7 @@
 				2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */,
 				2C3A6F7814898085002721E3 /* Bombee-Animations.plist */,
 				2C3A6F7914898085002721E3 /* Mushroom-Animations.plist */,
+				2C157C1B14926BE1003F9040 /* Nut-Animations.plist */,
 				2C3A6F7A14898085002721E3 /* Pollen-Animations.plist */,
 				2C3A6F7B14898085002721E3 /* Ramp-Animations.plist */,
 				2C3A6F7C14898085002721E3 /* Sawee-Animations.plist */,
@@ -1756,6 +1759,7 @@
 				2C157C0914900A3C003F9040 /* Level-A9.jpg in Resources */,
 				2C157C0A14900A3C003F9040 /* Level-A9.plist in Resources */,
 				2C157C0B14900A3C003F9040 /* Level-A9.pvr.ccz in Resources */,
+				2C157C1C14926BE1003F9040 /* Nut-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
