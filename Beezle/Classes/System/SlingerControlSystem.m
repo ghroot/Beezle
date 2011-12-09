@@ -22,11 +22,15 @@
 #define SLINGER_MIN_POWER 100
 #define SLINGER_MAX_POWER 350
 #define SLINGER_AIM_SENSITIVITY 3.0
+#define AIM_POLLEN_INTERVAL 16
 
 @interface SlingerControlSystem()
 
 -(float) calculateAimAngle:(CGPoint)touchLocation slingerLocation:(CGPoint)slingerLocation;
 -(float) calculatePower:(CGPoint)touchLocation slingerLocation:(CGPoint)slingerLocation;
+-(void) startShootingAimPollens;
+-(void) stopShootingAimPollens;
+-(void) shootAimPollens:(TrajectoryComponent *)trajectoryComponent;
 
 @end
 
@@ -42,6 +46,8 @@
 
 -(void) processTaggedEntity:(Entity *)entity
 {
+    TrajectoryComponent *trajectoryComponent = (TrajectoryComponent *)[entity getComponent:[TrajectoryComponent class]];
+    
     InputSystem *inputSystem = (InputSystem *)[[_world systemManager] getSystem:[InputSystem class]];
     if ([inputSystem hasInputActions])
     {
@@ -50,14 +56,13 @@
 		SlingerComponent *slingerComponent = (SlingerComponent *)[entity getComponent:[SlingerComponent class]];
         TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
         RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
-		TrajectoryComponent *trajectoryComponent = (TrajectoryComponent *)[entity getComponent:[TrajectoryComponent class]];
         
         switch ([nextInputAction touchType])
         {
             case TOUCH_BEGAN:
             {
                 [self setStartLocation:[nextInputAction touchLocation]];
-				[trajectoryComponent reset];
+                [self startShootingAimPollens];
                 break;
             }
             case TOUCH_MOVED:
@@ -107,10 +112,15 @@
 					
 					[trajectoryComponent reset];
                 }
+                
+                [self stopShootingAimPollens];
+                
                 break;
             }
         }
     }
+    
+    [self shootAimPollens:trajectoryComponent];
 }
 
 -(float) calculateAimAngle:(CGPoint)touchLocation slingerLocation:(CGPoint)slingerLocation
@@ -140,6 +150,33 @@
 	power = min(power, SLINGER_MAX_POWER);
 	
 	return power;
+}
+
+-(void) startShootingAimPollens
+{
+    _aimPollenCountdown = AIM_POLLEN_INTERVAL;
+    _isShootingAimPollens = TRUE;
+}
+
+-(void) stopShootingAimPollens
+{
+    _aimPollenCountdown = 0;
+    _isShootingAimPollens = FALSE;
+}
+
+-(void) shootAimPollens:(TrajectoryComponent *)trajectoryComponent
+{
+    if (_isShootingAimPollens && ![trajectoryComponent isZero])
+    {
+        _aimPollenCountdown--;
+        if (_aimPollenCountdown == 0)
+        {
+            CGPoint velocity = CGPointMake(cosf([trajectoryComponent angle]) * [trajectoryComponent power], sinf([trajectoryComponent angle]) * [trajectoryComponent power]);
+            [EntityFactory createAimPollen:_world withPosition:[trajectoryComponent startPoint] andVelocity:velocity];
+            
+            _aimPollenCountdown = AIM_POLLEN_INTERVAL;
+        }
+    }
 }
 
 @end

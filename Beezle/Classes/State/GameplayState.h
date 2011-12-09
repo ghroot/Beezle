@@ -16,7 +16,6 @@
 @class InputSystem;
 @class PhysicsSystem;
 @class RenderSystem;
-@class RenderTrajectorySystem;
 @class SlingerControlSystem;
 
 @interface GameplayState : GameState
@@ -32,7 +31,6 @@
     CollisionSystem *_collisionSystem;
     RenderSystem *_renderSystem;
     DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
-	RenderTrajectorySystem *_renderTrajectorySystem;
     InputSystem *_inputSystem;
     SlingerControlSystem *_slingerControlSystem;
     BeeSystem *_beeSystem;

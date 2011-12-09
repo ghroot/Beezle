@@ -13,15 +13,14 @@
 
 @interface RenderComponent : Component
 {
-	NSMutableArray *_renderSprites;
+	NSMutableDictionary *_renderSpritesByName;
 }
 
-@property (nonatomic, readonly) NSArray *renderSprites;
-
-+(RenderComponent *) componentWithRenderSprites:(NSArray *)renderSprites;
 +(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite;
 
--(void) addRenderSprite:(RenderSprite *)renderSprite;
+-(void) addRenderSprite:(RenderSprite *)renderSprite withName:(NSString *)name;
+-(RenderSprite *) getRenderSprite:(NSString *)name;
+-(NSArray *) renderSprites;
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops;
 -(void) playAnimation:(NSString *)animationName;
 -(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector;

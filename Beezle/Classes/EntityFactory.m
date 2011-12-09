@@ -196,6 +196,7 @@
     polyShape->e = 0.8f;
     polyShape->u = 1.0f;
     polyShape->collision_type = COLLISION_TYPE_BEE;
+    polyShape->group = 1;
     PhysicsBody *physicsBody = [PhysicsBody physicsBodyWithBody:body];
     PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:polyShape];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
@@ -230,7 +231,9 @@
 	[[bodyRenderSprite sprite] setAnchorPoint:CGPointMake(0.6f, 0.0f)];
 	RenderSprite *headRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Beeater-Head-Animations.plist" z:-1];
 	[[headRenderSprite sprite] setAnchorPoint:CGPointMake(0.8f, -0.3f)];
-    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprites:[NSArray arrayWithObjects:bodyRenderSprite, headRenderSprite, nil]];
+    RenderComponent *renderComponent = [RenderComponent component];
+    [renderComponent addRenderSprite:bodyRenderSprite withName:@"body"];
+    [renderComponent addRenderSprite:headRenderSprite withName:@"head"];
     [beeaterEntity addComponent:renderComponent];
 	
     // Physics
@@ -255,7 +258,7 @@
     [beeaterEntity refresh];
 	
     [bodyRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:@"Beeater-Body-Idle", @"Beeater-Body-Wave", nil]];
-    [headRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:@"Beeater-Head-Idle", @"Beeater-Head-Lick", nil]];
+    [headRenderSprite playAnimation:@"Beeater-Head-Idle-NoBee"];
     
     return beeaterEntity;
 }
@@ -410,6 +413,56 @@
     [renderComponent playAnimation:@"Wood-Idle"];
     
     return woodEntity;
+}
+
++(Entity *) createAimPollen:(World *)world withPosition:(CGPoint)position andVelocity:(CGPoint)velocity
+{
+    Entity *aimPollenEntity = [world createEntity];
+	
+    // Transform
+    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
+    [transformComponent setScale:CGPointMake(0.33f, 0.33f)];
+    [aimPollenEntity addComponent:transformComponent];
+    
+    // Render
+    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Pollen-Animations.plist" z:-1];
+    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
+    [aimPollenEntity addComponent:renderComponent];
+	
+    // Physics
+    cpBody *body = cpBodyNew(1.0f, 1.0f);
+    body->v = cpv(velocity.x, velocity.y);
+    CGPoint verts[] =
+	{
+        cpv(-2.0f, 6.0f),
+        cpv(2.0f, 6.0f),
+        cpv(6.0f, 2.0f),
+        cpv(6.0f, -2.0f),
+        cpv(2.0f, -6.0f),
+        cpv(-2.0f, -6.0f),
+        cpv(-6.0f, -2.0f),
+        cpv(-6.0f, 2.0f)
+    };
+    cpShape *polyShape = cpPolyShapeNew(body, 8, verts, cpv(0, 0));
+    polyShape->e = 0.8f;
+    polyShape->u = 1.0f;
+    polyShape->collision_type = COLLISION_TYPE_AIM_POLLEN;
+    polyShape->group = 1;
+    PhysicsBody *physicsBody = [PhysicsBody physicsBodyWithBody:body];
+    PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:polyShape];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
+    [aimPollenEntity addComponent:physicsComponent];
+	
+    [aimPollenEntity refresh];
+	
+	[renderComponent playAnimation:@"Pollen-Idle"];
+    
+    CCFadeOut *fadeOutAction = [CCFadeOut actionWithDuration:0.7f];
+    CCCallFunc *callFunctionAction = [CCCallFunc actionWithTarget:aimPollenEntity selector:@selector(deleteEntity)];
+    [[renderSprite sprite] runAction:[CCSequence actions:fadeOutAction, callFunctionAction, nil]];
+    
+    return aimPollenEntity;
 }
 
 @end

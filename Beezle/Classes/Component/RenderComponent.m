@@ -11,22 +11,10 @@
 
 @implementation RenderComponent
 
-@synthesize renderSprites = _renderSprites;
-
-+(RenderComponent *) componentWithRenderSprites:(NSArray *)renderSprites
-{
-	RenderComponent *renderComponent = [[[RenderComponent alloc] init] autorelease];
-	for (RenderSprite *renderSprite in renderSprites)
-	{
-		[renderComponent addRenderSprite:renderSprite];
-	}
-	return renderComponent;
-}
-
 +(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite
 {
 	RenderComponent *renderComponent = [[[RenderComponent alloc] init] autorelease];
-	[renderComponent addRenderSprite:renderSprite];
+	[renderComponent addRenderSprite:renderSprite withName:@"default"];
 	return renderComponent;
 }
 
@@ -34,55 +22,65 @@
 {
 	if (self = [super init])
 	{
-		_renderSprites = [[NSMutableArray alloc] init];
+		_renderSpritesByName = [[NSMutableDictionary alloc] init];
 	}
 	return self;
 }
 
 -(void) dealloc
 {
-    [_renderSprites release];
+    [_renderSpritesByName release];
     
     [super dealloc];
 }
 
--(void) addRenderSprite:(RenderSprite *)renderSprite
+-(void) addRenderSprite:(RenderSprite *)renderSprite withName:(NSString *)name
 {
-	[_renderSprites addObject:renderSprite];
+	[_renderSpritesByName setObject:renderSprite forKey:name];
+}
+
+-(RenderSprite *) getRenderSprite:(NSString *)name
+{
+    return [_renderSpritesByName objectForKey:name];
+}
+
+-(NSArray *) renderSprites
+{
+    return [_renderSpritesByName allValues];
 }
 
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops
 {
 	// TEMP: Simply forward to first render sprite for now
-	RenderSprite *firstRenderSprite = (RenderSprite *)[_renderSprites objectAtIndex:0];
+	RenderSprite *firstRenderSprite = (RenderSprite *)[[self renderSprites] objectAtIndex:0];
 	[firstRenderSprite playAnimation:animationName withLoops:nLoops];
 }
 
 -(void) playAnimation:(NSString *)animationName
 {
 	// TEMP: Simply forward to first render sprite for now
-	RenderSprite *firstRenderSprite = (RenderSprite *)[_renderSprites objectAtIndex:0];
+	RenderSprite *firstRenderSprite = (RenderSprite *)[[self renderSprites] objectAtIndex:0];
 	[firstRenderSprite playAnimation:animationName];
 }
 
 -(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector
 {
 	// TEMP: Simply forward to first render sprite for now
-	RenderSprite *firstRenderSprite = (RenderSprite *)[_renderSprites objectAtIndex:0];
+	RenderSprite *firstRenderSprite = (RenderSprite *)[[self renderSprites] objectAtIndex:0];
 	[firstRenderSprite playAnimation:animationName withCallbackTarget:target andCallbackSelector:selector];
 }
 
 -(void) playAnimationsLoopLast:(NSArray *)animationNames
 {
 	// TEMP: Simply forward to first render sprite for now
-	RenderSprite *firstRenderSprite = (RenderSprite *)[_renderSprites objectAtIndex:0];
+	RenderSprite *firstRenderSprite = (RenderSprite *)[[self renderSprites] objectAtIndex:0];
 	[firstRenderSprite playAnimationsLoopLast:animationNames];
 }
 
 -(void) playAnimationsLoopAll:(NSArray *)animationNames
 {
 	// TEMP: Simply forward to first render sprite for now
-	RenderSprite *firstRenderSprite = (RenderSprite *)[_renderSprites objectAtIndex:0];
+	RenderSprite *firstRenderSprite = (RenderSprite *)[[self renderSprites] objectAtIndex:0];
 	[firstRenderSprite playAnimationsLoopAll:animationNames];
 }
 

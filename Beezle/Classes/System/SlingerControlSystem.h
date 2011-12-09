@@ -12,6 +12,9 @@
 @interface SlingerControlSystem : TagEntitySystem
 {
     CGPoint _startLocation;
+    
+    BOOL _isShootingAimPollens;
+    int _aimPollenCountdown;
 }
 
 @property (nonatomic) CGPoint startLocation;
