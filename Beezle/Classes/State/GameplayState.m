@@ -27,7 +27,8 @@
 
 @interface GameplayState()
 
--(void) createSystems;
+-(void) createUI;
+-(void) createWorldAndSystems;
 -(void) createModes;
 -(void) preloadSounds;
 -(void) loadLevel:(NSString *)levelName;
@@ -52,23 +53,8 @@
 		
 		_debug = FALSE;
 		
-		_gameLayer = [[CCLayer alloc] init];
-		[self addChild:_gameLayer];
-		
-		_uiLayer = [[CCLayer alloc] init];
-		[self addChild:_uiLayer];
-		
-		CCMenuItemImage *pauseMenuItem = [CCMenuItemImage itemFromNormalImage:@"Pause.png" selectedImage:@"Pause.png" target:self selector:@selector(pauseGame:)];
-        CGSize winSize = [[CCDirector sharedDirector] winSize];
-        [pauseMenuItem setPosition:CGPointMake(0.0f, winSize.height)];
-        [pauseMenuItem setAnchorPoint:CGPointMake(0.0f, 1.0f)];
-        CCMenu *menu = [CCMenu menuWithItems:pauseMenuItem, nil];
-        [menu setPosition:CGPointZero];
-		[_uiLayer addChild:menu];
-		
-		_world = [[World alloc] init];
-		
-		[self createSystems];
+        [self createUI];
+		[self createWorldAndSystems];
         [self createModes];
 		[self preloadSounds];
 		[self loadLevel:levelName];
@@ -81,8 +67,27 @@
 	return [self initWithLevelName:nil];
 }
 
--(void) createSystems
+-(void) createUI
 {
+    _gameLayer = [[CCLayer alloc] init];
+    [self addChild:_gameLayer];
+    
+    _uiLayer = [[CCLayer alloc] init];
+    [self addChild:_uiLayer];
+    
+    CCMenuItemImage *pauseMenuItem = [CCMenuItemImage itemFromNormalImage:@"Pause.png" selectedImage:@"Pause.png" target:self selector:@selector(pauseGame:)];
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    [pauseMenuItem setPosition:CGPointMake(0.0f, winSize.height)];
+    [pauseMenuItem setAnchorPoint:CGPointMake(0.0f, 1.0f)];
+    CCMenu *menu = [CCMenu menuWithItems:pauseMenuItem, nil];
+    [menu setPosition:CGPointZero];
+    [_uiLayer addChild:menu];
+}
+
+-(void) createWorldAndSystems
+{
+    _world = [[World alloc] init];
+    
 	SystemManager *systemManager = [_world systemManager];
 	
     _gameRulesSystem = [[[GameRulesSystem alloc] init] autorelease];
