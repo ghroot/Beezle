@@ -120,4 +120,12 @@
     return [_entities containsObject:entity];
 }
 
+-(void) deactivate
+{
+}
+
+-(void) activate
+{
+}
+
 @end

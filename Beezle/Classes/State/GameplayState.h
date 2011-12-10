@@ -9,10 +9,12 @@
 #import "GameState.h"
 #import "artemis.h"
 #import "cocos2d.h"
+#import "GameMode.h"
 
 @class BeeSystem;
 @class CollisionSystem;
 @class DebugRenderPhysicsSystem;
+@class GameRulesSystem;
 @class InputSystem;
 @class PhysicsSystem;
 @class RenderSystem;
@@ -27,6 +29,7 @@
 	
 	BOOL _debug;
 	
+    GameRulesSystem *_gameRulesSystem;
     PhysicsSystem *_physicsSystem;
     CollisionSystem *_collisionSystem;
     RenderSystem *_renderSystem;
@@ -34,6 +37,12 @@
     InputSystem *_inputSystem;
     SlingerControlSystem *_slingerControlSystem;
     BeeSystem *_beeSystem;
+    
+    GameMode *_currentMode;
+    GameMode *_aimingMode;
+    GameMode *_shootingMode;
+    GameMode *_levelCompletedMode;
+    GameMode *_levelFailedMode;
 }
 
 +(id) stateWithLevelName:(NSString *)levelName;

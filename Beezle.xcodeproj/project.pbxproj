@@ -171,6 +171,8 @@
 		2C157C1714914F5D003F9040 /* RenderTrajectorySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1514914F5D003F9040 /* RenderTrajectorySystem.m */; };
 		2C157C1A14914F6A003F9040 /* TrajectoryComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1914914F6A003F9040 /* TrajectoryComponent.m */; };
 		2C157C1C14926BE1003F9040 /* Nut-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C157C1B14926BE1003F9040 /* Nut-Animations.plist */; };
+		2C157C1F149382D8003F9040 /* GameRulesSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1E149382D6003F9040 /* GameRulesSystem.m */; };
+		2C157C241493B3DE003F9040 /* GameMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C231493B3DE003F9040 /* GameMode.m */; };
 		2C3A6F8514898085002721E3 /* Bee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7514898085002721E3 /* Bee-Animations.plist */; };
 		2C3A6F8614898085002721E3 /* Beeater-Body-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */; };
 		2C3A6F8714898085002721E3 /* Beeater-Head-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */; };
@@ -615,6 +617,10 @@
 		2C157C1814914F6A003F9040 /* TrajectoryComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrajectoryComponent.h; path = Classes/Component/TrajectoryComponent.h; sourceTree = "<group>"; };
 		2C157C1914914F6A003F9040 /* TrajectoryComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrajectoryComponent.m; path = Classes/Component/TrajectoryComponent.m; sourceTree = "<group>"; };
 		2C157C1B14926BE1003F9040 /* Nut-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Nut-Animations.plist"; sourceTree = "<group>"; };
+		2C157C1D149382D6003F9040 /* GameRulesSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameRulesSystem.h; path = Classes/System/GameRulesSystem.h; sourceTree = "<group>"; };
+		2C157C1E149382D6003F9040 /* GameRulesSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameRulesSystem.m; path = Classes/System/GameRulesSystem.m; sourceTree = "<group>"; };
+		2C157C221493B3DE003F9040 /* GameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMode.h; sourceTree = "<group>"; };
+		2C157C231493B3DE003F9040 /* GameMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameMode.m; sourceTree = "<group>"; };
 		2C3A6F7514898085002721E3 /* Bee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bee-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Body-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Head-Animations.plist"; sourceTree = "<group>"; };
@@ -1330,6 +1336,8 @@
 				2C7CE5F61469AD06001F331F /* RenderSystem.m */,
 				2C7CE620146FD66F001F331F /* SlingerControlSystem.h */,
 				2C7CE621146FD66F001F331F /* SlingerControlSystem.m */,
+				2C157C1D149382D6003F9040 /* GameRulesSystem.h */,
+				2C157C1E149382D6003F9040 /* GameRulesSystem.m */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -1399,6 +1407,8 @@
 				2C114808148E9317002E4DBD /* IngameMenuState.m */,
 				2CD33ED6147D72AD000869C1 /* GameplayState.h */,
 				2CD33ED7147D72AD000869C1 /* GameplayState.m */,
+				2C157C221493B3DE003F9040 /* GameMode.h */,
+				2C157C231493B3DE003F9040 /* GameMode.m */,
 				2CD33EE8147EE7AD000869C1 /* TestState.h */,
 				2CD33EE9147EE7AD000869C1 /* TestState.m */,
 				2C157C0F1490208E003F9040 /* EmptyState.h */,
@@ -1973,6 +1983,8 @@
 				2C157C1614914F5D003F9040 /* RenderTrajectoryLayer.m in Sources */,
 				2C157C1714914F5D003F9040 /* RenderTrajectorySystem.m in Sources */,
 				2C157C1A14914F6A003F9040 /* TrajectoryComponent.m in Sources */,
+				2C157C1F149382D8003F9040 /* GameRulesSystem.m in Sources */,
+				2C157C241493B3DE003F9040 /* GameMode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

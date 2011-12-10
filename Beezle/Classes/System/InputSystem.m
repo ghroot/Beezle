@@ -12,6 +12,8 @@
 
 @interface InputSystem()
 
+-(void) startListeningForTouches;
+-(void) stopListeningForTouches;
 -(void) pushInputAction:(InputAction *)inputAction;
 
 @end
@@ -32,6 +34,26 @@
     [_inputActions release];
     
     [super dealloc];
+}
+
+-(void) deactivate
+{
+    [self stopListeningForTouches];
+}
+
+-(void) activate
+{
+    [self startListeningForTouches];
+}
+
+-(void) startListeningForTouches
+{
+    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:TRUE];
+}
+
+-(void) stopListeningForTouches
+{
+    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
 }
 
 -(InputAction *) popInputAction

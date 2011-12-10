@@ -108,10 +108,10 @@
 	[slingerComponent pushBeeType:BEE_TYPE_BEE];		// -
 	[slingerComponent pushBeeType:BEE_TYPE_BEE];		//  |- TODO: Read from level description
 	[slingerComponent pushBeeType:BEE_TYPE_BOMBEE];		// -
-    for (int i = 0; i < 500; i++)
-    {
-        [slingerComponent pushBeeType:BEE_TYPE_BEE];
-    }
+//    for (int i = 0; i < 500; i++)
+//    {
+//        [slingerComponent pushBeeType:BEE_TYPE_BEE];
+//    }
 	[slingerEntity addComponent:slingerComponent];
     
     // Transform
@@ -201,6 +201,9 @@
     PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:polyShape];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
     [beeEntity addComponent:physicsComponent];
+    
+    GroupManager *groupManager = (GroupManager *)[world getManager:[GroupManager class]];
+    [groupManager addEntity:beeEntity toGroup:@"BEES"];
 	
     [beeEntity refresh];
 	
@@ -255,6 +258,9 @@
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
     [beeaterEntity addComponent:physicsComponent];
 	
+    GroupManager *groupManager = (GroupManager *)[world getManager:[GroupManager class]];
+    [groupManager addEntity:beeaterEntity toGroup:@"BEEATERS"];
+    
     [beeaterEntity refresh];
 	
     [bodyRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:@"Beeater-Body-Idle", @"Beeater-Body-Wave", nil]];

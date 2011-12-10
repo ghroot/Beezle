@@ -51,5 +51,7 @@
 -(BOOL) shouldContainEntity:(Entity *)entity;
 -(void) removeEntity:(Entity *)entity;
 -(BOOL) hasEntity:(Entity *)entity;
+-(void) deactivate;
+-(void) activate;
 
 @end

@@ -13,6 +13,7 @@
 #import "DebugRenderPhysicsSystem.h"
 #import "EntityFactory.h"
 #import "Game.h"
+#import "GameRulesSystem.h"
 #import "IngameMenuState.h"
 #import "InputAction.h"
 #import "InputSystem.h"
@@ -27,8 +28,11 @@
 @interface GameplayState()
 
 -(void) createSystems;
+-(void) createModes;
 -(void) preloadSounds;
 -(void) loadLevel:(NSString *)levelName;
+-(void) enterMode:(GameMode *)mode;
+-(void) updateMode;
 
 @end
 
@@ -65,9 +69,8 @@
 		_world = [[World alloc] init];
 		
 		[self createSystems];
-		
+        [self createModes];
 		[self preloadSounds];
-		
 		[self loadLevel:levelName];
     }
     return self;
@@ -82,44 +85,65 @@
 {
 	SystemManager *systemManager = [_world systemManager];
 	
-	_physicsSystem = [[PhysicsSystem alloc] init];
+    _gameRulesSystem = [[[GameRulesSystem alloc] init] autorelease];
+    [systemManager setSystem:_gameRulesSystem];
+	_physicsSystem = [[[PhysicsSystem alloc] init] autorelease];
 	[systemManager setSystem:_physicsSystem];
-	_collisionSystem = [[CollisionSystem alloc] init];
+	_collisionSystem = [[[CollisionSystem alloc] init] autorelease];
 	[systemManager setSystem:_collisionSystem];
-	_renderSystem = [[RenderSystem alloc] initWithLayer:_gameLayer];
+	_renderSystem = [[[RenderSystem alloc] initWithLayer:_gameLayer] autorelease];
 	[systemManager setSystem:_renderSystem];
 	if (_debug)
 	{
-		_debugRenderPhysicsSystem = [[DebugRenderPhysicsSystem alloc] initWithScene:self];
+		_debugRenderPhysicsSystem = [[[DebugRenderPhysicsSystem alloc] initWithScene:self] autorelease];
 		[systemManager setSystem:_debugRenderPhysicsSystem];
 	}
-	_inputSystem = [[InputSystem alloc] init];
+	_inputSystem = [[[InputSystem alloc] init] autorelease];
 	[systemManager setSystem:_inputSystem];
-	_slingerControlSystem = [[SlingerControlSystem alloc] init];
+	_slingerControlSystem = [[[SlingerControlSystem alloc] init] autorelease];
 	[systemManager setSystem:_slingerControlSystem];
-	_beeSystem = [[BeeSystem alloc] init];
+	_beeSystem = [[[BeeSystem alloc] init] autorelease];
 	[systemManager setSystem:_beeSystem];
 	
 	[systemManager initialiseAll];
+}
+
+-(void) createModes
+{
+    _aimingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
+                                             _gameRulesSystem,
+                                             _physicsSystem,
+                                             _renderSystem,
+                                             _inputSystem,
+                                             _slingerControlSystem,
+                                             nil]];
+    
+    _shootingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
+                                               _gameRulesSystem,
+                                               _physicsSystem,
+                                               _collisionSystem,
+                                               _renderSystem,
+                                               _beeSystem,
+                                               nil]];
+    
+    _levelCompletedMode = [[GameMode alloc] init];
+    
+    _levelFailedMode = [[GameMode alloc] init];
+    
+    _currentMode = _aimingMode;
 }
 
 -(void) dealloc
 {
 	[_gameLayer release];
 	[_uiLayer release];
-
-	[_world release];
-	
-    [_physicsSystem release];
-    [_collisionSystem release];
-    [_renderSystem release];
-	if (_debug)
-	{
-		[_debugRenderPhysicsSystem release];
-	}
-    [_inputSystem release];
-    [_slingerControlSystem release];
-    [_beeSystem release];
+    
+    [_aimingMode release];
+    [_shootingMode release];
+    [_levelCompletedMode release];
+    [_levelFailedMode release];
+    
+    [_world release];
 	
 	[super dealloc];
 }
@@ -178,14 +202,12 @@
 {
     [super enter];
     
-    // This should maybe be done inside InputSystem, but we want to make sure it is removed properly
-    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:_inputSystem priority:0 swallowsTouches:TRUE];
+    [_currentMode enter];
 }
 
 -(void) leave
 {
-    // This should maybe be done inside InputSystem, but we want to make sure it is removed properly
-    [[CCTouchDispatcher sharedDispatcher] removeDelegate:_inputSystem];
+    [_currentMode leave];
     
     [super leave];
 }
@@ -194,20 +216,52 @@
 {
 	[_world loopStart];
 	[_world setDelta:(1000.0f * delta)];
-	
-    [_physicsSystem process];
-    [_collisionSystem process];
-    [_renderSystem process];
-    [_inputSystem process];
-    [_slingerControlSystem process];
-    [_beeSystem process];
+    
+    [_currentMode processSystems];
+    
+    [self updateMode];
+}
+
+-(void) enterMode:(GameMode *)mode
+{
+    [_currentMode leave];
+    _currentMode = mode;
+    [_currentMode enter];
+}
+
+-(void) updateMode
+{
+    if ([_gameRulesSystem isLevelCompleted])
+    {
+        if (_currentMode != _levelCompletedMode)
+        {
+            [self enterMode:_levelCompletedMode];
+        }
+    }
+    else if ([_gameRulesSystem isLevelFailed])
+    {
+        if (_currentMode != _levelFailedMode)
+        {
+            [self enterMode:_levelFailedMode];
+        }
+    } 
+    else if (_currentMode == _aimingMode &&
+        [_gameRulesSystem isBeeFlying])
+    {
+        [self enterMode:_shootingMode];
+    }
+    else if (_currentMode == _shootingMode &&
+             ![_gameRulesSystem isBeeFlying])
+    {
+        [self enterMode:_aimingMode];
+    }
 }
 
 -(void) draw
 {
 	if (_debug)
 	{
-		[_debugRenderPhysicsSystem process];
+        [_debugRenderPhysicsSystem process];
 	}
 }
 
