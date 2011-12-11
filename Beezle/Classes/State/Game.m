@@ -81,4 +81,9 @@
 	[[CCDirector sharedDirector] replaceScene:gameState];
 }
 
+-(GameState *) currentState
+{
+	return [_gameStateStack lastObject];
+}
+
 @end

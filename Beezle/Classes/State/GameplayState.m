@@ -41,6 +41,8 @@
 
 @implementation GameplayState
 
+@synthesize levelName = _levelName;
+
 +(id) stateWithLevelName:(NSString *)levelName
 {
 	return [[[self alloc] initWithLevelName:levelName] autorelease];
@@ -51,6 +53,8 @@
 {
     if (self = [super init])
     {
+		_levelName = [levelName retain];
+		
 		[[CCDirector sharedDirector] setNeedClear:FALSE];
 		
 		_debug = FALSE;
@@ -59,7 +63,7 @@
 		[self createWorldAndSystems];
         [self createModes];
 		[self preloadSounds];
-		[self loadLevel:levelName];
+		[self loadLevel:_levelName];
     }
     return self;
 }
@@ -116,6 +120,8 @@
 
 -(void) createWorldAndSystems
 {
+	[_levelName release];
+	
     _world = [[World alloc] init];
     
 	SystemManager *systemManager = [_world systemManager];

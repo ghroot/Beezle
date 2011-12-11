@@ -22,6 +22,8 @@
 
 @interface GameplayState : GameState
 {
+	NSString *_levelName;
+	
 	CCLayer *_gameLayer;
 	CCLayer *_uiLayer;
     NSMutableArray *_beeQueueSprites;
@@ -45,6 +47,8 @@
     GameMode *_levelCompletedMode;
     GameMode *_levelFailedMode;
 }
+
+@property (nonatomic, readonly) NSString *levelName;
 
 +(id) stateWithLevelName:(NSString *)levelName;
 

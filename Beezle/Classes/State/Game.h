@@ -20,5 +20,6 @@
 -(void) pushState:(GameState *)gameState;
 -(void) popState;
 -(void) popAndReplaceState:(GameState *)gameState;
+-(GameState *) currentState;
 
 @end

@@ -15,6 +15,7 @@
 }
 
 -(void) resumeGame:(id)sender;
+-(void) restartGame:(id)sender;
 -(void) gotoMainMenu:(id)sender;
 
 @end
