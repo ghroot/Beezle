@@ -20,11 +20,22 @@
     {   
         [[CCDirector sharedDirector] setNeedClear:TRUE];
         
-        CCMenuItem *play1MenuItem = [CCMenuItemFont itemFromString:@"Play A5" target:self selector:@selector(startGameA5:)];
-        CCMenuItem *play2MenuItem = [CCMenuItemFont itemFromString:@"Play A9" target:self selector:@selector(startGameA9:)];
+        _menu = [CCMenu menuWithItems: nil];
+        
+        NSArray *levelNames = [NSArray arrayWithObjects:
+                               @"Level-A1",
+                               @"Level-A2",
+                               @"Level-A5",
+                               nil];
+        for (NSString *levelName in levelNames)
+        {
+            CCMenuItem *levelMenuItem = [CCMenuItemFont itemFromString:[NSString stringWithFormat:@"Play %@", levelName] target:self selector:@selector(startGame:)];
+            [levelMenuItem setUserData:levelName];
+            [_menu addChild:levelMenuItem];
+        }
         CCMenuItem *testMenuItem = [CCMenuItemFont itemFromString:@"Test" target:self selector:@selector(startTest:)];
-        CCMenuItem *emptyMenuItem = [CCMenuItemFont itemFromString:@"Empty" target:self selector:@selector(startEmpty:)];
-        _menu = [CCMenu menuWithItems: play1MenuItem, play2MenuItem, testMenuItem, emptyMenuItem, nil];
+        [_menu addChild:testMenuItem];
+        
         [_menu alignItemsVerticallyWithPadding:20.0f];
         
         [self addChild:_menu];
@@ -32,24 +43,15 @@
     return self;
 }
 
--(void) startGameA5:(id)sender
+-(void) startGame:(id)sender
 {
-	[_game replaceState:[GameplayState stateWithLevelName:@"Level-A5"]];
-}
-
--(void) startGameA9:(id)sender
-{
-	[_game replaceState:[GameplayState stateWithLevelName:@"Level-A9"]];
+    NSString *levelName = (NSString *)[sender userData];
+	[_game replaceState:[GameplayState stateWithLevelName:levelName]];
 }
 
 -(void) startTest:(id)sender
 {
 	[_game replaceState:[TestState state]];
-}
-
--(void) startEmpty:(id)sender
-{
-	[_game replaceState:[EmptyState state]];
 }
 
 @end

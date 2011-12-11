@@ -12,11 +12,17 @@
     CGPoint _position;
     BOOL _mirrored;
     int _rotation;
+    NSString *_beeTypeAsString;
+    NSMutableArray *_beeTypesAsStrings;
 }
 
 @property (nonatomic, retain) NSString *type;
 @property (nonatomic) CGPoint position;
 @property (nonatomic) BOOL mirrored;
 @property (nonatomic) int rotation;
+@property (nonatomic, retain) NSString *beeTypeAsString;
+@property (nonatomic, retain) NSArray *beeTypesAsStrings;
+
+-(void) addBeeTypeAsString:(NSString *)beeTypeAsString;
 
 @end

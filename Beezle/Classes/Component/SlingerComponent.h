@@ -14,6 +14,8 @@
 	NSMutableArray *_queuedBeeTypes;
 }
 
+@property (nonatomic, readonly) NSArray *queuedBeeTypes;
+
 -(void) pushBeeType:(BeeType)beeType;
 -(BeeType) popNextBeeType;
 -(BOOL) hasMoreBees;

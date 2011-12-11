@@ -10,6 +10,8 @@
 
 @implementation SlingerComponent
 
+@synthesize queuedBeeTypes = _queuedBeeTypes;
+
 -(id) init
 {
 	if (self = [super init])

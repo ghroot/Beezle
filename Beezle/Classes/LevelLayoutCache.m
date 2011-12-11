@@ -54,7 +54,6 @@ static LevelLayoutCache *sharedLevelLayoutCache;
         
         NSDictionary *level = [levels objectForKey:levelName];
         NSArray *entities = [level objectForKey:@"entities"];
-        
         for (NSDictionary *entity in entities) 
         {
             LevelLayoutEntry *levelLayoutEntry = [[[LevelLayoutEntry alloc] init] autorelease];
@@ -70,6 +69,20 @@ static LevelLayoutCache *sharedLevelLayoutCache;
             
             int rotation = [[entity objectForKey:@"rotation"] intValue];
             [levelLayoutEntry setRotation:rotation];
+            
+            if ([type isEqualToString:@"SLINGER"])
+            {
+                NSArray *beeTypesAsStrings = [entity objectForKey:@"bees"];
+                for (NSString *beeTypeAsString in beeTypesAsStrings)
+                {
+                    [levelLayoutEntry addBeeTypeAsString:beeTypeAsString];
+                }
+            }
+            else if ([type isEqualToString:@"BEEATER"])
+            {
+                NSString *beeTypeAsString = [entity objectForKey:@"bee"];
+                [levelLayoutEntry setBeeTypeAsString:beeTypeAsString];
+            }
             
 //            NSLog(@"%@   %f,%f   %@   %i", type, position.x, position.y, (mirrored ? @"YES" : @"NO"), rotation);
             

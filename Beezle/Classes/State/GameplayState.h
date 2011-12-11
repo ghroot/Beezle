@@ -24,6 +24,7 @@
 {
 	CCLayer *_gameLayer;
 	CCLayer *_uiLayer;
+    NSMutableArray *_beeQueueSprites;
 
 	World *_world;
 	

@@ -14,5 +14,28 @@
 @synthesize position = _position;
 @synthesize mirrored = _mirrored;
 @synthesize rotation = _rotation;
+@synthesize beeTypeAsString = _beeTypeAsString;
+@synthesize beeTypesAsStrings = _beeTypesAsStrings;
+
+-(id) init
+{
+    if (self = [super init])
+    {
+        _beeTypesAsStrings = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+-(void) dealloc
+{
+    [_beeTypesAsStrings release];
+    
+    [super dealloc];
+}
+
+-(void) addBeeTypeAsString:(NSString *)beeTypeAsString
+{
+    [_beeTypesAsStrings addObject:beeTypeAsString];
+}
 
 @end

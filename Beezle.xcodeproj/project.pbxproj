@@ -145,26 +145,14 @@
 		2C1147E1148BF77C002E4DBD /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1147E0148BF77C002E4DBD /* Utils.m */; };
 		2C1147E6148D4293002E4DBD /* BeeaterComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1147E3148D4291002E4DBD /* BeeaterComponent.m */; };
 		2C1147E7148D4293002E4DBD /* SlingerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1147E5148D4292002E4DBD /* SlingerComponent.m */; };
-		2C1147F0148D45C7002E4DBD /* Level-A5-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1147EC148D45BF002E4DBD /* Level-A5-hd.png */; };
-		2C1147F1148D45C7002E4DBD /* Level-A5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1147ED148D45BF002E4DBD /* Level-A5.png */; };
-		2C1147F2148D45C7002E4DBD /* Level-A9-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1147EE148D45C1002E4DBD /* Level-A9-hd.png */; };
-		2C1147F3148D45C7002E4DBD /* Level-A9.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1147EF148D45C3002E4DBD /* Level-A9.png */; };
 		2C114809148E9317002E4DBD /* IngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C114808148E9317002E4DBD /* IngameMenuState.m */; };
 		2C157BF0148FEA8E003F9040 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157BED148FEA8E003F9040 /* Game.m */; };
 		2C157BF1148FEA8E003F9040 /* GameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157BEF148FEA8E003F9040 /* GameState.m */; };
 		2C157BF3149009F9003F9040 /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BF2149009F9003F9040 /* Pause.png */; };
 		2C157C0014900A3C003F9040 /* Level-A5-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BF414900A3C003F9040 /* Level-A5-hd.jpg */; };
-		2C157C0114900A3C003F9040 /* Level-A5-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BF514900A3C003F9040 /* Level-A5-hd.plist */; };
-		2C157C0214900A3C003F9040 /* Level-A5-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BF614900A3C003F9040 /* Level-A5-hd.pvr.ccz */; };
 		2C157C0314900A3C003F9040 /* Level-A5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BF714900A3C003F9040 /* Level-A5.jpg */; };
-		2C157C0414900A3C003F9040 /* Level-A5.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BF814900A3C003F9040 /* Level-A5.plist */; };
-		2C157C0514900A3C003F9040 /* Level-A5.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BF914900A3C003F9040 /* Level-A5.pvr.ccz */; };
 		2C157C0614900A3C003F9040 /* Level-A9-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BFA14900A3C003F9040 /* Level-A9-hd.jpg */; };
-		2C157C0714900A3C003F9040 /* Level-A9-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BFB14900A3C003F9040 /* Level-A9-hd.plist */; };
-		2C157C0814900A3C003F9040 /* Level-A9-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BFC14900A3C003F9040 /* Level-A9-hd.pvr.ccz */; };
 		2C157C0914900A3C003F9040 /* Level-A9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BFD14900A3C003F9040 /* Level-A9.jpg */; };
-		2C157C0A14900A3C003F9040 /* Level-A9.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BFE14900A3C003F9040 /* Level-A9.plist */; };
-		2C157C0B14900A3C003F9040 /* Level-A9.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BFF14900A3C003F9040 /* Level-A9.pvr.ccz */; };
 		2C157C0E14901B88003F9040 /* DebugRenderPhysicsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C0D14901B88003F9040 /* DebugRenderPhysicsLayer.m */; };
 		2C157C111490208F003F9040 /* EmptyState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C101490208F003F9040 /* EmptyState.m */; };
 		2C157C1614914F5D003F9040 /* RenderTrajectoryLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1314914F5C003F9040 /* RenderTrajectoryLayer.m */; };
@@ -218,6 +206,8 @@
 		2C7CE62E146FE14E001F331F /* Boundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE62D146FE14D001F331F /* Boundry.m */; };
 		2C7CE631146FE161001F331F /* CircularBoundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE630146FE160001F331F /* CircularBoundry.m */; };
 		2C827D3814840C4900517C8F /* RenderSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C827D3714840C4700517C8F /* RenderSprite.m */; };
+		2C8A4B78149433CF00C0C154 /* Level-A1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8A4B76149433CF00C0C154 /* Level-A1-hd.jpg */; };
+		2C8A4B79149433CF00C0C154 /* Level-A1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8A4B77149433CF00C0C154 /* Level-A1.jpg */; };
 		2CA9E3A2147B0EEE0058C496 /* GroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA9E3A1147B0EED0058C496 /* GroupManager.m */; };
 		2CADCC711471C76400302475 /* InputAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC701471C76400302475 /* InputAction.m */; };
 		2CADCC7714732ADC00302475 /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC7614732ADB00302475 /* CollisionSystem.m */; };
@@ -236,6 +226,12 @@
 		2CD33EF3147EFFA8000869C1 /* MainMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EF2147EFFA7000869C1 /* MainMenuState.m */; };
 		2CD48B8B14801833007D90D9 /* Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48B8A14801833007D90D9 /* Manager.m */; };
 		2CD48B8E14801A4F007D90D9 /* EntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48B8D14801A4E007D90D9 /* EntitySystem.m */; };
+		2CDD5E5B149429F600C40D58 /* Level-A1-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDD5E58149429F600C40D58 /* Level-A1-Layout.plist */; };
+		2CDD5E5E14942C9300C40D58 /* Level-A1-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDD5E5D14942C9300C40D58 /* Level-A1-Shapes.plist */; };
+		2CDD5E631494307800C40D58 /* Level-A2-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CDD5E5F1494307800C40D58 /* Level-A2-hd.jpg */; };
+		2CDD5E641494307800C40D58 /* Level-A2-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDD5E601494307800C40D58 /* Level-A2-Layout.plist */; };
+		2CDD5E651494307800C40D58 /* Level-A2-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDD5E611494307800C40D58 /* Level-A2-Shapes.plist */; };
+		2CDD5E661494307800C40D58 /* Level-A2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CDD5E621494307800C40D58 /* Level-A2.jpg */; };
 		2CEA3278145F66F7000FF575 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3277145F66F7000FF575 /* QuartzCore.framework */; };
 		2CEA327A145F66F7000FF575 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3279145F66F7000FF575 /* OpenGLES.framework */; };
 		2CEA327C145F66F7000FF575 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA327B145F66F7000FF575 /* OpenAL.framework */; };
@@ -582,10 +578,6 @@
 		2C1147E3148D4291002E4DBD /* BeeaterComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeaterComponent.m; path = Classes/Component/BeeaterComponent.m; sourceTree = "<group>"; };
 		2C1147E4148D4291002E4DBD /* SlingerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlingerComponent.h; path = Classes/Component/SlingerComponent.h; sourceTree = "<group>"; };
 		2C1147E5148D4292002E4DBD /* SlingerComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlingerComponent.m; path = Classes/Component/SlingerComponent.m; sourceTree = "<group>"; };
-		2C1147EC148D45BF002E4DBD /* Level-A5-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level-A5-hd.png"; sourceTree = "<group>"; };
-		2C1147ED148D45BF002E4DBD /* Level-A5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level-A5.png"; sourceTree = "<group>"; };
-		2C1147EE148D45C1002E4DBD /* Level-A9-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level-A9-hd.png"; sourceTree = "<group>"; };
-		2C1147EF148D45C3002E4DBD /* Level-A9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level-A9.png"; sourceTree = "<group>"; };
 		2C114807148E9317002E4DBD /* IngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngameMenuState.h; sourceTree = "<group>"; };
 		2C114808148E9317002E4DBD /* IngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngameMenuState.m; sourceTree = "<group>"; };
 		2C157BEB148FE920003F9040 /* TouchTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchTypes.h; path = Classes/TouchTypes.h; sourceTree = "<group>"; };
@@ -595,17 +587,9 @@
 		2C157BEF148FEA8E003F9040 /* GameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameState.m; sourceTree = "<group>"; };
 		2C157BF2149009F9003F9040 /* Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Pause.png; path = Resources/Pause.png; sourceTree = "<group>"; };
 		2C157BF414900A3C003F9040 /* Level-A5-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A5-hd.jpg"; sourceTree = "<group>"; };
-		2C157BF514900A3C003F9040 /* Level-A5-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A5-hd.plist"; sourceTree = "<group>"; };
-		2C157BF614900A3C003F9040 /* Level-A5-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Level-A5-hd.pvr.ccz"; sourceTree = "<group>"; };
 		2C157BF714900A3C003F9040 /* Level-A5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A5.jpg"; sourceTree = "<group>"; };
-		2C157BF814900A3C003F9040 /* Level-A5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A5.plist"; sourceTree = "<group>"; };
-		2C157BF914900A3C003F9040 /* Level-A5.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Level-A5.pvr.ccz"; sourceTree = "<group>"; };
 		2C157BFA14900A3C003F9040 /* Level-A9-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A9-hd.jpg"; sourceTree = "<group>"; };
-		2C157BFB14900A3C003F9040 /* Level-A9-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A9-hd.plist"; sourceTree = "<group>"; };
-		2C157BFC14900A3C003F9040 /* Level-A9-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Level-A9-hd.pvr.ccz"; sourceTree = "<group>"; };
 		2C157BFD14900A3C003F9040 /* Level-A9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A9.jpg"; sourceTree = "<group>"; };
-		2C157BFE14900A3C003F9040 /* Level-A9.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A9.plist"; sourceTree = "<group>"; };
-		2C157BFF14900A3C003F9040 /* Level-A9.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Level-A9.pvr.ccz"; sourceTree = "<group>"; };
 		2C157C0C14901B88003F9040 /* DebugRenderPhysicsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugRenderPhysicsLayer.h; path = Classes/System/DebugRenderPhysicsLayer.h; sourceTree = "<group>"; };
 		2C157C0D14901B88003F9040 /* DebugRenderPhysicsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugRenderPhysicsLayer.m; path = Classes/System/DebugRenderPhysicsLayer.m; sourceTree = "<group>"; };
 		2C157C0F1490208E003F9040 /* EmptyState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyState.h; sourceTree = "<group>"; };
@@ -691,6 +675,8 @@
 		2C827D3514840C3500517C8F /* CollisionTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionTypes.h; path = Classes/CollisionTypes.h; sourceTree = "<group>"; };
 		2C827D3614840C4600517C8F /* RenderSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderSprite.h; path = Classes/Component/RenderSprite.h; sourceTree = "<group>"; };
 		2C827D3714840C4700517C8F /* RenderSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSprite.m; path = Classes/Component/RenderSprite.m; sourceTree = "<group>"; };
+		2C8A4B76149433CF00C0C154 /* Level-A1-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A1-hd.jpg"; sourceTree = "<group>"; };
+		2C8A4B77149433CF00C0C154 /* Level-A1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A1.jpg"; sourceTree = "<group>"; };
 		2CA9E39F147AF9910058C496 /* artemis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = artemis.h; path = Classes/Artemis/artemis.h; sourceTree = "<group>"; };
 		2CA9E3A0147B0EED0058C496 /* GroupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupManager.h; path = Classes/Artemis/GroupManager.h; sourceTree = "<group>"; };
 		2CA9E3A1147B0EED0058C496 /* GroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupManager.m; path = Classes/Artemis/GroupManager.m; sourceTree = "<group>"; };
@@ -725,6 +711,12 @@
 		2CD48B8A14801833007D90D9 /* Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Manager.m; path = Classes/Artemis/Manager.m; sourceTree = "<group>"; };
 		2CD48B8C14801A4E007D90D9 /* EntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntitySystem.h; path = Classes/Artemis/EntitySystem.h; sourceTree = "<group>"; };
 		2CD48B8D14801A4E007D90D9 /* EntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntitySystem.m; path = Classes/Artemis/EntitySystem.m; sourceTree = "<group>"; };
+		2CDD5E58149429F600C40D58 /* Level-A1-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A1-Layout.plist"; sourceTree = "<group>"; };
+		2CDD5E5D14942C9300C40D58 /* Level-A1-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A1-Shapes.plist"; sourceTree = "<group>"; };
+		2CDD5E5F1494307800C40D58 /* Level-A2-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A2-hd.jpg"; sourceTree = "<group>"; };
+		2CDD5E601494307800C40D58 /* Level-A2-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A2-Layout.plist"; sourceTree = "<group>"; };
+		2CDD5E611494307800C40D58 /* Level-A2-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A2-Shapes.plist"; sourceTree = "<group>"; };
+		2CDD5E621494307800C40D58 /* Level-A2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A2.jpg"; sourceTree = "<group>"; };
 		2CEA3273145F66F7000FF575 /* Beezle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beezle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CEA3277145F66F7000FF575 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2CEA3279145F66F7000FF575 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1241,26 +1233,22 @@
 		2C3A6F6F14898085002721E3 /* Level */ = {
 			isa = PBXGroup;
 			children = (
+				2C8A4B76149433CF00C0C154 /* Level-A1-hd.jpg */,
+				2CDD5E58149429F600C40D58 /* Level-A1-Layout.plist */,
+				2CDD5E5D14942C9300C40D58 /* Level-A1-Shapes.plist */,
+				2C8A4B77149433CF00C0C154 /* Level-A1.jpg */,
+				2CDD5E5F1494307800C40D58 /* Level-A2-hd.jpg */,
+				2CDD5E601494307800C40D58 /* Level-A2-Layout.plist */,
+				2CDD5E611494307800C40D58 /* Level-A2-Shapes.plist */,
+				2CDD5E621494307800C40D58 /* Level-A2.jpg */,
 				2C157BF414900A3C003F9040 /* Level-A5-hd.jpg */,
-				2C157BF514900A3C003F9040 /* Level-A5-hd.plist */,
-				2C1147EC148D45BF002E4DBD /* Level-A5-hd.png */,
-				2C157BF614900A3C003F9040 /* Level-A5-hd.pvr.ccz */,
 				2C764DEC148A627700820587 /* Level-A5-Layout.plist */,
 				2C764DDE148A525B00820587 /* Level-A5-Shapes.plist */,
 				2C157BF714900A3C003F9040 /* Level-A5.jpg */,
-				2C157BF814900A3C003F9040 /* Level-A5.plist */,
-				2C1147ED148D45BF002E4DBD /* Level-A5.png */,
-				2C157BF914900A3C003F9040 /* Level-A5.pvr.ccz */,
 				2C157BFA14900A3C003F9040 /* Level-A9-hd.jpg */,
-				2C157BFB14900A3C003F9040 /* Level-A9-hd.plist */,
-				2C1147EE148D45C1002E4DBD /* Level-A9-hd.png */,
-				2C157BFC14900A3C003F9040 /* Level-A9-hd.pvr.ccz */,
 				2C764E97148A894F00820587 /* Level-A9-Layout.plist */,
 				2C764DD3148A1C5F00820587 /* Level-A9-Shapes.plist */,
 				2C157BFD14900A3C003F9040 /* Level-A9.jpg */,
-				2C157BFE14900A3C003F9040 /* Level-A9.plist */,
-				2C1147EF148D45C3002E4DBD /* Level-A9.png */,
-				2C157BFF14900A3C003F9040 /* Level-A9.pvr.ccz */,
 			);
 			name = Level;
 			path = Resources/Level;
@@ -1752,24 +1740,20 @@
 				2C1147CD148B9459002E4DBD /* LICENSE_Kazmath.txt in Resources */,
 				2C1147DC148BF2E7002E4DBD /* Sprites.plist in Resources */,
 				2C1147DD148BF2E7002E4DBD /* Sprites.png in Resources */,
-				2C1147F0148D45C7002E4DBD /* Level-A5-hd.png in Resources */,
-				2C1147F1148D45C7002E4DBD /* Level-A5.png in Resources */,
-				2C1147F2148D45C7002E4DBD /* Level-A9-hd.png in Resources */,
-				2C1147F3148D45C7002E4DBD /* Level-A9.png in Resources */,
 				2C157BF3149009F9003F9040 /* Pause.png in Resources */,
 				2C157C0014900A3C003F9040 /* Level-A5-hd.jpg in Resources */,
-				2C157C0114900A3C003F9040 /* Level-A5-hd.plist in Resources */,
-				2C157C0214900A3C003F9040 /* Level-A5-hd.pvr.ccz in Resources */,
 				2C157C0314900A3C003F9040 /* Level-A5.jpg in Resources */,
-				2C157C0414900A3C003F9040 /* Level-A5.plist in Resources */,
-				2C157C0514900A3C003F9040 /* Level-A5.pvr.ccz in Resources */,
 				2C157C0614900A3C003F9040 /* Level-A9-hd.jpg in Resources */,
-				2C157C0714900A3C003F9040 /* Level-A9-hd.plist in Resources */,
-				2C157C0814900A3C003F9040 /* Level-A9-hd.pvr.ccz in Resources */,
 				2C157C0914900A3C003F9040 /* Level-A9.jpg in Resources */,
-				2C157C0A14900A3C003F9040 /* Level-A9.plist in Resources */,
-				2C157C0B14900A3C003F9040 /* Level-A9.pvr.ccz in Resources */,
 				2C157C1C14926BE1003F9040 /* Nut-Animations.plist in Resources */,
+				2CDD5E5B149429F600C40D58 /* Level-A1-Layout.plist in Resources */,
+				2CDD5E5E14942C9300C40D58 /* Level-A1-Shapes.plist in Resources */,
+				2CDD5E631494307800C40D58 /* Level-A2-hd.jpg in Resources */,
+				2CDD5E641494307800C40D58 /* Level-A2-Layout.plist in Resources */,
+				2CDD5E651494307800C40D58 /* Level-A2-Shapes.plist in Resources */,
+				2CDD5E661494307800C40D58 /* Level-A2.jpg in Resources */,
+				2C8A4B78149433CF00C0C154 /* Level-A1-hd.jpg in Resources */,
+				2C8A4B79149433CF00C0C154 /* Level-A1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

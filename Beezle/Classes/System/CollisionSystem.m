@@ -9,6 +9,7 @@
 #import "CollisionSystem.h"
 #import "BeeaterComponent.h"
 #import "BeeComponent.h"
+#import "BeeTypes.h"
 #import "Collision.h"
 #import "CollisionTypes.h"
 #import "PhysicsBody.h"
@@ -57,6 +58,7 @@
     [physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_MUSHROOM];
     [physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_WOOD];
     [physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_NUT];
+    [physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_AIM_POLLEN and:COLLISION_TYPE_EDGE];
 }
 
 -(void) begin
@@ -106,32 +108,47 @@
                 [self handleCollisionBee:[collision firstEntity] withNut:[collision secondEntity]];
             }
         }
+        else if ([[firstPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_AIM_POLLEN)
+        {
+            if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_EDGE)
+            {
+                [self handleCollisionAimPollen:[collision firstEntity] withEdge:[collision secondEntity]];
+            }
+        }
     }
     [_collisions removeAllObjects];    
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withRamp:(Entity *)rampEntity
 {
-    // Crash animation (and delete entity at end of animation)
-    RenderComponent *rampRenderComponent = (RenderComponent *)[rampEntity getComponent:[RenderComponent class]];
-    [rampRenderComponent playAnimation:@"Ramp-Crash" withCallbackTarget:rampEntity andCallbackSelector:@selector(deleteEntity)];
+    BeeComponent *beeComponent = (BeeComponent *)[beeEntity getComponent:[BeeComponent class]];
+    BeeType beeType = [beeComponent type];
     
-    // Disable physics component
-    PhysicsComponent *physicsComponent = (PhysicsComponent *)[rampEntity getComponent:[PhysicsComponent class]];
-    [physicsComponent disable];
-    [rampEntity refresh];
-    
-    [[SimpleAudioEngine sharedEngine] playEffect:@"52144__blaukreuz__imp-02.m4a"];
+    if (beeType == BEE_TYPE_BOMBEE)
+    {
+        // Bee is destroyed
+        [beeEntity deleteEntity];
+        
+        // Crash animation (and delete entity at end of animation)
+        RenderComponent *rampRenderComponent = (RenderComponent *)[rampEntity getComponent:[RenderComponent class]];
+        [rampRenderComponent playAnimation:@"Ramp-Crash" withCallbackTarget:rampEntity andCallbackSelector:@selector(deleteEntity)];
+        
+        // Disable physics component
+        PhysicsComponent *physicsComponent = (PhysicsComponent *)[rampEntity getComponent:[PhysicsComponent class]];
+        [physicsComponent disable];
+        [rampEntity refresh];
+        
+        [[SimpleAudioEngine sharedEngine] playEffect:@"52144__blaukreuz__imp-02.m4a"];
+    }
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity
-{
+{   
 	TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
 	Entity *slingerEntity = (Entity *)[tagManager getEntity:@"SLINGER"];
 	SlingerComponent *slingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
 
 	BeeaterComponent *beeaterComponent = (BeeaterComponent *)[beeaterEntity getComponent:[BeeaterComponent class]];
-	BeeComponent *beeComponent = (BeeComponent *)[beeEntity getComponent:[BeeComponent class]];
     
     RenderComponent *beeaterRenderComponent = (RenderComponent *)[beeaterEntity getComponent:[RenderComponent class]];
     RenderSprite *beeaterBodyRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"body"];
@@ -140,28 +157,25 @@
     TransformComponent *beeaterTransformComponent = (TransformComponent *)[beeaterEntity getComponent:[TransformComponent class]];
     PhysicsComponent *beeaterPhysicsComponent = (PhysicsComponent *)[beeaterEntity getComponent:[PhysicsComponent class]];
     
-	if ([beeaterComponent hasContainedBee])
-	{
-		// Bee is freed
-		[slingerComponent pushBeeType:[beeaterComponent containedBeeType]];
-		
-		// Beater is destroyed
-        [beeaterTransformComponent setScale:CGPointMake(1.0f, 1.0f)];
-        [beeaterHeadRenderSprite hide];
-        [beeaterBodyRenderSprite playAnimation:@"Beeater-Body-Destroy" withCallbackTarget:beeaterEntity andCallbackSelector:@selector(deleteEntity)];
-        [beeaterPhysicsComponent disable];
-        [beeaterEntity refresh];
-	}
-	else
-	{
-		// Beeater eats bee
-		[beeaterComponent setContainedBeeType:[beeComponent type]];
-        
-        [beeaterHeadRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:@"Beeater-Head-Eat", @"Beeater-Head-Idle-WithBee", nil]];
-	}
-	
-	// Bee is destroyed
+    if ([beeaterComponent isKilled])
+    {
+        NSLog(@"WARNING: Beeater already killed, but still collided with!");
+        return;
+    }
+    
+    // Bee is destroyed
 	[beeEntity deleteEntity];
+    
+    // Bee is freed
+    [slingerComponent pushBeeType:[beeaterComponent containedBeeType]];
+    
+    // Beater is destroyed
+    [beeaterTransformComponent setScale:CGPointMake(1.0f, 1.0f)];
+    [beeaterHeadRenderSprite hide];
+    [beeaterBodyRenderSprite playAnimation:@"Beeater-Body-Destroy" withCallbackTarget:beeaterEntity andCallbackSelector:@selector(deleteEntity)];
+    [beeaterPhysicsComponent disable];
+    [beeaterComponent setIsKilled:TRUE];
+    [beeaterEntity refresh];
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity
@@ -176,7 +190,13 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity
 {
-    [pollenEntity deleteEntity];
+    RenderComponent *pollenRenderComponent = (RenderComponent *)[pollenEntity getComponent:[RenderComponent class]];
+	[pollenRenderComponent playAnimation:@"Pollen-Pickup" withCallbackTarget:pollenEntity andCallbackSelector:@selector(deleteEntity)];
+    
+    // Disable physics component
+    PhysicsComponent *pollenPhysicsComponent = (PhysicsComponent *)[pollenEntity getComponent:[PhysicsComponent class]];
+    [pollenPhysicsComponent disable];
+    [pollenEntity refresh];
 }
 
 -(void)handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity
@@ -204,7 +224,7 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity
 {
-//    [beeEntity deleteEntity];
+    [beeEntity deleteEntity];
     
     RenderComponent *nutRenderComponent = (RenderComponent *)[nutEntity getComponent:[RenderComponent class]];
 	[nutRenderComponent playAnimation:@"Nut-Collect" withCallbackTarget:nutEntity andCallbackSelector:@selector(deleteEntity)];
@@ -213,6 +233,11 @@
     PhysicsComponent *nutPhysicsComponent = (PhysicsComponent *)[nutEntity getComponent:[PhysicsComponent class]];
     [nutPhysicsComponent disable];
     [nutEntity refresh];
+}
+
+-(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity
+{
+    [aimPollenEntity deleteEntity];
 }
 
 @end

@@ -14,9 +14,7 @@
     CCMenu *_menu;
 }
 
--(void) startGameA5:(id)sender;
--(void) startGameA9:(id)sender;
+-(void) startGame:(id)sender;
 -(void) startTest:(id)sender;
--(void) startEmpty:(id)sender;
 
 @end

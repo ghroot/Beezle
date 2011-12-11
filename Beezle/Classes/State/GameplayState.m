@@ -8,6 +8,7 @@
 
 #import "GameplayState.h"
 #import "BeeSystem.h"
+#import "BeeTypes.h"
 #import "BoundrySystem.h"
 #import "CollisionSystem.h"
 #import "DebugRenderPhysicsSystem.h"
@@ -28,6 +29,7 @@
 @interface GameplayState()
 
 -(void) createUI;
+-(void) updateRenderSpritesFromBees;
 -(void) createWorldAndSystems;
 -(void) createModes;
 -(void) preloadSounds;
@@ -69,19 +71,65 @@
 
 -(void) createUI
 {
-    _gameLayer = [[CCLayer alloc] init];
+    _gameLayer = [CCLayer node];
     [self addChild:_gameLayer];
     
-    _uiLayer = [[CCLayer alloc] init];
+    _uiLayer = [CCLayer node];
     [self addChild:_uiLayer];
     
     CCMenuItemImage *pauseMenuItem = [CCMenuItemImage itemFromNormalImage:@"Pause.png" selectedImage:@"Pause.png" target:self selector:@selector(pauseGame:)];
     CGSize winSize = [[CCDirector sharedDirector] winSize];
-    [pauseMenuItem setPosition:CGPointMake(0.0f, winSize.height)];
-    [pauseMenuItem setAnchorPoint:CGPointMake(0.0f, 1.0f)];
+    [pauseMenuItem setPosition:CGPointMake(winSize.width, winSize.height)];
+    [pauseMenuItem setAnchorPoint:CGPointMake(1.0f, 1.0f)];
     CCMenu *menu = [CCMenu menuWithItems:pauseMenuItem, nil];
     [menu setPosition:CGPointZero];
     [_uiLayer addChild:menu];
+    
+    _beeQueueSprites = [[NSMutableArray alloc] init];
+}
+
+-(void) updateRenderSpritesFromBees
+{
+    for (CCSprite *sprite in _beeQueueSprites)
+    {
+        [_uiLayer removeChild:sprite cleanup:TRUE];
+    }
+    [_beeQueueSprites removeAllObjects];
+    
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    int startX = 60;
+    int currentX = startX;
+    int currentY = winSize.height - 15;
+    int spacing = 5;
+    for (NSNumber *beeTypeNumber in [_gameRulesSystem beeQueue])
+    {
+        BeeType beeType = [beeTypeNumber intValue];
+        NSString *frameName;
+        if (beeType == BEE_TYPE_BEE)
+        {
+            frameName = @"Bee/Bee-01.png";
+        }
+        else if (beeType == BEE_TYPE_BOMBEE)
+        {
+            frameName = @"Bombee/Bombee-01.png";
+        }
+        else if (beeType == BEE_TYPE_SAWEE)
+        {
+            frameName = @"Sawee/Sawee-01.png";
+        }
+        else if (beeType == BEE_TYPE_SPEEDEE)
+        {
+            frameName = @"Speedee/Speedee-01.png";
+        }
+        
+        CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
+        CCSprite *beeQueueSprite = [CCSprite spriteWithFile:@"Sprites.png" rect:[frame rect]];
+        [beeQueueSprite setPosition:CGPointMake(currentX, currentY)];
+        [_beeQueueSprites addObject:beeQueueSprite];
+        [_uiLayer addChild:beeQueueSprite];
+        
+        currentX -= [beeQueueSprite contentSize].width + spacing;
+    }
 }
 
 -(void) createWorldAndSystems
@@ -116,12 +164,13 @@
 -(void) createModes
 {
     _aimingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
-                                             _gameRulesSystem,
-                                             _physicsSystem,
-                                             _renderSystem,
-                                             _inputSystem,
-                                             _slingerControlSystem,
-                                             nil]];
+                                                     _gameRulesSystem,
+                                                     _physicsSystem,
+                                                     _collisionSystem,
+                                                     _renderSystem,
+                                                     _inputSystem,
+                                                     _slingerControlSystem,
+                                                     nil]];
     
     _shootingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
                                                _gameRulesSystem,
@@ -140,8 +189,7 @@
 
 -(void) dealloc
 {
-	[_gameLayer release];
-	[_uiLayer release];
+    [_beeQueueSprites release];
     
     [_aimingMode release];
     [_shootingMode release];
@@ -174,11 +222,34 @@
     {
         if ([[levelLayoutEntry type] isEqualToString:@"SLINGER"])
         {
-            [EntityFactory createSlinger:_world withPosition:[levelLayoutEntry position]];
+            NSMutableArray *beeTypes = [NSMutableArray array];
+            for (NSString *beeTypeAsString in [levelLayoutEntry beeTypesAsStrings])
+            {
+                if ([beeTypeAsString isEqualToString:@"BEE"])
+                {
+                    [beeTypes addObject:[NSNumber numberWithInt:BEE_TYPE_BEE]];
+                }
+                else if ([beeTypeAsString isEqualToString:@"BOMBEE"])
+                {
+                    [beeTypes addObject:[NSNumber numberWithInt:BEE_TYPE_BOMBEE]];
+                }
+            }
+            
+            [EntityFactory createSlinger:_world withPosition:[levelLayoutEntry position] beeTypes:beeTypes];
         }
         else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER"])
         {
-            [EntityFactory createBeeater:_world withPosition:[levelLayoutEntry position] mirrored:[levelLayoutEntry mirrored]];
+            BeeType beeType;
+            if ([[levelLayoutEntry beeTypeAsString] isEqualToString:@"BEE"])
+            {
+                beeType = BEE_TYPE_BEE;
+            }
+            else
+            {
+                beeType = BEE_TYPE_BOMBEE;
+            }
+            
+            [EntityFactory createBeeater:_world withPosition:[levelLayoutEntry position] mirrored:[levelLayoutEntry mirrored] beeType:beeType];
         }
         else if ([[levelLayoutEntry type] isEqualToString:@"RAMP"])
         {
@@ -223,6 +294,8 @@
 	[_world setDelta:(1000.0f * delta)];
     
     [_currentMode processSystems];
+    
+    [self updateRenderSpritesFromBees];
     
     [self updateMode];
 }

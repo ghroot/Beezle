@@ -17,6 +17,7 @@
 	if (self = [super init])
 	{
 		_containedBeeType = BEE_TYPE_NONE;
+        _isKilled = FALSE;
 	}
 	return self;
 }

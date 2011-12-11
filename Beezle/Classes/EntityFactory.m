@@ -99,19 +99,16 @@
     return edgeEntity;
 }
 
-+(Entity *) createSlinger:(World *)world withPosition:(CGPoint)position
++(Entity *) createSlinger:(World *)world withPosition:(CGPoint)position beeTypes:(NSArray *)beeTypes
 {
     Entity *slingerEntity = [world createEntity];
 	
 	// Slinger
 	SlingerComponent *slingerComponent = [SlingerComponent component];
-	[slingerComponent pushBeeType:BEE_TYPE_BEE];		// -
-	[slingerComponent pushBeeType:BEE_TYPE_BEE];		//  |- TODO: Read from level description
-	[slingerComponent pushBeeType:BEE_TYPE_BOMBEE];		// -
-//    for (int i = 0; i < 500; i++)
-//    {
-//        [slingerComponent pushBeeType:BEE_TYPE_BEE];
-//    }
+    for (NSNumber *beeTypeNumber in beeTypes)
+    {
+        [slingerComponent pushBeeType:[beeTypeNumber intValue]];
+    }
 	[slingerEntity addComponent:slingerComponent];
     
     // Transform
@@ -212,12 +209,13 @@
     return beeEntity;
 }
 
-+(Entity *) createBeeater:(World *)world withPosition:(CGPoint)position mirrored:(BOOL)mirrored
++(Entity *) createBeeater:(World *)world withPosition:(CGPoint)position mirrored:(BOOL)mirrored beeType:(BeeType)beeType
 {
 	Entity *beeaterEntity = [world createEntity];
 	
 	// Beeater
 	BeeaterComponent *beeaterComponent = [BeeaterComponent component];
+    [beeaterComponent setContainedBeeType:beeType];
 	[beeaterEntity addComponent:beeaterComponent];
 	
     // Transform
@@ -264,7 +262,7 @@
     [beeaterEntity refresh];
 	
     [bodyRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:@"Beeater-Body-Idle", @"Beeater-Body-Wave", nil]];
-    [headRenderSprite playAnimation:@"Beeater-Head-Idle-NoBee"];
+    [headRenderSprite playAnimation:@"Beeater-Head-Idle-WithBee"];
     
     return beeaterEntity;
 }
