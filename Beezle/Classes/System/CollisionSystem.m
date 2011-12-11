@@ -12,6 +12,7 @@
 #import "BeeTypes.h"
 #import "Collision.h"
 #import "CollisionTypes.h"
+#import "DisposableComponent.h"
 #import "PhysicsBody.h"
 #import "PhysicsComponent.h"
 #import "PhysicsShape.h"
@@ -124,8 +125,13 @@
     BeeComponent *beeComponent = (BeeComponent *)[beeEntity getComponent:[BeeComponent class]];
     BeeTypes *beeType = [beeComponent type];
     
-    if ([beeType canDestroyRamp])
+    DisposableComponent *rampDisposableComponent = (DisposableComponent *)[rampEntity getComponent:[DisposableComponent class]];
+    
+    if (![rampDisposableComponent isDisposed] &&
+        [beeType canDestroyRamp])
     {
+		[rampDisposableComponent setIsDisposed:TRUE];
+		
         // Bee is destroyed
         [beeEntity deleteEntity];
         
@@ -133,49 +139,41 @@
         RenderComponent *rampRenderComponent = (RenderComponent *)[rampEntity getComponent:[RenderComponent class]];
         [rampRenderComponent playAnimation:@"Ramp-Crash" withCallbackTarget:rampEntity andCallbackSelector:@selector(deleteEntity)];
         
-        // Disable physics component
-        PhysicsComponent *physicsComponent = (PhysicsComponent *)[rampEntity getComponent:[PhysicsComponent class]];
-        [physicsComponent disable];
-        [rampEntity refresh];
-        
         [[SimpleAudioEngine sharedEngine] playEffect:@"52144__blaukreuz__imp-02.m4a"];
     }
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity
 {   
-	TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
-	Entity *slingerEntity = (Entity *)[tagManager getEntity:@"SLINGER"];
-	SlingerComponent *slingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
-
-	BeeaterComponent *beeaterComponent = (BeeaterComponent *)[beeaterEntity getComponent:[BeeaterComponent class]];
+    DisposableComponent *beeaterDisposableComponent = (DisposableComponent *)[beeaterEntity getComponent:[DisposableComponent class]];
     
-    RenderComponent *beeaterRenderComponent = (RenderComponent *)[beeaterEntity getComponent:[RenderComponent class]];
-    RenderSprite *beeaterBodyRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"body"];
-	RenderSprite *beeaterHeadRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"head"];
-    
-    TransformComponent *beeaterTransformComponent = (TransformComponent *)[beeaterEntity getComponent:[TransformComponent class]];
-    PhysicsComponent *beeaterPhysicsComponent = (PhysicsComponent *)[beeaterEntity getComponent:[PhysicsComponent class]];
-    
-    if ([beeaterComponent isKilled])
+    if (![beeaterDisposableComponent isDisposed])
     {
-        NSLog(@"WARNING: Beeater already killed, but still collided with!");
-        return;
+		[beeaterDisposableComponent setIsDisposed:TRUE];
+		
+		TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
+		Entity *slingerEntity = (Entity *)[tagManager getEntity:@"SLINGER"];
+		SlingerComponent *slingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
+		
+		BeeaterComponent *beeaterComponent = (BeeaterComponent *)[beeaterEntity getComponent:[BeeaterComponent class]];
+		
+		RenderComponent *beeaterRenderComponent = (RenderComponent *)[beeaterEntity getComponent:[RenderComponent class]];
+		RenderSprite *beeaterBodyRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"body"];
+		RenderSprite *beeaterHeadRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"head"];
+		
+		TransformComponent *beeaterTransformComponent = (TransformComponent *)[beeaterEntity getComponent:[TransformComponent class]];
+		
+        // Bee is destroyed
+        [beeEntity deleteEntity];
+        
+        // Bee is freed
+        [slingerComponent pushBeeType:[beeaterComponent containedBeeType]];
+        
+        // Beater is destroyed
+        [beeaterTransformComponent setScale:CGPointMake(1.0f, 1.0f)];
+        [beeaterHeadRenderSprite hide];
+        [beeaterBodyRenderSprite playAnimation:@"Beeater-Body-Destroy" withCallbackTarget:beeaterEntity andCallbackSelector:@selector(deleteEntity)];
     }
-    
-    // Bee is destroyed
-	[beeEntity deleteEntity];
-    
-    // Bee is freed
-    [slingerComponent pushBeeType:[beeaterComponent containedBeeType]];
-    
-    // Beater is destroyed
-    [beeaterTransformComponent setScale:CGPointMake(1.0f, 1.0f)];
-    [beeaterHeadRenderSprite hide];
-    [beeaterBodyRenderSprite playAnimation:@"Beeater-Body-Destroy" withCallbackTarget:beeaterEntity andCallbackSelector:@selector(deleteEntity)];
-    [beeaterPhysicsComponent disable];
-    [beeaterComponent setIsKilled:TRUE];
-    [beeaterEntity refresh];
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity
@@ -184,61 +182,73 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity
 {
-	// Remove bee
 	[beeEntity deleteEntity];
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity
 {
-    RenderComponent *pollenRenderComponent = (RenderComponent *)[pollenEntity getComponent:[RenderComponent class]];
-	[pollenRenderComponent playAnimation:@"Pollen-Pickup" withCallbackTarget:pollenEntity andCallbackSelector:@selector(deleteEntity)];
+    DisposableComponent *pollenDisposableComponent = (DisposableComponent *)[pollenEntity getComponent:[DisposableComponent class]];
     
-    // Disable physics component
-    PhysicsComponent *pollenPhysicsComponent = (PhysicsComponent *)[pollenEntity getComponent:[PhysicsComponent class]];
-    [pollenPhysicsComponent disable];
-    [pollenEntity refresh];
+    if (![pollenDisposableComponent isDisposed])
+    {
+        [pollenDisposableComponent setIsDisposed:TRUE];
+        
+        RenderComponent *pollenRenderComponent = (RenderComponent *)[pollenEntity getComponent:[RenderComponent class]];
+        [pollenRenderComponent playAnimation:@"Pollen-Pickup" withCallbackTarget:pollenEntity andCallbackSelector:@selector(deleteEntity)];
+    }
 }
 
 -(void)handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity
 {
-    RenderComponent *mushroomRenderComponent = (RenderComponent *)[mushroomEntity getComponent:[RenderComponent class]];
-	[mushroomRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Mushroom-Bounce", @"Mushroom-Idle", nil]];
+    DisposableComponent *mushroomDisposableComponent = (DisposableComponent *)[mushroomEntity getComponent:[DisposableComponent class]];
     
-    [[SimpleAudioEngine sharedEngine] playEffect:@"11097__a43__a43-blipp.aif"];
+    if (![mushroomDisposableComponent isDisposed])
+    {
+		[mushroomDisposableComponent setIsDisposed:TRUE];
+		
+        RenderComponent *mushroomRenderComponent = (RenderComponent *)[mushroomEntity getComponent:[RenderComponent class]];
+        [mushroomRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Mushroom-Bounce", @"Mushroom-Idle", nil]];
+    
+		[[SimpleAudioEngine sharedEngine] playEffect:@"11097__a43__a43-blipp.aif"];
+    }
 }
 
 -(void)handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity
 {
-    BeeComponent *beeComponent = (BeeComponent *)[beeEntity getComponent:[BeeComponent class]];
-    BeeTypes *beeType = [beeComponent type];
-    
-    if ([beeType canDestroyWood])
-    {
-        [beeEntity deleteEntity];
-        
-        RenderComponent *woodRenderComponent = (RenderComponent *)[woodEntity getComponent:[RenderComponent class]];
-        [woodRenderComponent playAnimation:@"Wood-Destroy" withCallbackTarget:woodEntity andCallbackSelector:@selector(deleteEntity)];
-        
-        // Disable physics component
-        PhysicsComponent *woodPhysicsComponent = (PhysicsComponent *)[woodEntity getComponent:[PhysicsComponent class]];
-        [woodPhysicsComponent disable];
-        [woodEntity refresh];
-        
-        [[SimpleAudioEngine sharedEngine] playEffect:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
-    }
+	DisposableComponent *woodDisposableComponent = (DisposableComponent *)[woodEntity getComponent:[DisposableComponent class]];
+	
+	if (![woodDisposableComponent isDisposed])
+	{
+		[woodDisposableComponent setIsDisposed:TRUE];
+		
+		BeeComponent *beeComponent = (BeeComponent *)[beeEntity getComponent:[BeeComponent class]];
+		BeeTypes *beeType = [beeComponent type];
+		
+		if ([beeType canDestroyWood])
+		{
+			[beeEntity deleteEntity];
+			
+			RenderComponent *woodRenderComponent = (RenderComponent *)[woodEntity getComponent:[RenderComponent class]];
+			[woodRenderComponent playAnimation:@"Wood-Destroy" withCallbackTarget:woodEntity andCallbackSelector:@selector(deleteEntity)];
+			
+			[[SimpleAudioEngine sharedEngine] playEffect:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
+		}
+	}
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity
 {
-    [beeEntity deleteEntity];
-    
-    RenderComponent *nutRenderComponent = (RenderComponent *)[nutEntity getComponent:[RenderComponent class]];
-	[nutRenderComponent playAnimation:@"Nut-Collect" withCallbackTarget:nutEntity andCallbackSelector:@selector(deleteEntity)];
-    
-    // Disable physics component
-    PhysicsComponent *nutPhysicsComponent = (PhysicsComponent *)[nutEntity getComponent:[PhysicsComponent class]];
-    [nutPhysicsComponent disable];
-    [nutEntity refresh];
+	DisposableComponent *nutDisposableComponent = (DisposableComponent *)[nutEntity getComponent:[DisposableComponent class]];
+	
+	if (![nutDisposableComponent isDisposed])
+	{
+		[nutDisposableComponent setIsDisposed:TRUE];
+		
+		[beeEntity deleteEntity];
+		
+		RenderComponent *nutRenderComponent = (RenderComponent *)[nutEntity getComponent:[RenderComponent class]];
+		[nutRenderComponent playAnimation:@"Nut-Collect" withCallbackTarget:nutEntity andCallbackSelector:@selector(deleteEntity)];
+	}
 }
 
 -(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity

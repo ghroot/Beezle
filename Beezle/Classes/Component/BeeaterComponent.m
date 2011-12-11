@@ -11,14 +11,12 @@
 @implementation BeeaterComponent
 
 @synthesize containedBeeType = _containedBeeType;
-@synthesize isKilled = _isKilled;
 
 -(id) init
 {
 	if (self = [super init])
 	{
 		_containedBeeType = nil;
-        _isKilled = FALSE;
 	}
 	return self;
 }

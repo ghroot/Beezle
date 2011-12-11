@@ -206,6 +206,7 @@
 		2C7CE62E146FE14E001F331F /* Boundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE62D146FE14D001F331F /* Boundry.m */; };
 		2C7CE631146FE161001F331F /* CircularBoundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE630146FE160001F331F /* CircularBoundry.m */; };
 		2C827D3814840C4900517C8F /* RenderSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C827D3714840C4700517C8F /* RenderSprite.m */; };
+		2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B83B149563ED005D7BAB /* DisposableComponent.m */; };
 		2C8A4B78149433CF00C0C154 /* Level-A1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8A4B76149433CF00C0C154 /* Level-A1-hd.jpg */; };
 		2C8A4B79149433CF00C0C154 /* Level-A1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8A4B77149433CF00C0C154 /* Level-A1.jpg */; };
 		2C8A4B7C1495184300C0C154 /* BeeTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A4B7B1495184300C0C154 /* BeeTypes.m */; };
@@ -675,9 +676,11 @@
 		2C827D3514840C3500517C8F /* CollisionTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionTypes.h; path = Classes/CollisionTypes.h; sourceTree = "<group>"; };
 		2C827D3614840C4600517C8F /* RenderSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderSprite.h; path = Classes/Component/RenderSprite.h; sourceTree = "<group>"; };
 		2C827D3714840C4700517C8F /* RenderSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSprite.m; path = Classes/Component/RenderSprite.m; sourceTree = "<group>"; };
+		2C85B83A149563ED005D7BAB /* DisposableComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DisposableComponent.h; path = Classes/Component/DisposableComponent.h; sourceTree = "<group>"; };
+		2C85B83B149563ED005D7BAB /* DisposableComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DisposableComponent.m; path = Classes/Component/DisposableComponent.m; sourceTree = "<group>"; };
 		2C8A4B76149433CF00C0C154 /* Level-A1-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A1-hd.jpg"; sourceTree = "<group>"; };
 		2C8A4B77149433CF00C0C154 /* Level-A1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A1.jpg"; sourceTree = "<group>"; };
-		2C8A4B7A1495184300C0C154 /* BeeTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; name = BeeTypes.h; path = Classes/BeeTypes.h; sourceTree = "<group>"; };
+		2C8A4B7A1495184300C0C154 /* BeeTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeTypes.h; path = Classes/BeeTypes.h; sourceTree = "<group>"; };
 		2C8A4B7B1495184300C0C154 /* BeeTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeTypes.m; path = Classes/BeeTypes.m; sourceTree = "<group>"; };
 		2CA9E39F147AF9910058C496 /* artemis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = artemis.h; path = Classes/Artemis/artemis.h; sourceTree = "<group>"; };
 		2CA9E3A0147B0EED0058C496 /* GroupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupManager.h; path = Classes/Artemis/GroupManager.h; sourceTree = "<group>"; };
@@ -1592,6 +1595,8 @@
 				2C7CE62D146FE14D001F331F /* Boundry.m */,
 				2C7CE62F146FE160001F331F /* CircularBoundry.h */,
 				2C7CE630146FE160001F331F /* CircularBoundry.m */,
+				2C85B83A149563ED005D7BAB /* DisposableComponent.h */,
+				2C85B83B149563ED005D7BAB /* DisposableComponent.m */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -1973,6 +1978,7 @@
 				2C157C1F149382D8003F9040 /* GameRulesSystem.m in Sources */,
 				2C157C241493B3DE003F9040 /* GameMode.m in Sources */,
 				2C8A4B7C1495184300C0C154 /* BeeTypes.m in Sources */,
+				2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@
 #import "BoundryComponent.h"
 #import "CircularBoundry.h"
 #import "CollisionTypes.h"
+#import "DisposableComponent.h"
 #import "GCpShapeCache.h"
 #import "PhysicsBody.h"
 #import "PhysicsComponent.h"
@@ -179,6 +180,10 @@
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
     [beeEntity addComponent:physicsComponent];
     
+    // Disposable
+    DisposableComponent *disposableComponent = [DisposableComponent component];
+    [beeEntity addComponent:disposableComponent];
+    
     GroupManager *groupManager = (GroupManager *)[world getManager:[GroupManager class]];
     [groupManager addEntity:beeEntity toGroup:@"BEES"];
 	
@@ -236,6 +241,10 @@
     PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:polyShape];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
     [beeaterEntity addComponent:physicsComponent];
+    
+    // Disposable
+    DisposableComponent *disposableComponent = [DisposableComponent component];
+    [beeaterEntity addComponent:disposableComponent];
 	
     GroupManager *groupManager = (GroupManager *)[world getManager:[GroupManager class]];
     [groupManager addEntity:beeaterEntity toGroup:@"BEEATERS"];
@@ -283,6 +292,10 @@
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
     [rampEntity addComponent:physicsComponent];
     
+    // Disposable
+    DisposableComponent *disposableComponent = [DisposableComponent component];
+    [rampEntity addComponent:disposableComponent];
+    
     [rampEntity refresh];
 	
 	[renderComponent playAnimation:@"Ramp-Idle"];
@@ -316,6 +329,10 @@
     PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:shape];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
     [pollenEntity addComponent:physicsComponent];
+    
+    // Disposable
+    DisposableComponent *disposableComponent = [DisposableComponent component];
+    [pollenEntity addComponent:disposableComponent];
     
     [pollenEntity refresh];
     
@@ -393,6 +410,10 @@
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
     [woodEntity addComponent:physicsComponent];
     
+    // Disposable
+    DisposableComponent *disposableComponent = [DisposableComponent component];
+    [woodEntity addComponent:disposableComponent];
+    
     [woodEntity refresh];
     
     [renderComponent playAnimation:@"Wood-Idle"];
@@ -426,6 +447,10 @@
     PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:shape];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
     [nutEntity addComponent:physicsComponent];
+    
+    // Disposable
+    DisposableComponent *disposableComponent = [DisposableComponent component];
+    [nutEntity addComponent:disposableComponent];
     
     [nutEntity refresh];
     
@@ -472,6 +497,10 @@
     PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:polyShape];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
     [aimPollenEntity addComponent:physicsComponent];
+    
+    // Disposable
+    DisposableComponent *disposableComponent = [DisposableComponent component];
+    [aimPollenEntity addComponent:disposableComponent];
 	
     [aimPollenEntity refresh];
 	
