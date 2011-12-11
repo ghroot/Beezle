@@ -51,37 +51,42 @@
 
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops
 {
-	// TEMP: Simply forward to first render sprite for now
-	RenderSprite *firstRenderSprite = (RenderSprite *)[[self renderSprites] objectAtIndex:0];
-	[firstRenderSprite playAnimation:animationName withLoops:nLoops];
+    for (RenderSprite *renderSprite in [_renderSpritesByName allValues])
+    {
+        [renderSprite playAnimation:animationName withLoops:nLoops];
+    }
 }
 
 -(void) playAnimation:(NSString *)animationName
 {
-	// TEMP: Simply forward to first render sprite for now
-	RenderSprite *firstRenderSprite = (RenderSprite *)[[self renderSprites] objectAtIndex:0];
-	[firstRenderSprite playAnimation:animationName];
+    for (RenderSprite *renderSprite in [_renderSpritesByName allValues])
+    {
+        [renderSprite playAnimation:animationName];
+    }
 }
 
 -(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector
 {
-	// TEMP: Simply forward to first render sprite for now
-	RenderSprite *firstRenderSprite = (RenderSprite *)[[self renderSprites] objectAtIndex:0];
-	[firstRenderSprite playAnimation:animationName withCallbackTarget:target andCallbackSelector:selector];
+    for (RenderSprite *renderSprite in [_renderSpritesByName allValues])
+    {
+        [renderSprite playAnimation:animationName withCallbackTarget:target andCallbackSelector:selector];
+    }
 }
 
 -(void) playAnimationsLoopLast:(NSArray *)animationNames
 {
-	// TEMP: Simply forward to first render sprite for now
-	RenderSprite *firstRenderSprite = (RenderSprite *)[[self renderSprites] objectAtIndex:0];
-	[firstRenderSprite playAnimationsLoopLast:animationNames];
+    for (RenderSprite *renderSprite in [_renderSpritesByName allValues])
+    {
+        [renderSprite playAnimationsLoopLast:animationNames];
+    }
 }
 
 -(void) playAnimationsLoopAll:(NSArray *)animationNames
 {
-	// TEMP: Simply forward to first render sprite for now
-	RenderSprite *firstRenderSprite = (RenderSprite *)[[self renderSprites] objectAtIndex:0];
-	[firstRenderSprite playAnimationsLoopAll:animationNames];
+    for (RenderSprite *renderSprite in [_renderSpritesByName allValues])
+    {
+        [renderSprite playAnimationsLoopAll:animationNames];
+    }
 }
 
 @end
