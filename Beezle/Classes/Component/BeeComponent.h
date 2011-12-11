@@ -11,13 +11,13 @@
 
 @interface BeeComponent : Component
 {
-	BeeType _type;
+	BeeTypes *_type;
 }
 
-@property (nonatomic, readonly) BeeType type;
+@property (nonatomic, readonly) BeeTypes *type;
 
-+(id) componentWithType:(BeeType)type;
++(id) componentWithType:(BeeTypes *)type;
 
--(id) initWithType:(BeeType)type;
+-(id) initWithType:(BeeTypes *)type;
 
 @end

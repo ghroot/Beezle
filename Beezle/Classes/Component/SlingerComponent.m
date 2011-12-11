@@ -28,18 +28,15 @@
 	[super dealloc];
 }
 
--(void) pushBeeType:(BeeType)beeType
+-(void) pushBeeType:(BeeTypes *)beeType
 {
-	NSNumber *beeTypeNumber = [NSNumber numberWithInt:beeType];
-	[_queuedBeeTypes addObject:beeTypeNumber];
+	[_queuedBeeTypes addObject:beeType];
 }
 
--(BeeType) popNextBeeType
+-(BeeTypes *) popNextBeeType
 {
-	NSNumber *nextBeeTypeNumber = [[_queuedBeeTypes objectAtIndex:0] retain];
+	BeeTypes *nextBeeType = [_queuedBeeTypes objectAtIndex:0];
 	[_queuedBeeTypes removeObjectAtIndex:0];
-	BeeType nextBeeType = [nextBeeTypeNumber intValue];
-	[nextBeeTypeNumber release];
 	return nextBeeType;
 }
 

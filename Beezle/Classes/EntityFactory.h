@@ -16,8 +16,8 @@
 +(Entity *) createBackground:(World *)world withLevelName:(NSString *)name;
 +(Entity *) createEdge:(World *)world;
 +(Entity *) createSlinger:(World *)world withPosition:(CGPoint)position beeTypes:(NSArray *)beeTypes;
-+(Entity *) createBee:(World *)world type:(BeeType)type withPosition:(CGPoint)position andVelocity:(CGPoint)velocity;
-+(Entity *) createBeeater:(World *)world withPosition:(CGPoint)position mirrored:(BOOL)mirrored beeType:(BeeType)beeType;
++(Entity *) createBee:(World *)world type:(BeeTypes *)type withPosition:(CGPoint)position andVelocity:(CGPoint)velocity;
++(Entity *) createBeeater:(World *)world withPosition:(CGPoint)position mirrored:(BOOL)mirrored beeType:(BeeTypes *)beeType;
 +(Entity *) createRamp:(World *)world withPosition:(CGPoint)position andRotation:(float)rotation;
 +(Entity *) createPollen:(World *)world withPosition:(CGPoint)position;
 +(Entity *) createMushroom:(World *)world withPosition:(CGPoint)position;

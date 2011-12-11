@@ -11,11 +11,11 @@
 
 @interface BeeaterComponent : Component
 {
-	BeeType _containedBeeType;
+	BeeTypes *_containedBeeType;
     BOOL _isKilled;
 }
 
-@property (nonatomic) BeeType containedBeeType;
+@property (nonatomic, assign) BeeTypes *containedBeeType;
 @property (nonatomic) BOOL isKilled;
 
 -(BOOL) hasContainedBee;

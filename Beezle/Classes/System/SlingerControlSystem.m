@@ -101,7 +101,7 @@
 				{
 					if ([slingerComponent hasMoreBees])
 					{
-						BeeType beeType = [slingerComponent popNextBeeType];
+						BeeTypes *beeType = [slingerComponent popNextBeeType];
 						CGPoint beeVelocity = CGPointMake(cosf([trajectoryComponent angle]) * [trajectoryComponent power], sinf([trajectoryComponent angle]) * [trajectoryComponent power]);
 						[EntityFactory createBee:_world type:beeType withPosition:[trajectoryComponent startPoint] andVelocity:beeVelocity];
 					}

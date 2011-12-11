@@ -122,9 +122,9 @@
 -(void) handleCollisionBee:(Entity *)beeEntity withRamp:(Entity *)rampEntity
 {
     BeeComponent *beeComponent = (BeeComponent *)[beeEntity getComponent:[BeeComponent class]];
-    BeeType beeType = [beeComponent type];
+    BeeTypes *beeType = [beeComponent type];
     
-    if (beeType == BEE_TYPE_BOMBEE)
+    if ([beeType canDestroyRamp])
     {
         // Bee is destroyed
         [beeEntity deleteEntity];
@@ -209,17 +209,23 @@
 
 -(void)handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity
 {
-    [beeEntity deleteEntity];
+    BeeComponent *beeComponent = (BeeComponent *)[beeEntity getComponent:[BeeComponent class]];
+    BeeTypes *beeType = [beeComponent type];
     
-    RenderComponent *woodRenderComponent = (RenderComponent *)[woodEntity getComponent:[RenderComponent class]];
-	[woodRenderComponent playAnimation:@"Wood-Destroy" withCallbackTarget:woodEntity andCallbackSelector:@selector(deleteEntity)];
-    
-    // Disable physics component
-    PhysicsComponent *woodPhysicsComponent = (PhysicsComponent *)[woodEntity getComponent:[PhysicsComponent class]];
-    [woodPhysicsComponent disable];
-    [woodEntity refresh];
-    
-    [[SimpleAudioEngine sharedEngine] playEffect:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
+    if ([beeType canDestroyWood])
+    {
+        [beeEntity deleteEntity];
+        
+        RenderComponent *woodRenderComponent = (RenderComponent *)[woodEntity getComponent:[RenderComponent class]];
+        [woodRenderComponent playAnimation:@"Wood-Destroy" withCallbackTarget:woodEntity andCallbackSelector:@selector(deleteEntity)];
+        
+        // Disable physics component
+        PhysicsComponent *woodPhysicsComponent = (PhysicsComponent *)[woodEntity getComponent:[PhysicsComponent class]];
+        [woodPhysicsComponent disable];
+        [woodEntity refresh];
+        
+        [[SimpleAudioEngine sharedEngine] playEffect:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
+    }
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity

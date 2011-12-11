@@ -208,6 +208,7 @@
 		2C827D3814840C4900517C8F /* RenderSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C827D3714840C4700517C8F /* RenderSprite.m */; };
 		2C8A4B78149433CF00C0C154 /* Level-A1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8A4B76149433CF00C0C154 /* Level-A1-hd.jpg */; };
 		2C8A4B79149433CF00C0C154 /* Level-A1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8A4B77149433CF00C0C154 /* Level-A1.jpg */; };
+		2C8A4B7C1495184300C0C154 /* BeeTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A4B7B1495184300C0C154 /* BeeTypes.m */; };
 		2CA9E3A2147B0EEE0058C496 /* GroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA9E3A1147B0EED0058C496 /* GroupManager.m */; };
 		2CADCC711471C76400302475 /* InputAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC701471C76400302475 /* InputAction.m */; };
 		2CADCC7714732ADC00302475 /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC7614732ADB00302475 /* CollisionSystem.m */; };
@@ -619,7 +620,6 @@
 		2C3A6F921489809F002721E3 /* BeeSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeSystem.m; path = Classes/System/BeeSystem.m; sourceTree = "<group>"; };
 		2C3A6F94148980AF002721E3 /* BeeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeComponent.h; path = Classes/Component/BeeComponent.h; sourceTree = "<group>"; };
 		2C3A6F95148980AF002721E3 /* BeeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeComponent.m; path = Classes/Component/BeeComponent.m; sourceTree = "<group>"; };
-		2C3A6F97148980BE002721E3 /* BeeTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeTypes.h; path = Classes/BeeTypes.h; sourceTree = "<group>"; };
 		2C44B5B5147B194C000CF537 /* TagEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagEntitySystem.h; path = Classes/Artemis/TagEntitySystem.h; sourceTree = "<group>"; };
 		2C44B5B6147B194C000CF537 /* TagEntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagEntitySystem.m; path = Classes/Artemis/TagEntitySystem.m; sourceTree = "<group>"; };
 		2C44B5B9147B1960000CF537 /* GroupEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupEntitySystem.h; path = Classes/Artemis/GroupEntitySystem.h; sourceTree = "<group>"; };
@@ -677,6 +677,8 @@
 		2C827D3714840C4700517C8F /* RenderSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSprite.m; path = Classes/Component/RenderSprite.m; sourceTree = "<group>"; };
 		2C8A4B76149433CF00C0C154 /* Level-A1-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A1-hd.jpg"; sourceTree = "<group>"; };
 		2C8A4B77149433CF00C0C154 /* Level-A1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A1.jpg"; sourceTree = "<group>"; };
+		2C8A4B7A1495184300C0C154 /* BeeTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; name = BeeTypes.h; path = Classes/BeeTypes.h; sourceTree = "<group>"; };
+		2C8A4B7B1495184300C0C154 /* BeeTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeTypes.m; path = Classes/BeeTypes.m; sourceTree = "<group>"; };
 		2CA9E39F147AF9910058C496 /* artemis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = artemis.h; path = Classes/Artemis/artemis.h; sourceTree = "<group>"; };
 		2CA9E3A0147B0EED0058C496 /* GroupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupManager.h; path = Classes/Artemis/GroupManager.h; sourceTree = "<group>"; };
 		2CA9E3A1147B0EED0058C496 /* GroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupManager.m; path = Classes/Artemis/GroupManager.m; sourceTree = "<group>"; };
@@ -1543,7 +1545,8 @@
 				2C7CE5F31469ACDE001F331F /* System */,
 				2CEA3479145F66F9000FF575 /* AppDelegate.h */,
 				2CEA347A145F66F9000FF575 /* AppDelegate.m */,
-				2C3A6F97148980BE002721E3 /* BeeTypes.h */,
+				2C8A4B7A1495184300C0C154 /* BeeTypes.h */,
+				2C8A4B7B1495184300C0C154 /* BeeTypes.m */,
 				2C827D3514840C3500517C8F /* CollisionTypes.h */,
 				2CAE05F914705F490023FA94 /* EntityFactory.h */,
 				2CAE05FA14705F4A0023FA94 /* EntityFactory.m */,
@@ -1969,6 +1972,7 @@
 				2C157C1A14914F6A003F9040 /* TrajectoryComponent.m in Sources */,
 				2C157C1F149382D8003F9040 /* GameRulesSystem.m in Sources */,
 				2C157C241493B3DE003F9040 /* GameMode.m in Sources */,
+				2C8A4B7C1495184300C0C154 /* BeeTypes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

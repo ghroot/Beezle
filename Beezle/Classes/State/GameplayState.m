@@ -101,27 +101,9 @@
     int currentX = startX;
     int currentY = winSize.height - 15;
     int spacing = 5;
-    for (NSNumber *beeTypeNumber in [_gameRulesSystem beeQueue])
+    for (BeeTypes *beeType in [_gameRulesSystem beeQueue])
     {
-        BeeType beeType = [beeTypeNumber intValue];
-        NSString *frameName;
-        if (beeType == BEE_TYPE_BEE)
-        {
-            frameName = @"Bee/Bee-01.png";
-        }
-        else if (beeType == BEE_TYPE_BOMBEE)
-        {
-            frameName = @"Bombee/Bombee-01.png";
-        }
-        else if (beeType == BEE_TYPE_SAWEE)
-        {
-            frameName = @"Sawee/Sawee-01.png";
-        }
-        else if (beeType == BEE_TYPE_SPEEDEE)
-        {
-            frameName = @"Speedee/Speedee-01.png";
-        }
-        
+        NSString *frameName = [NSString stringWithFormat:@"%@/%@-01.png", [beeType capitalizedString], [beeType capitalizedString]];        
         CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
         CCSprite *beeQueueSprite = [CCSprite spriteWithFile:@"Sprites.png" rect:[frame rect]];
         [beeQueueSprite setPosition:CGPointMake(currentX, currentY)];
@@ -225,30 +207,15 @@
             NSMutableArray *beeTypes = [NSMutableArray array];
             for (NSString *beeTypeAsString in [levelLayoutEntry beeTypesAsStrings])
             {
-                if ([beeTypeAsString isEqualToString:@"BEE"])
-                {
-                    [beeTypes addObject:[NSNumber numberWithInt:BEE_TYPE_BEE]];
-                }
-                else if ([beeTypeAsString isEqualToString:@"BOMBEE"])
-                {
-                    [beeTypes addObject:[NSNumber numberWithInt:BEE_TYPE_BOMBEE]];
-                }
+                BeeTypes *beeType = [BeeTypes beeTypeFromString:beeTypeAsString];
+                [beeTypes addObject:beeType];
             }
             
             [EntityFactory createSlinger:_world withPosition:[levelLayoutEntry position] beeTypes:beeTypes];
         }
         else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER"])
         {
-            BeeType beeType;
-            if ([[levelLayoutEntry beeTypeAsString] isEqualToString:@"BEE"])
-            {
-                beeType = BEE_TYPE_BEE;
-            }
-            else
-            {
-                beeType = BEE_TYPE_BOMBEE;
-            }
-            
+            BeeTypes *beeType = [BeeTypes beeTypeFromString:[levelLayoutEntry beeTypeAsString]];
             [EntityFactory createBeeater:_world withPosition:[levelLayoutEntry position] mirrored:[levelLayoutEntry mirrored] beeType:beeType];
         }
         else if ([[levelLayoutEntry type] isEqualToString:@"RAMP"])

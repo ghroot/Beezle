@@ -16,8 +16,8 @@
 
 @property (nonatomic, readonly) NSArray *queuedBeeTypes;
 
--(void) pushBeeType:(BeeType)beeType;
--(BeeType) popNextBeeType;
+-(void) pushBeeType:(BeeTypes *)beeType;
+-(BeeTypes *) popNextBeeType;
 -(BOOL) hasMoreBees;
 
 @end

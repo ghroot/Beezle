@@ -1,16 +1,30 @@
 //
-//  BeeTypes.h
+//  BeeType.h
 //  Beezle
 //
-//  Created by Me on 02/12/2011.
+//  Created by Me on 11/12/2011.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-typedef enum
+@interface BeeTypes : NSObject
 {
-	BEE_TYPE_NONE,
-    BEE_TYPE_BEE,
-	BEE_TYPE_SAWEE,
-	BEE_TYPE_SPEEDEE,
-	BEE_TYPE_BOMBEE,
-} BeeType;
+    NSString *_string;
+    BOOL _canDestroyRamp;
+    BOOL _canDestroyWood;
+}
+
+@property (nonatomic, readonly) NSString *string;
+@property (nonatomic) BOOL canDestroyRamp;
+@property (nonatomic) BOOL canDestroyWood;
+
++(BeeTypes *) sharedBeeBeeType;
++(BeeTypes *) sharedBombeeBeeType;
++(BeeTypes *) sharedSaweeBeeType;
++(BeeTypes *) sharedSpeedeeBeeType;
+
++(BeeTypes *) beeTypeFromString:(NSString *)string;
+
+-(id) initWithString:(NSString *)string;
+-(NSString *) capitalizedString;
+
+@end

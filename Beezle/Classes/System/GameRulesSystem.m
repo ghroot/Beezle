@@ -86,10 +86,9 @@
     SlingerComponent *slingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
     
     [_beeQueue removeAllObjects];
-    for (NSNumber *beeTypeNumber in [slingerComponent queuedBeeTypes])
+    for (BeeTypes *beeType in [slingerComponent queuedBeeTypes])
     {
-        BeeType beeType = [beeTypeNumber intValue];
-        [_beeQueue addObject:[NSNumber numberWithInt:beeType]];
+        [_beeQueue addObject:beeType];
     }
 }
 

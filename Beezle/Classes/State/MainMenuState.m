@@ -26,6 +26,7 @@
                                @"Level-A1",
                                @"Level-A2",
                                @"Level-A5",
+                               @"Level-A9",
                                nil];
         for (NSString *levelName in levelNames)
         {

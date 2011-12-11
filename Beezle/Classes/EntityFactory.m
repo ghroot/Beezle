@@ -105,9 +105,9 @@
 	
 	// Slinger
 	SlingerComponent *slingerComponent = [SlingerComponent component];
-    for (NSNumber *beeTypeNumber in beeTypes)
+    for (BeeTypes *beeType in beeTypes)
     {
-        [slingerComponent pushBeeType:[beeTypeNumber intValue]];
+        [slingerComponent pushBeeType:beeType];
     }
 	[slingerEntity addComponent:slingerComponent];
     
@@ -136,7 +136,7 @@
     return slingerEntity;
 }
 
-+(Entity *) createBee:(World *)world type:(BeeType)type withPosition:(CGPoint)position andVelocity:(CGPoint)velocity
++(Entity *) createBee:(World *)world type:(BeeTypes *)type withPosition:(CGPoint)position andVelocity:(CGPoint)velocity
 {
     Entity *beeEntity = [world createEntity];
 	
@@ -144,33 +144,13 @@
 	BeeComponent *beeComponent = [BeeComponent componentWithType:type];
 	[beeEntity addComponent:beeComponent];
 	
-	// TEMP
-	NSString *typeAsString = nil;
-	if (type == BEE_TYPE_BEE)
-	{
-		typeAsString = @"Bee";
-	}
-	else if (type == BEE_TYPE_SAWEE)
-	{
-		typeAsString = @"Sawee";
-	}
-	else if (type == BEE_TYPE_SPEEDEE)
-	{
-		typeAsString = @"Speedee";
-	}
-	else if (type == BEE_TYPE_BOMBEE)
-	{
-		typeAsString = @"Bombee";
-	}
-	NSString *animationFile = [NSString stringWithFormat:@"%@-Animations.plist", typeAsString];
-	NSString *idleAnimation = [NSString stringWithFormat:@"%@-Idle", typeAsString];
-	
     // Transform
     TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
     [beeEntity addComponent:transformComponent];
     
     // Render
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+    NSString *animationFile = [NSString stringWithFormat:@"%@-Animations.plist", [type capitalizedString]];
 	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:animationFile z:-3];
     RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [beeEntity addComponent:renderComponent];
@@ -204,12 +184,13 @@
 	
     [beeEntity refresh];
 	
-	[renderComponent playAnimation:idleAnimation];
+    NSString *idleAnimationName = [NSString stringWithFormat:@"%@-Idle", [type capitalizedString]];
+	[renderComponent playAnimation:idleAnimationName];
     
     return beeEntity;
 }
 
-+(Entity *) createBeeater:(World *)world withPosition:(CGPoint)position mirrored:(BOOL)mirrored beeType:(BeeType)beeType
++(Entity *) createBeeater:(World *)world withPosition:(CGPoint)position mirrored:(BOOL)mirrored beeType:(BeeTypes *)beeType
 {
 	Entity *beeaterEntity = [world createEntity];
 	
