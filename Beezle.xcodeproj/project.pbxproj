@@ -207,6 +207,7 @@
 		2C7CE631146FE161001F331F /* CircularBoundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE630146FE160001F331F /* CircularBoundry.m */; };
 		2C827D3814840C4900517C8F /* RenderSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C827D3714840C4700517C8F /* RenderSprite.m */; };
 		2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B83B149563ED005D7BAB /* DisposableComponent.m */; };
+		2C85B84014957285005D7BAB /* CollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B83F14957285005D7BAB /* CollisionHandler.m */; };
 		2C8A4B78149433CF00C0C154 /* Level-A1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8A4B76149433CF00C0C154 /* Level-A1-hd.jpg */; };
 		2C8A4B79149433CF00C0C154 /* Level-A1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8A4B77149433CF00C0C154 /* Level-A1.jpg */; };
 		2C8A4B7C1495184300C0C154 /* BeeTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A4B7B1495184300C0C154 /* BeeTypes.m */; };
@@ -678,6 +679,8 @@
 		2C827D3714840C4700517C8F /* RenderSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSprite.m; path = Classes/Component/RenderSprite.m; sourceTree = "<group>"; };
 		2C85B83A149563ED005D7BAB /* DisposableComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DisposableComponent.h; path = Classes/Component/DisposableComponent.h; sourceTree = "<group>"; };
 		2C85B83B149563ED005D7BAB /* DisposableComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DisposableComponent.m; path = Classes/Component/DisposableComponent.m; sourceTree = "<group>"; };
+		2C85B83E14957285005D7BAB /* CollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionHandler.h; path = Classes/System/CollisionHandler.h; sourceTree = "<group>"; };
+		2C85B83F14957285005D7BAB /* CollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionHandler.m; path = Classes/System/CollisionHandler.m; sourceTree = "<group>"; };
 		2C8A4B76149433CF00C0C154 /* Level-A1-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A1-hd.jpg"; sourceTree = "<group>"; };
 		2C8A4B77149433CF00C0C154 /* Level-A1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A1.jpg"; sourceTree = "<group>"; };
 		2C8A4B7A1495184300C0C154 /* BeeTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeTypes.h; path = Classes/BeeTypes.h; sourceTree = "<group>"; };
@@ -1311,6 +1314,8 @@
 				2CADCC791473314C00302475 /* Collision.m */,
 				2CADCC7514732ADB00302475 /* CollisionSystem.h */,
 				2CADCC7614732ADB00302475 /* CollisionSystem.m */,
+				2C85B83E14957285005D7BAB /* CollisionHandler.h */,
+				2C85B83F14957285005D7BAB /* CollisionHandler.m */,
 				2C5B86DE1479155700028179 /* DebugRenderPhysicsSystem.h */,
 				2C5B86DF1479155700028179 /* DebugRenderPhysicsSystem.m */,
 				2C157C0C14901B88003F9040 /* DebugRenderPhysicsLayer.h */,
@@ -1979,6 +1984,7 @@
 				2C157C241493B3DE003F9040 /* GameMode.m in Sources */,
 				2C8A4B7C1495184300C0C154 /* BeeTypes.m in Sources */,
 				2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */,
+				2C85B84014957285005D7BAB /* CollisionHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

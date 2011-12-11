@@ -7,6 +7,8 @@
 //
 
 #import "Collision.h"
+#import "PhysicsComponent.h"
+#import "PhysicsShape.h"
 
 @implementation Collision
 
@@ -35,5 +37,18 @@
     
     [super dealloc];
 }
+
+-(CollisionType) type1
+{
+	PhysicsComponent *firstPhysicsComponent = (PhysicsComponent *)[_firstEntity getComponent:[PhysicsComponent class]];
+	return [[firstPhysicsComponent firstPhysicsShape] shape]->collision_type;
+}
+
+-(CollisionType) type2
+{
+	PhysicsComponent *secondPhysicsComponent = (PhysicsComponent *)[_secondEntity getComponent:[PhysicsComponent class]];
+	return [[secondPhysicsComponent firstPhysicsShape] shape]->collision_type;
+}
+
 
 @end

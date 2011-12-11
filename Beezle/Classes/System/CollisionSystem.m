@@ -11,6 +11,7 @@
 #import "BeeComponent.h"
 #import "BeeTypes.h"
 #import "Collision.h"
+#import "CollisionHandler.h"
 #import "CollisionTypes.h"
 #import "DisposableComponent.h"
 #import "PhysicsBody.h"
@@ -24,12 +25,21 @@
 #import "TagManager.h"
 #import "TransformComponent.h"
 
+@interface CollisionSystem()
+
+-(void) handleBeforeCollisionBetween:(CollisionType)type1 and:(CollisionType)type2 selector:(SEL)selector;
+-(void) handleAfterCollisionBetween:(CollisionType)type1 and:(CollisionType)type2 selector:(SEL)selector;
+-(CollisionHandler *) findHandlerForCollision:(Collision *)collision;
+
+@end
+
 @implementation CollisionSystem
 
 -(id) init
 {
     if (self = [super init])
     {
+		_handlers = [[NSMutableArray alloc] init];
         _collisions = [[NSMutableArray alloc] init];
     }
     return self;
@@ -37,6 +47,7 @@
 
 -(void) dealloc
 {
+	[_handlers release];
     [_collisions release];
     
     [super dealloc];
@@ -48,18 +59,47 @@
 }
 
 -(void) initialise
-{   
-    PhysicsSystem *physicsSystem = (PhysicsSystem *)[[_world systemManager] getSystem:[PhysicsSystem class]];
+{
+	[self handleAfterCollisionBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_BACKGROUND selector:@selector(handleCollisionBee:withBackground:)];
+	[self handleAfterCollisionBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_BEEATER selector:@selector(handleCollisionBee:withBeeater:)];
+	[self handleAfterCollisionBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_EDGE selector:@selector(handleCollisionBee:withEdge:)];
+	[self handleBeforeCollisionBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_POLLEN selector:@selector(handleCollisionBee:withPollen:)];
+	[self handleAfterCollisionBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_RAMP selector:@selector(handleCollisionBee:withRamp:)];
+	[self handleAfterCollisionBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_MUSHROOM selector:@selector(handleCollisionBee:withMushroom:)];
+    [self handleAfterCollisionBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_WOOD selector:@selector(handleCollisionBee:withWood:)];
+	[self handleAfterCollisionBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_NUT selector:@selector(handleCollisionBee:withNut:)];
+	[self handleAfterCollisionBetween:COLLISION_TYPE_AIM_POLLEN and:COLLISION_TYPE_EDGE selector:@selector(handleCollisionAimPollen:withEdge:)];
+}
+
+-(void) handleBeforeCollisionBetween:(CollisionType)type1 and:(CollisionType)type2 selector:(SEL)selector
+{
+	PhysicsSystem *physicsSystem = (PhysicsSystem *)[[_world systemManager] getSystem:[PhysicsSystem class]];
+	[physicsSystem detectBeforeCollisionsBetween:type1 and:type2];
 	
-	[physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_BACKGROUND];
-	[physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_BEEATER];
-	[physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_EDGE];
-	[physicsSystem detectBeforeCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_POLLEN];
-	[physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_RAMP];
-    [physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_MUSHROOM];
-    [physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_WOOD];
-    [physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_NUT];
-    [physicsSystem detectAfterCollisionsBetween:COLLISION_TYPE_AIM_POLLEN and:COLLISION_TYPE_EDGE];
+	CollisionHandler *handler = [CollisionHandler handlerWithType1:type1 type2:type2 selector:selector];
+	[_handlers addObject:handler];
+}
+
+-(void) handleAfterCollisionBetween:(CollisionType)type1 and:(CollisionType)type2 selector:(SEL)selector
+{
+	PhysicsSystem *physicsSystem = (PhysicsSystem *)[[_world systemManager] getSystem:[PhysicsSystem class]];
+	[physicsSystem detectAfterCollisionsBetween:type1 and:type2];
+	
+	CollisionHandler *handler = [CollisionHandler handlerWithType1:type1 type2:type2 selector:selector];
+	[_handlers addObject:handler];
+}
+
+-(CollisionHandler *) findHandlerForCollision:(Collision *)collision
+{
+	for (CollisionHandler *handler in _handlers)
+	{
+		if ([handler type1] == [collision type1] &&
+			[handler type2] == [collision type2])
+		{
+			return handler;
+		}
+	}	
+	return nil;
 }
 
 -(void) begin
@@ -71,51 +111,11 @@
 {
     for (Collision *collision in _collisions)
     {
-        PhysicsComponent *firstPhysicsComponent = (PhysicsComponent *)[[collision firstEntity] getComponent:[PhysicsComponent class]];
-        PhysicsComponent *secondPhysicsComponent = (PhysicsComponent *)[[collision secondEntity] getComponent:[PhysicsComponent class]];
-        
-        if ([[firstPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_BEE)
-        {
-            if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_RAMP)
-            {
-                [self handleCollisionBee:[collision firstEntity] withRamp:[collision secondEntity]];
-            }
-            else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_BEEATER)
-            {
-                [self handleCollisionBee:[collision firstEntity] withBeeater:[collision secondEntity]];
-            }
-            else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_BACKGROUND)
-            {
-                [self handleCollisionBee:[collision firstEntity] withBackground:[collision secondEntity]];
-            }
-            else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_EDGE)
-            {
-                [self handleCollisionBee:[collision firstEntity] withEdge:[collision secondEntity]];
-            }
-            else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_POLLEN)
-            {
-                [self handleCollisionBee:[collision firstEntity] withPollen:[collision secondEntity]];
-            }
-            else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_MUSHROOM)
-            {
-                [self handleCollisionBee:[collision firstEntity] withMushroom:[collision secondEntity]];
-            }
-            else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_WOOD)
-            {
-                [self handleCollisionBee:[collision firstEntity] withWood:[collision secondEntity]];
-            }
-            else if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_NUT)
-            {
-                [self handleCollisionBee:[collision firstEntity] withNut:[collision secondEntity]];
-            }
-        }
-        else if ([[firstPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_AIM_POLLEN)
-        {
-            if ([[secondPhysicsComponent firstPhysicsShape] shape]->collision_type == COLLISION_TYPE_EDGE)
-            {
-                [self handleCollisionAimPollen:[collision firstEntity] withEdge:[collision secondEntity]];
-            }
-        }
+		CollisionHandler *handler = [self findHandlerForCollision:collision];
+		if (handler != nil)
+		{
+			[self performSelector:[handler selector] withObject:[collision firstEntity] withObject:[collision secondEntity]];
+		}
     }
     [_collisions removeAllObjects];    
 }

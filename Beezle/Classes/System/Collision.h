@@ -7,6 +7,7 @@
 //
 
 #import "artemis.h"
+#import "CollisionTypes.h"
 
 @class Entity;
 
@@ -22,5 +23,8 @@
 +(id) collisionWithFirstEntity:(Entity *)firstEntity andSecondEntity:(Entity *)secondEntity;
 
 -(id) initWithFirstEntity:(Entity *)firstEntity andSecondEntity:(Entity *)secondEntity;
+
+-(CollisionType) type1;
+-(CollisionType) type2;
 
 @end
