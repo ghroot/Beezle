@@ -178,13 +178,8 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
 
 -(void) begin
 {
-    int steps = 2;
-    CGFloat dt = [_world delta] == 0 ? 0.0f : ([_world delta] / 1000.0f) / (CGFloat)steps;
-    
-    for (int i = 0; i < steps; i++)
-    {
-        cpSpaceStep(_space, dt);
-    }
+    CGFloat dt = [_world delta] == 0 ? 0.0f : (1.0f / 60.0f);   
+	cpSpaceStep(_space, dt);
 }
 
 -(void) processEntity:(Entity *)entity
