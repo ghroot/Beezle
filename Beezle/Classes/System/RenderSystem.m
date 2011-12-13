@@ -43,7 +43,7 @@
 		
 		// No frames, uses whole texture
     }
-	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet];
+	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet z:z];
 }
 
 -(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name z:(int)z
@@ -79,7 +79,7 @@
         [_loadedAnimationFileNames addObject:animationsFileName];
     }
     
-	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet];
+	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet z:z];
 }
 
 -(void) entityAdded:(Entity *)entity
@@ -87,7 +87,7 @@
     RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
 	for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
-		[[renderSprite spriteSheet] addChild:[renderSprite sprite]];
+		[[renderSprite spriteSheet] addChild:[renderSprite sprite] z:[renderSprite z]];
 	}
     
     [super entityAdded:entity];

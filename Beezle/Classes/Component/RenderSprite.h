@@ -12,13 +12,15 @@
 {
     CCSpriteBatchNode *_spriteSheet;
     CCSprite *_sprite;
+	int _z;
 }
 
 @property (nonatomic, readonly, assign) CCSpriteBatchNode *spriteSheet;
 @property (nonatomic, readonly, retain) CCSprite *sprite;
+@property (nonatomic, readonly) int z;
 
--(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
-+(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
+-(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z;
++(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z;
 -(void) markAsBackground;
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops;
 -(void) playAnimation:(NSString *)animationName;

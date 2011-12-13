@@ -18,10 +18,10 @@
 #import "TrajectoryComponent.h"
 #import "TransformComponent.h"
 
-#define SLINGER_POWER_SENSITIVITY 5.0
-#define SLINGER_MIN_POWER 100
-#define SLINGER_MAX_POWER 350
-#define SLINGER_AIM_SENSITIVITY 3.0
+#define SLINGER_POWER_SENSITIVITY 7.5
+#define SLINGER_MIN_POWER 150
+#define SLINGER_MAX_POWER 400
+#define SLINGER_AIM_SENSITIVITY 4.0
 #define AIM_POLLEN_INTERVAL 16
 
 @interface SlingerControlSystem()
@@ -71,7 +71,8 @@
 				float power = [self calculatePower:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
 				
 				// Trajectory
-				CGPoint slingerTipVector = CGPointMake(cosf(aimAngle) * 50.0f, sinf(aimAngle) * 50.0f);
+				float slingerHeight = 25.0f;
+				CGPoint slingerTipVector = CGPointMake(cosf(aimAngle) * slingerHeight, sinf(aimAngle) * slingerHeight);
 				CGPoint tipPosition = CGPointMake([transformComponent position].x + slingerTipVector.x, [transformComponent position].y + slingerTipVector.y);
 				[trajectoryComponent setStartPoint:tipPosition];
 				[trajectoryComponent setAngle:aimAngle];

@@ -17,13 +17,15 @@ typedef enum
 
 @synthesize spriteSheet = _spriteSheet;
 @synthesize sprite = _sprite;
+@synthesize z = _z;
 
--(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet
+-(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z
 {
     if (self = [super init])
     {
         _spriteSheet = spriteSheet;
         _sprite = [[CCSprite alloc] initWithTexture:[spriteSheet texture]];
+		_z = z;
     }
     return self;
 }
@@ -35,9 +37,9 @@ typedef enum
     [super dealloc];
 }
 
-+(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet
++(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z
 {
-	return [[[RenderSprite alloc] initWithSpriteSheet:spriteSheet] autorelease];
+	return [[[RenderSprite alloc] initWithSpriteSheet:spriteSheet z:z] autorelease];
 }
 
 /**
