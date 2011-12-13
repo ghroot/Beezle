@@ -6,21 +6,21 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "CollisionTypes.h"
+#import "chipmunk.h"
 
 @interface CollisionHandler : NSObject
 {
-	CollisionType _type1;
-	CollisionType _type2;
+	cpCollisionType _type1;
+	cpCollisionType _type2;
 	SEL _selector;
 }
 
-@property (nonatomic, readonly) CollisionType type1;
-@property (nonatomic, readonly) CollisionType type2;
+@property (nonatomic, readonly) cpCollisionType type1;
+@property (nonatomic, readonly) cpCollisionType type2;
 @property (nonatomic, readonly) SEL selector;
 
-+(CollisionHandler *) handlerWithType1:(CollisionType)type1 type2:(CollisionType)type2 selector:(SEL)selector;
++(CollisionHandler *) handlerWithType1:(cpCollisionType)type1 type2:(cpCollisionType)type2 selector:(SEL)selector;
 
--(id) initWithType1:(CollisionType)type1 type2:(CollisionType)type2 selector:(SEL)selector;
+-(id) initWithType1:(cpCollisionType)type1 type2:(cpCollisionType)type2 selector:(SEL)selector;
 
 @end

@@ -10,7 +10,6 @@
 #import "artemis.h"
 #import "chipmunk.h"
 #import "cocos2d.h"
-#import "CollisionTypes.h"
 
 @class PhysicsComponent;
 
@@ -22,8 +21,8 @@
 
 @property (nonatomic, readonly) cpSpace *space;
 
--(PhysicsComponent *) createPhysicsComponentWithFile:(NSString *)fileName bodyName:(NSString *)bodyName isStatic:(BOOL)isStatic collisionType:(int)collisionType;
--(void) detectBeforeCollisionsBetween:(CollisionType)type1 and:(CollisionType)type2;
--(void) detectAfterCollisionsBetween:(CollisionType)type1 and:(CollisionType)type2;
+-(PhysicsComponent *) createPhysicsComponentWithFile:(NSString *)fileName bodyName:(NSString *)bodyName isStatic:(BOOL)isStatic collisionType:(cpCollisionType)collisionType;
+-(void) detectBeforeCollisionsBetween:(cpCollisionType)type1 and:(cpCollisionType)type2;
+-(void) detectAfterCollisionsBetween:(cpCollisionType)type1 and:(cpCollisionType)type2;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "artemis.h"
+#import "chipmunk.h"
 #import "CollisionTypes.h"
 
 @class Entity;
@@ -24,7 +25,7 @@
 
 -(id) initWithFirstEntity:(Entity *)firstEntity andSecondEntity:(Entity *)secondEntity;
 
--(CollisionType) type1;
--(CollisionType) type2;
+-(cpCollisionType) type1;
+-(cpCollisionType) type2;
 
 @end

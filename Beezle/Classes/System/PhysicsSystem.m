@@ -81,7 +81,7 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     _space->gravity = CGPointMake(0, -100);
 }
 
--(PhysicsComponent *) createPhysicsComponentWithFile:(NSString *)fileName bodyName:(NSString *)bodyName isStatic:(BOOL)isStatic collisionType:(int)collisionType
+-(PhysicsComponent *) createPhysicsComponentWithFile:(NSString *)fileName bodyName:(NSString *)bodyName isStatic:(BOOL)isStatic collisionType:(cpCollisionType)collisionType
 {
     if (![_loadedShapeFileNames containsObject:fileName])
     {
@@ -106,12 +106,12 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     return physicsComponent;
 }
 
--(void) detectBeforeCollisionsBetween:(CollisionType)type1 and:(CollisionType)type2
+-(void) detectBeforeCollisionsBetween:(cpCollisionType)type1 and:(cpCollisionType)type2
 {
 	cpSpaceAddCollisionHandler(_space, type1, type2, &beginCollision, NULL, NULL, NULL, NULL);
 }
 
--(void) detectAfterCollisionsBetween:(CollisionType)type1 and:(CollisionType)type2
+-(void) detectAfterCollisionsBetween:(cpCollisionType)type1 and:(cpCollisionType)type2
 {
     cpSpaceAddCollisionHandler(_space, type1, type2, NULL, NULL, &postSolveCollision, NULL, NULL);
 }

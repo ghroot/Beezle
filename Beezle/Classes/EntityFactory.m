@@ -470,7 +470,7 @@
     
     // Render
     RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Pollen-Animations.plist" z:-1];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Pollen-Animations.plist" z:-3];
     RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [aimPollenEntity addComponent:renderComponent];
 	
@@ -506,7 +506,7 @@
 	
 	[renderComponent playAnimation:@"Pollen-Idle"];
     
-    CCFadeOut *fadeOutAction = [CCFadeOut actionWithDuration:0.7f];
+    CCFadeOut *fadeOutAction = [CCFadeOut actionWithDuration:0.8f];
     CCCallFunc *callFunctionAction = [CCCallFunc actionWithTarget:aimPollenEntity selector:@selector(deleteEntity)];
     [[renderSprite sprite] runAction:[CCSequence actions:fadeOutAction, callFunctionAction, nil]];
     

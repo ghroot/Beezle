@@ -14,12 +14,12 @@
 @synthesize type2 = _type2;
 @synthesize selector = _selector;
 
-+(CollisionHandler *) handlerWithType1:(CollisionType)type1 type2:(CollisionType)type2 selector:(SEL)selector
++(CollisionHandler *) handlerWithType1:(cpCollisionType)type1 type2:(cpCollisionType)type2 selector:(SEL)selector
 {
 	return [[[self alloc] initWithType1:type1 type2:type2 selector:selector] autorelease];
 }
 
--(id) initWithType1:(CollisionType)type1 type2:(CollisionType)type2 selector:(SEL)selector
+-(id) initWithType1:(cpCollisionType)type1 type2:(cpCollisionType)type2 selector:(SEL)selector
 {
 	if (self = [super init])
 	{
