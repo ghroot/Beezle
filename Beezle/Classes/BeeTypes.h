@@ -17,11 +17,6 @@
 @property (nonatomic) BOOL canDestroyRamp;
 @property (nonatomic) BOOL canDestroyWood;
 
-+(BeeTypes *) sharedBeeBeeType;
-+(BeeTypes *) sharedBombeeBeeType;
-+(BeeTypes *) sharedSaweeBeeType;
-+(BeeTypes *) sharedSpeedeeBeeType;
-
 +(BeeTypes *) beeTypeFromString:(NSString *)string;
 
 -(id) initWithString:(NSString *)string;

@@ -28,26 +28,6 @@ static NSArray *_types;
     _types = [[NSArray alloc] initWithObjects:beeBeeType, bombeeBeeType, saweeBeeType, speedeeBeeType, nil];
 }
 
-+(BeeTypes *) sharedBeeBeeType
-{
-    return [self beeTypeFromString:@"BEE"];
-}
-
-+(BeeTypes *) sharedBombeeBeeType
-{
-    return [self beeTypeFromString:@"BOMBEE"];
-}
-
-+(BeeTypes *) sharedSaweeBeeType
-{
-    return [self beeTypeFromString:@"SAWEE"];
-}
-
-+(BeeTypes *) sharedSpeedeeBeeType
-{
-    return [self beeTypeFromString:@"SPEEDEE"];
-}
-
 +(BeeTypes *) beeTypeFromString:(NSString *)string
 {
     for (BeeTypes *type in _types)
