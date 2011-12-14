@@ -11,7 +11,7 @@
 #import "BeeComponent.h"
 #import "BeeTypes.h"
 #import "Collision.h"
-#import "CollisionHandler.h"
+#import "CollisionMediator.h"
 #import "CollisionTypes.h"
 #import "DisposableComponent.h"
 #import "PhysicsBody.h"
@@ -29,7 +29,7 @@
 
 -(void) handleBeforeCollisionBetween:(CollisionType)type1 and:(CollisionType)type2 selector:(SEL)selector;
 -(void) handleAfterCollisionBetween:(CollisionType)type1 and:(CollisionType)type2 selector:(SEL)selector;
--(CollisionHandler *) findHandlerForCollision:(Collision *)collision;
+-(CollisionMediator *) findMediatorForCollision:(Collision *)collision;
 
 @end
 
@@ -39,7 +39,7 @@
 {
     if (self = [super init])
     {
-		_handlers = [[NSMutableArray alloc] init];
+		_collisionMediators = [[NSMutableArray alloc] init];
         _collisions = [[NSMutableArray alloc] init];
     }
     return self;
@@ -47,7 +47,7 @@
 
 -(void) dealloc
 {
-	[_handlers release];
+	[_collisionMediators release];
     [_collisions release];
     
     [super dealloc];
@@ -76,8 +76,8 @@
 	PhysicsSystem *physicsSystem = (PhysicsSystem *)[[_world systemManager] getSystem:[PhysicsSystem class]];
 	[physicsSystem detectBeforeCollisionsBetween:type1 and:type2];
 	
-	CollisionHandler *handler = [CollisionHandler handlerWithType1:type1 type2:type2 selector:selector];
-	[_handlers addObject:handler];
+	CollisionMediator *mediator = [CollisionMediator mediatorWithType1:type1 type2:type2 selector:selector];
+	[_collisionMediators addObject:mediator];
 }
 
 -(void) handleAfterCollisionBetween:(CollisionType)type1 and:(CollisionType)type2 selector:(SEL)selector
@@ -85,18 +85,18 @@
 	PhysicsSystem *physicsSystem = (PhysicsSystem *)[[_world systemManager] getSystem:[PhysicsSystem class]];
 	[physicsSystem detectAfterCollisionsBetween:type1 and:type2];
 	
-	CollisionHandler *handler = [CollisionHandler handlerWithType1:type1 type2:type2 selector:selector];
-	[_handlers addObject:handler];
+	CollisionMediator *mediator = [CollisionMediator mediatorWithType1:type1 type2:type2 selector:selector];
+	[_collisionMediators addObject:mediator];
 }
 
--(CollisionHandler *) findHandlerForCollision:(Collision *)collision
+-(CollisionMediator *) findMediatorForCollision:(Collision *)collision
 {
-	for (CollisionHandler *handler in _handlers)
+	for (CollisionMediator *mediator in _collisionMediators)
 	{
-		if ([handler type1] == [collision type1] &&
-			[handler type2] == [collision type2])
+		if ([mediator type1] == [collision type1] &&
+			[mediator type2] == [collision type2])
 		{
-			return handler;
+			return mediator;
 		}
 	}	
 	return nil;
@@ -111,10 +111,10 @@
 {
     for (Collision *collision in _collisions)
     {
-		CollisionHandler *handler = [self findHandlerForCollision:collision];
-		if (handler != nil)
+		CollisionMediator *mediator = [self findMediatorForCollision:collision];
+		if (mediator != nil)
 		{
-			[self performSelector:[handler selector] withObject:[collision firstEntity] withObject:[collision secondEntity]];
+			[self performSelector:[mediator selector] withObject:[collision firstEntity] withObject:[collision secondEntity]];
 		}
     }
     [_collisions removeAllObjects];    

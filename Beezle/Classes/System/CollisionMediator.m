@@ -6,15 +6,15 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "CollisionHandler.h"
+#import "CollisionMediator.h"
 
-@implementation CollisionHandler
+@implementation CollisionMediator
 
 @synthesize type1 = _type1;
 @synthesize type2 = _type2;
 @synthesize selector = _selector;
 
-+(CollisionHandler *) handlerWithType1:(cpCollisionType)type1 type2:(cpCollisionType)type2 selector:(SEL)selector
++(CollisionMediator *) mediatorWithType1:(cpCollisionType)type1 type2:(cpCollisionType)type2 selector:(SEL)selector
 {
 	return [[[self alloc] initWithType1:type1 type2:type2 selector:selector] autorelease];
 }

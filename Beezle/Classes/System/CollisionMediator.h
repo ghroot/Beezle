@@ -8,7 +8,7 @@
 
 #import "chipmunk.h"
 
-@interface CollisionHandler : NSObject
+@interface CollisionMediator : NSObject
 {
 	cpCollisionType _type1;
 	cpCollisionType _type2;
@@ -19,7 +19,7 @@
 @property (nonatomic, readonly) cpCollisionType type2;
 @property (nonatomic, readonly) SEL selector;
 
-+(CollisionHandler *) handlerWithType1:(cpCollisionType)type1 type2:(cpCollisionType)type2 selector:(SEL)selector;
++(CollisionMediator *) mediatorWithType1:(cpCollisionType)type1 type2:(cpCollisionType)type2 selector:(SEL)selector;
 
 -(id) initWithType1:(cpCollisionType)type1 type2:(cpCollisionType)type2 selector:(SEL)selector;
 

@@ -14,7 +14,7 @@
 
 @interface CollisionSystem : EntitySystem
 {
-	NSMutableArray *_handlers;
+	NSMutableArray *_collisionMediators;
     NSMutableArray *_collisions;
 }
 
