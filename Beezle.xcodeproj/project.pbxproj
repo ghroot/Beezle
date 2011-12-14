@@ -142,7 +142,6 @@
 		2C1147CD148B9459002E4DBD /* LICENSE_Kazmath.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C114748148B9459002E4DBD /* LICENSE_Kazmath.txt */; };
 		2C1147DC148BF2E7002E4DBD /* Sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C1147DA148BF2E7002E4DBD /* Sprites.plist */; };
 		2C1147DD148BF2E7002E4DBD /* Sprites.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1147DB148BF2E7002E4DBD /* Sprites.png */; };
-		2C1147E1148BF77C002E4DBD /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1147E0148BF77C002E4DBD /* Utils.m */; };
 		2C1147E6148D4293002E4DBD /* BeeaterComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1147E3148D4291002E4DBD /* BeeaterComponent.m */; };
 		2C1147E7148D4293002E4DBD /* SlingerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1147E5148D4292002E4DBD /* SlingerComponent.m */; };
 		2C114809148E9317002E4DBD /* IngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C114808148E9317002E4DBD /* IngameMenuState.m */; };
@@ -175,8 +174,8 @@
 		2C3A6F96148980AF002721E3 /* BeeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F95148980AF002721E3 /* BeeComponent.m */; };
 		2C44B5B7147B194C000CF537 /* TagEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C44B5B6147B194C000CF537 /* TagEntitySystem.m */; };
 		2C44B5BB147B1960000CF537 /* GroupEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C44B5BA147B1960000CF537 /* GroupEntitySystem.m */; };
-		2C535FC614981EEF00BC7DB6 /* BeeQueueRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C535FC514981EEF00BC7DB6 /* BeeQueueRendering.m */; };
 		2C535FCA149824A100BC7DB6 /* LevelLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C535FC9149824A100BC7DB6 /* LevelLoader.m */; };
+		2C535FCD14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C535FCC14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m */; };
 		2C5B86E01479155700028179 /* DebugRenderPhysicsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B86DF1479155700028179 /* DebugRenderPhysicsSystem.m */; };
 		2C764DD4148A1C5F00820587 /* Level-A9-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C764DD3148A1C5F00820587 /* Level-A9-Shapes.plist */; };
 		2C764DDA148A1F4000820587 /* GCpShapeCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DD9148A1F4000820587 /* GCpShapeCache.m */; };
@@ -577,8 +576,6 @@
 		2C114748148B9459002E4DBD /* LICENSE_Kazmath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE_Kazmath.txt; path = libs/LICENSE_Kazmath.txt; sourceTree = "<group>"; };
 		2C1147DA148BF2E7002E4DBD /* Sprites.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Sprites.plist; sourceTree = "<group>"; };
 		2C1147DB148BF2E7002E4DBD /* Sprites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sprites.png; sourceTree = "<group>"; };
-		2C1147DF148BF77C002E4DBD /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
-		2C1147E0148BF77C002E4DBD /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		2C1147E2148D4290002E4DBD /* BeeaterComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeaterComponent.h; path = Classes/Component/BeeaterComponent.h; sourceTree = "<group>"; };
 		2C1147E3148D4291002E4DBD /* BeeaterComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeaterComponent.m; path = Classes/Component/BeeaterComponent.m; sourceTree = "<group>"; };
 		2C1147E4148D4291002E4DBD /* SlingerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlingerComponent.h; path = Classes/Component/SlingerComponent.h; sourceTree = "<group>"; };
@@ -629,10 +626,10 @@
 		2C44B5B6147B194C000CF537 /* TagEntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagEntitySystem.m; path = Classes/Artemis/TagEntitySystem.m; sourceTree = "<group>"; };
 		2C44B5B9147B1960000CF537 /* GroupEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupEntitySystem.h; path = Classes/Artemis/GroupEntitySystem.h; sourceTree = "<group>"; };
 		2C44B5BA147B1960000CF537 /* GroupEntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupEntitySystem.m; path = Classes/Artemis/GroupEntitySystem.m; sourceTree = "<group>"; };
-		2C535FC414981EEF00BC7DB6 /* BeeQueueRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeQueueRendering.h; sourceTree = "<group>"; };
-		2C535FC514981EEF00BC7DB6 /* BeeQueueRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeQueueRendering.m; sourceTree = "<group>"; };
 		2C535FC8149824A100BC7DB6 /* LevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLoader.h; sourceTree = "<group>"; };
 		2C535FC9149824A100BC7DB6 /* LevelLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLoader.m; sourceTree = "<group>"; };
+		2C535FCB14992B0B00BC7DB6 /* BeeQueueRenderingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeQueueRenderingSystem.h; path = Classes/System/BeeQueueRenderingSystem.h; sourceTree = "<group>"; };
+		2C535FCC14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeQueueRenderingSystem.m; path = Classes/System/BeeQueueRenderingSystem.m; sourceTree = "<group>"; };
 		2C5B86DE1479155700028179 /* DebugRenderPhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugRenderPhysicsSystem.h; path = Classes/System/DebugRenderPhysicsSystem.h; sourceTree = "<group>"; };
 		2C5B86DF1479155700028179 /* DebugRenderPhysicsSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugRenderPhysicsSystem.m; path = Classes/System/DebugRenderPhysicsSystem.m; sourceTree = "<group>"; };
 		2C764DD3148A1C5F00820587 /* Level-A9-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A9-Shapes.plist"; sourceTree = "<group>"; };
@@ -1234,16 +1231,6 @@
 			path = GL;
 			sourceTree = "<group>";
 		};
-		2C1147DE148BF75C002E4DBD /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				2C1147DF148BF77C002E4DBD /* Utils.h */,
-				2C1147E0148BF77C002E4DBD /* Utils.m */,
-			);
-			name = Utils;
-			path = Classes/Utils;
-			sourceTree = "<group>";
-		};
 		2C3A6F6F14898085002721E3 /* Level */ = {
 			isa = PBXGroup;
 			children = (
@@ -1308,40 +1295,42 @@
 		2C7CE5F31469ACDE001F331F /* System */ = {
 			isa = PBXGroup;
 			children = (
-				2C157C1414914F5C003F9040 /* RenderTrajectorySystem.h */,
-				2C157C1514914F5D003F9040 /* RenderTrajectorySystem.m */,
-				2C157C1214914F5C003F9040 /* RenderTrajectoryLayer.h */,
-				2C157C1314914F5C003F9040 /* RenderTrajectoryLayer.m */,
+				2C535FCB14992B0B00BC7DB6 /* BeeQueueRenderingSystem.h */,
+				2C535FCC14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m */,
 				2C3A6F911489809F002721E3 /* BeeSystem.h */,
 				2C3A6F921489809F002721E3 /* BeeSystem.m */,
+				2C764DDB148A1FF100820587 /* BodyInfo.h */,
+				2C764DDC148A1FF100820587 /* BodyInfo.m */,
 				2C7CE626146FE110001F331F /* BoundrySystem.h */,
 				2C7CE627146FE111001F331F /* BoundrySystem.m */,
 				2CADCC781473314B00302475 /* Collision.h */,
 				2CADCC791473314C00302475 /* Collision.m */,
-				2CADCC7514732ADB00302475 /* CollisionSystem.h */,
-				2CADCC7614732ADB00302475 /* CollisionSystem.m */,
 				2C85B83E14957285005D7BAB /* CollisionHandler.h */,
 				2C85B83F14957285005D7BAB /* CollisionHandler.m */,
-				2C5B86DE1479155700028179 /* DebugRenderPhysicsSystem.h */,
-				2C5B86DF1479155700028179 /* DebugRenderPhysicsSystem.m */,
+				2CADCC7514732ADB00302475 /* CollisionSystem.h */,
+				2CADCC7614732ADB00302475 /* CollisionSystem.m */,
 				2C157C0C14901B88003F9040 /* DebugRenderPhysicsLayer.h */,
 				2C157C0D14901B88003F9040 /* DebugRenderPhysicsLayer.m */,
+				2C5B86DE1479155700028179 /* DebugRenderPhysicsSystem.h */,
+				2C5B86DF1479155700028179 /* DebugRenderPhysicsSystem.m */,
+				2C157C1D149382D6003F9040 /* GameRulesSystem.h */,
+				2C157C1E149382D6003F9040 /* GameRulesSystem.m */,
+				2C764DD8148A1F4000820587 /* GCpShapeCache.h */,
+				2C764DD9148A1F4000820587 /* GCpShapeCache.m */,
 				2CADCC6F1471C76400302475 /* InputAction.h */,
 				2CADCC701471C76400302475 /* InputAction.m */,
 				2C7CE61A146C73FE001F331F /* InputSystem.h */,
 				2C7CE61B146C73FE001F331F /* InputSystem.m */,
 				2C7CE5F81469D092001F331F /* PhysicsSystem.h */,
 				2C7CE5F91469D092001F331F /* PhysicsSystem.m */,
-				2C764DD8148A1F4000820587 /* GCpShapeCache.h */,
-				2C764DD9148A1F4000820587 /* GCpShapeCache.m */,
-				2C764DDB148A1FF100820587 /* BodyInfo.h */,
-				2C764DDC148A1FF100820587 /* BodyInfo.m */,
 				2C7CE5F51469AD06001F331F /* RenderSystem.h */,
 				2C7CE5F61469AD06001F331F /* RenderSystem.m */,
+				2C157C1214914F5C003F9040 /* RenderTrajectoryLayer.h */,
+				2C157C1314914F5C003F9040 /* RenderTrajectoryLayer.m */,
+				2C157C1414914F5C003F9040 /* RenderTrajectorySystem.h */,
+				2C157C1514914F5D003F9040 /* RenderTrajectorySystem.m */,
 				2C7CE620146FD66F001F331F /* SlingerControlSystem.h */,
 				2C7CE621146FD66F001F331F /* SlingerControlSystem.m */,
-				2C157C1D149382D6003F9040 /* GameRulesSystem.h */,
-				2C157C1E149382D6003F9040 /* GameRulesSystem.m */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -1413,8 +1402,6 @@
 				2CD33ED7147D72AD000869C1 /* GameplayState.m */,
 				2C535FC8149824A100BC7DB6 /* LevelLoader.h */,
 				2C535FC9149824A100BC7DB6 /* LevelLoader.m */,
-				2C535FC414981EEF00BC7DB6 /* BeeQueueRendering.h */,
-				2C535FC514981EEF00BC7DB6 /* BeeQueueRendering.m */,
 				2C157C221493B3DE003F9040 /* GameMode.h */,
 				2C157C231493B3DE003F9040 /* GameMode.m */,
 				2CD33EE8147EE7AD000869C1 /* TestState.h */,
@@ -1556,7 +1543,6 @@
 		2CEA34CE146205BE000FF575 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2C1147DE148BF75C002E4DBD /* Utils */,
 				2C7CE613146B356D001F331F /* Artemis */,
 				2CD33ED5147D72AC000869C1 /* State */,
 				2CEA35281466B202000FF575 /* Component */,
@@ -1979,7 +1965,6 @@
 				2C1147C7148B9459002E4DBD /* vec2.c in Sources */,
 				2C1147C8148B9459002E4DBD /* vec3.c in Sources */,
 				2C1147C9148B9459002E4DBD /* vec4.c in Sources */,
-				2C1147E1148BF77C002E4DBD /* Utils.m in Sources */,
 				2C1147E6148D4293002E4DBD /* BeeaterComponent.m in Sources */,
 				2C1147E7148D4293002E4DBD /* SlingerComponent.m in Sources */,
 				2C114809148E9317002E4DBD /* IngameMenuState.m in Sources */,
@@ -1995,8 +1980,8 @@
 				2C8A4B7C1495184300C0C154 /* BeeTypes.m in Sources */,
 				2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */,
 				2C85B84014957285005D7BAB /* CollisionHandler.m in Sources */,
-				2C535FC614981EEF00BC7DB6 /* BeeQueueRendering.m in Sources */,
 				2C535FCA149824A100BC7DB6 /* LevelLoader.m in Sources */,
+				2C535FCD14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
