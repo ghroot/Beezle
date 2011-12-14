@@ -1,5 +1,5 @@
 //
-//  BeeQueueRendering.h
+//  BeeQueueRenderingSystem.h
 //  Beezle
 //
 //  Created by Me on 14/12/2011.

@@ -64,10 +64,7 @@
 -(void) updateSprites:(CGPoint)slingerPosition
 {
 	// Remove all sprites
-	for (RenderSprite *beeQueueRenderSprite in _beeQueueRenderSprites)
-	{
-		[beeQueueRenderSprite removeSpriteFromSpriteSheet];
-	}
+	[_beeQueueRenderSprites makeObjectsPerformSelector:@selector(removeSpriteFromSpriteSheet)];
 	[_beeQueueRenderSprites removeAllObjects];
 	
 	// Create sprites
@@ -91,7 +88,7 @@
 		NSString *animationName = [NSString stringWithFormat:@"%@-Idle", [beeType capitalizedString]];
 		[beeQueueRenderSprite playAnimation:animationName];
 		
-		// Move up and down 
+		// Move up and down
 		CCMoveTo *moveUpAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:0.5f position:CGPointMake(currentX, currentY + (QUEUE_SWAY_Y / 2))]];
 		CCMoveTo *moveDownAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:0.5f position:CGPointMake(currentX, currentY - (QUEUE_SWAY_Y / 2))]];
 		[[beeQueueRenderSprite sprite] runAction:[CCRepeatForever actionWithAction:[CCSequence actions:moveUpAction, moveDownAction, nil]]];
