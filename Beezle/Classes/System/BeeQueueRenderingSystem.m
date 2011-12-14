@@ -15,7 +15,7 @@
 #define QUEUE_START_OFFSET_X -30
 #define QUEUE_START_OFFSET_Y 0
 #define QUEUE_SPACING_X 5
-#define QUEUE_SWAY_Y = 4;
+#define QUEUE_SWAY_Y 4
 
 @interface BeeQueueRenderingSystem()
 
