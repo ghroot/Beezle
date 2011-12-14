@@ -19,6 +19,7 @@ typedef enum
 @synthesize sprite = _sprite;
 @synthesize z = _z;
 
+// Designated initialiser
 -(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z
 {
     if (self = [super init])
@@ -28,6 +29,11 @@ typedef enum
 		_z = z;
     }
     return self;
+}
+
+-(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet
+{
+	return [self initWithSpriteSheet:spriteSheet z:0];
 }
 
 -(void) dealloc
@@ -40,6 +46,21 @@ typedef enum
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z
 {
 	return [[[RenderSprite alloc] initWithSpriteSheet:spriteSheet z:z] autorelease];
+}
+
++(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet
+{
+	return [[[RenderSprite alloc] initWithSpriteSheet:spriteSheet] autorelease];
+}
+
+-(void) addSpriteToSpriteSheet
+{
+	[_spriteSheet addChild:_sprite z:_z];
+}
+
+-(void) removeSpriteFromSpriteSheet
+{
+	[_spriteSheet removeChild:_sprite cleanup:TRUE];
 }
 
 /**

@@ -12,12 +12,17 @@
 @interface SlingerComponent : Component
 {
 	NSMutableArray *_queuedBeeTypes;
+	BeeTypes *_loadedBeeType;
 }
 
 @property (nonatomic, readonly) NSArray *queuedBeeTypes;
+@property (nonatomic, readonly) BeeTypes *loadedBeeType;
 
 -(void) pushBeeType:(BeeTypes *)beeType;
 -(BeeTypes *) popNextBeeType;
 -(BOOL) hasMoreBees;
+-(void) loadNextBee;
+-(void) clearLoadedBee;
+-(BOOL) hasLoadedBee;
 
 @end

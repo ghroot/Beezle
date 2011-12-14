@@ -68,7 +68,7 @@
     GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
     NSArray *beeEntities = [groupManager getEntitiesInGroup:@"BEES"];
     
-    _isLevelFailed = ![slingerComponent hasMoreBees] && [beeEntities count] == 0;
+    _isLevelFailed = ![slingerComponent hasMoreBees] && ![slingerComponent hasLoadedBee] && [beeEntities count] == 0;
 }
 
 -(void) updateIsBeeFlying
@@ -84,12 +84,14 @@
     TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
     Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
     SlingerComponent *slingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
-    
-    [_beeQueue removeAllObjects];
-    for (BeeTypes *beeType in [slingerComponent queuedBeeTypes])
-    {
-        [_beeQueue addObject:beeType];
-    }
+	
+	if (![_beeQueue isEqualToArray:[slingerComponent queuedBeeTypes]])
+	{
+		[_beeQueue removeAllObjects];
+		[_beeQueue addObjectsFromArray:[slingerComponent queuedBeeTypes]];
+		
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"BeeQueueUpdated" object:self];
+	}
 }
 
 @end

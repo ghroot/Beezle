@@ -20,7 +20,11 @@
 @property (nonatomic, readonly) int z;
 
 -(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z;
+-(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z;
++(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
+-(void) addSpriteToSpriteSheet;
+-(void) removeSpriteFromSpriteSheet;
 -(void) markAsBackground;
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops;
 -(void) playAnimation:(NSString *)animationName;

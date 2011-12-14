@@ -67,6 +67,11 @@
             }
             case TOUCH_MOVED:
             {
+				if (![slingerComponent hasLoadedBee])
+				{
+					[slingerComponent loadNextBee];
+				}
+				
 				float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
 				float power = [self calculatePower:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
 				
@@ -100,12 +105,9 @@
             {
 				if (![trajectoryComponent isZero])
 				{
-					if ([slingerComponent hasMoreBees])
-					{
-						BeeTypes *beeType = [slingerComponent popNextBeeType];
-						CGPoint beeVelocity = CGPointMake(cosf([trajectoryComponent angle]) * [trajectoryComponent power], sinf([trajectoryComponent angle]) * [trajectoryComponent power]);
-						[EntityFactory createBee:_world type:beeType withPosition:[trajectoryComponent startPoint] andVelocity:beeVelocity];
-					}
+					[EntityFactory createBee:_world type:[slingerComponent loadedBeeType] withPosition:[trajectoryComponent startPoint] andVelocity:[trajectoryComponent startVelocity]];
+					
+					[slingerComponent clearLoadedBee];
 					
 					[renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];
 					

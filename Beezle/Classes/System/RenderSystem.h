@@ -15,7 +15,6 @@
 {
     CCLayer *_layer;
     NSMutableDictionary *_spriteSheetsByName;
-    NSMutableArray *_loadedAnimationFileNames;
 }
 
 -(id) initWithLayer:(CCLayer *)layer;

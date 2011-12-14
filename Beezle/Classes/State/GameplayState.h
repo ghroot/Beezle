@@ -12,6 +12,7 @@
 #import "GameMode.h"
 
 @class BeeSystem;
+@class BeeQueueRendering;
 @class CollisionSystem;
 @class DebugRenderPhysicsSystem;
 @class GameRulesSystem;
@@ -26,7 +27,8 @@
 	
 	CCLayer *_gameLayer;
 	CCLayer *_uiLayer;
-    NSMutableArray *_beeQueueSprites;
+	
+	BeeQueueRendering *_beeQueueRendering;
 
 	World *_world;
 	

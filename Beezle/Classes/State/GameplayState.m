@@ -7,33 +7,30 @@
 //
 
 #import "GameplayState.h"
+#import "BeeQueueRendering.h"
 #import "BeeSystem.h"
-#import "BeeTypes.h"
 #import "BoundrySystem.h"
 #import "CollisionSystem.h"
 #import "DebugRenderPhysicsSystem.h"
-#import "EntityFactory.h"
 #import "Game.h"
 #import "GameRulesSystem.h"
 #import "IngameMenuState.h"
 #import "InputAction.h"
 #import "InputSystem.h"
-#import "LevelLayout.h"
-#import "LevelLayoutCache.h"
-#import "LevelLayoutEntry.h"
+#import "LevelLoader.h"
 #import "PhysicsSystem.h"
 #import "RenderSystem.h"
 #import "SimpleAudioEngine.h"
 #import "SlingerControlSystem.h"
+#import "TagManager.h"
+#import "TransformComponent.h"
 
 @interface GameplayState()
 
 -(void) createUI;
--(void) updateRenderSpritesFromBees;
 -(void) createWorldAndSystems;
 -(void) createModes;
 -(void) preloadSounds;
--(void) loadLevel:(NSString *)levelName;
 -(void) enterMode:(GameMode *)mode;
 -(void) updateMode;
 
@@ -59,11 +56,14 @@
 		
 		_debug = FALSE;
 		
-        [self createUI];
+		_gameLayer = [CCLayer node];
+		[self addChild:_gameLayer];
+		
 		[self createWorldAndSystems];
         [self createModes];
 		[self preloadSounds];
-		[self loadLevel:_levelName];
+		[[LevelLoader loader] loadLevel:_levelName inWorld:_world];
+		[self createUI];
     }
     return self;
 }
@@ -75,9 +75,6 @@
 
 -(void) createUI
 {
-    _gameLayer = [CCLayer node];
-    [self addChild:_gameLayer];
-    
     _uiLayer = [CCLayer node];
     [self addChild:_uiLayer];
     
@@ -88,40 +85,15 @@
     CCMenu *menu = [CCMenu menuWithItems:pauseMenuItem, nil];
     [menu setPosition:CGPointZero];
     [_uiLayer addChild:menu];
-    
-    _beeQueueSprites = [[NSMutableArray alloc] init];
-}
-
--(void) updateRenderSpritesFromBees
-{
-    for (CCSprite *sprite in _beeQueueSprites)
-    {
-        [_uiLayer removeChild:sprite cleanup:TRUE];
-    }
-    [_beeQueueSprites removeAllObjects];
-    
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    int startX = 60;
-    int currentX = startX;
-    int currentY = winSize.height - 15;
-    int spacing = 5;
-    for (BeeTypes *beeType in [_gameRulesSystem beeQueue])
-    {
-        NSString *frameName = [NSString stringWithFormat:@"%@/%@-01.png", [beeType capitalizedString], [beeType capitalizedString]];        
-        CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
-        CCSprite *beeQueueSprite = [CCSprite spriteWithFile:@"Sprites.png" rect:[frame rect]];
-        [beeQueueSprite setPosition:CGPointMake(currentX, currentY)];
-        [_beeQueueSprites addObject:beeQueueSprite];
-        [_uiLayer addChild:beeQueueSprite];
-        
-        currentX -= [beeQueueSprite contentSize].width + spacing;
-    }
+	
+	TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
+	Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
+	TransformComponent *slingerTransformComponent = (TransformComponent *)[slingerEntity getComponent:[TransformComponent class]];
+	_beeQueueRendering = [[BeeQueueRendering alloc] initWithLayer:_uiLayer position:[slingerTransformComponent position] gameRulesSystem:_gameRulesSystem];
 }
 
 -(void) createWorldAndSystems
-{
-	[_levelName release];
-	
+{	
     _world = [[World alloc] init];
     
 	SystemManager *systemManager = [_world systemManager];
@@ -176,9 +148,11 @@
 }
 
 -(void) dealloc
-{
-    [_beeQueueSprites release];
-    
+{	
+	[_levelName release];
+	
+	[_beeQueueRendering release];
+	
     [_aimingMode release];
     [_shootingMode release];
     [_levelCompletedMode release];
@@ -196,55 +170,6 @@
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"27134__zippi1__fart1.wav"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"52144__blaukreuz__imp-02.m4a"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"33369__herbertboland__mouthpop.wav"];
-}
-
--(void) loadLevel:(NSString *)levelName
-{
-    [EntityFactory createBackground:_world withLevelName:levelName];
-    [EntityFactory createEdge:_world];
-    
-    NSString *layoutFile = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
-    [[LevelLayoutCache sharedLevelLayoutCache] addLevelLayoutsWithFile:layoutFile];
-    LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
-    for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
-    {
-        if ([[levelLayoutEntry type] isEqualToString:@"SLINGER"])
-        {
-            NSMutableArray *beeTypes = [NSMutableArray array];
-            for (NSString *beeTypeAsString in [levelLayoutEntry beeTypesAsStrings])
-            {
-                BeeTypes *beeType = [BeeTypes beeTypeFromString:beeTypeAsString];
-                [beeTypes addObject:beeType];
-            }
-            
-            [EntityFactory createSlinger:_world withPosition:[levelLayoutEntry position] beeTypes:beeTypes];
-        }
-        else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER"])
-        {
-            BeeTypes *beeType = [BeeTypes beeTypeFromString:[levelLayoutEntry beeTypeAsString]];
-            [EntityFactory createBeeater:_world withPosition:[levelLayoutEntry position] mirrored:[levelLayoutEntry mirrored] beeType:beeType];
-        }
-        else if ([[levelLayoutEntry type] isEqualToString:@"RAMP"])
-        {
-            [EntityFactory createRamp:_world withPosition:[levelLayoutEntry position] andRotation:[levelLayoutEntry rotation]];
-        }
-        else if ([[levelLayoutEntry type] isEqualToString:@"POLLEN"])
-        {
-            [EntityFactory createPollen:_world withPosition:[levelLayoutEntry position]];
-        }
-        else if ([[levelLayoutEntry type] isEqualToString:@"MUSHROOM"])
-        {
-            [EntityFactory createMushroom:_world withPosition:[levelLayoutEntry position]];
-        }
-        else if ([[levelLayoutEntry type] isEqualToString:@"WOOD"])
-        {
-            [EntityFactory createWood:_world withPosition:[levelLayoutEntry position]];
-        }
-        else if ([[levelLayoutEntry type] isEqualToString:@"NUT"])
-        {
-            [EntityFactory createNut:_world withPosition:[levelLayoutEntry position]];
-        }
-    }
 }
 
 -(void) enter
@@ -267,8 +192,6 @@
 	[_world setDelta:(1000.0f * delta)];
     
     [_currentMode processSystems];
-    
-    [self updateRenderSpritesFromBees];
     
     [self updateMode];
 }
@@ -304,7 +227,14 @@
     else if (_currentMode == _shootingMode &&
              ![_gameRulesSystem isBeeFlying])
     {
-        [self enterMode:_aimingMode];
+		if ([_gameRulesSystem isLevelCompleted])
+		{
+			[self enterMode:_levelCompletedMode];
+		}
+		else
+		{
+			[self enterMode:_aimingMode];
+		}
     }
 }
 

@@ -175,6 +175,8 @@
 		2C3A6F96148980AF002721E3 /* BeeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F95148980AF002721E3 /* BeeComponent.m */; };
 		2C44B5B7147B194C000CF537 /* TagEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C44B5B6147B194C000CF537 /* TagEntitySystem.m */; };
 		2C44B5BB147B1960000CF537 /* GroupEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C44B5BA147B1960000CF537 /* GroupEntitySystem.m */; };
+		2C535FC614981EEF00BC7DB6 /* BeeQueueRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C535FC514981EEF00BC7DB6 /* BeeQueueRendering.m */; };
+		2C535FCA149824A100BC7DB6 /* LevelLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C535FC9149824A100BC7DB6 /* LevelLoader.m */; };
 		2C5B86E01479155700028179 /* DebugRenderPhysicsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B86DF1479155700028179 /* DebugRenderPhysicsSystem.m */; };
 		2C764DD4148A1C5F00820587 /* Level-A9-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C764DD3148A1C5F00820587 /* Level-A9-Shapes.plist */; };
 		2C764DDA148A1F4000820587 /* GCpShapeCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DD9148A1F4000820587 /* GCpShapeCache.m */; };
@@ -627,6 +629,10 @@
 		2C44B5B6147B194C000CF537 /* TagEntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagEntitySystem.m; path = Classes/Artemis/TagEntitySystem.m; sourceTree = "<group>"; };
 		2C44B5B9147B1960000CF537 /* GroupEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupEntitySystem.h; path = Classes/Artemis/GroupEntitySystem.h; sourceTree = "<group>"; };
 		2C44B5BA147B1960000CF537 /* GroupEntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupEntitySystem.m; path = Classes/Artemis/GroupEntitySystem.m; sourceTree = "<group>"; };
+		2C535FC414981EEF00BC7DB6 /* BeeQueueRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeQueueRendering.h; sourceTree = "<group>"; };
+		2C535FC514981EEF00BC7DB6 /* BeeQueueRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeQueueRendering.m; sourceTree = "<group>"; };
+		2C535FC8149824A100BC7DB6 /* LevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLoader.h; sourceTree = "<group>"; };
+		2C535FC9149824A100BC7DB6 /* LevelLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLoader.m; sourceTree = "<group>"; };
 		2C5B86DE1479155700028179 /* DebugRenderPhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugRenderPhysicsSystem.h; path = Classes/System/DebugRenderPhysicsSystem.h; sourceTree = "<group>"; };
 		2C5B86DF1479155700028179 /* DebugRenderPhysicsSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugRenderPhysicsSystem.m; path = Classes/System/DebugRenderPhysicsSystem.m; sourceTree = "<group>"; };
 		2C764DD3148A1C5F00820587 /* Level-A9-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A9-Shapes.plist"; sourceTree = "<group>"; };
@@ -1405,6 +1411,10 @@
 				2C114808148E9317002E4DBD /* IngameMenuState.m */,
 				2CD33ED6147D72AD000869C1 /* GameplayState.h */,
 				2CD33ED7147D72AD000869C1 /* GameplayState.m */,
+				2C535FC8149824A100BC7DB6 /* LevelLoader.h */,
+				2C535FC9149824A100BC7DB6 /* LevelLoader.m */,
+				2C535FC414981EEF00BC7DB6 /* BeeQueueRendering.h */,
+				2C535FC514981EEF00BC7DB6 /* BeeQueueRendering.m */,
 				2C157C221493B3DE003F9040 /* GameMode.h */,
 				2C157C231493B3DE003F9040 /* GameMode.m */,
 				2CD33EE8147EE7AD000869C1 /* TestState.h */,
@@ -1985,6 +1995,8 @@
 				2C8A4B7C1495184300C0C154 /* BeeTypes.m in Sources */,
 				2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */,
 				2C85B84014957285005D7BAB /* CollisionHandler.m in Sources */,
+				2C535FC614981EEF00BC7DB6 /* BeeQueueRendering.m in Sources */,
+				2C535FCA149824A100BC7DB6 /* LevelLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

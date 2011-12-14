@@ -19,7 +19,6 @@
     {
         _layer = layer;
         _spriteSheetsByName = [[NSMutableDictionary alloc] init];
-        _loadedAnimationFileNames = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -27,7 +26,6 @@
 -(void) dealloc
 {
     [_spriteSheetsByName release];
-    [_loadedAnimationFileNames release];
     
     [super dealloc];
 }
@@ -70,13 +68,10 @@
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", name]];
     }
     
-    if (animationsFileName != nil &&
-        ![_loadedAnimationFileNames containsObject:animationsFileName])
-    {
+    if (animationsFileName != nil)
+	{
         // Create animations from file
         [[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:animationsFileName];
-        
-        [_loadedAnimationFileNames addObject:animationsFileName];
     }
     
 	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet z:z];
@@ -87,7 +82,7 @@
     RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
 	for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
-		[[renderSprite spriteSheet] addChild:[renderSprite sprite] z:[renderSprite z]];
+		[renderSprite addSpriteToSpriteSheet];
 	}
     
     [super entityAdded:entity];
@@ -98,7 +93,7 @@
     RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
 	for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
-		[[renderSprite spriteSheet] removeChild:[renderSprite sprite] cleanup:TRUE];
+		[renderSprite removeSpriteFromSpriteSheet];
 	}
     
     [super entityRemoved:entity];

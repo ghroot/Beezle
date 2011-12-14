@@ -16,6 +16,9 @@
 #import "PhysicsShape.h"
 #import "TransformComponent.h"
 
+#define GRAVITY -100
+#define FIXED_TIMESTEP (1.0f / 60.0f)
+
 @implementation PhysicsSystem
 
 @synthesize space = _space;
@@ -78,7 +81,7 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     _space = cpSpaceNew();
     cpSpaceSetSleepTimeThreshold(_space, 1.0f);
     cpSpaceSetUserData(_space, self);
-    _space->gravity = CGPointMake(0, -100);
+    _space->gravity = CGPointMake(0, GRAVITY);
 }
 
 -(PhysicsComponent *) createPhysicsComponentWithFile:(NSString *)fileName bodyName:(NSString *)bodyName isStatic:(BOOL)isStatic collisionType:(cpCollisionType)collisionType
@@ -178,8 +181,10 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
 
 -(void) begin
 {
-    CGFloat dt = [_world delta] == 0 ? 0.0f : (1.0f / 60.0f);   
-	cpSpaceStep(_space, dt);
+    if ([_world delta] > 0)
+	{
+		cpSpaceStep(_space, FIXED_TIMESTEP);
+	}
 }
 
 -(void) processEntity:(Entity *)entity
