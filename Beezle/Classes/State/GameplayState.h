@@ -12,7 +12,7 @@
 #import "GameMode.h"
 
 @class BeeSystem;
-@class BeeQueueRendering;
+@class BeeQueueRenderingSystem;
 @class CollisionSystem;
 @class DebugRenderPhysicsSystem;
 @class GameRulesSystem;
@@ -27,8 +27,6 @@
 	
 	CCLayer *_gameLayer;
 	CCLayer *_uiLayer;
-	
-	BeeQueueRendering *_beeQueueRendering;
 
 	World *_world;
 	
@@ -38,10 +36,11 @@
     PhysicsSystem *_physicsSystem;
     CollisionSystem *_collisionSystem;
     RenderSystem *_renderSystem;
-    DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
     InputSystem *_inputSystem;
     SlingerControlSystem *_slingerControlSystem;
     BeeSystem *_beeSystem;
+	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
+	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
     
     GameMode *_currentMode;
     GameMode *_aimingMode;

@@ -11,17 +11,16 @@
 
 @class GameRulesSystem;
 
-@interface BeeQueueRendering : NSObject
+@interface BeeQueueRenderingSystem : TagEntitySystem
 {
 	CCLayer *_layer;
-	CGPoint _position;
-	GameRulesSystem *_gameRulesSystem;
+	
+	NSMutableArray *_shownBeeTypes;
 	
 	CCSpriteBatchNode *_beeQueueSpriteSheet;
 	NSMutableArray *_beeQueueRenderSprites;
 }
 
--(id) initWithLayer:(CCLayer *)layer position:(CGPoint)position gameRulesSystem:(GameRulesSystem *)gameRulesSystem;
--(void) update;
+-(id) initWithLayer:(CCLayer *)layer;
 
 @end

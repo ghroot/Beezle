@@ -7,7 +7,6 @@
 //
 
 #import "GameRulesSystem.h"
-#import "BeeTypes.h"
 #import "SlingerComponent.h"
 
 @interface GameRulesSystem()
@@ -15,7 +14,6 @@
 -(void) updateIsLevelCompleted;
 -(void) updateIsLevelFailed;
 -(void) updateIsBeeFlying;
--(void) updateBeeQueue;
 
 @end
 
@@ -24,30 +22,12 @@
 @synthesize isLevelCompleted = _isLevelCompleted;
 @synthesize isLevelFailed = _isLevelFailed;
 @synthesize isBeeFlying = _isBeeFlying;
-@synthesize beeQueue = _beeQueue;
-
--(id) init
-{
-    if (self = [super init])
-    {
-        _beeQueue = [[NSMutableArray alloc] init];
-    }
-    return self;
-}
-
--(void) dealloc
-{
-    [_beeQueue release];
-    
-    [super dealloc];
-}
 
 -(void) begin
 {
     [self updateIsLevelCompleted];
     [self updateIsLevelFailed];
     [self updateIsBeeFlying];
-    [self updateBeeQueue];
 }
 
 -(void) updateIsLevelCompleted
@@ -77,21 +57,6 @@
     NSArray *beeEntities = [groupManager getEntitiesInGroup:@"BEES"];
     
     _isBeeFlying = [beeEntities count] > 0;
-}
-
--(void) updateBeeQueue
-{
-    TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
-    Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
-    SlingerComponent *slingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
-	
-	if (![_beeQueue isEqualToArray:[slingerComponent queuedBeeTypes]])
-	{
-		[_beeQueue removeAllObjects];
-		[_beeQueue addObjectsFromArray:[slingerComponent queuedBeeTypes]];
-		
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"BeeQueueUpdated" object:self];
-	}
 }
 
 @end

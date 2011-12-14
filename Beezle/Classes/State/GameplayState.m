@@ -7,7 +7,7 @@
 //
 
 #import "GameplayState.h"
-#import "BeeQueueRendering.h"
+#import "BeeQueueRenderingSystem.h"
 #import "BeeSystem.h"
 #import "BoundrySystem.h"
 #import "CollisionSystem.h"
@@ -22,7 +22,6 @@
 #import "RenderSystem.h"
 #import "SimpleAudioEngine.h"
 #import "SlingerControlSystem.h"
-#import "TagManager.h"
 #import "TransformComponent.h"
 
 @interface GameplayState()
@@ -59,11 +58,11 @@
 		_gameLayer = [CCLayer node];
 		[self addChild:_gameLayer];
 		
+		[self createUI];
 		[self createWorldAndSystems];
         [self createModes];
 		[self preloadSounds];
 		[[LevelLoader loader] loadLevel:_levelName inWorld:_world];
-		[self createUI];
     }
     return self;
 }
@@ -85,11 +84,6 @@
     CCMenu *menu = [CCMenu menuWithItems:pauseMenuItem, nil];
     [menu setPosition:CGPointZero];
     [_uiLayer addChild:menu];
-	
-	TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
-	Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
-	TransformComponent *slingerTransformComponent = (TransformComponent *)[slingerEntity getComponent:[TransformComponent class]];
-	_beeQueueRendering = [[BeeQueueRendering alloc] initWithLayer:_uiLayer position:[slingerTransformComponent position] gameRulesSystem:_gameRulesSystem];
 }
 
 -(void) createWorldAndSystems
@@ -106,17 +100,19 @@
 	[systemManager setSystem:_collisionSystem];
 	_renderSystem = [[[RenderSystem alloc] initWithLayer:_gameLayer] autorelease];
 	[systemManager setSystem:_renderSystem];
-	if (_debug)
-	{
-		_debugRenderPhysicsSystem = [[[DebugRenderPhysicsSystem alloc] initWithScene:self] autorelease];
-		[systemManager setSystem:_debugRenderPhysicsSystem];
-	}
 	_inputSystem = [[[InputSystem alloc] init] autorelease];
 	[systemManager setSystem:_inputSystem];
 	_slingerControlSystem = [[[SlingerControlSystem alloc] init] autorelease];
 	[systemManager setSystem:_slingerControlSystem];
 	_beeSystem = [[[BeeSystem alloc] init] autorelease];
 	[systemManager setSystem:_beeSystem];
+	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithLayer:_uiLayer] autorelease];
+	[systemManager setSystem:_beeQueueRenderingSystem];
+	if (_debug)
+	{
+		_debugRenderPhysicsSystem = [[[DebugRenderPhysicsSystem alloc] initWithScene:self] autorelease];
+		[systemManager setSystem:_debugRenderPhysicsSystem];
+	}
 	
 	[systemManager initialiseAll];
 }
@@ -130,6 +126,7 @@
                                                      _renderSystem,
                                                      _inputSystem,
                                                      _slingerControlSystem,
+													 _beeQueueRenderingSystem,
                                                      nil]];
     
     _shootingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
@@ -138,6 +135,7 @@
                                                _collisionSystem,
                                                _renderSystem,
                                                _beeSystem,
+											   _beeQueueRenderingSystem,
                                                nil]];
     
     _levelCompletedMode = [[GameMode alloc] init];
@@ -150,8 +148,6 @@
 -(void) dealloc
 {	
 	[_levelName release];
-	
-	[_beeQueueRendering release];
 	
     [_aimingMode release];
     [_shootingMode release];
@@ -192,6 +188,10 @@
 	[_world setDelta:(1000.0f * delta)];
     
     [_currentMode processSystems];
+	if (_debug)
+	{
+        [_debugRenderPhysicsSystem process];
+	}
     
     [self updateMode];
 }
@@ -236,14 +236,6 @@
 			[self enterMode:_aimingMode];
 		}
     }
-}
-
--(void) draw
-{
-	if (_debug)
-	{
-        [_debugRenderPhysicsSystem process];
-	}
 }
 
 -(void) pauseGame:(id)sender
