@@ -73,7 +73,7 @@
 					[slingerComponent loadNextBee];
 					
 					// Game notification
-					[[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_LOADED object:self userInfo:entity];
+					[[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_LOADED object:self];
 				}
 				
 				float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
@@ -121,7 +121,7 @@
 					[trajectoryComponent reset];
 					
 					// Game notification
-					[[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_FIRED object:self userInfo:beeEntity];
+					[[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_FIRED object:self];
                 }
                 
                 [self stopShootingAimPollens];

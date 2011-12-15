@@ -17,6 +17,8 @@
 	
 	NSMutableArray *_notifications;
 	
+	int _movingBeesCount;
+	
 	CCSpriteBatchNode *_beeQueueSpriteSheet;
 	NSMutableArray *_beeQueueRenderSprites;
 }

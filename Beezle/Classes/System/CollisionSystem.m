@@ -176,7 +176,10 @@
         [beeaterBodyRenderSprite playAnimation:@"Beeater-Body-Destroy" withCallbackTarget:beeaterEntity andCallbackSelector:@selector(deleteEntity)];
 		
 		// Game notification
-		[[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_SAVED object:self userInfo:beeaterEntity];
+		NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
+		[notificationUserInfo setObject:[NSValue valueWithPoint:[beeaterTransformComponent position]] forKey:@"beeaterEntityPosition"];
+		[notificationUserInfo setObject:[beeaterComponent containedBeeType] forKey:@"beeType"];
+		[[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_SAVED object:self userInfo:notificationUserInfo];
     }
 }
 
