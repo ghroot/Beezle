@@ -8,6 +8,7 @@
 
 #import "BeeSystem.h"
 #import "BeeComponent.h"
+#import "GameNotificationTypes.h"
 #import "PhysicsBody.h"
 #import "PhysicsComponent.h"
 #import "PhysicsShape.h"
@@ -36,6 +37,9 @@
         // Disable physics component
         [physicsComponent disable];
         [entity refresh];
+		
+		// Game notification
+		[[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_EXPIRED object:self userInfo:entity];
 	}
 }
 

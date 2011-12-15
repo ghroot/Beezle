@@ -146,8 +146,6 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
             cpSpaceAddShape(_space, shape);
         }   
     }
-    
-    [super entityAdded:entity];
 }
 
 -(void) entityRemoved:(Entity *)entity
@@ -175,8 +173,6 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
             cpSpaceRemoveShape(_space, shape);
         }
     }
-    
-    [super entityRemoved:entity];
 }
 
 -(void) begin

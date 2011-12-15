@@ -15,7 +15,7 @@
 {
 	CCLayer *_layer;
 	
-	NSMutableArray *_shownBeeTypes;
+	NSMutableArray *_notifications;
 	
 	CCSpriteBatchNode *_beeQueueSpriteSheet;
 	NSMutableArray *_beeQueueRenderSprites;

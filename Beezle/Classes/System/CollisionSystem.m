@@ -14,6 +14,7 @@
 #import "CollisionMediator.h"
 #import "CollisionTypes.h"
 #import "DisposableComponent.h"
+#import "GameNotificationTypes.h"
 #import "PhysicsBody.h"
 #import "PhysicsComponent.h"
 #import "PhysicsShape.h"
@@ -173,6 +174,9 @@
         [beeaterTransformComponent setScale:CGPointMake(1.0f, 1.0f)];
         [beeaterHeadRenderSprite hide];
         [beeaterBodyRenderSprite playAnimation:@"Beeater-Body-Destroy" withCallbackTarget:beeaterEntity andCallbackSelector:@selector(deleteEntity)];
+		
+		// Game notification
+		[[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_SAVED object:self userInfo:beeaterEntity];
     }
 }
 

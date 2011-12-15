@@ -9,6 +9,7 @@
 #import "SlingerControlSystem.h"
 #import "BeeTypes.h"
 #import "EntityFactory.h"
+#import "GameNotificationTypes.h"
 #import "InputAction.h"
 #import "InputSystem.h"
 #import "RenderComponent.h"
@@ -70,6 +71,9 @@
 				if (![slingerComponent hasLoadedBee])
 				{
 					[slingerComponent loadNextBee];
+					
+					// Game notification
+					[[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_LOADED object:self userInfo:entity];
 				}
 				
 				float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
@@ -105,7 +109,8 @@
             {
 				if (![trajectoryComponent isZero])
 				{
-					[EntityFactory createBee:_world type:[slingerComponent loadedBeeType] withPosition:[trajectoryComponent startPoint] andVelocity:[trajectoryComponent startVelocity]];
+					// Create bee
+					Entity *beeEntity = [EntityFactory createBee:_world type:[slingerComponent loadedBeeType] withPosition:[trajectoryComponent startPoint] andVelocity:[trajectoryComponent startVelocity]];
 					
 					[slingerComponent clearLoadedBee];
 					
@@ -114,6 +119,9 @@
 					[[SimpleAudioEngine sharedEngine] playEffect:@"33369__herbertboland__mouthpop.wav"];
 					
 					[trajectoryComponent reset];
+					
+					// Game notification
+					[[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_FIRED object:self userInfo:beeEntity];
                 }
                 
                 [self stopShootingAimPollens];

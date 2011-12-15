@@ -8,6 +8,7 @@
 
 #import "BeeQueueRenderingSystem.h"
 #import "BeeTypes.h"
+#import "GameNotificationTypes.h"
 #import "RenderSprite.h"
 #import "SlingerComponent.h"
 #import "TransformComponent.h"
@@ -19,7 +20,8 @@
 
 @interface BeeQueueRenderingSystem()
 
--(void) updateSprites:(CGPoint)slingerPosition;
+-(void) handleNotification:(NSNotification *)notification;
+-(void) updateSprites:(SlingerEntity *)slingerEntity;
 
 @end
 
@@ -33,46 +35,60 @@
 		_beeQueueSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"Sprites.png"];
 		[_layer addChild:_beeQueueSpriteSheet];
 		
-		_shownBeeTypes = [[NSMutableArray alloc] init];
+		_notifications = [[NSMutableArray alloc] init];
 		_beeQueueRenderSprites = [[NSMutableArray alloc] init];
+		
+		[[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:GAME_NOTIFICATION_BEE_LOADED object:nil];
+		[[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:GAME_NOTIFICATION_BEE_FIRED object:nil];
+		[[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:GAME_NOTIFICATION_BEE_SAVED object:nil];
 	}
 	return self;
 }
 
 -(void) dealloc
 {
-	[_shownBeeTypes release];
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+
+	[_notifications release];
 	[_beeQueueRenderSprites release];
 	
 	[super dealloc];
 }
 
+-(void) entityAdded:(Entity *)entity
+{
+    [self updateSprites:entity];
+}
+
 -(void) processTaggedEntity:(Entity *)entity
 {
-    SlingerComponent *slingerComponent = (SlingerComponent *)[entity getComponent:[SlingerComponent class]];
-	
-	if (![_shownBeeTypes isEqualToArray:[slingerComponent queuedBeeTypes]])
+	if ([_notifications count] > 0)
 	{
-		[_shownBeeTypes removeAllObjects];
-		[_shownBeeTypes addObjectsFromArray:[slingerComponent queuedBeeTypes]];
-		
-		TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
-		[self updateSprites:[transformComponent position]];
+		[self updateSprites:entity];
+		[_notifications removeAllObjects];
 	}
 }
 
--(void) updateSprites:(CGPoint)slingerPosition
+-(void) handleNotification:(NSNotification *)notification
 {
+	[_notifications addObject:notification];
+}
+
+-(void) updateSprites:(SlingerEntity *)slingerEntity
+{
+    SlingerComponent *slingerSlingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
+	TransformComponent *slingerTransformComponent = (TransformComponent *)[slingerEntity getComponent:[TransformComponent class]];
+
 	// Remove all sprites
 	[_beeQueueRenderSprites makeObjectsPerformSelector:@selector(removeSpriteFromSpriteSheet)];
 	[_beeQueueRenderSprites removeAllObjects];
 	
 	// Create sprites
-    int startX = slingerPosition.x + QUEUE_START_OFFSET_X;
-	int startY = slingerPosition.y + QUEUE_START_OFFSET_Y;
+    int startX = [slingerTransformComponent position].x + QUEUE_START_OFFSET_X;
+	int startY = [slingerTransformComponent position].y + QUEUE_START_OFFSET_Y;
     int currentX = startX;
     int currentY = startY;
-    for (BeeTypes *beeType in _shownBeeTypes)
+    for (BeeTypes *beeType in [slingerSlingerComponent queuedBeeTypes])
     {
 		// Create sprite
 		RenderSprite *beeQueueRenderSprite = [RenderSprite renderSpriteWithSpriteSheet:_beeQueueSpriteSheet];
