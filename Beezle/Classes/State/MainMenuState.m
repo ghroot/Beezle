@@ -25,6 +25,7 @@
         NSArray *levelNames = [NSArray arrayWithObjects:
                                @"Level-A1",
                                @"Level-A2",
+							   @"Level-A3",
                                @"Level-A5",
                                @"Level-A9",
                                nil];
