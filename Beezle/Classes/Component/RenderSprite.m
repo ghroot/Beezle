@@ -7,11 +7,7 @@
 //
 
 #import "RenderSprite.h"
-
-typedef enum
-{
-    ACTION_TAG_ANIMATION,
-} ActionTag;
+#import "ActionTags.h"
 
 @implementation RenderSprite
 

@@ -73,7 +73,7 @@
 					[slingerComponent loadNextBee];
 					
 					// Game notification
-					[[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_LOADED object:self];
+					[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_LOADED object:self];
 				}
 				
 				float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
@@ -110,7 +110,7 @@
 				if (![trajectoryComponent isZero])
 				{
 					// Create bee
-					Entity *beeEntity = [EntityFactory createBee:_world type:[slingerComponent loadedBeeType] withPosition:[trajectoryComponent startPoint] andVelocity:[trajectoryComponent startVelocity]];
+					[EntityFactory createBee:_world type:[slingerComponent loadedBeeType] withPosition:[trajectoryComponent startPoint] andVelocity:[trajectoryComponent startVelocity]];
 					
 					[slingerComponent clearLoadedBee];
 					
@@ -121,7 +121,7 @@
 					[trajectoryComponent reset];
 					
 					// Game notification
-					[[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_FIRED object:self];
+					[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_FIRED object:self];
                 }
                 
                 [self stopShootingAimPollens];

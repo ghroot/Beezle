@@ -138,9 +138,13 @@
 											   _beeQueueRenderingSystem,
                                                nil]];
     
-    _levelCompletedMode = [[GameMode alloc] init];
+    _levelCompletedMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
+															 _beeQueueRenderingSystem,
+															 nil]];
     
-    _levelFailedMode = [[GameMode alloc] init];
+    _levelFailedMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
+														  _beeQueueRenderingSystem,
+														  nil]];
     
     _currentMode = _aimingMode;
 }

@@ -39,7 +39,7 @@
         [entity refresh];
 		
 		// Game notification
-		[[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_EXPIRED object:self userInfo:entity];
+		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_EXPIRED object:self];
 	}
 }
 

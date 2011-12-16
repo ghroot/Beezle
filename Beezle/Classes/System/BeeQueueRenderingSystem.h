@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 
 @class GameRulesSystem;
+@class RenderSprite;
 
 @interface BeeQueueRenderingSystem : TagEntitySystem
 {
@@ -21,6 +22,7 @@
 	
 	CCSpriteBatchNode *_beeQueueSpriteSheet;
 	NSMutableArray *_beeQueueRenderSprites;
+	RenderSprite *_beeLoadedRenderSprite;
 }
 
 -(id) initWithLayer:(CCLayer *)layer;

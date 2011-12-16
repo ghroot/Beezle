@@ -177,9 +177,9 @@
 		
 		// Game notification
 		NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
-		[notificationUserInfo setObject:[NSValue valueWithPoint:[beeaterTransformComponent position]] forKey:@"beeaterEntityPosition"];
+		[notificationUserInfo setObject:[NSValue valueWithCGPoint:[beeaterTransformComponent position]] forKey:@"beeaterEntityPosition"];
 		[notificationUserInfo setObject:[beeaterComponent containedBeeType] forKey:@"beeType"];
-		[[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_SAVED object:self userInfo:notificationUserInfo];
+		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_SAVED object:self userInfo:notificationUserInfo];
     }
 }
 
