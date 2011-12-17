@@ -37,6 +37,8 @@
 
 @implementation EntityManager
 
+@synthesize entities = _entities;
+
 -(id) initWithWorld:(World *)world
 {
     if (self = [super initWithWorld:world])

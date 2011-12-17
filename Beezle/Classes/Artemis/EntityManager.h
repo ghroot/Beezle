@@ -40,6 +40,8 @@
     NSMutableDictionary *_componentsByClass;
 }
 
+@property (nonatomic, readonly) NSArray *entities;
+
 -(Entity *) createEntity;
 -(void) removeEntity:(Entity *)entity;
 -(void) removeAllComponentsFromEntity:(Entity *)entity;

@@ -7,6 +7,7 @@
 //
 
 #import "MainMenuState.h"
+#import "EditState.h"
 #import "EmptyState.h"
 #import "Game.h"
 #import "GameplayState.h"
@@ -48,7 +49,8 @@
 -(void) startGame:(id)sender
 {
     NSString *levelName = (NSString *)[sender userData];
-	[_game replaceState:[GameplayState stateWithLevelName:levelName]];
+//	[_game replaceState:[GameplayState stateWithLevelName:levelName]];
+	[_game replaceState:[EditState stateWithLevelName:levelName]];
 }
 
 -(void) startTest:(id)sender

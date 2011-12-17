@@ -181,6 +181,9 @@
 		2C6A92A7149B8CF300600E15 /* Level-A3-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C6A92A3149B8CF300600E15 /* Level-A3-Layout.plist */; };
 		2C6A92A8149B8CF300600E15 /* Level-A3-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C6A92A4149B8CF300600E15 /* Level-A3-Shapes.plist */; };
 		2C6A92A9149B8CF300600E15 /* Level-A3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C6A92A5149B8CF300600E15 /* Level-A3.jpg */; };
+		2C6A92AC149CFDAD00600E15 /* EditComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A92AB149CFDAD00600E15 /* EditComponent.m */; };
+		2C6A92AF149CFDF300600E15 /* EditControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A92AE149CFDF300600E15 /* EditControlSystem.m */; };
+		2C6A92B2149CFE3900600E15 /* EditState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A92B1149CFE3900600E15 /* EditState.m */; };
 		2C764DD4148A1C5F00820587 /* Level-A9-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C764DD3148A1C5F00820587 /* Level-A9-Shapes.plist */; };
 		2C764DDA148A1F4000820587 /* GCpShapeCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DD9148A1F4000820587 /* GCpShapeCache.m */; };
 		2C764DDD148A1FF100820587 /* BodyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DDC148A1FF100820587 /* BodyInfo.m */; };
@@ -642,6 +645,12 @@
 		2C6A92A3149B8CF300600E15 /* Level-A3-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A3-Layout.plist"; sourceTree = "<group>"; };
 		2C6A92A4149B8CF300600E15 /* Level-A3-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A3-Shapes.plist"; sourceTree = "<group>"; };
 		2C6A92A5149B8CF300600E15 /* Level-A3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A3.jpg"; sourceTree = "<group>"; };
+		2C6A92AA149CFDAD00600E15 /* EditComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditComponent.h; path = Classes/Component/EditComponent.h; sourceTree = "<group>"; };
+		2C6A92AB149CFDAD00600E15 /* EditComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditComponent.m; path = Classes/Component/EditComponent.m; sourceTree = "<group>"; };
+		2C6A92AD149CFDF200600E15 /* EditControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; name = EditControlSystem.h; path = Classes/System/EditControlSystem.h; sourceTree = "<group>"; };
+		2C6A92AE149CFDF300600E15 /* EditControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditControlSystem.m; path = Classes/System/EditControlSystem.m; sourceTree = "<group>"; };
+		2C6A92B0149CFE3900600E15 /* EditState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditState.h; sourceTree = "<group>"; };
+		2C6A92B1149CFE3900600E15 /* EditState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditState.m; sourceTree = "<group>"; };
 		2C764DD3148A1C5F00820587 /* Level-A9-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A9-Shapes.plist"; sourceTree = "<group>"; };
 		2C764DD8148A1F4000820587 /* GCpShapeCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCpShapeCache.h; path = Classes/System/GCpShapeCache.h; sourceTree = "<group>"; };
 		2C764DD9148A1F4000820587 /* GCpShapeCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCpShapeCache.m; path = Classes/System/GCpShapeCache.m; sourceTree = "<group>"; };
@@ -1345,6 +1354,8 @@
 				2C157C1514914F5D003F9040 /* RenderTrajectorySystem.m */,
 				2C7CE620146FD66F001F331F /* SlingerControlSystem.h */,
 				2C7CE621146FD66F001F331F /* SlingerControlSystem.m */,
+				2C6A92AD149CFDF200600E15 /* EditControlSystem.h */,
+				2C6A92AE149CFDF300600E15 /* EditControlSystem.m */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -1422,6 +1433,8 @@
 				2CD33EE9147EE7AD000869C1 /* TestState.m */,
 				2C157C0F1490208E003F9040 /* EmptyState.h */,
 				2C157C101490208F003F9040 /* EmptyState.m */,
+				2C6A92B0149CFE3900600E15 /* EditState.h */,
+				2C6A92B1149CFE3900600E15 /* EditState.m */,
 			);
 			name = State;
 			path = Classes/State;
@@ -1614,6 +1627,8 @@
 				2C7CE630146FE160001F331F /* CircularBoundry.m */,
 				2C85B83A149563ED005D7BAB /* DisposableComponent.h */,
 				2C85B83B149563ED005D7BAB /* DisposableComponent.m */,
+				2C6A92AA149CFDAD00600E15 /* EditComponent.h */,
+				2C6A92AB149CFDAD00600E15 /* EditComponent.m */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -2002,6 +2017,9 @@
 				2C85B84014957285005D7BAB /* CollisionMediator.m in Sources */,
 				2C535FCA149824A100BC7DB6 /* LevelLoader.m in Sources */,
 				2C535FCD14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m in Sources */,
+				2C6A92AC149CFDAD00600E15 /* EditComponent.m in Sources */,
+				2C6A92AF149CFDF300600E15 /* EditControlSystem.m in Sources */,
+				2C6A92B2149CFE3900600E15 /* EditState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
