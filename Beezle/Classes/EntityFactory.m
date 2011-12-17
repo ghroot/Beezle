@@ -26,6 +26,21 @@
 #import "TrajectoryComponent.h"
 #import "TransformComponent.h"
 
+typedef enum
+{
+	Z_ORDER_BACKGROUND,
+	Z_ORDER_BEEATER_BODY,
+	Z_ORDER_BEEATER_HEAD,
+	Z_ORDER_RAMP,
+	Z_ORDER_POLLEN,
+	Z_ORDER_MUSHROOM,
+	Z_ORDER_WOOD,
+	Z_ORDER_NUT,
+	Z_ORDER_AIM_POLLEN,
+	Z_ORDER_BEE,
+	Z_ORDER_SLINGER,
+} SortOrders;
+
 @implementation EntityFactory
 
 +(Entity *) createBackground:(World *)world withLevelName:(NSString *)name
@@ -42,7 +57,7 @@
     [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB565];
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
     NSString *imageFileName = [NSString stringWithFormat:@"%@.jpg", name];
-    RenderSprite *renderSprite = [renderSystem createRenderSpriteWithFile:imageFileName z:-5];
+    RenderSprite *renderSprite = [renderSystem createRenderSpriteWithFile:imageFileName z:Z_ORDER_BACKGROUND];
     [renderSprite markAsBackground];
 	RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [backgroundEntity addComponent:renderComponent];
@@ -122,7 +137,7 @@
 	
     // Render
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Sling-Animations.plist" z:-2];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Sling-Animations.plist" z:Z_ORDER_SLINGER];
     [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 1.0f)];
     RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [slingerEntity addComponent:renderComponent];
@@ -152,7 +167,7 @@
     // Render
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
     NSString *animationFile = [NSString stringWithFormat:@"%@-Animations.plist", [type capitalizedString]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:animationFile z:-3];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:animationFile z:Z_ORDER_BEE];
     RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [beeEntity addComponent:renderComponent];
 	
@@ -214,9 +229,9 @@
 	
     // Render
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *bodyRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Beeater-Body-Animations.plist" z:-2];
+	RenderSprite *bodyRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Beeater-Body-Animations.plist" z:Z_ORDER_BEEATER_BODY];
 	[[bodyRenderSprite sprite] setAnchorPoint:CGPointMake(0.6f, 0.0f)];
-	RenderSprite *headRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Beeater-Head-Animations.plist" z:-1];
+	RenderSprite *headRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Beeater-Head-Animations.plist" z:Z_ORDER_BEEATER_HEAD];
 	[[headRenderSprite sprite] setAnchorPoint:CGPointMake(0.8f, -0.3f)];
     RenderComponent *renderComponent = [RenderComponent component];
     [renderComponent addRenderSprite:bodyRenderSprite withName:@"body"];
@@ -267,7 +282,7 @@
     
     // Render
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Ramp-Animations.plist" z:-2];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Ramp-Animations.plist" z:Z_ORDER_RAMP];
     RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [rampEntity addComponent:renderComponent];
 	
@@ -313,7 +328,7 @@
     
     // Render
     RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Pollen-Animations.plist" z:-1];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Pollen-Animations.plist" z:Z_ORDER_POLLEN];
     RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [pollenEntity addComponent:renderComponent];
     
@@ -351,7 +366,7 @@
     
     // Render
     RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Mushroom-Animations.plist" z:-1];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Mushroom-Animations.plist" z:Z_ORDER_MUSHROOM];
     [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 0.0f)];
     RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [mushroomEntity addComponent:renderComponent];
@@ -385,7 +400,7 @@
     
     // Render
     RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Wood-Animations.plist" z:-1];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Wood-Animations.plist" z:Z_ORDER_WOOD];
     [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 0.5f)];
     RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [woodEntity addComponent:renderComponent];
@@ -431,7 +446,7 @@
     
     // Render
     RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Nut-Animations.plist" z:-1];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Nut-Animations.plist" z:Z_ORDER_NUT];
     [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 0.0f)];
     RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [nutEntity addComponent:renderComponent];
@@ -470,7 +485,7 @@
     
     // Render
     RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Pollen-Animations.plist" z:-3];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Pollen-Animations.plist" z:Z_ORDER_AIM_POLLEN];
     RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [aimPollenEntity addComponent:renderComponent];
 	
