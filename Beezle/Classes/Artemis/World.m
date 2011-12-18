@@ -32,6 +32,7 @@
 #import "Entity.h"
 #import "EntityManager.h"
 #import "GroupManager.h"
+#import "LabelManager.h"
 #import "Manager.h"
 #import "SystemManager.h"
 #import "TagManager.h"
@@ -57,6 +58,9 @@
 		
         GroupManager *groupManager = [[[GroupManager alloc] initWithWorld:self] autorelease];
 		[self setManager:groupManager];
+		
+		LabelManager *labelManager = [[[LabelManager alloc] initWithWorld:self] autorelease];
+		[self setManager:labelManager];
 		
         _refreshed = [[NSMutableArray alloc] init];
         _deleted = [[NSMutableArray alloc] init];
