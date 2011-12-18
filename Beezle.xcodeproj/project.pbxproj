@@ -229,6 +229,7 @@
 		2CADCC8D14746BA200302475 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CADCC8B14746BA200302475 /* InfoPlist.strings */; };
 		2CADCC9014746BA200302475 /* ArtemisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC8F14746BA200302475 /* ArtemisTests.m */; };
 		2CAE05FB14705F4A0023FA94 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE05FA14705F4A0023FA94 /* EntityFactory.m */; };
+		2CBC659A149E8EB700970A99 /* LabelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBC6599149E8EB700970A99 /* LabelManager.m */; };
 		2CD33EBE147C5DAC000869C1 /* PhysicsShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EBD147C5DAB000869C1 /* PhysicsShape.m */; };
 		2CD33EC1147C5DBF000869C1 /* PhysicsBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EC0147C5DBF000869C1 /* PhysicsBody.m */; };
 		2CD33ED8147D72AD000869C1 /* GameplayState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33ED7147D72AD000869C1 /* GameplayState.m */; };
@@ -647,7 +648,7 @@
 		2C6A92A5149B8CF300600E15 /* Level-A3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A3.jpg"; sourceTree = "<group>"; };
 		2C6A92AA149CFDAD00600E15 /* EditComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditComponent.h; path = Classes/Component/EditComponent.h; sourceTree = "<group>"; };
 		2C6A92AB149CFDAD00600E15 /* EditComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditComponent.m; path = Classes/Component/EditComponent.m; sourceTree = "<group>"; };
-		2C6A92AD149CFDF200600E15 /* EditControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; name = EditControlSystem.h; path = Classes/System/EditControlSystem.h; sourceTree = "<group>"; };
+		2C6A92AD149CFDF200600E15 /* EditControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditControlSystem.h; path = Classes/System/EditControlSystem.h; sourceTree = "<group>"; };
 		2C6A92AE149CFDF300600E15 /* EditControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditControlSystem.m; path = Classes/System/EditControlSystem.m; sourceTree = "<group>"; };
 		2C6A92B0149CFE3900600E15 /* EditState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditState.h; sourceTree = "<group>"; };
 		2C6A92B1149CFE3900600E15 /* EditState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditState.m; sourceTree = "<group>"; };
@@ -725,6 +726,8 @@
 		2CADCC9114746BA200302475 /* ArtemisTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ArtemisTests-Prefix.pch"; sourceTree = "<group>"; };
 		2CAE05F914705F490023FA94 /* EntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityFactory.h; path = Classes/EntityFactory.h; sourceTree = "<group>"; };
 		2CAE05FA14705F4A0023FA94 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityFactory.m; path = Classes/EntityFactory.m; sourceTree = "<group>"; };
+		2CBC6598149E8EB700970A99 /* LabelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LabelManager.h; path = Classes/Artemis/LabelManager.h; sourceTree = "<group>"; };
+		2CBC6599149E8EB700970A99 /* LabelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LabelManager.m; path = Classes/Artemis/LabelManager.m; sourceTree = "<group>"; };
 		2CD33EBC147C5DAB000869C1 /* PhysicsShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsShape.h; path = Classes/Component/PhysicsShape.h; sourceTree = "<group>"; };
 		2CD33EBD147C5DAB000869C1 /* PhysicsShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhysicsShape.m; path = Classes/Component/PhysicsShape.m; sourceTree = "<group>"; };
 		2CD33EBF147C5DBF000869C1 /* PhysicsBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsBody.h; path = Classes/Component/PhysicsBody.h; sourceTree = "<group>"; };
@@ -1388,6 +1391,8 @@
 				2C7CE61E146C81B5001F331F /* TagManager.m */,
 				2CA9E3A0147B0EED0058C496 /* GroupManager.h */,
 				2CA9E3A1147B0EED0058C496 /* GroupManager.m */,
+				2CBC6598149E8EB700970A99 /* LabelManager.h */,
+				2CBC6599149E8EB700970A99 /* LabelManager.m */,
 			);
 			name = Artemis;
 			sourceTree = "<group>";
@@ -2020,6 +2025,7 @@
 				2C6A92AC149CFDAD00600E15 /* EditComponent.m in Sources */,
 				2C6A92AF149CFDF300600E15 /* EditControlSystem.m in Sources */,
 				2C6A92B2149CFE3900600E15 /* EditState.m in Sources */,
+				2CBC659A149E8EB700970A99 /* LabelManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

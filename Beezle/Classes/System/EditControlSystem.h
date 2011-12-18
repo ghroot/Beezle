@@ -7,6 +7,7 @@
 //
 
 #import "artemis.h"
+#import "chipmunk.h"
 
 @interface EditControlSystem : EntityComponentSystem
 {

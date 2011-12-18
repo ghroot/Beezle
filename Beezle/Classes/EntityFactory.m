@@ -14,6 +14,7 @@
 #import "CollisionTypes.h"
 #import "DisposableComponent.h"
 #import "GCpShapeCache.h"
+#import "LabelManager.h"
 #import "PhysicsBody.h"
 #import "PhysicsComponent.h"
 #import "PhysicsShape.h"
@@ -144,6 +145,9 @@ typedef enum
 	
 	TagManager *tagManager = (TagManager *)[world getManager:[TagManager class]];
 	[tagManager registerEntity:slingerEntity withTag:@"SLINGER"];
+	
+	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
+	[labelManager labelEntity:slingerEntity withLabel:@"EDITABLE"];
     
     [slingerEntity refresh];
 	
@@ -248,12 +252,12 @@ typedef enum
         cpv(15.0f, 40.0f),
         cpv(15.0f, 0.0f)
     };
-    cpShape *polyShape = cpPolyShapeNew(body, 4, verts, cpv(0, 0));
-    polyShape->e = 0.8f;
-    polyShape->u = 0.5f;
-    polyShape->collision_type = COLLISION_TYPE_BEEATER;
+    cpShape *shape = cpPolyShapeNew(body, 4, verts, cpv(0, 0));
+    shape->e = 0.8f;
+    shape->u = 0.5f;
+    shape->collision_type = COLLISION_TYPE_BEEATER;
     PhysicsBody *physicsBody = [PhysicsBody physicsBodyWithBody:body];
-    PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:polyShape];
+    PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:shape];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
     [beeaterEntity addComponent:physicsComponent];
     
@@ -263,6 +267,9 @@ typedef enum
 	
     GroupManager *groupManager = (GroupManager *)[world getManager:[GroupManager class]];
     [groupManager addEntity:beeaterEntity toGroup:@"BEEATERS"];
+	
+	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
+	[labelManager labelEntity:beeaterEntity withLabel:@"EDITABLE"];
     
     [beeaterEntity refresh];
 	
@@ -310,6 +317,9 @@ typedef enum
     // Disposable
     DisposableComponent *disposableComponent = [DisposableComponent component];
     [rampEntity addComponent:disposableComponent];
+	
+	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
+	[labelManager labelEntity:rampEntity withLabel:@"EDITABLE"];
     
     [rampEntity refresh];
 	
@@ -348,6 +358,9 @@ typedef enum
     // Disposable
     DisposableComponent *disposableComponent = [DisposableComponent component];
     [pollenEntity addComponent:disposableComponent];
+	
+	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
+	[labelManager labelEntity:pollenEntity withLabel:@"EDITABLE"];
     
     [pollenEntity refresh];
     
@@ -382,6 +395,9 @@ typedef enum
     PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:shape];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
     [mushroomEntity addComponent:physicsComponent];
+	
+	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
+	[labelManager labelEntity:mushroomEntity withLabel:@"EDITABLE"];
     
     [mushroomEntity refresh];
     
@@ -428,6 +444,9 @@ typedef enum
     // Disposable
     DisposableComponent *disposableComponent = [DisposableComponent component];
     [woodEntity addComponent:disposableComponent];
+	
+	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
+	[labelManager labelEntity:woodEntity withLabel:@"EDITABLE"];
     
     [woodEntity refresh];
     
@@ -466,6 +485,9 @@ typedef enum
     // Disposable
     DisposableComponent *disposableComponent = [DisposableComponent component];
     [nutEntity addComponent:disposableComponent];
+	
+	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
+	[labelManager labelEntity:nutEntity withLabel:@"EDITABLE"];
     
     [nutEntity refresh];
     

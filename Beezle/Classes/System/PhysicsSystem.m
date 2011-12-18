@@ -187,8 +187,22 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
 {   
     TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
-
-    cpBody *body = [[physicsComponent physicsBody] body];
+	
+	cpBody *body = [[physicsComponent physicsBody] body];
+	
+	if ([physicsComponent positionUpdatedManually])
+	{
+		// Moving a static body requires re-adding to the space
+		if (cpBodyIsStatic(body))
+		{
+			for (PhysicsShape *physicsShape in [physicsComponent physicsShapes])
+			{
+				cpSpaceRemoveStaticShape(_space, [physicsShape shape]);
+				cpSpaceAddStaticShape(_space, [physicsShape shape]);
+			}
+		}
+		[physicsComponent setPositionUpdatedManually:FALSE];
+	}
 
     [transformComponent setPosition:cpv(body->p.x, body->p.y)];
     [transformComponent setRotation:CC_RADIANS_TO_DEGREES(-body->a)];

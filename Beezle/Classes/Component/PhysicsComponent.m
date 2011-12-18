@@ -14,6 +14,7 @@
 
 @synthesize physicsBody = _physicsBody;
 @synthesize physicsShapes = _physicsShapes;
+@synthesize positionUpdatedManually = _positionUpdatedManually;
 
 +(id) componentWithBody:(PhysicsBody *)body andShapes:(NSArray *)shapes
 {
@@ -31,6 +32,7 @@
     {
         _physicsBody = [body retain];
         _physicsShapes = [shapes retain];
+		_positionUpdatedManually = FALSE;
     }
     return self;
 }
@@ -52,6 +54,12 @@
 -(PhysicsShape *) firstPhysicsShape
 {
     return [_physicsShapes objectAtIndex:0];
+}
+
+-(void) setPositionManually:(CGPoint)position
+{
+	cpBodySetPos([_physicsBody  body], position);
+	_positionUpdatedManually = TRUE;
 }
 
 @end

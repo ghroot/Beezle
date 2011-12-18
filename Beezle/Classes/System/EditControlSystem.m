@@ -11,6 +11,8 @@
 #import "EditComponent.h"
 #import "InputAction.h"
 #import "InputSystem.h"
+#import "PhysicsBody.h"
+#import "PhysicsComponent.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "TransformComponent.h"
@@ -23,7 +25,7 @@
 	return self;
 }
 
--(void) processEntity:(Entity *)entity
+-(void) begin
 {
     InputSystem *inputSystem = (InputSystem *)[[_world systemManager] getSystem:[InputSystem class]];
     if ([inputSystem hasInputActions])
@@ -42,10 +44,19 @@
             {
 				if (_selectedEntity != nil)
 				{
-					TransformComponent *selectedTransformComponent = (TransformComponent *)[_selectedEntity getComponent:[TransformComponent class]];
 					CGPoint delta = ccpSub([nextInputAction touchLocation], _touchBeganLocation);
 					CGPoint newLocation = ccpAdd(_selectedStartLocation, delta);
-					[selectedTransformComponent setPosition:newLocation];
+					
+					PhysicsComponent *selectedPhysicsComponent = (PhysicsComponent *)[_selectedEntity getComponent:[PhysicsComponent class]];
+					if (selectedPhysicsComponent != nil)
+					{
+						[selectedPhysicsComponent setPositionManually:newLocation];
+					}
+					else
+					{
+						TransformComponent *selectedTransformComponent = (TransformComponent *)[_selectedEntity getComponent:[TransformComponent class]];
+						[selectedTransformComponent setPosition:newLocation];
+					}
 				}
 				_hasTouchMoved = TRUE;
                 break;
@@ -69,18 +80,20 @@
 						EditComponent *selectedEditComponent = (EditComponent *)[_selectedEntity getComponent:[EditComponent class]];
 						[selectedEditComponent setIsSelected:FALSE];
 						RenderComponent *selectedRenderComponent = (RenderComponent *)[_selectedEntity getComponent:[RenderComponent class]];
-						RenderSprite *selectedRenderSprite = (RenderSprite *)[[selectedRenderComponent renderSprites] objectAtIndex:0];
-						CCTintTo *tintAction = [CCTintTo actionWithDuration:0.2f red:255 green:255 blue:255];
-						[tintAction setTag:ACTION_TAG_EDIT_TINT];
-						[[selectedRenderSprite sprite] stopActionByTag:ACTION_TAG_EDIT_TINT];
-						[[selectedRenderSprite sprite] runAction:tintAction];
+						for (RenderSprite *selectedRenderSprite in [selectedRenderComponent renderSprites])
+						{
+							CCTintTo *tintAction = [CCTintTo actionWithDuration:0.2f red:255 green:255 blue:255];
+							[tintAction setTag:ACTION_TAG_EDIT_TINT];
+							[[selectedRenderSprite sprite] stopActionByTag:ACTION_TAG_EDIT_TINT];
+							[[selectedRenderSprite sprite] runAction:tintAction];
+						}
 						_selectedEntity = nil;
 					}
 					else
 					{
 						Entity *closestEntity = nil;
 						float closestDistance = MAXFLOAT;
-						for (Entity *entity in [[_world entityManager] entities])
+						for (Entity *entity in _entities)
 						{
 							TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
 							float distance = ccpDistance([nextInputAction touchLocation], [transformComponent position]);
@@ -99,14 +112,16 @@
 						TransformComponent *closestTransformComponent = (TransformComponent *)[closestEntity getComponent:[TransformComponent class]];
 						_selectedStartLocation = [closestTransformComponent position];
 						RenderComponent *closestRenderComponent = (RenderComponent *)[closestEntity getComponent:[RenderComponent class]];
-						RenderSprite *closestRenderSprite = (RenderSprite *)[[closestRenderComponent renderSprites] objectAtIndex:0];
-						CCTintTo *tintAction1 = [CCTintTo actionWithDuration:0.2f red:200 green:200 blue:200];
-						CCTintTo *tintAction2 = [CCTintTo actionWithDuration:0.2f red:255 green:255 blue:255];
-						CCSequence *sequenceAction = [CCSequence actions:tintAction1, tintAction2, nil];
-						CCRepeatForever *repeatAction = [CCRepeatForever actionWithAction:sequenceAction];
-						[repeatAction setTag:ACTION_TAG_EDIT_TINT];
-						[[closestRenderSprite sprite] stopActionByTag:ACTION_TAG_EDIT_TINT];
-						[[closestRenderSprite sprite] runAction:repeatAction];
+						for (RenderSprite *closestRenderSprite in [closestRenderComponent renderSprites])
+						{
+							CCTintTo *tintAction1 = [CCTintTo actionWithDuration:0.2f red:200 green:200 blue:200];
+							CCTintTo *tintAction2 = [CCTintTo actionWithDuration:0.2f red:255 green:255 blue:255];
+							CCSequence *sequenceAction = [CCSequence actions:tintAction1, tintAction2, nil];
+							CCRepeatForever *repeatAction = [CCRepeatForever actionWithAction:sequenceAction];
+							[repeatAction setTag:ACTION_TAG_EDIT_TINT];
+							[[closestRenderSprite sprite] stopActionByTag:ACTION_TAG_EDIT_TINT];
+							[[closestRenderSprite sprite] runAction:repeatAction];
+						}
 					}
 				}
                 break;

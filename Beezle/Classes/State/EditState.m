@@ -11,6 +11,7 @@
 #import "EditComponent.h"
 #import "EditControlSystem.h"
 #import "InputSystem.h"
+#import "LabelManager.h"
 #import "LevelLoader.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
@@ -44,15 +45,17 @@
 		[self createWorldAndSystems];
 		[[LevelLoader loader] loadLevel:_levelName inWorld:_world];
 		
+		// Add EditComponent to entities with label "EDITABLE"
+		LabelManager *labelManager = (LabelManager *)[_world getManager:[LabelManager class]];
 		for (Entity *entity in [[_world entityManager] entities])
 		{
-			EditComponent *editComponent = [EditComponent component];
-			[entity addComponent:editComponent];
-			
-			PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
-			[physicsComponent disable];
-			
-			[entity refresh];
+			if ([labelManager hasEntity:entity label:@"EDITABLE"])
+			{
+				EditComponent *editComponent = [EditComponent component];
+				[entity addComponent:editComponent];
+				
+				[entity refresh];
+			}
 		}
     }
     return self;
