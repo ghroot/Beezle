@@ -10,9 +10,11 @@
 
 @interface EditComponent : Component
 {
+	NSString *_levelLayoutType;
 	BOOL _isSelected;
 }
 
+@property (nonatomic, retain) NSString *levelLayoutType;
 @property (nonatomic) BOOL isSelected;
 
 @end

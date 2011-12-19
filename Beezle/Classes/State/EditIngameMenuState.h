@@ -1,22 +1,22 @@
 //
-//  IngameMenuState.h
+//  EditIngameMenuState.h
 //  Beezle
 //
-//  Created by Me on 06/12/2011.
+//  Created by Me on 18/12/2011.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import "GameState.h"
 #import "cocos2d.h"
 
-@interface IngameMenuState : GameState
+@interface EditIngameMenuState : GameState
 {
     CCMenu *_menu;
 }
 
 -(void) resumeGame:(id)sender;
--(void) restartGame:(id)sender;
--(void) editGame:(id)sender;
+-(void) tryGame:(id)sender;
+-(void) resetGame:(id)sender;
 -(void) gotoMainMenu:(id)sender;
 
 @end

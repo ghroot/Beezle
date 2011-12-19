@@ -10,15 +10,23 @@
 
 @implementation LevelLayout
 
+@synthesize levelName = _levelName;
 @synthesize entries = _entries;
 
--(id) init
+// Designated initialiser
+-(id) initWithLevelName:(NSString *)levelName
 {
-    if (self = [super init])
+	if (self = [super init])
     {
+		_levelName = [levelName retain];
         _entries = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+-(id) init
+{
+    return [self initWithLevelName:nil];
 }
 
 -(void) dealloc

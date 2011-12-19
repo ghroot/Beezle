@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'Test' target in the 'Test' project
+// Prefix header for all source files of the 'Beezle' target in the 'Beezle' project
 //
 
 #import <Availability.h>
@@ -9,6 +9,10 @@
 #endif
 
 #ifdef __OBJC__
+
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+
+#define CONFIG_CAN_EDIT_LEVELS TRUE
+
 #endif

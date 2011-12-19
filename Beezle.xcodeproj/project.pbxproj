@@ -230,6 +230,7 @@
 		2CADCC9014746BA200302475 /* ArtemisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC8F14746BA200302475 /* ArtemisTests.m */; };
 		2CAE05FB14705F4A0023FA94 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE05FA14705F4A0023FA94 /* EntityFactory.m */; };
 		2CBC659A149E8EB700970A99 /* LabelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBC6599149E8EB700970A99 /* LabelManager.m */; };
+		2CBC659E149EA50D00970A99 /* EditIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBC659D149EA50D00970A99 /* EditIngameMenuState.m */; };
 		2CD33EBE147C5DAC000869C1 /* PhysicsShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EBD147C5DAB000869C1 /* PhysicsShape.m */; };
 		2CD33EC1147C5DBF000869C1 /* PhysicsBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EC0147C5DBF000869C1 /* PhysicsBody.m */; };
 		2CD33ED8147D72AD000869C1 /* GameplayState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33ED7147D72AD000869C1 /* GameplayState.m */; };
@@ -728,6 +729,8 @@
 		2CAE05FA14705F4A0023FA94 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityFactory.m; path = Classes/EntityFactory.m; sourceTree = "<group>"; };
 		2CBC6598149E8EB700970A99 /* LabelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LabelManager.h; path = Classes/Artemis/LabelManager.h; sourceTree = "<group>"; };
 		2CBC6599149E8EB700970A99 /* LabelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LabelManager.m; path = Classes/Artemis/LabelManager.m; sourceTree = "<group>"; };
+		2CBC659C149EA50D00970A99 /* EditIngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditIngameMenuState.h; sourceTree = "<group>"; };
+		2CBC659D149EA50D00970A99 /* EditIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditIngameMenuState.m; sourceTree = "<group>"; };
 		2CD33EBC147C5DAB000869C1 /* PhysicsShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsShape.h; path = Classes/Component/PhysicsShape.h; sourceTree = "<group>"; };
 		2CD33EBD147C5DAB000869C1 /* PhysicsShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhysicsShape.m; path = Classes/Component/PhysicsShape.m; sourceTree = "<group>"; };
 		2CD33EBF147C5DBF000869C1 /* PhysicsBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsBody.h; path = Classes/Component/PhysicsBody.h; sourceTree = "<group>"; };
@@ -1440,6 +1443,8 @@
 				2C157C101490208F003F9040 /* EmptyState.m */,
 				2C6A92B0149CFE3900600E15 /* EditState.h */,
 				2C6A92B1149CFE3900600E15 /* EditState.m */,
+				2CBC659C149EA50D00970A99 /* EditIngameMenuState.h */,
+				2CBC659D149EA50D00970A99 /* EditIngameMenuState.m */,
 			);
 			name = State;
 			path = Classes/State;
@@ -2026,6 +2031,7 @@
 				2C6A92AF149CFDF300600E15 /* EditControlSystem.m in Sources */,
 				2C6A92B2149CFE3900600E15 /* EditState.m in Sources */,
 				2CBC659A149E8EB700970A99 /* LabelManager.m in Sources */,
+				2CBC659E149EA50D00970A99 /* EditIngameMenuState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

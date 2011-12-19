@@ -21,7 +21,7 @@
     {   
         [[CCDirector sharedDirector] setNeedClear:TRUE];
         
-        _menu = [CCMenu menuWithItems: nil];
+        _menu = [CCMenu menuWithItems:nil];
         
         NSArray *levelNames = [NSArray arrayWithObjects:
                                @"Level-A1",
@@ -49,8 +49,7 @@
 -(void) startGame:(id)sender
 {
     NSString *levelName = (NSString *)[sender userData];
-//	[_game replaceState:[GameplayState stateWithLevelName:levelName]];
-	[_game replaceState:[EditState stateWithLevelName:levelName]];
+	[_game replaceState:[GameplayState stateWithLevelName:levelName]];
 }
 
 -(void) startTest:(id)sender

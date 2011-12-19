@@ -75,8 +75,7 @@
 				{
 					if (_selectedEntity != nil)
 					{
-						NSLog(@"Deselecting %@", _selectedEntity);
-						
+						// Deselect
 						EditComponent *selectedEditComponent = (EditComponent *)[_selectedEntity getComponent:[EditComponent class]];
 						[selectedEditComponent setIsSelected:FALSE];
 						RenderComponent *selectedRenderComponent = (RenderComponent *)[_selectedEntity getComponent:[RenderComponent class]];
@@ -91,6 +90,7 @@
 					}
 					else
 					{
+						// Find closest entity to touch location
 						Entity *closestEntity = nil;
 						float closestDistance = MAXFLOAT;
 						for (Entity *entity in _entities)
@@ -104,8 +104,7 @@
 							}
 						}
 						
-						NSLog(@"Selecting %@", closestEntity);
-						
+						// Select
 						EditComponent *closestEditComponent = (EditComponent *)[closestEntity getComponent:[EditComponent class]];
 						[closestEditComponent setIsSelected:TRUE];
 						_selectedEntity = closestEntity;

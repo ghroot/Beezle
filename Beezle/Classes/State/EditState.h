@@ -9,7 +9,6 @@
 #import "GameState.h"
 #import "artemis.h"
 
-@class DebugRenderPhysicsSystem;
 @class EditControlSystem;
 @class InputSystem;
 @class RenderSystem;
@@ -20,18 +19,23 @@
 	NSString *_levelName;
 	
 	CCLayer *_gameLayer;
+	CCLayer *_uiLayer;
 	
 	World *_world;
 	
     RenderSystem *_renderSystem;
 	PhysicsSystem *_physicsSystem;
     InputSystem *_inputSystem;
-	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
 	EditControlSystem *_editControlSystem;
 }
+
+@property (nonatomic, readonly) NSString *levelName;
+@property (nonatomic, readonly) World *world;
 
 +(id) stateWithLevelName:(NSString *)levelName;
 
 -(id) initWithLevelName:(NSString *)levelName;
+
+-(void) pauseGame:(id)sender;
 
 @end

@@ -7,23 +7,26 @@
 //
 
 #import "EditState.h"
-#import "DebugRenderPhysicsSystem.h"
-#import "EditComponent.h"
 #import "EditControlSystem.h"
+#import "EditIngameMenuState.h"
+#import "Game.h"
 #import "InputSystem.h"
 #import "LabelManager.h"
 #import "LevelLoader.h"
-#import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
 #import "RenderSystem.h"
 
 @interface EditState()
 
+-(void) createUI;
 -(void) createWorldAndSystems;
 
 @end
 
 @implementation EditState
+
+@synthesize levelName = _levelName;
+@synthesize world = _world;
 
 +(id) stateWithLevelName:(NSString *)levelName
 {
@@ -42,21 +45,9 @@
 		_gameLayer = [CCLayer node];
 		[self addChild:_gameLayer];
 		
+		[self createUI];
 		[self createWorldAndSystems];
 		[[LevelLoader loader] loadLevel:_levelName inWorld:_world];
-		
-		// Add EditComponent to entities with label "EDITABLE"
-		LabelManager *labelManager = (LabelManager *)[_world getManager:[LabelManager class]];
-		for (Entity *entity in [[_world entityManager] entities])
-		{
-			if ([labelManager hasEntity:entity label:@"EDITABLE"])
-			{
-				EditComponent *editComponent = [EditComponent component];
-				[entity addComponent:editComponent];
-				
-				[entity refresh];
-			}
-		}
     }
     return self;
 }
@@ -64,6 +55,20 @@
 -(id) init
 {
 	return [self initWithLevelName:nil];
+}
+
+-(void) createUI
+{
+    _uiLayer = [CCLayer node];
+    [self addChild:_uiLayer];
+    
+    CCMenuItemImage *pauseMenuItem = [CCMenuItemImage itemFromNormalImage:@"Pause.png" selectedImage:@"Pause.png" target:self selector:@selector(pauseGame:)];
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    [pauseMenuItem setPosition:CGPointMake(winSize.width, winSize.height)];
+    [pauseMenuItem setAnchorPoint:CGPointMake(1.0f, 1.0f)];
+    CCMenu *menu = [CCMenu menuWithItems:pauseMenuItem, nil];
+    [menu setPosition:CGPointZero];
+    [_uiLayer addChild:menu];
 }
 
 -(void) createWorldAndSystems
@@ -78,8 +83,6 @@
 	[systemManager setSystem:_physicsSystem];
 	_inputSystem = [[[InputSystem alloc] init] autorelease];
 	[systemManager setSystem:_inputSystem];
-	_debugRenderPhysicsSystem = [[[DebugRenderPhysicsSystem alloc] initWithScene:self] autorelease];
-	[systemManager setSystem:_debugRenderPhysicsSystem];
 	_editControlSystem = [[[EditControlSystem alloc] init] autorelease];
 	[systemManager setSystem:_editControlSystem];
 	
@@ -114,6 +117,11 @@
 	[_world setDelta:(1000.0f * delta)];
     
 	[[_world systemManager] processAll];
+}
+
+-(void) pauseGame:(id)sender
+{
+	[_game pushState:[EditIngameMenuState state]];
 }
 
 @end

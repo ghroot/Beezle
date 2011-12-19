@@ -10,6 +10,7 @@
 
 @implementation EditComponent
 
+@synthesize levelLayoutType = _levelLayoutType;
 @synthesize isSelected = _isSelected;
 
 @end

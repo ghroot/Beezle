@@ -7,6 +7,7 @@
 //
 
 #import "IngameMenuState.h"
+#import "EditState.h"
 #import "Game.h"
 #import "GameplayState.h"
 #import "MainMenuState.h"
@@ -19,10 +20,20 @@
 	{
         [[CCDirector sharedDirector] setNeedClear:TRUE];
         
+		_menu = [CCMenu menuWithItems:nil];
+		
 		CCMenuItem *resumeMenuItem = [CCMenuItemFont itemFromString:@"Resume" target:self selector:@selector(resumeGame:)];
+		[_menu addChild:resumeMenuItem];
 		CCMenuItem *restartMenuItem = [CCMenuItemFont itemFromString:@"Restart" target:self selector:@selector(restartGame:)];
+		[_menu addChild:restartMenuItem];
+		if (CONFIG_CAN_EDIT_LEVELS)
+		{
+			CCMenuItem *editMenuItem = [CCMenuItemFont itemFromString:@"Edit" target:self selector:@selector(editGame:)];
+			[_menu addChild:editMenuItem];
+		}
 		CCMenuItem *quitMenuItem = [CCMenuItemFont itemFromString:@"Quit" target:self selector:@selector(gotoMainMenu:)];
-		_menu = [CCMenu menuWithItems: resumeMenuItem, restartMenuItem, quitMenuItem, nil];
+		[_menu addChild:quitMenuItem];
+		
 		[_menu alignItemsVerticallyWithPadding:30.0f];
 		
 		[self addChild:_menu];
@@ -42,6 +53,14 @@
 	[_game popState];
 	GameplayState *gameplayState = (GameplayState *)[_game currentState];
 	[_game replaceState:[GameplayState stateWithLevelName:[gameplayState levelName]]];
+}
+
+-(void) editGame:(id)sender
+{
+	// This assumes the previous state was the game play state
+	[_game popState];
+	GameplayState *gameplayState = (GameplayState *)[_game currentState];
+	[_game replaceState:[EditState stateWithLevelName:[gameplayState levelName]]];
 }
 
 -(void) gotoMainMenu:(id)sender

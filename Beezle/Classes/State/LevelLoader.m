@@ -8,6 +8,7 @@
 
 #import "LevelLoader.h"
 #import "BeeTypes.h"
+#import "EditComponent.h"
 #import "EntityFactory.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
@@ -22,14 +23,23 @@
 
 -(void) loadLevel:(NSString *)levelName inWorld:(World *)world
 {
+	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+	
+	if (levelLayout == nil)
+	{
+		NSString *layoutFile = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
+		[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayoutsWithFile:layoutFile];
+		
+		levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+	}
+	
 	[EntityFactory createBackground:world withLevelName:levelName];
     [EntityFactory createEdge:world];
-    
-    NSString *layoutFile = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
-    [[LevelLayoutCache sharedLevelLayoutCache] addLevelLayoutsWithFile:layoutFile];
-    LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+	
     for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
     {
+		Entity *entity = nil;
+		
         if ([[levelLayoutEntry type] isEqualToString:@"SLINGER"])
         {
             NSMutableArray *beeTypes = [NSMutableArray array];
@@ -39,33 +49,43 @@
                 [beeTypes addObject:beeType];
             }
             
-            [EntityFactory createSlinger:world withPosition:[levelLayoutEntry position] beeTypes:beeTypes];
+            entity = [EntityFactory createSlinger:world withPosition:[levelLayoutEntry position] beeTypes:beeTypes];
         }
         else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER"])
         {
             BeeTypes *beeType = [BeeTypes beeTypeFromString:[levelLayoutEntry beeTypeAsString]];
-            [EntityFactory createBeeater:world withPosition:[levelLayoutEntry position] mirrored:[levelLayoutEntry mirrored] beeType:beeType];
+            entity = [EntityFactory createBeeater:world withPosition:[levelLayoutEntry position] mirrored:[levelLayoutEntry mirrored] beeType:beeType];
         }
         else if ([[levelLayoutEntry type] isEqualToString:@"RAMP"])
         {
-            [EntityFactory createRamp:world withPosition:[levelLayoutEntry position] andRotation:[levelLayoutEntry rotation]];
+            entity = [EntityFactory createRamp:world withPosition:[levelLayoutEntry position] andRotation:[levelLayoutEntry rotation]];
         }
         else if ([[levelLayoutEntry type] isEqualToString:@"POLLEN"])
         {
-            [EntityFactory createPollen:world withPosition:[levelLayoutEntry position]];
+            entity = [EntityFactory createPollen:world withPosition:[levelLayoutEntry position]];
         }
         else if ([[levelLayoutEntry type] isEqualToString:@"MUSHROOM"])
         {
-            [EntityFactory createMushroom:world withPosition:[levelLayoutEntry position]];
+            entity = [EntityFactory createMushroom:world withPosition:[levelLayoutEntry position]];
         }
         else if ([[levelLayoutEntry type] isEqualToString:@"WOOD"])
         {
-            [EntityFactory createWood:world withPosition:[levelLayoutEntry position]];
+            entity = [EntityFactory createWood:world withPosition:[levelLayoutEntry position]];
         }
         else if ([[levelLayoutEntry type] isEqualToString:@"NUT"])
         {
-            [EntityFactory createNut:world withPosition:[levelLayoutEntry position]];
+            entity = [EntityFactory createNut:world withPosition:[levelLayoutEntry position]];
         }
+
+		NSAssert(entity != nil, @"Unrecognized level layout entry type: %@", [levelLayoutEntry type]);
+		
+		if (CONFIG_CAN_EDIT_LEVELS)
+		{
+			EditComponent *editComponent = [EditComponent component];
+			[editComponent setLevelLayoutType:[levelLayoutEntry type]];
+			[entity addComponent:editComponent];
+			[entity refresh];
+		}
     }
 }
 

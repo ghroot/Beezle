@@ -10,10 +10,14 @@
 
 @interface LevelLayout : NSObject
 {
+	NSString *_levelName;
     NSMutableArray *_entries;
 }
 
+@property (nonatomic, retain) NSString *levelName;
 @property (nonatomic, readonly) NSArray *entries;
+
+-(id) initWithLevelName:(NSString *)levelName;
 
 -(void) addLevelLayoutEntry:(LevelLayoutEntry *)entry;
 
