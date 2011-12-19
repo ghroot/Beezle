@@ -166,7 +166,8 @@
 	CGPoint nextPosition = [self calculatePositionForNextBeeQueueRenderSprite:slingerEntity];
 	
 	// Create sprite
-	RenderSprite *beeQueueRenderSprite = [self createBeeQueueRenderSpriteWithBeeType:savedBeeType position:beeaterPosition];
+	CGPoint beePosition = CGPointMake(beeaterPosition.x, beeaterPosition.y + 20);
+	RenderSprite *beeQueueRenderSprite = [self createBeeQueueRenderSpriteWithBeeType:savedBeeType position:beePosition];
 	
 	// Move from beeater to slinger queue
 	_movingBeesCount++;
