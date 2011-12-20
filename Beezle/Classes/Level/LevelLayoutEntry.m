@@ -28,6 +28,8 @@
 
 -(void) dealloc
 {
+	[_type release];
+	[_beeTypeAsString release];
     [_beeTypesAsStrings release];
     
     [super dealloc];

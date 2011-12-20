@@ -31,6 +31,7 @@
 
 -(void) dealloc
 {
+	[_levelName release];
     [_entries release];
     
     [super dealloc];
