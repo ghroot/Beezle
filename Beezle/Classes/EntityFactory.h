@@ -15,14 +15,14 @@
 
 +(Entity *) createBackground:(World *)world withLevelName:(NSString *)name;
 +(Entity *) createEdge:(World *)world;
-+(Entity *) createSlinger:(World *)world withPosition:(CGPoint)position beeTypes:(NSArray *)beeTypes;
-+(Entity *) createBee:(World *)world type:(BeeTypes *)type withPosition:(CGPoint)position andVelocity:(CGPoint)velocity;
-+(Entity *) createBeeater:(World *)world withPosition:(CGPoint)position mirrored:(BOOL)mirrored beeType:(BeeTypes *)beeType;
-+(Entity *) createRamp:(World *)world withPosition:(CGPoint)position andRotation:(float)rotation;
-+(Entity *) createPollen:(World *)world withPosition:(CGPoint)position;
-+(Entity *) createMushroom:(World *)world withPosition:(CGPoint)position;
-+(Entity *) createWood:(World *)world withPosition:(CGPoint)position;
-+(Entity *) createNut:(World *)world withPosition:(CGPoint)position;
-+(Entity *) createAimPollen:(World *)world withPosition:(CGPoint)position andVelocity:(CGPoint)velocity;
++(Entity *) createSlinger:(World *)world withBeeTypes:(NSArray *)beeTypes;
++(Entity *) createBee:(World *)world withBeeType:(BeeTypes *)type andVelocity:(CGPoint)velocity;
++(Entity *) createBeeater:(World *)world withBeeType:(BeeTypes *)beeType;
++(Entity *) createRamp:(World *)world;
++(Entity *) createPollen:(World *)world;
++(Entity *) createMushroom:(World *)world;
++(Entity *) createWood:(World *)world;
++(Entity *) createNut:(World *)world;
++(Entity *) createAimPollen:(World *)world withVelocity:(CGPoint)velocity;
 
 @end

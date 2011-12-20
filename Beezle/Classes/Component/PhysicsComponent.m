@@ -62,4 +62,9 @@
 	_positionUpdatedManually = TRUE;
 }
 
+-(void) setRotationManually:(float)rotation
+{
+	cpBodySetAngle([_physicsBody  body], CC_DEGREES_TO_RADIANS(-rotation));
+}
+
 @end

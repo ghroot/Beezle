@@ -21,13 +21,18 @@
 
 -(id) initWithPosition:(CGPoint)position
 {
-    if (self = [self init])
+    if (self = [super init])
     {
         _position = position;
         _rotation = 0.0f;
         _scale = CGPointMake(1.0f, 1.0f);
     }
     return self;
+}
+
+-(id) init
+{
+	return [self initWithPosition:CGPointZero];
 }
 
 @end

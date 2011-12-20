@@ -10,6 +10,7 @@
 #import "artemis.h"
 
 @class EditControlSystem;
+@class EditOptionsSystem;
 @class InputSystem;
 @class RenderSystem;
 @class PhysicsSystem;
@@ -27,6 +28,7 @@
 	PhysicsSystem *_physicsSystem;
     InputSystem *_inputSystem;
 	EditControlSystem *_editControlSystem;
+	EditOptionsSystem *_editOptionsSystem;
 }
 
 @property (nonatomic, readonly) NSString *levelName;

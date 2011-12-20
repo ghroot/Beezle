@@ -176,6 +176,7 @@
 		2C44B5BB147B1960000CF537 /* GroupEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C44B5BA147B1960000CF537 /* GroupEntitySystem.m */; };
 		2C535FCA149824A100BC7DB6 /* LevelLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C535FC9149824A100BC7DB6 /* LevelLoader.m */; };
 		2C535FCD14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C535FCC14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m */; };
+		2C596D3014A0A34A00DFCC14 /* EntityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C596D2F14A0A34A00DFCC14 /* EntityUtil.m */; };
 		2C5B86E01479155700028179 /* DebugRenderPhysicsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B86DF1479155700028179 /* DebugRenderPhysicsSystem.m */; };
 		2C6A92A6149B8CF300600E15 /* Level-A3-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C6A92A2149B8CF300600E15 /* Level-A3-hd.jpg */; };
 		2C6A92A7149B8CF300600E15 /* Level-A3-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C6A92A3149B8CF300600E15 /* Level-A3-Layout.plist */; };
@@ -219,6 +220,7 @@
 		2C8A4B78149433CF00C0C154 /* Level-A1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8A4B76149433CF00C0C154 /* Level-A1-hd.jpg */; };
 		2C8A4B79149433CF00C0C154 /* Level-A1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8A4B77149433CF00C0C154 /* Level-A1.jpg */; };
 		2C8A4B7C1495184300C0C154 /* BeeTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A4B7B1495184300C0C154 /* BeeTypes.m */; };
+		2C9457A4149FED5A006BDC68 /* EditOptionsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9457A3149FED5A006BDC68 /* EditOptionsSystem.m */; };
 		2CA9E3A2147B0EEE0058C496 /* GroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA9E3A1147B0EED0058C496 /* GroupManager.m */; };
 		2CADCC711471C76400302475 /* InputAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC701471C76400302475 /* InputAction.m */; };
 		2CADCC7714732ADC00302475 /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC7614732ADB00302475 /* CollisionSystem.m */; };
@@ -641,6 +643,8 @@
 		2C535FCC14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeQueueRenderingSystem.m; path = Classes/System/BeeQueueRenderingSystem.m; sourceTree = "<group>"; };
 		2C535FCE149ACE4100BC7DB6 /* GameNotificationTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameNotificationTypes.h; path = Classes/GameNotificationTypes.h; sourceTree = "<group>"; };
 		2C535FCF149ADEE800BC7DB6 /* ActionTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionTags.h; path = Classes/ActionTags.h; sourceTree = "<group>"; };
+		2C596D2E14A0A34A00DFCC14 /* EntityUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityUtil.h; path = Classes/EntityUtil.h; sourceTree = "<group>"; };
+		2C596D2F14A0A34A00DFCC14 /* EntityUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityUtil.m; path = Classes/EntityUtil.m; sourceTree = "<group>"; };
 		2C5B86DE1479155700028179 /* DebugRenderPhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugRenderPhysicsSystem.h; path = Classes/System/DebugRenderPhysicsSystem.h; sourceTree = "<group>"; };
 		2C5B86DF1479155700028179 /* DebugRenderPhysicsSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugRenderPhysicsSystem.m; path = Classes/System/DebugRenderPhysicsSystem.m; sourceTree = "<group>"; };
 		2C6A92A2149B8CF300600E15 /* Level-A3-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A3-hd.jpg"; sourceTree = "<group>"; };
@@ -709,6 +713,8 @@
 		2C8A4B77149433CF00C0C154 /* Level-A1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A1.jpg"; sourceTree = "<group>"; };
 		2C8A4B7A1495184300C0C154 /* BeeTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeTypes.h; path = Classes/BeeTypes.h; sourceTree = "<group>"; };
 		2C8A4B7B1495184300C0C154 /* BeeTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeTypes.m; path = Classes/BeeTypes.m; sourceTree = "<group>"; };
+		2C9457A2149FED5A006BDC68 /* EditOptionsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditOptionsSystem.h; path = Classes/System/EditOptionsSystem.h; sourceTree = "<group>"; };
+		2C9457A3149FED5A006BDC68 /* EditOptionsSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditOptionsSystem.m; path = Classes/System/EditOptionsSystem.m; sourceTree = "<group>"; };
 		2CA9E39F147AF9910058C496 /* artemis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = artemis.h; path = Classes/Artemis/artemis.h; sourceTree = "<group>"; };
 		2CA9E3A0147B0EED0058C496 /* GroupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupManager.h; path = Classes/Artemis/GroupManager.h; sourceTree = "<group>"; };
 		2CA9E3A1147B0EED0058C496 /* GroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupManager.m; path = Classes/Artemis/GroupManager.m; sourceTree = "<group>"; };
@@ -1362,6 +1368,8 @@
 				2C7CE621146FD66F001F331F /* SlingerControlSystem.m */,
 				2C6A92AD149CFDF200600E15 /* EditControlSystem.h */,
 				2C6A92AE149CFDF300600E15 /* EditControlSystem.m */,
+				2C9457A2149FED5A006BDC68 /* EditOptionsSystem.h */,
+				2C9457A3149FED5A006BDC68 /* EditOptionsSystem.m */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -1602,6 +1610,8 @@
 				2C764E95148A7C4F00820587 /* LevelLayoutEntry.m */,
 				2C157BEB148FE920003F9040 /* TouchTypes.h */,
 				2C535FCF149ADEE800BC7DB6 /* ActionTags.h */,
+				2C596D2E14A0A34A00DFCC14 /* EntityUtil.h */,
+				2C596D2F14A0A34A00DFCC14 /* EntityUtil.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2032,6 +2042,8 @@
 				2C6A92B2149CFE3900600E15 /* EditState.m in Sources */,
 				2CBC659A149E8EB700970A99 /* LabelManager.m in Sources */,
 				2CBC659E149EA50D00970A99 /* EditIngameMenuState.m in Sources */,
+				2C9457A4149FED5A006BDC68 /* EditOptionsSystem.m in Sources */,
+				2C596D3014A0A34A00DFCC14 /* EntityUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,11 +9,8 @@
 #import "EntityFactory.h"
 #import "BeeaterComponent.h"
 #import "BeeComponent.h"
-#import "BoundryComponent.h"
-#import "CircularBoundry.h"
 #import "CollisionTypes.h"
 #import "DisposableComponent.h"
-#import "GCpShapeCache.h"
 #import "LabelManager.h"
 #import "PhysicsBody.h"
 #import "PhysicsComponent.h"
@@ -46,12 +43,10 @@ typedef enum
 
 +(Entity *) createBackground:(World *)world withLevelName:(NSString *)name
 {
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    
     Entity *backgroundEntity = [world createEntity];
     
     // Transform
-    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(winSize.width / 2, winSize.height / 2)];
+    TransformComponent *transformComponent = [TransformComponent component];
     [backgroundEntity addComponent:transformComponent];
     
     // Render
@@ -116,7 +111,7 @@ typedef enum
     return edgeEntity;
 }
 
-+(Entity *) createSlinger:(World *)world withPosition:(CGPoint)position beeTypes:(NSArray *)beeTypes
++(Entity *) createSlinger:(World *)world withBeeTypes:(NSArray *)beeTypes
 {
     Entity *slingerEntity = [world createEntity];
 	
@@ -129,7 +124,7 @@ typedef enum
 	[slingerEntity addComponent:slingerComponent];
     
     // Transform
-    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
+    TransformComponent *transformComponent = [TransformComponent component];
     [slingerEntity addComponent:transformComponent];
 	
 	// Trajectory
@@ -156,7 +151,7 @@ typedef enum
     return slingerEntity;
 }
 
-+(Entity *) createBee:(World *)world type:(BeeTypes *)type withPosition:(CGPoint)position andVelocity:(CGPoint)velocity
++(Entity *) createBee:(World *)world withBeeType:(BeeTypes *)type andVelocity:(CGPoint)velocity
 {
     Entity *beeEntity = [world createEntity];
 	
@@ -165,7 +160,7 @@ typedef enum
 	[beeEntity addComponent:beeComponent];
 	
     // Transform
-    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
+    TransformComponent *transformComponent = [TransformComponent component];
     [beeEntity addComponent:transformComponent];
     
     // Render
@@ -214,7 +209,7 @@ typedef enum
     return beeEntity;
 }
 
-+(Entity *) createBeeater:(World *)world withPosition:(CGPoint)position mirrored:(BOOL)mirrored beeType:(BeeTypes *)beeType
++(Entity *) createBeeater:(World *)world withBeeType:(BeeTypes *)beeType
 {
 	Entity *beeaterEntity = [world createEntity];
 	
@@ -224,11 +219,7 @@ typedef enum
 	[beeaterEntity addComponent:beeaterComponent];
 	
     // Transform
-    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
-    if (mirrored)
-    {
-        [transformComponent setScale:CGPointMake(-1.0f, 1.0f)];
-    }
+    TransformComponent *transformComponent = [TransformComponent component];
     [beeaterEntity addComponent:transformComponent];
 	
     // Render
@@ -279,12 +270,12 @@ typedef enum
     return beeaterEntity;
 }
 
-+(Entity *) createRamp:(World *)world withPosition:(CGPoint)position andRotation:(float)rotation
++(Entity *) createRamp:(World *)world
 {
     Entity *rampEntity = [world createEntity];
     
     // Transform
-    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
+    TransformComponent *transformComponent = [TransformComponent component];
     [rampEntity addComponent:transformComponent];
     
     // Render
@@ -308,7 +299,6 @@ typedef enum
     shape->e = 0.8f;
     shape->u = 0.5f;
     shape->collision_type = COLLISION_TYPE_RAMP;
-    cpBodySetAngle(body, rotation);
     PhysicsBody *physicsBody = [PhysicsBody physicsBodyWithBody:body];
     PhysicsShape *physicsShape = [PhysicsShape physicsShapeWithShape:shape];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:physicsBody andShape:physicsShape];
@@ -328,12 +318,12 @@ typedef enum
     return rampEntity;
 }
 
-+(Entity *) createPollen:(World *)world withPosition:(CGPoint)position
++(Entity *) createPollen:(World *)world
 {
     Entity *pollenEntity = [world createEntity];
     
     // Transform
-    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
+    TransformComponent *transformComponent = [TransformComponent component];
     [pollenEntity addComponent:transformComponent];
     
     // Render
@@ -369,12 +359,12 @@ typedef enum
     return pollenEntity;
 }
 
-+(Entity *) createMushroom:(World *)world withPosition:(CGPoint)position
++(Entity *) createMushroom:(World *)world
 {
     Entity *mushroomEntity = [world createEntity];
     
     // Transform
-    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
+    TransformComponent *transformComponent = [TransformComponent component];
     [mushroomEntity addComponent:transformComponent];
     
     // Render
@@ -406,12 +396,12 @@ typedef enum
     return mushroomEntity;
 }
 
-+(Entity *) createWood:(World *)world withPosition:(CGPoint)position
++(Entity *) createWood:(World *)world
 {
     Entity *woodEntity = [world createEntity];
     
     // Transform
-    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
+    TransformComponent *transformComponent = [TransformComponent component];
     [woodEntity addComponent:transformComponent];
     
     // Render
@@ -455,12 +445,12 @@ typedef enum
     return woodEntity;
 }
 
-+(Entity *) createNut:(World *)world withPosition:(CGPoint)position
++(Entity *) createNut:(World *)world
 {
     Entity *nutEntity = [world createEntity];
     
     // Transform
-    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
+    TransformComponent *transformComponent = [TransformComponent component];
     [nutEntity addComponent:transformComponent];
     
     // Render
@@ -496,12 +486,12 @@ typedef enum
     return nutEntity;
 }
 
-+(Entity *) createAimPollen:(World *)world withPosition:(CGPoint)position andVelocity:(CGPoint)velocity
++(Entity *) createAimPollen:(World *)world withVelocity:(CGPoint)velocity
 {
     Entity *aimPollenEntity = [world createEntity];
 	
     // Transform
-    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(position.x, position.y)];
+    TransformComponent *transformComponent = [TransformComponent component];
     [transformComponent setScale:CGPointMake(0.33f, 0.33f)];
     [aimPollenEntity addComponent:transformComponent];
     

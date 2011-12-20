@@ -17,4 +17,6 @@
 	CGPoint _selectedStartLocation;
 }
 
+@property (nonatomic, readonly) Entity *selectedEntity;
+
 @end

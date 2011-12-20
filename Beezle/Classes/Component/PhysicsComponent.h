@@ -9,6 +9,7 @@
 #import "Component.h"
 #import "artemis.h"
 #import "chipmunk.h"
+#import "cocos2d.h"
 
 @class PhysicsBody;
 @class PhysicsShape;
@@ -31,5 +32,6 @@
 -(id) initWithBody:(PhysicsBody *)body andShape:(PhysicsShape *)shape;
 -(PhysicsShape *) firstPhysicsShape;
 -(void) setPositionManually:(CGPoint)position;
+-(void) setRotationManually:(float)rotation;
 
 @end

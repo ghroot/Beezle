@@ -9,6 +9,7 @@
 #import "SlingerControlSystem.h"
 #import "BeeTypes.h"
 #import "EntityFactory.h"
+#import "EntityUtil.h"
 #import "GameNotificationTypes.h"
 #import "InputAction.h"
 #import "InputSystem.h"
@@ -110,7 +111,8 @@
 				if (![trajectoryComponent isZero])
 				{
 					// Create bee
-					[EntityFactory createBee:_world type:[slingerComponent loadedBeeType] withPosition:[trajectoryComponent startPoint] andVelocity:[trajectoryComponent startVelocity]];
+					Entity *beeEntity = [EntityFactory createBee:_world withBeeType:[slingerComponent loadedBeeType] andVelocity:[trajectoryComponent startVelocity]];
+					[EntityUtil setEntityPosition:beeEntity position:[trajectoryComponent startPoint]];
 					
 					[slingerComponent clearLoadedBee];
 					
@@ -182,8 +184,9 @@
         _aimPollenCountdown--;
         if (_aimPollenCountdown == 0)
         {
-            [EntityFactory createAimPollen:_world withPosition:[trajectoryComponent startPoint] andVelocity:[trajectoryComponent startVelocity]];
-            
+            Entity *aimPollenEntity = [EntityFactory createAimPollen:_world withVelocity:[trajectoryComponent startVelocity]];
+            [EntityUtil setEntityPosition:aimPollenEntity position:[trajectoryComponent startPoint]];
+			
             _aimPollenCountdown = AIM_POLLEN_INTERVAL;
         }
     }

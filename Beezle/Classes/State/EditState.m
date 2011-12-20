@@ -9,6 +9,7 @@
 #import "EditState.h"
 #import "EditControlSystem.h"
 #import "EditIngameMenuState.h"
+#import "EditOptionsSystem.h"
 #import "Game.h"
 #import "InputSystem.h"
 #import "LabelManager.h"
@@ -85,6 +86,8 @@
 	[systemManager setSystem:_inputSystem];
 	_editControlSystem = [[[EditControlSystem alloc] init] autorelease];
 	[systemManager setSystem:_editControlSystem];
+	_editOptionsSystem = [[[EditOptionsSystem alloc] initWithLayer:_uiLayer] autorelease];
+	[systemManager setSystem:_editOptionsSystem];
 	
 	[systemManager initialiseAll];
 }

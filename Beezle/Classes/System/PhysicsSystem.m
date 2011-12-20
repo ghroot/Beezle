@@ -121,11 +121,9 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
 
 -(void) entityAdded:(Entity *)entity
 {
-    TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
     
     cpBody *body = [[physicsComponent physicsBody] body];
-    body->p = [transformComponent position];
     if (!cpBodyIsStatic(body))
     {
         cpSpaceAddBody(_space, body);

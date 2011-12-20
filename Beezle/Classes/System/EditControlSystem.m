@@ -19,6 +19,8 @@
 
 @implementation EditControlSystem
 
+@synthesize selectedEntity = _selectedEntity;
+
 -(id) init
 {
 	self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[EditComponent class], nil]];
