@@ -8,6 +8,7 @@
 
 #import "artemis.h"
 #import "cocos2d.h"
+#import "ObjectiveChipmunk.h"
 
 @class DebugRenderPhysicsLayer;
 

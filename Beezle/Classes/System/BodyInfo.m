@@ -7,40 +7,32 @@
 //
 
 #import "BodyInfo.h"
-#import "PhysicsBody.h"
-#import "PhysicsShape.h"
 
 @implementation BodyInfo
 
-@synthesize physicsBody = _physicsBody;
-@synthesize physicsShapes = _physicsShapes;
+@synthesize body = _body;
+@synthesize shapes = _shapes;
 
 -(id) init
 {
     if (self = [super init])
     {
-        _physicsShapes = [[NSMutableArray alloc] init];
+        _shapes = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 -(void) dealloc
 {
-    [_physicsBody release];
-    [_physicsShapes release];
+    [_body release];
+    [_shapes release];
     
     [super dealloc];
 }
 
--(void) setBody:(cpBody *)body
+-(void) addShape:(ChipmunkShape *)shape
 {
-    _physicsBody = [[PhysicsBody alloc] initWithBody:body];
-}
-
--(void) addShape:(cpShape *)shape
-{
-    PhysicsShape *physicsShape = [[[PhysicsShape alloc] initWithShape:shape] autorelease];
-    [_physicsShapes addObject:physicsShape];
+    [_shapes addObject:shape];
 }
 
 @end

@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "chipmunk.h"
+#import "ObjectiveChipmunk.h"
 
 @interface CollisionMediator : NSObject
 {

@@ -8,7 +8,7 @@
 
 #import "Component.h"
 #import "artemis.h"
-#import "chipmunk.h"
+#import "ObjectiveChipmunk.h"
 #import "cocos2d.h"
 
 @class PhysicsBody;
@@ -16,21 +16,21 @@
 
 @interface PhysicsComponent : Component
 {
-    PhysicsBody *_physicsBody;
-    NSArray *_physicsShapes;
+    ChipmunkBody *_body;
+    NSArray *_shapes;
 	BOOL _positionUpdatedManually;
 }
 
-@property (nonatomic, readonly) PhysicsBody *physicsBody;
-@property (nonatomic, readonly) NSArray *physicsShapes;
+@property (nonatomic, readonly) ChipmunkBody *body;
+@property (nonatomic, readonly) NSArray *shapes;
 @property (nonatomic) BOOL positionUpdatedManually;
 
-+(id) componentWithBody:(PhysicsBody *)body andShapes:(NSArray *)shapes;
-+(id) componentWithBody:(PhysicsBody *)body andShape:(PhysicsShape *)shape;
++(id) componentWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes;
++(id) componentWithBody:(ChipmunkBody *)body andShape:(ChipmunkShape *)shape;
 
--(id) initWithBody:(PhysicsBody *)body andShapes:(NSArray *)shapes;
--(id) initWithBody:(PhysicsBody *)body andShape:(PhysicsShape *)shape;
--(PhysicsShape *) firstPhysicsShape;
+-(id) initWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes;
+-(id) initWithBody:(ChipmunkBody *)body andShape:(ChipmunkShape *)shape;
+-(ChipmunkShape *) firstPhysicsShape;
 -(void) setPositionManually:(CGPoint)position;
 -(void) setRotationManually:(float)rotation;
 

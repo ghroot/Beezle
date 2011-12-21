@@ -42,7 +42,7 @@
 {
 	PhysicsSystem *physicsSystem = (PhysicsSystem *)[[_world systemManager] getSystem:[PhysicsSystem class]];
 	
-	[_renderTrajectoryLayer setGravity:cpSpaceGetGravity([physicsSystem space])];
+	[_renderTrajectoryLayer setGravity:[[physicsSystem space] gravity]];
 }
 
 -(void) processEntity:(Entity *)entity

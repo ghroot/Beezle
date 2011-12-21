@@ -8,21 +8,23 @@
 
 #import "EntityComponentSystem.h"
 #import "artemis.h"
-#import "chipmunk.h"
 #import "cocos2d.h"
+#import "ObjectiveChipmunk.h"
 
 @class PhysicsComponent;
 
 @interface PhysicsSystem : EntityComponentSystem
 {
-    cpSpace *_space;
+    ChipmunkSpace *_space;
     NSMutableArray *_loadedShapeFileNames;
 }
 
-@property (nonatomic, readonly) cpSpace *space;
+@property (nonatomic, readonly) ChipmunkSpace *space;
 
 -(PhysicsComponent *) createPhysicsComponentWithFile:(NSString *)fileName bodyName:(NSString *)bodyName isStatic:(BOOL)isStatic collisionType:(cpCollisionType)collisionType;
 -(void) detectBeforeCollisionsBetween:(cpCollisionType)type1 and:(cpCollisionType)type2;
 -(void) detectAfterCollisionsBetween:(cpCollisionType)type1 and:(cpCollisionType)type2;
+-(BOOL) beginCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space;
+-(void) postSolveCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space;
 
 @end

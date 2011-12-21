@@ -8,7 +8,7 @@
 
 #import "GameState.h"
 #import "artemis.h"
-#import "chipmunk.h"
+
 #import "cocos2d.h"
 
 @class DebugRenderPhysicsSystem;

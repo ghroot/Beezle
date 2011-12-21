@@ -9,9 +9,7 @@
 #import "BeeSystem.h"
 #import "BeeComponent.h"
 #import "GameNotificationTypes.h"
-#import "PhysicsBody.h"
 #import "PhysicsComponent.h"
-#import "PhysicsShape.h"
 #import "RenderComponent.h"
 
 @implementation BeeSystem
@@ -26,9 +24,7 @@
 {
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
 	
-	PhysicsBody *physicsBody = [physicsComponent physicsBody];
-	cpBody *body = [physicsBody body];
-	if (cpBodyIsSleeping(body))
+	if ([[physicsComponent body] isSleeping])
 	{
         // Crash animation (and delete entity at end of animation)
         RenderComponent *rampRenderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];

@@ -8,7 +8,6 @@
 
 #import "Collision.h"
 #import "PhysicsComponent.h"
-#import "PhysicsShape.h"
 
 @implementation Collision
 

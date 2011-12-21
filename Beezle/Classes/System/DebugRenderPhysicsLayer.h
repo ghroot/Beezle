@@ -7,7 +7,7 @@
 //
 
 #import "cocos2d.h"
-#import "chipmunk.h"
+#import "ObjectiveChipmunk.h"
 
 @interface DebugRenderPhysicsLayer : CCLayer
 {
@@ -16,6 +16,6 @@
 
 @property (nonatomic, retain) NSMutableArray *shapesToDraw;
 
--(void) drawShape:(cpShape *)shape;
+-(void) drawShape:(ChipmunkShape *)shape;
 
 @end

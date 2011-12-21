@@ -6,21 +6,18 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "chipmunk.h"
-
-@class PhysicsBody;
-@class PhysicsShape;
+#import "ObjectiveChipmunk.h"
 
 @interface BodyInfo : NSObject
 {
-    PhysicsBody *_physicsBody;
-    NSMutableArray *_physicsShapes;
+    ChipmunkBody *_body;
+    NSMutableArray *_shapes;
 }
 
-@property (nonatomic, readonly) PhysicsBody *physicsBody;
-@property (nonatomic, readonly) NSArray *physicsShapes;
+@property (nonatomic, retain) ChipmunkBody *body;
+@property (nonatomic, readonly) NSArray *shapes;
 
--(void) setBody:(cpBody *)body;
--(void) addShape:(cpShape *)shape;
+-(void) setBody:(ChipmunkBody *)body;
+-(void) addShape:(ChipmunkShape *)shape;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "artemis.h"
-#import "chipmunk.h"
+
 #import "cocos2d.h"
 
 @interface EditOptionsSystem : EntityComponentSystem

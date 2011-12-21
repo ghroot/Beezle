@@ -32,7 +32,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "chipmunk.h"
+
 
 @class BodyInfo;
 

@@ -9,7 +9,6 @@
 #import "DebugRenderPhysicsSystem.h"
 #import "DebugRenderPhysicsLayer.h"
 #import "PhysicsComponent.h"
-#import "PhysicsShape.h"
 #import "PhysicsSystem.h"
 
 @implementation DebugRenderPhysicsSystem
@@ -42,9 +41,9 @@
 {
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
     
-    for (PhysicsShape *physicsShape in [physicsComponent physicsShapes])
+    for (ChipmunkShape *shape in [physicsComponent shapes])
     {
-        [[_debugRenderPhysicsLayer shapesToDraw] addObject:physicsShape];
+        [[_debugRenderPhysicsLayer shapesToDraw] addObject:shape];
     }
 }
 

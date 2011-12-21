@@ -11,7 +11,6 @@
 #import "EditComponent.h"
 #import "InputAction.h"
 #import "InputSystem.h"
-#import "PhysicsBody.h"
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"

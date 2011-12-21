@@ -7,37 +7,35 @@
 //
 
 #import "PhysicsComponent.h"
-#import "PhysicsBody.h"
-#import "PhysicsShape.h"
 
 @implementation PhysicsComponent
 
-@synthesize physicsBody = _physicsBody;
-@synthesize physicsShapes = _physicsShapes;
+@synthesize body = _body;
+@synthesize shapes = _shapes;
 @synthesize positionUpdatedManually = _positionUpdatedManually;
 
-+(id) componentWithBody:(PhysicsBody *)body andShapes:(NSArray *)shapes
++(id) componentWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes
 {
 	return [[[self alloc] initWithBody:body andShapes:shapes] autorelease];
 }
 
-+(id) componentWithBody:(PhysicsBody *)body andShape:(PhysicsShape *)shape
++(id) componentWithBody:(ChipmunkBody *)body andShape:(ChipmunkShape *)shape
 {
 	return [[[self alloc] initWithBody:body andShape:shape] autorelease];
 }
 
--(id) initWithBody:(PhysicsBody *)body andShapes:(NSArray *)shapes
+-(id) initWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes
 {
     if (self = [super init])
     {
-        _physicsBody = [body retain];
-        _physicsShapes = [shapes retain];
+        _body = [body retain];
+        _shapes = [shapes retain];
 		_positionUpdatedManually = FALSE;
     }
     return self;
 }
 
--(id) initWithBody:(PhysicsBody *)body andShape:(PhysicsShape *)shape
+-(id) initWithBody:(ChipmunkBody *)body andShape:(ChipmunkShape *)shape
 {
     self = [self initWithBody:body andShapes:[NSMutableArray arrayWithObject:shape]];
     return self;
@@ -45,26 +43,26 @@
 
 - (void)dealloc
 {
-    [_physicsShapes release];
-    [_physicsBody release];
+    [_shapes release];
+    [_body release];
     
     [super dealloc];
 }
 
--(PhysicsShape *) firstPhysicsShape
+-(ChipmunkShape *) firstPhysicsShape
 {
-    return [_physicsShapes objectAtIndex:0];
+    return [_shapes objectAtIndex:0];
 }
 
 -(void) setPositionManually:(CGPoint)position
 {
-	cpBodySetPos([_physicsBody  body], position);
+	[_body setPos:position];
 	_positionUpdatedManually = TRUE;
 }
 
 -(void) setRotationManually:(float)rotation
 {
-	cpBodySetAngle([_physicsBody  body], CC_DEGREES_TO_RADIANS(-rotation));
+	[_body setAngle:CC_DEGREES_TO_RADIANS(-rotation)];
 }
 
 @end

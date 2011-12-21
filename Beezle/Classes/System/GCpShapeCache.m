@@ -231,28 +231,25 @@ typedef enum
     BodyInfo *bodyInfo = [[[BodyInfo alloc] init] autorelease];
     
     // create and add body to space
-    cpBody *body = cpBodyNew(bd->mass, bd->momentum);
+	ChipmunkBody *body = [ChipmunkBody bodyWithMass:bd->mass andMoment:bd->momentum];
     [bodyInfo setBody:body];
     
     // set the center point
-    body->p = bd->anchorPoint;
+	[body setPos:bd->anchorPoint];
 
     // iterate over fixtures
-    for(GFixtureData *fd in bd->fixtures)
+    for (GFixtureData *fd in bd->fixtures)
     {
         if(fd->fixtureType == GFIXTURE_CIRCLE)
         {
-            cpShape* shape = cpCircleShapeNew(body, fd->radius, fd->center);
+			ChipmunkShape *shape = [ChipmunkCircleShape circleWithBody:body radius:fd->radius offset:fd->center];
 
-            // set values
-            shape->e = fd->elasticity; 
-            shape->u = fd->friction;
-            shape->surface_v = fd->surfaceVelocity;
-            shape->collision_type = fd->collisionType;
-//            shape->group = fd->group;
-//            shape->layers = fd->layers;
-            shape->sensor = fd->isSensor;
-            
+			[shape setElasticity:fd->elasticity];
+			[shape setFriction:fd->friction];
+			[shape setSurfaceVel:fd->surfaceVelocity];
+			[shape setCollisionType:fd->collisionType];
+			[shape setSensor:fd->isSensor];
+			
             [bodyInfo addShape:shape];
         }
         else
@@ -261,16 +258,14 @@ typedef enum
             for(GPolygon *p in fd->polygons)
             {
                 // create new shape
-                cpShape* shape = cpPolyShapeNew(body, p->numVertices, p->vertices, CGPointZero);
+				ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:p->numVertices verts:p->vertices offset:CGPointZero];
                 
                 // set values
-                shape->e = fd->elasticity; 
-                shape->u = fd->friction;
-                shape->surface_v = fd->surfaceVelocity;
-                shape->collision_type = fd->collisionType;
-//                shape->group = fd->group;
-//                shape->layers = fd->layers;
-                shape->sensor = fd->isSensor;
+				[shape setElasticity:fd->elasticity];
+				[shape setFriction:fd->friction];
+				[shape setSurfaceVel:fd->surfaceVelocity];
+				[shape setCollisionType:fd->collisionType];
+				[shape setSensor:fd->isSensor];
                 
                 [bodyInfo addShape:shape];
             }            
@@ -340,8 +335,8 @@ typedef enum
             fd->mass = [[fixtureData objectForKey:@"mass"] floatValue];            
             fd->surfaceVelocity = CGPointFromString_([fixtureData objectForKey:@"surface_velocity"]);        
             fd->layers = [[fixtureData objectForKey:@"layers"] intValue];            
-            fd->group = [[fixtureData objectForKey:@"group"] intValue];            
-            fd->collisionType = [[fixtureData objectForKey:@"collision_type"] intValue];            
+//            fd->group = [[fixtureData objectForKey:@"group"] intValue];            
+//            fd->collisionType = [[fixtureData objectForKey:@"collision_type"] intValue];            
             fd->isSensor = [[fixtureData objectForKey:@"fixtureData"] boolValue];
             
             NSString *fixtureType = [fixtureData objectForKey:@"fixture_type"];

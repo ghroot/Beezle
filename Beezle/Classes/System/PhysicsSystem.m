@@ -11,9 +11,7 @@
 #import "CollisionSystem.h"
 #import "Collision.h"
 #import "GCpShapeCache.h"
-#import "PhysicsBody.h"
 #import "PhysicsComponent.h"
-#import "PhysicsShape.h"
 #import "TransformComponent.h"
 
 #define GRAVITY -100
@@ -34,54 +32,20 @@
 
 -(void) dealloc
 {
-    cpSpaceFree(_space);
-    _space = NULL;
-    
+	[_space release];
     [_loadedShapeFileNames release];
     
     [super dealloc];
 }
 
-int beginCollision(cpArbiter *arbiter, cpSpace *space, void *data)
-{
-    cpShape *firstShape;
-    cpShape *secondShape;
-    cpArbiterGetShapes(arbiter, &firstShape, &secondShape);
-    
-    Entity *firstEntity = (Entity *)firstShape->data;
-    Entity *secondEntity = (Entity *)secondShape->data;
-    
-    PhysicsSystem *physicsSystem = (PhysicsSystem *)cpSpaceGetUserData(space);
-    CollisionSystem *collisionSystem = (CollisionSystem *)[[[physicsSystem world] systemManager] getSystem:[CollisionSystem class]];
-    Collision *collision = [Collision collisionWithFirstEntity:firstEntity andSecondEntity:secondEntity];
-    [collisionSystem pushCollision:collision];
-    
-    return 0;
-}
-
-void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
-{
-    cpShape *firstShape;
-    cpShape *secondShape;
-    cpArbiterGetShapes(arbiter, &firstShape, &secondShape);
-    
-    Entity *firstEntity = (Entity *)firstShape->data;
-    Entity *secondEntity = (Entity *)secondShape->data;
-    
-    PhysicsSystem *physicsSystem = (PhysicsSystem *)cpSpaceGetUserData(space);
-    CollisionSystem *collisionSystem = (CollisionSystem *)[[[physicsSystem world] systemManager] getSystem:[CollisionSystem class]];
-    Collision *collision = [Collision collisionWithFirstEntity:firstEntity andSecondEntity:secondEntity];
-    [collisionSystem pushCollision:collision];
-}
-
 -(void) initialise
 {   
     cpInitChipmunk();
-    
-    _space = cpSpaceNew();
-    cpSpaceSetSleepTimeThreshold(_space, 1.0f);
-    cpSpaceSetUserData(_space, self);
-    _space->gravity = CGPointMake(0, GRAVITY);
+	
+	_space = [[ChipmunkSpace alloc] init];
+	[_space setSleepTimeThreshold:1.0f];
+	[_space setData:self];
+	[_space setGravity:CGPointMake(0.0f, GRAVITY)];
 }
 
 -(PhysicsComponent *) createPhysicsComponentWithFile:(NSString *)fileName bodyName:(NSString *)bodyName isStatic:(BOOL)isStatic collisionType:(cpCollisionType)collisionType
@@ -94,16 +58,16 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     
     BodyInfo *bodyInfo = [[GCpShapeCache sharedShapeCache] createBodyWithName:bodyName];
     
-    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:[bodyInfo physicsBody] andShapes:[bodyInfo physicsShapes]];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:[bodyInfo body] andShapes:[bodyInfo shapes]];
     
     if (isStatic)
     {
-        cpBodyInitStatic([[physicsComponent physicsBody] body]);
+		[[physicsComponent body] initStaticBody];
     }
     
-    for (PhysicsShape *physicsShape in [physicsComponent physicsShapes])
+    for (ChipmunkShape *shape in [physicsComponent shapes])
     {
-        cpShapeSetCollisionType([physicsShape shape], collisionType);
+		[shape setCollisionType:collisionType];
     }
     
     return physicsComponent;
@@ -111,73 +75,105 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
 
 -(void) detectBeforeCollisionsBetween:(cpCollisionType)type1 and:(cpCollisionType)type2
 {
-	cpSpaceAddCollisionHandler(_space, type1, type2, &beginCollision, NULL, NULL, NULL, NULL);
+	[_space addCollisionHandler:self typeA:type1 typeB:type2 begin:@selector(beginCollision:space:) preSolve:nil postSolve:nil separate:nil];
 }
 
 -(void) detectAfterCollisionsBetween:(cpCollisionType)type1 and:(cpCollisionType)type2
 {
-    cpSpaceAddCollisionHandler(_space, type1, type2, NULL, NULL, &postSolveCollision, NULL, NULL);
+	[_space addCollisionHandler:self typeA:type1 typeB:type2 begin:nil preSolve:nil postSolve:@selector(postSolveCollision:space:) separate:nil];
+}
+
+-(BOOL) beginCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space
+{
+    cpShape *firstShape;
+    cpShape *secondShape;
+    cpArbiterGetShapes(arbiter, &firstShape, &secondShape);
+	
+	ChipmunkShape *firstChipmunkShape = (ChipmunkShape *)firstShape->data;
+	ChipmunkShape *secondChipmunkShape = (ChipmunkShape *)secondShape->data;
+    
+    Entity *firstEntity = (Entity *)[firstChipmunkShape data];
+    Entity *secondEntity = (Entity *)[secondChipmunkShape data];
+    
+    PhysicsSystem *physicsSystem = (PhysicsSystem *)[space data];
+    CollisionSystem *collisionSystem = (CollisionSystem *)[[[physicsSystem world] systemManager] getSystem:[CollisionSystem class]];
+    Collision *collision = [Collision collisionWithFirstEntity:firstEntity andSecondEntity:secondEntity];
+    [collisionSystem pushCollision:collision];
+    
+    return FALSE;
+}
+
+-(void) postSolveCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space
+{
+    cpShape *firstShape;
+    cpShape *secondShape;
+    cpArbiterGetShapes(arbiter, &firstShape, &secondShape);
+    
+	ChipmunkShape *firstChipmunkShape = (ChipmunkShape *)firstShape->data;
+	ChipmunkShape *secondChipmunkShape = (ChipmunkShape *)secondShape->data;
+    
+    Entity *firstEntity = (Entity *)[firstChipmunkShape data];
+    Entity *secondEntity = (Entity *)[secondChipmunkShape data];
+    
+    PhysicsSystem *physicsSystem = (PhysicsSystem *)[space data];
+    CollisionSystem *collisionSystem = (CollisionSystem *)[[[physicsSystem world] systemManager] getSystem:[CollisionSystem class]];
+    Collision *collision = [Collision collisionWithFirstEntity:firstEntity andSecondEntity:secondEntity];
+    [collisionSystem pushCollision:collision];
 }
 
 -(void) entityAdded:(Entity *)entity
 {
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
-    
-    cpBody *body = [[physicsComponent physicsBody] body];
-    if (!cpBodyIsStatic(body))
-    {
-        cpSpaceAddBody(_space, body);
-    }
-    
-    for (PhysicsShape *physicsShape in [physicsComponent physicsShapes])
-    {
-        cpShape *shape = [physicsShape shape];
-        
-        shape->data = entity;
-        
-        if (cpBodyIsStatic(body))
-        {
-            cpSpaceAddStaticShape(_space, shape);
-        }
-        else
-        {
-            cpSpaceAddShape(_space, shape);
-        }   
-    }
+	
+	if (![[physicsComponent body] isStatic])
+	{
+		[_space addBody:[physicsComponent body]];
+	}
+	
+	for (ChipmunkShape *shape in [physicsComponent shapes])
+	{
+		[shape setData:entity];
+		
+		if ([[physicsComponent body] isStatic])
+		{
+			[_space addStaticShape:shape];
+		}
+		else
+		{
+			[_space addShape:shape];
+		}
+	}
 }
 
 -(void) entityRemoved:(Entity *)entity
 {
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
-    
-    cpBody *body = [[physicsComponent physicsBody] body];
-    if (!cpBodyIsStatic(body))
-    {
-        cpSpaceRemoveBody(_space, body);
-    }
-    
-    for (PhysicsShape *physicsShape in [physicsComponent physicsShapes])
-    {
-        cpShape *shape = [physicsShape shape];
-        
-        shape->data = NULL;
-        
-        if (cpBodyIsStatic(body))
-        {
-            cpSpaceRemoveStaticShape(_space, shape);
-        }
-        else
-        {
-            cpSpaceRemoveShape(_space, shape);
-        }
-    }
+	
+	if (![[physicsComponent body] isStatic])
+	{
+		[_space removeBody:[physicsComponent body]];
+	}
+	
+	for (ChipmunkShape *shape in [physicsComponent shapes])
+	{
+		[shape setData:nil];
+		
+		if ([[physicsComponent body] isStatic])
+		{
+			[_space removeStaticShape:shape];
+		}
+		else
+		{
+			[_space removeShape:shape];
+		}
+	}
 }
 
 -(void) begin
 {
     if ([_world delta] > 0)
 	{
-		cpSpaceStep(_space, FIXED_TIMESTEP);
+		[_space step:FIXED_TIMESTEP];
 	}
 }
 
@@ -186,24 +182,22 @@ void postSolveCollision(cpArbiter *arbiter, cpSpace *space, void *data)
     TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
 	
-	cpBody *body = [[physicsComponent physicsBody] body];
-	
 	if ([physicsComponent positionUpdatedManually])
 	{
 		// Moving a static body requires re-adding to the space
-		if (cpBodyIsStatic(body))
+		if ([[physicsComponent body] isStatic])
 		{
-			for (PhysicsShape *physicsShape in [physicsComponent physicsShapes])
+			for (ChipmunkShape *shape in [physicsComponent shapes])
 			{
-				cpSpaceRemoveStaticShape(_space, [physicsShape shape]);
-				cpSpaceAddStaticShape(_space, [physicsShape shape]);
+				[_space removeStaticShape:shape];
+				[_space addStaticShape:shape];
 			}
 		}
 		[physicsComponent setPositionUpdatedManually:FALSE];
 	}
-
-    [transformComponent setPosition:cpv(body->p.x, body->p.y)];
-    [transformComponent setRotation:CC_RADIANS_TO_DEGREES(-body->a)];
+	
+    [transformComponent setPosition:[[physicsComponent body] pos]];
+    [transformComponent setRotation:CC_RADIANS_TO_DEGREES(-[[physicsComponent body] angle])];
 }
 
 @end

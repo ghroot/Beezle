@@ -15,9 +15,7 @@
 #import "CollisionTypes.h"
 #import "DisposableComponent.h"
 #import "GameNotificationTypes.h"
-#import "PhysicsBody.h"
 #import "PhysicsComponent.h"
-#import "PhysicsShape.h"
 #import "PhysicsSystem.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
@@ -28,8 +26,8 @@
 
 @interface CollisionSystem()
 
--(void) handleBeforeCollisionBetween:(CollisionType)type1 and:(CollisionType)type2 selector:(SEL)selector;
--(void) handleAfterCollisionBetween:(CollisionType)type1 and:(CollisionType)type2 selector:(SEL)selector;
+-(void) handleBeforeCollisionBetween:(CollisionTypes *)type1 and:(CollisionTypes *)type2 selector:(SEL)selector;
+-(void) handleAfterCollisionBetween:(CollisionTypes *)type1 and:(CollisionTypes *)type2 selector:(SEL)selector;
 -(CollisionMediator *) findMediatorForCollision:(Collision *)collision;
 
 @end
@@ -61,18 +59,18 @@
 
 -(void) initialise
 {
-	[self handleAfterCollisionBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_BACKGROUND selector:@selector(handleCollisionBee:withBackground:)];
-	[self handleAfterCollisionBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_BEEATER selector:@selector(handleCollisionBee:withBeeater:)];
-	[self handleAfterCollisionBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_EDGE selector:@selector(handleCollisionBee:withEdge:)];
-	[self handleBeforeCollisionBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_POLLEN selector:@selector(handleCollisionBee:withPollen:)];
-	[self handleAfterCollisionBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_RAMP selector:@selector(handleCollisionBee:withRamp:)];
-	[self handleAfterCollisionBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_MUSHROOM selector:@selector(handleCollisionBee:withMushroom:)];
-    [self handleAfterCollisionBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_WOOD selector:@selector(handleCollisionBee:withWood:)];
-	[self handleAfterCollisionBetween:COLLISION_TYPE_BEE and:COLLISION_TYPE_NUT selector:@selector(handleCollisionBee:withNut:)];
-	[self handleAfterCollisionBetween:COLLISION_TYPE_AIM_POLLEN and:COLLISION_TYPE_EDGE selector:@selector(handleCollisionAimPollen:withEdge:)];
+	[self handleAfterCollisionBetween:[CollisionTypes sharedTypeBee] and:[CollisionTypes sharedTypeBackground] selector:@selector(handleCollisionBee:withBackground:)];
+	[self handleAfterCollisionBetween:[CollisionTypes sharedTypeBee] and:[CollisionTypes sharedTypeBeeater] selector:@selector(handleCollisionBee:withBeeater:)];
+	[self handleAfterCollisionBetween:[CollisionTypes sharedTypeBee] and:[CollisionTypes sharedTypeEdge] selector:@selector(handleCollisionBee:withEdge:)];
+	[self handleBeforeCollisionBetween:[CollisionTypes sharedTypeBee] and:[CollisionTypes sharedTypePollen] selector:@selector(handleCollisionBee:withPollen:)];
+	[self handleAfterCollisionBetween:[CollisionTypes sharedTypeBee] and:[CollisionTypes sharedTypeRamp] selector:@selector(handleCollisionBee:withRamp:)];
+	[self handleAfterCollisionBetween:[CollisionTypes sharedTypeBee] and:[CollisionTypes sharedTypeMushroom] selector:@selector(handleCollisionBee:withMushroom:)];
+    [self handleAfterCollisionBetween:[CollisionTypes sharedTypeBee] and:[CollisionTypes sharedTypeWood] selector:@selector(handleCollisionBee:withWood:)];
+	[self handleAfterCollisionBetween:[CollisionTypes sharedTypeBee] and:[CollisionTypes sharedTypeNut] selector:@selector(handleCollisionBee:withNut:)];
+	[self handleAfterCollisionBetween:[CollisionTypes sharedTypeAimPollen] and:[CollisionTypes sharedTypeEdge] selector:@selector(handleCollisionAimPollen:withEdge:)];
 }
 
--(void) handleBeforeCollisionBetween:(CollisionType)type1 and:(CollisionType)type2 selector:(SEL)selector
+-(void) handleBeforeCollisionBetween:(CollisionTypes *)type1 and:(CollisionTypes *)type2 selector:(SEL)selector
 {
 	PhysicsSystem *physicsSystem = (PhysicsSystem *)[[_world systemManager] getSystem:[PhysicsSystem class]];
 	[physicsSystem detectBeforeCollisionsBetween:type1 and:type2];
@@ -81,7 +79,7 @@
 	[_collisionMediators addObject:mediator];
 }
 
--(void) handleAfterCollisionBetween:(CollisionType)type1 and:(CollisionType)type2 selector:(SEL)selector
+-(void) handleAfterCollisionBetween:(CollisionTypes *)type1 and:(CollisionTypes *)type2 selector:(SEL)selector
 {
 	PhysicsSystem *physicsSystem = (PhysicsSystem *)[[_world systemManager] getSystem:[PhysicsSystem class]];
 	[physicsSystem detectAfterCollisionsBetween:type1 and:type2];

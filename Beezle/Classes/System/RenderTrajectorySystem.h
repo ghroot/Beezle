@@ -7,7 +7,7 @@
 //
 
 #import "artemis.h"
-#import "chipmunk.h"
+#import "ObjectiveChipmunk.h"
 #import "cocos2d.h"
 
 @class RenderTrajectoryLayer;

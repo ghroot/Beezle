@@ -6,17 +6,24 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-typedef enum
+@interface CollisionTypes : NSObject
 {
-    COLLISION_TYPE_NONE,
-    COLLISION_TYPE_BACKGROUND,
-    COLLISION_TYPE_EDGE,
-    COLLISION_TYPE_BEE,
-	COLLISION_TYPE_BEEATER,
-    COLLISION_TYPE_RAMP,
-    COLLISION_TYPE_POLLEN,
-    COLLISION_TYPE_MUSHROOM,
-    COLLISION_TYPE_WOOD,
-    COLLISION_TYPE_NUT,
-    COLLISION_TYPE_AIM_POLLEN,
-} CollisionType;
+	NSString *_string;
+}
+
+@property (nonatomic, readonly) NSString *string;
+
++(CollisionTypes *) sharedTypeBackground;
++(CollisionTypes *) sharedTypeEdge;
++(CollisionTypes *) sharedTypeBee;
++(CollisionTypes *) sharedTypeBeeater;
++(CollisionTypes *) sharedTypeRamp;
++(CollisionTypes *) sharedTypePollen;
++(CollisionTypes *) sharedTypeMushroom;
++(CollisionTypes *) sharedTypeWood;
++(CollisionTypes *) sharedTypeNut;
++(CollisionTypes *) sharedTypeAimPollen;
+
+-(id) initWithString:(NSString *)string;
+
+@end
