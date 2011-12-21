@@ -522,7 +522,8 @@ static CCDirector *_sharedDirector = nil;
 //		sprintf(format,"%.1f",frameRate);
 //		[FPSLabel setCString:format];
         
-        NSString *str = [[NSString alloc] initWithFormat:@"%.1f   %.1f", frameRate_, [CCDirector getAvailableMegaBytes]];
+//        NSString *str = [[NSString alloc] initWithFormat:@"%.1f   %.1f", frameRate_, [CCDirector getAvailableMegaBytes]];
+		NSString *str = [[NSString alloc] initWithFormat:@"%.1f", frameRate_];
 		[FPSLabel_ setString:str];
 		[str release];
 	}
