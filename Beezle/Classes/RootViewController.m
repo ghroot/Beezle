@@ -14,6 +14,7 @@
 //
 
 #import "RootViewController.h"
+#import "EmailInfo.h"
 
 @implementation RootViewController
 
@@ -106,6 +107,34 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+-(void) displayComposer:(EmailInfo *)emailInfo
+{
+	if (![MFMailComposeViewController canSendMail])
+	{
+		return;
+	}
+	
+	MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+	picker.mailComposeDelegate = self;
+	
+	[picker setSubject:[emailInfo subject]];
+	[picker setToRecipients:[NSArray arrayWithObject:[emailInfo to]]];
+	[picker setMessageBody:[emailInfo message] isHTML:FALSE];
+	for (NSString *fileName in [[emailInfo attachmentsByFileName] allKeys])
+	{
+		NSData *data = [[emailInfo attachmentsByFileName] objectForKey:fileName];
+		[picker addAttachmentData:data mimeType:@"application/xml" fileName:fileName];
+	}
+	 
+	[self presentModalViewController:picker animated:YES];
+    [picker release];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{ 
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 @end

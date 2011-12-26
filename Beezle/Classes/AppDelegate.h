@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "cocos2d.h"
 
+@class EmailInfo;
 @class Game;
 @class RootViewController;
 
@@ -22,5 +23,7 @@
 
 @property (nonatomic, retain) UIWindow *window;
 @property (nonatomic, retain) RootViewController *viewController;
+
+-(void) sendEmail:(EmailInfo *)emailInfo;
 
 @end

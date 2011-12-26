@@ -7,7 +7,9 @@
 //
 
 #import "MainMenuState.h"
+#import "AppDelegate.h"
 #import "EditState.h"
+#import "EmailInfo.h"
 #import "EmptyState.h"
 #import "Game.h"
 #import "GameplayState.h"
@@ -48,9 +50,25 @@
 
 -(void) startGame:(id)sender
 {
-    NSString *levelName = (NSString *)[sender userData];
-	[_game replaceState:[GameplayState stateWithLevelName:levelName]];
+//    NSString *levelName = (NSString *)[sender userData];
+//	[_game replaceState:[GameplayState stateWithLevelName:levelName]];
 //	[_game replaceState:[EditState stateWithLevelName:levelName]];
+	
+	EmailInfo *emailInfo = [[EmailInfo alloc] init];
+	[emailInfo setSubject:@"Level-A3"];
+	[emailInfo setTo:@"marcus.lagerstrom@gmail.com"];
+	[emailInfo setMessage:@"Here is leve A3 v12!"];
+
+	// Attachment
+	NSString *levelFileName = @"Level-A3-Layout.plist";
+	NSString *path = [CCFileUtils fullPathFromRelativePath:levelFileName];
+	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+	NSString *errorString = nil;
+	NSData *data = [NSPropertyListSerialization dataFromPropertyList:dict format:NSPropertyListXMLFormat_v1_0 errorDescription:&errorString];
+	[emailInfo addAttachment:levelFileName data:data];
+	
+	[(AppDelegate *)[[UIApplication sharedApplication] delegate] sendEmail:emailInfo];
+	[emailInfo release];
 }
 
 -(void) startTest:(id)sender

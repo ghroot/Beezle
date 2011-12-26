@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2C068A34146858B9003E200D /* TransformComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C068A33146858B9003E200D /* TransformComponent.m */; };
+		2C0D500214A8CDA300466316 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0D500114A8CDA300466316 /* MessageUI.framework */; };
+		2C0D500414A8CDBC00466316 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0D500314A8CDBC00466316 /* MessageUI.framework */; };
 		2C114769148B9459002E4DBD /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C11466D148B9459002E4DBD /* CCAction.m */; };
 		2C11476A148B9459002E4DBD /* CCActionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C11466F148B9459002E4DBD /* CCActionCamera.m */; };
 		2C11476B148B9459002E4DBD /* CCActionEase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C114671148B9459002E4DBD /* CCActionEase.m */; };
@@ -141,6 +143,7 @@
 		2C3A6F8E14898085002721E3 /* Speedee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7E14898085002721E3 /* Speedee-Animations.plist */; };
 		2C3A6F931489809F002721E3 /* BeeSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F921489809F002721E3 /* BeeSystem.m */; };
 		2C3A6F96148980AF002721E3 /* BeeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F95148980AF002721E3 /* BeeComponent.m */; };
+		2C3B0E5414A91E4D008949B0 /* EmailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B0E5314A91E4D008949B0 /* EmailInfo.m */; };
 		2C3C990E14A2574400284A60 /* CollisionTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3C990D14A2574300284A60 /* CollisionTypes.m */; };
 		2C44B5B7147B194C000CF537 /* TagEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C44B5B6147B194C000CF537 /* TagEntitySystem.m */; };
 		2C44B5BB147B1960000CF537 /* GroupEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C44B5BA147B1960000CF537 /* GroupEntitySystem.m */; };
@@ -283,6 +286,8 @@
 /* Begin PBXFileReference section */
 		2C068A32146858B9003E200D /* TransformComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransformComponent.h; path = Classes/Component/TransformComponent.h; sourceTree = "<group>"; };
 		2C068A33146858B9003E200D /* TransformComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransformComponent.m; path = Classes/Component/TransformComponent.m; sourceTree = "<group>"; };
+		2C0D500114A8CDA300466316 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		2C0D500314A8CDBC00466316 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		2C11466C148B9459002E4DBD /* CCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAction.h; sourceTree = "<group>"; };
 		2C11466D148B9459002E4DBD /* CCAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAction.m; sourceTree = "<group>"; };
 		2C11466E148B9459002E4DBD /* CCActionCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCActionCamera.h; sourceTree = "<group>"; };
@@ -541,6 +546,8 @@
 		2C3A6F921489809F002721E3 /* BeeSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeSystem.m; path = Classes/System/BeeSystem.m; sourceTree = "<group>"; };
 		2C3A6F94148980AF002721E3 /* BeeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeComponent.h; path = Classes/Component/BeeComponent.h; sourceTree = "<group>"; };
 		2C3A6F95148980AF002721E3 /* BeeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeComponent.m; path = Classes/Component/BeeComponent.m; sourceTree = "<group>"; };
+		2C3B0E5214A91E4D008949B0 /* EmailInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmailInfo.h; path = Classes/EmailInfo.h; sourceTree = "<group>"; };
+		2C3B0E5314A91E4D008949B0 /* EmailInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmailInfo.m; path = Classes/EmailInfo.m; sourceTree = "<group>"; };
 		2C3C990D14A2574300284A60 /* CollisionTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionTypes.m; path = Classes/CollisionTypes.m; sourceTree = "<group>"; };
 		2C44B5B5147B194C000CF537 /* TagEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagEntitySystem.h; path = Classes/Artemis/TagEntitySystem.h; sourceTree = "<group>"; };
 		2C44B5B6147B194C000CF537 /* TagEntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagEntitySystem.m; path = Classes/Artemis/TagEntitySystem.m; sourceTree = "<group>"; };
@@ -776,6 +783,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C0D500214A8CDA300466316 /* MessageUI.framework in Frameworks */,
 				2CEA3278145F66F7000FF575 /* QuartzCore.framework in Frameworks */,
 				2CEA327A145F66F7000FF575 /* OpenGLES.framework in Frameworks */,
 				2CEA327C145F66F7000FF575 /* OpenAL.framework in Frameworks */,
@@ -785,6 +793,7 @@
 				2CEA3284145F66F7000FF575 /* Foundation.framework in Frameworks */,
 				2CEA3286145F66F7000FF575 /* CoreGraphics.framework in Frameworks */,
 				2C88B5D114A3DA8700B5B190 /* libObjectiveChipmunk-iPhone.a in Frameworks */,
+				2C0D500414A8CDBC00466316 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1364,6 +1373,7 @@
 		2CEA3268145F66F7000FF575 = {
 			isa = PBXGroup;
 			children = (
+				2C0D500114A8CDA300466316 /* MessageUI.framework */,
 				2CEA3287145F66F7000FF575 /* Beezle */,
 				2CADCC8814746BA100302475 /* ArtemisTests */,
 				2CEA3276145F66F7000FF575 /* Frameworks */,
@@ -1383,6 +1393,7 @@
 		2CEA3276145F66F7000FF575 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C0D500314A8CDBC00466316 /* MessageUI.framework */,
 				2CEA3277145F66F7000FF575 /* QuartzCore.framework */,
 				2CEA3279145F66F7000FF575 /* OpenGLES.framework */,
 				2CEA327B145F66F7000FF575 /* OpenAL.framework */,
@@ -1511,6 +1522,8 @@
 				2C535FCF149ADEE800BC7DB6 /* ActionTags.h */,
 				2C596D2E14A0A34A00DFCC14 /* EntityUtil.h */,
 				2C596D2F14A0A34A00DFCC14 /* EntityUtil.m */,
+				2C3B0E5214A91E4D008949B0 /* EmailInfo.h */,
+				2C3B0E5314A91E4D008949B0 /* EmailInfo.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1907,6 +1920,7 @@
 				2C596D3D14A13FDD00DFCC14 /* LevelLayoutEntry.m in Sources */,
 				2C596D3E14A13FDD00DFCC14 /* LevelLoader.m in Sources */,
 				2C3C990E14A2574400284A60 /* CollisionTypes.m in Sources */,
+				2C3B0E5414A91E4D008949B0 /* EmailInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

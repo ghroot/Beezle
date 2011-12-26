@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "EmailInfo.h"
 #import "Game.h"
 #import "GameplayState.h"
 #import "MainMenuState.h"
@@ -111,6 +112,11 @@
 -(void) applicationSignificantTimeChange:(UIApplication *)application
 {
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
+}
+
+-(void) sendEmail:(EmailInfo *)emailInfo
+{
+    [_viewController displayComposer:emailInfo];
 }
 
 -(void) dealloc

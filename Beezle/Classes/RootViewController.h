@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 #import "cocos2d.h"
 
-@interface RootViewController : UIViewController
+@class EmailInfo;
+
+@interface RootViewController : UIViewController <MFMailComposeViewControllerDelegate>
+
+-(void) displayComposer:(EmailInfo *)emailInfo;
 
 @end
