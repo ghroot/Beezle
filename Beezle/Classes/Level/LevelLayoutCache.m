@@ -63,6 +63,10 @@ static LevelLayoutCache *sharedLevelLayoutCache;
         LevelLayout *levelLayout = [[[LevelLayout alloc] initWithLevelName:levelName] autorelease];
         
         NSDictionary *level = [levels objectForKey:levelName];
+		
+		int version = [[level objectForKey:@"version"] intValue];
+		[levelLayout setVersion:version];
+		
         NSArray *entities = [level objectForKey:@"entities"];
         for (NSDictionary *entity in entities) 
         {

@@ -11,6 +11,7 @@
 @implementation LevelLayout
 
 @synthesize levelName = _levelName;
+@synthesize version = _version;
 @synthesize entries = _entries;
 
 // Designated initialiser
@@ -19,6 +20,7 @@
 	if (self = [super init])
     {
 		_levelName = [levelName retain];
+		_version = 0;
         _entries = [[NSMutableArray alloc] init];
     }
     return self;
