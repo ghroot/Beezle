@@ -14,6 +14,7 @@
 #import "Game.h"
 #import "GameplayState.h"
 #import "LevelLayoutCache.h"
+#import "LevelOrganizer.h"
 #import "TestState.h"
 
 @implementation MainMenuState
@@ -25,14 +26,8 @@
         [[CCDirector sharedDirector] setNeedClear:TRUE];
         
         _menu = [CCMenu menuWithItems:nil];
-        
-        NSArray *levelNames = [NSArray arrayWithObjects:
-                               @"Level-A1",
-                               @"Level-A2",
-							   @"Level-A3",
-                               @"Level-A5",
-                               @"Level-A9",
-                               nil];
+		
+		NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesForTheme:@"A"];
         for (NSString *levelName in levelNames)
         {
             CCMenuItem *levelMenuItem = [CCMenuItemFont itemFromString:[NSString stringWithFormat:@"Play %@", levelName] target:self selector:@selector(startGame:)];

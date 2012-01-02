@@ -144,6 +144,8 @@
 		2C3A6F931489809F002721E3 /* BeeSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F921489809F002721E3 /* BeeSystem.m */; };
 		2C3A6F96148980AF002721E3 /* BeeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F95148980AF002721E3 /* BeeComponent.m */; };
 		2C3B0E5414A91E4D008949B0 /* EmailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B0E5314A91E4D008949B0 /* EmailInfo.m */; };
+		2C3BA3DA14B1D32D007B1660 /* Levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3BA3D914B1D32D007B1660 /* Levels.plist */; };
+		2C3BA3DE14B1DBBA007B1660 /* LevelOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BA3DD14B1DBBA007B1660 /* LevelOrganizer.m */; };
 		2C3C990E14A2574400284A60 /* CollisionTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3C990D14A2574300284A60 /* CollisionTypes.m */; };
 		2C44B5B7147B194C000CF537 /* TagEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C44B5B6147B194C000CF537 /* TagEntitySystem.m */; };
 		2C44B5BB147B1960000CF537 /* GroupEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C44B5BA147B1960000CF537 /* GroupEntitySystem.m */; };
@@ -548,6 +550,9 @@
 		2C3A6F95148980AF002721E3 /* BeeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeComponent.m; path = Classes/Component/BeeComponent.m; sourceTree = "<group>"; };
 		2C3B0E5214A91E4D008949B0 /* EmailInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmailInfo.h; path = Classes/EmailInfo.h; sourceTree = "<group>"; };
 		2C3B0E5314A91E4D008949B0 /* EmailInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmailInfo.m; path = Classes/EmailInfo.m; sourceTree = "<group>"; };
+		2C3BA3D914B1D32D007B1660 /* Levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Levels.plist; sourceTree = "<group>"; };
+		2C3BA3DC14B1DBB9007B1660 /* LevelOrganizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelOrganizer.h; sourceTree = "<group>"; };
+		2C3BA3DD14B1DBBA007B1660 /* LevelOrganizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelOrganizer.m; sourceTree = "<group>"; };
 		2C3C990D14A2574300284A60 /* CollisionTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionTypes.m; path = Classes/CollisionTypes.m; sourceTree = "<group>"; };
 		2C44B5B5147B194C000CF537 /* TagEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagEntitySystem.h; path = Classes/Artemis/TagEntitySystem.h; sourceTree = "<group>"; };
 		2C44B5B6147B194C000CF537 /* TagEntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagEntitySystem.m; path = Classes/Artemis/TagEntitySystem.m; sourceTree = "<group>"; };
@@ -1105,6 +1110,7 @@
 		2C3A6F6F14898085002721E3 /* Level */ = {
 			isa = PBXGroup;
 			children = (
+				2C3BA3D914B1D32D007B1660 /* Levels.plist */,
 				2C8A4B76149433CF00C0C154 /* Level-A1-hd.jpg */,
 				2CDD5E58149429F600C40D58 /* Level-A1-Layout.plist */,
 				2CDD5E5D14942C9300C40D58 /* Level-A1-Shapes.plist */,
@@ -1165,6 +1171,8 @@
 				2C596D3814A13FDD00DFCC14 /* LevelLayoutEntry.m */,
 				2C596D3914A13FDD00DFCC14 /* LevelLoader.h */,
 				2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */,
+				2C3BA3DC14B1DBB9007B1660 /* LevelOrganizer.h */,
+				2C3BA3DD14B1DBBA007B1660 /* LevelOrganizer.m */,
 			);
 			name = Level;
 			path = Classes/Level;
@@ -1724,6 +1732,7 @@
 				2C6A92A7149B8CF300600E15 /* Level-A3-Layout.plist in Resources */,
 				2C6A92A8149B8CF300600E15 /* Level-A3-Shapes.plist in Resources */,
 				2C6A92A9149B8CF300600E15 /* Level-A3.jpg in Resources */,
+				2C3BA3DA14B1D32D007B1660 /* Levels.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1921,6 +1930,7 @@
 				2C596D3E14A13FDD00DFCC14 /* LevelLoader.m in Sources */,
 				2C3C990E14A2574400284A60 /* CollisionTypes.m in Sources */,
 				2C3B0E5414A91E4D008949B0 /* EmailInfo.m in Sources */,
+				2C3BA3DE14B1DBBA007B1660 /* LevelOrganizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
