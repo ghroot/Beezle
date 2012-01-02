@@ -10,7 +10,7 @@
 
 @interface LevelLoader : NSObject
 
-+(LevelLoader *) loader;
++(LevelLoader *) sharedLoader;
 
 -(void) loadLevel:(NSString *)levelName inWorld:(World *)world;
 

@@ -19,9 +19,14 @@
 
 @implementation LevelLoader
 
-+(LevelLoader *) loader
++(LevelLoader *) sharedLoader
 {
-	return [[[self alloc] init] autorelease];
+    static LevelLoader *loader = 0;
+    if(!loader)
+    {
+        loader = [[self alloc] init];
+    }
+    return loader;
 }
 
 -(void) loadLevel:(NSString *)levelName inWorld:(World *)world

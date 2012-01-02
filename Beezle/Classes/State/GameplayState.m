@@ -62,7 +62,7 @@
 		[self createWorldAndSystems];
         [self createModes];
 		[self preloadSounds];
-		[[LevelLoader loader] loadLevel:_levelName inWorld:_world];
+		[[LevelLoader sharedLoader] loadLevel:_levelName inWorld:_world];
     }
     return self;
 }

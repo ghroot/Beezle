@@ -48,7 +48,7 @@
 		
 		[self createUI];
 		[self createWorldAndSystems];
-		[[LevelLoader loader] loadLevel:_levelName inWorld:_world];
+		[[LevelLoader sharedLoader] loadLevel:_levelName inWorld:_world];
     }
     return self;
 }
