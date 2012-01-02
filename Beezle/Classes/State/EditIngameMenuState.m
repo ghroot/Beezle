@@ -10,6 +10,7 @@
 #import "EditState.h"
 #import "Game.h"
 #import "GameplayState.h"
+#import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "MainMenuState.h"
 
@@ -27,6 +28,8 @@
 		[_menu addChild:resumeMenuItem];
 		CCMenuItem *tryMenuItem = [CCMenuItemFont itemFromString:@"Try" target:self selector:@selector(tryGame:)];
 		[_menu addChild:tryMenuItem];
+		CCMenuItem *saveMenuItem = [CCMenuItemFont itemFromString:@"Save" target:self selector:@selector(saveLevel:)];
+		[_menu addChild:saveMenuItem];
 		CCMenuItem *resetMenuItem = [CCMenuItemFont itemFromString:@"Reset" target:self selector:@selector(resetGame:)];
 		[_menu addChild:resetMenuItem];
 		CCMenuItem *quitMenuItem = [CCMenuItemFont itemFromString:@"Quit" target:self selector:@selector(gotoMainMenu:)];
@@ -51,10 +54,44 @@
 	[_game popState];
 	EditState *editState = (EditState *)[_game currentState];
 	
-	// Replace cached version of level layout
-	[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayoutWithWorld:[editState world] levelName:[editState levelName]];
+	NSString *levelName = [editState levelName];
+	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+	int currentVersion = [levelLayout version];
 	
-	[_game replaceState:[GameplayState stateWithLevelName:[editState levelName]]];
+	// Replace cached version of level layout
+	[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayoutWithWorld:[editState world] levelName:levelName version:currentVersion];
+	
+	[_game replaceState:[GameplayState stateWithLevelName:levelName]];
+}
+
+-(void) saveLevel:(id)sender
+{
+	// This assumes the previous state was the edit state
+	[_game popState];
+	EditState *editState = (EditState *)[_game currentState];
+	
+	NSString *levelName = [editState levelName];
+	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+	int nextVersion = [levelLayout version] + 1;
+	
+	// Replace cached version of level layout
+	[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayoutWithWorld:[editState world] levelName:levelName version:nextVersion];
+	
+	// Save level as dictionary to a file
+	NSDictionary *levelAsDictionary = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutAsDictinaryByName:levelName];
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
+	NSString *filePath = [documentsDirectory stringByAppendingPathComponent:levelFileName];
+	BOOL success = [levelAsDictionary writeToFile:filePath atomically:TRUE];
+	if (success)
+	{
+		NSLog(@"%@v%i saved successfully!", levelName, nextVersion);
+	}
+	else
+	{
+		NSLog(@"%@ failed to save...", levelName);
+	}
 }
 
 -(void) resetGame:(id)sender
@@ -65,6 +102,13 @@
 	
 	// Remove cached version of level layout
 	[[LevelLayoutCache sharedLevelLayoutCache] purgeCachedLevelLayout:[editState levelName]];
+	
+	// Remove level as dictionary in a file
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", [editState levelName]];
+	NSString *filePath = [documentsDirectory stringByAppendingPathComponent:levelFileName];
+	[[NSFileManager defaultManager] removeItemAtPath:filePath error:NULL];
 	
 	[_game replaceState:[EditState stateWithLevelName:[editState levelName]]];
 }

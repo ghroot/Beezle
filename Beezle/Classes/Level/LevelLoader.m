@@ -30,12 +30,25 @@
 	
 	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
 	
+	NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
+	
 	if (levelLayout == nil)
 	{
-		NSString *layoutFile = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
-		[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayoutsWithFile:layoutFile];
-		
+		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
+		NSString *documentsDirectory = [paths objectAtIndex:0];
+		NSString *filePath = [documentsDirectory stringByAppendingPathComponent:levelFileName];
+		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
+		if (dict != nil)
+		{
+			[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayoutsWithDictionary:dict];
+		}
+		else
+		{
+			[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayoutsWithFile:levelFileName];
+		}
 		levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+		
+		NSLog(@"Loading %@v%i", [levelLayout levelName], [levelLayout version]);
 	}
 	
 	Entity *backgroundEntity = [EntityFactory createBackground:world withLevelName:levelName];

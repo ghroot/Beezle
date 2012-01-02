@@ -122,9 +122,11 @@ static LevelLayoutCache *sharedLevelLayoutCache;
     return CGPointMake([[array objectAtIndex:0] floatValue], [[array objectAtIndex:1] floatValue]);
 }
 
--(void) addLevelLayoutWithWorld:(World *)world levelName:(NSString *)levelName
+-(void) addLevelLayoutWithWorld:(World *)world levelName:(NSString *)levelName version:(int)version
 {
 	LevelLayout *levelLayout = [[[LevelLayout alloc] initWithLevelName:levelName] autorelease];
+	
+	[levelLayout setVersion:version];
 	
 	for (Entity *entity in [[world entityManager] entities])
 	{
@@ -164,6 +166,46 @@ static LevelLayoutCache *sharedLevelLayoutCache;
 -(LevelLayout *) levelLayoutByName:(NSString *)levelName
 {
     return [_levelLayoutsByName objectForKey:levelName];
+}
+
+-(NSDictionary *) levelLayoutAsDictinaryByName:(NSString *)name
+{
+	LevelLayout *levelLayout = [self levelLayoutByName:name];
+	
+	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	
+	NSMutableDictionary *levels = [NSMutableDictionary dictionary];
+	[dict setObject:levels forKey:@"levels"];
+	
+	NSMutableDictionary *level = [NSMutableDictionary dictionary];
+	[levels setObject:level forKey:[levelLayout levelName]];
+	[level setObject:[NSNumber numberWithInt:[levelLayout version]] forKey:@"version"];
+	
+	NSMutableArray *entities = [NSMutableArray array];
+	for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
+	{
+		NSMutableDictionary *entity = [NSMutableDictionary dictionary];
+		
+		[entity setObject:[levelLayoutEntry type] forKey:@"type"];
+		[entity setObject:[NSString stringWithFormat:@"{ %.2f, %.2f }", [levelLayoutEntry position].x, [levelLayoutEntry position].y] forKey:@"position"];
+		[entity setObject:[NSNumber numberWithBool:[levelLayoutEntry mirrored]] forKey:@"mirrored"];
+		[entity setObject:[NSNumber numberWithInt:[levelLayoutEntry rotation]] forKey:@"rotation"];
+		
+		if ([[levelLayoutEntry type] isEqualToString:@"SLINGER"])
+		{
+			NSMutableArray *bees = [NSMutableArray arrayWithArray:[levelLayoutEntry beeTypesAsStrings]];
+			[entity setObject:bees forKey:@"bees"];
+		}
+		else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER"])
+		{
+			[entity setObject:[levelLayoutEntry beeTypeAsString] forKey:@"bee"];
+		}
+		
+		[entities addObject:entity];
+	}
+	[level setObject:entities forKey:@"entities"];
+	
+	return dict;
 }
 
 -(void) purgeAllCachedLevelLayouts
