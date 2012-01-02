@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2C068A34146858B9003E200D /* TransformComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C068A33146858B9003E200D /* TransformComponent.m */; };
-		2C0D500214A8CDA300466316 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0D500114A8CDA300466316 /* MessageUI.framework */; };
 		2C0D500414A8CDBC00466316 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0D500314A8CDBC00466316 /* MessageUI.framework */; };
 		2C114769148B9459002E4DBD /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C11466D148B9459002E4DBD /* CCAction.m */; };
 		2C11476A148B9459002E4DBD /* CCActionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C11466F148B9459002E4DBD /* CCActionCamera.m */; };
@@ -288,7 +287,6 @@
 /* Begin PBXFileReference section */
 		2C068A32146858B9003E200D /* TransformComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransformComponent.h; path = Classes/Component/TransformComponent.h; sourceTree = "<group>"; };
 		2C068A33146858B9003E200D /* TransformComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransformComponent.m; path = Classes/Component/TransformComponent.m; sourceTree = "<group>"; };
-		2C0D500114A8CDA300466316 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		2C0D500314A8CDBC00466316 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		2C11466C148B9459002E4DBD /* CCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAction.h; sourceTree = "<group>"; };
 		2C11466D148B9459002E4DBD /* CCAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAction.m; sourceTree = "<group>"; };
@@ -788,7 +786,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C0D500214A8CDA300466316 /* MessageUI.framework in Frameworks */,
 				2CEA3278145F66F7000FF575 /* QuartzCore.framework in Frameworks */,
 				2CEA327A145F66F7000FF575 /* OpenGLES.framework in Frameworks */,
 				2CEA327C145F66F7000FF575 /* OpenAL.framework in Frameworks */,
@@ -1381,7 +1378,6 @@
 		2CEA3268145F66F7000FF575 = {
 			isa = PBXGroup;
 			children = (
-				2C0D500114A8CDA300466316 /* MessageUI.framework */,
 				2CEA3287145F66F7000FF575 /* Beezle */,
 				2CADCC8814746BA100302475 /* ArtemisTests */,
 				2CEA3276145F66F7000FF575 /* Frameworks */,
