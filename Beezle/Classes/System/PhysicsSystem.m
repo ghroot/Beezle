@@ -40,8 +40,6 @@
 
 -(void) initialise
 {   
-    cpInitChipmunk();
-	
 	_space = [[ChipmunkSpace alloc] init];
 	[_space setSleepTimeThreshold:1.0f];
 	[_space setData:self];
