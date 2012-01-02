@@ -221,6 +221,7 @@
 		2CDD5E641494307800C40D58 /* Level-A2-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDD5E601494307800C40D58 /* Level-A2-Layout.plist */; };
 		2CDD5E651494307800C40D58 /* Level-A2-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDD5E611494307800C40D58 /* Level-A2-Shapes.plist */; };
 		2CDD5E661494307800C40D58 /* Level-A2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CDD5E621494307800C40D58 /* Level-A2.jpg */; };
+		2CE508CF14B1E98300A9E8D8 /* LevelSelectMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */; };
 		2CEA3278145F66F7000FF575 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3277145F66F7000FF575 /* QuartzCore.framework */; };
 		2CEA327A145F66F7000FF575 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3279145F66F7000FF575 /* OpenGLES.framework */; };
 		2CEA327C145F66F7000FF575 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA327B145F66F7000FF575 /* OpenAL.framework */; };
@@ -710,6 +711,8 @@
 		2CDD5E601494307800C40D58 /* Level-A2-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A2-Layout.plist"; sourceTree = "<group>"; };
 		2CDD5E611494307800C40D58 /* Level-A2-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A2-Shapes.plist"; sourceTree = "<group>"; };
 		2CDD5E621494307800C40D58 /* Level-A2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A2.jpg"; sourceTree = "<group>"; };
+		2CE508CD14B1E98300A9E8D8 /* LevelSelectMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectMenuState.h; sourceTree = "<group>"; };
+		2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectMenuState.m; sourceTree = "<group>"; };
 		2CEA3273145F66F7000FF575 /* Beezle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beezle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CEA3277145F66F7000FF575 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2CEA3279145F66F7000FF575 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1373,6 +1376,8 @@
 				2C6A92B1149CFE3900600E15 /* EditState.m */,
 				2CBC659C149EA50D00970A99 /* EditIngameMenuState.h */,
 				2CBC659D149EA50D00970A99 /* EditIngameMenuState.m */,
+				2CE508CD14B1E98300A9E8D8 /* LevelSelectMenuState.h */,
+				2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */,
 			);
 			name = State;
 			path = Classes/State;
@@ -1931,6 +1936,7 @@
 				2C3C990E14A2574400284A60 /* CollisionTypes.m in Sources */,
 				2C3B0E5414A91E4D008949B0 /* EmailInfo.m in Sources */,
 				2C3BA3DE14B1DBBA007B1660 /* LevelOrganizer.m in Sources */,
+				2CE508CF14B1E98300A9E8D8 /* LevelSelectMenuState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

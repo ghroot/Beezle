@@ -14,7 +14,7 @@
     CCMenu *_menu;
 }
 
--(void) startGame:(id)sender;
+-(void) selectLevel:(id)sender;
 -(void) startTest:(id)sender;
 
 @end

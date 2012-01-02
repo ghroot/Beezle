@@ -8,13 +8,9 @@
 
 #import "MainMenuState.h"
 #import "AppDelegate.h"
-#import "EditState.h"
 #import "EmailInfo.h"
-#import "EmptyState.h"
 #import "Game.h"
-#import "GameplayState.h"
-#import "LevelLayoutCache.h"
-#import "LevelOrganizer.h"
+#import "LevelSelectMenuState.h"
 #import "TestState.h"
 
 @implementation MainMenuState
@@ -27,13 +23,8 @@
         
         _menu = [CCMenu menuWithItems:nil];
 		
-		NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesForTheme:@"A"];
-        for (NSString *levelName in levelNames)
-        {
-            CCMenuItem *levelMenuItem = [CCMenuItemFont itemFromString:[NSString stringWithFormat:@"Play %@", levelName] target:self selector:@selector(startGame:)];
-            [levelMenuItem setUserData:levelName];
-            [_menu addChild:levelMenuItem];
-        }
+		CCMenuItem *playMenuItem = [CCMenuItemFont itemFromString:@"Play" target:self selector:@selector(selectLevel:)];
+		[_menu addChild:playMenuItem];
         CCMenuItem *testMenuItem = [CCMenuItemFont itemFromString:@"Test" target:self selector:@selector(startTest:)];
         [_menu addChild:testMenuItem];
         
@@ -44,10 +35,9 @@
     return self;
 }
 
--(void) startGame:(id)sender
+-(void) selectLevel:(id)sender
 {
-    NSString *levelName = (NSString *)[sender userData];
-	[_game replaceState:[GameplayState stateWithLevelName:levelName]];
+	[_game pushState:[LevelSelectMenuState stateWithTheme:@"A"]];
 	
 //	EmailInfo *emailInfo = [[EmailInfo alloc] init];
 //	[emailInfo setSubject:levelName];
