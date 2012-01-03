@@ -7,10 +7,9 @@
 //
 
 #import "MainMenuState.h"
-#import "AppDelegate.h"
-#import "EmailInfo.h"
 #import "Game.h"
 #import "LevelSelectMenuState.h"
+#import "LevelSender.h"
 #import "TestState.h"
 
 @implementation MainMenuState
@@ -25,6 +24,11 @@
 		
 		CCMenuItem *playMenuItem = [CCMenuItemFont itemFromString:@"Play" target:self selector:@selector(selectLevel:)];
 		[_menu addChild:playMenuItem];
+		if (CONFIG_CAN_EDIT_LEVELS)
+		{
+			CCMenuItem *sendMenuItem = [CCMenuItemFont itemFromString:@"Send Edited Levels" target:self selector:@selector(sendEditedLevels:)];
+			[_menu addChild:sendMenuItem];
+		}
         CCMenuItem *testMenuItem = [CCMenuItemFont itemFromString:@"Test" target:self selector:@selector(startTest:)];
         [_menu addChild:testMenuItem];
         
@@ -38,21 +42,11 @@
 -(void) selectLevel:(id)sender
 {
 	[_game pushState:[LevelSelectMenuState stateWithTheme:@"A"]];
-	
-//	EmailInfo *emailInfo = [[EmailInfo alloc] init];
-//	[emailInfo setSubject:levelName];
-//	[emailInfo setTo:@"marcus.lagerstrom@gmail.com"];
-//	[emailInfo setMessage:@"Here is level A3 v12!"];
+}
 
-	// Attachment
-//	NSString *path = [CCFileUtils fullPathFromRelativePath:levelFileName];
-//	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-//	NSString *errorString = nil;
-//	NSData *data = [NSPropertyListSerialization dataFromPropertyList:dict format:NSPropertyListXMLFormat_v1_0 errorDescription:&errorString];
-//	[emailInfo addAttachment:levelFileName data:data];
-	
-//	[(AppDelegate *)[[UIApplication sharedApplication] delegate] sendEmail:emailInfo];
-//	[emailInfo release];
+-(void) sendEditedLevels:(id)sender
+{
+	[[LevelSender sharedSender] sendEditedLevels];
 }
 
 -(void) startTest:(id)sender

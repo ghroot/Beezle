@@ -15,6 +15,7 @@
 }
 
 -(void) selectLevel:(id)sender;
+-(void) sendEditedLevels:(id)sender;
 -(void) startTest:(id)sender;
 
 @end
