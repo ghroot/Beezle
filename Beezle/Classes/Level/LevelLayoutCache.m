@@ -7,21 +7,7 @@
 //
 
 #import "LevelLayoutCache.h"
-#import "BeeaterComponent.h"
-#import "BeeTypes.h"
-#import "EditComponent.h"
 #import "LevelLayout.h"
-#import "LevelLayoutEntry.h"
-#import "SlingerComponent.h"
-#import "TransformComponent.h"
-
-static LevelLayoutCache *sharedLevelLayoutCache;
-
-@interface LevelLayoutCache()
-
--(CGPoint) stringToPosition:(NSString *)string;
-
-@end
 
 @implementation LevelLayoutCache
 
@@ -43,169 +29,51 @@ static LevelLayoutCache *sharedLevelLayoutCache;
 
 +(LevelLayoutCache *) sharedLevelLayoutCache
 {
-    if (!sharedLevelLayoutCache)
+    static LevelLayoutCache *cache = 0;
+    if (!cache)
     {
-        sharedLevelLayoutCache = [[LevelLayoutCache alloc] init];
+        cache = [[self alloc] init];
     }
-    return sharedLevelLayoutCache;
+    return cache;
 }
 
 -(void) addLevelLayout:(LevelLayout *)levelLayout
 {
-	[_levelLayoutsByName setObject:levelLayout forKey:[levelLayout levelName]];
+	NSMutableArray *layouts = [_levelLayoutsByName objectForKey:[levelLayout levelName]];
+	if (layouts == nil)
+	{
+		layouts = [NSMutableArray array];
+		[_levelLayoutsByName setObject:layouts forKey:[levelLayout levelName]];
+	}
+	[layouts addObject:levelLayout];
 }
 
--(void) addLevelLayoutsWithDictionary:(NSDictionary *)dict
+-(void) addLevelLayoutWithDictionary:(NSDictionary *)dict
 {
-    NSDictionary *levels = [dict objectForKey:@"levels"];
-    for (NSString *levelName in [levels allKeys])
-    {
-        LevelLayout *levelLayout = [[[LevelLayout alloc] initWithLevelName:levelName] autorelease];
-        
-        NSDictionary *level = [levels objectForKey:levelName];
-		
-		int version = [[level objectForKey:@"version"] intValue];
-		[levelLayout setVersion:version];
-		
-        NSArray *entities = [level objectForKey:@"entities"];
-        for (NSDictionary *entity in entities) 
-        {
-            LevelLayoutEntry *levelLayoutEntry = [[[LevelLayoutEntry alloc] init] autorelease];
-            
-            NSString *type = [entity objectForKey:@"type"];
-            [levelLayoutEntry setType:type];
-            
-            CGPoint position = [self stringToPosition:[entity objectForKey:@"position"]];
-            [levelLayoutEntry setPosition:position];
-            
-            BOOL mirrored = [[entity objectForKey:@"mirrored"] boolValue];
-            [levelLayoutEntry setMirrored:mirrored];
-            
-            int rotation = [[entity objectForKey:@"rotation"] intValue];
-            [levelLayoutEntry setRotation:rotation];
-            
-            if ([type isEqualToString:@"SLINGER"])
-            {
-                NSArray *beeTypesAsStrings = [entity objectForKey:@"bees"];
-                for (NSString *beeTypeAsString in beeTypesAsStrings)
-                {
-                    [levelLayoutEntry addBeeTypeAsString:beeTypeAsString];
-                }
-            }
-            else if ([type isEqualToString:@"BEEATER"])
-            {
-                NSString *beeTypeAsString = [entity objectForKey:@"bee"];
-                [levelLayoutEntry setBeeTypeAsString:beeTypeAsString];
-            }
-            
-            [levelLayout addLevelLayoutEntry:levelLayoutEntry];
-        }
-        
-		[self addLevelLayout:levelLayout];
-    }
-}
-
--(void) addLevelLayoutsWithFile:(NSString *)fileName
-{
-    NSString *path = [CCFileUtils fullPathFromRelativePath:fileName];
-	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-    
-	[self addLevelLayoutsWithDictionary:dict];
-}
-
--(CGPoint) stringToPosition:(NSString *)string
-{
-    NSString *modifiedString = string;
-    modifiedString = [modifiedString stringByReplacingOccurrencesOfString:@"{ " withString:@""];
-    modifiedString = [modifiedString stringByReplacingOccurrencesOfString:@" }" withString:@""];
-    NSArray *array = [modifiedString componentsSeparatedByString:@","];
-    return CGPointMake([[array objectAtIndex:0] floatValue], [[array objectAtIndex:1] floatValue]);
+	[self addLevelLayout:[LevelLayout layoutWithContentsOfDictionary:dict]];
 }
 
 -(void) addLevelLayoutWithWorld:(World *)world levelName:(NSString *)levelName version:(int)version
 {
-	LevelLayout *levelLayout = [[[LevelLayout alloc] initWithLevelName:levelName] autorelease];
-	
-	[levelLayout setVersion:version];
-	
-	for (Entity *entity in [[world entityManager] entities])
-	{
-		if ([entity hasComponent:[EditComponent class]])
-		{
-			LevelLayoutEntry *levelLayoutEntry = [[[LevelLayoutEntry alloc] init] autorelease];
-			
-			EditComponent *editComponent = (EditComponent *)[entity getComponent:[EditComponent class]];
-			TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
-			
-			[levelLayoutEntry setType:[editComponent levelLayoutType]];
-			[levelLayoutEntry setPosition:[transformComponent position]];
-			[levelLayoutEntry setMirrored:[transformComponent scale].x == -1];
-			[levelLayoutEntry setRotation:[transformComponent rotation]];
-			
-			if ([[editComponent levelLayoutType] isEqualToString:@"SLINGER"])
-			{
-				SlingerComponent *slingerComponent = (SlingerComponent *)[entity getComponent:[SlingerComponent class]];
-				for (BeeTypes *beeType in [slingerComponent queuedBeeTypes])
-				{
-					[levelLayoutEntry addBeeTypeAsString:[beeType string]];
-				}
-			}
-			else if ([[editComponent levelLayoutType] isEqualToString:@"BEEATER"])
-			{
-				BeeaterComponent *beeaterComponent = (BeeaterComponent *)[entity getComponent:[BeeaterComponent class]];
-				[levelLayoutEntry setBeeTypeAsString:[[beeaterComponent containedBeeType] string]];
-			}
-			
-			[levelLayout addLevelLayoutEntry:levelLayoutEntry];
-		}
-	}
-	
-	[self addLevelLayout:levelLayout];
+	[self addLevelLayout:[LevelLayout layoutWithContentsOfWorld:world levelName:levelName version:version]];
 }
 
--(LevelLayout *) levelLayoutByName:(NSString *)levelName
+-(NSArray *) allLevelLayoutsByName:(NSString *)levelName
 {
-    return [_levelLayoutsByName objectForKey:levelName];
+	return [_levelLayoutsByName objectForKey:levelName];
 }
 
--(NSDictionary *) levelLayoutAsDictinaryByName:(NSString *)name
+-(LevelLayout *) latestLevelLayoutByName:(NSString *)levelName
 {
-	LevelLayout *levelLayout = [self levelLayoutByName:name];
-	
-	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-	
-	NSMutableDictionary *levels = [NSMutableDictionary dictionary];
-	[dict setObject:levels forKey:@"levels"];
-	
-	NSMutableDictionary *level = [NSMutableDictionary dictionary];
-	[levels setObject:level forKey:[levelLayout levelName]];
-	[level setObject:[NSNumber numberWithInt:[levelLayout version]] forKey:@"version"];
-	
-	NSMutableArray *entities = [NSMutableArray array];
-	for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
+	NSMutableArray *layouts = [_levelLayoutsByName objectForKey:levelName];
+	if (layouts)
 	{
-		NSMutableDictionary *entity = [NSMutableDictionary dictionary];
-		
-		[entity setObject:[levelLayoutEntry type] forKey:@"type"];
-		[entity setObject:[NSString stringWithFormat:@"{ %.2f, %.2f }", [levelLayoutEntry position].x, [levelLayoutEntry position].y] forKey:@"position"];
-		[entity setObject:[NSNumber numberWithBool:[levelLayoutEntry mirrored]] forKey:@"mirrored"];
-		[entity setObject:[NSNumber numberWithInt:[levelLayoutEntry rotation]] forKey:@"rotation"];
-		
-		if ([[levelLayoutEntry type] isEqualToString:@"SLINGER"])
-		{
-			NSMutableArray *bees = [NSMutableArray arrayWithArray:[levelLayoutEntry beeTypesAsStrings]];
-			[entity setObject:bees forKey:@"bees"];
-		}
-		else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER"])
-		{
-			[entity setObject:[levelLayoutEntry beeTypeAsString] forKey:@"bee"];
-		}
-		
-		[entities addObject:entity];
+		return [layouts lastObject];
 	}
-	[level setObject:entities forKey:@"entities"];
-	
-	return dict;
+	else
+	{
+		return nil;
+	}
 }
 
 -(void) purgeAllCachedLevelLayouts

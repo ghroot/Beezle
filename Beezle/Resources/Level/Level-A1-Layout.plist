@@ -2,53 +2,49 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>levels</key>
-	<dict>
-		<key>Level-A1</key>
+	<key>name</key>
+	<string>Level-A1</string>
+	<key>version</key>
+	<integer>1</integer>
+	<key>entities</key>
+	<array>
 		<dict>
-			<key>version</key>
-			<integer>1</integer>
-			<key>entities</key>
+			<key>type</key>
+			<string>SLINGER</string>
+			<key>position</key>
+			<string>{ 100, 300 }</string>
+			<key>mirrored</key>
+			<false/>
+			<key>rotation</key>
+			<integer>0</integer>
+			<key>bees</key>
 			<array>
-				<dict>
-					<key>type</key>
-					<string>SLINGER</string>
-					<key>position</key>
-					<string>{ 100, 300 }</string>
-					<key>mirrored</key>
-					<false/>
-					<key>rotation</key>
-					<integer>0</integer>
-					<key>bees</key>
-					<array>
-						<string>BEE</string>
-						<string>BEE</string>
-					</array>
-				</dict>
-				<dict>
-					<key>type</key>
-					<string>POLLEN</string>
-					<key>position</key>
-					<string>{ 325, 295 }</string>
-					<key>mirrored</key>
-					<false/>
-					<key>rotation</key>
-					<integer>0</integer>
-				</dict>
-				<dict>
-					<key>type</key>
-					<string>BEEATER</string>
-					<key>position</key>
-					<string>{ 285, 32 }</string>
-					<key>mirrored</key>
-					<false/>
-					<key>rotation</key>
-					<integer>0</integer>
-					<key>bee</key>
-					<string>BEE</string>
-				</dict>
+				<string>BEE</string>
+				<string>BEE</string>
 			</array>
 		</dict>
-	</dict>
+		<dict>
+			<key>type</key>
+			<string>POLLEN</string>
+			<key>position</key>
+			<string>{ 325, 295 }</string>
+			<key>mirrored</key>
+			<false/>
+			<key>rotation</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>BEEATER</string>
+			<key>position</key>
+			<string>{ 285, 32 }</string>
+			<key>mirrored</key>
+			<false/>
+			<key>rotation</key>
+			<integer>0</integer>
+			<key>bee</key>
+			<string>BEE</string>
+		</dict>
+	</array>
 </dict>
 </plist>

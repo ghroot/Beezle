@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "EmailInfo.h"
 #import "Game.h"
-#import "GameplayState.h"
+#import "LevelLoader.h"
 #import "MainMenuState.h"
 #import "RootViewController.h"
 
@@ -40,7 +40,7 @@
 								   depthFormat:0						// GL_DEPTH_COMPONENT16_OES
 						];
 	
-	// attach the openglView to the director
+	// Attach the openglView to the director
 	[director setOpenGLView:glView];
 	
 	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
@@ -62,13 +62,16 @@
 	
 	// Make the View Controller a child of the main window
 	[_window addSubview: _viewController.view];
-	
 	[_window makeKeyAndVisible];
+	
+	if (CONFIG_CAN_EDIT_LEVELS)
+	{
+		[[LevelLoader sharedLoader] preloadAllLevelLayouts];
+	}
 	
     // Create game
     _game = [[Game alloc] init];
 	[_game startWithState:[MainMenuState state]];
-//    [_game startWithState:[GameplayState stateWithLevelName:@"Level-A5"]];
 }
 
 -(void) applicationWillResignActive:(UIApplication *)application

@@ -23,6 +23,8 @@
 @property (nonatomic, retain) NSString *beeTypeAsString;
 @property (nonatomic, retain) NSArray *beeTypesAsStrings;
 
++(LevelLayoutEntry *) entry;
+
 -(void) addBeeTypeAsString:(NSString *)beeTypeAsString;
 
 @end

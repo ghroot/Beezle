@@ -56,6 +56,11 @@
 	[self addLevelNamesWithDictionary:dict];
 }
 
+-(NSArray *) themes
+{
+	return [_levelNamesByTheme allKeys];
+}
+
 -(NSArray *) levelNamesForTheme:(NSString *)theme
 {
 	return [_levelNamesByTheme objectForKey:theme];

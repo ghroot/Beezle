@@ -17,6 +17,7 @@
 
 -(void) addLevelNamesWithDictionary:(NSDictionary *)dict;
 -(void) addLevelNamesWithFile:(NSString *)fileName;
+-(NSArray *) themes;
 -(NSArray *) levelNamesForTheme:(NSString *)theme;
 
 @end

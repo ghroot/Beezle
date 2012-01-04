@@ -6,6 +6,8 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import "artemis.h"
+
 @class LevelLayoutEntry;
 
 @interface LevelLayout : NSObject
@@ -19,8 +21,13 @@
 @property (nonatomic) int version;
 @property (nonatomic, readonly) NSArray *entries;
 
++(LevelLayout *) layout;
++(LevelLayout *) layoutWithContentsOfDictionary:(NSDictionary *)dict;
++(LevelLayout *) layoutWithContentsOfFile:(NSString *)filePath;
++(LevelLayout *) layoutWithContentsOfWorld:(World *)world levelName:(NSString *)levelName version:(int)version;
+
 -(id) initWithLevelName:(NSString *)levelName;
 
--(void) addLevelLayoutEntry:(LevelLayoutEntry *)entry;
+-(NSDictionary *) layoutAsDictionary;
 
 @end

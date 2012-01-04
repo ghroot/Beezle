@@ -14,15 +14,23 @@
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "LevelLayoutEntry.h"
+#import "LevelOrganizer.h"
 #import "PhysicsComponent.h"
 #import "TransformComponent.h"
+
+@interface LevelLoader()
+
+-(void) loadLevelLayoutOriginal:(NSString *)levelName;
+-(BOOL) loadLevelLayoutEdited:(NSString *)levelName;
+
+@end
 
 @implementation LevelLoader
 
 +(LevelLoader *) sharedLoader
 {
     static LevelLoader *loader = 0;
-    if(!loader)
+    if (!loader)
     {
         loader = [[self alloc] init];
     }
@@ -33,25 +41,16 @@
 {
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	
-	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
-	
-	NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
+	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] latestLevelLayoutByName:levelName];
 	
 	if (levelLayout == nil)
 	{
-		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
-		NSString *documentsDirectory = [paths objectAtIndex:0];
-		NSString *filePath = [documentsDirectory stringByAppendingPathComponent:levelFileName];
-		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
-		if (dict != nil)
+		[self loadLevelLayoutOriginal:levelName];
+		if (CONFIG_CAN_EDIT_LEVELS)
 		{
-			[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayoutsWithDictionary:dict];
+			[self loadLevelLayoutEdited:levelName];
 		}
-		else
-		{
-			[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayoutsWithFile:levelFileName];
-		}
-		levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+		levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] latestLevelLayoutByName:levelName];
 		
 		NSLog(@"Loading %@v%i", [levelLayout levelName], [levelLayout version]);
 	}
@@ -119,6 +118,55 @@
 			[entity refresh];
 		}
     }
+}
+
+-(void) preloadAllLevelLayouts
+{
+	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesForTheme:@"A"];
+	for (NSString *levelName in levelNames)
+	{
+		// Original
+		[self loadLevelLayoutOriginal:levelName];
+		
+		// Edited
+		[self loadLevelLayoutEdited:levelName];
+		
+		NSMutableString *string = [NSMutableString stringWithString:levelName];
+		NSArray *allLevelLayoutForLevel = [[LevelLayoutCache sharedLevelLayoutCache] allLevelLayoutsByName:levelName];
+		for (LevelLayout *levelLayout in allLevelLayoutForLevel)
+		{
+			[string appendFormat:@" v%i", [levelLayout version]];
+		}
+		NSLog(@"%@", string);
+	}
+}
+
+-(void) loadLevelLayoutOriginal:(NSString *)levelName
+{
+	// Load from bundle
+	NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
+	NSString *path = [CCFileUtils fullPathFromRelativePath:levelFileName];
+	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+	[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayoutWithDictionary:dict];
+}
+
+-(BOOL) loadLevelLayoutEdited:(NSString *)levelName
+{
+	// From from document directory
+	NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	NSString *filePath = [documentsDirectory stringByAppendingPathComponent:levelFileName];
+	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
+	if (dict != nil)
+	{
+		[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayoutWithDictionary:dict];
+		return TRUE;
+	}
+	else
+	{
+		return FALSE;
+	}
 }
 
 @end

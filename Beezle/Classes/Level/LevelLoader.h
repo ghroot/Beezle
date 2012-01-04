@@ -7,11 +7,13 @@
 //
 
 #import "artemis.h"
+#import "cocos2d.h"
 
 @interface LevelLoader : NSObject
 
 +(LevelLoader *) sharedLoader;
 
 -(void) loadLevel:(NSString *)levelName inWorld:(World *)world;
+-(void) preloadAllLevelLayouts;
 
 @end

@@ -55,7 +55,7 @@
 	EditState *editState = (EditState *)[_game currentState];
 	
 	NSString *levelName = [editState levelName];
-	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] latestLevelLayoutByName:levelName];
 	int currentVersion = [levelLayout version];
 	
 	// Replace cached version of level layout
@@ -71,14 +71,15 @@
 	EditState *editState = (EditState *)[_game currentState];
 	
 	NSString *levelName = [editState levelName];
-	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] latestLevelLayoutByName:levelName];
 	int nextVersion = [levelLayout version] + 1;
 	
 	// Replace cached version of level layout
 	[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayoutWithWorld:[editState world] levelName:levelName version:nextVersion];
 	
 	// Save level as dictionary to a file
-	NSDictionary *levelAsDictionary = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutAsDictinaryByName:levelName];
+	levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] latestLevelLayoutByName:levelName];
+	NSDictionary *levelAsDictionary = [levelLayout layoutAsDictionary];
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
 	NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];

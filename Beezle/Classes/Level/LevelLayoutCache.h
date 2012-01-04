@@ -18,11 +18,10 @@
 
 +(LevelLayoutCache *) sharedLevelLayoutCache;
 -(void) addLevelLayout:(LevelLayout *)levelLayout;
--(void) addLevelLayoutsWithDictionary:(NSDictionary *)dict;
--(void) addLevelLayoutsWithFile:(NSString *)fileName;
+-(void) addLevelLayoutWithDictionary:(NSDictionary *)dict;
 -(void) addLevelLayoutWithWorld:(World *)world levelName:(NSString *)levelName version:(int)version;
--(LevelLayout *) levelLayoutByName:(NSString *)name;
--(NSDictionary *) levelLayoutAsDictinaryByName:(NSString *)name;
+-(NSArray *) allLevelLayoutsByName:(NSString *)name;
+-(LevelLayout *) latestLevelLayoutByName:(NSString *)name;
 -(void) purgeAllCachedLevelLayouts;
 -(void) purgeCachedLevelLayout:(NSString *)levelName;
 

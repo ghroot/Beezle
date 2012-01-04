@@ -17,6 +17,11 @@
 @synthesize beeTypeAsString = _beeTypeAsString;
 @synthesize beeTypesAsStrings = _beeTypesAsStrings;
 
++(LevelLayoutEntry *) entry
+{
+	return [[[self alloc] init] autorelease];
+}
+
 -(id) init
 {
     if (self = [super init])
