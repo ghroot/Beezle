@@ -20,7 +20,6 @@
 #import "LevelLoader.h"
 #import "PhysicsSystem.h"
 #import "RenderSystem.h"
-#import "SimpleAudioEngine.h"
 #import "SlingerControlSystem.h"
 #import "TransformComponent.h"
 
@@ -29,7 +28,6 @@
 -(void) createUI;
 -(void) createWorldAndSystems;
 -(void) createModes;
--(void) preloadSounds;
 -(void) enterMode:(GameMode *)mode;
 -(void) updateMode;
 
@@ -61,7 +59,6 @@
 		[self createUI];
 		[self createWorldAndSystems];
         [self createModes];
-		[self preloadSounds];
 		[[LevelLoader sharedLoader] loadLevel:_levelName inWorld:_world];
     }
     return self;
@@ -161,17 +158,6 @@
     [_world release];
 	
 	[super dealloc];
-}
-
--(void) preloadSounds
-{
-	[[SimpleAudioEngine sharedEngine] setEnabled:FALSE];
-	
-//    [[SimpleAudioEngine sharedEngine] preloadEffect:@"11097__a43__a43-blipp.aif"];
-//    [[SimpleAudioEngine sharedEngine] preloadEffect:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
-//    [[SimpleAudioEngine sharedEngine] preloadEffect:@"27134__zippi1__fart1.wav"];
-//    [[SimpleAudioEngine sharedEngine] preloadEffect:@"52144__blaukreuz__imp-02.m4a"];
-//    [[SimpleAudioEngine sharedEngine] preloadEffect:@"33369__herbertboland__mouthpop.wav"];
 }
 
 -(void) enter

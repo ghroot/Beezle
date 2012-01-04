@@ -11,6 +11,7 @@
 #import "Game.h"
 #import "LevelLoader.h"
 #import "MainMenuState.h"
+#import "SoundManager.h"
 #import "RootViewController.h"
 
 @implementation AppDelegate
@@ -68,6 +69,9 @@
 	{
 		[[LevelLoader sharedLoader] preloadAllLevelLayouts];
 	}
+	
+	// Preload sounds
+	[[SoundManager sharedManager] preloadSounds];
 	
     // Create game
     _game = [[Game alloc] init];

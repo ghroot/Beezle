@@ -19,8 +19,8 @@
 #import "PhysicsSystem.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
-#import "SimpleAudioEngine.h"
 #import "SlingerComponent.h"
+#import "SoundManager.h"
 #import "TagManager.h"
 #import "TransformComponent.h"
 
@@ -138,7 +138,7 @@
         RenderComponent *rampRenderComponent = (RenderComponent *)[rampEntity getComponent:[RenderComponent class]];
         [rampRenderComponent playAnimation:@"Ramp-Crash" withCallbackTarget:rampEntity andCallbackSelector:@selector(deleteEntity)];
         
-        [[SimpleAudioEngine sharedEngine] playEffect:@"52144__blaukreuz__imp-02.m4a"];
+		[[SoundManager sharedManager] playSound:@"52144__blaukreuz__imp-02.m4a"];
     }
 }
 
@@ -214,7 +214,7 @@
         RenderComponent *mushroomRenderComponent = (RenderComponent *)[mushroomEntity getComponent:[RenderComponent class]];
         [mushroomRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Mushroom-Bounce", @"Mushroom-Idle", nil]];
     
-		[[SimpleAudioEngine sharedEngine] playEffect:@"11097__a43__a43-blipp.aif"];
+		[[SoundManager sharedManager] playSound:@"11097__a43__a43-blipp.aif"];
     }
 }
 
@@ -236,7 +236,7 @@
 			RenderComponent *woodRenderComponent = (RenderComponent *)[woodEntity getComponent:[RenderComponent class]];
 			[woodRenderComponent playAnimation:@"Wood-Destroy" withCallbackTarget:woodEntity andCallbackSelector:@selector(deleteEntity)];
 			
-			[[SimpleAudioEngine sharedEngine] playEffect:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
+			[[SoundManager sharedManager] playSound:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
 		}
 	}
 }

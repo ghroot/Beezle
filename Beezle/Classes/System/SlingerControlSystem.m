@@ -14,8 +14,8 @@
 #import "InputAction.h"
 #import "InputSystem.h"
 #import "RenderComponent.h"
-#import "SimpleAudioEngine.h"
 #import "SlingerComponent.h"
+#import "SoundManager.h"
 #import "TouchTypes.h"
 #import "TrajectoryComponent.h"
 #import "TransformComponent.h"
@@ -118,7 +118,7 @@
 					
 					[renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];
 					
-					[[SimpleAudioEngine sharedEngine] playEffect:@"33369__herbertboland__mouthpop.wav"];
+					[[SoundManager sharedManager] playSound:@"33369__herbertboland__mouthpop.wav"];
 					
 					[trajectoryComponent reset];
 					

@@ -188,6 +188,7 @@
 		2C7CE62E146FE14E001F331F /* Boundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE62D146FE14D001F331F /* Boundry.m */; };
 		2C7CE631146FE161001F331F /* CircularBoundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE630146FE160001F331F /* CircularBoundry.m */; };
 		2C827D3814840C4900517C8F /* RenderSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C827D3714840C4700517C8F /* RenderSprite.m */; };
+		2C853D6314B4D7C600C90C55 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C853D6214B4D7C600C90C55 /* SoundManager.m */; };
 		2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B83B149563ED005D7BAB /* DisposableComponent.m */; };
 		2C85B84014957285005D7BAB /* CollisionMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B83F14957285005D7BAB /* CollisionMediator.m */; };
 		2C88B5D114A3DA8700B5B190 /* libObjectiveChipmunk-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C88B5CF14A3DA8700B5B190 /* libObjectiveChipmunk-iPhone.a */; };
@@ -623,6 +624,8 @@
 		2C7CE630146FE160001F331F /* CircularBoundry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircularBoundry.m; path = Classes/Component/CircularBoundry.m; sourceTree = "<group>"; };
 		2C827D3614840C4600517C8F /* RenderSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderSprite.h; path = Classes/Component/RenderSprite.h; sourceTree = "<group>"; };
 		2C827D3714840C4700517C8F /* RenderSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSprite.m; path = Classes/Component/RenderSprite.m; sourceTree = "<group>"; };
+		2C853D6114B4D7C600C90C55 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundManager.h; path = Classes/SoundManager.h; sourceTree = "<group>"; };
+		2C853D6214B4D7C600C90C55 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoundManager.m; path = Classes/SoundManager.m; sourceTree = "<group>"; };
 		2C85B83A149563ED005D7BAB /* DisposableComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DisposableComponent.h; path = Classes/Component/DisposableComponent.h; sourceTree = "<group>"; };
 		2C85B83B149563ED005D7BAB /* DisposableComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DisposableComponent.m; path = Classes/Component/DisposableComponent.m; sourceTree = "<group>"; };
 		2C85B83E14957285005D7BAB /* CollisionMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionMediator.h; path = Classes/System/CollisionMediator.h; sourceTree = "<group>"; };
@@ -1533,6 +1536,8 @@
 				2C596D2F14A0A34A00DFCC14 /* EntityUtil.m */,
 				2C3B0E5214A91E4D008949B0 /* EmailInfo.h */,
 				2C3B0E5314A91E4D008949B0 /* EmailInfo.m */,
+				2C853D6114B4D7C600C90C55 /* SoundManager.h */,
+				2C853D6214B4D7C600C90C55 /* SoundManager.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1933,6 +1938,7 @@
 				2C3BA3DE14B1DBBA007B1660 /* LevelOrganizer.m in Sources */,
 				2CE508CF14B1E98300A9E8D8 /* LevelSelectMenuState.m in Sources */,
 				2CE508D314B31D2B00A9E8D8 /* LevelSender.m in Sources */,
+				2C853D6314B4D7C600C90C55 /* SoundManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
