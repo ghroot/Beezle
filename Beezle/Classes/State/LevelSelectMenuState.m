@@ -9,6 +9,8 @@
 #import "LevelSelectMenuState.h"
 #import "Game.h"
 #import "GameplayState.h"
+#import "LevelLayout.h"
+#import "LevelLayoutCache.h"
 #import "LevelOrganizer.h"
 
 @implementation LevelSelectMenuState
@@ -42,6 +44,13 @@
         [_menu alignItemsVertically];
         
         [self addChild:_menu];
+		
+		for (NSString *levelName in levelNames)
+		{
+			LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+			NSString *string = [NSString stringWithFormat:@"%@v%i (%@)", levelName, [levelLayout version], ([levelLayout isEdited] ? @"edited" : @"original")];
+			NSLog(@"%@", string);
+		}
     }
     return self;
 }

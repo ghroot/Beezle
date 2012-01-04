@@ -15,11 +15,13 @@
 	NSString *_levelName;
 	int _version;
     NSMutableArray *_entries;
+	BOOL _isEdited;
 }
 
 @property (nonatomic, retain) NSString *levelName;
 @property (nonatomic) int version;
 @property (nonatomic, readonly) NSArray *entries;
+@property (nonatomic) BOOL isEdited;
 
 +(LevelLayout *) layout;
 +(LevelLayout *) layoutWithContentsOfDictionary:(NSDictionary *)dict;
@@ -28,6 +30,7 @@
 
 -(id) initWithLevelName:(NSString *)levelName;
 
+-(void) addLevelLayoutEntry:(LevelLayoutEntry *)entry;
 -(NSDictionary *) layoutAsDictionary;
 
 @end

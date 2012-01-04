@@ -17,7 +17,7 @@
 -(void) resumeGame:(id)sender;
 -(void) tryGame:(id)sender;
 -(void) saveLevel:(id)sender;
--(void) resetGame:(id)sender;
+-(void) resetLevel:(id)sender;
 -(void) gotoMainMenu:(id)sender;
 
 @end

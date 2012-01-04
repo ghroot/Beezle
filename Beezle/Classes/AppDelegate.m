@@ -10,6 +10,7 @@
 #import "EmailInfo.h"
 #import "Game.h"
 #import "LevelLoader.h"
+#import "LevelOrganizer.h"
 #import "MainMenuState.h"
 #import "SoundManager.h"
 #import "RootViewController.h"
@@ -65,13 +66,12 @@
 	[_window addSubview: _viewController.view];
 	[_window makeKeyAndVisible];
 	
+	// Preload resources
+	[[SoundManager sharedManager] preloadSounds];
 	if (CONFIG_CAN_EDIT_LEVELS)
 	{
-		[[LevelLoader sharedLoader] preloadAllLevelLayouts];
+		[self preloadAllLevelLayouts];
 	}
-	
-	// Preload sounds
-	[[SoundManager sharedManager] preloadSounds];
 	
     // Create game
     _game = [[Game alloc] init];
@@ -119,6 +119,22 @@
 -(void) applicationSignificantTimeChange:(UIApplication *)application
 {
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
+}
+
+-(void) preloadAllLevelLayouts
+{
+	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] allLevelNames];
+	for (NSString *levelName in levelNames)
+	{
+		// Original
+		[[LevelLoader sharedLoader] loadLevelLayoutOriginal:levelName];
+		
+		if (CONFIG_CAN_EDIT_LEVELS)
+		{
+			// Edited (will replace original if it exists)
+			[[LevelLoader sharedLoader] loadLevelLayoutEdited:levelName];
+		}
+	}
 }
 
 -(void) sendEmail:(EmailInfo *)emailInfo

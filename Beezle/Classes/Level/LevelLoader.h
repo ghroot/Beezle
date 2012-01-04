@@ -13,7 +13,8 @@
 
 +(LevelLoader *) sharedLoader;
 
+-(BOOL) loadLevelLayoutOriginal:(NSString *)levelName;
+-(BOOL) loadLevelLayoutEdited:(NSString *)levelName;
 -(void) loadLevel:(NSString *)levelName inWorld:(World *)world;
--(void) preloadAllLevelLayouts;
 
 @end

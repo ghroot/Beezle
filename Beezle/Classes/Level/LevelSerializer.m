@@ -1,38 +1,40 @@
 //
-//  LevelLayout.m
+//  LevelSerializer.m
 //  Beezle
 //
-//  Created by Me on 03/12/2011.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Me on 04/01/2012.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "LevelLayout.h"
+#import "LevelSerializer.h"
 #import "BeeaterComponent.h"
 #import "EditComponent.h"
+#import "LevelLayout.h"
+#import "LevelLayoutCache.h"
 #import "LevelLayoutEntry.h"
 #import "SlingerComponent.h"
 #import "TransformComponent.h"
 
-@interface LevelLayout()
+@interface LevelSerializer()
 
--(void) addLevelLayoutEntry:(LevelLayoutEntry *)entry;
-+(CGPoint) stringToPosition:(NSString *)string;
+-(CGPoint) stringToPosition:(NSString *)string;
 
 @end
 
-@implementation LevelLayout
+@implementation LevelSerializer
 
-@synthesize levelName = _levelName;
-@synthesize version = _version;
-@synthesize entries = _entries;
-
-+(LevelLayout *) layout
++(LevelSerializer *) sharedSerializer
 {
-	return [[[self alloc] init] autorelease];
+    static LevelSerializer *serializer = 0;
+    if (!serializer)
+    {
+        serializer = [[self alloc] init];
+    }
+    return serializer;
 }
 
-+(LevelLayout *) layoutWithContentsOfDictionary:(NSDictionary *)dict
-{	
+-(LevelLayout *) layoutFromDictionary:(NSDictionary *)dict
+{
 	LevelLayout *levelLayout = [LevelLayout layout];
 	
 	NSString *levelName = [dict objectForKey:@"name"];
@@ -74,16 +76,45 @@
 		
 		[levelLayout addLevelLayoutEntry:levelLayoutEntry];
 	}
-        
+	
 	return levelLayout;
 }
-
-+(LevelLayout *) layoutWithContentsOfFile:(NSString *)filePath
+ 
+-(NSDictionary *) dictionaryFromLayout:(LevelLayout *)layout
 {
-	return [self layoutWithContentsOfDictionary:[NSDictionary dictionaryWithContentsOfFile:filePath]];
+	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	
+	[dict setObject:[layout levelName] forKey:@"name"];
+	[dict setObject:[NSNumber numberWithInt:[layout version]] forKey:@"version"];
+	
+	NSMutableArray *entities = [NSMutableArray array];
+	for (LevelLayoutEntry *levelLayoutEntry in [layout entries])
+	{
+		NSMutableDictionary *entity = [NSMutableDictionary dictionary];
+		
+		[entity setObject:[levelLayoutEntry type] forKey:@"type"];
+		[entity setObject:[NSString stringWithFormat:@"{ %.2f, %.2f }", [levelLayoutEntry position].x, [levelLayoutEntry position].y] forKey:@"position"];
+		[entity setObject:[NSNumber numberWithBool:[levelLayoutEntry mirrored]] forKey:@"mirrored"];
+		[entity setObject:[NSNumber numberWithInt:[levelLayoutEntry rotation]] forKey:@"rotation"];
+		
+		if ([[levelLayoutEntry type] isEqualToString:@"SLINGER"])
+		{
+			NSMutableArray *bees = [NSMutableArray arrayWithArray:[levelLayoutEntry beeTypesAsStrings]];
+			[entity setObject:bees forKey:@"bees"];
+		}
+		else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER"])
+		{
+			[entity setObject:[levelLayoutEntry beeTypeAsString] forKey:@"bee"];
+		}
+		
+		[entities addObject:entity];
+	}
+	[dict setObject:entities forKey:@"entities"];
+	
+	return dict;
 }
 
-+(LevelLayout *) layoutWithContentsOfWorld:(World *)world levelName:(NSString *)levelName version:(int)version
+-(LevelLayout *) layoutFromWorld:(World *)world levelName:(NSString *)levelName version:(int)version
 {
 	LevelLayout *levelLayout = [LevelLayout layout];
 	
@@ -125,71 +156,7 @@
 	return levelLayout;
 }
 
-// Designated initialiser
--(id) initWithLevelName:(NSString *)levelName
-{
-	if (self = [super init])
-    {
-		_levelName = [levelName retain];
-		_version = 0;
-        _entries = [[NSMutableArray alloc] init];
-    }
-    return self;
-}
-
--(id) init
-{
-    return [self initWithLevelName:nil];
-}
-
--(void) dealloc
-{
-	[_levelName release];
-    [_entries release];
-    
-    [super dealloc];
-}
-
--(void) addLevelLayoutEntry:(LevelLayoutEntry *)entry
-{
-    [_entries addObject:entry];
-}
-
--(NSDictionary *) layoutAsDictionary
-{
-	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-	
-	[dict setObject:_levelName forKey:@"name"];
-	[dict setObject:[NSNumber numberWithInt:_version] forKey:@"version"];
-	
-	NSMutableArray *entities = [NSMutableArray array];
-	for (LevelLayoutEntry *levelLayoutEntry in _entries)
-	{
-		NSMutableDictionary *entity = [NSMutableDictionary dictionary];
-		
-		[entity setObject:[levelLayoutEntry type] forKey:@"type"];
-		[entity setObject:[NSString stringWithFormat:@"{ %.2f, %.2f }", [levelLayoutEntry position].x, [levelLayoutEntry position].y] forKey:@"position"];
-		[entity setObject:[NSNumber numberWithBool:[levelLayoutEntry mirrored]] forKey:@"mirrored"];
-		[entity setObject:[NSNumber numberWithInt:[levelLayoutEntry rotation]] forKey:@"rotation"];
-		
-		if ([[levelLayoutEntry type] isEqualToString:@"SLINGER"])
-		{
-			NSMutableArray *bees = [NSMutableArray arrayWithArray:[levelLayoutEntry beeTypesAsStrings]];
-			[entity setObject:bees forKey:@"bees"];
-		}
-		else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER"])
-		{
-			[entity setObject:[levelLayoutEntry beeTypeAsString] forKey:@"bee"];
-		}
-		
-		[entities addObject:entity];
-	}
-	[dict setObject:entities forKey:@"entities"];
-	
-	return dict;
-}
-
-+(CGPoint) stringToPosition:(NSString *)string
+-(CGPoint) stringToPosition:(NSString *)string
 {
     NSString *modifiedString = string;
     modifiedString = [modifiedString stringByReplacingOccurrencesOfString:@"{ " withString:@""];

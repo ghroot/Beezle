@@ -66,4 +66,15 @@
 	return [_levelNamesByTheme objectForKey:theme];
 }
 
+-(NSArray *) allLevelNames
+{
+	NSMutableArray *allLevelNames = [NSMutableArray array];
+	for (NSString *theme in [self themes])
+	{
+		NSArray *levelNames = [self levelNamesForTheme:theme];
+		[allLevelNames addObjectsFromArray:levelNames];
+	}
+	return allLevelNames;
+}
+
 @end

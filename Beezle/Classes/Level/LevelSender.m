@@ -9,7 +9,12 @@
 #import "LevelSender.h"
 #import "AppDelegate.h"
 #import "EmailInfo.h"
+#import "LevelLayout.h"
+#import "LevelLayoutCache.h"
 #import "LevelOrganizer.h"
+
+#define EMAIL_SUBJECT @"Beezle Levels"
+#define EMAIL_ADDRESS @"marcus.lagerstrom@gmail.com"
 
 @implementation LevelSender
 
@@ -26,29 +31,25 @@
 -(void) sendEditedLevels
 {
 	EmailInfo *emailInfo = [[EmailInfo alloc] init];
-	[emailInfo setSubject:@"Beezle Levels"];
-	[emailInfo setTo:@"marcus.lagerstrom@gmail.com"];
+	[emailInfo setSubject:EMAIL_SUBJECT];
+	[emailInfo setTo:EMAIL_ADDRESS];
 	
 	// Message
 	NSMutableString *message = [NSMutableString string];
 	
 	// Attachments
-	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesForTheme:@"A"];
+	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] allLevelNames];
 	for (NSString *levelName in levelNames)
 	{
-		NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
-		
-		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
-		NSString *documentsDirectory = [paths objectAtIndex:0];
-		NSString *filePath = [documentsDirectory stringByAppendingPathComponent:levelFileName];
-		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
-		if (dict != nil)
+		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+		if ([levelLayout isEdited])
 		{
+			NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
 			NSString *errorString = nil;
-			NSData *data = [NSPropertyListSerialization dataFromPropertyList:dict format:NSPropertyListXMLFormat_v1_0 errorDescription:&errorString];
+			NSData *data = [NSPropertyListSerialization dataFromPropertyList:[levelLayout layoutAsDictionary] format:NSPropertyListXMLFormat_v1_0 errorDescription:&errorString];
 			[emailInfo addAttachment:levelFileName data:data];
 			
-			[message appendString:[NSString stringWithFormat:@"%@v%i", levelName, 0]];
+			[message appendString:[NSString stringWithFormat:@"%@v%i", levelName, [levelLayout version]]];
 			[message appendString:@"\n"];
 		}
 	}

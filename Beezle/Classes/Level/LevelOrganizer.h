@@ -19,5 +19,6 @@
 -(void) addLevelNamesWithFile:(NSString *)fileName;
 -(NSArray *) themes;
 -(NSArray *) levelNamesForTheme:(NSString *)theme;
+-(NSArray *) allLevelNames;
 
 @end

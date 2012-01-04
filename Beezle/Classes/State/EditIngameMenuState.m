@@ -12,6 +12,7 @@
 #import "GameplayState.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
+#import "LevelLoader.h"
 #import "MainMenuState.h"
 
 @implementation EditIngameMenuState
@@ -30,7 +31,7 @@
 		[_menu addChild:tryMenuItem];
 		CCMenuItem *saveMenuItem = [CCMenuItemFont itemFromString:@"Save" target:self selector:@selector(saveLevel:)];
 		[_menu addChild:saveMenuItem];
-		CCMenuItem *resetMenuItem = [CCMenuItemFont itemFromString:@"Reset" target:self selector:@selector(resetGame:)];
+		CCMenuItem *resetMenuItem = [CCMenuItemFont itemFromString:@"Reset" target:self selector:@selector(resetLevel:)];
 		[_menu addChild:resetMenuItem];
 		CCMenuItem *quitMenuItem = [CCMenuItemFont itemFromString:@"Quit" target:self selector:@selector(gotoMainMenu:)];
 		[_menu addChild:quitMenuItem];
@@ -54,12 +55,17 @@
 	[_game popState];
 	EditState *editState = (EditState *)[_game currentState];
 	
+	// Get version
 	NSString *levelName = [editState levelName];
-	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] latestLevelLayoutByName:levelName];
+	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
 	int currentVersion = [levelLayout version];
 	
+	// Create new layout from world
+	LevelLayout *newLevelLayout = [LevelLayout layoutWithContentsOfWorld:[editState world] levelName:levelName version:currentVersion];
+	[newLevelLayout setIsEdited:TRUE];
+	
 	// Replace cached version of level layout
-	[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayoutWithWorld:[editState world] levelName:levelName version:currentVersion];
+	[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:newLevelLayout];
 	
 	[_game replaceState:[GameplayState stateWithLevelName:levelName]];
 }
@@ -70,21 +76,24 @@
 	[_game popState];
 	EditState *editState = (EditState *)[_game currentState];
 	
+	// Calculate next version
 	NSString *levelName = [editState levelName];
-	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] latestLevelLayoutByName:levelName];
-	int nextVersion = [levelLayout version] + 1;
+	LevelLayout *previousLevelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+	int nextVersion = [previousLevelLayout version] + 1;
+	
+	// Create new layout from world
+	LevelLayout *newLevelLayout = [LevelLayout layoutWithContentsOfWorld:[editState world] levelName:levelName version:nextVersion];
+	[newLevelLayout setIsEdited:TRUE];
 	
 	// Replace cached version of level layout
-	[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayoutWithWorld:[editState world] levelName:levelName version:nextVersion];
+	[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:newLevelLayout];
 	
 	// Save level as dictionary to a file
-	levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] latestLevelLayoutByName:levelName];
-	NSDictionary *levelAsDictionary = [levelLayout layoutAsDictionary];
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
 	NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
 	NSString *filePath = [documentsDirectory stringByAppendingPathComponent:levelFileName];
-	BOOL success = [levelAsDictionary writeToFile:filePath atomically:TRUE];
+	BOOL success = [[newLevelLayout layoutAsDictionary] writeToFile:filePath atomically:TRUE];
 	if (success)
 	{
 		NSLog(@"%@v%i saved successfully!", levelName, nextVersion);
@@ -95,14 +104,14 @@
 	}
 }
 
--(void) resetGame:(id)sender
+-(void) resetLevel:(id)sender
 {
 	// This assumes the previous state was the edit state
 	[_game popState];
 	EditState *editState = (EditState *)[_game currentState];
 	
-	// Remove cached version of level layout
-	[[LevelLayoutCache sharedLevelLayoutCache] purgeCachedLevelLayout:[editState levelName]];
+	// Revert cached level layout to original
+	[[LevelLoader sharedLoader] loadLevelLayoutOriginal:[editState levelName]];
 	
 	// Remove level as dictionary in a file
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
