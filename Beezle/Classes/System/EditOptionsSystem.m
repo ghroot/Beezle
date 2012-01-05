@@ -14,6 +14,8 @@
 #import "EditControlSystem.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
+#import "RenderComponent.h"
+#import "RenderSprite.h"
 #import "SlingerComponent.h"
 #import "TransformComponent.h"
 
@@ -234,6 +236,11 @@
 	NSString *beeTypeAsString = [menuItem userData];
 	BeeaterComponent *beeaterComponent = (BeeaterComponent *)[_entityWithOptionsDisplayed getComponent:[BeeaterComponent class]];
 	[beeaterComponent setContainedBeeType:[BeeTypes beeTypeFromString:beeTypeAsString]];
+	
+	RenderComponent *renderComponent = (RenderComponent *)[_entityWithOptionsDisplayed getComponent:[RenderComponent class]];
+	RenderSprite *headRenderSprite = [renderComponent getRenderSprite:@"head"];
+	NSString *headAnimationName = [NSString stringWithFormat:@"Beeater-Head-Idle-With%@", [[beeaterComponent containedBeeType] capitalizedString]];
+    [headRenderSprite playAnimation:headAnimationName];
 }
 
 -(void) doOptionAddSlingerBeeType:(id)sender

@@ -256,7 +256,8 @@ typedef enum
     [beeaterEntity refresh];
 	
     [bodyRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:@"Beeater-Body-Idle", @"Beeater-Body-Wave", nil]];
-    [headRenderSprite playAnimation:@"Beeater-Head-Idle-WithBee"];
+	NSString *headAnimationName = [NSString stringWithFormat:@"Beeater-Head-Idle-With%@", [beeType capitalizedString]];
+    [headRenderSprite playAnimation:headAnimationName];
     
     return beeaterEntity;
 }
