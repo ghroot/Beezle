@@ -8,6 +8,7 @@
 
 #import "EditControlSystem.h"
 #import "ActionTags.h"
+#import "BeeQueueRenderingSystem.h"
 #import "EditComponent.h"
 #import "EntityUtil.h"
 #import "InputAction.h"
@@ -15,6 +16,7 @@
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
+#import "SlingerComponent.h"
 #import "TransformComponent.h"
 
 @implementation EditControlSystem
@@ -54,7 +56,14 @@
 				{
 					CGPoint delta = ccpSub([nextInputAction touchLocation], _touchBeganLocation);
 					CGPoint newLocation = ccpAdd(_selectedStartLocation, delta);
+					
 					[EntityUtil setEntityPosition:_selectedEntity position:newLocation];
+					
+					if ([_selectedEntity hasComponent:[SlingerComponent class]])
+					{
+						BeeQueueRenderingSystem *beeQueueRenderingSystem = (BeeQueueRenderingSystem *)[[_world systemManager] getSystem:[BeeQueueRenderingSystem class]];
+						[beeQueueRenderingSystem refreshSprites:_selectedEntity];
+					}
 				}
 				_hasTouchMoved = TRUE;
                 break;
