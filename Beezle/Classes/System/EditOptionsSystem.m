@@ -176,16 +176,31 @@
 	}
 	else if ([type isEqualToString:@"SLINGER"])
 	{
-		entity = [EntityFactory createSlinger:_world withBeeTypes:[NSArray array]];
+		BOOL slingerExists = FALSE;
+		for (Entity *entity in [[_world entityManager] entities])
+		{
+			if ([entity hasComponent:[SlingerComponent class]])
+			{
+				slingerExists = TRUE;
+				break;
+			}
+		}
+		if (!slingerExists)
+		{
+			entity = [EntityFactory createSlinger:_world withBeeTypes:[NSArray array]];
+		}
 	}
 	else if ([type isEqualToString:@"WOOD"])
 	{
 		entity = [EntityFactory createWood:_world];
 	}
 	
-	[entity addComponent:[EditComponent componentWithLevelLayoutType:type]];
-	[entity refresh];
-	[EntityUtil setEntityPosition:entity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
+	if (entity != nil)
+	{
+		[entity addComponent:[EditComponent componentWithLevelLayoutType:type]];
+		[entity refresh];
+		[EntityUtil setEntityPosition:entity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
+	}
 }
 
 -(void) doOptionMirror:(id)sender
