@@ -8,7 +8,7 @@
 
 #import "BeeSystem.h"
 #import "BeeComponent.h"
-#import "GameNotificationTypes.h"
+#import "NotificationTypes.h"
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
 

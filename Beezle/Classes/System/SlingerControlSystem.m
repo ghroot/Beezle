@@ -10,7 +10,7 @@
 #import "BeeTypes.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
-#import "GameNotificationTypes.h"
+#import "NotificationTypes.h"
 #import "InputAction.h"
 #import "InputSystem.h"
 #import "RenderComponent.h"

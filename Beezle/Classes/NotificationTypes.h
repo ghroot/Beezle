@@ -1,5 +1,5 @@
 //
-//  GameNotificationTypes.h
+//  NotificationTypes.h
 //  Beezle
 //
 //  Created by Me on 15/12/2011.
@@ -10,3 +10,5 @@
 #define GAME_NOTIFICATION_BEE_FIRED @"BeeFired"
 #define GAME_NOTIFICATION_BEE_EXPIRED @"BeeExpired"
 #define GAME_NOTIFICATION_BEE_SAVED @"BeeSaved"
+
+#define EDIT_NOTIFICATION_BEES_CHANGED @"BeesChanged"

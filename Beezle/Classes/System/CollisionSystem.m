@@ -14,7 +14,7 @@
 #import "CollisionMediator.h"
 #import "CollisionTypes.h"
 #import "DisposableComponent.h"
-#import "GameNotificationTypes.h"
+#import "NotificationTypes.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
 #import "RenderComponent.h"

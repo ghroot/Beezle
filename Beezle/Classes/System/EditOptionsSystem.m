@@ -8,12 +8,12 @@
 
 #import "EditOptionsSystem.h"
 #import "BeeaterComponent.h"
-#import "BeeQueueRenderingSystem.h"
 #import "BeeTypes.h"
 #import "EditComponent.h"
 #import "EditControlSystem.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
+#import "NotificationTypes.h"
 #import "SlingerComponent.h"
 #import "TransformComponent.h"
 
@@ -103,10 +103,10 @@
 	_slingerOptionsMenu = [[CCMenu menuWithItems:nil] retain];
 	[_slingerOptionsMenu setPosition:CGPointMake(winSize.width / 2, 34)];
 	[_slingerOptionsMenu addChild:[self createMenuItem:@"Bee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"BEE"]];
-	[_slingerOptionsMenu addChild:[self createMenuItem:@"Bee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"BOMBEE"]];
-	[_slingerOptionsMenu addChild:[self createMenuItem:@"Bee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"SPEEDEE"]];
-	[_slingerOptionsMenu addChild:[self createMenuItem:@"Bee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"SAWEE"]];
-	[_slingerOptionsMenu addChild:[self createMenuItem:@"Bee" selector:@selector(doOptionClearSlingerBees:) userData:nil]];	
+	[_slingerOptionsMenu addChild:[self createMenuItem:@"Bombee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"BOMBEE"]];
+	[_slingerOptionsMenu addChild:[self createMenuItem:@"Speedee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"SPEEDEE"]];
+	[_slingerOptionsMenu addChild:[self createMenuItem:@"Sawee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"SAWEE"]];
+	[_slingerOptionsMenu addChild:[self createMenuItem:@"Clear" selector:@selector(doOptionClearSlingerBees:) userData:nil]];	
 	[_slingerOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
 }
 
@@ -228,8 +228,8 @@
 	SlingerComponent *slingerComponent = (SlingerComponent *)[_entityWithOptionsDisplayed getComponent:[SlingerComponent class]];
 	[slingerComponent pushBeeType:[BeeTypes beeTypeFromString:beeTypeAsString]];
 	
-	BeeQueueRenderingSystem *beeQueueRenderingSystem = (BeeQueueRenderingSystem *)[[_world systemManager] getSystem:[BeeQueueRenderingSystem class]];
-	[beeQueueRenderingSystem refreshSprites:_entityWithOptionsDisplayed];
+	// Edit notification
+	[[NSNotificationCenter defaultCenter] postNotificationName:EDIT_NOTIFICATION_BEES_CHANGED object:self];
 }
 
 -(void) doOptionClearSlingerBees:(id)sender
@@ -237,8 +237,8 @@
 	SlingerComponent *slingerComponent = (SlingerComponent *)[_entityWithOptionsDisplayed getComponent:[SlingerComponent class]];
 	[slingerComponent clearBeeTypes];
 	
-	BeeQueueRenderingSystem *beeQueueRenderingSystem = (BeeQueueRenderingSystem *)[[_world systemManager] getSystem:[BeeQueueRenderingSystem class]];
-	[beeQueueRenderingSystem refreshSprites:_entityWithOptionsDisplayed];
+	// Edit notification
+	[[NSNotificationCenter defaultCenter] postNotificationName:EDIT_NOTIFICATION_BEES_CHANGED object:self];
 }
 
 @end
