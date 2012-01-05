@@ -28,7 +28,6 @@
 -(void) handleBeeFiredNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) handleBeeSavedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) decreaseMovingBeesCount;
--(void) refreshSprites:(Entity *)slingerEntity;
 -(RenderSprite *) createBeeQueueRenderSpriteWithBeeType:(BeeTypes *)beeType position:(CGPoint)position;
 -(CGPoint) calculatePositionForBeeQueueRenderSpriteAtIndex:(int)index slingerEntity:(Entity *)slingerEntity;
 -(CGPoint) calculatePositionForNextBeeQueueRenderSprite:(Entity *)slingerEntity;

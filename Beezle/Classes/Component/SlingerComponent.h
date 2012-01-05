@@ -21,6 +21,7 @@
 -(void) pushBeeType:(BeeTypes *)beeType;
 -(BeeTypes *) popNextBeeType;
 -(BOOL) hasMoreBees;
+-(void) clearBeeTypes;
 -(void) loadNextBee;
 -(void) clearLoadedBee;
 -(BOOL) hasLoadedBee;

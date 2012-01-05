@@ -27,4 +27,6 @@
 
 -(id) initWithLayer:(CCLayer *)layer;
 
+-(void) refreshSprites:(Entity *)slingerEntity;
+
 @end

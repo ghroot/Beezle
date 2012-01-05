@@ -7,6 +7,7 @@
 //
 
 #import "EditState.h"
+#import "BeeQueueRenderingSystem.h"
 #import "EditControlSystem.h"
 #import "EditIngameMenuState.h"
 #import "EditOptionsSystem.h"
@@ -88,6 +89,8 @@
 	[systemManager setSystem:_editControlSystem];
 	_editOptionsSystem = [[[EditOptionsSystem alloc] initWithLayer:_uiLayer] autorelease];
 	[systemManager setSystem:_editOptionsSystem];
+	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithLayer:_uiLayer] autorelease];
+	[systemManager setSystem:_beeQueueRenderingSystem];
 	
 	[systemManager initialiseAll];
 }

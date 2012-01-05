@@ -7,14 +7,23 @@
 //
 
 #import "EditOptionsSystem.h"
+#import "BeeaterComponent.h"
+#import "BeeQueueRenderingSystem.h"
+#import "BeeTypes.h"
 #import "EditComponent.h"
 #import "EditControlSystem.h"
+#import "EntityFactory.h"
 #import "EntityUtil.h"
+#import "SlingerComponent.h"
 #import "TransformComponent.h"
 
 @interface EditOptionsSystem()
 
--(void) createOptionsMenu;
+-(void) createGeneralOptionsMenu;
+-(void) createGeneralEntityOptionsMenu;
+-(void) createBeeaterOptionsMenu;
+-(void) createSlingerOptionsMenu;
+-(CCMenuItem *) createMenuItem:(NSString *)label selector:(SEL)selector userData:(void *)userData;
 
 @end
 
@@ -26,33 +35,87 @@
 	{
 		_layer = layer;
 		
-		[self createOptionsMenu];
+		[self createGeneralOptionsMenu];
+		[self createGeneralEntityOptionsMenu];
+		[self createBeeaterOptionsMenu];
+		[self createSlingerOptionsMenu];
+		[_layer addChild:_generalOptionsMenu];
 	}
 	return self;
 }
 
 -(void) dealloc
 {
-	[_optionsMenu release];
+	[_generalOptionsMenu release];
+	[_generalEntityOptionsMenu release];
+	[_beeaterOptionsMenu release];
+	[_slingerOptionsMenu release];
 	
 	[super dealloc];
 }
 
--(void) createOptionsMenu
+-(void) createGeneralOptionsMenu
 {
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	_optionsMenu = [[CCMenu menuWithItems:nil] retain];
-	[_optionsMenu setPosition:CGPointMake(winSize.width / 2, 14)];
-	CCMenuItemFont *menuItemMirror = [CCMenuItemFont itemFromString:@"Mirror" target:self selector:@selector(doOptionMirror:)];
-	[menuItemMirror setFontSize:14];
-	[_optionsMenu addChild:menuItemMirror];
-	CCMenuItemFont *menuItemRotateLeft = [CCMenuItemFont itemFromString:@"Rotate Left" target:self selector:@selector(doOptionRotateLeft:)];
-	[menuItemRotateLeft setFontSize:14];
-	[_optionsMenu addChild:menuItemRotateLeft];
-	CCMenuItemFont *menuItemRotateRight = [CCMenuItemFont itemFromString:@"Rotate Right" target:self selector:@selector(doOptionRotateRight:)];
-	[menuItemRotateRight setFontSize:14];
-	[_optionsMenu addChild:menuItemRotateRight];
-	[_optionsMenu alignItemsHorizontallyWithPadding:20.0f];
+	
+	_generalOptionsMenu = [[CCMenu menuWithItems:nil] retain];
+	[_generalOptionsMenu setPosition:CGPointMake(winSize.width / 2, 14)];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"Beeater" selector:@selector(doOptionAddEntity:) userData:@"BEEATER"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"Mushroom" selector:@selector(doOptionAddEntity:) userData:@"MUSHROOM"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"Nut" selector:@selector(doOptionAddEntity:) userData:@"NUT"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"Pollen" selector:@selector(doOptionAddEntity:) userData:@"POLLEN"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"Ramp" selector:@selector(doOptionAddEntity:) userData:@"RAMP"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"Slinger" selector:@selector(doOptionAddEntity:) userData:@"SLINGER"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"Wood" selector:@selector(doOptionAddEntity:) userData:@"WOOD"]];
+	[_generalOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
+}
+
+-(void) createGeneralEntityOptionsMenu
+{
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	
+	_generalEntityOptionsMenu = [[CCMenu menuWithItems:nil] retain];
+	[_generalEntityOptionsMenu setPosition:CGPointMake(winSize.width / 2, 14)];
+	[_generalEntityOptionsMenu addChild:[self createMenuItem:@"Mirror" selector:@selector(doOptionMirror:) userData:nil]];
+	[_generalEntityOptionsMenu addChild:[self createMenuItem:@"Rotate Left" selector:@selector(doOptionRotateLeft:) userData:nil]];
+	[_generalEntityOptionsMenu addChild:[self createMenuItem:@"Rotate Right" selector:@selector(doOptionRotateRight:) userData:nil]];
+	[_generalEntityOptionsMenu addChild:[self createMenuItem:@"Delete" selector:@selector(doOptionDelete:) userData:nil]];
+	[_generalEntityOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
+}
+
+-(void) createBeeaterOptionsMenu
+{
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	
+	_beeaterOptionsMenu = [[CCMenu menuWithItems:nil] retain];
+	[_beeaterOptionsMenu setPosition:CGPointMake(winSize.width / 2, 34)];
+	[_beeaterOptionsMenu addChild:[self createMenuItem:@"Bee" selector:@selector(doOptionSetBeeaterBeeType:) userData:@"BEE"]];
+	[_beeaterOptionsMenu addChild:[self createMenuItem:@"Bombee" selector:@selector(doOptionSetBeeaterBeeType:) userData:@"BOMBEE"]];
+	[_beeaterOptionsMenu addChild:[self createMenuItem:@"Speedee" selector:@selector(doOptionSetBeeaterBeeType:) userData:@"SPEEDEE"]];
+	[_beeaterOptionsMenu addChild:[self createMenuItem:@"Sawee" selector:@selector(doOptionSetBeeaterBeeType:) userData:@"SAWEE"]];
+	[_beeaterOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
+}
+
+-(void) createSlingerOptionsMenu
+{
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	
+	_slingerOptionsMenu = [[CCMenu menuWithItems:nil] retain];
+	[_slingerOptionsMenu setPosition:CGPointMake(winSize.width / 2, 34)];
+	[_slingerOptionsMenu addChild:[self createMenuItem:@"Bee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"BEE"]];
+	[_slingerOptionsMenu addChild:[self createMenuItem:@"Bee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"BOMBEE"]];
+	[_slingerOptionsMenu addChild:[self createMenuItem:@"Bee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"SPEEDEE"]];
+	[_slingerOptionsMenu addChild:[self createMenuItem:@"Bee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"SAWEE"]];
+	[_slingerOptionsMenu addChild:[self createMenuItem:@"Bee" selector:@selector(doOptionClearSlingerBees:) userData:nil]];	
+	[_slingerOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
+}
+
+-(CCMenuItem *) createMenuItem:(NSString *)label selector:(SEL)selector userData:(void *)userData
+{
+	CCMenuItemFont *menuItem = [CCMenuItemFont itemFromString:label target:self selector:selector];
+	[menuItem setFontSize:14];
+	[menuItem setUserData:userData];
+	return menuItem;
 }
 
 -(void) begin
@@ -63,13 +126,66 @@
 		_entityWithOptionsDisplayed = [editControlSystem selectedEntity];
 		if (_entityWithOptionsDisplayed != nil)
 		{
-			[_layer addChild:_optionsMenu];
+			[_layer removeChild:_generalOptionsMenu cleanup:TRUE];
+			[_layer addChild:_generalEntityOptionsMenu];
+			if ([_entityWithOptionsDisplayed hasComponent:[BeeaterComponent class]])
+			{
+				[_layer addChild:_beeaterOptionsMenu];
+			}
+			if ([_entityWithOptionsDisplayed hasComponent:[SlingerComponent class]])
+			{
+				[_layer addChild:_slingerOptionsMenu];
+			}
 		}
 		else
 		{
-			[_layer removeChild:_optionsMenu cleanup:TRUE];
+			[_layer removeChild:_generalEntityOptionsMenu cleanup:TRUE];
+			[_layer addChild:_generalOptionsMenu];
+			[_layer removeChild:_beeaterOptionsMenu cleanup:TRUE];
+			[_layer removeChild:_slingerOptionsMenu cleanup:TRUE];
 		}
 	}
+}
+
+-(void) doOptionAddEntity:(id)sender
+{
+	CCMenuItem *menuItem = (CCMenuItem *)sender;
+	NSString *type = [menuItem userData];
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	
+	Entity *entity = nil;
+	if ([type isEqualToString:@"POLLEN"])
+	{
+		entity = [EntityFactory createPollen:_world];
+	}
+	else if ([type isEqualToString:@"BEEATER"])
+	{
+		entity = [EntityFactory createBeeater:_world withBeeType:[BeeTypes beeTypeFromString:@"BEE"]];
+	}
+	else if ([type isEqualToString:@"RAMP"])
+	{
+		entity = [EntityFactory createRamp:_world];
+	}
+	else if ([type isEqualToString:@"NUT"])
+	{
+		entity = [EntityFactory createNut:_world];
+	}
+	else if ([type isEqualToString:@"MUSHROOM"])
+	{
+		entity = [EntityFactory createMushroom:_world];
+	}
+	else if ([type isEqualToString:@"SLINGER"])
+	{
+		entity = [EntityFactory createSlinger:_world withBeeTypes:[NSArray array]];
+	}
+	else if ([type isEqualToString:@"WOOD"])
+	{
+		entity = [EntityFactory createWood:_world];
+	}
+	
+	[entity addComponent:[EditComponent componentWithLevelLayoutType:type]];
+	[entity refresh];
+	[EntityUtil setEntityPosition:entity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
 }
 
 -(void) doOptionMirror:(id)sender
@@ -81,19 +197,48 @@
 -(void) doOptionRotateLeft:(id)sender
 {
 	TransformComponent *transformComponent = (TransformComponent *)[_entityWithOptionsDisplayed getComponent:[TransformComponent class]];
-	
 	float newAngle = [transformComponent rotation] - 2.0f;
-	
 	[EntityUtil setEntityRotation:_entityWithOptionsDisplayed rotation:newAngle];
 }
 
 -(void) doOptionRotateRight:(id)sender
 {
 	TransformComponent *transformComponent = (TransformComponent *)[_entityWithOptionsDisplayed getComponent:[TransformComponent class]];
-	
 	float newAngle = [transformComponent rotation] + 2.0f;
-	
 	[EntityUtil setEntityRotation:_entityWithOptionsDisplayed rotation:newAngle];
+}
+
+-(void) doOptionDelete:(id)sender
+{
+	[_entityWithOptionsDisplayed deleteEntity];
+}
+
+-(void) doOptionSetBeeaterBeeType:(id)sender
+{
+	CCMenuItem *menuItem = (CCMenuItem *)sender;
+	NSString *beeTypeAsString = [menuItem userData];
+	BeeaterComponent *beeaterComponent = (BeeaterComponent *)[_entityWithOptionsDisplayed getComponent:[BeeaterComponent class]];
+	[beeaterComponent setContainedBeeType:[BeeTypes beeTypeFromString:beeTypeAsString]];
+}
+
+-(void) doOptionAddSlingerBeeType:(id)sender
+{
+	CCMenuItem *menuItem = (CCMenuItem *)sender;
+	NSString *beeTypeAsString = [menuItem userData];
+	SlingerComponent *slingerComponent = (SlingerComponent *)[_entityWithOptionsDisplayed getComponent:[SlingerComponent class]];
+	[slingerComponent pushBeeType:[BeeTypes beeTypeFromString:beeTypeAsString]];
+	
+	BeeQueueRenderingSystem *beeQueueRenderingSystem = (BeeQueueRenderingSystem *)[[_world systemManager] getSystem:[BeeQueueRenderingSystem class]];
+	[beeQueueRenderingSystem refreshSprites:_entityWithOptionsDisplayed];
+}
+
+-(void) doOptionClearSlingerBees:(id)sender
+{
+	SlingerComponent *slingerComponent = (SlingerComponent *)[_entityWithOptionsDisplayed getComponent:[SlingerComponent class]];
+	[slingerComponent clearBeeTypes];
+	
+	BeeQueueRenderingSystem *beeQueueRenderingSystem = (BeeQueueRenderingSystem *)[[_world systemManager] getSystem:[BeeQueueRenderingSystem class]];
+	[beeQueueRenderingSystem refreshSprites:_entityWithOptionsDisplayed];
 }
 
 @end

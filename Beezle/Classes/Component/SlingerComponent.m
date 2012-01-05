@@ -53,6 +53,11 @@
 	return [_queuedBeeTypes count] > 0;
 }
 
+-(void) clearBeeTypes
+{
+	[_queuedBeeTypes removeAllObjects];
+}
+
 -(void) loadNextBee
 {
 	_loadedBeeType = [[self popNextBeeType] retain];

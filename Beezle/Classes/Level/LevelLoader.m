@@ -146,9 +146,7 @@
 		
 		if (CONFIG_CAN_EDIT_LEVELS)
 		{
-			EditComponent *editComponent = [EditComponent component];
-			[editComponent setLevelLayoutType:[levelLayoutEntry type]];
-			[entity addComponent:editComponent];
+			[entity addComponent:[EditComponent componentWithLevelLayoutType:[levelLayoutEntry type]]];
 			[entity refresh];
 		}
     }

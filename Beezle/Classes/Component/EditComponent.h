@@ -17,4 +17,8 @@
 @property (nonatomic, retain) NSString *levelLayoutType;
 @property (nonatomic) BOOL isSelected;
 
++(EditComponent *) componentWithLevelLayoutType:(NSString *)levelLayoutType;
+
+-(id) initWithLevelLayoutType:(NSString *)levelLayoutType;
+
 @end
