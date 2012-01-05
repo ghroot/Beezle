@@ -9,6 +9,7 @@
 #import "EditControlSystem.h"
 #import "ActionTags.h"
 #import "EditComponent.h"
+#import "EntityUtil.h"
 #import "InputAction.h"
 #import "InputSystem.h"
 #import "PhysicsComponent.h"
@@ -53,17 +54,7 @@
 				{
 					CGPoint delta = ccpSub([nextInputAction touchLocation], _touchBeganLocation);
 					CGPoint newLocation = ccpAdd(_selectedStartLocation, delta);
-					
-					PhysicsComponent *selectedPhysicsComponent = (PhysicsComponent *)[_selectedEntity getComponent:[PhysicsComponent class]];
-					if (selectedPhysicsComponent != nil)
-					{
-						[selectedPhysicsComponent setPositionManually:newLocation];
-					}
-					else
-					{
-						TransformComponent *selectedTransformComponent = (TransformComponent *)[_selectedEntity getComponent:[TransformComponent class]];
-						[selectedTransformComponent setPosition:newLocation];
-					}
+					[EntityUtil setEntityPosition:_selectedEntity position:newLocation];
 				}
 				_hasTouchMoved = TRUE;
                 break;
