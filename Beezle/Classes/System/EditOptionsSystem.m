@@ -7,13 +7,13 @@
 //
 
 #import "EditOptionsSystem.h"
+#import "BeeQueueRenderingSystem.h"
 #import "BeeaterComponent.h"
 #import "BeeTypes.h"
 #import "EditComponent.h"
 #import "EditControlSystem.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
-#import "NotificationTypes.h"
 #import "SlingerComponent.h"
 #import "TransformComponent.h"
 
@@ -223,22 +223,26 @@
 
 -(void) doOptionAddSlingerBeeType:(id)sender
 {
+	Entity *slingerEntity = _entityWithOptionsDisplayed;
 	CCMenuItem *menuItem = (CCMenuItem *)sender;
 	NSString *beeTypeAsString = [menuItem userData];
-	SlingerComponent *slingerComponent = (SlingerComponent *)[_entityWithOptionsDisplayed getComponent:[SlingerComponent class]];
+	SlingerComponent *slingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
+	
 	[slingerComponent pushBeeType:[BeeTypes beeTypeFromString:beeTypeAsString]];
 	
-	// Edit notification
-	[[NSNotificationCenter defaultCenter] postNotificationName:EDIT_NOTIFICATION_BEES_CHANGED object:self];
+	BeeQueueRenderingSystem *beeQueueRenderingSystem = (BeeQueueRenderingSystem *)[[_world systemManager] getSystem:[BeeQueueRenderingSystem class]];
+	[beeQueueRenderingSystem refreshSprites:slingerEntity];
 }
 
 -(void) doOptionClearSlingerBees:(id)sender
 {
-	SlingerComponent *slingerComponent = (SlingerComponent *)[_entityWithOptionsDisplayed getComponent:[SlingerComponent class]];
+	Entity *slingerEntity = _entityWithOptionsDisplayed;
+	SlingerComponent *slingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
+	
 	[slingerComponent clearBeeTypes];
 	
-	// Edit notification
-	[[NSNotificationCenter defaultCenter] postNotificationName:EDIT_NOTIFICATION_BEES_CHANGED object:self];
+	BeeQueueRenderingSystem *beeQueueRenderingSystem = (BeeQueueRenderingSystem *)[[_world systemManager] getSystem:[BeeQueueRenderingSystem class]];
+	[beeQueueRenderingSystem refreshSprites:slingerEntity];
 }
 
 @end
