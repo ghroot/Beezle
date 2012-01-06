@@ -9,11 +9,13 @@
 @interface BeeTypes : NSObject
 {
     NSString *_string;
+	BOOL _canRoll;
     BOOL _canDestroyRamp;
     BOOL _canDestroyWood;
 }
 
 @property (nonatomic, readonly) NSString *string;
+@property (nonatomic) BOOL canRoll;
 @property (nonatomic) BOOL canDestroyRamp;
 @property (nonatomic) BOOL canDestroyWood;
 

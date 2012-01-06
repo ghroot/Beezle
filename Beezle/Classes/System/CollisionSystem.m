@@ -183,6 +183,19 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity
 {
+	BeeComponent *beeBeeComponent = (BeeComponent *)[beeEntity getComponent:[BeeComponent class]];
+	if (![[beeBeeComponent type] canRoll])
+	{
+		// Crash animation (and delete entity at end of animation)
+		RenderComponent *beeRenderComponent = (RenderComponent *)[beeEntity getComponent:[RenderComponent class]];
+		[beeRenderComponent playAnimation:@"Bee-Crash" withCallbackTarget:beeEntity andCallbackSelector:@selector(deleteEntity)];
+		
+		// Disable physics component
+		PhysicsComponent *beePhysicsComponent = (PhysicsComponent *)[beeEntity getComponent:[PhysicsComponent class]];
+		[beePhysicsComponent disable];
+		
+		[beeEntity refresh];
+	}
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity

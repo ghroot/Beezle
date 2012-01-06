@@ -11,6 +11,7 @@
 @implementation BeeTypes
 
 @synthesize string = _string;
+@synthesize canRoll = _canRoll;
 @synthesize canDestroyRamp = _canDestroyRamp;
 @synthesize canDestroyWood = _canDestroyWood;
 
@@ -20,6 +21,7 @@ static NSArray *_types;
 {
     BeeTypes *beeBeeType = [[[BeeTypes alloc] initWithString:@"BEE"] autorelease];
     BeeTypes *bombeeBeeType = [[[BeeTypes alloc] initWithString:@"BOMBEE"] autorelease];
+	[bombeeBeeType setCanRoll:TRUE];
     [bombeeBeeType setCanDestroyRamp:TRUE];
     BeeTypes *saweeBeeType = [[[BeeTypes alloc] initWithString:@"SAWEE"] autorelease];
     [saweeBeeType setCanDestroyWood:TRUE];
@@ -40,15 +42,22 @@ static NSArray *_types;
     return nil;
 }
 
+// Designated initialiser
 -(id) initWithString:(NSString *)string
 {
     if (self = [super init])
     {
         _string = [string retain];
+		_canRoll = FALSE;
         _canDestroyRamp = FALSE;
         _canDestroyWood = FALSE;
     }
     return self;
+}
+
+-(id) init
+{
+	return [self initWithString:nil];
 }
 
 -(void) dealloc
