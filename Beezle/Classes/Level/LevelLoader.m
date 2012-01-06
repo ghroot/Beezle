@@ -86,7 +86,14 @@
 		}
 		levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
 		
-		NSLog(@"Loading %@v%i", [levelLayout levelName], [levelLayout version]);
+		if (levelLayout != nil)
+		{
+			NSLog(@"Loading %@v%i", [levelLayout levelName], [levelLayout version]);
+		}
+		else
+		{
+			NSLog(@"Could not load %@", levelName);
+		}
 	}
 	
 	Entity *backgroundEntity = [EntityFactory createBackground:world withLevelName:levelName];

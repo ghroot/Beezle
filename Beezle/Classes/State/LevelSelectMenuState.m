@@ -48,7 +48,15 @@
 		for (NSString *levelName in levelNames)
 		{
 			LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
-			NSString *string = [NSString stringWithFormat:@"%@v%i (%@)", levelName, [levelLayout version], ([levelLayout isEdited] ? @"edited" : @"original")];
+			NSString *string = nil;
+			if (levelLayout != nil)
+			{
+				string = [NSString stringWithFormat:@"%@v%i (%@)", levelName, [levelLayout version], ([levelLayout isEdited] ? @"edited" : @"original")];
+			}
+			else
+			{
+				string = [NSString stringWithFormat:@"%@ (%@)", levelName, @"n/a"];
+			}
 			NSLog(@"%@", string);
 		}
     }
