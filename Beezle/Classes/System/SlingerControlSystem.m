@@ -20,8 +20,8 @@
 #import "TrajectoryComponent.h"
 #import "TransformComponent.h"
 
-#define SLINGER_POWER_SENSITIVITY 7.5
-#define SLINGER_MIN_POWER 150
+#define SLINGER_POWER_SENSITIVITY 7
+#define SLINGER_MIN_POWER 100
 #define SLINGER_MAX_POWER 400
 #define SLINGER_AIM_SENSITIVITY 4.0
 #define AIM_POLLEN_INTERVAL 16
