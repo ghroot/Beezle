@@ -14,12 +14,4 @@
 +(void) setEntityRotation:(Entity *)entity rotation:(float)rotation;
 +(void) setEntityMirrored:(Entity *)entity mirrored:(BOOL)mirrored;
 
-+(void) explodeBee:(Entity *)beeEntity;
-+(void) explodeRamp:(Entity *)rampEntity;
-+(void) explodeBeeater:(Entity *)beeaterEntity;
-+(void) explodePollen:(Entity *)pollenEntity;
-+(void) explodeWood:(Entity *)woodEntity;
-+(void) explodeNut:(Entity *)nutEntity;
-+(void) bounceMushroom:(Entity *)mushroomEntity;
-
 @end

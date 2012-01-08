@@ -132,11 +132,10 @@
     {
 		[rampDisposableComponent setIsDisposed:TRUE];
 		
-        // Bee is destroyed
         [beeEntity deleteEntity];
         
-		// Ramp is destroyed
-        [EntityUtil explodeRamp:rampEntity];
+		RenderComponent *rampRenderComponent = (RenderComponent *)[rampEntity getComponent:[RenderComponent class]];
+		[rampRenderComponent playAnimation:@"Ramp-Crash" withCallbackTarget:rampEntity andCallbackSelector:@selector(deleteEntity)];
         
 		[[SoundManager sharedManager] playSound:@"52144__blaukreuz__imp-02.m4a"];
     }
@@ -150,20 +149,23 @@
     {
 		[beeaterDisposableComponent setIsDisposed:TRUE];
 		
-		TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
-		Entity *slingerEntity = (Entity *)[tagManager getEntity:@"SLINGER"];
-		SlingerComponent *slingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
-		BeeaterComponent *beeaterComponent = (BeeaterComponent *)[beeaterEntity getComponent:[BeeaterComponent class]];
-		TransformComponent *beeaterTransformComponent = (TransformComponent *)[beeaterEntity getComponent:[TransformComponent class]];
-		
-        // Bee is destroyed
         [beeEntity deleteEntity];
         
         // Bee is freed
+		TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
+		Entity *slingerEntity = (Entity *)[tagManager getEntity:@"SLINGER"];
+		BeeaterComponent *beeaterComponent = (BeeaterComponent *)[beeaterEntity getComponent:[BeeaterComponent class]];
+		SlingerComponent *slingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
         [slingerComponent pushBeeType:[beeaterComponent containedBeeType]];
         
         // Beater is destroyed
-        [EntityUtil explodeBeeater:beeaterEntity];
+		TransformComponent *beeaterTransformComponent = (TransformComponent *)[beeaterEntity getComponent:[TransformComponent class]];
+		RenderComponent *beeaterRenderComponent = (RenderComponent *)[beeaterEntity getComponent:[RenderComponent class]];
+		RenderSprite *beeaterBodyRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"body"];
+		RenderSprite *beeaterHeadRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"head"];
+		[beeaterTransformComponent setScale:CGPointMake(1.0f, 1.0f)];
+		[beeaterHeadRenderSprite hide];
+		[beeaterBodyRenderSprite playAnimation:@"Beeater-Body-Destroy" withCallbackTarget:beeaterEntity andCallbackSelector:@selector(deleteEntity)];
 		
 		// Game notification
 		NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
@@ -178,7 +180,12 @@
 	BeeComponent *beeBeeComponent = (BeeComponent *)[beeEntity getComponent:[BeeComponent class]];
 	if (![[beeBeeComponent type] canRoll])
 	{
-		[EntityUtil explodeBee:beeEntity];
+		// Bee is destroyed
+		RenderComponent *beeRenderComponent = (RenderComponent *)[beeEntity getComponent:[RenderComponent class]];
+		[beeRenderComponent playAnimation:@"Bee-Crash" withCallbackTarget:beeEntity andCallbackSelector:@selector(deleteEntity)];
+		PhysicsComponent *beePhysicsComponent = (PhysicsComponent *)[beeEntity getComponent:[PhysicsComponent class]];
+		[beePhysicsComponent disable];
+		[beeEntity refresh];
 	}
 }
 
@@ -195,7 +202,8 @@
     {
         [pollenDisposableComponent setIsDisposed:TRUE];
         
-		[EntityUtil explodePollen:pollenEntity];
+		RenderComponent *pollenRenderComponent = (RenderComponent *)[pollenEntity getComponent:[RenderComponent class]];
+		[pollenRenderComponent playAnimation:@"Pollen-Pickup" withCallbackTarget:pollenEntity andCallbackSelector:@selector(deleteEntity)];
     }
 }
 
@@ -207,7 +215,8 @@
     {
 		[mushroomDisposableComponent setIsDisposed:TRUE];
 		
-        [EntityUtil bounceMushroom:mushroomEntity];
+        RenderComponent *mushroomRenderComponent = (RenderComponent *)[mushroomEntity getComponent:[RenderComponent class]];
+		[mushroomRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Mushroom-Bounce", @"Mushroom-Idle", nil]];
     
 		[[SoundManager sharedManager] playSound:@"11097__a43__a43-blipp.aif"];
     }
@@ -228,7 +237,8 @@
 		{
 			[beeEntity deleteEntity];
 			
-			[EntityUtil explodeWood:woodEntity];
+			RenderComponent *woodRenderComponent = (RenderComponent *)[woodEntity getComponent:[RenderComponent class]];
+			[woodRenderComponent playAnimation:@"Wood-Destroy" withCallbackTarget:woodEntity andCallbackSelector:@selector(deleteEntity)];
 			
 			[[SoundManager sharedManager] playSound:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
 		}
@@ -245,7 +255,8 @@
 		
 		[beeEntity deleteEntity];
 		
-		[EntityUtil explodeNut:nutEntity];
+		RenderComponent *nutRenderComponent = (RenderComponent *)[nutEntity getComponent:[RenderComponent class]];
+		[nutRenderComponent playAnimation:@"Nut-Collect" withCallbackTarget:nutEntity andCallbackSelector:@selector(deleteEntity)];
 	}
 }
 
