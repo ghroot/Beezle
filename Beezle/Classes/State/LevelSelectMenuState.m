@@ -34,7 +34,8 @@
 		NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesForTheme:theme];
         for (NSString *levelName in levelNames)
         {
-            CCMenuItem *levelMenuItem = [CCMenuItemFont itemFromString:levelName target:self selector:@selector(startGame:)];
+            CCMenuItemFont *levelMenuItem = [CCMenuItemFont itemFromString:levelName target:self selector:@selector(startGame:)];
+			[levelMenuItem setFontSize:24];
             [levelMenuItem setUserData:levelName];
             [_menu addChild:levelMenuItem];
         }
