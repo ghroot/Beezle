@@ -4,7 +4,6 @@
 <dict>
 	<key>animations</key>
 	<dict>
-	
 		<key>Bombee-Idle</key>
 		<dict>
 			<key>frames</key>
@@ -17,7 +16,22 @@
 			<key>delay</key>
 			<real>0.1</real>
 		</dict>
-		
+		<key>Bee-Crash</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>Bee/BeeCrash-01.png</string>
+				<string>Bee/BeeCrash-02.png</string>
+				<string>Bee/BeeCrash-03.png</string>
+				<string>Bee/BeeCrash-04.png</string>
+				<string>Bee/BeeCrash-05.png</string>
+				<string>Bee/BeeCrash-06.png</string>
+				<string>Bee/BeeCrash-07.png</string>
+				<string>Bee/BeeCrash-08.png</string>
+			</array>
+			<key>delay</key>
+			<real>0.08</real>
+		</dict>
 	</dict>
 </dict>
 </plist>

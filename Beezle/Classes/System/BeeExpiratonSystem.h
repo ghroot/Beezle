@@ -9,6 +9,6 @@
 #import "artemis.h"
 
 
-@interface BeeSystem : EntityComponentSystem
+@interface BeeExpiratonSystem : EntityComponentSystem
 
 @end

@@ -7,8 +7,9 @@
 //
 
 #import "GameplayState.h"
+#import "BeeControlSystem.h"
 #import "BeeQueueRenderingSystem.h"
-#import "BeeSystem.h"
+#import "BeeExpiratonSystem.h"
 #import "BoundrySystem.h"
 #import "CollisionSystem.h"
 #import "DebugRenderPhysicsSystem.h"
@@ -101,8 +102,10 @@
 	[systemManager setSystem:_inputSystem];
 	_slingerControlSystem = [[[SlingerControlSystem alloc] init] autorelease];
 	[systemManager setSystem:_slingerControlSystem];
-	_beeSystem = [[[BeeSystem alloc] init] autorelease];
-	[systemManager setSystem:_beeSystem];
+	_beeExpirationSystem = [[[BeeExpiratonSystem alloc] init] autorelease];
+	[systemManager setSystem:_beeExpirationSystem];
+	_beeControlSystem = [[[BeeControlSystem alloc] init] autorelease];
+	[systemManager setSystem:_beeControlSystem];
 	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithLayer:_uiLayer] autorelease];
 	[systemManager setSystem:_beeQueueRenderingSystem];
 	if (_debug)
@@ -131,7 +134,9 @@
                                                _physicsSystem,
                                                _collisionSystem,
                                                _renderSystem,
-                                               _beeSystem,
+												_inputSystem,
+                                               _beeExpirationSystem,
+												_beeControlSystem,
 											   _beeQueueRenderingSystem,
                                                nil]];
     

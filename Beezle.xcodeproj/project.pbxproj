@@ -135,7 +135,7 @@
 		2C3A6F8C14898085002721E3 /* Sawee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7C14898085002721E3 /* Sawee-Animations.plist */; };
 		2C3A6F8D14898085002721E3 /* Sling-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7D14898085002721E3 /* Sling-Animations.plist */; };
 		2C3A6F8E14898085002721E3 /* Speedee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A6F7E14898085002721E3 /* Speedee-Animations.plist */; };
-		2C3A6F931489809F002721E3 /* BeeSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F921489809F002721E3 /* BeeSystem.m */; };
+		2C3A6F931489809F002721E3 /* BeeExpiratonSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F921489809F002721E3 /* BeeExpiratonSystem.m */; };
 		2C3A6F96148980AF002721E3 /* BeeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F95148980AF002721E3 /* BeeComponent.m */; };
 		2C3B0E5414A91E4D008949B0 /* EmailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B0E5314A91E4D008949B0 /* EmailInfo.m */; };
 		2C3BA3DE14B1DBBA007B1660 /* LevelOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BA3DD14B1DBBA007B1660 /* LevelOrganizer.m */; };
@@ -179,6 +179,7 @@
 		2C64AD0E14BA4BAC00ABD114 /* Level-A6-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C64AD0B14BA4BAC00ABD114 /* Level-A6-Shapes.plist */; };
 		2C64AD0F14BA4BAC00ABD114 /* Level-A6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C64AD0C14BA4BAC00ABD114 /* Level-A6.jpg */; };
 		2C64AD1114BA4D2300ABD114 /* Level-A6-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C64AD1014BA4D2300ABD114 /* Level-A6-Layout.plist */; };
+		2C64AD1414BA4F0400ABD114 /* BeeControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C64AD1314BA4F0300ABD114 /* BeeControlSystem.m */; };
 		2C6A92AC149CFDAD00600E15 /* EditComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A92AB149CFDAD00600E15 /* EditComponent.m */; };
 		2C6A92AF149CFDF300600E15 /* EditControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A92AE149CFDF300600E15 /* EditControlSystem.m */; };
 		2C6A92B2149CFE3900600E15 /* EditState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A92B1149CFE3900600E15 /* EditState.m */; };
@@ -551,8 +552,8 @@
 		2C3A6F7C14898085002721E3 /* Sawee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sawee-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7D14898085002721E3 /* Sling-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sling-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7E14898085002721E3 /* Speedee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Speedee-Animations.plist"; sourceTree = "<group>"; };
-		2C3A6F911489809F002721E3 /* BeeSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeSystem.h; path = Classes/System/BeeSystem.h; sourceTree = "<group>"; };
-		2C3A6F921489809F002721E3 /* BeeSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeSystem.m; path = Classes/System/BeeSystem.m; sourceTree = "<group>"; };
+		2C3A6F911489809F002721E3 /* BeeExpiratonSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeExpiratonSystem.h; path = Classes/System/BeeExpiratonSystem.h; sourceTree = "<group>"; };
+		2C3A6F921489809F002721E3 /* BeeExpiratonSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeExpiratonSystem.m; path = Classes/System/BeeExpiratonSystem.m; sourceTree = "<group>"; };
 		2C3A6F94148980AF002721E3 /* BeeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeComponent.h; path = Classes/Component/BeeComponent.h; sourceTree = "<group>"; };
 		2C3A6F95148980AF002721E3 /* BeeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeComponent.m; path = Classes/Component/BeeComponent.m; sourceTree = "<group>"; };
 		2C3B0E5214A91E4D008949B0 /* EmailInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmailInfo.h; path = Classes/EmailInfo.h; sourceTree = "<group>"; };
@@ -607,6 +608,8 @@
 		2C64AD0B14BA4BAC00ABD114 /* Level-A6-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A6-Shapes.plist"; sourceTree = "<group>"; };
 		2C64AD0C14BA4BAC00ABD114 /* Level-A6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A6.jpg"; sourceTree = "<group>"; };
 		2C64AD1014BA4D2300ABD114 /* Level-A6-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A6-Layout.plist"; sourceTree = "<group>"; };
+		2C64AD1214BA4F0300ABD114 /* BeeControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeControlSystem.h; path = Classes/System/BeeControlSystem.h; sourceTree = "<group>"; };
+		2C64AD1314BA4F0300ABD114 /* BeeControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeControlSystem.m; path = Classes/System/BeeControlSystem.m; sourceTree = "<group>"; };
 		2C6A92AA149CFDAD00600E15 /* EditComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditComponent.h; path = Classes/Component/EditComponent.h; sourceTree = "<group>"; };
 		2C6A92AB149CFDAD00600E15 /* EditComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditComponent.m; path = Classes/Component/EditComponent.m; sourceTree = "<group>"; };
 		2C6A92AD149CFDF200600E15 /* EditControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditControlSystem.h; path = Classes/System/EditControlSystem.h; sourceTree = "<group>"; };
@@ -1235,10 +1238,12 @@
 		2C7CE5F31469ACDE001F331F /* System */ = {
 			isa = PBXGroup;
 			children = (
+				2C64AD1214BA4F0300ABD114 /* BeeControlSystem.h */,
+				2C64AD1314BA4F0300ABD114 /* BeeControlSystem.m */,
+				2C3A6F911489809F002721E3 /* BeeExpiratonSystem.h */,
+				2C3A6F921489809F002721E3 /* BeeExpiratonSystem.m */,
 				2C535FCB14992B0B00BC7DB6 /* BeeQueueRenderingSystem.h */,
 				2C535FCC14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m */,
-				2C3A6F911489809F002721E3 /* BeeSystem.h */,
-				2C3A6F921489809F002721E3 /* BeeSystem.m */,
 				2C764DDB148A1FF100820587 /* BodyInfo.h */,
 				2C764DDC148A1FF100820587 /* BodyInfo.m */,
 				2C7CE626146FE110001F331F /* BoundrySystem.h */,
@@ -1253,6 +1258,10 @@
 				2C157C0D14901B88003F9040 /* DebugRenderPhysicsLayer.m */,
 				2C5B86DE1479155700028179 /* DebugRenderPhysicsSystem.h */,
 				2C5B86DF1479155700028179 /* DebugRenderPhysicsSystem.m */,
+				2C6A92AD149CFDF200600E15 /* EditControlSystem.h */,
+				2C6A92AE149CFDF300600E15 /* EditControlSystem.m */,
+				2C9457A2149FED5A006BDC68 /* EditOptionsSystem.h */,
+				2C9457A3149FED5A006BDC68 /* EditOptionsSystem.m */,
 				2C157C1D149382D6003F9040 /* GameRulesSystem.h */,
 				2C157C1E149382D6003F9040 /* GameRulesSystem.m */,
 				2C764DD8148A1F4000820587 /* GCpShapeCache.h */,
@@ -1271,10 +1280,6 @@
 				2C157C1514914F5D003F9040 /* RenderTrajectorySystem.m */,
 				2C7CE620146FD66F001F331F /* SlingerControlSystem.h */,
 				2C7CE621146FD66F001F331F /* SlingerControlSystem.m */,
-				2C6A92AD149CFDF200600E15 /* EditControlSystem.h */,
-				2C6A92AE149CFDF300600E15 /* EditControlSystem.m */,
-				2C9457A2149FED5A006BDC68 /* EditOptionsSystem.h */,
-				2C9457A3149FED5A006BDC68 /* EditOptionsSystem.m */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -1869,7 +1874,7 @@
 				2CD48B8B14801833007D90D9 /* Manager.m in Sources */,
 				2CD48B8E14801A4F007D90D9 /* EntitySystem.m in Sources */,
 				2C827D3814840C4900517C8F /* RenderSprite.m in Sources */,
-				2C3A6F931489809F002721E3 /* BeeSystem.m in Sources */,
+				2C3A6F931489809F002721E3 /* BeeExpiratonSystem.m in Sources */,
 				2C3A6F96148980AF002721E3 /* BeeComponent.m in Sources */,
 				2C764DDA148A1F4000820587 /* GCpShapeCache.m in Sources */,
 				2C764DDD148A1FF100820587 /* BodyInfo.m in Sources */,
@@ -2001,6 +2006,7 @@
 				2C9EF99914B4E91800F9EE34 /* LevelLayout.m in Sources */,
 				2C9EF99A14B4E91800F9EE34 /* LevelLayoutCache.m in Sources */,
 				2C9EF99B14B4E91800F9EE34 /* LevelLayoutEntry.m in Sources */,
+				2C64AD1414BA4F0400ABD114 /* BeeControlSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

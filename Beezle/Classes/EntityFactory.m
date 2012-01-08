@@ -11,7 +11,6 @@
 #import "BeeComponent.h"
 #import "CollisionTypes.h"
 #import "DisposableComponent.h"
-#import "LabelManager.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
 #import "RenderComponent.h"
@@ -300,6 +299,7 @@ typedef enum
 	
 	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
 	[labelManager labelEntity:rampEntity withLabel:@"EDITABLE"];
+	[labelManager labelEntity:rampEntity withLabel:@"RAMP"];
     
     [rampEntity refresh];
 	

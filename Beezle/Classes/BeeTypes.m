@@ -14,6 +14,7 @@
 @synthesize canRoll = _canRoll;
 @synthesize canDestroyRamp = _canDestroyRamp;
 @synthesize canDestroyWood = _canDestroyWood;
+@synthesize canExplode = _canExplode;
 
 static NSArray *_types;
 
@@ -22,7 +23,8 @@ static NSArray *_types;
     BeeTypes *beeBeeType = [[[BeeTypes alloc] initWithString:@"BEE"] autorelease];
     BeeTypes *bombeeBeeType = [[[BeeTypes alloc] initWithString:@"BOMBEE"] autorelease];
 	[bombeeBeeType setCanRoll:TRUE];
-    [bombeeBeeType setCanDestroyRamp:TRUE];
+//    [bombeeBeeType setCanDestroyRamp:TRUE];
+	[bombeeBeeType setCanExplode:TRUE];
     BeeTypes *saweeBeeType = [[[BeeTypes alloc] initWithString:@"SAWEE"] autorelease];
     [saweeBeeType setCanDestroyWood:TRUE];
     BeeTypes *speedeeBeeType = [[[BeeTypes alloc] initWithString:@"SPEEDEE"] autorelease];
