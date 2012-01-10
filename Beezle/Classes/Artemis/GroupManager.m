@@ -93,6 +93,19 @@
 	[entity refresh];
 }
 
+-(BOOL) isEntity:(Entity *)entity inGroup:(NSString *)groupName
+{
+	if ([_entitiesByGroupName objectForKey:groupName] != nil)
+    {
+        NSMutableArray *entitiesInGroup = [_entitiesByGroupName objectForKey:groupName];
+        if ([entitiesInGroup containsObject:entity])
+        {
+            return TRUE;
+        }
+    }
+	return FALSE;
+}
+
 -(void) removeEntity:(Entity *)entity
 {
 	for (NSString *groupName in [_entitiesByGroupName allKeys])

@@ -39,6 +39,7 @@
 
 -(void) addEntity:(Entity *)entity toGroup:(NSString *)groupName;
 -(NSArray *) getEntitiesInGroup:(NSString *)groupName;
+-(BOOL) isEntity:(Entity *)entity inGroup:(NSString *)groupName;
 -(void) removeEntity:(Entity *)entity fromGroup:(NSString *)groupName;
 
 @end
