@@ -8,6 +8,7 @@
 
 #import "BeeExpiratonSystem.h"
 #import "BeeComponent.h"
+#import "EntityUtil.h"
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
@@ -26,13 +27,7 @@
 	
 	if ([[physicsComponent body] isSleeping])
 	{
-        // Crash animation (and delete entity at end of animation)
-        RenderComponent *rampRenderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
-        [rampRenderComponent playAnimation:@"Bee-Crash" withCallbackTarget:entity andCallbackSelector:@selector(deleteEntity)];
-        
-        // Disable physics component
-        [physicsComponent disable];
-        [entity refresh];
+        [EntityUtil animateAndDeleteEntity:entity animationName:@"Bee-Crash"];
 		
 		// Game notification
 		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_EXPIRED object:self];

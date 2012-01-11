@@ -9,6 +9,7 @@
 #import "BeeControlSystem.h"
 #import "BeeComponent.h"
 #import "BeeTypes.h"
+#import "EntityUtil.h"
 #import "InputAction.h"
 #import "InputSystem.h"
 #import "PhysicsComponent.h"
@@ -34,24 +35,43 @@
 			[nextInputAction touchType] == TOUCH_BEGAN)
 		{
 			LabelManager *labelManager = (LabelManager *)[_world getManager:[LabelManager class]];
+			GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
 			for (Entity *otherEntity in [[_world entityManager] entities])
 			{
-				if ([labelManager hasEntity:otherEntity label:@"RAMP"])
+				if ([labelManager hasEntity:otherEntity label:@"RAMP"] ||
+					[groupManager isEntity:otherEntity inGroup:@"BEEATERS"])
 				{
 					TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
-					TransformComponent *otherTransformComponent = (TransformComponent *)[otherEntity getComponent:[TransformComponent class]];
-					if (ccpDistance([transformComponent position], [otherTransformComponent position]) <= 40)
+					PhysicsComponent *otherPhysicsComponent = (PhysicsComponent *)[otherEntity getComponent:[PhysicsComponent class]];
+					
+					int left = [transformComponent position].x - 30;
+					int right = [transformComponent position].x + 30;
+					int top = [transformComponent position].y + 30;
+					int bottom = [transformComponent position].y - 30;
+					cpBB explosionBB = cpBBNew(left, bottom, right, top);
+					
+					cpBB otherBB = [[otherPhysicsComponent firstPhysicsShape] bb];
+					for (int i = 1; i < [[otherPhysicsComponent shapes] count]; i++)
 					{
-						[otherEntity deleteEntity];
+						cpBB shapeBB = [[[otherPhysicsComponent shapes] objectAtIndex:i] bb];
+						otherBB = cpBBMerge(otherBB, shapeBB);
+					}
+					
+					if (cpBBIntersects(explosionBB, otherBB))
+					{
+						if ([labelManager hasEntity:otherEntity label:@"RAMP"])
+						{
+							[EntityUtil animateAndDeleteEntity:otherEntity animationName:@"Ramp-Crash"];
+						}
+						else if ([groupManager isEntity:otherEntity inGroup:@"BEEATERS"])
+						{
+							[EntityUtil animateDeleteAndSaveBeeFromBeeaterEntity:otherEntity];
+						}
 					}
 				}
 			}
 			
-			RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
-			[renderComponent playAnimation:@"Bee-Crash" withCallbackTarget:entity andCallbackSelector:@selector(deleteEntity)];
-			PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
-			[physicsComponent disable];
-			[entity refresh];
+			[EntityUtil animateAndDeleteEntity:entity animationName:@"Bee-Crash"];
 		}
 	}
 }

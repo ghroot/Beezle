@@ -14,4 +14,7 @@
 +(void) setEntityRotation:(Entity *)entity rotation:(float)rotation;
 +(void) setEntityMirrored:(Entity *)entity mirrored:(BOOL)mirrored;
 
++(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName;
++(void) animateDeleteAndSaveBeeFromBeeaterEntity:(Entity *)beeaterEntity;
+
 @end
