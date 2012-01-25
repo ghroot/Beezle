@@ -8,8 +8,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-#import "World.h"
-#import "Entity.h"
+#import "artemis.h"
 
 @interface ArtemisTests : SenTestCase
 {

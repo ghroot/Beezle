@@ -64,12 +64,13 @@
 
 -(void) test_givenEntityCreatedAndTagged_whenDeleted_cannotBeRetrievedFromTagManager
 {
+    TagManager *tagManager = (TagManager *)[[_world systemManager] getSystem:[TagManager class]];
     NSString *tag = @"TAG";
     Entity *entity = [_world createEntity];
-    [entity setTag:tag];
+    [tagManager registerEntity:entity withTag:tag];
     [entity deleteEntity];
     [_world loopStart];
-    Entity *retrievedEntity = [[_world tagManager] getEntity:tag];
+    Entity *retrievedEntity = [tagManager getEntity:tag];
     
     STAssertNil(retrievedEntity, @"");
 }
@@ -98,7 +99,7 @@
 
 -(void) test_givenEntityHasNeededComponents_entityIsAddedToSystem
 {
-    EntitySystem *system = [[[EntitySystem alloc] initWithUsedComponentClasses:[NSMutableArray arrayWithObject:[Component class]]] autorelease];
+    EntityComponentSystem *system = [[[EntityComponentSystem alloc] initWithUsedComponentClasses:[NSMutableArray arrayWithObject:[Component class]]] autorelease];
     [[_world systemManager] setSystem:system];
     Entity *entity = [_world createEntity];
     Component *component = [[[Component alloc] init] autorelease];
@@ -112,7 +113,7 @@
 
 -(void) test_givenEntityDoesNotHaveNeededComponents_entityIsNotAddedToSystem
 {
-    EntitySystem *system = [[[EntitySystem alloc] initWithUsedComponentClasses:[NSMutableArray arrayWithObject:[Component class]]] autorelease];
+    EntityComponentSystem *system = [[[EntityComponentSystem alloc] initWithUsedComponentClasses:[NSMutableArray arrayWithObject:[Component class]]] autorelease];
     [[_world systemManager] setSystem:system];
     Entity *entity = [_world createEntity];
     [entity refresh];
