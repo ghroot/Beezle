@@ -7,19 +7,19 @@
 //
 
 #import "artemis.h"
-#import "BeeTypes.h"
+#import "BeeType.h"
 
 @interface SlingerComponent : Component
 {
 	NSMutableArray *_queuedBeeTypes;
-	BeeTypes *_loadedBeeType;
+	BeeType *_loadedBeeType;
 }
 
 @property (nonatomic, readonly) NSArray *queuedBeeTypes;
-@property (nonatomic, readonly) BeeTypes *loadedBeeType;
+@property (nonatomic, readonly) BeeType *loadedBeeType;
 
--(void) pushBeeType:(BeeTypes *)beeType;
--(BeeTypes *) popNextBeeType;
+-(void) pushBeeType:(BeeType *)beeType;
+-(BeeType *) popNextBeeType;
 -(BOOL) hasMoreBees;
 -(void) clearBeeTypes;
 -(void) loadNextBee;

@@ -9,7 +9,7 @@
 #import "CollisionSystem.h"
 #import "BeeaterComponent.h"
 #import "BeeComponent.h"
-#import "BeeTypes.h"
+#import "BeeType.h"
 #import "Collision.h"
 #import "CollisionMediator.h"
 #import "CollisionType.h"
@@ -123,7 +123,7 @@
 -(void) handleCollisionBee:(Entity *)beeEntity withRamp:(Entity *)rampEntity
 {
     BeeComponent *beeComponent = (BeeComponent *)[beeEntity getComponent:[BeeComponent class]];
-    BeeTypes *beeType = [beeComponent type];
+    BeeType *beeType = [beeComponent type];
     
     DisposableComponent *rampDisposableComponent = (DisposableComponent *)[rampEntity getComponent:[DisposableComponent class]];
     
@@ -202,7 +202,7 @@
 	if (![woodDisposableComponent isDisposed])
 	{
 		BeeComponent *beeComponent = (BeeComponent *)[beeEntity getComponent:[BeeComponent class]];
-		BeeTypes *beeType = [beeComponent type];
+		BeeType *beeType = [beeComponent type];
 		
 		if ([beeType canDestroyWood])
 		{

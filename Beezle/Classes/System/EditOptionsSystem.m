@@ -9,7 +9,7 @@
 #import "EditOptionsSystem.h"
 #import "BeeQueueRenderingSystem.h"
 #import "BeeaterComponent.h"
-#import "BeeTypes.h"
+#import "BeeType.h"
 #import "EditComponent.h"
 #import "EditControlSystem.h"
 #import "EntityFactory.h"
@@ -162,7 +162,7 @@
 	}
 	else if ([type isEqualToString:@"BEEATER"])
 	{
-		entity = [EntityFactory createBeeater:_world withBeeType:[BeeTypes beeTypeFromString:@"BEE"]];
+		entity = [EntityFactory createBeeater:_world withBeeType:[BeeType enumFromName:@"BEE"]];
 	}
 	else if ([type isEqualToString:@"RAMP"])
 	{
@@ -235,7 +235,7 @@
 	CCMenuItem *menuItem = (CCMenuItem *)sender;
 	NSString *beeTypeAsString = [menuItem userData];
 	BeeaterComponent *beeaterComponent = (BeeaterComponent *)[_entityWithOptionsDisplayed getComponent:[BeeaterComponent class]];
-	[beeaterComponent setContainedBeeType:[BeeTypes beeTypeFromString:beeTypeAsString]];
+	[beeaterComponent setContainedBeeType:[BeeType enumFromName:beeTypeAsString]];
 	
 	RenderComponent *renderComponent = (RenderComponent *)[_entityWithOptionsDisplayed getComponent:[RenderComponent class]];
 	RenderSprite *headRenderSprite = [renderComponent getRenderSprite:@"head"];
@@ -250,7 +250,7 @@
 	NSString *beeTypeAsString = [menuItem userData];
 	SlingerComponent *slingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
 	
-	[slingerComponent pushBeeType:[BeeTypes beeTypeFromString:beeTypeAsString]];
+	[slingerComponent pushBeeType:[BeeType enumFromName:beeTypeAsString]];
 	
 	BeeQueueRenderingSystem *beeQueueRenderingSystem = (BeeQueueRenderingSystem *)[[_world systemManager] getSystem:[BeeQueueRenderingSystem class]];
 	[beeQueueRenderingSystem refreshSprites:slingerEntity];

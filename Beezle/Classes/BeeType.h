@@ -1,29 +1,31 @@
 //
-//  BeeTypes.h
+//  BeeType.h
 //  Beezle
 //
 //  Created by Me on 11/12/2011.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-@interface BeeTypes : NSObject
+#import "GandEnum.h"
+
+@interface BeeType : GandEnum
 {
-    NSString *_string;
 	BOOL _canRoll;
     BOOL _canDestroyRamp;
     BOOL _canDestroyWood;
 	BOOL _canExplode;
 }
 
-@property (nonatomic, readonly) NSString *string;
 @property (nonatomic) BOOL canRoll;
 @property (nonatomic) BOOL canDestroyRamp;
 @property (nonatomic) BOOL canDestroyWood;
 @property (nonatomic) BOOL canExplode;
 
-+(BeeTypes *) beeTypeFromString:(NSString *)string;
++(BeeType *) BEE;
++(BeeType *) SAWEE;
++(BeeType *) SPEEDEE;
++(BeeType *) BOMBEE;
 
--(id) initWithString:(NSString *)string;
 -(NSString *) capitalizedString;
 
 @end

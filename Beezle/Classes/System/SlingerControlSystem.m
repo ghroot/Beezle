@@ -7,7 +7,7 @@
 //
 
 #import "SlingerControlSystem.h"
-#import "BeeTypes.h"
+#import "BeeType.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
 #import "NotificationTypes.h"

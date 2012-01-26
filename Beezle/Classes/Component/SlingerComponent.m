@@ -35,14 +35,14 @@
 	[super dealloc];
 }
 
--(void) pushBeeType:(BeeTypes *)beeType
+-(void) pushBeeType:(BeeType *)beeType
 {
 	[_queuedBeeTypes addObject:beeType];
 }
 
--(BeeTypes *) popNextBeeType
+-(BeeType *) popNextBeeType
 {
-	BeeTypes *nextBeeType = [_queuedBeeTypes objectAtIndex:0];
+	BeeType *nextBeeType = [_queuedBeeTypes objectAtIndex:0];
 	[nextBeeType retain];
 	[_queuedBeeTypes removeObjectAtIndex:0];
 	return [nextBeeType autorelease];

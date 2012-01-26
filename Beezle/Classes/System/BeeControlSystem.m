@@ -8,7 +8,7 @@
 
 #import "BeeControlSystem.h"
 #import "BeeComponent.h"
-#import "BeeTypes.h"
+#import "BeeType.h"
 #import "EntityUtil.h"
 #import "InputAction.h"
 #import "InputSystem.h"

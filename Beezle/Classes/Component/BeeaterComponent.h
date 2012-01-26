@@ -7,14 +7,14 @@
 //
 
 #import "artemis.h"
-#import "BeeTypes.h"
+#import "BeeType.h"
 
 @interface BeeaterComponent : Component
 {
-	BeeTypes *_containedBeeType;
+	BeeType *_containedBeeType;
 }
 
-@property (nonatomic, assign) BeeTypes *containedBeeType;
+@property (nonatomic, assign) BeeType *containedBeeType;
 
 -(BOOL) hasContainedBee;
 

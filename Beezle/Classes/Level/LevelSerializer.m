@@ -138,15 +138,15 @@
 			if ([[editComponent levelLayoutType] isEqualToString:@"SLINGER"])
 			{
 				SlingerComponent *slingerComponent = (SlingerComponent *)[entity getComponent:[SlingerComponent class]];
-				for (BeeTypes *beeType in [slingerComponent queuedBeeTypes])
+				for (BeeType *beeType in [slingerComponent queuedBeeTypes])
 				{
-					[levelLayoutEntry addBeeTypeAsString:[beeType string]];
+					[levelLayoutEntry addBeeTypeAsString:[beeType name]];
 				}
 			}
 			else if ([[editComponent levelLayoutType] isEqualToString:@"BEEATER"])
 			{
 				BeeaterComponent *beeaterComponent = (BeeaterComponent *)[entity getComponent:[BeeaterComponent class]];
-				[levelLayoutEntry setBeeTypeAsString:[[beeaterComponent containedBeeType] string]];
+				[levelLayoutEntry setBeeTypeAsString:[[beeaterComponent containedBeeType] name]];
 			}
 			
 			[levelLayout addLevelLayoutEntry:levelLayoutEntry];

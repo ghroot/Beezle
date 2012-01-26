@@ -7,7 +7,7 @@
 //
 
 #import "LevelLoader.h"
-#import "BeeTypes.h"
+#import "BeeType.h"
 #import "EditComponent.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
@@ -110,7 +110,7 @@
             NSMutableArray *beeTypes = [NSMutableArray array];
             for (NSString *beeTypeAsString in [levelLayoutEntry beeTypesAsStrings])
             {
-                BeeTypes *beeType = [BeeTypes beeTypeFromString:beeTypeAsString];
+                BeeType *beeType = [BeeType enumFromName:beeTypeAsString];
                 [beeTypes addObject:beeType];
             }
             
@@ -118,7 +118,7 @@
         }
         else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER"])
         {
-            BeeTypes *beeType = [BeeTypes beeTypeFromString:[levelLayoutEntry beeTypeAsString]];
+            BeeType *beeType = [BeeType enumFromName:[levelLayoutEntry beeTypeAsString]];
             entity = [EntityFactory createBeeater:world withBeeType:beeType];
         }
         else if ([[levelLayoutEntry type] isEqualToString:@"RAMP"])

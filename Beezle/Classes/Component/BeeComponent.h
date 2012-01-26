@@ -7,17 +7,17 @@
 //
 
 #import "artemis.h"
-#import "BeeTypes.h"
+#import "BeeType.h"
 
 @interface BeeComponent : Component
 {
-	BeeTypes *_type;
+	BeeType *_type;
 }
 
-@property (nonatomic, readonly) BeeTypes *type;
+@property (nonatomic, readonly) BeeType *type;
 
-+(id) componentWithType:(BeeTypes *)type;
++(id) componentWithType:(BeeType *)type;
 
--(id) initWithType:(BeeTypes *)type;
+-(id) initWithType:(BeeType *)type;
 
 @end

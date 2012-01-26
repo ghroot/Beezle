@@ -8,7 +8,7 @@
 
 #import "BeeQueueRenderingSystem.h"
 #import "ActionTags.h"
-#import "BeeTypes.h"
+#import "BeeType.h"
 #import "NotificationTypes.h"
 #import "RenderSprite.h"
 #import "SlingerComponent.h"
@@ -29,7 +29,7 @@
 -(void) handleBeeFiredNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) handleBeeSavedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) decreaseMovingBeesCount;
--(RenderSprite *) createBeeQueueRenderSpriteWithBeeType:(BeeTypes *)beeType position:(CGPoint)position;
+-(RenderSprite *) createBeeQueueRenderSpriteWithBeeType:(BeeType *)beeType position:(CGPoint)position;
 -(CGPoint) calculatePositionForBeeQueueRenderSpriteAtIndex:(int)index slingerEntity:(Entity *)slingerEntity;
 -(CGPoint) calculatePositionForNextBeeQueueRenderSprite:(Entity *)slingerEntity;
 -(CCAction *) createSwayAction:(CGPoint)position;
@@ -166,7 +166,7 @@
 {
 	NSValue *beeterPositionValue = (NSValue *)[[notification userInfo] objectForKey:@"beeaterEntityPosition"];
 	CGPoint beeaterPosition = [beeterPositionValue CGPointValue];
-	BeeTypes *savedBeeType = (BeeTypes *)[[notification userInfo] objectForKey:@"beeType"];
+	BeeType *savedBeeType = (BeeType *)[[notification userInfo] objectForKey:@"beeType"];
 	
 	CGPoint nextPosition = [self calculatePositionForNextBeeQueueRenderSprite:slingerEntity];
 	
@@ -193,7 +193,7 @@
 	[_beeQueueRenderSprites removeAllObjects];
 	
 	// Create sprites
-    for (BeeTypes *beeType in [slingerSlingerComponent queuedBeeTypes])
+    for (BeeType *beeType in [slingerSlingerComponent queuedBeeTypes])
     {
 		// Create sprite
 		RenderSprite *beeQueueRenderSprite = [self createBeeQueueRenderSpriteWithBeeType:beeType position:[self calculatePositionForNextBeeQueueRenderSprite:slingerEntity]];
@@ -205,7 +205,7 @@
     }
 }
 
--(RenderSprite *) createBeeQueueRenderSpriteWithBeeType:(BeeTypes *)beeType position:(CGPoint)position
+-(RenderSprite *) createBeeQueueRenderSpriteWithBeeType:(BeeType *)beeType position:(CGPoint)position
 {
 	// Create sprite
 	RenderSprite *beeQueueRenderSprite = [RenderSprite renderSpriteWithSpriteSheet:_beeQueueSpriteSheet];

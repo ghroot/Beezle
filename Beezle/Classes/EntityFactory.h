@@ -8,15 +8,15 @@
 
 #import "artemis.h"
 #import "cocos2d.h"
-#import "BeeTypes.h"
+#import "BeeType.h"
 
 @interface EntityFactory : NSObject
 
 +(Entity *) createBackground:(World *)world withLevelName:(NSString *)name;
 +(Entity *) createEdge:(World *)world;
 +(Entity *) createSlinger:(World *)world withBeeTypes:(NSArray *)beeTypes;
-+(Entity *) createBee:(World *)world withBeeType:(BeeTypes *)type andVelocity:(CGPoint)velocity;
-+(Entity *) createBeeater:(World *)world withBeeType:(BeeTypes *)beeType;
++(Entity *) createBee:(World *)world withBeeType:(BeeType *)type andVelocity:(CGPoint)velocity;
++(Entity *) createBeeater:(World *)world withBeeType:(BeeType *)beeType;
 +(Entity *) createRamp:(World *)world;
 +(Entity *) createPollen:(World *)world;
 +(Entity *) createMushroom:(World *)world;

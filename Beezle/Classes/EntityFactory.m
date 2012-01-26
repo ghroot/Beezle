@@ -112,7 +112,7 @@ typedef enum
 	
 	// Slinger
 	SlingerComponent *slingerComponent = [SlingerComponent component];
-    for (BeeTypes *beeType in beeTypes)
+    for (BeeType *beeType in beeTypes)
     {
         [slingerComponent pushBeeType:beeType];
     }
@@ -146,7 +146,7 @@ typedef enum
     return slingerEntity;
 }
 
-+(Entity *) createBee:(World *)world withBeeType:(BeeTypes *)type andVelocity:(CGPoint)velocity
++(Entity *) createBee:(World *)world withBeeType:(BeeType *)type andVelocity:(CGPoint)velocity
 {
     Entity *beeEntity = [world createEntity];
 	
@@ -183,6 +183,7 @@ typedef enum
 	[shape setElasticity:0.8f];
 	[shape setFriction:1.0f];
 	[shape setCollisionType:[CollisionType BEE]];
+    [shape setLayers:1];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
     [beeEntity addComponent:physicsComponent];
     
@@ -201,7 +202,7 @@ typedef enum
     return beeEntity;
 }
 
-+(Entity *) createBeeater:(World *)world withBeeType:(BeeTypes *)beeType
++(Entity *) createBeeater:(World *)world withBeeType:(BeeType *)beeType
 {
 	Entity *beeaterEntity = [world createEntity];
 	
@@ -329,6 +330,7 @@ typedef enum
 	[shape setElasticity:0.8f];
 	[shape setFriction:0.5f];
 	[shape setCollisionType:[CollisionType POLLEN]];
+    [shape setLayers:1];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
     [pollenEntity addComponent:physicsComponent];
     
@@ -501,7 +503,8 @@ typedef enum
 	[shape setElasticity:0.8f];
 	[shape setFriction:1.0f];
 	[shape setCollisionType:[CollisionType AIM_POLLEN]];
-	[shape setGroup:[CollisionType AIM_POLLEN]];
+    [shape setGroup:[CollisionType AIM_POLLEN]];
+    [shape setLayers:2];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
     [aimPollenEntity addComponent:physicsComponent];
     
