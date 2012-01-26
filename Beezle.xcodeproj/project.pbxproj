@@ -139,7 +139,7 @@
 		2C3A6F96148980AF002721E3 /* BeeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F95148980AF002721E3 /* BeeComponent.m */; };
 		2C3B0E5414A91E4D008949B0 /* EmailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B0E5314A91E4D008949B0 /* EmailInfo.m */; };
 		2C3BA3DE14B1DBBA007B1660 /* LevelOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BA3DD14B1DBBA007B1660 /* LevelOrganizer.m */; };
-		2C3C990E14A2574400284A60 /* CollisionTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3C990D14A2574300284A60 /* CollisionTypes.m */; };
+		2C3C990E14A2574400284A60 /* CollisionType.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3C990D14A2574300284A60 /* CollisionType.m */; };
 		2C44B5B7147B194C000CF537 /* TagEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C44B5B6147B194C000CF537 /* TagEntitySystem.m */; };
 		2C44B5BB147B1960000CF537 /* GroupEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C44B5BA147B1960000CF537 /* GroupEntitySystem.m */; };
 		2C535FCD14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C535FCC14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m */; };
@@ -217,6 +217,7 @@
 		2C9EF99A14B4E91800F9EE34 /* LevelLayoutCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF99614B4E91800F9EE34 /* LevelLayoutCache.m */; };
 		2C9EF99B14B4E91800F9EE34 /* LevelLayoutEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF99814B4E91800F9EE34 /* LevelLayoutEntry.m */; };
 		2CA9E3A2147B0EEE0058C496 /* GroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA9E3A1147B0EED0058C496 /* GroupManager.m */; };
+		2CADAAF414D0C3EE007F3F80 /* GandEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADAAF314D0C3EE007F3F80 /* GandEnum.m */; };
 		2CADCC711471C76400302475 /* InputAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC701471C76400302475 /* InputAction.m */; };
 		2CADCC7714732ADC00302475 /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC7614732ADB00302475 /* CollisionSystem.m */; };
 		2CADCC7A1473314D00302475 /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC791473314C00302475 /* Collision.m */; };
@@ -541,7 +542,7 @@
 		2C157C1E149382D6003F9040 /* GameRulesSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameRulesSystem.m; path = Classes/System/GameRulesSystem.m; sourceTree = "<group>"; };
 		2C157C221493B3DE003F9040 /* GameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMode.h; sourceTree = "<group>"; };
 		2C157C231493B3DE003F9040 /* GameMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameMode.m; sourceTree = "<group>"; };
-		2C38A1EA1496D6440019244D /* CollisionTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionTypes.h; path = Classes/CollisionTypes.h; sourceTree = "<group>"; };
+		2C38A1EA1496D6440019244D /* CollisionType.h */ = {isa = PBXFileReference; fileEncoding = 4; name = CollisionType.h; path = Classes/CollisionType.h; sourceTree = "<group>"; };
 		2C3A6F7514898085002721E3 /* Bee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bee-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Body-Animations.plist"; sourceTree = "<group>"; };
 		2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Head-Animations.plist"; sourceTree = "<group>"; };
@@ -560,7 +561,7 @@
 		2C3B0E5314A91E4D008949B0 /* EmailInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmailInfo.m; path = Classes/EmailInfo.m; sourceTree = "<group>"; };
 		2C3BA3DC14B1DBB9007B1660 /* LevelOrganizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelOrganizer.h; sourceTree = "<group>"; };
 		2C3BA3DD14B1DBBA007B1660 /* LevelOrganizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelOrganizer.m; sourceTree = "<group>"; };
-		2C3C990D14A2574300284A60 /* CollisionTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionTypes.m; path = Classes/CollisionTypes.m; sourceTree = "<group>"; };
+		2C3C990D14A2574300284A60 /* CollisionType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionType.m; path = Classes/CollisionType.m; sourceTree = "<group>"; };
 		2C44B5B5147B194C000CF537 /* TagEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagEntitySystem.h; path = Classes/Artemis/TagEntitySystem.h; sourceTree = "<group>"; };
 		2C44B5B6147B194C000CF537 /* TagEntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagEntitySystem.m; path = Classes/Artemis/TagEntitySystem.m; sourceTree = "<group>"; };
 		2C44B5B9147B1960000CF537 /* GroupEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupEntitySystem.h; path = Classes/Artemis/GroupEntitySystem.h; sourceTree = "<group>"; };
@@ -709,6 +710,8 @@
 		2CA9E39F147AF9910058C496 /* artemis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = artemis.h; path = Classes/Artemis/artemis.h; sourceTree = "<group>"; };
 		2CA9E3A0147B0EED0058C496 /* GroupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupManager.h; path = Classes/Artemis/GroupManager.h; sourceTree = "<group>"; };
 		2CA9E3A1147B0EED0058C496 /* GroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupManager.m; path = Classes/Artemis/GroupManager.m; sourceTree = "<group>"; };
+		2CADAAF214D0C3EE007F3F80 /* GandEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GandEnum.h; path = Classes/GandEnum.h; sourceTree = "<group>"; };
+		2CADAAF314D0C3EE007F3F80 /* GandEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GandEnum.m; path = Classes/GandEnum.m; sourceTree = "<group>"; };
 		2CADCC6F1471C76400302475 /* InputAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputAction.h; path = Classes/System/InputAction.h; sourceTree = "<group>"; };
 		2CADCC701471C76400302475 /* InputAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputAction.m; path = Classes/System/InputAction.m; sourceTree = "<group>"; };
 		2CADCC7514732ADB00302475 /* CollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionSystem.h; path = Classes/System/CollisionSystem.h; sourceTree = "<group>"; };
@@ -1579,8 +1582,8 @@
 				2C8A4B7B1495184300C0C154 /* BeeTypes.m */,
 				2CAE05F914705F490023FA94 /* EntityFactory.h */,
 				2CAE05FA14705F4A0023FA94 /* EntityFactory.m */,
-				2C38A1EA1496D6440019244D /* CollisionTypes.h */,
-				2C3C990D14A2574300284A60 /* CollisionTypes.m */,
+				2C38A1EA1496D6440019244D /* CollisionType.h */,
+				2C3C990D14A2574300284A60 /* CollisionType.m */,
 				2CEA347C145F66F9000FF575 /* RootViewController.h */,
 				2CEA347D145F66F9000FF575 /* RootViewController.m */,
 				2C535FCE149ACE4100BC7DB6 /* NotificationTypes.h */,
@@ -1592,6 +1595,8 @@
 				2C3B0E5314A91E4D008949B0 /* EmailInfo.m */,
 				2C853D6114B4D7C600C90C55 /* SoundManager.h */,
 				2C853D6214B4D7C600C90C55 /* SoundManager.m */,
+				2CADAAF214D0C3EE007F3F80 /* GandEnum.h */,
+				2CADAAF314D0C3EE007F3F80 /* GandEnum.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1996,7 +2001,7 @@
 				2C9457A4149FED5A006BDC68 /* EditOptionsSystem.m in Sources */,
 				2C596D3014A0A34A00DFCC14 /* EntityUtil.m in Sources */,
 				2C596D3E14A13FDD00DFCC14 /* LevelLoader.m in Sources */,
-				2C3C990E14A2574400284A60 /* CollisionTypes.m in Sources */,
+				2C3C990E14A2574400284A60 /* CollisionType.m in Sources */,
 				2C3B0E5414A91E4D008949B0 /* EmailInfo.m in Sources */,
 				2C3BA3DE14B1DBBA007B1660 /* LevelOrganizer.m in Sources */,
 				2CE508CF14B1E98300A9E8D8 /* LevelSelectMenuState.m in Sources */,
@@ -2007,6 +2012,7 @@
 				2C9EF99A14B4E91800F9EE34 /* LevelLayoutCache.m in Sources */,
 				2C9EF99B14B4E91800F9EE34 /* LevelLayoutEntry.m in Sources */,
 				2C64AD1414BA4F0400ABD114 /* BeeControlSystem.m in Sources */,
+				2CADAAF414D0C3EE007F3F80 /* GandEnum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

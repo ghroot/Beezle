@@ -9,7 +9,7 @@
 #import "EntityFactory.h"
 #import "BeeaterComponent.h"
 #import "BeeComponent.h"
-#import "CollisionTypes.h"
+#import "CollisionType.h"
 #import "DisposableComponent.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
@@ -59,7 +59,7 @@ typedef enum
     // Physics
     PhysicsSystem *physicsSystem = (PhysicsSystem *)[[world systemManager] getSystem:[PhysicsSystem class]];
     NSString *shapesFileName = [NSString stringWithFormat:@"%@-Shapes.plist", name];
-    PhysicsComponent *physicsComponent = [physicsSystem createPhysicsComponentWithFile:shapesFileName bodyName:name isStatic:TRUE collisionType:[CollisionTypes sharedTypeBackground]];
+    PhysicsComponent *physicsComponent = [physicsSystem createPhysicsComponentWithFile:shapesFileName bodyName:name isStatic:TRUE collisionType:[CollisionType BACKGROUND]];
     [backgroundEntity addComponent:physicsComponent];
     
     [backgroundEntity refresh];
@@ -94,7 +94,7 @@ typedef enum
 		ChipmunkShape *shape = [ChipmunkSegmentShape segmentWithBody:body from:verts[i] to:verts[nextI] radius:0];
 		[shape setElasticity:0.0f];
 		[shape setFriction:0.5f];
-		[shape setCollisionType:[CollisionTypes sharedTypeEdge]];
+		[shape setCollisionType:[CollisionType EDGE]];
         
         [shapes addObject:shape];
     }
@@ -182,7 +182,7 @@ typedef enum
 	ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:8 verts:verts offset:CGPointZero];
 	[shape setElasticity:0.8f];
 	[shape setFriction:1.0f];
-	[shape setCollisionType:[CollisionTypes sharedTypeBee]];
+	[shape setCollisionType:[CollisionType BEE]];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
     [beeEntity addComponent:physicsComponent];
     
@@ -238,7 +238,7 @@ typedef enum
 	ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:4 verts:verts offset:CGPointZero];
 	[shape setElasticity:0.8f];
 	[shape setFriction:0.5f];
-	[shape setCollisionType:[CollisionTypes sharedTypeBeeater]];
+	[shape setCollisionType:[CollisionType BEEATER]];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
     [beeaterEntity addComponent:physicsComponent];
     
@@ -289,7 +289,7 @@ typedef enum
 	ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:num verts:verts offset:CGPointZero];
 	[shape setElasticity:0.8f];
 	[shape setFriction:0.5f];
-	[shape setCollisionType:[CollisionTypes sharedTypeRamp]];
+	[shape setCollisionType:[CollisionType RAMP]];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
     [rampEntity addComponent:physicsComponent];
     
@@ -328,7 +328,7 @@ typedef enum
 	ChipmunkShape *shape = [ChipmunkCircleShape circleWithBody:body radius:8 offset:CGPointZero];
 	[shape setElasticity:0.8f];
 	[shape setFriction:0.5f];
-	[shape setCollisionType:[CollisionTypes sharedTypePollen]];
+	[shape setCollisionType:[CollisionType POLLEN]];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
     [pollenEntity addComponent:physicsComponent];
     
@@ -367,7 +367,7 @@ typedef enum
 	ChipmunkShape *shape = [ChipmunkCircleShape circleWithBody:body radius:25 offset:cpv(0, 20)];
 	[shape setElasticity:1.5f];
 	[shape setFriction:0.5f];
-	[shape setCollisionType:[CollisionTypes sharedTypeMushroom]];
+	[shape setCollisionType:[CollisionType MUSHROOM]];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
     [mushroomEntity addComponent:physicsComponent];
 	
@@ -410,7 +410,7 @@ typedef enum
 	ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:num verts:verts offset:CGPointZero];
 	[shape setElasticity:0.8f];
 	[shape setFriction:0.5f];
-	[shape setCollisionType:[CollisionTypes sharedTypeWood]];
+	[shape setCollisionType:[CollisionType WOOD]];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
     [woodEntity addComponent:physicsComponent];
     
@@ -449,7 +449,7 @@ typedef enum
 	ChipmunkShape *shape = [ChipmunkCircleShape circleWithBody:body radius:20 offset:cpv(0, 20)];
 	[shape setElasticity:1.5f];
 	[shape setFriction:0.5f];
-	[shape setCollisionType:[CollisionTypes sharedTypeNut]];
+	[shape setCollisionType:[CollisionType NUT]];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
     [nutEntity addComponent:physicsComponent];
     
@@ -500,8 +500,8 @@ typedef enum
 	ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:num verts:verts offset:CGPointZero];
 	[shape setElasticity:0.8f];
 	[shape setFriction:1.0f];
-	[shape setCollisionType:[CollisionTypes sharedTypeAimPollen]];
-	[shape setGroup:[CollisionTypes sharedTypeAimPollen]];
+	[shape setCollisionType:[CollisionType AIM_POLLEN]];
+	[shape setGroup:[CollisionType AIM_POLLEN]];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
     [aimPollenEntity addComponent:physicsComponent];
     

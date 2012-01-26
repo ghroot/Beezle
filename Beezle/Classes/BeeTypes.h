@@ -1,5 +1,5 @@
 //
-//  BeeType.h
+//  BeeTypes.h
 //  Beezle
 //
 //  Created by Me on 11/12/2011.

@@ -8,7 +8,7 @@
 
 #import "artemis.h"
 #import "ObjectiveChipmunk.h"
-#import "CollisionTypes.h"
+#import "CollisionType.h"
 
 @class Entity;
 
