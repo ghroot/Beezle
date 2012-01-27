@@ -58,11 +58,6 @@
     
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:[bodyInfo body] andShapes:[bodyInfo shapes]];
     
-    if (isStatic)
-    {
-		[[physicsComponent body] initStaticBody];
-    }
-    
     for (ChipmunkShape *shape in [physicsComponent shapes])
     {
 		[shape setCollisionType:collisionType];

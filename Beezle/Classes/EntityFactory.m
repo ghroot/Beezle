@@ -85,8 +85,8 @@ typedef enum
         cpv(winSize.width, winSize.height),
         cpv(0.0f, winSize.height)
     };
-	ChipmunkBody *body = [ChipmunkBody bodyWithMass:1.0f andMoment:cpMomentForPoly(1.0f, num, verts, CGPointZero)];
-	[body initStaticBody];
+    
+	ChipmunkBody *body = [ChipmunkBody staticBody];
     NSMutableArray *shapes = [[[NSMutableArray alloc] init] autorelease];
     for (int i = 0; i < num; i++)
     {
@@ -227,8 +227,7 @@ typedef enum
     [beeaterEntity addComponent:renderComponent];
 	
     // Physics
-	ChipmunkBody *body = [ChipmunkBody bodyWithMass:1.0f andMoment:1.0f];
-	[body initStaticBody];
+	ChipmunkBody *body = [ChipmunkBody staticBody];
     CGPoint verts[] =
 	{
         cpv(-15.0f, 0.0f),
@@ -285,8 +284,7 @@ typedef enum
         CGPointMake( 50, 4),
         CGPointMake( 50,-4),
     };
-	ChipmunkBody *body = [ChipmunkBody bodyWithMass:1.0f andMoment:cpMomentForPoly(1.0f, num, verts, CGPointZero)];
-	[body initStaticBody];
+	ChipmunkBody *body = [ChipmunkBody staticBody];
 	ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:num verts:verts offset:CGPointZero];
 	[shape setElasticity:0.8f];
 	[shape setFriction:0.5f];
@@ -324,8 +322,7 @@ typedef enum
     [pollenEntity addComponent:renderComponent];
     
     // Physics
-	ChipmunkBody *body = [ChipmunkBody bodyWithMass:1.0f andMoment:1.0f];
-	[body initStaticBody];
+	ChipmunkBody *body = [ChipmunkBody staticBody];
 	ChipmunkShape *shape = [ChipmunkCircleShape circleWithBody:body radius:8 offset:CGPointZero];
 	[shape setElasticity:0.8f];
 	[shape setFriction:0.5f];
@@ -364,8 +361,7 @@ typedef enum
     [mushroomEntity addComponent:renderComponent];
     
     // Physics
-	ChipmunkBody *body = [ChipmunkBody bodyWithMass:1.0f andMoment:1.0f];
-	[body initStaticBody];
+	ChipmunkBody *body = [ChipmunkBody staticBody];
 	ChipmunkShape *shape = [ChipmunkCircleShape circleWithBody:body radius:25 offset:cpv(0, 20)];
 	[shape setElasticity:1.5f];
 	[shape setFriction:0.5f];
@@ -407,8 +403,7 @@ typedef enum
         CGPointMake( 5, 35),
         CGPointMake( 5,-35),
     };
-	ChipmunkBody *body = [ChipmunkBody bodyWithMass:1.0f andMoment:cpMomentForPoly(1.0f, num, verts, CGPointZero)];
-	[body initStaticBody];
+	ChipmunkBody *body = [ChipmunkBody staticBody];
 	ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:num verts:verts offset:CGPointZero];
 	[shape setElasticity:0.8f];
 	[shape setFriction:0.5f];
@@ -446,8 +441,7 @@ typedef enum
     [nutEntity addComponent:renderComponent];
     
     // Physics
-	ChipmunkBody *body = [ChipmunkBody bodyWithMass:1.0f andMoment:1.0f];
-	[body initStaticBody];
+	ChipmunkBody *body = [ChipmunkBody staticBody];
 	ChipmunkShape *shape = [ChipmunkCircleShape circleWithBody:body radius:20 offset:cpv(0, 20)];
 	[shape setElasticity:1.5f];
 	[shape setFriction:0.5f];

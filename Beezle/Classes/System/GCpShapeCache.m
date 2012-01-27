@@ -230,8 +230,20 @@ typedef enum
     
     BodyInfo *bodyInfo = [[[BodyInfo alloc] init] autorelease];
     
+    // TEMP: Set mass to 0 in PhysicsEditor!
+    bd->mass = 0.0f;
+    
     // create and add body to space
-	ChipmunkBody *body = [ChipmunkBody bodyWithMass:bd->mass andMoment:bd->momentum];
+    ChipmunkBody *body;
+    if (bd->mass > 0.0f)
+    {
+        body = [ChipmunkBody bodyWithMass:bd->mass andMoment:bd->momentum];
+    }
+    else
+    {
+        body = [ChipmunkBody staticBody];
+    }
+	
     [bodyInfo setBody:body];
     
     // set the center point
