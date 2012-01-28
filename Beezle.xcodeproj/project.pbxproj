@@ -2151,6 +2151,9 @@
 					"COCOS2D_DEBUG=0",
 				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_PARAMETER = NO;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = Beezle/Resources/Info.plist;
 				LIBRARY_SEARCH_PATHS = (
@@ -2173,6 +2176,9 @@
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_PARAMETER = NO;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = Beezle/Resources/Info.plist;
 				LIBRARY_SEARCH_PATHS = (

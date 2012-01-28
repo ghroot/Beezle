@@ -156,11 +156,6 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity
 {
-	BeeComponent *beeBeeComponent = (BeeComponent *)[beeEntity getComponent:[BeeComponent class]];
-	if (![[beeBeeComponent type] canRoll])
-	{
-		[EntityUtil animateAndDeleteEntity:beeEntity animationName:@"Bee-Crash"];
-	}
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity

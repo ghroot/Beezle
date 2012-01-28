@@ -10,13 +10,11 @@
 
 @interface BeeType : GandEnum
 {
-	BOOL _canRoll;
     BOOL _canDestroyRamp;
     BOOL _canDestroyWood;
 	BOOL _canExplode;
 }
 
-@property (nonatomic) BOOL canRoll;
 @property (nonatomic) BOOL canDestroyRamp;
 @property (nonatomic) BOOL canDestroyWood;
 @property (nonatomic) BOOL canExplode;
