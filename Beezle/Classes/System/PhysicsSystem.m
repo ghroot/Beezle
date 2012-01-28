@@ -118,7 +118,8 @@
 {
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
 	
-	if (![[physicsComponent body] isStatic])
+	if (![[physicsComponent body] isStatic] &&
+		![physicsComponent isRougeBody])
 	{
 		[_space addBody:[physicsComponent body]];
 	}
@@ -142,7 +143,8 @@
 {
     PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
 	
-	if (![[physicsComponent body] isStatic])
+	if (![[physicsComponent body] isStatic] &&
+		![physicsComponent isRougeBody])
 	{
 		[_space removeBody:[physicsComponent body]];
 	}

@@ -18,6 +18,7 @@
 @class DebugRenderPhysicsSystem;
 @class GameRulesSystem;
 @class InputSystem;
+@class MovementSystem;
 @class PhysicsSystem;
 @class RenderSystem;
 @class SlingerControlSystem;
@@ -35,6 +36,7 @@
 	
     GameRulesSystem *_gameRulesSystem;
     PhysicsSystem *_physicsSystem;
+	MovementSystem *_movementSystem;
     CollisionSystem *_collisionSystem;
     RenderSystem *_renderSystem;
     InputSystem *_inputSystem;

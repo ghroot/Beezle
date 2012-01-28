@@ -23,5 +23,6 @@
 +(Entity *) createWood:(World *)world;
 +(Entity *) createNut:(World *)world;
 +(Entity *) createAimPollen:(World *)world withVelocity:(CGPoint)velocity;
++(Entity *) createLeaf:(World *)world;
 
 @end

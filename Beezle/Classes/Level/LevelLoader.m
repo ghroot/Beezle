@@ -141,6 +141,10 @@
         {
             entity = [EntityFactory createNut:world];
         }
+		else if ([[levelLayoutEntry type] isEqualToString:@"LEAF"])
+		{
+			entity = [EntityFactory createLeaf:world];
+		}
 
 		NSAssert(entity != nil, @"Unrecognized level layout entry type: %@", [levelLayoutEntry type]);
 		

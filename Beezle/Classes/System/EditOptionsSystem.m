@@ -69,6 +69,7 @@
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Ramp" selector:@selector(doOptionAddEntity:) userData:@"RAMP"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Slinger" selector:@selector(doOptionAddEntity:) userData:@"SLINGER"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Wood" selector:@selector(doOptionAddEntity:) userData:@"WOOD"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"Leaf" selector:@selector(doOptionAddEntity:) userData:@"LEAF"]];
 	[_generalOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
 }
 
@@ -195,6 +196,10 @@
 	else if ([type isEqualToString:@"WOOD"])
 	{
 		entity = [EntityFactory createWood:_world];
+	}
+	else if ([type isEqualToString:@"LEAF"])
+	{
+		entity = [EntityFactory createLeaf:_world];
 	}
 	
 	if (entity != nil)

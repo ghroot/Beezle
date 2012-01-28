@@ -233,6 +233,9 @@
 		2CADCC9014746BA200302475 /* ArtemisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC8F14746BA200302475 /* ArtemisTests.m */; };
 		2CAE05FB14705F4A0023FA94 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE05FA14705F4A0023FA94 /* EntityFactory.m */; };
 		2CBC659E149EA50D00970A99 /* EditIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBC659D149EA50D00970A99 /* EditIngameMenuState.m */; };
+		2CC3EBFD14D466460025F5DA /* MovementComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EBFC14D466460025F5DA /* MovementComponent.m */; };
+		2CC3EC0014D466700025F5DA /* MovementSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EBFF14D466700025F5DA /* MovementSystem.m */; };
+		2CC3EC0214D4B0230025F5DA /* Leaf-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CC3EC0114D4B0230025F5DA /* Leaf-Animations.plist */; };
 		2CD2C42E14D19E2A00DC0BD5 /* GandEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD2C42D14D19E2A00DC0BD5 /* GandEnum.m */; };
 		2CD33ED8147D72AD000869C1 /* GameplayState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33ED7147D72AD000869C1 /* GameplayState.m */; };
 		2CD33EEA147EE7AD000869C1 /* TestState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE9147EE7AD000869C1 /* TestState.m */; };
@@ -739,6 +742,11 @@
 		2CAE05FA14705F4A0023FA94 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityFactory.m; path = Classes/EntityFactory.m; sourceTree = "<group>"; };
 		2CBC659C149EA50D00970A99 /* EditIngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditIngameMenuState.h; sourceTree = "<group>"; };
 		2CBC659D149EA50D00970A99 /* EditIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditIngameMenuState.m; sourceTree = "<group>"; };
+		2CC3EBFB14D466460025F5DA /* MovementComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovementComponent.h; path = Classes/Component/MovementComponent.h; sourceTree = "<group>"; };
+		2CC3EBFC14D466460025F5DA /* MovementComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovementComponent.m; path = Classes/Component/MovementComponent.m; sourceTree = "<group>"; };
+		2CC3EBFE14D466700025F5DA /* MovementSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovementSystem.h; path = Classes/System/MovementSystem.h; sourceTree = "<group>"; };
+		2CC3EBFF14D466700025F5DA /* MovementSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovementSystem.m; path = Classes/System/MovementSystem.m; sourceTree = "<group>"; };
+		2CC3EC0114D4B0230025F5DA /* Leaf-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Leaf-Animations.plist"; sourceTree = "<group>"; };
 		2CD2C42C14D19E2A00DC0BD5 /* GandEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GandEnum.h; sourceTree = "<group>"; };
 		2CD2C42D14D19E2A00DC0BD5 /* GandEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GandEnum.m; sourceTree = "<group>"; };
 		2CD33ED6147D72AD000869C1 /* GameplayState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameplayState.h; sourceTree = "<group>"; };
@@ -1189,6 +1197,7 @@
 				2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */,
 				2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */,
 				2C3A6F7814898085002721E3 /* Bombee-Animations.plist */,
+				2CC3EC0114D4B0230025F5DA /* Leaf-Animations.plist */,
 				2C3A6F7914898085002721E3 /* Mushroom-Animations.plist */,
 				2C157C1B14926BE1003F9040 /* Nut-Animations.plist */,
 				2C3A6F7A14898085002721E3 /* Pollen-Animations.plist */,
@@ -1318,6 +1327,8 @@
 				2C157C1514914F5D003F9040 /* RenderTrajectorySystem.m */,
 				2C7CE620146FD66F001F331F /* SlingerControlSystem.h */,
 				2C7CE621146FD66F001F331F /* SlingerControlSystem.m */,
+				2CC3EBFE14D466700025F5DA /* MovementSystem.h */,
+				2CC3EBFF14D466700025F5DA /* MovementSystem.m */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -1640,6 +1651,8 @@
 				2C85B83B149563ED005D7BAB /* DisposableComponent.m */,
 				2C6A92AA149CFDAD00600E15 /* EditComponent.h */,
 				2C6A92AB149CFDAD00600E15 /* EditComponent.m */,
+				2CC3EBFB14D466460025F5DA /* MovementComponent.h */,
+				2CC3EBFC14D466460025F5DA /* MovementComponent.m */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -1820,6 +1833,7 @@
 				2C64AD0E14BA4BAC00ABD114 /* Level-A6-Shapes.plist in Resources */,
 				2C64AD0F14BA4BAC00ABD114 /* Level-A6.jpg in Resources */,
 				2C64AD1114BA4D2300ABD114 /* Level-A6-Layout.plist in Resources */,
+				2CC3EC0214D4B0230025F5DA /* Leaf-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2023,6 +2037,8 @@
 				2C27E90A14D20577002165CD /* TagEntitySystem.m in Sources */,
 				2C27E90B14D20577002165CD /* TagManager.m in Sources */,
 				2C27E90C14D20577002165CD /* World.m in Sources */,
+				2CC3EBFD14D466460025F5DA /* MovementComponent.m in Sources */,
+				2CC3EC0014D466700025F5DA /* MovementSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2112,7 +2128,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				KEEP_PRIVATE_EXTERNS = NO;
 				SDKROOT = iphoneos;
 			};
@@ -2132,7 +2148,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				KEEP_PRIVATE_EXTERNS = NO;
 				SDKROOT = iphoneos;
 			};
@@ -2151,6 +2167,7 @@
 					"COCOS2D_DEBUG=0",
 				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				GCC_WARN_UNUSED_PARAMETER = NO;
@@ -2176,6 +2193,7 @@
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				GCC_WARN_UNUSED_PARAMETER = NO;

@@ -13,6 +13,7 @@
 @synthesize body = _body;
 @synthesize shapes = _shapes;
 @synthesize positionUpdatedManually = _positionUpdatedManually;
+@synthesize isRougeBody = _isRougeBody;
 
 +(id) componentWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes
 {

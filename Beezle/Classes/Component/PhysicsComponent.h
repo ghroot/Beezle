@@ -18,12 +18,14 @@
 {
     ChipmunkBody *_body;
     NSArray *_shapes;
+	BOOL _isRougeBody;
 	BOOL _positionUpdatedManually;
 }
 
 @property (nonatomic, readonly) ChipmunkBody *body;
 @property (nonatomic, readonly) NSArray *shapes;
 @property (nonatomic) BOOL positionUpdatedManually;
+@property (nonatomic) BOOL isRougeBody;
 
 +(id) componentWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes;
 +(id) componentWithBody:(ChipmunkBody *)body andShape:(ChipmunkShape *)shape;

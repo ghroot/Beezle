@@ -11,6 +11,7 @@
 #import "BeeComponent.h"
 #import "CollisionType.h"
 #import "DisposableComponent.h"
+#import "MovementComponent.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
 #import "RenderComponent.h"
@@ -26,6 +27,7 @@ typedef enum
 	Z_ORDER_BACKGROUND,
 	Z_ORDER_BEEATER_BODY,
 	Z_ORDER_BEEATER_HEAD,
+	Z_ORDER_LEAF,
 	Z_ORDER_RAMP,
 	Z_ORDER_POLLEN,
 	Z_ORDER_MUSHROOM,
@@ -515,6 +517,55 @@ typedef enum
     [[renderSprite sprite] runAction:[CCSequence actions:fadeOutAction, callFunctionAction, nil]];
     
     return aimPollenEntity;
+}
+
++(Entity *) createLeaf:(World *)world
+{
+	Entity *leafEntity = [world createEntity];
+    
+    // Transform
+    TransformComponent *transformComponent = [TransformComponent component];
+    [leafEntity addComponent:transformComponent];
+    
+    // Render
+	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Leaf-Animations.plist" z:Z_ORDER_LEAF];
+    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
+    [leafEntity addComponent:renderComponent];
+	
+    // Physics
+    int num = 4;
+    CGPoint verts[] =
+	{
+        CGPointMake(-30,-4),
+        CGPointMake(-30, 4),
+        CGPointMake( 30, 4),
+        CGPointMake( 30,-4),
+    };
+	ChipmunkBody *body = [ChipmunkBody bodyWithMass:INFINITY andMoment:INFINITY];
+	ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:num verts:verts offset:CGPointZero];
+	[shape setElasticity:0.4f];
+	[shape setFriction:0.5f];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
+	[physicsComponent setIsRougeBody:TRUE];
+    [leafEntity addComponent:physicsComponent];
+    
+	// Movement
+	MovementComponent *movementComponent = [MovementComponent component];
+	[movementComponent setPoints:[NSArray arrayWithObjects:
+								  [NSValue valueWithCGPoint:CGPointMake(250, 200)],
+								  [NSValue valueWithCGPoint:CGPointMake(250, 220)],
+								  nil]];
+	[leafEntity addComponent:movementComponent];
+	
+	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
+	[labelManager labelEntity:leafEntity withLabel:@"EDITABLE"];
+    
+    [leafEntity refresh];
+	
+	[renderComponent playAnimation:@"Leaf-Idle"];
+    
+    return leafEntity;
 }
 
 @end

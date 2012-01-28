@@ -19,6 +19,7 @@
 #import "InputAction.h"
 #import "InputSystem.h"
 #import "LevelLoader.h"
+#import "MovementSystem.h"
 #import "PhysicsSystem.h"
 #import "RenderSystem.h"
 #import "SlingerControlSystem.h"
@@ -94,6 +95,8 @@
     [systemManager setSystem:_gameRulesSystem];
 	_physicsSystem = [[[PhysicsSystem alloc] init] autorelease];
 	[systemManager setSystem:_physicsSystem];
+	_movementSystem = [[[MovementSystem alloc] init] autorelease];
+	[systemManager setSystem:_movementSystem];
 	_collisionSystem = [[[CollisionSystem alloc] init] autorelease];
 	[systemManager setSystem:_collisionSystem];
 	_renderSystem = [[[RenderSystem alloc] initWithLayer:_gameLayer] autorelease];
@@ -122,6 +125,7 @@
     _aimingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
                                                      _gameRulesSystem,
                                                      _physicsSystem,
+													 _movementSystem,
                                                      _collisionSystem,
                                                      _renderSystem,
                                                      _inputSystem,
@@ -130,15 +134,16 @@
                                                      nil]];
     
     _shootingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
-                                               _gameRulesSystem,
-                                               _physicsSystem,
-                                               _collisionSystem,
-                                               _renderSystem,
-												_inputSystem,
-                                               _beeExpirationSystem,
-												_beeControlSystem,
-											   _beeQueueRenderingSystem,
-                                               nil]];
+													   _gameRulesSystem,
+													   _physicsSystem,
+													   _movementSystem,
+													   _collisionSystem,
+													   _renderSystem,
+													   _inputSystem,
+													   _beeExpirationSystem,
+													   _beeControlSystem,
+													   _beeQueueRenderingSystem,
+													   nil]];
     
     _levelCompletedMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
 															 _beeQueueRenderingSystem,
