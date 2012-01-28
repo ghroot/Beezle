@@ -38,28 +38,24 @@
 
 -(void) drawShape:(ChipmunkShape *)shape
 {	
-//    ccDrawColor4f(255.0f, 255.0f, 255.0f, 1.0f);
-//    if (shape->klass_private->type == CP_CIRCLE_SHAPE)
-//    {
-//        cpCircleShape* circleShape = (cpCircleShape*)shape;
-//        cpVect c = cpvadd(shape->body->p, cpvrotate(circleShape->c, shape->body->rot));
-//        ccDrawCircle(c, circleShape->r, shape->body->a, 20, TRUE);
-//    }
-//    else if (shape->klass_private->type == CP_POLY_SHAPE)
-//    {
-//        cpPolyShape* polyShape = (cpPolyShape*)shape;
-//        ccDrawPoly(polyShape->tVerts, polyShape->numVerts, YES);
-//    }
-//    else if (shape->klass_private->type == CP_SEGMENT_SHAPE)
-//    {
-//        cpSegmentShape* segmentShape = (cpSegmentShape*)shape;
-//        ccDrawLine(segmentShape->ta, segmentShape->tb);
-//    }
-//    else
-//    {
-//        cpSegmentShape* segmentShape = (cpSegmentShape*)shape;
-//        ccDrawLine(segmentShape->ta, segmentShape->tb);
-//    }
+    ccDrawColor4f(255.0f, 255.0f, 255.0f, 1.0f);
+	if ([shape isKindOfClass:[ChipmunkCircleShape class]])
+    {
+		cpBody *body = [[shape body] body];
+        cpCircleShape *circleShape = (cpCircleShape *)[shape shape];
+        cpVect c = cpvadd(body->p, cpvrotate(circleShape->c, body->rot));
+        ccDrawCircle(c, circleShape->r, body->a, 20, TRUE);
+    }
+	else if ([shape isKindOfClass:[ChipmunkPolyShape class]])
+    {
+        cpPolyShape *polyShape = (cpPolyShape*)[shape shape];
+        ccDrawPoly(polyShape->tVerts, polyShape->numVerts, YES);
+    }
+	else if ([shape isKindOfClass:[ChipmunkSegmentShape class]])
+    {
+        cpSegmentShape* segmentShape = (cpSegmentShape*)[shape shape];
+        ccDrawLine(segmentShape->ta, segmentShape->tb);
+    }
 }
 
 @end
