@@ -11,6 +11,7 @@
 #import "BeeComponent.h"
 #import "CollisionType.h"
 #import "DisposableComponent.h"
+#import "EditComponent.h"
 #import "MovementComponent.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
@@ -137,9 +138,6 @@ typedef enum
 	
 	TagManager *tagManager = (TagManager *)[world getManager:[TagManager class]];
 	[tagManager registerEntity:slingerEntity withTag:@"SLINGER"];
-	
-	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
-	[labelManager labelEntity:slingerEntity withLabel:@"EDITABLE"];
     
     [slingerEntity refresh];
 	
@@ -250,9 +248,6 @@ typedef enum
 	
     GroupManager *groupManager = (GroupManager *)[world getManager:[GroupManager class]];
     [groupManager addEntity:beeaterEntity toGroup:@"BEEATERS"];
-	
-	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
-	[labelManager labelEntity:beeaterEntity withLabel:@"EDITABLE"];
     
     [beeaterEntity refresh];
 	
@@ -299,7 +294,6 @@ typedef enum
     [rampEntity addComponent:disposableComponent];
 	
 	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
-	[labelManager labelEntity:rampEntity withLabel:@"EDITABLE"];
 	[labelManager labelEntity:rampEntity withLabel:@"RAMP"];
     
     [rampEntity refresh];
@@ -336,9 +330,6 @@ typedef enum
     // Disposable
     DisposableComponent *disposableComponent = [DisposableComponent component];
     [pollenEntity addComponent:disposableComponent];
-	
-	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
-	[labelManager labelEntity:pollenEntity withLabel:@"EDITABLE"];
     
     [pollenEntity refresh];
     
@@ -370,9 +361,6 @@ typedef enum
 	[shape setCollisionType:[CollisionType MUSHROOM]];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
     [mushroomEntity addComponent:physicsComponent];
-	
-	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
-	[labelManager labelEntity:mushroomEntity withLabel:@"EDITABLE"];
     
     [mushroomEntity refresh];
     
@@ -416,9 +404,6 @@ typedef enum
     // Disposable
     DisposableComponent *disposableComponent = [DisposableComponent component];
     [woodEntity addComponent:disposableComponent];
-	
-	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
-	[labelManager labelEntity:woodEntity withLabel:@"EDITABLE"];
     
     [woodEntity refresh];
     
@@ -454,9 +439,6 @@ typedef enum
     // Disposable
     DisposableComponent *disposableComponent = [DisposableComponent component];
     [nutEntity addComponent:disposableComponent];
-	
-	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
-	[labelManager labelEntity:nutEntity withLabel:@"EDITABLE"];
     
     [nutEntity refresh];
     
@@ -519,7 +501,7 @@ typedef enum
     return aimPollenEntity;
 }
 
-+(Entity *) createLeaf:(World *)world
++(Entity *) createLeaf:(World *)world withMovePositions:(NSArray *)movePositions
 {
 	Entity *leafEntity = [world createEntity];
     
@@ -552,20 +534,40 @@ typedef enum
     
 	// Movement
 	MovementComponent *movementComponent = [MovementComponent component];
-	[movementComponent setPoints:[NSArray arrayWithObjects:
-								  [NSValue valueWithCGPoint:CGPointMake(250, 200)],
-								  [NSValue valueWithCGPoint:CGPointMake(250, 220)],
-								  nil]];
+	[movementComponent setPositions:[NSArray arrayWithArray:movePositions]];
 	[leafEntity addComponent:movementComponent];
-	
-	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
-	[labelManager labelEntity:leafEntity withLabel:@"EDITABLE"];
     
     [leafEntity refresh];
 	
 	[renderComponent playAnimation:@"Leaf-Idle"];
     
     return leafEntity;
+}
+
++(Entity *) createMovementIndicator:(World *)world
+{
+	Entity *movementIndicatorEntity = [world createEntity];
+	
+    // Transform
+    TransformComponent *transformComponent = [TransformComponent component];
+    [movementIndicatorEntity addComponent:transformComponent];
+    
+    // Render
+	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Leaf-Animations.plist" z:Z_ORDER_LEAF];
+	[[renderSprite sprite] setOpacity:128];
+    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
+    [movementIndicatorEntity addComponent:renderComponent];
+	
+	// Edit
+	EditComponent *editComponent = [EditComponent component];
+	[movementIndicatorEntity addComponent:editComponent];
+	
+	[movementIndicatorEntity refresh];
+	
+	[renderComponent playAnimation:@"Leaf-Idle"];
+	
+	return movementIndicatorEntity;
 }
 
 @end

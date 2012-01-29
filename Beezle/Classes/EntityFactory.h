@@ -23,6 +23,7 @@
 +(Entity *) createWood:(World *)world;
 +(Entity *) createNut:(World *)world;
 +(Entity *) createAimPollen:(World *)world withVelocity:(CGPoint)velocity;
-+(Entity *) createLeaf:(World *)world;
++(Entity *) createLeaf:(World *)world withMovePositions:(NSArray *)movePositions;
++(Entity *) createMovementIndicator:(World *)world;
 
 @end

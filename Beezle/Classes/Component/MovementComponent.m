@@ -10,12 +10,25 @@
 
 @implementation MovementComponent
 
-@synthesize points = _points;
-@synthesize currentPointIndex = _currentPointIndex;
+@synthesize positions = _positions;
+@synthesize currentPositionIndex = _currentPositionIndex;
+@synthesize isMovingForwardInPositionList = _isMovingForwardInPositionList;
+@synthesize startPosition = _startPosition;
+@synthesize isMovingTowardsStartPosition = _isMovingTowardsStartPosition;
+
+-(id) init
+{
+	if (self = [super init])
+	{
+		_positions = [[NSArray alloc] init];
+		_isMovingForwardInPositionList = TRUE;
+	}
+	return self;
+}
 
 -(void) dealloc
 {
-	[_points release];
+	[_positions release];
 	
 	[super dealloc];
 }

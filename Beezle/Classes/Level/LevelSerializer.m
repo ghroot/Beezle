@@ -12,12 +12,16 @@
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "LevelLayoutEntry.h"
+#import "MovementComponent.h"
 #import "SlingerComponent.h"
 #import "TransformComponent.h"
 
 @interface LevelSerializer()
 
+-(BOOL) isLevelLayoutEntity:(Entity *)entity;
+
 -(CGPoint) stringToPosition:(NSString *)string;
+-(NSString *) positionToString:(CGPoint)position;
 
 @end
 
@@ -73,6 +77,15 @@
 			NSString *beeTypeAsString = [entity objectForKey:@"bee"];
 			[levelLayoutEntry setBeeTypeAsString:[NSString stringWithString:beeTypeAsString]];
 		}
+		else if ([type isEqualToString:@"LEAF"])
+		{
+			NSArray *movePositionsAsStrings = [entity objectForKey:@"movePositions"];
+			for (NSString *movePositionAsString in movePositionsAsStrings)
+			{
+				CGPoint movePosition = [self stringToPosition:movePositionAsString];
+				[levelLayoutEntry addMovePosition:[NSValue valueWithCGPoint:movePosition]];
+			}
+		}
 		
 		[levelLayout addLevelLayoutEntry:levelLayoutEntry];
 	}
@@ -93,7 +106,7 @@
 		NSMutableDictionary *entity = [NSMutableDictionary dictionary];
 		
 		[entity setObject:[levelLayoutEntry type] forKey:@"type"];
-		[entity setObject:[NSString stringWithFormat:@"{ %.2f, %.2f }", [levelLayoutEntry position].x, [levelLayoutEntry position].y] forKey:@"position"];
+		[entity setObject:[self positionToString:[levelLayoutEntry position]] forKey:@"position"];
 		[entity setObject:[NSNumber numberWithBool:[levelLayoutEntry mirrored]] forKey:@"mirrored"];
 		[entity setObject:[NSNumber numberWithInt:[levelLayoutEntry rotation]] forKey:@"rotation"];
 		
@@ -105,6 +118,17 @@
 		else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER"])
 		{
 			[entity setObject:[levelLayoutEntry beeTypeAsString] forKey:@"bee"];
+		}
+		else if ([[levelLayoutEntry type] isEqualToString:@"LEAF"])
+		{
+			NSMutableArray *movePositionsAsStrings = [NSMutableArray array];
+			for (NSValue *movePositionAsValue in [levelLayoutEntry movePositions])
+			{
+				CGPoint movePosition = [movePositionAsValue CGPointValue];
+				NSString *movePositionAsString = [self positionToString:movePosition];
+				[movePositionsAsStrings addObject:movePositionAsString];
+			}
+			[entity setObject:movePositionsAsStrings forKey:@"movePositions"];
 		}
 		
 		[entities addObject:entity];
@@ -123,7 +147,7 @@
 	
 	for (Entity *entity in [[world entityManager] entities])
 	{
-		if ([entity hasComponent:[EditComponent class]])
+		if ([self isLevelLayoutEntity:entity])
 		{
 			LevelLayoutEntry *levelLayoutEntry = [[[LevelLayoutEntry alloc] init] autorelease];
 			
@@ -148,12 +172,38 @@
 				BeeaterComponent *beeaterComponent = (BeeaterComponent *)[entity getComponent:[BeeaterComponent class]];
 				[levelLayoutEntry setBeeTypeAsString:[[beeaterComponent containedBeeType] name]];
 			}
+			else if ([[editComponent levelLayoutType] isEqualToString:@"LEAF"])
+			{
+				Entity *currentMovementIndicatorEntity = [editComponent nextMovementIndicatorEntity];
+				while (currentMovementIndicatorEntity != nil)
+				{
+					TransformComponent *currentTransformComponent = (TransformComponent *)[currentMovementIndicatorEntity getComponent:[TransformComponent class]];
+					EditComponent *currentEditComponent = (EditComponent *)[currentMovementIndicatorEntity getComponent:[EditComponent class]];
+					
+					[levelLayoutEntry addMovePosition:[NSValue valueWithCGPoint:[currentTransformComponent position]]];
+					
+					currentMovementIndicatorEntity = [currentEditComponent nextMovementIndicatorEntity];
+				}
+			}
 			
 			[levelLayout addLevelLayoutEntry:levelLayoutEntry];
 		}
 	}
 	
 	return levelLayout;
+}
+
+-(BOOL) isLevelLayoutEntity:(Entity *)entity
+{
+	if ([entity hasComponent:[EditComponent class]])
+	{
+		EditComponent *editComponent = (EditComponent *)[entity getComponent:[EditComponent class]];
+		if ([editComponent levelLayoutType] != nil)
+		{
+			return TRUE;
+		}
+	}
+	return FALSE;
 }
 
 -(CGPoint) stringToPosition:(NSString *)string
@@ -163,6 +213,11 @@
     modifiedString = [modifiedString stringByReplacingOccurrencesOfString:@" }" withString:@""];
     NSArray *array = [modifiedString componentsSeparatedByString:@","];
     return CGPointMake([[array objectAtIndex:0] floatValue], [[array objectAtIndex:1] floatValue]);
+}
+				 
+-(NSString *) positionToString:(CGPoint)position
+{
+	return [NSString stringWithFormat:@"{ %.2f, %.2f }", position.x, position.y];
 }
 
 @end

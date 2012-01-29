@@ -18,6 +18,7 @@
 	Entity *_entityWithOptionsDisplayed;
 	CCMenu *_beeaterOptionsMenu;
 	CCMenu *_slingerOptionsMenu;
+	CCMenu *_movementOptionsMenu;
 }
 
 -(id) initWithLayer:(CCLayer *)layer;
@@ -33,5 +34,7 @@
 
 -(void) doOptionAddSlingerBeeType:(id)sender;
 -(void) doOptionClearSlingerBees:(id)sender;
+
+-(void) doOptionAddMovementIndicator:(id)sender;
 
 @end

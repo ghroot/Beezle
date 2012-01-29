@@ -83,8 +83,7 @@
 					if (_selectedEntity != nil)
 					{
 						// Deselect
-						EditComponent *selectedEditComponent = (EditComponent *)[_selectedEntity getComponent:[EditComponent class]];
-						[selectedEditComponent setIsSelected:FALSE];
+//						EditComponent *selectedEditComponent = (EditComponent *)[_selectedEntity getComponent:[EditComponent class]];
 						RenderComponent *selectedRenderComponent = (RenderComponent *)[_selectedEntity getComponent:[RenderComponent class]];
 						for (RenderSprite *selectedRenderSprite in [selectedRenderComponent renderSprites])
 						{
@@ -114,8 +113,7 @@
                         if (closestEntity != nil)
                         {
                             // Select
-                            EditComponent *closestEditComponent = (EditComponent *)[closestEntity getComponent:[EditComponent class]];
-                            [closestEditComponent setIsSelected:TRUE];
+//                            EditComponent *closestEditComponent = (EditComponent *)[closestEntity getComponent:[EditComponent class]];
                             _selectedEntity = closestEntity;
                             TransformComponent *closestTransformComponent = (TransformComponent *)[closestEntity getComponent:[TransformComponent class]];
                             _selectedStartLocation = [closestTransformComponent position];

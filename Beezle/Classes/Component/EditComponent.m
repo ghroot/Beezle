@@ -11,7 +11,7 @@
 @implementation EditComponent
 
 @synthesize levelLayoutType = _levelLayoutType;
-@synthesize isSelected = _isSelected;
+@synthesize nextMovementIndicatorEntity = _nextMovementIndicatorEntity;
 
 +(EditComponent *) componentWithLevelLayoutType:(NSString *)levelLayoutType
 {
@@ -24,7 +24,6 @@
 	if (self = [super init])
 	{
 		_levelLayoutType = [levelLayoutType retain];
-		_isSelected = FALSE;
 	}
 	return self;
 }

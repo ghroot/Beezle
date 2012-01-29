@@ -16,6 +16,7 @@
 @synthesize rotation = _rotation;
 @synthesize beeTypeAsString = _beeTypeAsString;
 @synthesize beeTypesAsStrings = _beeTypesAsStrings;
+@synthesize movePositions = _movePositions;
 
 +(LevelLayoutEntry *) entry
 {
@@ -27,6 +28,7 @@
     if (self = [super init])
     {
         _beeTypesAsStrings = [[NSMutableArray alloc] init];
+		_movePositions = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -36,6 +38,7 @@
 	[_type release];
 	[_beeTypeAsString release];
     [_beeTypesAsStrings release];
+	[_movePositions release];
     
     [super dealloc];
 }
@@ -43,6 +46,11 @@
 -(void) addBeeTypeAsString:(NSString *)beeTypeAsString
 {
     [_beeTypesAsStrings addObject:beeTypeAsString];
+}
+
+-(void) addMovePosition:(NSValue *)movePosition
+{
+	[_movePositions addObject:movePosition];
 }
 
 @end

@@ -14,6 +14,7 @@
 #import "EditControlSystem.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
+#import "MovementComponent.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "SlingerComponent.h"
@@ -25,6 +26,7 @@
 -(void) createGeneralEntityOptionsMenu;
 -(void) createBeeaterOptionsMenu;
 -(void) createSlingerOptionsMenu;
+-(void) createMovementOptionsMenu;
 -(CCMenuItem *) createMenuItem:(NSString *)label selector:(SEL)selector userData:(void *)userData;
 
 @end
@@ -41,6 +43,7 @@
 		[self createGeneralEntityOptionsMenu];
 		[self createBeeaterOptionsMenu];
 		[self createSlingerOptionsMenu];
+		[self createMovementOptionsMenu];
 		[_layer addChild:_generalOptionsMenu];
 	}
 	return self;
@@ -52,6 +55,7 @@
 	[_generalEntityOptionsMenu release];
 	[_beeaterOptionsMenu release];
 	[_slingerOptionsMenu release];
+	[_movementOptionsMenu release];
 	
 	[super dealloc];
 }
@@ -113,6 +117,16 @@
 	[_slingerOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
 }
 
+-(void) createMovementOptionsMenu
+{
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	
+	_movementOptionsMenu = [[CCMenu menuWithItems:nil] retain];
+	[_movementOptionsMenu setPosition:CGPointMake(winSize.width / 2, 34)];
+	[_movementOptionsMenu addChild:[self createMenuItem:@"Add move point" selector:@selector(doOptionAddMovementIndicator:) userData:nil]];	
+	[_movementOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
+}
+
 -(CCMenuItem *) createMenuItem:(NSString *)label selector:(SEL)selector userData:(void *)userData
 {
 	CCMenuItemFont *menuItem = [CCMenuItemFont itemFromString:label target:self selector:selector];
@@ -139,6 +153,10 @@
 			{
 				[_layer addChild:_slingerOptionsMenu];
 			}
+			if ([_entityWithOptionsDisplayed hasComponent:[MovementComponent class]])
+			{
+				[_layer addChild:_movementOptionsMenu];
+			}
 		}
 		else
 		{
@@ -146,6 +164,7 @@
 			[_layer addChild:_generalOptionsMenu];
 			[_layer removeChild:_beeaterOptionsMenu cleanup:TRUE];
 			[_layer removeChild:_slingerOptionsMenu cleanup:TRUE];
+			[_layer removeChild:_movementOptionsMenu cleanup:TRUE];
 		}
 	}
 }
@@ -199,7 +218,7 @@
 	}
 	else if ([type isEqualToString:@"LEAF"])
 	{
-		entity = [EntityFactory createLeaf:_world];
+		entity = [EntityFactory createLeaf:_world withMovePositions:[NSArray array]];
 	}
 	
 	if (entity != nil)
@@ -270,6 +289,26 @@
 	
 	BeeQueueRenderingSystem *beeQueueRenderingSystem = (BeeQueueRenderingSystem *)[[_world systemManager] getSystem:[BeeQueueRenderingSystem class]];
 	[beeQueueRenderingSystem refreshSprites:slingerEntity];
+}
+
+-(void) doOptionAddMovementIndicator:(id)sender
+{
+	// Create movement indicator
+	Entity *movementIndicatorEntity = [EntityFactory createMovementIndicator:_world];
+	
+	// Add movement indicator to end of linked list
+	EditComponent *currentEditComponent = (EditComponent *)[_entityWithOptionsDisplayed getComponent:[EditComponent class]];
+	TransformComponent *currentTransformComponent = (TransformComponent *)[_entityWithOptionsDisplayed getComponent:[TransformComponent class]];
+	while ([currentEditComponent nextMovementIndicatorEntity] != nil)
+	{
+		Entity *nextMovementIndicatorEntity = [currentEditComponent nextMovementIndicatorEntity];
+		currentEditComponent = (EditComponent *)[nextMovementIndicatorEntity getComponent:[EditComponent class]];
+		currentTransformComponent = (TransformComponent *)[nextMovementIndicatorEntity getComponent:[TransformComponent class]];
+	}
+	[currentEditComponent setNextMovementIndicatorEntity:movementIndicatorEntity];
+	
+	// Set new movementindicator position to be close to last one
+	[EntityUtil setEntityPosition:movementIndicatorEntity position:CGPointMake([currentTransformComponent position].x + 20, [currentTransformComponent position].y + 20)];
 }
 
 @end

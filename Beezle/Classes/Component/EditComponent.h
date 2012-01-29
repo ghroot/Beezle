@@ -11,11 +11,11 @@
 @interface EditComponent : Component
 {
 	NSString *_levelLayoutType;
-	BOOL _isSelected;
+	Entity *_nextMovementIndicatorEntity;
 }
 
 @property (nonatomic, retain) NSString *levelLayoutType;
-@property (nonatomic) BOOL isSelected;
+@property (nonatomic, assign) Entity *nextMovementIndicatorEntity;
 
 +(EditComponent *) componentWithLevelLayoutType:(NSString *)levelLayoutType;
 

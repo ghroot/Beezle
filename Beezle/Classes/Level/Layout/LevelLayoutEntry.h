@@ -14,6 +14,7 @@
     int _rotation;
     NSString *_beeTypeAsString;
     NSMutableArray *_beeTypesAsStrings;
+	NSMutableArray *_movePositions;
 }
 
 @property (nonatomic, retain) NSString *type;
@@ -22,9 +23,11 @@
 @property (nonatomic) int rotation;
 @property (nonatomic, retain) NSString *beeTypeAsString;
 @property (nonatomic, retain) NSArray *beeTypesAsStrings;
+@property (nonatomic, retain) NSArray *movePositions;
 
 +(LevelLayoutEntry *) entry;
 
 -(void) addBeeTypeAsString:(NSString *)beeTypeAsString;
+-(void) addMovePosition:(NSValue *)movePosition;
 
 @end

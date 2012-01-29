@@ -10,11 +10,17 @@
 
 @interface MovementComponent : Component
 {
-	NSMutableArray *_points;
-	int _currentPointIndex;
+	NSArray *_positions;
+	int _currentPositionIndex;
+	BOOL _isMovingForwardInPositionList;
+	CGPoint _startPosition;
+	BOOL _isMovingTowardsStartPosition;
 }
 
-@property (nonatomic, retain) NSArray *points;
-@property (nonatomic) int currentPointIndex;
+@property (nonatomic, retain) NSArray *positions;
+@property (nonatomic) int currentPositionIndex;
+@property (nonatomic) BOOL isMovingForwardInPositionList;
+@property (nonatomic) CGPoint startPosition;
+@property (nonatomic) BOOL isMovingTowardsStartPosition;
 
 @end

@@ -15,6 +15,6 @@
 
 -(BOOL) loadLevelLayoutOriginal:(NSString *)levelName;
 -(BOOL) loadLevelLayoutEdited:(NSString *)levelName;
--(void) loadLevel:(NSString *)levelName inWorld:(World *)world;
+-(void) loadLevel:(NSString *)levelName inWorld:(World *)world edit:(BOOL)edit;
 
 @end

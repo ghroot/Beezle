@@ -70,7 +70,7 @@
 	return [self loadLevelLayoutFromFile:filePath isEdited:TRUE];
 }
 
--(void) loadLevel:(NSString *)levelName inWorld:(World *)world
+-(void) loadLevel:(NSString *)levelName inWorld:(World *)world edit:(BOOL)edit
 {
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	
@@ -104,6 +104,7 @@
     for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
     {
 		Entity *entity = nil;
+		EditComponent *editComponent = [EditComponent componentWithLevelLayoutType:[levelLayoutEntry type]];
 		
         if ([[levelLayoutEntry type] isEqualToString:@"SLINGER"])
         {
@@ -143,7 +144,24 @@
         }
 		else if ([[levelLayoutEntry type] isEqualToString:@"LEAF"])
 		{
-			entity = [EntityFactory createLeaf:world];
+			if (edit)
+			{
+				// Load movement points as movement indicator entities to allow for editing
+				entity = [EntityFactory createLeaf:world withMovePositions:[NSArray array]];
+				EditComponent *currentEditComponent = editComponent;
+				for (NSValue *movePositionAsValue in [levelLayoutEntry movePositions])
+				{
+					Entity *movementIndicator = [EntityFactory createMovementIndicator:world];
+					[EntityUtil setEntityPosition:movementIndicator position:[movePositionAsValue CGPointValue]];
+					[currentEditComponent setNextMovementIndicatorEntity:movementIndicator];
+					currentEditComponent = (EditComponent *)[movementIndicator getComponent:[EditComponent class]];
+				}
+			}
+			else
+			{
+				// Load movement points normally
+				entity = [EntityFactory createLeaf:world withMovePositions:[levelLayoutEntry movePositions]];
+			}
 		}
 
 		NSAssert(entity != nil, @"Unrecognized level layout entry type: %@", [levelLayoutEntry type]);
@@ -153,12 +171,12 @@
 			[EntityUtil setEntityPosition:entity position:[levelLayoutEntry position]];
 			[EntityUtil setEntityRotation:entity rotation:[levelLayoutEntry rotation]];
 			[EntityUtil setEntityMirrored:entity mirrored:[levelLayoutEntry mirrored]];
-		}
-		
-		if (CONFIG_CAN_EDIT_LEVELS)
-		{
-			[entity addComponent:[EditComponent componentWithLevelLayoutType:[levelLayoutEntry type]]];
-			[entity refresh];
+			
+			if (CONFIG_CAN_EDIT_LEVELS)
+			{
+				[entity addComponent:editComponent];
+				[entity refresh];
+			}
 		}
     }
 }

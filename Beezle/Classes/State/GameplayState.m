@@ -61,7 +61,7 @@
 		[self createUI];
 		[self createWorldAndSystems];
         [self createModes];
-		[[LevelLoader sharedLoader] loadLevel:_levelName inWorld:_world];
+		[[LevelLoader sharedLoader] loadLevel:_levelName inWorld:_world edit:FALSE];
     }
     return self;
 }
@@ -124,8 +124,8 @@
 {
     _aimingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
                                                      _gameRulesSystem,
-                                                     _physicsSystem,
 													 _movementSystem,
+                                                     _physicsSystem,
                                                      _collisionSystem,
                                                      _renderSystem,
                                                      _inputSystem,
@@ -135,8 +135,8 @@
     
     _shootingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
 													   _gameRulesSystem,
-													   _physicsSystem,
 													   _movementSystem,
+													   _physicsSystem,
 													   _collisionSystem,
 													   _renderSystem,
 													   _inputSystem,

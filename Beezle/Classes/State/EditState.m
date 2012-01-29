@@ -49,7 +49,7 @@
 		
 		[self createUI];
 		[self createWorldAndSystems];
-		[[LevelLoader sharedLoader] loadLevel:_levelName inWorld:_world];
+		[[LevelLoader sharedLoader] loadLevel:_levelName inWorld:_world edit:TRUE];
     }
     return self;
 }
