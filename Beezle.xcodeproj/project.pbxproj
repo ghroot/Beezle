@@ -191,9 +191,6 @@
 		2C64AD0F14BA4BAC00ABD114 /* Level-A6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C64AD0C14BA4BAC00ABD114 /* Level-A6.jpg */; };
 		2C64AD1114BA4D2300ABD114 /* Level-A6-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C64AD1014BA4D2300ABD114 /* Level-A6-Layout.plist */; };
 		2C64AD1414BA4F0400ABD114 /* BeeControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C64AD1314BA4F0300ABD114 /* BeeControlSystem.m */; };
-		2C6A92AC149CFDAD00600E15 /* EditComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A92AB149CFDAD00600E15 /* EditComponent.m */; };
-		2C6A92AF149CFDF300600E15 /* EditControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A92AE149CFDF300600E15 /* EditControlSystem.m */; };
-		2C6A92B2149CFE3900600E15 /* EditState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A92B1149CFE3900600E15 /* EditState.m */; };
 		2C764DDA148A1F4000820587 /* GCpShapeCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DD9148A1F4000820587 /* GCpShapeCache.m */; };
 		2C764DDD148A1FF100820587 /* BodyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DDC148A1FF100820587 /* BodyInfo.m */; };
 		2C764DEA148A5CD600820587 /* Sprites-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C764DE8148A5CD600820587 /* Sprites-hd.plist */; };
@@ -208,17 +205,12 @@
 		2C7CE5FA1469D092001F331F /* PhysicsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5F91469D092001F331F /* PhysicsSystem.m */; };
 		2C7CE61C146C73FE001F331F /* InputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE61B146C73FE001F331F /* InputSystem.m */; };
 		2C7CE622146FD670001F331F /* SlingerControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE621146FD66F001F331F /* SlingerControlSystem.m */; };
-		2C7CE628146FE111001F331F /* BoundrySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE627146FE111001F331F /* BoundrySystem.m */; };
-		2C7CE62B146FE123001F331F /* BoundryComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE62A146FE123001F331F /* BoundryComponent.m */; };
-		2C7CE62E146FE14E001F331F /* Boundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE62D146FE14D001F331F /* Boundry.m */; };
-		2C7CE631146FE161001F331F /* CircularBoundry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE630146FE160001F331F /* CircularBoundry.m */; };
 		2C827D3814840C4900517C8F /* RenderSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C827D3714840C4700517C8F /* RenderSprite.m */; };
 		2C853D6314B4D7C600C90C55 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C853D6214B4D7C600C90C55 /* SoundManager.m */; };
 		2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B83B149563ED005D7BAB /* DisposableComponent.m */; };
 		2C85B84014957285005D7BAB /* CollisionMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B83F14957285005D7BAB /* CollisionMediator.m */; };
 		2C88B5D114A3DA8700B5B190 /* libObjectiveChipmunk-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C88B5CF14A3DA8700B5B190 /* libObjectiveChipmunk-iPhone.a */; };
 		2C8A4B7C1495184300C0C154 /* BeeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A4B7B1495184300C0C154 /* BeeType.m */; };
-		2C9457A4149FED5A006BDC68 /* EditOptionsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9457A3149FED5A006BDC68 /* EditOptionsSystem.m */; };
 		2C9EF99014B4E8DF00F9EE34 /* LevelSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF98F14B4E8DF00F9EE34 /* LevelSerializer.m */; };
 		2C9EF99914B4E91800F9EE34 /* LevelLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF99414B4E91800F9EE34 /* LevelLayout.m */; };
 		2C9EF99A14B4E91800F9EE34 /* LevelLayoutCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF99614B4E91800F9EE34 /* LevelLayoutCache.m */; };
@@ -232,10 +224,14 @@
 		2CADCC8D14746BA200302475 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CADCC8B14746BA200302475 /* InfoPlist.strings */; };
 		2CADCC9014746BA200302475 /* ArtemisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC8F14746BA200302475 /* ArtemisTests.m */; };
 		2CAE05FB14705F4A0023FA94 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE05FA14705F4A0023FA94 /* EntityFactory.m */; };
-		2CBC659E149EA50D00970A99 /* EditIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBC659D149EA50D00970A99 /* EditIngameMenuState.m */; };
 		2CC3EBFD14D466460025F5DA /* MovementComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EBFC14D466460025F5DA /* MovementComponent.m */; };
 		2CC3EC0014D466700025F5DA /* MovementSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EBFF14D466700025F5DA /* MovementSystem.m */; };
 		2CC3EC0214D4B0230025F5DA /* Leaf-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CC3EC0114D4B0230025F5DA /* Leaf-Animations.plist */; };
+		2CC3EC0814D6086F0025F5DA /* EditControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EC0514D6086F0025F5DA /* EditControlSystem.m */; };
+		2CC3EC0914D6086F0025F5DA /* EditOptionsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EC0714D6086F0025F5DA /* EditOptionsSystem.m */; };
+		2CC3EC0D14D608870025F5DA /* EditComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EC0C14D608870025F5DA /* EditComponent.m */; };
+		2CC3EC1314D608980025F5DA /* EditIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EC1014D608980025F5DA /* EditIngameMenuState.m */; };
+		2CC3EC1414D608980025F5DA /* EditState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EC1214D608980025F5DA /* EditState.m */; };
 		2CD2C42E14D19E2A00DC0BD5 /* GandEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD2C42D14D19E2A00DC0BD5 /* GandEnum.m */; };
 		2CD33ED8147D72AD000869C1 /* GameplayState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33ED7147D72AD000869C1 /* GameplayState.m */; };
 		2CD33EEA147EE7AD000869C1 /* TestState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE9147EE7AD000869C1 /* TestState.m */; };
@@ -637,12 +633,6 @@
 		2C64AD1014BA4D2300ABD114 /* Level-A6-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A6-Layout.plist"; sourceTree = "<group>"; };
 		2C64AD1214BA4F0300ABD114 /* BeeControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeControlSystem.h; path = Classes/System/BeeControlSystem.h; sourceTree = "<group>"; };
 		2C64AD1314BA4F0300ABD114 /* BeeControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeControlSystem.m; path = Classes/System/BeeControlSystem.m; sourceTree = "<group>"; };
-		2C6A92AA149CFDAD00600E15 /* EditComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditComponent.h; path = Classes/Component/EditComponent.h; sourceTree = "<group>"; };
-		2C6A92AB149CFDAD00600E15 /* EditComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditComponent.m; path = Classes/Component/EditComponent.m; sourceTree = "<group>"; };
-		2C6A92AD149CFDF200600E15 /* EditControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditControlSystem.h; path = Classes/System/EditControlSystem.h; sourceTree = "<group>"; };
-		2C6A92AE149CFDF300600E15 /* EditControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditControlSystem.m; path = Classes/System/EditControlSystem.m; sourceTree = "<group>"; };
-		2C6A92B0149CFE3900600E15 /* EditState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditState.h; sourceTree = "<group>"; };
-		2C6A92B1149CFE3900600E15 /* EditState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditState.m; sourceTree = "<group>"; };
 		2C764DD8148A1F4000820587 /* GCpShapeCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCpShapeCache.h; path = Classes/System/GCpShapeCache.h; sourceTree = "<group>"; };
 		2C764DD9148A1F4000820587 /* GCpShapeCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCpShapeCache.m; path = Classes/System/GCpShapeCache.m; sourceTree = "<group>"; };
 		2C764DDB148A1FF100820587 /* BodyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BodyInfo.h; path = Classes/System/BodyInfo.h; sourceTree = "<group>"; };
@@ -663,14 +653,6 @@
 		2C7CE61B146C73FE001F331F /* InputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputSystem.m; path = Classes/System/InputSystem.m; sourceTree = "<group>"; };
 		2C7CE620146FD66F001F331F /* SlingerControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlingerControlSystem.h; path = Classes/System/SlingerControlSystem.h; sourceTree = "<group>"; };
 		2C7CE621146FD66F001F331F /* SlingerControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlingerControlSystem.m; path = Classes/System/SlingerControlSystem.m; sourceTree = "<group>"; };
-		2C7CE626146FE110001F331F /* BoundrySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundrySystem.h; path = Classes/System/BoundrySystem.h; sourceTree = "<group>"; };
-		2C7CE627146FE111001F331F /* BoundrySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoundrySystem.m; path = Classes/System/BoundrySystem.m; sourceTree = "<group>"; };
-		2C7CE629146FE123001F331F /* BoundryComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundryComponent.h; path = Classes/Component/BoundryComponent.h; sourceTree = "<group>"; };
-		2C7CE62A146FE123001F331F /* BoundryComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoundryComponent.m; path = Classes/Component/BoundryComponent.m; sourceTree = "<group>"; };
-		2C7CE62C146FE14D001F331F /* Boundry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Boundry.h; path = Classes/Component/Boundry.h; sourceTree = "<group>"; };
-		2C7CE62D146FE14D001F331F /* Boundry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Boundry.m; path = Classes/Component/Boundry.m; sourceTree = "<group>"; };
-		2C7CE62F146FE160001F331F /* CircularBoundry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircularBoundry.h; path = Classes/Component/CircularBoundry.h; sourceTree = "<group>"; };
-		2C7CE630146FE160001F331F /* CircularBoundry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircularBoundry.m; path = Classes/Component/CircularBoundry.m; sourceTree = "<group>"; };
 		2C827D3614840C4600517C8F /* RenderSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderSprite.h; path = Classes/Component/RenderSprite.h; sourceTree = "<group>"; };
 		2C827D3714840C4700517C8F /* RenderSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSprite.m; path = Classes/Component/RenderSprite.m; sourceTree = "<group>"; };
 		2C853D6114B4D7C600C90C55 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundManager.h; path = Classes/SoundManager.h; sourceTree = "<group>"; };
@@ -715,8 +697,6 @@
 		2C88B5D014A3DA8700B5B190 /* ObjectiveChipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveChipmunk.h; sourceTree = "<group>"; };
 		2C8A4B7A1495184300C0C154 /* BeeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeType.h; path = Classes/BeeType.h; sourceTree = "<group>"; };
 		2C8A4B7B1495184300C0C154 /* BeeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeType.m; path = Classes/BeeType.m; sourceTree = "<group>"; };
-		2C9457A2149FED5A006BDC68 /* EditOptionsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditOptionsSystem.h; path = Classes/System/EditOptionsSystem.h; sourceTree = "<group>"; };
-		2C9457A3149FED5A006BDC68 /* EditOptionsSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditOptionsSystem.m; path = Classes/System/EditOptionsSystem.m; sourceTree = "<group>"; };
 		2C9EF98E14B4E8DF00F9EE34 /* LevelSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSerializer.h; sourceTree = "<group>"; };
 		2C9EF98F14B4E8DF00F9EE34 /* LevelSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSerializer.m; sourceTree = "<group>"; };
 		2C9EF99314B4E91800F9EE34 /* LevelLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLayout.h; sourceTree = "<group>"; };
@@ -740,13 +720,21 @@
 		2CADCC9114746BA200302475 /* ArtemisTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ArtemisTests-Prefix.pch"; sourceTree = "<group>"; };
 		2CAE05F914705F490023FA94 /* EntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityFactory.h; path = Classes/EntityFactory.h; sourceTree = "<group>"; };
 		2CAE05FA14705F4A0023FA94 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityFactory.m; path = Classes/EntityFactory.m; sourceTree = "<group>"; };
-		2CBC659C149EA50D00970A99 /* EditIngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditIngameMenuState.h; sourceTree = "<group>"; };
-		2CBC659D149EA50D00970A99 /* EditIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditIngameMenuState.m; sourceTree = "<group>"; };
 		2CC3EBFB14D466460025F5DA /* MovementComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovementComponent.h; path = Classes/Component/MovementComponent.h; sourceTree = "<group>"; };
 		2CC3EBFC14D466460025F5DA /* MovementComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovementComponent.m; path = Classes/Component/MovementComponent.m; sourceTree = "<group>"; };
 		2CC3EBFE14D466700025F5DA /* MovementSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovementSystem.h; path = Classes/System/MovementSystem.h; sourceTree = "<group>"; };
 		2CC3EBFF14D466700025F5DA /* MovementSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovementSystem.m; path = Classes/System/MovementSystem.m; sourceTree = "<group>"; };
 		2CC3EC0114D4B0230025F5DA /* Leaf-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Leaf-Animations.plist"; sourceTree = "<group>"; };
+		2CC3EC0414D6086F0025F5DA /* EditControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditControlSystem.h; sourceTree = "<group>"; };
+		2CC3EC0514D6086F0025F5DA /* EditControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditControlSystem.m; sourceTree = "<group>"; };
+		2CC3EC0614D6086F0025F5DA /* EditOptionsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditOptionsSystem.h; sourceTree = "<group>"; };
+		2CC3EC0714D6086F0025F5DA /* EditOptionsSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditOptionsSystem.m; sourceTree = "<group>"; };
+		2CC3EC0B14D608870025F5DA /* EditComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditComponent.h; sourceTree = "<group>"; };
+		2CC3EC0C14D608870025F5DA /* EditComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditComponent.m; sourceTree = "<group>"; };
+		2CC3EC0F14D608980025F5DA /* EditIngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditIngameMenuState.h; sourceTree = "<group>"; };
+		2CC3EC1014D608980025F5DA /* EditIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditIngameMenuState.m; sourceTree = "<group>"; };
+		2CC3EC1114D608980025F5DA /* EditState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditState.h; sourceTree = "<group>"; };
+		2CC3EC1214D608980025F5DA /* EditState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditState.m; sourceTree = "<group>"; };
 		2CD2C42C14D19E2A00DC0BD5 /* GandEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GandEnum.h; sourceTree = "<group>"; };
 		2CD2C42D14D19E2A00DC0BD5 /* GandEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GandEnum.m; sourceTree = "<group>"; };
 		2CD33ED6147D72AD000869C1 /* GameplayState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameplayState.h; sourceTree = "<group>"; };
@@ -1285,6 +1273,7 @@
 		2C7CE5F31469ACDE001F331F /* System */ = {
 			isa = PBXGroup;
 			children = (
+				2CC3EC0314D6086F0025F5DA /* Edit */,
 				2C64AD1214BA4F0300ABD114 /* BeeControlSystem.h */,
 				2C64AD1314BA4F0300ABD114 /* BeeControlSystem.m */,
 				2C3A6F911489809F002721E3 /* BeeExpiratonSystem.h */,
@@ -1293,8 +1282,6 @@
 				2C535FCC14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m */,
 				2C764DDB148A1FF100820587 /* BodyInfo.h */,
 				2C764DDC148A1FF100820587 /* BodyInfo.m */,
-				2C7CE626146FE110001F331F /* BoundrySystem.h */,
-				2C7CE627146FE111001F331F /* BoundrySystem.m */,
 				2CADCC781473314B00302475 /* Collision.h */,
 				2CADCC791473314C00302475 /* Collision.m */,
 				2C85B83E14957285005D7BAB /* CollisionMediator.h */,
@@ -1305,10 +1292,6 @@
 				2C157C0D14901B88003F9040 /* DebugRenderPhysicsLayer.m */,
 				2C5B86DE1479155700028179 /* DebugRenderPhysicsSystem.h */,
 				2C5B86DF1479155700028179 /* DebugRenderPhysicsSystem.m */,
-				2C6A92AD149CFDF200600E15 /* EditControlSystem.h */,
-				2C6A92AE149CFDF300600E15 /* EditControlSystem.m */,
-				2C9457A2149FED5A006BDC68 /* EditOptionsSystem.h */,
-				2C9457A3149FED5A006BDC68 /* EditOptionsSystem.m */,
 				2C157C1D149382D6003F9040 /* GameRulesSystem.h */,
 				2C157C1E149382D6003F9040 /* GameRulesSystem.m */,
 				2C764DD8148A1F4000820587 /* GCpShapeCache.h */,
@@ -1424,6 +1407,39 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2CC3EC0314D6086F0025F5DA /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				2CC3EC0414D6086F0025F5DA /* EditControlSystem.h */,
+				2CC3EC0514D6086F0025F5DA /* EditControlSystem.m */,
+				2CC3EC0614D6086F0025F5DA /* EditOptionsSystem.h */,
+				2CC3EC0714D6086F0025F5DA /* EditOptionsSystem.m */,
+			);
+			name = Edit;
+			path = Classes/System/Edit;
+			sourceTree = "<group>";
+		};
+		2CC3EC0A14D608870025F5DA /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				2CC3EC0B14D608870025F5DA /* EditComponent.h */,
+				2CC3EC0C14D608870025F5DA /* EditComponent.m */,
+			);
+			name = Edit;
+			path = Classes/Component/Edit;
+			sourceTree = "<group>";
+		};
+		2CC3EC0E14D608980025F5DA /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				2CC3EC0F14D608980025F5DA /* EditIngameMenuState.h */,
+				2CC3EC1014D608980025F5DA /* EditIngameMenuState.m */,
+				2CC3EC1114D608980025F5DA /* EditState.h */,
+				2CC3EC1214D608980025F5DA /* EditState.m */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
 		2CD2C42B14D19E2A00DC0BD5 /* GandEnum */ = {
 			isa = PBXGroup;
 			children = (
@@ -1437,6 +1453,7 @@
 		2CD33ED5147D72AC000869C1 /* State */ = {
 			isa = PBXGroup;
 			children = (
+				2CC3EC0E14D608980025F5DA /* Edit */,
 				2C157BEC148FEA8E003F9040 /* Game.h */,
 				2C157BED148FEA8E003F9040 /* Game.m */,
 				2C157BEE148FEA8E003F9040 /* GameState.h */,
@@ -1451,10 +1468,6 @@
 				2C157C231493B3DE003F9040 /* GameMode.m */,
 				2CD33EE8147EE7AD000869C1 /* TestState.h */,
 				2CD33EE9147EE7AD000869C1 /* TestState.m */,
-				2C6A92B0149CFE3900600E15 /* EditState.h */,
-				2C6A92B1149CFE3900600E15 /* EditState.m */,
-				2CBC659C149EA50D00970A99 /* EditIngameMenuState.h */,
-				2CBC659D149EA50D00970A99 /* EditIngameMenuState.m */,
 				2CE508CD14B1E98300A9E8D8 /* LevelSelectMenuState.h */,
 				2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */,
 			);
@@ -1625,6 +1638,7 @@
 		2CEA35281466B202000FF575 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2CC3EC0A14D608870025F5DA /* Edit */,
 				2C157C1814914F6A003F9040 /* TrajectoryComponent.h */,
 				2C157C1914914F6A003F9040 /* TrajectoryComponent.m */,
 				2C1147E2148D4290002E4DBD /* BeeaterComponent.h */,
@@ -1641,16 +1655,8 @@
 				2CEA35301466B2C9000FF575 /* PhysicsComponent.m */,
 				2C068A32146858B9003E200D /* TransformComponent.h */,
 				2C068A33146858B9003E200D /* TransformComponent.m */,
-				2C7CE629146FE123001F331F /* BoundryComponent.h */,
-				2C7CE62A146FE123001F331F /* BoundryComponent.m */,
-				2C7CE62C146FE14D001F331F /* Boundry.h */,
-				2C7CE62D146FE14D001F331F /* Boundry.m */,
-				2C7CE62F146FE160001F331F /* CircularBoundry.h */,
-				2C7CE630146FE160001F331F /* CircularBoundry.m */,
 				2C85B83A149563ED005D7BAB /* DisposableComponent.h */,
 				2C85B83B149563ED005D7BAB /* DisposableComponent.m */,
-				2C6A92AA149CFDAD00600E15 /* EditComponent.h */,
-				2C6A92AB149CFDAD00600E15 /* EditComponent.m */,
 				2CC3EBFB14D466460025F5DA /* MovementComponent.h */,
 				2CC3EBFC14D466460025F5DA /* MovementComponent.m */,
 			);
@@ -1878,10 +1884,6 @@
 				2C7CE5FA1469D092001F331F /* PhysicsSystem.m in Sources */,
 				2C7CE61C146C73FE001F331F /* InputSystem.m in Sources */,
 				2C7CE622146FD670001F331F /* SlingerControlSystem.m in Sources */,
-				2C7CE628146FE111001F331F /* BoundrySystem.m in Sources */,
-				2C7CE62B146FE123001F331F /* BoundryComponent.m in Sources */,
-				2C7CE62E146FE14E001F331F /* Boundry.m in Sources */,
-				2C7CE631146FE161001F331F /* CircularBoundry.m in Sources */,
 				2CAE05FB14705F4A0023FA94 /* EntityFactory.m in Sources */,
 				2CADCC711471C76400302475 /* InputAction.m in Sources */,
 				2CADCC7714732ADC00302475 /* CollisionSystem.m in Sources */,
@@ -2005,11 +2007,6 @@
 				2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */,
 				2C85B84014957285005D7BAB /* CollisionMediator.m in Sources */,
 				2C535FCD14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m in Sources */,
-				2C6A92AC149CFDAD00600E15 /* EditComponent.m in Sources */,
-				2C6A92AF149CFDF300600E15 /* EditControlSystem.m in Sources */,
-				2C6A92B2149CFE3900600E15 /* EditState.m in Sources */,
-				2CBC659E149EA50D00970A99 /* EditIngameMenuState.m in Sources */,
-				2C9457A4149FED5A006BDC68 /* EditOptionsSystem.m in Sources */,
 				2C596D3014A0A34A00DFCC14 /* EntityUtil.m in Sources */,
 				2C596D3E14A13FDD00DFCC14 /* LevelLoader.m in Sources */,
 				2C3C990E14A2574400284A60 /* CollisionType.m in Sources */,
@@ -2039,6 +2036,11 @@
 				2C27E90C14D20577002165CD /* World.m in Sources */,
 				2CC3EBFD14D466460025F5DA /* MovementComponent.m in Sources */,
 				2CC3EC0014D466700025F5DA /* MovementSystem.m in Sources */,
+				2CC3EC0814D6086F0025F5DA /* EditControlSystem.m in Sources */,
+				2CC3EC0914D6086F0025F5DA /* EditOptionsSystem.m in Sources */,
+				2CC3EC0D14D608870025F5DA /* EditComponent.m in Sources */,
+				2CC3EC1314D608980025F5DA /* EditIngameMenuState.m in Sources */,
+				2CC3EC1414D608980025F5DA /* EditState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

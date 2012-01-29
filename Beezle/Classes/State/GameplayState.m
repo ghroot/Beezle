@@ -10,7 +10,6 @@
 #import "BeeControlSystem.h"
 #import "BeeQueueRenderingSystem.h"
 #import "BeeExpiratonSystem.h"
-#import "BoundrySystem.h"
 #import "CollisionSystem.h"
 #import "DebugRenderPhysicsSystem.h"
 #import "Game.h"

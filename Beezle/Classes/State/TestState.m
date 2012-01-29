@@ -8,7 +8,6 @@
 
 #import "TestState.h"
 #import "Game.h"
-#import "BoundrySystem.h"
 #import "CollisionSystem.h"
 #import "DebugRenderPhysicsSystem.h"
 #import "EntityFactory.h"
