@@ -28,6 +28,8 @@
 -(void) createSlingerOptionsMenu;
 -(void) createMovementOptionsMenu;
 -(CCMenuItem *) createMenuItem:(NSString *)label selector:(SEL)selector userData:(void *)userData;
+-(void) ensureMenuIsNotInLayer:(CCMenu *)menu;
+-(void) removeAllMenus;
 
 @end
 
@@ -141,9 +143,11 @@
 	if (_entityWithOptionsDisplayed != [editControlSystem selectedEntity])
 	{
 		_entityWithOptionsDisplayed = [editControlSystem selectedEntity];
+		
+		[self removeAllMenus];
+		
 		if (_entityWithOptionsDisplayed != nil)
 		{
-			[_layer removeChild:_generalOptionsMenu cleanup:TRUE];
 			[_layer addChild:_generalEntityOptionsMenu];
 			if ([_entityWithOptionsDisplayed hasComponent:[BeeaterComponent class]])
 			{
@@ -160,13 +164,30 @@
 		}
 		else
 		{
-			[_layer removeChild:_generalEntityOptionsMenu cleanup:TRUE];
 			[_layer addChild:_generalOptionsMenu];
-			[_layer removeChild:_beeaterOptionsMenu cleanup:TRUE];
-			[_layer removeChild:_slingerOptionsMenu cleanup:TRUE];
-			[_layer removeChild:_movementOptionsMenu cleanup:TRUE];
 		}
 	}
+}
+		 
+-(void) ensureMenuIsNotInLayer:(CCMenu *)menu
+{
+	for (CCNode *child in [_layer children])
+	{
+		if (child == menu)
+		{
+			[_layer removeChild:menu cleanup:TRUE];
+			break;
+		}
+	}
+}
+
+-(void) removeAllMenus
+{
+	[self ensureMenuIsNotInLayer:_generalOptionsMenu];
+	[self ensureMenuIsNotInLayer:_generalEntityOptionsMenu];
+	[self ensureMenuIsNotInLayer:_beeaterOptionsMenu];
+	[self ensureMenuIsNotInLayer:_slingerOptionsMenu];
+	[self ensureMenuIsNotInLayer:_movementOptionsMenu];
 }
 
 -(void) doOptionAddEntity:(id)sender
@@ -307,8 +328,12 @@
 	}
 	[currentEditComponent setNextMovementIndicatorEntity:movementIndicatorEntity];
 	
-	// Set new movementindicator position to be close to last one
+	// Set new movement indicator position to be close to last one
 	[EntityUtil setEntityPosition:movementIndicatorEntity position:CGPointMake([currentTransformComponent position].x + 20, [currentTransformComponent position].y + 20)];
+	
+	// Select new movement indicator
+	EditControlSystem *editControlSystem = (EditControlSystem *)[[_world systemManager] getSystem:[EditControlSystem class]];
+	[editControlSystem selectEntity:movementIndicatorEntity];
 }
 
 @end

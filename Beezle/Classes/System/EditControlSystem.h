@@ -19,4 +19,7 @@
 
 @property (nonatomic, readonly) Entity *selectedEntity;
 
+-(void) selectEntity:(Entity *)entity;
+-(void) deselectSelectedEntity;
+
 @end
