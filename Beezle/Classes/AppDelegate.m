@@ -31,12 +31,7 @@
 	_viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
 	_viewController.wantsFullScreenLayout = TRUE;
 	
-	//
-	// Create the EAGLView manually
-	//  1. Create a RGB565 format. Alternative: RGBA8
-	//	2. depth format of 0 bit. Use 16 or 24 bit for 3d effects, like CCPageTurnTransition
-	//
-	//
+	// Create the EAGLView
 	EAGLView *glView = [EAGLView viewWithFrame:[_window bounds]
 								   pixelFormat:kEAGLColorFormatRGB565	// kEAGLColorFormatRGBA8
 								   depthFormat:0						// GL_DEPTH_COMPONENT16_OES
@@ -129,11 +124,8 @@
 		// Original
 		[[LevelLoader sharedLoader] loadLevelLayoutOriginal:levelName];
 		
-		if (CONFIG_CAN_EDIT_LEVELS)
-		{
-			// Edited (will replace original if it exists)
-			[[LevelLoader sharedLoader] loadLevelLayoutEdited:levelName];
-		}
+		// Edited (will replace original if it exists)
+		[[LevelLoader sharedLoader] loadLevelLayoutEdited:levelName];
 	}
 }
 
