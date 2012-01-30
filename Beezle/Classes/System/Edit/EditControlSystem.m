@@ -113,30 +113,30 @@
 	}
 	
 	_selectedEntity = entity;
-	TransformComponent *closestTransformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
-	_selectedStartLocation = [closestTransformComponent position];
-	RenderComponent *closestRenderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
-	for (RenderSprite *closestRenderSprite in [closestRenderComponent renderSprites])
+	TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
+	_selectedStartLocation = [transformComponent position];
+	RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
+	for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
 		CCTintTo *tintAction1 = [CCTintTo actionWithDuration:0.2f red:200 green:200 blue:200];
 		CCTintTo *tintAction2 = [CCTintTo actionWithDuration:0.2f red:255 green:255 blue:255];
 		CCSequence *sequenceAction = [CCSequence actions:tintAction1, tintAction2, nil];
 		CCRepeatForever *repeatAction = [CCRepeatForever actionWithAction:sequenceAction];
 		[repeatAction setTag:ACTION_TAG_EDIT_TINT];
-		[[closestRenderSprite sprite] stopActionByTag:ACTION_TAG_EDIT_TINT];
-		[[closestRenderSprite sprite] runAction:repeatAction];
+		[[renderSprite sprite] stopActionByTag:ACTION_TAG_EDIT_TINT];
+		[[renderSprite sprite] runAction:repeatAction];
 	}
 }
 
 -(void) deselectSelectedEntity
 {
-	RenderComponent *selectedRenderComponent = (RenderComponent *)[_selectedEntity getComponent:[RenderComponent class]];
-	for (RenderSprite *selectedRenderSprite in [selectedRenderComponent renderSprites])
+	RenderComponent *renderComponent = (RenderComponent *)[_selectedEntity getComponent:[RenderComponent class]];
+	for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
 		CCTintTo *tintAction = [CCTintTo actionWithDuration:0.2f red:255 green:255 blue:255];
 		[tintAction setTag:ACTION_TAG_EDIT_TINT];
-		[[selectedRenderSprite sprite] stopActionByTag:ACTION_TAG_EDIT_TINT];
-		[[selectedRenderSprite sprite] runAction:tintAction];
+		[[renderSprite sprite] stopActionByTag:ACTION_TAG_EDIT_TINT];
+		[[renderSprite sprite] runAction:tintAction];
 	}
 	_selectedEntity = nil;
 }

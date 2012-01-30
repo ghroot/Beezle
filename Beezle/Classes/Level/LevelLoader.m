@@ -154,8 +154,10 @@
 					Entity *movementIndicator = [EntityFactory createMovementIndicator:world];
 					[EntityUtil setEntityPosition:movementIndicator position:[movePositionAsValue CGPointValue]];
 					[currentEditComponent setNextMovementIndicatorEntity:movementIndicator];
+					[currentEditComponent setMainMoveEntity:entity];
 					currentEditComponent = (EditComponent *)[movementIndicator getComponent:[EditComponent class]];
 				}
+				[currentEditComponent setMainMoveEntity:entity];
 			}
 			else
 			{

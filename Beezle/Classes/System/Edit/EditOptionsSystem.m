@@ -247,6 +247,9 @@
 		[entity addComponent:[EditComponent componentWithLevelLayoutType:type]];
 		[entity refresh];
 		[EntityUtil setEntityPosition:entity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
+		
+		EditControlSystem *editControlSystem = (EditControlSystem *)[[_world systemManager] getSystem:[EditControlSystem class]];
+		[editControlSystem selectEntity:entity];
 	}
 }
 
@@ -272,6 +275,38 @@
 
 -(void) doOptionDelete:(id)sender
 {
+	EditComponent *editComponent = (EditComponent *)[_entityWithOptionsDisplayed getComponent:[EditComponent class]];
+	if ([_entityWithOptionsDisplayed hasComponent:[MovementComponent class]])
+	{
+		// Delete related movement indicator entities
+		Entity *currentMovementIndicatorEntity = [editComponent nextMovementIndicatorEntity];
+		while (currentMovementIndicatorEntity != nil)
+		{
+			EditComponent *movementIndicatorEditComponent = (EditComponent *)[currentMovementIndicatorEntity getComponent:[EditComponent class]];
+			[currentMovementIndicatorEntity deleteEntity];
+			currentMovementIndicatorEntity = [movementIndicatorEditComponent nextMovementIndicatorEntity];
+		}
+	}
+	else if ([editComponent mainMoveEntity] != nil)
+	{
+		// Connect previous EditComponent to next movement indicator
+		EditComponent *mainMoveEditComponent = (EditComponent *)[[editComponent mainMoveEntity] getComponent:[EditComponent class]];
+		Entity *currentMovementIndicatorEntity = [mainMoveEditComponent nextMovementIndicatorEntity];
+		Entity *previousEntity = [editComponent mainMoveEntity];
+		while (currentMovementIndicatorEntity != _entityWithOptionsDisplayed)
+		{
+			EditComponent *movementIndicatorEditComponent = (EditComponent *)[currentMovementIndicatorEntity getComponent:[EditComponent class]];
+			previousEntity = currentMovementIndicatorEntity;
+			currentMovementIndicatorEntity = [movementIndicatorEditComponent nextMovementIndicatorEntity];
+		}
+		if (previousEntity != nil)
+		{
+			EditComponent *currentEditComponent = (EditComponent *)[currentMovementIndicatorEntity getComponent:[EditComponent class]];
+			EditComponent *previousEditComponent = (EditComponent *)[previousEntity getComponent:[EditComponent class]];
+			[previousEditComponent setNextMovementIndicatorEntity:[currentEditComponent nextMovementIndicatorEntity]];
+		}
+	}
+	
 	[_entityWithOptionsDisplayed deleteEntity];
 }
 
@@ -316,6 +351,8 @@
 {
 	// Create movement indicator
 	Entity *movementIndicatorEntity = [EntityFactory createMovementIndicator:_world];
+	EditComponent *editComponent = (EditComponent *)[movementIndicatorEntity getComponent:[EditComponent class]];
+	[editComponent setMainMoveEntity:_entityWithOptionsDisplayed];
 	
 	// Add movement indicator to end of linked list
 	EditComponent *currentEditComponent = (EditComponent *)[_entityWithOptionsDisplayed getComponent:[EditComponent class]];

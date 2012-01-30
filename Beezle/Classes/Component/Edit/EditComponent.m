@@ -12,6 +12,7 @@
 
 @synthesize levelLayoutType = _levelLayoutType;
 @synthesize nextMovementIndicatorEntity = _nextMovementIndicatorEntity;
+@synthesize mainMoveEntity = _mainMoveEntity;
 
 +(EditComponent *) componentWithLevelLayoutType:(NSString *)levelLayoutType
 {

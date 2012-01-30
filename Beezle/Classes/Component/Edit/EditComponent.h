@@ -12,10 +12,12 @@
 {
 	NSString *_levelLayoutType;
 	Entity *_nextMovementIndicatorEntity;
+	Entity *_mainMoveEntity;
 }
 
 @property (nonatomic, retain) NSString *levelLayoutType;
 @property (nonatomic, assign) Entity *nextMovementIndicatorEntity;
+@property (nonatomic, assign) Entity *mainMoveEntity;
 
 +(EditComponent *) componentWithLevelLayoutType:(NSString *)levelLayoutType;
 
