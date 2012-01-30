@@ -33,4 +33,11 @@
 	return [self initWithLevelLayoutType:nil];
 }
 
+-(void) dealloc
+{
+	[_levelLayoutType release];
+	
+	[super dealloc];
+}
+
 @end
