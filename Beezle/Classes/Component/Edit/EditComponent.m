@@ -1,5 +1,5 @@
 //
-//  EditableComponent.m
+//  EditComponent.m
 //  Beezle
 //
 //  Created by Me on 17/12/2011.
