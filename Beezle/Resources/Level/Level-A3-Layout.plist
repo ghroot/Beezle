@@ -2,82 +2,82 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>name</key>
-	<string>Level-A3</string>
-	<key>version</key>
-	<integer>1</integer>
 	<key>entities</key>
 	<array>
 		<dict>
-			<key>type</key>
-			<string>SLINGER</string>
-			<key>position</key>
-			<string>{ 60, 260 }</string>
-			<key>mirrored</key>
-			<false/>
-			<key>rotation</key>
-			<integer>0</integer>
 			<key>bees</key>
 			<array>
 				<string>BEE</string>
 			</array>
-		</dict>
-		<dict>
-			<key>type</key>
-			<string>POLLEN</string>
-			<key>position</key>
-			<string>{ 195, 280 }</string>
 			<key>mirrored</key>
 			<false/>
+			<key>position</key>
+			<string>{ 54.00, 255.00 }</string>
 			<key>rotation</key>
-			<integer>0</integer>
+			<integer>-30</integer>
+			<key>type</key>
+			<string>SLINGER</string>
 		</dict>
 		<dict>
-			<key>type</key>
-			<string>POLLEN</string>
-			<key>position</key>
-			<string>{ 215, 280 }</string>
 			<key>mirrored</key>
 			<false/>
+			<key>position</key>
+			<string>{ 195.00, 280.00 }</string>
 			<key>rotation</key>
 			<integer>0</integer>
+			<key>type</key>
+			<string>POLLEN</string>
 		</dict>
 		<dict>
-			<key>type</key>
-			<string>BEEATER</string>
+			<key>mirrored</key>
+			<false/>
 			<key>position</key>
-			<string>{ 110, 36 }</string>
+			<string>{ 215.00, 280.00 }</string>
+			<key>rotation</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>bee</key>
+			<string>BEE</string>
 			<key>mirrored</key>
 			<true/>
+			<key>position</key>
+			<string>{ 110.00, 36.00 }</string>
 			<key>rotation</key>
 			<integer>0</integer>
-			<key>bee</key>
-			<string>BEE</string>
-		</dict>
-		<dict>
 			<key>type</key>
 			<string>BEEATER</string>
-			<key>position</key>
-			<string>{ 360, 85 }</string>
-			<key>mirrored</key>
-			<false/>
-			<key>rotation</key>
-			<integer>0</integer>
-			<key>bee</key>
-			<string>BEE</string>
 		</dict>
 		<dict>
-			<key>type</key>
-			<string>BEEATER</string>
-			<key>position</key>
-			<string>{ 440, 228 }</string>
-			<key>mirrored</key>
-			<false/>
-			<key>rotation</key>
-			<integer>0</integer>
 			<key>bee</key>
 			<string>BEE</string>
+			<key>mirrored</key>
+			<false/>
+			<key>position</key>
+			<string>{ 360.00, 85.00 }</string>
+			<key>rotation</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>BEEATER</string>
+		</dict>
+		<dict>
+			<key>bee</key>
+			<string>BEE</string>
+			<key>mirrored</key>
+			<false/>
+			<key>position</key>
+			<string>{ 440.00, 228.00 }</string>
+			<key>rotation</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>BEEATER</string>
 		</dict>
 	</array>
+	<key>name</key>
+	<string>Level-A3</string>
+	<key>version</key>
+	<integer>1</integer>
 </dict>
 </plist>

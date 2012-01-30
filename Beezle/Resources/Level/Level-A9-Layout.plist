@@ -2,59 +2,71 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>name</key>
-	<string>Level-A9</string>
-	<key>version</key>
-	<integer>1</integer>
 	<key>entities</key>
 	<array>
 		<dict>
-			<key>type</key>
-			<string>SLINGER</string>
-			<key>position</key>
-			<string>{ 100, 300 }</string>
-			<key>mirrored</key>
-			<false/>
-			<key>rotation</key>
-			<integer>0</integer>
 			<key>bees</key>
 			<array>
 				<string>SAWEE</string>
 				<string>BEE</string>
 			</array>
+			<key>mirrored</key>
+			<false/>
+			<key>position</key>
+			<string>{ 93.00, 299.00 }</string>
+			<key>rotation</key>
+			<integer>-26</integer>
+			<key>type</key>
+			<string>SLINGER</string>
 		</dict>
 		<dict>
-			<key>type</key>
-			<string>BEEATER</string>
-			<key>position</key>
-			<string>{ 100, 155 }</string>
-			<key>mirrored</key>
-			<true/>
-			<key>rotation</key>
-			<integer>0</integer>
 			<key>bee</key>
 			<string>BEE</string>
+			<key>mirrored</key>
+			<true/>
+			<key>position</key>
+			<string>{ 100.00, 155.00 }</string>
+			<key>rotation</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>BEEATER</string>
 		</dict>
 		<dict>
+			<key>mirrored</key>
+			<false/>
+			<key>position</key>
+			<string>{ 370.00, 185.00 }</string>
+			<key>rotation</key>
+			<integer>0</integer>
 			<key>type</key>
 			<string>MUSHROOM</string>
-			<key>position</key>
-			<string>{ 370, 185 }</string>
-			<key>mirrored</key>
-			<false/>
-			<key>rotation</key>
-			<integer>0</integer>
 		</dict>
 		<dict>
-			<key>type</key>
-			<string>WOOD</string>
-			<key>position</key>
-			<string>{ 280, 126 }</string>
 			<key>mirrored</key>
 			<false/>
+			<key>position</key>
+			<string>{ 280.00, 126.00 }</string>
 			<key>rotation</key>
 			<integer>0</integer>
+			<key>type</key>
+			<string>WOOD</string>
+		</dict>
+		<dict>
+			<key>bee</key>
+			<string>BEE</string>
+			<key>mirrored</key>
+			<false/>
+			<key>position</key>
+			<string>{ 342.50, 83.00 }</string>
+			<key>rotation</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>BEEATER</string>
 		</dict>
 	</array>
+	<key>name</key>
+	<string>Level-A9</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

@@ -2,82 +2,82 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>name</key>
-	<string>Level-A7</string>
-	<key>version</key>
-	<integer>1</integer>
 	<key>entities</key>
 	<array>
 		<dict>
-			<key>type</key>
-			<string>SLINGER</string>
-			<key>position</key>
-			<string>{ 100, 300 }</string>
-			<key>mirrored</key>
-			<false/>
-			<key>rotation</key>
-			<integer>0</integer>
 			<key>bees</key>
 			<array>
 				<string>BEE</string>
 				<string>BOMBEE</string>
 				<string>BEE</string>
 			</array>
+			<key>mirrored</key>
+			<false/>
+			<key>position</key>
+			<string>{ 86.00, 307.00 }</string>
+			<key>rotation</key>
+			<integer>-28</integer>
+			<key>type</key>
+			<string>SLINGER</string>
 		</dict>
 		<dict>
+			<key>mirrored</key>
+			<false/>
+			<key>position</key>
+			<string>{ 300.00, 285.00 }</string>
+			<key>rotation</key>
+			<integer>0</integer>
 			<key>type</key>
 			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>bee</key>
+			<string>BEE</string>
+			<key>mirrored</key>
+			<true/>
 			<key>position</key>
-			<string>{ 300, 285 }</string>
+			<string>{ 73.00, 152.00 }</string>
+			<key>rotation</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>BEEATER</string>
+		</dict>
+		<dict>
+			<key>bee</key>
+			<string>BEE</string>
+			<key>mirrored</key>
+			<true/>
+			<key>position</key>
+			<string>{ 175.00, 45.00 }</string>
+			<key>rotation</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>BEEATER</string>
+		</dict>
+		<dict>
 			<key>mirrored</key>
 			<false/>
-			<key>rotation</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>type</key>
-			<string>BEEATER</string>
 			<key>position</key>
-			<string>{ 90, 150 }</string>
-			<key>mirrored</key>
-			<true/>
+			<string>{ 220.00, 171.50 }</string>
 			<key>rotation</key>
 			<integer>0</integer>
-			<key>bee</key>
-			<string>BEE</string>
-		</dict>
-		<dict>
-			<key>type</key>
-			<string>BEEATER</string>
-			<key>position</key>
-			<string>{ 175, 45 }</string>
-			<key>mirrored</key>
-			<true/>
-			<key>rotation</key>
-			<integer>0</integer>
-			<key>bee</key>
-			<string>BEE</string>
-		</dict>
-		<dict>
 			<key>type</key>
 			<string>RAMP</string>
-			<key>position</key>
-			<string>{ 230, 170 }</string>
-			<key>mirrored</key>
-			<false/>
-			<key>rotation</key>
-			<integer>0</integer>
 		</dict>
 		<dict>
-			<key>type</key>
-			<string>NUT</string>
-			<key>position</key>
-			<string>{ 360, 45 }</string>
 			<key>mirrored</key>
 			<false/>
+			<key>position</key>
+			<string>{ 372.50, 47.50 }</string>
 			<key>rotation</key>
 			<integer>0</integer>
+			<key>type</key>
+			<string>NUT</string>
 		</dict>
 	</array>
+	<key>name</key>
+	<string>Level-A7</string>
+	<key>version</key>
+	<integer>1</integer>
 </dict>
 </plist>
