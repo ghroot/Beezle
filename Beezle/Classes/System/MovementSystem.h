@@ -7,6 +7,7 @@
 //
 
 #import "EntityComponentSystem.h"
+#import "cocos2d.h"
 
 @interface MovementSystem : EntityComponentSystem
 

@@ -11,11 +11,22 @@
 #import "PhysicsComponent.h"
 #import "TransformComponent.h"
 
+@interface MovementSystem()
+
+-(CGPoint) getCurrentPosition:(Entity *)entity;
+-(CGPoint) getNextPosition:(Entity *)entity;
+-(CGPoint) calculateVelocityTowardsNextPosition:(Entity *)entity;
+-(BOOL) isAtNextPosition:(Entity *)entity;
+-(void) updateNextPosition:(Entity *)entity;
+-(void) moveTowardsNextPosition:(Entity *)entity;
+
+@end
+
 @implementation MovementSystem
 
 -(id) init
 {
-	self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[MovementComponent class], [PhysicsComponent class], nil]];
+	self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], [MovementComponent class], [PhysicsComponent class], nil]];
 	return self;
 }
 
@@ -30,106 +41,119 @@
 -(void) processEntity:(Entity *)entity
 {
 	MovementComponent *movementComponent = (MovementComponent *)[entity getComponent:[MovementComponent class]];
-	PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
-	
 	if ([[movementComponent positions] count] == 0)
 	{
 		return;
 	}
 	
-	// Current position
-	ChipmunkBody *body = [physicsComponent body];
-	cpVect currentPosition = [body pos];
-	
-	// Next position
-	CGPoint nextPosition;
+	if ([self isAtNextPosition:entity])
+	{
+		[self updateNextPosition:entity];
+	}
+	else
+	{
+		[self moveTowardsNextPosition:entity];
+	}
+}
+
+-(CGPoint) getCurrentPosition:(Entity *)entity
+{
+	TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
+	return [transformComponent position];
+}
+
+-(CGPoint) getNextPosition:(Entity *)entity
+{
+	MovementComponent *movementComponent = (MovementComponent *)[entity getComponent:[MovementComponent class]];
 	if ([movementComponent isMovingTowardsStartPosition])
 	{
-		nextPosition = [movementComponent startPosition];
+		return [movementComponent startPosition];
 	}
 	else
 	{
 		NSValue *nextPositionAsValue = [[movementComponent positions] objectAtIndex:[movementComponent currentPositionIndex]];
-		nextPosition = [nextPositionAsValue CGPointValue];
+		return [nextPositionAsValue CGPointValue];
 	}
-	
-	// Determine velocity
+}
+
+-(CGPoint) calculateVelocityTowardsNextPosition:(Entity *)entity
+{
+	CGPoint currentPosition = [self getCurrentPosition:entity];
+	CGPoint nextPosition = [self getNextPosition:entity];
 	float moveSpeed = 0.8f;
-	float xVel = 0.0f;
-	float yVel = 0.0f;
-	if (abs(currentPosition.x - nextPosition.x) < moveSpeed)
+	if (ccpDistance(currentPosition, nextPosition) < moveSpeed)
 	{
-		xVel = nextPosition.x - currentPosition.x;
+		return ccpSub(nextPosition, currentPosition);
 	}
-	else if (currentPosition.x < nextPosition.x)
+	else
 	{
-		xVel = moveSpeed;
+		float angle = ccpToAngle(ccpSub(nextPosition, currentPosition));
+		return CGPointMake(cosf(angle) * moveSpeed, sinf(angle) * moveSpeed);
 	}
-	else if (currentPosition.x > nextPosition.x)
-	{
-		xVel = -moveSpeed;
-	}
-	if (abs(currentPosition.y - nextPosition.y) < moveSpeed)
-	{
-		yVel = nextPosition.y - currentPosition.y;
-	}
-	else if (currentPosition.y < nextPosition.y)
-	{
-		yVel = moveSpeed;
-	}
-	else if (currentPosition.y > nextPosition.y)
-	{
-		yVel = -moveSpeed;
-	}
+}
+
+-(BOOL) isAtNextPosition:(Entity *)entity
+{
+	CGPoint currentPosition = [self getCurrentPosition:entity];
+	CGPoint nextPosition = [self getNextPosition:entity];
+	return CGPointEqualToPoint(currentPosition, nextPosition);
+}
+
+-(void) updateNextPosition:(Entity *)entity
+{
+	MovementComponent *movementComponent = (MovementComponent *)[entity getComponent:[MovementComponent class]];
 	
-	// Apply velocity to physics
-	[body setPos:cpv(currentPosition.x + xVel, currentPosition.y + yVel)];
-	[body setVel:cpv(xVel, yVel)];
-	
-	// Check if target is hit
-	if ([body pos].x == nextPosition.x &&
-		[body pos].y == nextPosition.y)
+	if ([movementComponent isMovingTowardsStartPosition])
 	{
-		if ([movementComponent isMovingTowardsStartPosition])
+		[movementComponent setIsMovingTowardsStartPosition:FALSE];
+		[movementComponent setCurrentPositionIndex:0];
+		[movementComponent setIsMovingForwardInPositionList:TRUE];
+	}
+	else
+	{
+		if ([movementComponent isMovingForwardInPositionList])
 		{
-			[movementComponent setIsMovingTowardsStartPosition:FALSE];
-			[movementComponent setCurrentPositionIndex:0];
-			[movementComponent setIsMovingForwardInPositionList:TRUE];
-		}
-		else
-		{
-			if ([movementComponent isMovingForwardInPositionList])
+			if ([movementComponent currentPositionIndex] == [[movementComponent positions] count] - 1)
 			{
-				if ([movementComponent currentPositionIndex] == [[movementComponent positions] count] - 1)
-				{
-					if ([[movementComponent positions] count] == 1)
-					{
-						[movementComponent setIsMovingTowardsStartPosition:TRUE];
-					}
-					else
-					{
-						[movementComponent setIsMovingForwardInPositionList:FALSE];
-						[movementComponent setCurrentPositionIndex:[[movementComponent positions] count] - 2];
-					}
-				}
-				else
-				{
-					[movementComponent setCurrentPositionIndex:[movementComponent currentPositionIndex] + 1];
-				}
-			}
-			else
-			{
-				if ([movementComponent currentPositionIndex] == 0)
+				if ([[movementComponent positions] count] == 1)
 				{
 					[movementComponent setIsMovingTowardsStartPosition:TRUE];
 				}
 				else
 				{
-					[movementComponent setCurrentPositionIndex:[movementComponent currentPositionIndex] - 1];
+					[movementComponent setIsMovingForwardInPositionList:FALSE];
+					[movementComponent setCurrentPositionIndex:[[movementComponent positions] count] - 2];
 				}
+			}
+			else
+			{
+				[movementComponent setCurrentPositionIndex:[movementComponent currentPositionIndex] + 1];
+			}
+		}
+		else
+		{
+			if ([movementComponent currentPositionIndex] == 0)
+			{
+				[movementComponent setIsMovingTowardsStartPosition:TRUE];
+			}
+			else
+			{
+				[movementComponent setCurrentPositionIndex:[movementComponent currentPositionIndex] - 1];
 			}
 		}
 	}
+}
+
+-(void) moveTowardsNextPosition:(Entity *)entity
+{
+	PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
+	
+	CGPoint currentPosition = [self getCurrentPosition:entity];
+	CGPoint velocity = [self calculateVelocityTowardsNextPosition:entity];
+	
+	ChipmunkBody *body = [physicsComponent body];
+	[body setPos:CGPointMake(currentPosition.x + velocity.x, currentPosition.y + velocity.y)];
+	[body setVel:velocity];
 }
 
 @end

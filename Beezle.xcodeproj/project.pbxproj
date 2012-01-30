@@ -1273,7 +1273,6 @@
 		2C7CE5F31469ACDE001F331F /* System */ = {
 			isa = PBXGroup;
 			children = (
-				2CC3EC0314D6086F0025F5DA /* Edit */,
 				2C64AD1214BA4F0300ABD114 /* BeeControlSystem.h */,
 				2C64AD1314BA4F0300ABD114 /* BeeControlSystem.m */,
 				2C3A6F911489809F002721E3 /* BeeExpiratonSystem.h */,
@@ -1292,6 +1291,7 @@
 				2C157C0D14901B88003F9040 /* DebugRenderPhysicsLayer.m */,
 				2C5B86DE1479155700028179 /* DebugRenderPhysicsSystem.h */,
 				2C5B86DF1479155700028179 /* DebugRenderPhysicsSystem.m */,
+				2CC3EC0314D6086F0025F5DA /* Edit */,
 				2C157C1D149382D6003F9040 /* GameRulesSystem.h */,
 				2C157C1E149382D6003F9040 /* GameRulesSystem.m */,
 				2C764DD8148A1F4000820587 /* GCpShapeCache.h */,
@@ -1300,6 +1300,8 @@
 				2CADCC701471C76400302475 /* InputAction.m */,
 				2C7CE61A146C73FE001F331F /* InputSystem.h */,
 				2C7CE61B146C73FE001F331F /* InputSystem.m */,
+				2CC3EBFE14D466700025F5DA /* MovementSystem.h */,
+				2CC3EBFF14D466700025F5DA /* MovementSystem.m */,
 				2C7CE5F81469D092001F331F /* PhysicsSystem.h */,
 				2C7CE5F91469D092001F331F /* PhysicsSystem.m */,
 				2C7CE5F51469AD06001F331F /* RenderSystem.h */,
@@ -1310,8 +1312,6 @@
 				2C157C1514914F5D003F9040 /* RenderTrajectorySystem.m */,
 				2C7CE620146FD66F001F331F /* SlingerControlSystem.h */,
 				2C7CE621146FD66F001F331F /* SlingerControlSystem.m */,
-				2CC3EBFE14D466700025F5DA /* MovementSystem.h */,
-				2CC3EBFF14D466700025F5DA /* MovementSystem.m */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -1456,20 +1456,20 @@
 				2CC3EC0E14D608980025F5DA /* Edit */,
 				2C157BEC148FEA8E003F9040 /* Game.h */,
 				2C157BED148FEA8E003F9040 /* Game.m */,
-				2C157BEE148FEA8E003F9040 /* GameState.h */,
-				2C157BEF148FEA8E003F9040 /* GameState.m */,
-				2CD33EF1147EFFA7000869C1 /* MainMenuState.h */,
-				2CD33EF2147EFFA7000869C1 /* MainMenuState.m */,
-				2C114807148E9317002E4DBD /* IngameMenuState.h */,
-				2C114808148E9317002E4DBD /* IngameMenuState.m */,
-				2CD33ED6147D72AD000869C1 /* GameplayState.h */,
-				2CD33ED7147D72AD000869C1 /* GameplayState.m */,
 				2C157C221493B3DE003F9040 /* GameMode.h */,
 				2C157C231493B3DE003F9040 /* GameMode.m */,
-				2CD33EE8147EE7AD000869C1 /* TestState.h */,
-				2CD33EE9147EE7AD000869C1 /* TestState.m */,
+				2CD33ED6147D72AD000869C1 /* GameplayState.h */,
+				2CD33ED7147D72AD000869C1 /* GameplayState.m */,
+				2C157BEE148FEA8E003F9040 /* GameState.h */,
+				2C157BEF148FEA8E003F9040 /* GameState.m */,
+				2C114807148E9317002E4DBD /* IngameMenuState.h */,
+				2C114808148E9317002E4DBD /* IngameMenuState.m */,
 				2CE508CD14B1E98300A9E8D8 /* LevelSelectMenuState.h */,
 				2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */,
+				2CD33EF1147EFFA7000869C1 /* MainMenuState.h */,
+				2CD33EF2147EFFA7000869C1 /* MainMenuState.m */,
+				2CD33EE8147EE7AD000869C1 /* TestState.h */,
+				2CD33EE9147EE7AD000869C1 /* TestState.m */,
 			);
 			name = State;
 			path = Classes/State;
@@ -1638,27 +1638,27 @@
 		2CEA35281466B202000FF575 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				2CC3EC0A14D608870025F5DA /* Edit */,
-				2C157C1814914F6A003F9040 /* TrajectoryComponent.h */,
-				2C157C1914914F6A003F9040 /* TrajectoryComponent.m */,
 				2C1147E2148D4290002E4DBD /* BeeaterComponent.h */,
 				2C1147E3148D4291002E4DBD /* BeeaterComponent.m */,
-				2C1147E4148D4291002E4DBD /* SlingerComponent.h */,
-				2C1147E5148D4292002E4DBD /* SlingerComponent.m */,
 				2C3A6F94148980AF002721E3 /* BeeComponent.h */,
 				2C3A6F95148980AF002721E3 /* BeeComponent.m */,
+				2C85B83A149563ED005D7BAB /* DisposableComponent.h */,
+				2C85B83B149563ED005D7BAB /* DisposableComponent.m */,
+				2CC3EC0A14D608870025F5DA /* Edit */,
+				2CC3EBFB14D466460025F5DA /* MovementComponent.h */,
+				2CC3EBFC14D466460025F5DA /* MovementComponent.m */,
+				2CEA352F1466B2C9000FF575 /* PhysicsComponent.h */,
+				2CEA35301466B2C9000FF575 /* PhysicsComponent.m */,
 				2CEA352C1466B2B5000FF575 /* RenderComponent.h */,
 				2CEA352D1466B2B5000FF575 /* RenderComponent.m */,
 				2C827D3614840C4600517C8F /* RenderSprite.h */,
 				2C827D3714840C4700517C8F /* RenderSprite.m */,
-				2CEA352F1466B2C9000FF575 /* PhysicsComponent.h */,
-				2CEA35301466B2C9000FF575 /* PhysicsComponent.m */,
+				2C1147E4148D4291002E4DBD /* SlingerComponent.h */,
+				2C1147E5148D4292002E4DBD /* SlingerComponent.m */,
+				2C157C1814914F6A003F9040 /* TrajectoryComponent.h */,
+				2C157C1914914F6A003F9040 /* TrajectoryComponent.m */,
 				2C068A32146858B9003E200D /* TransformComponent.h */,
 				2C068A33146858B9003E200D /* TransformComponent.m */,
-				2C85B83A149563ED005D7BAB /* DisposableComponent.h */,
-				2C85B83B149563ED005D7BAB /* DisposableComponent.m */,
-				2CC3EBFB14D466460025F5DA /* MovementComponent.h */,
-				2CC3EBFC14D466460025F5DA /* MovementComponent.m */,
 			);
 			name = Component;
 			sourceTree = "<group>";
