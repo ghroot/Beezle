@@ -25,6 +25,8 @@
 #define SLINGER_MAX_POWER 400
 #define SLINGER_AIM_SENSITIVITY 4.0
 #define AIM_POLLEN_INTERVAL 16
+#define SCALE_AT_MIN_POWER 1.0f
+#define SCALE_AT_MAX_POWER 0.5f
 
 @interface SlingerControlSystem()
 
@@ -93,16 +95,21 @@
                 [transformComponent setRotation:compatibleAimAngle];
 				
 				// Stretch animation
-				NSArray *stretchAnimationNames = [NSArray arrayWithObjects:@"Sling-Stretch-1", @"Sling-Stretch-2", @"Sling-Stretch-3", @"Sling-Stretch-4", nil];
-				float powerPerAnimation = (SLINGER_MAX_POWER - SLINGER_MIN_POWER) / [stretchAnimationNames count];
-				int animationIndex = (int)floor((power - SLINGER_MIN_POWER) / powerPerAnimation);
-				if (animationIndex >= [stretchAnimationNames count])
-				{
-					// This can happen if power is exactly maximum, then we use the last animation
-					animationIndex = [stretchAnimationNames count] - 1;
-				}
-				NSString *strechAnimationName = (NSString *)[stretchAnimationNames objectAtIndex:animationIndex];
-				[renderComponent playAnimation:strechAnimationName withLoops:-1];
+//				NSArray *stretchAnimationNames = [NSArray arrayWithObjects:@"Sling-Stretch-1", @"Sling-Stretch-2", @"Sling-Stretch-3", @"Sling-Stretch-4", nil];
+//				float powerPerAnimation = (SLINGER_MAX_POWER - SLINGER_MIN_POWER) / [stretchAnimationNames count];
+//				int animationIndex = (int)floor((power - SLINGER_MIN_POWER) / powerPerAnimation);
+//				if (animationIndex >= [stretchAnimationNames count])
+//				{
+//					// This can happen if power is exactly maximum, then we use the last animation
+//					animationIndex = [stretchAnimationNames count] - 1;
+//				}
+//				NSString *strechAnimationName = (NSString *)[stretchAnimationNames objectAtIndex:animationIndex];
+//				[renderComponent playAnimation:strechAnimationName withLoops:-1];
+				
+				// Strech scale
+				float percent = (power - SLINGER_MIN_POWER) / (SLINGER_MAX_POWER - SLINGER_MIN_POWER);
+				float scale = SCALE_AT_MIN_POWER + percent * (SCALE_AT_MAX_POWER - SCALE_AT_MIN_POWER);
+				[transformComponent setScale:CGPointMake(1.0f, scale)];
                 
                 break;
             }
@@ -116,7 +123,8 @@
 					
 					[slingerComponent clearLoadedBee];
 					
-					[renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];
+//					[renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];
+					[transformComponent setScale:CGPointMake(1.0f, 1.0f)];
 					
 					[[SoundManager sharedManager] playSound:@"33369__herbertboland__mouthpop.wav"];
 					
