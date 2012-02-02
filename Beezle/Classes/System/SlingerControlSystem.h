@@ -9,8 +9,12 @@
 #import "artemis.h"
 #import "cocos2d.h"
 
+@class InputSystem;
+
 @interface SlingerControlSystem : TagEntitySystem
 {
+	InputSystem *_inputSystem;
+	
     CGPoint _startLocation;
     
     BOOL _isShootingAimPollens;

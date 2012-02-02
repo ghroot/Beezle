@@ -32,15 +32,15 @@
 
 -(void) entityAdded:(Entity *)entity
 {
-	TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
-	MovementComponent *movementComponent = (MovementComponent *)[entity getComponent:[MovementComponent class]];
+	TransformComponent *transformComponent = [TransformComponent getFrom:entity];
+	MovementComponent *movementComponent = [MovementComponent getFrom:entity];
 	
 	[movementComponent setStartPosition:[transformComponent position]];
 }
 
 -(void) processEntity:(Entity *)entity
 {
-	MovementComponent *movementComponent = (MovementComponent *)[entity getComponent:[MovementComponent class]];
+	MovementComponent *movementComponent = [MovementComponent getFrom:entity];
 	if ([[movementComponent positions] count] == 0)
 	{
 		return;
@@ -58,13 +58,13 @@
 
 -(CGPoint) getCurrentPosition:(Entity *)entity
 {
-	TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
+	TransformComponent *transformComponent = [TransformComponent getFrom:entity];
 	return [transformComponent position];
 }
 
 -(CGPoint) getNextPosition:(Entity *)entity
 {
-	MovementComponent *movementComponent = (MovementComponent *)[entity getComponent:[MovementComponent class]];
+	MovementComponent *movementComponent = [MovementComponent getFrom:entity];
 	if ([movementComponent isMovingTowardsStartPosition])
 	{
 		return [movementComponent startPosition];
@@ -101,7 +101,7 @@
 
 -(void) updateNextPosition:(Entity *)entity
 {
-	MovementComponent *movementComponent = (MovementComponent *)[entity getComponent:[MovementComponent class]];
+	MovementComponent *movementComponent = [MovementComponent getFrom:entity];
 	
 	if ([movementComponent isMovingTowardsStartPosition])
 	{
@@ -146,7 +146,7 @@
 
 -(void) moveTowardsNextPosition:(Entity *)entity
 {
-	PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
+	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
 	
 	CGPoint currentPosition = [self getCurrentPosition:entity];
 	CGPoint velocity = [self calculateVelocityTowardsNextPosition:entity];

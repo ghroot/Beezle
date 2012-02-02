@@ -137,12 +137,16 @@
 	return menuItem;
 }
 
+-(void) initialise
+{
+	_editControlSystem = (EditControlSystem *)[[_world systemManager] getSystem:[EditControlSystem class]];
+}
+
 -(void) begin
 {
-	EditControlSystem *editControlSystem = (EditControlSystem *)[[_world systemManager] getSystem:[EditControlSystem class]];
-	if (_entityWithOptionsDisplayed != [editControlSystem selectedEntity])
+	if (_entityWithOptionsDisplayed != [_editControlSystem selectedEntity])
 	{
-		_entityWithOptionsDisplayed = [editControlSystem selectedEntity];
+		_entityWithOptionsDisplayed = [_editControlSystem selectedEntity];
 		
 		[self removeAllMenus];
 		
@@ -248,27 +252,26 @@
 		[entity refresh];
 		[EntityUtil setEntityPosition:entity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
 		
-		EditControlSystem *editControlSystem = (EditControlSystem *)[[_world systemManager] getSystem:[EditControlSystem class]];
-		[editControlSystem selectEntity:entity];
+		[_editControlSystem selectEntity:entity];
 	}
 }
 
 -(void) doOptionMirror:(id)sender
 {
-	TransformComponent *transformComponent = (TransformComponent *)[_entityWithOptionsDisplayed getComponent:[TransformComponent class]];
+	TransformComponent *transformComponent = [TransformComponent getFrom:_entityWithOptionsDisplayed];
 	[transformComponent setScale:CGPointMake(-[transformComponent scale].x, [transformComponent scale].y)];
 }
 
 -(void) doOptionRotateLeft:(id)sender
 {
-	TransformComponent *transformComponent = (TransformComponent *)[_entityWithOptionsDisplayed getComponent:[TransformComponent class]];
+	TransformComponent *transformComponent = [TransformComponent getFrom:_entityWithOptionsDisplayed];
 	float newAngle = [transformComponent rotation] - 2.0f;
 	[EntityUtil setEntityRotation:_entityWithOptionsDisplayed rotation:newAngle];
 }
 
 -(void) doOptionRotateRight:(id)sender
 {
-	TransformComponent *transformComponent = (TransformComponent *)[_entityWithOptionsDisplayed getComponent:[TransformComponent class]];
+	TransformComponent *transformComponent = [TransformComponent getFrom:_entityWithOptionsDisplayed];
 	float newAngle = [transformComponent rotation] + 2.0f;
 	[EntityUtil setEntityRotation:_entityWithOptionsDisplayed rotation:newAngle];
 }
@@ -276,20 +279,19 @@
 -(void) doOptionDelete:(id)sender
 {
 	// Deselect first if selected
-	EditControlSystem *editControlSystem = (EditControlSystem *)[[_world systemManager] getSystem:[EditControlSystem class]];
-	if (_entityWithOptionsDisplayed == [editControlSystem selectedEntity])
+	if (_entityWithOptionsDisplayed == [_editControlSystem selectedEntity])
 	{
-		[editControlSystem deselectSelectedEntity];
+		[_editControlSystem deselectSelectedEntity];
 	}
 	
-	EditComponent *editComponent = (EditComponent *)[_entityWithOptionsDisplayed getComponent:[EditComponent class]];
+	EditComponent *editComponent = [EditComponent getFrom:_entityWithOptionsDisplayed];
 	if ([_entityWithOptionsDisplayed hasComponent:[MovementComponent class]])
 	{
 		// Delete related movement indicator entities
 		Entity *currentMovementIndicatorEntity = [editComponent nextMovementIndicatorEntity];
 		while (currentMovementIndicatorEntity != nil)
 		{
-			EditComponent *movementIndicatorEditComponent = (EditComponent *)[currentMovementIndicatorEntity getComponent:[EditComponent class]];
+			EditComponent *movementIndicatorEditComponent = [EditComponent getFrom:currentMovementIndicatorEntity];
 			[currentMovementIndicatorEntity deleteEntity];
 			currentMovementIndicatorEntity = [movementIndicatorEditComponent nextMovementIndicatorEntity];
 		}
@@ -297,19 +299,19 @@
 	else if ([editComponent mainMoveEntity] != nil)
 	{
 		// Connect previous EditComponent to next movement indicator
-		EditComponent *mainMoveEditComponent = (EditComponent *)[[editComponent mainMoveEntity] getComponent:[EditComponent class]];
+		EditComponent *mainMoveEditComponent = [EditComponent getFrom:[editComponent mainMoveEntity]];
 		Entity *currentMovementIndicatorEntity = [mainMoveEditComponent nextMovementIndicatorEntity];
 		Entity *previousEntity = [editComponent mainMoveEntity];
 		while (currentMovementIndicatorEntity != _entityWithOptionsDisplayed)
 		{
-			EditComponent *movementIndicatorEditComponent = (EditComponent *)[currentMovementIndicatorEntity getComponent:[EditComponent class]];
+			EditComponent *movementIndicatorEditComponent = [EditComponent getFrom:currentMovementIndicatorEntity];
 			previousEntity = currentMovementIndicatorEntity;
 			currentMovementIndicatorEntity = [movementIndicatorEditComponent nextMovementIndicatorEntity];
 		}
 		if (previousEntity != nil)
 		{
-			EditComponent *currentEditComponent = (EditComponent *)[currentMovementIndicatorEntity getComponent:[EditComponent class]];
-			EditComponent *previousEditComponent = (EditComponent *)[previousEntity getComponent:[EditComponent class]];
+			EditComponent *currentEditComponent = [EditComponent getFrom:currentMovementIndicatorEntity];
+			EditComponent *previousEditComponent = [EditComponent getFrom:previousEntity];
 			[previousEditComponent setNextMovementIndicatorEntity:[currentEditComponent nextMovementIndicatorEntity]];
 		}
 	}
@@ -321,10 +323,10 @@
 {
 	CCMenuItem *menuItem = (CCMenuItem *)sender;
 	NSString *beeTypeAsString = [menuItem userData];
-	BeeaterComponent *beeaterComponent = (BeeaterComponent *)[_entityWithOptionsDisplayed getComponent:[BeeaterComponent class]];
+	BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:_entityWithOptionsDisplayed];
 	[beeaterComponent setContainedBeeType:[BeeType enumFromName:beeTypeAsString]];
 	
-	RenderComponent *renderComponent = (RenderComponent *)[_entityWithOptionsDisplayed getComponent:[RenderComponent class]];
+	RenderComponent *renderComponent = [RenderComponent getFrom:_entityWithOptionsDisplayed];
 	RenderSprite *headRenderSprite = [renderComponent getRenderSprite:@"head"];
 	NSString *headAnimationName = [NSString stringWithFormat:@"Beeater-Head-Idle-With%@", [[beeaterComponent containedBeeType] capitalizedString]];
     [headRenderSprite playAnimation:headAnimationName];
@@ -335,7 +337,7 @@
 	Entity *slingerEntity = _entityWithOptionsDisplayed;
 	CCMenuItem *menuItem = (CCMenuItem *)sender;
 	NSString *beeTypeAsString = [menuItem userData];
-	SlingerComponent *slingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
+	SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
 	
 	[slingerComponent pushBeeType:[BeeType enumFromName:beeTypeAsString]];
 	
@@ -346,7 +348,7 @@
 -(void) doOptionClearSlingerBees:(id)sender
 {
 	Entity *slingerEntity = _entityWithOptionsDisplayed;
-	SlingerComponent *slingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
+	SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
 	
 	[slingerComponent clearBeeTypes];
 	
@@ -358,17 +360,17 @@
 {
 	// Create movement indicator
 	Entity *movementIndicatorEntity = [EntityFactory createMovementIndicator:_world];
-	EditComponent *editComponent = (EditComponent *)[movementIndicatorEntity getComponent:[EditComponent class]];
+	EditComponent *editComponent = [EditComponent getFrom:movementIndicatorEntity];
 	[editComponent setMainMoveEntity:_entityWithOptionsDisplayed];
 	
 	// Add movement indicator to end of linked list
-	EditComponent *currentEditComponent = (EditComponent *)[_entityWithOptionsDisplayed getComponent:[EditComponent class]];
-	TransformComponent *currentTransformComponent = (TransformComponent *)[_entityWithOptionsDisplayed getComponent:[TransformComponent class]];
+	EditComponent *currentEditComponent = [EditComponent getFrom:_entityWithOptionsDisplayed];
+	TransformComponent *currentTransformComponent = [TransformComponent getFrom:_entityWithOptionsDisplayed];
 	while ([currentEditComponent nextMovementIndicatorEntity] != nil)
 	{
 		Entity *nextMovementIndicatorEntity = [currentEditComponent nextMovementIndicatorEntity];
-		currentEditComponent = (EditComponent *)[nextMovementIndicatorEntity getComponent:[EditComponent class]];
-		currentTransformComponent = (TransformComponent *)[nextMovementIndicatorEntity getComponent:[TransformComponent class]];
+		currentEditComponent = [EditComponent getFrom:nextMovementIndicatorEntity];
+		currentTransformComponent = [TransformComponent getFrom:nextMovementIndicatorEntity];
 	}
 	[currentEditComponent setNextMovementIndicatorEntity:movementIndicatorEntity];
 	
@@ -376,8 +378,7 @@
 	[EntityUtil setEntityPosition:movementIndicatorEntity position:CGPointMake([currentTransformComponent position].x + 20, [currentTransformComponent position].y + 20)];
 	
 	// Select new movement indicator
-	EditControlSystem *editControlSystem = (EditControlSystem *)[[_world systemManager] getSystem:[EditControlSystem class]];
-	[editControlSystem selectEntity:movementIndicatorEntity];
+	[_editControlSystem selectEntity:movementIndicatorEntity];
 }
 
 @end

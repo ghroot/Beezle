@@ -46,7 +46,7 @@
 	[_space setGravity:CGPointMake(0.0f, GRAVITY)];
 }
 
--(PhysicsComponent *) createPhysicsComponentWithFile:(NSString *)fileName bodyName:(NSString *)bodyName isStatic:(BOOL)isStatic collisionType:(cpCollisionType)collisionType
+-(PhysicsComponent *) createPhysicsComponentWithFile:(NSString *)fileName bodyName:(NSString *)bodyName collisionType:(cpCollisionType)collisionType
 {
     if (![_loadedShapeFileNames containsObject:fileName])
     {
@@ -116,7 +116,7 @@
 
 -(void) entityAdded:(Entity *)entity
 {
-    PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
+    PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
 	
 	if (![[physicsComponent body] isStatic] &&
 		![physicsComponent isRougeBody])
@@ -141,7 +141,7 @@
 
 -(void) entityRemoved:(Entity *)entity
 {
-    PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
+    PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
 	
 	if (![[physicsComponent body] isStatic] &&
 		![physicsComponent isRougeBody])
@@ -174,8 +174,8 @@
 
 -(void) processEntity:(Entity *)entity
 {   
-    TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
-    PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
+    TransformComponent *transformComponent = [TransformComponent getFrom:entity];
+    PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
 	
 	if ([physicsComponent positionUpdatedManually])
 	{

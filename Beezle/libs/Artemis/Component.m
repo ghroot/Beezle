@@ -29,6 +29,7 @@
 */
 
 #import "Component.h"
+#import "Entity.h"
 
 @implementation Component
 
@@ -46,6 +47,11 @@
 +(id) component
 {
 	return [[[self alloc] init] autorelease];
+}
+
++(id) getFrom:(Entity *)entity
+{
+	return [entity getComponent:[self class]];
 }
 
 -(void) enable

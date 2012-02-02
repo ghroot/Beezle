@@ -35,12 +35,16 @@
 	return self;
 }
 
+-(void) initialise
+{
+	_inputSystem = (InputSystem *)[[_world systemManager] getSystem:[InputSystem class]];
+}
+
 -(void) begin
 {
-    InputSystem *inputSystem = (InputSystem *)[[_world systemManager] getSystem:[InputSystem class]];
-    if ([inputSystem hasInputActions])
+    if ([_inputSystem hasInputActions])
     {
-        InputAction *nextInputAction = [inputSystem popInputAction];
+        InputAction *nextInputAction = [_inputSystem popInputAction];
         
         switch ([nextInputAction touchType])
         {
@@ -71,7 +75,7 @@
 				{
 					if (_selectedEntity != nil)
 					{
-						TransformComponent *selectedTransformComponent = (TransformComponent *)[_selectedEntity getComponent:[TransformComponent class]];
+						TransformComponent *selectedTransformComponent = [TransformComponent getFrom:_selectedEntity];
 						_selectedStartLocation = [selectedTransformComponent position];
 					}
 				}
@@ -104,9 +108,9 @@
 	}
 	
 	_selectedEntity = entity;
-	TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
+	TransformComponent *transformComponent = [TransformComponent getFrom:entity];
 	_selectedStartLocation = [transformComponent position];
-	RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
+	RenderComponent *renderComponent = [RenderComponent getFrom:entity];
 	for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
 		CCTintTo *tintAction1 = [CCTintTo actionWithDuration:0.2f red:200 green:200 blue:200];
@@ -121,7 +125,7 @@
 
 -(void) deselectSelectedEntity
 {
-	RenderComponent *renderComponent = (RenderComponent *)[_selectedEntity getComponent:[RenderComponent class]];
+	RenderComponent *renderComponent = [RenderComponent getFrom:_selectedEntity];
 	for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
 		CCTintTo *tintAction = [CCTintTo actionWithDuration:0.2f red:255 green:255 blue:255];
@@ -138,7 +142,7 @@
 	float closestDistance = MAXFLOAT;
 	for (Entity *entity in _entities)
 	{
-		TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
+		TransformComponent *transformComponent = [TransformComponent getFrom:entity];
 		float distance = ccpDistance(position, [transformComponent position]);
 		if (distance < closestDistance)
 		{

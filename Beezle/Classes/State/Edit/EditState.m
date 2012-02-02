@@ -17,6 +17,7 @@
 #import "LevelLoader.h"
 #import "PhysicsSystem.h"
 #import "RenderSystem.h"
+#import "SortOrders.h"
 
 @interface EditState()
 
@@ -89,7 +90,7 @@
 	[systemManager setSystem:_editControlSystem];
 	_editOptionsSystem = [[[EditOptionsSystem alloc] initWithLayer:_uiLayer] autorelease];
 	[systemManager setSystem:_editOptionsSystem];
-	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithLayer:_uiLayer] autorelease];
+	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithLayer:_gameLayer z:Z_ORDER_BEE_QUEUE] autorelease];
 	[systemManager setSystem:_beeQueueRenderingSystem];
 	
 	[systemManager initialiseAll];

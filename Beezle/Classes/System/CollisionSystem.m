@@ -122,10 +122,10 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withRamp:(Entity *)rampEntity
 {
-    BeeComponent *beeComponent = (BeeComponent *)[beeEntity getComponent:[BeeComponent class]];
+    BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
     BeeType *beeType = [beeComponent type];
     
-    DisposableComponent *rampDisposableComponent = (DisposableComponent *)[rampEntity getComponent:[DisposableComponent class]];
+    DisposableComponent *rampDisposableComponent = [DisposableComponent getFrom:rampEntity];
     
     if (![rampDisposableComponent isDisposed] &&
         [beeType canDestroyRamp])
@@ -142,7 +142,7 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity
 {   
-    DisposableComponent *beeaterDisposableComponent = (DisposableComponent *)[beeaterEntity getComponent:[DisposableComponent class]];
+    DisposableComponent *beeaterDisposableComponent = [DisposableComponent getFrom:beeaterEntity];
     
     if (![beeaterDisposableComponent isDisposed])
     {
@@ -165,7 +165,7 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity
 {
-    DisposableComponent *pollenDisposableComponent = (DisposableComponent *)[pollenEntity getComponent:[DisposableComponent class]];
+    DisposableComponent *pollenDisposableComponent = [DisposableComponent getFrom:pollenEntity];
     
     if (![pollenDisposableComponent isDisposed])
     {
@@ -177,13 +177,13 @@
 
 -(void)handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity
 {
-    DisposableComponent *mushroomDisposableComponent = (DisposableComponent *)[mushroomEntity getComponent:[DisposableComponent class]];
+    DisposableComponent *mushroomDisposableComponent = [DisposableComponent getFrom:mushroomEntity];
     
     if (![mushroomDisposableComponent isDisposed])
     {
 		[mushroomDisposableComponent setIsDisposed:TRUE];
 		
-        RenderComponent *mushroomRenderComponent = (RenderComponent *)[mushroomEntity getComponent:[RenderComponent class]];
+        RenderComponent *mushroomRenderComponent = [RenderComponent getFrom:mushroomEntity];
 		[mushroomRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Mushroom-Bounce", @"Mushroom-Idle", nil]];
     
 		[[SoundManager sharedManager] playSound:@"11097__a43__a43-blipp.aif"];
@@ -192,11 +192,11 @@
 
 -(void)handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity
 {
-	DisposableComponent *woodDisposableComponent = (DisposableComponent *)[woodEntity getComponent:[DisposableComponent class]];
+	DisposableComponent *woodDisposableComponent = [DisposableComponent getFrom:woodEntity];
 	
 	if (![woodDisposableComponent isDisposed])
 	{
-		BeeComponent *beeComponent = (BeeComponent *)[beeEntity getComponent:[BeeComponent class]];
+		BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
 		BeeType *beeType = [beeComponent type];
 		
 		if ([beeType canDestroyWood])
@@ -214,7 +214,7 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity
 {
-	DisposableComponent *nutDisposableComponent = (DisposableComponent *)[nutEntity getComponent:[DisposableComponent class]];
+	DisposableComponent *nutDisposableComponent = [DisposableComponent getFrom:nutEntity];
 	
 	if (![nutDisposableComponent isDisposed])
 	{

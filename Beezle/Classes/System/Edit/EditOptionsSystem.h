@@ -9,8 +9,12 @@
 #import "artemis.h"
 #import "cocos2d.h"
 
+@class EditControlSystem;
+
 @interface EditOptionsSystem : EntityComponentSystem
 {
+	EditControlSystem *_editControlSystem;
+	
 	CCLayer *_layer;
 	
 	CCMenu *_generalOptionsMenu;

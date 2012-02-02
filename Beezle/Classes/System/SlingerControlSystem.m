@@ -48,18 +48,20 @@
     return self;
 }
 
+-(void) initialise
+{
+	_inputSystem = (InputSystem *)[[_world systemManager] getSystem:[InputSystem class]];
+}
+
 -(void) processTaggedEntity:(Entity *)entity
 {
-    TrajectoryComponent *trajectoryComponent = (TrajectoryComponent *)[entity getComponent:[TrajectoryComponent class]];
-    
-    InputSystem *inputSystem = (InputSystem *)[[_world systemManager] getSystem:[InputSystem class]];
-    if ([inputSystem hasInputActions])
+    TrajectoryComponent *trajectoryComponent = [TrajectoryComponent getFrom:entity];
+    if ([_inputSystem hasInputActions])
     {
-        InputAction *nextInputAction = [inputSystem popInputAction];
+        InputAction *nextInputAction = [_inputSystem popInputAction];
         
-		SlingerComponent *slingerComponent = (SlingerComponent *)[entity getComponent:[SlingerComponent class]];
-        TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
-//        RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
+		SlingerComponent *slingerComponent = [SlingerComponent getFrom:entity];
+        TransformComponent *transformComponent = [TransformComponent getFrom:entity];
         
         switch ([nextInputAction touchType])
         {
@@ -94,18 +96,6 @@
                 float compatibleAimAngle = 360 - CC_RADIANS_TO_DEGREES(aimAngle) + 90 + 180;
                 [transformComponent setRotation:compatibleAimAngle];
 				
-				// Stretch animation
-//				NSArray *stretchAnimationNames = [NSArray arrayWithObjects:@"Sling-Stretch-1", @"Sling-Stretch-2", @"Sling-Stretch-3", @"Sling-Stretch-4", nil];
-//				float powerPerAnimation = (SLINGER_MAX_POWER - SLINGER_MIN_POWER) / [stretchAnimationNames count];
-//				int animationIndex = (int)floor((power - SLINGER_MIN_POWER) / powerPerAnimation);
-//				if (animationIndex >= [stretchAnimationNames count])
-//				{
-//					// This can happen if power is exactly maximum, then we use the last animation
-//					animationIndex = [stretchAnimationNames count] - 1;
-//				}
-//				NSString *strechAnimationName = (NSString *)[stretchAnimationNames objectAtIndex:animationIndex];
-//				[renderComponent playAnimation:strechAnimationName withLoops:-1];
-				
 				// Strech scale
 				float percent = (power - SLINGER_MIN_POWER) / (SLINGER_MAX_POWER - SLINGER_MIN_POWER);
 				float scale = SCALE_AT_MIN_POWER + percent * (SCALE_AT_MAX_POWER - SCALE_AT_MIN_POWER);
@@ -126,7 +116,6 @@
 					
 					[slingerComponent clearLoadedBee];
 					
-//					[renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];
 					[transformComponent setScale:CGPointMake(1.0f, 1.0f)];
 					
 					[[SoundManager sharedManager] playSound:@"33369__herbertboland__mouthpop.wav"];

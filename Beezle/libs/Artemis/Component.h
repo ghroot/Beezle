@@ -28,6 +28,8 @@
 * or implied, of GAMADU.COM.
 */
 
+@class Entity;
+
 @interface Component : NSObject
 {
     BOOL _enabled;
@@ -36,6 +38,7 @@
 @property (nonatomic, readonly) BOOL enabled;
 
 +(id) component;
++(id) getFrom:(Entity *)entity;
 
 -(void) enable;
 -(void) disable;

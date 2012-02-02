@@ -21,7 +21,7 @@
 
 @property (nonatomic, readonly) ChipmunkSpace *space;
 
--(PhysicsComponent *) createPhysicsComponentWithFile:(NSString *)fileName bodyName:(NSString *)bodyName isStatic:(BOOL)isStatic collisionType:(cpCollisionType)collisionType;
+-(PhysicsComponent *) createPhysicsComponentWithFile:(NSString *)fileName bodyName:(NSString *)bodyName collisionType:(cpCollisionType)collisionType;
 -(void) detectBeforeCollisionsBetween:(cpCollisionType)type1 and:(cpCollisionType)type2;
 -(void) detectAfterCollisionsBetween:(cpCollisionType)type1 and:(cpCollisionType)type2;
 -(BOOL) beginCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space;

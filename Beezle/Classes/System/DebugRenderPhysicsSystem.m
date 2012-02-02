@@ -39,7 +39,7 @@
 
 -(void) processEntity:(Entity *)entity
 {
-    PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
+    PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
     
     for (ChipmunkShape *shape in [physicsComponent shapes])
     {

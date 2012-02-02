@@ -23,8 +23,7 @@
 
 -(void) processEntity:(Entity *)entity
 {
-    PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
-	
+    PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
 	if ([[physicsComponent body] isSleeping])
 	{
         [EntityUtil animateAndDeleteEntity:entity animationName:@"Bee-Crash"];

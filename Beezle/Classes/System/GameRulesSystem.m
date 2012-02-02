@@ -43,7 +43,7 @@
 {
     TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
     Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
-    SlingerComponent *slingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
+    SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
     
     GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
     NSArray *beeEntities = [groupManager getEntitiesInGroup:@"BEES"];

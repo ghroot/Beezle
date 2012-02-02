@@ -9,8 +9,12 @@
 #import "artemis.h"
 #import "ObjectiveChipmunk.h"
 
+@class InputSystem;
+
 @interface EditControlSystem : EntityComponentSystem
 {
+	InputSystem *_inputSystem;
+	
 	CGPoint _touchBeganLocation;
 	BOOL _hasTouchMoved;
 	Entity *_selectedEntity;

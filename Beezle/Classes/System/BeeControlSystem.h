@@ -8,6 +8,11 @@
 
 #import "artemis.h"
 
+@class InputSystem;
+
 @interface BeeControlSystem : EntityComponentSystem
+{
+	InputSystem *_inputSystem;
+}
 
 @end

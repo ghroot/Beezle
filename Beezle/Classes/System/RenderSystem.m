@@ -79,7 +79,7 @@
 
 -(void) entityAdded:(Entity *)entity
 {
-    RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
+    RenderComponent *renderComponent = [RenderComponent getFrom:entity];
 	for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
 		[renderSprite addSpriteToSpriteSheet];
@@ -90,7 +90,7 @@
 
 -(void) entityRemoved:(Entity *)entity
 {
-    RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
+    RenderComponent *renderComponent = [RenderComponent getFrom:entity];
 	for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
 		[renderSprite removeSpriteFromSpriteSheet];
@@ -101,8 +101,8 @@
 
 -(void) processEntity:(Entity *)entity
 {
-    TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
-    RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
+    TransformComponent *transformComponent = [TransformComponent getFrom:entity];
+    RenderComponent *renderComponent = [RenderComponent getFrom:entity];
 	
     for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{

@@ -25,6 +25,6 @@
 	RenderSprite *_beeLoadedRenderSprite;
 }
 
--(id) initWithLayer:(CCLayer *)layer;
+-(id) initWithLayer:(CCLayer *)layer z:(int)z;
 
 @end

@@ -9,6 +9,7 @@
 #import "artemis.h"
 #import "cocos2d.h"
 #import "BeeType.h"
+#import "SortOrders.h"
 
 @interface EntityFactory : NSObject
 

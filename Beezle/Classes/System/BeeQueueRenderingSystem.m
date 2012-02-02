@@ -42,13 +42,13 @@
 
 @implementation BeeQueueRenderingSystem
 
--(id) initWithLayer:(CCLayer *)layer
+-(id) initWithLayer:(CCLayer *)layer z:(int)z
 {
 	if (self = [super initWithTag:@"SLINGER"])
 	{
 		_layer = layer;
 		_beeQueueSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"Sprites.png"];
-		[_layer addChild:_beeQueueSpriteSheet];
+		[_layer addChild:_beeQueueSpriteSheet z:z];
 		
 		_notifications = [[NSMutableArray alloc] init];
 		_beeQueueRenderSprites = [[NSMutableArray alloc] init];
@@ -185,7 +185,7 @@
 {
 	if (_beeLoadedRenderSprite != nil)
 	{
-		TransformComponent *slingerTransformComponent = (TransformComponent *)[slingerEntity getComponent:[TransformComponent class]];
+		TransformComponent *slingerTransformComponent = [TransformComponent getFrom:slingerEntity];
 		[[_beeLoadedRenderSprite sprite] setRotation:[slingerTransformComponent rotation] + 90];
 	}
 }

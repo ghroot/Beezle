@@ -24,13 +24,17 @@
     return self;
 }
 
+-(void) initialise
+{
+	_inputSystem = (InputSystem *)[[_world systemManager] getSystem:[InputSystem class]];
+}
+
 -(void) processEntity:(Entity *)entity
 {
-	InputSystem *inputSystem = (InputSystem *)[[_world systemManager] getSystem:[InputSystem class]];
-    if ([inputSystem hasInputActions])
+    if ([_inputSystem hasInputActions])
     {
-        InputAction *nextInputAction = [inputSystem popInputAction];
-		BeeComponent *beeComponent = (BeeComponent *)[entity getComponent:[BeeComponent class]];
+        InputAction *nextInputAction = [_inputSystem popInputAction];
+		BeeComponent *beeComponent = [BeeComponent getFrom:entity];
 		if ([[beeComponent type] canExplode] &&
 			[nextInputAction touchType] == TOUCH_BEGAN)
 		{
@@ -41,8 +45,8 @@
 				if ([labelManager hasEntity:otherEntity label:@"RAMP"] ||
 					[groupManager isEntity:otherEntity inGroup:@"BEEATERS"])
 				{
-					TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
-					PhysicsComponent *otherPhysicsComponent = (PhysicsComponent *)[otherEntity getComponent:[PhysicsComponent class]];
+					TransformComponent *transformComponent = [TransformComponent getFrom:entity];
+					PhysicsComponent *otherPhysicsComponent = [PhysicsComponent getFrom:otherEntity];
 					
 					int left = [transformComponent position].x - 30;
 					int right = [transformComponent position].x + 30;

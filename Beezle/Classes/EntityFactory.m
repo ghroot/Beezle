@@ -23,22 +23,6 @@
 #import "TrajectoryComponent.h"
 #import "TransformComponent.h"
 
-typedef enum
-{
-	Z_ORDER_BACKGROUND,
-	Z_ORDER_BEEATER_BODY,
-	Z_ORDER_BEEATER_HEAD,
-	Z_ORDER_LEAF,
-	Z_ORDER_RAMP,
-	Z_ORDER_POLLEN,
-	Z_ORDER_MUSHROOM,
-	Z_ORDER_WOOD,
-	Z_ORDER_NUT,
-	Z_ORDER_AIM_POLLEN,
-	Z_ORDER_BEE,
-	Z_ORDER_SLINGER,
-} SortOrders;
-
 @implementation EntityFactory
 
 +(Entity *) createBackground:(World *)world withLevelName:(NSString *)name
@@ -62,7 +46,7 @@ typedef enum
     // Physics
     PhysicsSystem *physicsSystem = (PhysicsSystem *)[[world systemManager] getSystem:[PhysicsSystem class]];
     NSString *shapesFileName = [NSString stringWithFormat:@"%@-Shapes.plist", name];
-    PhysicsComponent *physicsComponent = [physicsSystem createPhysicsComponentWithFile:shapesFileName bodyName:name isStatic:TRUE collisionType:[CollisionType BACKGROUND]];
+    PhysicsComponent *physicsComponent = [physicsSystem createPhysicsComponentWithFile:shapesFileName bodyName:name collisionType:[CollisionType BACKGROUND]];
     [backgroundEntity addComponent:physicsComponent];
     
     [backgroundEntity refresh];
