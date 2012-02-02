@@ -26,13 +26,17 @@
 -(BOOL) canHandleNotifications;
 -(void) handleNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) handleBeeLoadedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
+-(void) handleSlingerRotatedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) handleBeeFiredNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) handleBeeSavedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
+-(void) handleEntityMovedNotification:(NSNotification *)notification entity:(Entity *)entity;
+-(void) handleSlingerBeeQueueChangedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) decreaseMovingBeesCount;
 -(RenderSprite *) createBeeQueueRenderSpriteWithBeeType:(BeeType *)beeType position:(CGPoint)position;
 -(CGPoint) calculatePositionForBeeQueueRenderSpriteAtIndex:(int)index slingerEntity:(Entity *)slingerEntity;
 -(CGPoint) calculatePositionForNextBeeQueueRenderSprite:(Entity *)slingerEntity;
 -(CCAction *) createSwayAction:(CGPoint)position;
+-(void) refreshSprites:(Entity *)slingerEntity;
 
 @end
 
@@ -59,8 +63,15 @@
 -(void) addNotificationObservers
 {
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEE_LOADED object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_SLINGER_ROTATED object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEE_FIRED object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEE_SAVED object:nil];
+	
+	if (CONFIG_CAN_EDIT_LEVELS)
+	{
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:EDIT_NOTIFICATION_ENTITY_MOVED object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:EDIT_NOTIFICATION_SLINGER_BEE_QUEUE_CHANGED object:nil];
+	}
 }
 
 -(void) dealloc
@@ -111,19 +122,35 @@
 	_movingBeesCount--;
 }
 
--(void) handleNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity
+-(void) handleNotification:(NSNotification *)notification slingerEntity:(Entity *)entity
 {
 	if ([[notification name] isEqualToString:GAME_NOTIFICATION_BEE_LOADED])
 	{
-		[self handleBeeLoadedNotification:notification slingerEntity:slingerEntity];
+		[self handleBeeLoadedNotification:notification slingerEntity:entity];
+	}
+	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_SLINGER_ROTATED])
+	{
+		[self handleSlingerRotatedNotification:notification slingerEntity:entity];
 	}
 	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_BEE_FIRED])
 	{
-		[self handleBeeFiredNotification:notification slingerEntity:slingerEntity];
+		[self handleBeeFiredNotification:notification slingerEntity:entity];
 	}
 	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_BEE_SAVED])
 	{
-		[self handleBeeSavedNotification:notification slingerEntity:slingerEntity];
+		[self handleBeeSavedNotification:notification slingerEntity:entity];
+	}
+	
+	if (CONFIG_CAN_EDIT_LEVELS)
+	{
+		if ([[notification name] isEqualToString:EDIT_NOTIFICATION_ENTITY_MOVED])
+		{
+			[self handleEntityMovedNotification:notification entity:entity];
+		}
+		else if ([[notification name] isEqualToString:EDIT_NOTIFICATION_SLINGER_BEE_QUEUE_CHANGED])
+		{
+			[self handleSlingerBeeQueueChangedNotification:notification slingerEntity:entity];
+		}
 	}
 }
 
@@ -133,10 +160,10 @@
 	_beeLoadedRenderSprite = [[_beeQueueRenderSprites objectAtIndex:0] retain];
 	[_beeQueueRenderSprites removeObjectAtIndex:0];
 	TransformComponent *slingerTransformComponent = (TransformComponent *)[slingerEntity getComponent:[TransformComponent class]];
+	[[_beeLoadedRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
 	CCAction *moveAction = [CCMoveTo actionWithDuration:0.5f position:[slingerTransformComponent position]];
-	CCAction *fadeOutAction = [CCFadeOut actionWithDuration:0.5f];
+	[moveAction setTag:ACTION_TAG_BEE_QUEUE];
 	[[_beeLoadedRenderSprite sprite] runAction:moveAction];
-	[[_beeLoadedRenderSprite sprite] runAction:fadeOutAction];
 	
 	// Move queued sprites right
 	for (int i = 0; i < [_beeQueueRenderSprites count]; i++)
@@ -151,6 +178,15 @@
 		CCAction *action = [CCSequence actions:moveRightAction, decreaseMovingBeesCountAction, [self createSwayAction:nextPosition], nil];
 		[action setTag:ACTION_TAG_BEE_QUEUE];
 		[[beeQueueRenderSprite sprite] runAction:action];
+	}
+}
+
+-(void) handleSlingerRotatedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity
+{
+	if (_beeLoadedRenderSprite != nil)
+	{
+		TransformComponent *slingerTransformComponent = (TransformComponent *)[slingerEntity getComponent:[TransformComponent class]];
+		[[_beeLoadedRenderSprite sprite] setRotation:[slingerTransformComponent rotation] + 90];
 	}
 }
 
@@ -182,6 +218,19 @@
 	CCAction *action = [CCSequence actions:moveToQueueAction, decreaseMovingBeesCountAction, [self createSwayAction:nextPosition], nil];
 	[action setTag:ACTION_TAG_BEE_QUEUE];
 	[[beeQueueRenderSprite sprite] runAction:action];
+}
+
+-(void) handleEntityMovedNotification:(NSNotification *)notification entity:(Entity *)entity
+{
+	if ([entity hasComponent:[SlingerComponent class]])
+	{
+		[self refreshSprites:entity];
+	}
+}
+
+-(void) handleSlingerBeeQueueChangedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity
+{
+	[self refreshSprites:slingerEntity];
 }
 
 -(void) refreshSprites:(Entity *)slingerEntity

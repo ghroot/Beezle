@@ -7,7 +7,6 @@
 //
 
 #import "EditOptionsSystem.h"
-#import "BeeQueueRenderingSystem.h"
 #import "BeeaterComponent.h"
 #import "BeeType.h"
 #import "EditComponent.h"
@@ -15,6 +14,7 @@
 #import "EntityFactory.h"
 #import "EntityUtil.h"
 #import "MovementComponent.h"
+#import "NotificationTypes.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "SlingerComponent.h"
@@ -332,8 +332,8 @@
 	
 	[slingerComponent pushBeeType:[BeeType enumFromName:beeTypeAsString]];
 	
-	BeeQueueRenderingSystem *beeQueueRenderingSystem = (BeeQueueRenderingSystem *)[[_world systemManager] getSystem:[BeeQueueRenderingSystem class]];
-	[beeQueueRenderingSystem refreshSprites:slingerEntity];
+	// Game notification
+	[[NSNotificationCenter defaultCenter] postNotificationName:EDIT_NOTIFICATION_SLINGER_BEE_QUEUE_CHANGED object:self];
 }
 
 -(void) doOptionClearSlingerBees:(id)sender
@@ -343,8 +343,8 @@
 	
 	[slingerComponent clearBeeTypes];
 	
-	BeeQueueRenderingSystem *beeQueueRenderingSystem = (BeeQueueRenderingSystem *)[[_world systemManager] getSystem:[BeeQueueRenderingSystem class]];
-	[beeQueueRenderingSystem refreshSprites:slingerEntity];
+	// Game notification
+	[[NSNotificationCenter defaultCenter] postNotificationName:EDIT_NOTIFICATION_SLINGER_BEE_QUEUE_CHANGED object:self];
 }
 
 -(void) doOptionAddMovementIndicator:(id)sender
