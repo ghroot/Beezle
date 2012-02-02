@@ -37,12 +37,6 @@
 
 -(void) begin
 {
-	if (_selectedEntity && [_selectedEntity deleted])
-	{
-		_selectedEntity = nil;
-		return;
-	}
-	
     InputSystem *inputSystem = (InputSystem *)[[_world systemManager] getSystem:[InputSystem class]];
     if ([inputSystem hasInputActions])
     {

@@ -275,6 +275,13 @@
 
 -(void) doOptionDelete:(id)sender
 {
+	// Deselect first if selected
+	EditControlSystem *editControlSystem = (EditControlSystem *)[[_world systemManager] getSystem:[EditControlSystem class]];
+	if (_entityWithOptionsDisplayed == [editControlSystem selectedEntity])
+	{
+		[editControlSystem deselectSelectedEntity];
+	}
+	
 	EditComponent *editComponent = (EditComponent *)[_entityWithOptionsDisplayed getComponent:[EditComponent class]];
 	if ([_entityWithOptionsDisplayed hasComponent:[MovementComponent class]])
 	{
