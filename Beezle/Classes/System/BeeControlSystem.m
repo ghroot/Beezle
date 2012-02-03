@@ -75,7 +75,7 @@
 				}
 			}
 			
-			[EntityUtil animateAndDeleteEntity:entity animationName:@"Bee-Crash"];
+			[EntityUtil animateAndDeleteEntity:entity animationName:@"Bombee-Boom"];
 		}
 	}
 }

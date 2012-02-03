@@ -116,7 +116,7 @@
     // Render
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
 	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Sling-Animations.plist" z:Z_ORDER_SLINGER];
-    [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 1.0f)];
+    [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 0.93f)];
     RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [slingerEntity addComponent:renderComponent];
 	
@@ -339,7 +339,7 @@
     
     // Physics
 	ChipmunkBody *body = [ChipmunkBody staticBody];
-	ChipmunkShape *shape = [ChipmunkCircleShape circleWithBody:body radius:25 offset:cpv(0, 20)];
+	ChipmunkShape *shape = [ChipmunkCircleShape circleWithBody:body radius:20 offset:cpv(0, 16)];
 	[shape setElasticity:1.5f];
 	[shape setFriction:0.5f];
 	[shape setCollisionType:[CollisionType MUSHROOM]];
