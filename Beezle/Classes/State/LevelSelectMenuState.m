@@ -39,10 +39,11 @@
             [levelMenuItem setUserData:levelName];
             [_menu addChild:levelMenuItem];
         }
-		CCMenuItem *backMenuItem = [CCMenuItemFont itemFromString:@"Back" target:self selector:@selector(goBack:)];
+		CCMenuItemFont *backMenuItem = [CCMenuItemFont itemFromString:@"Back" target:self selector:@selector(goBack:)];
+		[backMenuItem setFontSize:24];
 		[_menu addChild:backMenuItem];
 		
-        [_menu alignItemsVertically];
+        [_menu alignItemsInColumns:[NSNumber numberWithInt:3], [NSNumber numberWithInt:3], [NSNumber numberWithInt:3], nil];
         
         [self addChild:_menu];
 		
