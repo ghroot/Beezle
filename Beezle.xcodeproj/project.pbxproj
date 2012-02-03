@@ -224,6 +224,8 @@
 		2CADCC8D14746BA200302475 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CADCC8B14746BA200302475 /* InfoPlist.strings */; };
 		2CADCC9014746BA200302475 /* ArtemisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC8F14746BA200302475 /* ArtemisTests.m */; };
 		2CAE05FB14705F4A0023FA94 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE05FA14705F4A0023FA94 /* EntityFactory.m */; };
+		2CBF48B914DB53D70074908D /* HangNest-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CBF48B714DB53D70074908D /* HangNest-Animations.plist */; };
+		2CBF48BA14DB53D70074908D /* HangNestLian-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CBF48B814DB53D70074908D /* HangNestLian-Animations.plist */; };
 		2CC3EBFD14D466460025F5DA /* MovementComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EBFC14D466460025F5DA /* MovementComponent.m */; };
 		2CC3EC0014D466700025F5DA /* MovementSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EBFF14D466700025F5DA /* MovementSystem.m */; };
 		2CC3EC0214D4B0230025F5DA /* Leaf-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CC3EC0114D4B0230025F5DA /* Leaf-Animations.plist */; };
@@ -720,7 +722,9 @@
 		2CADCC9114746BA200302475 /* ArtemisTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ArtemisTests-Prefix.pch"; sourceTree = "<group>"; };
 		2CAE05F914705F490023FA94 /* EntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityFactory.h; path = Classes/EntityFactory.h; sourceTree = "<group>"; };
 		2CAE05FA14705F4A0023FA94 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityFactory.m; path = Classes/EntityFactory.m; sourceTree = "<group>"; };
-		2CBF48B514DB4B5E0074908D /* SortOrders.h */ = {isa = PBXFileReference; fileEncoding = 4; name = SortOrders.h; path = Classes/SortOrders.h; sourceTree = "<group>"; };
+		2CBF48B514DB4B5E0074908D /* SortOrders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SortOrders.h; path = Classes/SortOrders.h; sourceTree = "<group>"; };
+		2CBF48B714DB53D70074908D /* HangNest-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "HangNest-Animations.plist"; sourceTree = "<group>"; };
+		2CBF48B814DB53D70074908D /* HangNestLian-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "HangNestLian-Animations.plist"; sourceTree = "<group>"; };
 		2CC3EBFB14D466460025F5DA /* MovementComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovementComponent.h; path = Classes/Component/MovementComponent.h; sourceTree = "<group>"; };
 		2CC3EBFC14D466460025F5DA /* MovementComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovementComponent.m; path = Classes/Component/MovementComponent.m; sourceTree = "<group>"; };
 		2CC3EBFE14D466700025F5DA /* MovementSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovementSystem.h; path = Classes/System/MovementSystem.h; sourceTree = "<group>"; };
@@ -1178,14 +1182,12 @@
 		2C3A6F7414898085002721E3 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
-				2C1147DA148BF2E7002E4DBD /* Sprites.plist */,
-				2C1147DB148BF2E7002E4DBD /* Sprites.png */,
-				2C764DE8148A5CD600820587 /* Sprites-hd.plist */,
-				2C764DE9148A5CD600820587 /* Sprites-hd.png */,
 				2C3A6F7514898085002721E3 /* Bee-Animations.plist */,
 				2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */,
 				2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */,
 				2C3A6F7814898085002721E3 /* Bombee-Animations.plist */,
+				2CBF48B714DB53D70074908D /* HangNest-Animations.plist */,
+				2CBF48B814DB53D70074908D /* HangNestLian-Animations.plist */,
 				2CC3EC0114D4B0230025F5DA /* Leaf-Animations.plist */,
 				2C3A6F7914898085002721E3 /* Mushroom-Animations.plist */,
 				2C157C1B14926BE1003F9040 /* Nut-Animations.plist */,
@@ -1194,6 +1196,10 @@
 				2C3A6F7C14898085002721E3 /* Sawee-Animations.plist */,
 				2C3A6F7D14898085002721E3 /* Sling-Animations.plist */,
 				2C3A6F7E14898085002721E3 /* Speedee-Animations.plist */,
+				2C764DE8148A5CD600820587 /* Sprites-hd.plist */,
+				2C764DE9148A5CD600820587 /* Sprites-hd.png */,
+				2C1147DA148BF2E7002E4DBD /* Sprites.plist */,
+				2C1147DB148BF2E7002E4DBD /* Sprites.png */,
 				2C764E99148A8CAE00820587 /* Wood-Animations.plist */,
 			);
 			name = Sprites;
@@ -1842,6 +1848,8 @@
 				2C64AD0F14BA4BAC00ABD114 /* Level-A6.jpg in Resources */,
 				2C64AD1114BA4D2300ABD114 /* Level-A6-Layout.plist in Resources */,
 				2CC3EC0214D4B0230025F5DA /* Leaf-Animations.plist in Resources */,
+				2CBF48B914DB53D70074908D /* HangNest-Animations.plist in Resources */,
+				2CBF48BA14DB53D70074908D /* HangNestLian-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

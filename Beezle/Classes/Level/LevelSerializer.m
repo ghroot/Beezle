@@ -77,7 +77,8 @@
 			NSString *beeTypeAsString = [entity objectForKey:@"bee"];
 			[levelLayoutEntry setBeeTypeAsString:[NSString stringWithString:beeTypeAsString]];
 		}
-		else if ([type isEqualToString:@"LEAF"])
+		else if ([type isEqualToString:@"LEAF"] ||
+				 [type isEqualToString:@"HANGNEST"])
 		{
 			NSArray *movePositionsAsStrings = [entity objectForKey:@"movePositions"];
 			for (NSString *movePositionAsString in movePositionsAsStrings)
@@ -119,7 +120,8 @@
 		{
 			[entity setObject:[levelLayoutEntry beeTypeAsString] forKey:@"bee"];
 		}
-		else if ([[levelLayoutEntry type] isEqualToString:@"LEAF"])
+		else if ([[levelLayoutEntry type] isEqualToString:@"LEAF"] ||
+				 [[levelLayoutEntry type] isEqualToString:@"HANGNEST"])
 		{
 			NSMutableArray *movePositionsAsStrings = [NSMutableArray array];
 			for (NSValue *movePositionAsValue in [levelLayoutEntry movePositions])
@@ -172,13 +174,14 @@
 				BeeaterComponent *beeaterComponent = (BeeaterComponent *)[entity getComponent:[BeeaterComponent class]];
 				[levelLayoutEntry setBeeTypeAsString:[[beeaterComponent containedBeeType] name]];
 			}
-			else if ([[editComponent levelLayoutType] isEqualToString:@"LEAF"])
+			else if ([[editComponent levelLayoutType] isEqualToString:@"LEAF"] ||
+					 [[editComponent levelLayoutType] isEqualToString:@"HANGNEST"])
 			{
 				Entity *currentMovementIndicatorEntity = [editComponent nextMovementIndicatorEntity];
 				while (currentMovementIndicatorEntity != nil)
 				{
-					TransformComponent *currentTransformComponent = (TransformComponent *)[currentMovementIndicatorEntity getComponent:[TransformComponent class]];
-					EditComponent *currentEditComponent = (EditComponent *)[currentMovementIndicatorEntity getComponent:[EditComponent class]];
+					TransformComponent *currentTransformComponent = [TransformComponent getFrom:currentMovementIndicatorEntity];
+					EditComponent *currentEditComponent = [EditComponent getFrom:currentMovementIndicatorEntity];
 					
 					[levelLayoutEntry addMovePosition:[NSValue valueWithCGPoint:[currentTransformComponent position]]];
 					

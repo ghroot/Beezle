@@ -528,28 +528,96 @@
     return leafEntity;
 }
 
-+(Entity *) createMovementIndicator:(World *)world
++(Entity *) createHangNest:(World *)world withMovePositions:(NSArray *)movePositions
+{
+	Entity *hangNestEntity = [world createEntity];
+	
+    // Transform
+    TransformComponent *transformComponent = [TransformComponent component];
+    [hangNestEntity addComponent:transformComponent];
+	
+    // Render
+	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+	RenderSprite *mainRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"HangNest-Animations.plist" z:Z_ORDER_HANGNEST];
+	[[mainRenderSprite sprite] setAnchorPoint:CGPointMake(0.6f, 0.0f)];
+	RenderSprite *lianRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"HangNestLian-Animations.plist" z:Z_ORDER_HANGNEST_LIAN];
+	[[lianRenderSprite sprite] setAnchorPoint:CGPointMake(0.8f, -0.3f)];
+    RenderComponent *renderComponent = [RenderComponent component];
+    [renderComponent addRenderSprite:mainRenderSprite withName:@"main"];
+    [renderComponent addRenderSprite:lianRenderSprite withName:@"lian"];
+    [hangNestEntity addComponent:renderComponent];
+	
+    // Physics
+	ChipmunkBody *body = [ChipmunkBody bodyWithMass:INFINITY andMoment:INFINITY];
+    CGPoint verts[] =
+	{
+        cpv(-8.0f, 0.0f),
+        cpv(-8.0f, 90.0f),
+        cpv(2.0f, 90.0f),
+        cpv(2.0f, 0.0f)
+    };
+	ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:4 verts:verts offset:CGPointZero];
+	[shape setElasticity:0.8f];
+	[shape setFriction:0.5f];
+	[shape setCollisionType:[CollisionType HANGNEST]];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
+	[physicsComponent setIsRougeBody:TRUE];
+    [hangNestEntity addComponent:physicsComponent];
+	
+	// Movement
+	MovementComponent *movementComponent = [MovementComponent component];
+	[movementComponent setPositions:[NSArray arrayWithArray:movePositions]];
+	[hangNestEntity addComponent:movementComponent];
+    
+    [hangNestEntity refresh];
+	
+    [mainRenderSprite playAnimation:@"HangNest-Idle"];
+	[lianRenderSprite playAnimation:@"HangNestLian-Idle"];
+    
+    return hangNestEntity;
+}
+
++(Entity *) createMovementIndicator:(World *)world forEntity:(Entity *)entity
 {
 	Entity *movementIndicatorEntity = [world createEntity];
 	
     // Transform
     TransformComponent *transformComponent = [TransformComponent component];
     [movementIndicatorEntity addComponent:transformComponent];
-    
+	
     // Render
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Leaf-Animations.plist" z:Z_ORDER_LEAF];
-	[[renderSprite sprite] setOpacity:128];
-    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
-    [movementIndicatorEntity addComponent:renderComponent];
+	if ([[[RenderComponent getFrom:entity] renderSprites] count] == 1)
+	{
+		RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Leaf-Animations.plist" z:Z_ORDER_LEAF];
+		[[renderSprite sprite] setOpacity:128];
+		RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
+		[movementIndicatorEntity addComponent:renderComponent];
+		
+		[renderComponent playAnimation:@"Leaf-Idle"];
+	}
+	else
+	{
+		RenderSprite *mainRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"HangNest-Animations.plist" z:Z_ORDER_HANGNEST];
+		[[mainRenderSprite sprite] setAnchorPoint:CGPointMake(0.6f, 0.0f)];
+		[[mainRenderSprite sprite] setOpacity:128];
+		RenderSprite *lianRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"HangNestLian-Animations.plist" z:Z_ORDER_HANGNEST_LIAN];
+		[[lianRenderSprite sprite] setAnchorPoint:CGPointMake(0.8f, -0.3f)];
+		[[lianRenderSprite sprite] setOpacity:128];
+		RenderComponent *renderComponent = [RenderComponent component];
+		[renderComponent addRenderSprite:mainRenderSprite withName:@"main"];
+		[renderComponent addRenderSprite:lianRenderSprite withName:@"lian"];
+		[movementIndicatorEntity addComponent:renderComponent];
+		
+		[mainRenderSprite playAnimation:@"HangNest-Idle"];
+		[lianRenderSprite playAnimation:@"HangNestLian-Idle"];
+	}
 	
 	// Edit
 	EditComponent *editComponent = [EditComponent component];
 	[movementIndicatorEntity addComponent:editComponent];
 	
 	[movementIndicatorEntity refresh];
-	
-	[renderComponent playAnimation:@"Leaf-Idle"];
 	
 	return movementIndicatorEntity;
 }

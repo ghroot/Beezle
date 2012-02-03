@@ -151,7 +151,7 @@
 				EditComponent *currentEditComponent = editComponent;
 				for (NSValue *movePositionAsValue in [levelLayoutEntry movePositions])
 				{
-					Entity *movementIndicator = [EntityFactory createMovementIndicator:world];
+					Entity *movementIndicator = [EntityFactory createMovementIndicator:world forEntity:entity];
 					[EntityUtil setEntityPosition:movementIndicator position:[movePositionAsValue CGPointValue]];
 					[currentEditComponent setNextMovementIndicatorEntity:movementIndicator];
 					[currentEditComponent setMainMoveEntity:entity];
@@ -163,6 +163,29 @@
 			{
 				// Load movement points normally
 				entity = [EntityFactory createLeaf:world withMovePositions:[levelLayoutEntry movePositions]];
+			}
+		}
+		else if ([[levelLayoutEntry type] isEqualToString:@"HANGNEST"])
+		{
+			if (edit)
+			{
+				// Load movement points as movement indicator entities to allow for editing
+				entity = [EntityFactory createHangNest:world withMovePositions:[NSArray array]];
+				EditComponent *currentEditComponent = editComponent;
+				for (NSValue *movePositionAsValue in [levelLayoutEntry movePositions])
+				{
+					Entity *movementIndicator = [EntityFactory createMovementIndicator:world forEntity:entity];
+					[EntityUtil setEntityPosition:movementIndicator position:[movePositionAsValue CGPointValue]];
+					[currentEditComponent setNextMovementIndicatorEntity:movementIndicator];
+					[currentEditComponent setMainMoveEntity:entity];
+					currentEditComponent = (EditComponent *)[movementIndicator getComponent:[EditComponent class]];
+				}
+				[currentEditComponent setMainMoveEntity:entity];
+			}
+			else
+			{
+				// Load movement points normally
+				entity = [EntityFactory createHangNest:world withMovePositions:[levelLayoutEntry movePositions]];
 			}
 		}
 

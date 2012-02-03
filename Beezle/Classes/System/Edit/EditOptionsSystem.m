@@ -76,6 +76,7 @@
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Slinger" selector:@selector(doOptionAddEntity:) userData:@"SLINGER"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Wood" selector:@selector(doOptionAddEntity:) userData:@"WOOD"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Leaf" selector:@selector(doOptionAddEntity:) userData:@"LEAF"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"HangNest" selector:@selector(doOptionAddEntity:) userData:@"HANGNEST"]];
 	[_generalOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
 }
 
@@ -245,6 +246,10 @@
 	{
 		entity = [EntityFactory createLeaf:_world withMovePositions:[NSArray array]];
 	}
+	else if ([type isEqualToString:@"HANGNEST"])
+	{
+		entity = [EntityFactory createHangNest:_world withMovePositions:[NSArray array]];
+	}
 	
 	if (entity != nil)
 	{
@@ -359,7 +364,7 @@
 -(void) doOptionAddMovementIndicator:(id)sender
 {
 	// Create movement indicator
-	Entity *movementIndicatorEntity = [EntityFactory createMovementIndicator:_world];
+	Entity *movementIndicatorEntity = [EntityFactory createMovementIndicator:_world forEntity:_entityWithOptionsDisplayed];
 	EditComponent *editComponent = [EditComponent getFrom:movementIndicatorEntity];
 	[editComponent setMainMoveEntity:_entityWithOptionsDisplayed];
 	
