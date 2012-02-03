@@ -13,7 +13,7 @@
 +(void) setEntityPosition:(Entity *)entity position:(CGPoint)position;
 +(void) setEntityRotation:(Entity *)entity rotation:(float)rotation;
 +(void) setEntityMirrored:(Entity *)entity mirrored:(BOOL)mirrored;
-+(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName;
++(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName disablePhysics:(BOOL)disablePhysics;
 
 +(void) animateDeleteAndSaveBeeFromBeeaterEntity:(Entity *)beeaterEntity;
 

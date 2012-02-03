@@ -26,7 +26,7 @@
     PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
 	if ([[physicsComponent body] isSleeping])
 	{
-        [EntityUtil animateAndDeleteEntity:entity animationName:@"Bee-Crash"];
+        [EntityUtil animateAndDeleteEntity:entity animationName:@"Bee-Crash" disablePhysics:TRUE];
 		
 		// Game notification
 		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_EXPIRED object:self];

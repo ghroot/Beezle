@@ -353,6 +353,41 @@
     return mushroomEntity;
 }
 
++(Entity *) createSmokeMushroom:(World *)world
+{
+    Entity *smokeMushroomEntity = [world createEntity];
+    
+    // Transform
+    TransformComponent *transformComponent = [TransformComponent component];
+    [smokeMushroomEntity addComponent:transformComponent];
+    
+    // Render
+    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"SmokeMushroom-Animations.plist" z:Z_ORDER_MUSHROOM];
+    [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 0.0f)];
+    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
+    [smokeMushroomEntity addComponent:renderComponent];
+    
+    // Physics
+	ChipmunkBody *body = [ChipmunkBody staticBody];
+	ChipmunkShape *shape = [ChipmunkCircleShape circleWithBody:body radius:20 offset:cpv(0, 16)];
+	[shape setElasticity:1.5f];
+	[shape setFriction:0.5f];
+	[shape setCollisionType:[CollisionType MUSHROOM]];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
+    [smokeMushroomEntity addComponent:physicsComponent];
+	
+	// Disposable
+	DisposableComponent *disposableComponent = [DisposableComponent component];
+	[smokeMushroomEntity addComponent:disposableComponent];
+    
+    [smokeMushroomEntity refresh];
+    
+    [renderComponent playAnimation:@"SmokeMushroom-Idle"];
+    
+    return smokeMushroomEntity;
+}
+
 +(Entity *) createWood:(World *)world
 {
     Entity *woodEntity = [world createEntity];

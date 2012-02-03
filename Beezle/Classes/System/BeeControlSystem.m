@@ -65,7 +65,7 @@
 					{
 						if ([labelManager hasEntity:otherEntity label:@"RAMP"])
 						{
-							[EntityUtil animateAndDeleteEntity:otherEntity animationName:@"Ramp-Crash"];
+							[EntityUtil animateAndDeleteEntity:otherEntity animationName:@"Ramp-Crash" disablePhysics:TRUE];
 						}
 						else if ([groupManager isEntity:otherEntity inGroup:@"BEEATERS"])
 						{
@@ -75,7 +75,7 @@
 				}
 			}
 			
-			[EntityUtil animateAndDeleteEntity:entity animationName:@"Bombee-Boom"];
+			[EntityUtil animateAndDeleteEntity:entity animationName:@"Bombee-Boom" disablePhysics:TRUE];
 		}
 	}
 }

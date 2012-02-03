@@ -55,13 +55,16 @@
 	}
 }
 
-+(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName
++(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName disablePhysics:(BOOL)disablePhysics
 {
 	RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
 	[renderComponent playAnimation:animationName withCallbackTarget:entity andCallbackSelector:@selector(deleteEntity)];
-	PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
-	[physicsComponent disable];
-	[entity refresh];
+	if (disablePhysics)
+	{
+		PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
+		[physicsComponent disable];
+		[entity refresh];
+	}
 }
 
 +(void) animateDeleteAndSaveBeeFromBeeaterEntity:(Entity *)beeaterEntity

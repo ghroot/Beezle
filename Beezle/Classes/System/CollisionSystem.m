@@ -134,7 +134,7 @@
 		
         [beeEntity deleteEntity];
         
-		[EntityUtil animateAndDeleteEntity:rampEntity animationName:@"Ramp-Crash"];
+		[EntityUtil animateAndDeleteEntity:rampEntity animationName:@"Ramp-Crash" disablePhysics:TRUE];
         
 		[[SoundManager sharedManager] playSound:@"52144__blaukreuz__imp-02.m4a"];
     }
@@ -171,23 +171,31 @@
     {
         [pollenDisposableComponent setIsDisposed:TRUE];
 		
-		[EntityUtil animateAndDeleteEntity:pollenEntity animationName:@"Pollen-Pickup"];
+		[EntityUtil animateAndDeleteEntity:pollenEntity animationName:@"Pollen-Pickup" disablePhysics:TRUE];
     }
 }
 
 -(void)handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity
 {
-    DisposableComponent *mushroomDisposableComponent = [DisposableComponent getFrom:mushroomEntity];
-    
-    if (![mushroomDisposableComponent isDisposed])
-    {
-		[mushroomDisposableComponent setIsDisposed:TRUE];
-		
-        RenderComponent *mushroomRenderComponent = [RenderComponent getFrom:mushroomEntity];
+	RenderComponent *mushroomRenderComponent = [RenderComponent getFrom:mushroomEntity];
+	if ([mushroomEntity hasComponent:[DisposableComponent class]])
+	{
+		DisposableComponent *mushroomDisposableComponent = [DisposableComponent getFrom:mushroomEntity];
+		if (![mushroomDisposableComponent isDisposed])
+		{
+			[mushroomDisposableComponent setIsDisposed:TRUE];
+			
+			[EntityUtil animateAndDeleteEntity:mushroomEntity animationName:@"SmokeMushroom-BounceAndPuff" disablePhysics:FALSE];
+			
+			[[SoundManager sharedManager] playSound:@"11097__a43__a43-blipp.aif"];
+		}
+	}
+	else
+	{
 		[mushroomRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Mushroom-Bounce", @"Mushroom-Idle", nil]];
-    
+		
 		[[SoundManager sharedManager] playSound:@"11097__a43__a43-blipp.aif"];
-    }
+	}
 }
 
 -(void)handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity
@@ -205,7 +213,7 @@
 			
 			[beeEntity deleteEntity];
 			
-			[EntityUtil animateAndDeleteEntity:woodEntity animationName:@"Wood-Destroy"];
+			[EntityUtil animateAndDeleteEntity:woodEntity animationName:@"Wood-Destroy" disablePhysics:FALSE];
 			
 			[[SoundManager sharedManager] playSound:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
 		}
@@ -222,7 +230,7 @@
 		
 		[beeEntity deleteEntity];
 		
-		[EntityUtil animateAndDeleteEntity:nutEntity animationName:@"Nut-Collect"];
+		[EntityUtil animateAndDeleteEntity:nutEntity animationName:@"Nut-Collect" disablePhysics:TRUE];
 	}
 }
 

@@ -134,6 +134,10 @@
         {
             entity = [EntityFactory createMushroom:world];
         }
+		else if ([[levelLayoutEntry type] isEqualToString:@"SMOKEMUSHROOM"])
+        {
+            entity = [EntityFactory createSmokeMushroom:world];
+        }
         else if ([[levelLayoutEntry type] isEqualToString:@"WOOD"])
         {
             entity = [EntityFactory createWood:world];

@@ -53,7 +53,7 @@
 		
 		[[CCDirector sharedDirector] setNeedClear:FALSE];
 		
-		_debug = TRUE;
+		_debug = FALSE;
 		
 		_gameLayer = [CCLayer node];
 		[self addChild:_gameLayer];

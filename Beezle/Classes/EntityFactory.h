@@ -21,6 +21,7 @@
 +(Entity *) createRamp:(World *)world;
 +(Entity *) createPollen:(World *)world;
 +(Entity *) createMushroom:(World *)world;
++(Entity *) createSmokeMushroom:(World *)world;
 +(Entity *) createWood:(World *)world;
 +(Entity *) createNut:(World *)world;
 +(Entity *) createAimPollen:(World *)world withVelocity:(CGPoint)velocity;
