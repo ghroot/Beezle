@@ -43,7 +43,7 @@
 		[backMenuItem setFontSize:24];
 		[_menu addChild:backMenuItem];
 		
-        [_menu alignItemsInColumns:[NSNumber numberWithInt:3], [NSNumber numberWithInt:3], [NSNumber numberWithInt:3], nil];
+        [_menu alignItemsInColumns:[NSNumber numberWithInt:4], [NSNumber numberWithInt:4], [NSNumber numberWithInt:3], nil];
         
         [self addChild:_menu];
 		
