@@ -230,9 +230,6 @@ typedef enum
     
     BodyInfo *bodyInfo = [[[BodyInfo alloc] init] autorelease];
     
-    // TEMP: Set mass to 0 in PhysicsEditor!
-    bd->mass = 0.0f;
-    
     // create and add body to space
     ChipmunkBody *body;
     if (bd->mass > 0.0f)
