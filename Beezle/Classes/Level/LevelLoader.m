@@ -122,6 +122,11 @@
             BeeType *beeType = [BeeType enumFromName:[levelLayoutEntry beeTypeAsString]];
             entity = [EntityFactory createBeeater:world withBeeType:beeType];
         }
+		else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER-CEILING"])
+        {
+            BeeType *beeType = [BeeType enumFromName:[levelLayoutEntry beeTypeAsString]];
+            entity = [EntityFactory createBeeaterCeiling:world withBeeType:beeType];
+        }
         else if ([[levelLayoutEntry type] isEqualToString:@"RAMP"])
         {
             entity = [EntityFactory createRamp:world];

@@ -69,6 +69,7 @@
 	_generalOptionsMenu = [[CCMenu menuWithItems:nil] retain];
 	[_generalOptionsMenu setPosition:CGPointMake(winSize.width / 2, 14)];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Beeater" selector:@selector(doOptionAddEntity:) userData:@"BEEATER"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"BeeaterCeil" selector:@selector(doOptionAddEntity:) userData:@"BEEATER-CEILING"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Mushroom" selector:@selector(doOptionAddEntity:) userData:@"MUSHROOM"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"SmokeMushroom" selector:@selector(doOptionAddEntity:) userData:@"SMOKEMUSHROOM"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Nut" selector:@selector(doOptionAddEntity:) userData:@"NUT"]];
@@ -211,6 +212,10 @@
 	else if ([type isEqualToString:@"BEEATER"])
 	{
 		entity = [EntityFactory createBeeater:_world withBeeType:[BeeType enumFromName:@"BEE"]];
+	}
+	else if ([type isEqualToString:@"BEEATER-CEILING"])
+	{
+		entity = [EntityFactory createBeeaterCeiling:_world withBeeType:[BeeType enumFromName:@"BEE"]];
 	}
 	else if ([type isEqualToString:@"RAMP"])
 	{

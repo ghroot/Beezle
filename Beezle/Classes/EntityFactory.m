@@ -242,6 +242,63 @@
     return beeaterEntity;
 }
 
++(Entity *) createBeeaterCeiling:(World *)world withBeeType:(BeeType *)beeType
+{
+	Entity *beeaterCeilingEntity = [world createEntity];
+	
+	// Beeater
+	BeeaterComponent *beeaterComponent = [BeeaterComponent component];
+    [beeaterComponent setContainedBeeType:beeType];
+	[beeaterCeilingEntity addComponent:beeaterComponent];
+	
+    // Transform
+    TransformComponent *transformComponent = [TransformComponent component];
+    [beeaterCeilingEntity addComponent:transformComponent];
+	
+    // Render
+	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+	RenderSprite *bodyRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Beeater-Body-Animations.plist" z:Z_ORDER_BEEATER_BODY];
+	[[bodyRenderSprite sprite] setAnchorPoint:CGPointMake(0.6f, -0.1f)];
+	[[bodyRenderSprite sprite] setScaleY:-1.0f];
+	RenderSprite *headRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Beeater-Head-Animations.plist" z:Z_ORDER_BEEATER_HEAD];
+	[[headRenderSprite sprite] setAnchorPoint:CGPointMake(0.8f, 0.3f)];
+    RenderComponent *renderComponent = [RenderComponent component];
+    [renderComponent addRenderSprite:bodyRenderSprite withName:@"body"];
+    [renderComponent addRenderSprite:headRenderSprite withName:@"head"];
+    [beeaterCeilingEntity addComponent:renderComponent];
+	
+    // Physics
+	ChipmunkBody *body = [ChipmunkBody staticBody];
+    CGPoint verts[] =
+	{
+        cpv(-15.0f, 0.0f),
+        cpv(-15.0f, 40.0f),
+        cpv(15.0f, 40.0f),
+        cpv(15.0f, 0.0f)
+    };
+	ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:4 verts:verts offset:CGPointZero];
+	[shape setElasticity:0.8f];
+	[shape setFriction:0.5f];
+	[shape setCollisionType:[CollisionType BEEATER]];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
+    [beeaterCeilingEntity addComponent:physicsComponent];
+    
+    // Disposable
+    DisposableComponent *disposableComponent = [DisposableComponent component];
+    [beeaterCeilingEntity addComponent:disposableComponent];
+	
+    GroupManager *groupManager = (GroupManager *)[world getManager:[GroupManager class]];
+    [groupManager addEntity:beeaterCeilingEntity toGroup:@"BEEATERS"];
+    
+    [beeaterCeilingEntity refresh];
+	
+    [bodyRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:@"Beeater-Body-Ceiling-Idle", @"Beeater-Body-Ceiling-Wave", nil]];
+	NSString *headAnimationName = [NSString stringWithFormat:@"Beeater-Head-Idle-With%@", [beeType capitalizedString]];
+    [headRenderSprite playAnimation:headAnimationName];
+    
+    return beeaterCeilingEntity;
+}
+
 +(Entity *) createRamp:(World *)world
 {
     Entity *rampEntity = [world createEntity];

@@ -72,7 +72,8 @@
 				[levelLayoutEntry addBeeTypeAsString:[NSString stringWithString:beeTypeAsString]];
 			}
 		}
-		else if ([type isEqualToString:@"BEEATER"])
+		else if ([type isEqualToString:@"BEEATER"] ||
+				 [type isEqualToString:@"BEEATER-CEILING"])
 		{
 			NSString *beeTypeAsString = [entity objectForKey:@"bee"];
 			[levelLayoutEntry setBeeTypeAsString:[NSString stringWithString:beeTypeAsString]];
@@ -116,7 +117,8 @@
 			NSMutableArray *bees = [NSMutableArray arrayWithArray:[levelLayoutEntry beeTypesAsStrings]];
 			[entity setObject:bees forKey:@"bees"];
 		}
-		else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER"])
+		else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER"] ||
+				 [[levelLayoutEntry type] isEqualToString:@"BEEATER-CEILING"])
 		{
 			[entity setObject:[levelLayoutEntry beeTypeAsString] forKey:@"bee"];
 		}
@@ -169,7 +171,8 @@
 					[levelLayoutEntry addBeeTypeAsString:[beeType name]];
 				}
 			}
-			else if ([[editComponent levelLayoutType] isEqualToString:@"BEEATER"])
+			else if ([[editComponent levelLayoutType] isEqualToString:@"BEEATER"] ||
+					 [[editComponent levelLayoutType] isEqualToString:@"BEEATER-CEILING"])
 			{
 				BeeaterComponent *beeaterComponent = (BeeaterComponent *)[entity getComponent:[BeeaterComponent class]];
 				[levelLayoutEntry setBeeTypeAsString:[[beeaterComponent containedBeeType] name]];
