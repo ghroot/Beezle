@@ -109,7 +109,7 @@
 	[systemManager setSystem:_beeExpirationSystem];
 	_beeControlSystem = [[[BeeControlSystem alloc] init] autorelease];
 	[systemManager setSystem:_beeControlSystem];
-	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithLayer:_gameLayer z:Z_ORDER_BEE_QUEUE] autorelease];
+	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithZ:Z_ORDER_BEE_QUEUE] autorelease];
 	[systemManager setSystem:_beeQueueRenderingSystem];
 	if (_debug)
 	{

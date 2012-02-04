@@ -11,6 +11,7 @@
 #import "BeeType.h"
 #import "NotificationTypes.h"
 #import "RenderSprite.h"
+#import "RenderSystem.h"
 #import "SlingerComponent.h"
 #import "TransformComponent.h"
 
@@ -42,13 +43,11 @@
 
 @implementation BeeQueueRenderingSystem
 
--(id) initWithLayer:(CCLayer *)layer z:(int)z
+-(id) initWithZ:(int)z
 {
 	if (self = [super initWithTag:@"SLINGER"])
 	{
-		_layer = layer;
-		_beeQueueSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"Sprites.png"];
-		[_layer addChild:_beeQueueSpriteSheet z:z];
+		_z = z;
 		
 		_notifications = [[NSMutableArray alloc] init];
 		_beeQueueRenderSprites = [[NSMutableArray alloc] init];
@@ -88,6 +87,11 @@
 	}
 	
 	[super dealloc];
+}
+
+-(void) initialise
+{
+	_renderSystem = (RenderSystem *)[[_world systemManager] getSystem:[RenderSystem class]];
 }
 
 -(void) entityAdded:(Entity *)entity
@@ -257,7 +261,7 @@
 -(RenderSprite *) createBeeQueueRenderSpriteWithBeeType:(BeeType *)beeType position:(CGPoint)position
 {
 	// Create sprite
-	RenderSprite *beeQueueRenderSprite = [RenderSprite renderSpriteWithSpriteSheet:_beeQueueSpriteSheet];
+	RenderSprite *beeQueueRenderSprite = [_renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" z:_z];
 	[[beeQueueRenderSprite sprite] setPosition:position];
 	[beeQueueRenderSprite addSpriteToSpriteSheet];
 	[_beeQueueRenderSprites addObject:beeQueueRenderSprite];

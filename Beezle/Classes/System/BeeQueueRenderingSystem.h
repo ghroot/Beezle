@@ -9,22 +9,22 @@
 #import "artemis.h"
 #import "cocos2d.h"
 
-@class GameRulesSystem;
 @class RenderSprite;
+@class RenderSystem;
 
 @interface BeeQueueRenderingSystem : TagEntitySystem
 {
-	CCLayer *_layer;
+	RenderSystem *_renderSystem;
+	int _z;
 	
 	NSMutableArray *_notifications;
 	
 	int _movingBeesCount;
 	
-	CCSpriteBatchNode *_beeQueueSpriteSheet;
 	NSMutableArray *_beeQueueRenderSprites;
 	RenderSprite *_beeLoadedRenderSprite;
 }
 
--(id) initWithLayer:(CCLayer *)layer z:(int)z;
+-(id) initWithZ:(int)z;
 
 @end
