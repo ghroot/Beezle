@@ -466,6 +466,41 @@
     return nutEntity;
 }
 
++(Entity *) createEgg:(World *)world
+{
+    Entity *eggEntity = [world createEntity];
+    
+    // Transform
+    TransformComponent *transformComponent = [TransformComponent component];
+    [eggEntity addComponent:transformComponent];
+    
+    // Render
+    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Egg-Animations.plist" z:Z_ORDER_EGG];
+    [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 0.0f)];
+    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
+    [eggEntity addComponent:renderComponent];
+    
+    // Physics
+	ChipmunkBody *body = [ChipmunkBody staticBody];
+	ChipmunkShape *shape = [ChipmunkCircleShape circleWithBody:body radius:20 offset:cpv(0, 20)];
+	[shape setElasticity:1.5f];
+	[shape setFriction:0.5f];
+	[shape setCollisionType:[CollisionType EGG]];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
+    [eggEntity addComponent:physicsComponent];
+    
+    // Disposable
+    DisposableComponent *disposableComponent = [DisposableComponent component];
+    [eggEntity addComponent:disposableComponent];
+    
+    [eggEntity refresh];
+    
+    [renderComponent playAnimation:@"Egg-Idle"];
+    
+    return eggEntity;
+}
+
 +(Entity *) createAimPollen:(World *)world withVelocity:(CGPoint)velocity
 {
     Entity *aimPollenEntity = [world createEntity];

@@ -146,6 +146,10 @@
         {
             entity = [EntityFactory createNut:world];
         }
+		else if ([[levelLayoutEntry type] isEqualToString:@"EGG"])
+        {
+            entity = [EntityFactory createEgg:world];
+        }
 		else if ([[levelLayoutEntry type] isEqualToString:@"LEAF"])
 		{
 			if (edit)

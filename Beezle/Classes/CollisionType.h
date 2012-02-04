@@ -19,6 +19,7 @@
 +(CollisionType *) MUSHROOM;
 +(CollisionType *) WOOD;
 +(CollisionType *) NUT;
++(CollisionType *) EGG;
 +(CollisionType *) HANGNEST;
 +(CollisionType *) AIM_POLLEN;
 

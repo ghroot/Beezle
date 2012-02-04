@@ -72,13 +72,14 @@
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Mushroom" selector:@selector(doOptionAddEntity:) userData:@"MUSHROOM"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"SmokeMushroom" selector:@selector(doOptionAddEntity:) userData:@"SMOKEMUSHROOM"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Nut" selector:@selector(doOptionAddEntity:) userData:@"NUT"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"Egg" selector:@selector(doOptionAddEntity:) userData:@"EGG"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Pollen" selector:@selector(doOptionAddEntity:) userData:@"POLLEN"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Ramp" selector:@selector(doOptionAddEntity:) userData:@"RAMP"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Slinger" selector:@selector(doOptionAddEntity:) userData:@"SLINGER"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Wood" selector:@selector(doOptionAddEntity:) userData:@"WOOD"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Leaf" selector:@selector(doOptionAddEntity:) userData:@"LEAF"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"HangNest" selector:@selector(doOptionAddEntity:) userData:@"HANGNEST"]];
-	[_generalOptionsMenu alignItemsHorizontallyWithPadding:10.0f];
+	[_generalOptionsMenu alignItemsHorizontallyWithPadding:5.0f];
 }
 
 -(void) createGeneralEntityOptionsMenu
@@ -218,6 +219,10 @@
 	else if ([type isEqualToString:@"NUT"])
 	{
 		entity = [EntityFactory createNut:_world];
+	}
+	else if ([type isEqualToString:@"EGG"])
+	{
+		entity = [EntityFactory createEgg:_world];
 	}
 	else if ([type isEqualToString:@"MUSHROOM"])
 	{

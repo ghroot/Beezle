@@ -68,6 +68,7 @@
 	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType MUSHROOM] selector:@selector(handleCollisionBee:withMushroom:)];
     [self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType WOOD] selector:@selector(handleCollisionBee:withWood:)];
 	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType NUT] selector:@selector(handleCollisionBee:withNut:)];
+	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType EGG] selector:@selector(handleCollisionBee:withEgg:)];
 	[self handleAfterCollisionBetween:[CollisionType AIM_POLLEN] and:[CollisionType EDGE] selector:@selector(handleCollisionAimPollen:withEdge:)];
 }
 
@@ -231,6 +232,20 @@
 		[beeEntity deleteEntity];
 		
 		[EntityUtil animateAndDeleteEntity:nutEntity animationName:@"Nut-Collect" disablePhysics:TRUE];
+	}
+}
+
+-(void) handleCollisionBee:(Entity *)beeEntity withEgg:(Entity *)eggEntity
+{
+	DisposableComponent *eggDisposableComponent = [DisposableComponent getFrom:eggEntity];
+	
+	if (![eggDisposableComponent isDisposed])
+	{
+		[eggDisposableComponent setIsDisposed:TRUE];
+		
+		[beeEntity deleteEntity];
+		
+		[EntityUtil animateAndDeleteEntity:eggEntity animationName:@"Egg-Collect" disablePhysics:TRUE];
 	}
 }
 

@@ -200,6 +200,7 @@
 		2C74DD3214DCB85100AA54F4 /* Level-A8-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C74DD2D14DCB85100AA54F4 /* Level-A8-Layout.plist */; };
 		2C74DD3314DCB85100AA54F4 /* Level-A9-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C74DD2E14DCB85100AA54F4 /* Level-A9-Layout.plist */; };
 		2C74DD3414DCB85100AA54F4 /* Level-A10-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C74DD2F14DCB85100AA54F4 /* Level-A10-Layout.plist */; };
+		2C74DD3614DD59AA00AA54F4 /* Egg-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C74DD3514DD59AA00AA54F4 /* Egg-Animations.plist */; };
 		2C764DDA148A1F4000820587 /* GCpShapeCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DD9148A1F4000820587 /* GCpShapeCache.m */; };
 		2C764DDD148A1FF100820587 /* BodyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DDC148A1FF100820587 /* BodyInfo.m */; };
 		2C764DEA148A5CD600820587 /* Sprites-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C764DE8148A5CD600820587 /* Sprites-hd.plist */; };
@@ -653,6 +654,7 @@
 		2C74DD2D14DCB85100AA54F4 /* Level-A8-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A8-Layout.plist"; sourceTree = "<group>"; };
 		2C74DD2E14DCB85100AA54F4 /* Level-A9-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A9-Layout.plist"; sourceTree = "<group>"; };
 		2C74DD2F14DCB85100AA54F4 /* Level-A10-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A10-Layout.plist"; sourceTree = "<group>"; };
+		2C74DD3514DD59AA00AA54F4 /* Egg-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Egg-Animations.plist"; sourceTree = "<group>"; };
 		2C764DD8148A1F4000820587 /* GCpShapeCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCpShapeCache.h; path = Classes/System/GCpShapeCache.h; sourceTree = "<group>"; };
 		2C764DD9148A1F4000820587 /* GCpShapeCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCpShapeCache.m; path = Classes/System/GCpShapeCache.m; sourceTree = "<group>"; };
 		2C764DDB148A1FF100820587 /* BodyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BodyInfo.h; path = Classes/System/BodyInfo.h; sourceTree = "<group>"; };
@@ -1204,6 +1206,7 @@
 				2C3A6F7614898085002721E3 /* Beeater-Body-Animations.plist */,
 				2C3A6F7714898085002721E3 /* Beeater-Head-Animations.plist */,
 				2C3A6F7814898085002721E3 /* Bombee-Animations.plist */,
+				2C74DD3514DD59AA00AA54F4 /* Egg-Animations.plist */,
 				2CBF48B714DB53D70074908D /* HangNest-Animations.plist */,
 				2CBF48B814DB53D70074908D /* HangNestLian-Animations.plist */,
 				2CC3EC0114D4B0230025F5DA /* Leaf-Animations.plist */,
@@ -1910,6 +1913,7 @@
 				2C74DD3214DCB85100AA54F4 /* Level-A8-Layout.plist in Resources */,
 				2C74DD3314DCB85100AA54F4 /* Level-A9-Layout.plist in Resources */,
 				2C74DD3414DCB85100AA54F4 /* Level-A10-Layout.plist in Resources */,
+				2C74DD3614DD59AA00AA54F4 /* Egg-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
