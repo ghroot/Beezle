@@ -111,7 +111,8 @@
 	EditState *editState = (EditState *)[_game currentState];
 	
 	// Revert cached level layout to original
-	[[LevelLoader sharedLoader] loadLevelLayoutOriginal:[editState levelName]];
+	LevelLayout *originalLevelLayout = [[LevelLoader sharedLoader] loadLevelLayoutOriginal:[editState levelName]];
+	[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:originalLevelLayout];
 	
 	// Remove level as dictionary in a file
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);

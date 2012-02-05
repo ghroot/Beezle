@@ -9,12 +9,15 @@
 #import "artemis.h"
 #import "cocos2d.h"
 
+@class LevelLayout;
+
 @interface LevelLoader : NSObject
 
 +(LevelLoader *) sharedLoader;
 
--(BOOL) loadLevelLayoutOriginal:(NSString *)levelName;
--(BOOL) loadLevelLayoutEdited:(NSString *)levelName;
+-(LevelLayout *) loadLevelLayoutOriginal:(NSString *)levelName;
+-(LevelLayout *) loadLevelLayoutEdited:(NSString *)levelName;
+-(LevelLayout *) loadLevelLayoutWithHighestVersion:(NSString *)levelName;
 -(void) loadLevel:(NSString *)levelName inWorld:(World *)world edit:(BOOL)edit;
 
 @end

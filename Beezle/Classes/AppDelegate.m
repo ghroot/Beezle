@@ -7,12 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "BootStrap.h"
 #import "EmailInfo.h"
 #import "Game.h"
-#import "LevelLoader.h"
-#import "LevelOrganizer.h"
-#import "MainMenuState.h"
-#import "SoundManager.h"
 #import "RootViewController.h"
 
 @implementation AppDelegate
@@ -48,7 +45,7 @@
 
     // Settings
 	[[CCDirector sharedDirector] setAnimationInterval:(1.0f / 60.0f)];
-    [director setDisplayStats:kCCDirectorStatsFPS];
+//    [director setDisplayStats:kCCDirectorStatsFPS];
     [director setProjection:kCCDirectorProjection2D];
     [director setDepthTest:FALSE];
     [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
@@ -61,16 +58,10 @@
 	[_window addSubview: _viewController.view];
 	[_window makeKeyAndVisible];
 	
-	// Preload resources
-	[[SoundManager sharedManager] preloadSounds];
-	if (CONFIG_CAN_EDIT_LEVELS)
-	{
-		[self preloadAllLevelLayouts];
-	}
-	
-    // Create game
-    _game = [[Game alloc] init];
-	[_game startWithState:[MainMenuState state]];
+	// Boot
+	_game = [[Game alloc] init];
+	BootStrap *bootStrap = [[[BootStrap alloc] initWithGame:_game] autorelease];
+	[bootStrap start];
 }
 
 -(void) applicationWillResignActive:(UIApplication *)application
@@ -108,25 +99,12 @@
 	
 	[_window release];
 	
-	[director end];	
+	[director end];
 }
 
 -(void) applicationSignificantTimeChange:(UIApplication *)application
 {
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
-}
-
--(void) preloadAllLevelLayouts
-{
-	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] allLevelNames];
-	for (NSString *levelName in levelNames)
-	{
-		// Original
-		[[LevelLoader sharedLoader] loadLevelLayoutOriginal:levelName];
-		
-		// Edited (will replace original if it exists)
-		[[LevelLoader sharedLoader] loadLevelLayoutEdited:levelName];
-	}
 }
 
 -(void) sendEmail:(EmailInfo *)emailInfo

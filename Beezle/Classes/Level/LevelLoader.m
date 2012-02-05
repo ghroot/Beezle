@@ -20,7 +20,7 @@
 
 @interface LevelLoader()
 
--(BOOL) loadLevelLayoutFromFile:(NSString *)filePath isEdited:(BOOL)isEdited;
+-(LevelLayout *) loadLevelLayoutFromFile:(NSString *)filePath isEdited:(BOOL)isEdited;
 
 @end
 
@@ -36,23 +36,22 @@
     return loader;
 }
 
--(BOOL) loadLevelLayoutFromFile:(NSString *)filePath isEdited:(BOOL)isEdited
+-(LevelLayout *) loadLevelLayoutFromFile:(NSString *)filePath isEdited:(BOOL)isEdited
 {
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
 	if (dict != nil)
 	{
 		LevelLayout *levelLayout = [LevelLayout layoutWithContentsOfDictionary:dict];
 		[levelLayout setIsEdited:isEdited];
-		[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:levelLayout];
-		return TRUE;
+		return levelLayout;
 	}
 	else
 	{
-		return FALSE;
+		return nil;
 	}
 }
 
--(BOOL) loadLevelLayoutOriginal:(NSString *)levelName
+-(LevelLayout *) loadLevelLayoutOriginal:(NSString *)levelName
 {
 	// Load from bundle
 	NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
@@ -60,7 +59,7 @@
 	return [self loadLevelLayoutFromFile:filePath isEdited:FALSE];
 }
 
--(BOOL) loadLevelLayoutEdited:(NSString *)levelName
+-(LevelLayout *) loadLevelLayoutEdited:(NSString *)levelName
 {
 	// From from document directory
 	NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
@@ -68,6 +67,21 @@
 	NSString *documentsDirectory = [paths objectAtIndex:0];
 	NSString *filePath = [documentsDirectory stringByAppendingPathComponent:levelFileName];
 	return [self loadLevelLayoutFromFile:filePath isEdited:TRUE];
+}
+
+-(LevelLayout *) loadLevelLayoutWithHighestVersion:(NSString *)levelName
+{
+	LevelLayout *originalLevelLayout = [self loadLevelLayoutOriginal:levelName];
+	LevelLayout *editedLevelLayout = [self loadLevelLayoutEdited:levelName];
+	if (editedLevelLayout != nil &&
+		[editedLevelLayout version] > [originalLevelLayout version])
+	{
+		return editedLevelLayout;
+	}
+	else
+	{
+		return originalLevelLayout;
+	}
 }
 
 -(void) loadLevel:(NSString *)levelName inWorld:(World *)world edit:(BOOL)edit
@@ -78,13 +92,8 @@
 	
 	if (levelLayout == nil)
 	{
-		[[LevelLoader sharedLoader] loadLevelLayoutOriginal:levelName];
-		if (CONFIG_CAN_EDIT_LEVELS)
-		{
-			// Will replace original if it exists
-			[[LevelLoader sharedLoader] loadLevelLayoutEdited:levelName];
-		}
-		levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+		levelLayout = [self loadLevelLayoutWithHighestVersion:levelName];
+		[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:levelLayout];
 		
 		if (levelLayout != nil)
 		{
