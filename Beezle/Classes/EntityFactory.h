@@ -9,9 +9,13 @@
 #import "artemis.h"
 #import "cocos2d.h"
 #import "BeeType.h"
+#import "EntityDescription.h"
+#import "LevelLayoutEntry.h"
 #import "SortOrders.h"
 
 @interface EntityFactory : NSObject
+
++(Entity *) createEntity:(NSString *)type world:(World *)world;
 
 +(Entity *) createBackground:(World *)world withLevelName:(NSString *)name;
 +(Entity *) createEdge:(World *)world;

@@ -249,6 +249,19 @@
 		2CD33EEA147EE7AD000869C1 /* TestState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE9147EE7AD000869C1 /* TestState.m */; };
 		2CD33EF3147EFFA8000869C1 /* MainMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EF2147EFFA7000869C1 /* MainMenuState.m */; };
 		2CE348B314DDFD0100FEB492 /* BootStrap.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348B214DDFD0000FEB492 /* BootStrap.m */; };
+		2CE348B714DF005100FEB492 /* Beeater.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE348B614DF005100FEB492 /* Beeater.plist */; };
+		2CE348BB14DF06FB00FEB492 /* EntityDescriptionSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348BA14DF06FB00FEB492 /* EntityDescriptionSerializer.m */; };
+		2CE348BE14DF070A00FEB492 /* EntityDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348BD14DF070A00FEB492 /* EntityDescription.m */; };
+		2CE348C114DF071800FEB492 /* EntityDescriptionLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348C014DF071800FEB492 /* EntityDescriptionLoader.m */; };
+		2CE348C414DF072700FEB492 /* EntityDescriptionCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348C314DF072700FEB492 /* EntityDescriptionCache.m */; };
+		2CE348CA14DF0BF900FEB492 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348C914DF0BF800FEB492 /* Utils.m */; };
+		2CE348CC14DF441B00FEB492 /* Slinger.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE348CB14DF441B00FEB492 /* Slinger.plist */; };
+		2CE348CE14DF45A700FEB492 /* Ramp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE348CD14DF45A700FEB492 /* Ramp.plist */; };
+		2CE348D014DF475900FEB492 /* Beeater-Ceiling.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE348CF14DF475900FEB492 /* Beeater-Ceiling.plist */; };
+		2CE348D214DF489E00FEB492 /* Pollen.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE348D114DF489E00FEB492 /* Pollen.plist */; };
+		2CE348D414DF4B5E00FEB492 /* Mushroom.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE348D314DF4B5E00FEB492 /* Mushroom.plist */; };
+		2CE348D614DF4CDD00FEB492 /* SmokeMushroom.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE348D514DF4CDD00FEB492 /* SmokeMushroom.plist */; };
+		2CE348D814DF4DD900FEB492 /* Wood.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE348D714DF4DD900FEB492 /* Wood.plist */; };
 		2CE508CF14B1E98300A9E8D8 /* LevelSelectMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */; };
 		2CE508D314B31D2B00A9E8D8 /* LevelSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508D214B31D2B00A9E8D8 /* LevelSender.m */; };
 		2CEA3278145F66F7000FF575 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3277145F66F7000FF575 /* QuartzCore.framework */; };
@@ -771,6 +784,24 @@
 		2CD33EF2147EFFA7000869C1 /* MainMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuState.m; sourceTree = "<group>"; };
 		2CE348B114DDFD0000FEB492 /* BootStrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BootStrap.h; path = Classes/BootStrap.h; sourceTree = "<group>"; };
 		2CE348B214DDFD0000FEB492 /* BootStrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BootStrap.m; path = Classes/BootStrap.m; sourceTree = "<group>"; };
+		2CE348B614DF005100FEB492 /* Beeater.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Beeater.plist; sourceTree = "<group>"; };
+		2CE348B914DF06FB00FEB492 /* EntityDescriptionSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityDescriptionSerializer.h; sourceTree = "<group>"; };
+		2CE348BA14DF06FB00FEB492 /* EntityDescriptionSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityDescriptionSerializer.m; sourceTree = "<group>"; };
+		2CE348BC14DF070A00FEB492 /* EntityDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityDescription.h; sourceTree = "<group>"; };
+		2CE348BD14DF070A00FEB492 /* EntityDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityDescription.m; sourceTree = "<group>"; };
+		2CE348BF14DF071800FEB492 /* EntityDescriptionLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityDescriptionLoader.h; sourceTree = "<group>"; };
+		2CE348C014DF071800FEB492 /* EntityDescriptionLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityDescriptionLoader.m; sourceTree = "<group>"; };
+		2CE348C214DF072700FEB492 /* EntityDescriptionCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityDescriptionCache.h; sourceTree = "<group>"; };
+		2CE348C314DF072700FEB492 /* EntityDescriptionCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityDescriptionCache.m; sourceTree = "<group>"; };
+		2CE348C814DF0BF800FEB492 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = Classes/Utils.h; sourceTree = "<group>"; };
+		2CE348C914DF0BF800FEB492 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = Classes/Utils.m; sourceTree = "<group>"; };
+		2CE348CB14DF441B00FEB492 /* Slinger.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Slinger.plist; sourceTree = "<group>"; };
+		2CE348CD14DF45A700FEB492 /* Ramp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Ramp.plist; sourceTree = "<group>"; };
+		2CE348CF14DF475900FEB492 /* Beeater-Ceiling.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Ceiling.plist"; sourceTree = "<group>"; };
+		2CE348D114DF489E00FEB492 /* Pollen.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Pollen.plist; sourceTree = "<group>"; };
+		2CE348D314DF4B5E00FEB492 /* Mushroom.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Mushroom.plist; sourceTree = "<group>"; };
+		2CE348D514DF4CDD00FEB492 /* SmokeMushroom.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SmokeMushroom.plist; sourceTree = "<group>"; };
+		2CE348D714DF4DD900FEB492 /* Wood.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Wood.plist; sourceTree = "<group>"; };
 		2CE508CD14B1E98300A9E8D8 /* LevelSelectMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectMenuState.h; sourceTree = "<group>"; };
 		2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectMenuState.m; sourceTree = "<group>"; };
 		2CE508D114B31D2B00A9E8D8 /* LevelSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSender.h; sourceTree = "<group>"; };
@@ -1539,6 +1570,38 @@
 			path = Classes/State;
 			sourceTree = "<group>";
 		};
+		2CE348B514DF003A00FEB492 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2CE348CF14DF475900FEB492 /* Beeater-Ceiling.plist */,
+				2CE348B614DF005100FEB492 /* Beeater.plist */,
+				2CE348D314DF4B5E00FEB492 /* Mushroom.plist */,
+				2CE348D114DF489E00FEB492 /* Pollen.plist */,
+				2CE348CD14DF45A700FEB492 /* Ramp.plist */,
+				2CE348CB14DF441B00FEB492 /* Slinger.plist */,
+				2CE348D514DF4CDD00FEB492 /* SmokeMushroom.plist */,
+				2CE348D714DF4DD900FEB492 /* Wood.plist */,
+			);
+			name = Entities;
+			path = Resources/Entities;
+			sourceTree = "<group>";
+		};
+		2CE348B814DF06C900FEB492 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				2CE348BC14DF070A00FEB492 /* EntityDescription.h */,
+				2CE348BD14DF070A00FEB492 /* EntityDescription.m */,
+				2CE348C214DF072700FEB492 /* EntityDescriptionCache.h */,
+				2CE348C314DF072700FEB492 /* EntityDescriptionCache.m */,
+				2CE348BF14DF071800FEB492 /* EntityDescriptionLoader.h */,
+				2CE348C014DF071800FEB492 /* EntityDescriptionLoader.m */,
+				2CE348B914DF06FB00FEB492 /* EntityDescriptionSerializer.h */,
+				2CE348BA14DF06FB00FEB492 /* EntityDescriptionSerializer.m */,
+			);
+			name = Entity;
+			path = Classes/Entity;
+			sourceTree = "<group>";
+		};
 		2CEA3268145F66F7000FF575 = {
 			isa = PBXGroup;
 			children = (
@@ -1590,6 +1653,7 @@
 		2CEA3288145F66F7000FF575 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CE348B514DF003A00FEB492 /* Entities */,
 				2C64ACCF14B89D7E00ABD114 /* Level */,
 				2C764E9B148A917300820587 /* Sounds */,
 				2C3A6F7414898085002721E3 /* Sprites */,
@@ -1672,6 +1736,7 @@
 		2CEA34CE146205BE000FF575 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2CE348B814DF06C900FEB492 /* Entity */,
 				2CD33ED5147D72AC000869C1 /* State */,
 				2CEA35281466B202000FF575 /* Component */,
 				2C7CE5F31469ACDE001F331F /* System */,
@@ -1698,6 +1763,8 @@
 				2C853D6214B4D7C600C90C55 /* SoundManager.m */,
 				2CE348B114DDFD0000FEB492 /* BootStrap.h */,
 				2CE348B214DDFD0000FEB492 /* BootStrap.m */,
+				2CE348C814DF0BF800FEB492 /* Utils.h */,
+				2CE348C914DF0BF800FEB492 /* Utils.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1919,6 +1986,14 @@
 				2C74DD3314DCB85100AA54F4 /* Level-A9-Layout.plist in Resources */,
 				2C74DD3414DCB85100AA54F4 /* Level-A10-Layout.plist in Resources */,
 				2C74DD3614DD59AA00AA54F4 /* Egg-Animations.plist in Resources */,
+				2CE348B714DF005100FEB492 /* Beeater.plist in Resources */,
+				2CE348CC14DF441B00FEB492 /* Slinger.plist in Resources */,
+				2CE348CE14DF45A700FEB492 /* Ramp.plist in Resources */,
+				2CE348D014DF475900FEB492 /* Beeater-Ceiling.plist in Resources */,
+				2CE348D214DF489E00FEB492 /* Pollen.plist in Resources */,
+				2CE348D414DF4B5E00FEB492 /* Mushroom.plist in Resources */,
+				2CE348D614DF4CDD00FEB492 /* SmokeMushroom.plist in Resources */,
+				2CE348D814DF4DD900FEB492 /* Wood.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2121,6 +2196,11 @@
 				2CC3EC1314D608980025F5DA /* EditIngameMenuState.m in Sources */,
 				2CC3EC1414D608980025F5DA /* EditState.m in Sources */,
 				2CE348B314DDFD0100FEB492 /* BootStrap.m in Sources */,
+				2CE348BB14DF06FB00FEB492 /* EntityDescriptionSerializer.m in Sources */,
+				2CE348BE14DF070A00FEB492 /* EntityDescription.m in Sources */,
+				2CE348C114DF071800FEB492 /* EntityDescriptionLoader.m in Sources */,
+				2CE348C414DF072700FEB492 /* EntityDescriptionCache.m in Sources */,
+				2CE348CA14DF0BF900FEB492 /* Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

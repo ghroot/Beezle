@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>WOOD</string>
+	<key>components</key>
+	<dict>
+		<key>disposable</key>
+		<dict/>
+		<key>physics</key>
+		<dict>
+			<key>body</key>
+			<dict>
+				<key>static</key>
+				<true/>
+			</dict>
+			<key>shapes</key>
+			<array>
+				<dict>
+					<key>type</key>
+					<string>poly</string>
+					<key>vertices</key>
+					<array>
+						<string>{ -5, -35 }</string>
+						<string>{ -5, 35 }</string>
+						<string>{ 5, 35 }</string>
+						<string>{ 5, -35 }</string>
+					</array>
+					<key>elasticity</key>
+					<real>0.8</real>
+					<key>friction</key>
+					<real>0.5</real>
+					<key>collisionType</key>
+					<string>WOOD</string>
+				</dict>
+			</array>
+		</dict>
+		<key>render</key>
+		<dict>
+			<key>sprites</key>
+			<array>
+				<dict>
+					<key>name</key>
+					<string>default</string>
+					<key>spriteSheetName</key>
+					<string>Sprites</string>
+					<key>animationFile</key>
+					<string>Wood-Animations.plist</string>
+					<key>z</key>
+					<real>10</real>
+					<key>anchorPoint</key>
+					<string>{ 0.5, 0.5 }</string>
+				</dict>
+			</array>
+		</dict>
+		<key>transform</key>
+		<dict/>
+	</dict>
+</dict>
+</plist>

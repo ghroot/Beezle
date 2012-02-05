@@ -12,6 +12,8 @@
 #import "CollisionType.h"
 #import "DisposableComponent.h"
 #import "EditComponent.h"
+#import "EntityDescriptionCache.h"
+#import "EntityDescriptionLoader.h"
 #import "MovementComponent.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
@@ -24,6 +26,28 @@
 #import "TransformComponent.h"
 
 @implementation EntityFactory
+
++(Entity *) createEntity:(NSString *)type world:(World *)world
+{
+	Entity *entity = [world createEntity];
+	
+	EntityDescription *entityDescription = [[EntityDescriptionCache sharedCache] entityDescriptionByType:type];
+	if (entityDescription == nil)
+	{
+		entityDescription = [[EntityDescriptionLoader sharedLoader] loadEntityDescription:type];
+		[[EntityDescriptionCache sharedCache] addEntityDescription:entityDescription];
+	}
+	
+	NSArray *components = [entityDescription createComponents:world];
+	for (Component *component in components)
+	{
+		[entity addComponent:component];
+	}
+	
+	[entity refresh];
+	
+	return entity;
+}
 
 +(Entity *) createBackground:(World *)world withLevelName:(NSString *)name
 {
@@ -61,7 +85,7 @@
     Entity *edgeEntity = [world createEntity];
     
     // Transform
-    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointMake(0.0f, 0.0f)];
+    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointZero];
     [edgeEntity addComponent:transformComponent];
     
     // Physics
@@ -72,7 +96,6 @@
         cpv(winSize.width, winSize.height),
         cpv(0.0f, winSize.height)
     };
-    
 	ChipmunkBody *body = [ChipmunkBody staticBody];
     NSMutableArray *shapes = [[[NSMutableArray alloc] init] autorelease];
     for (int i = 0; i < num; i++)
@@ -95,37 +118,18 @@
 
 +(Entity *) createSlinger:(World *)world withBeeTypes:(NSArray *)beeTypes
 {
-    Entity *slingerEntity = [world createEntity];
+    Entity *slingerEntity = [self createEntity:@"SLINGER" world:world];
 	
-	// Slinger
-	SlingerComponent *slingerComponent = [SlingerComponent component];
+	SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
     for (BeeType *beeType in beeTypes)
     {
         [slingerComponent pushBeeType:beeType];
     }
-	[slingerEntity addComponent:slingerComponent];
-    
-    // Transform
-    TransformComponent *transformComponent = [TransformComponent component];
-    [slingerEntity addComponent:transformComponent];
-	
-	// Trajectory
-	TrajectoryComponent *trajectoryComponent = [TrajectoryComponent component];
-	[slingerEntity addComponent:trajectoryComponent];
-	
-    // Render
-	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Sling-Animations.plist" z:Z_ORDER_SLINGER];
-    [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 0.93f)];
-    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
-    [slingerEntity addComponent:renderComponent];
 	
 	TagManager *tagManager = (TagManager *)[world getManager:[TagManager class]];
 	[tagManager registerEntity:slingerEntity withTag:@"SLINGER"];
-    
-    [slingerEntity refresh];
 	
-	[renderComponent playAnimation:@"Sling-Idle"];
+	[[RenderComponent getFrom:slingerEntity] playAnimation:@"Sling-Idle"];
     
     return slingerEntity;
 }
@@ -187,54 +191,16 @@
 }
 
 +(Entity *) createBeeater:(World *)world withBeeType:(BeeType *)beeType
-{
-	Entity *beeaterEntity = [world createEntity];
+{	
+	Entity *beeaterEntity = [self createEntity:@"Beeater-Ground" world:world];
 	
-	// Beeater
-	BeeaterComponent *beeaterComponent = [BeeaterComponent component];
-    [beeaterComponent setContainedBeeType:beeType];
-	[beeaterEntity addComponent:beeaterComponent];
-	
-    // Transform
-    TransformComponent *transformComponent = [TransformComponent component];
-    [beeaterEntity addComponent:transformComponent];
-	
-    // Render
-	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *bodyRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Beeater-Body-Animations.plist" z:Z_ORDER_BEEATER_BODY];
-	[[bodyRenderSprite sprite] setAnchorPoint:CGPointMake(0.6f, 0.0f)];
-	RenderSprite *headRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Beeater-Head-Animations.plist" z:Z_ORDER_BEEATER_HEAD];
-	[[headRenderSprite sprite] setAnchorPoint:CGPointMake(0.8f, -0.3f)];
-    RenderComponent *renderComponent = [RenderComponent component];
-    [renderComponent addRenderSprite:bodyRenderSprite withName:@"body"];
-    [renderComponent addRenderSprite:headRenderSprite withName:@"head"];
-    [beeaterEntity addComponent:renderComponent];
-	
-    // Physics
-	ChipmunkBody *body = [ChipmunkBody staticBody];
-    CGPoint verts[] =
-	{
-        cpv(-15.0f, 0.0f),
-        cpv(-15.0f, 40.0f),
-        cpv(15.0f, 40.0f),
-        cpv(15.0f, 0.0f)
-    };
-	ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:4 verts:verts offset:CGPointZero];
-	[shape setElasticity:0.8f];
-	[shape setFriction:0.5f];
-	[shape setCollisionType:[CollisionType BEEATER]];
-    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
-    [beeaterEntity addComponent:physicsComponent];
-    
-    // Disposable
-    DisposableComponent *disposableComponent = [DisposableComponent component];
-    [beeaterEntity addComponent:disposableComponent];
+	[[BeeaterComponent getFrom:beeaterEntity] setContainedBeeType:beeType];
 	
     GroupManager *groupManager = (GroupManager *)[world getManager:[GroupManager class]];
     [groupManager addEntity:beeaterEntity toGroup:@"BEEATERS"];
-    
-    [beeaterEntity refresh];
 	
+	RenderSprite *bodyRenderSprite = [[RenderComponent getFrom:beeaterEntity] getRenderSprite:@"body"];
+	RenderSprite *headRenderSprite = [[RenderComponent getFrom:beeaterEntity] getRenderSprite:@"head"];
     [bodyRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:@"Beeater-Body-Idle", @"Beeater-Body-Wave", nil]];
 	NSString *headAnimationName = [NSString stringWithFormat:@"Beeater-Head-Idle-With%@", [beeType capitalizedString]];
     [headRenderSprite playAnimation:headAnimationName];
@@ -244,54 +210,15 @@
 
 +(Entity *) createBeeaterCeiling:(World *)world withBeeType:(BeeType *)beeType
 {
-	Entity *beeaterCeilingEntity = [world createEntity];
+	Entity *beeaterCeilingEntity = [self createEntity:@"Beeater-Ceiling" world:world];
 	
-	// Beeater
-	BeeaterComponent *beeaterComponent = [BeeaterComponent component];
-    [beeaterComponent setContainedBeeType:beeType];
-	[beeaterCeilingEntity addComponent:beeaterComponent];
-	
-    // Transform
-    TransformComponent *transformComponent = [TransformComponent component];
-    [beeaterCeilingEntity addComponent:transformComponent];
-	
-    // Render
-	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *bodyRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Beeater-Body-Animations.plist" z:Z_ORDER_BEEATER_BODY];
-	[[bodyRenderSprite sprite] setAnchorPoint:CGPointMake(0.6f, -0.1f)];
-	[[bodyRenderSprite sprite] setScaleY:-1.0f];
-	RenderSprite *headRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Beeater-Head-Animations.plist" z:Z_ORDER_BEEATER_HEAD];
-	[[headRenderSprite sprite] setAnchorPoint:CGPointMake(0.8f, 0.3f)];
-    RenderComponent *renderComponent = [RenderComponent component];
-    [renderComponent addRenderSprite:bodyRenderSprite withName:@"body"];
-    [renderComponent addRenderSprite:headRenderSprite withName:@"head"];
-    [beeaterCeilingEntity addComponent:renderComponent];
-	
-    // Physics
-	ChipmunkBody *body = [ChipmunkBody staticBody];
-    CGPoint verts[] =
-	{
-        cpv(-15.0f, 0.0f),
-        cpv(-15.0f, 40.0f),
-        cpv(15.0f, 40.0f),
-        cpv(15.0f, 0.0f)
-    };
-	ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:4 verts:verts offset:CGPointZero];
-	[shape setElasticity:0.8f];
-	[shape setFriction:0.5f];
-	[shape setCollisionType:[CollisionType BEEATER]];
-    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
-    [beeaterCeilingEntity addComponent:physicsComponent];
-    
-    // Disposable
-    DisposableComponent *disposableComponent = [DisposableComponent component];
-    [beeaterCeilingEntity addComponent:disposableComponent];
+	[[BeeaterComponent getFrom:beeaterCeilingEntity] setContainedBeeType:beeType];
 	
     GroupManager *groupManager = (GroupManager *)[world getManager:[GroupManager class]];
     [groupManager addEntity:beeaterCeilingEntity toGroup:@"BEEATERS"];
-    
-    [beeaterCeilingEntity refresh];
 	
+	RenderSprite *bodyRenderSprite = [[RenderComponent getFrom:beeaterCeilingEntity] getRenderSprite:@"body"];
+	RenderSprite *headRenderSprite = [[RenderComponent getFrom:beeaterCeilingEntity] getRenderSprite:@"head"];
     [bodyRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:@"Beeater-Body-Ceiling-Idle", @"Beeater-Body-Ceiling-Wave", nil]];
 	NSString *headAnimationName = [NSString stringWithFormat:@"Beeater-Head-Idle-With%@", [beeType capitalizedString]];
     [headRenderSprite playAnimation:headAnimationName];
@@ -301,189 +228,48 @@
 
 +(Entity *) createRamp:(World *)world
 {
-    Entity *rampEntity = [world createEntity];
-    
-    // Transform
-    TransformComponent *transformComponent = [TransformComponent component];
-    [rampEntity addComponent:transformComponent];
-    
-    // Render
-	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Ramp-Animations.plist" z:Z_ORDER_RAMP];
-    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
-    [rampEntity addComponent:renderComponent];
-	
-    // Physics
-    int num = 4;
-    CGPoint verts[] =
-	{
-        CGPointMake(-50,-4),
-        CGPointMake(-50, 4),
-        CGPointMake( 50, 4),
-        CGPointMake( 50,-4),
-    };
-	ChipmunkBody *body = [ChipmunkBody staticBody];
-	ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:num verts:verts offset:CGPointZero];
-	[shape setElasticity:0.8f];
-	[shape setFriction:0.5f];
-	[shape setCollisionType:[CollisionType RAMP]];
-    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
-    [rampEntity addComponent:physicsComponent];
-    
-    // Disposable
-    DisposableComponent *disposableComponent = [DisposableComponent component];
-    [rampEntity addComponent:disposableComponent];
+    Entity *rampEntity = [self createEntity:@"Ramp" world:world];
 	
 	LabelManager *labelManager = (LabelManager *)[world getManager:[LabelManager class]];
 	[labelManager labelEntity:rampEntity withLabel:@"RAMP"];
-    
-    [rampEntity refresh];
 	
-	[renderComponent playAnimation:@"Ramp-Idle"];
+	[[RenderComponent getFrom:rampEntity] playAnimation:@"Ramp-Idle"];
     
     return rampEntity;
 }
 
 +(Entity *) createPollen:(World *)world
 {
-    Entity *pollenEntity = [world createEntity];
+    Entity *pollenEntity = [self createEntity:@"Pollen" world:world];
     
-    // Transform
-    TransformComponent *transformComponent = [TransformComponent component];
-    [pollenEntity addComponent:transformComponent];
-    
-    // Render
-    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Pollen-Animations.plist" z:Z_ORDER_POLLEN];
-    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
-    [pollenEntity addComponent:renderComponent];
-    
-    // Physics
-	ChipmunkBody *body = [ChipmunkBody staticBody];
-	ChipmunkShape *shape = [ChipmunkCircleShape circleWithBody:body radius:8 offset:CGPointZero];
-	[shape setElasticity:0.8f];
-	[shape setFriction:0.5f];
-	[shape setCollisionType:[CollisionType POLLEN]];
-    [shape setLayers:1];
-    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
-    [pollenEntity addComponent:physicsComponent];
-    
-    // Disposable
-    DisposableComponent *disposableComponent = [DisposableComponent component];
-    [pollenEntity addComponent:disposableComponent];
-    
-    [pollenEntity refresh];
-    
-    [renderComponent playAnimation:@"Pollen-Idle"];
+    [[RenderComponent getFrom:pollenEntity] playAnimation:@"Pollen-Idle"];
     
     return pollenEntity;
 }
 
 +(Entity *) createMushroom:(World *)world
 {
-    Entity *mushroomEntity = [world createEntity];
+    Entity *mushroomEntity = [self createEntity:@"Mushroom" world:world];
     
-    // Transform
-    TransformComponent *transformComponent = [TransformComponent component];
-    [mushroomEntity addComponent:transformComponent];
-    
-    // Render
-    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Mushroom-Animations.plist" z:Z_ORDER_MUSHROOM];
-    [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 0.0f)];
-    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
-    [mushroomEntity addComponent:renderComponent];
-    
-    // Physics
-	ChipmunkBody *body = [ChipmunkBody staticBody];
-	ChipmunkShape *shape = [ChipmunkCircleShape circleWithBody:body radius:20 offset:cpv(0, 16)];
-	[shape setElasticity:1.5f];
-	[shape setFriction:0.5f];
-	[shape setCollisionType:[CollisionType MUSHROOM]];
-    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
-    [mushroomEntity addComponent:physicsComponent];
-    
-    [mushroomEntity refresh];
-    
-    [renderComponent playAnimation:@"Mushroom-Idle"];
+    [[RenderComponent getFrom:mushroomEntity] playAnimation:@"Mushroom-Idle"];
     
     return mushroomEntity;
 }
 
 +(Entity *) createSmokeMushroom:(World *)world
 {
-    Entity *smokeMushroomEntity = [world createEntity];
+    Entity *smokeMushroomEntity = [self createEntity:@"SmokeMushroom" world:world];
     
-    // Transform
-    TransformComponent *transformComponent = [TransformComponent component];
-    [smokeMushroomEntity addComponent:transformComponent];
-    
-    // Render
-    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"SmokeMushroom-Animations.plist" z:Z_ORDER_MUSHROOM];
-    [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 0.0f)];
-    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
-    [smokeMushroomEntity addComponent:renderComponent];
-    
-    // Physics
-	ChipmunkBody *body = [ChipmunkBody staticBody];
-	ChipmunkShape *shape = [ChipmunkCircleShape circleWithBody:body radius:20 offset:cpv(0, 16)];
-	[shape setElasticity:1.5f];
-	[shape setFriction:0.5f];
-	[shape setCollisionType:[CollisionType MUSHROOM]];
-    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
-    [smokeMushroomEntity addComponent:physicsComponent];
-	
-	// Disposable
-	DisposableComponent *disposableComponent = [DisposableComponent component];
-	[smokeMushroomEntity addComponent:disposableComponent];
-    
-    [smokeMushroomEntity refresh];
-    
-    [renderComponent playAnimation:@"SmokeMushroom-Idle"];
+    [[RenderComponent getFrom:smokeMushroomEntity] playAnimation:@"SmokeMushroom-Idle"];
     
     return smokeMushroomEntity;
 }
 
 +(Entity *) createWood:(World *)world
 {
-    Entity *woodEntity = [world createEntity];
+    Entity *woodEntity = [self createEntity:@"Wood" world:world];
     
-    // Transform
-    TransformComponent *transformComponent = [TransformComponent component];
-    [woodEntity addComponent:transformComponent];
-    
-    // Render
-    RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Wood-Animations.plist" z:Z_ORDER_WOOD];
-    [[renderSprite sprite] setAnchorPoint:CGPointMake(0.5f, 0.5f)];
-    RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
-    [woodEntity addComponent:renderComponent];
-    
-    // Physics
-    int num = 4;
-    CGPoint verts[] =
-	{
-        CGPointMake(-5,-35),
-        CGPointMake(-5, 35),
-        CGPointMake( 5, 35),
-        CGPointMake( 5,-35),
-    };
-	ChipmunkBody *body = [ChipmunkBody staticBody];
-	ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:num verts:verts offset:CGPointZero];
-	[shape setElasticity:0.8f];
-	[shape setFriction:0.5f];
-	[shape setCollisionType:[CollisionType WOOD]];
-    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
-    [woodEntity addComponent:physicsComponent];
-    
-    // Disposable
-    DisposableComponent *disposableComponent = [DisposableComponent component];
-    [woodEntity addComponent:disposableComponent];
-    
-    [woodEntity refresh];
-    
-    [renderComponent playAnimation:@"Wood-Idle"];
+    [[RenderComponent getFrom:woodEntity] playAnimation:@"Wood-Idle"];
     
     return woodEntity;
 }

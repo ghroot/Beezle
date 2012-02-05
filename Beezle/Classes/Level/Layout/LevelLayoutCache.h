@@ -17,6 +17,7 @@
 }
 
 +(LevelLayoutCache *) sharedLevelLayoutCache;
+
 -(void) addLevelLayout:(LevelLayout *)levelLayout;
 -(LevelLayout *) levelLayoutByName:(NSString *)name;
 -(void) purgeAllCachedLevelLayouts;
