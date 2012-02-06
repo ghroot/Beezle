@@ -11,6 +11,7 @@
 @interface MovementComponent : Component
 {
 	NSArray *_positions;
+	BOOL _alwaysFaceForward;
 	int _currentPositionIndex;
 	BOOL _isMovingForwardInPositionList;
 	CGPoint _startPosition;
@@ -18,6 +19,7 @@
 }
 
 @property (nonatomic, retain) NSArray *positions;
+@property (nonatomic) BOOL alwaysFaceForward;
 @property (nonatomic) int currentPositionIndex;
 @property (nonatomic) BOOL isMovingForwardInPositionList;
 @property (nonatomic) CGPoint startPosition;

@@ -85,6 +85,11 @@
 	[beeaterHeadRenderSprite hide];
 	[beeaterBodyRenderSprite playAnimation:@"Beeater-Body-Destroy" withCallbackTarget:beeaterEntity andCallbackSelector:@selector(deleteEntity)];
 	
+	// Disable physics
+	PhysicsComponent *beeaterPhysicsComponent = [PhysicsComponent getFrom:beeaterEntity];
+	[beeaterPhysicsComponent disable];
+	[beeaterEntity refresh];
+	
 	// Game notification
 	NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
 	[notificationUserInfo setObject:[NSValue valueWithCGPoint:[beeaterTransformComponent position]] forKey:@"beeaterEntityPosition"];

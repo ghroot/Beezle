@@ -68,18 +68,20 @@
 	
 	_generalOptionsMenu = [[CCMenu menuWithItems:nil] retain];
 	[_generalOptionsMenu setPosition:CGPointMake(winSize.width / 2, 14)];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"Beeater" selector:@selector(doOptionAddEntity:) userData:@"BEEATER"]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"BeeaterCeil" selector:@selector(doOptionAddEntity:) userData:@"BEEATER-CEILING"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"Beat" selector:@selector(doOptionAddEntity:) userData:@"BEEATER"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"BeatCeil" selector:@selector(doOptionAddEntity:) userData:@"BEEATER-CEILING"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"BeatBird" selector:@selector(doOptionAddEntity:) userData:@"BEEATER-BIRD"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"BeatFish" selector:@selector(doOptionAddEntity:) userData:@"BEEATER-FISH"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Mushroom" selector:@selector(doOptionAddEntity:) userData:@"MUSHROOM"]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"SmokeMushroom" selector:@selector(doOptionAddEntity:) userData:@"SMOKEMUSHROOM"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"SmMushroom" selector:@selector(doOptionAddEntity:) userData:@"SMOKEMUSHROOM"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Nut" selector:@selector(doOptionAddEntity:) userData:@"NUT"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Egg" selector:@selector(doOptionAddEntity:) userData:@"EGG"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Pollen" selector:@selector(doOptionAddEntity:) userData:@"POLLEN"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Ramp" selector:@selector(doOptionAddEntity:) userData:@"RAMP"]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"Slinger" selector:@selector(doOptionAddEntity:) userData:@"SLINGER"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"Sling" selector:@selector(doOptionAddEntity:) userData:@"SLINGER"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Wood" selector:@selector(doOptionAddEntity:) userData:@"WOOD"]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Leaf" selector:@selector(doOptionAddEntity:) userData:@"LEAF"]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"HangNest" selector:@selector(doOptionAddEntity:) userData:@"HANGNEST"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"Nest" selector:@selector(doOptionAddEntity:) userData:@"HANGNEST"]];
 	[_generalOptionsMenu alignItemsHorizontallyWithPadding:5.0f];
 }
 
@@ -216,6 +218,14 @@
 	else if ([type isEqualToString:@"BEEATER-CEILING"])
 	{
 		entity = [EntityFactory createBeeaterCeiling:_world withBeeType:[BeeType enumFromName:@"BEE"]];
+	}
+	else if ([type isEqualToString:@"BEEATER-BIRD"])
+	{
+		entity = [EntityFactory createBeeaterBird:_world withBeeType:[BeeType enumFromName:@"BEE"]];
+	}
+	else if ([type isEqualToString:@"BEEATER-FISH"])
+	{
+		entity = [EntityFactory createBeeaterFish:_world withBeeType:[BeeType enumFromName:@"BEE"]];
 	}
 	else if ([type isEqualToString:@"RAMP"])
 	{

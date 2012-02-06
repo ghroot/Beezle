@@ -11,6 +11,7 @@
 @implementation MovementComponent
 
 @synthesize positions = _positions;
+@synthesize alwaysFaceForward = _alwaysFaceForward;
 @synthesize currentPositionIndex = _currentPositionIndex;
 @synthesize isMovingForwardInPositionList = _isMovingForwardInPositionList;
 @synthesize startPosition = _startPosition;
@@ -21,6 +22,7 @@
 	if (self = [super init])
 	{
 		_positions = [[NSArray alloc] init];
+		_alwaysFaceForward = FALSE;
 		_isMovingForwardInPositionList = TRUE;
 	}
 	return self;

@@ -78,6 +78,19 @@
 			NSString *beeTypeAsString = [entity objectForKey:@"bee"];
 			[levelLayoutEntry setBeeTypeAsString:[NSString stringWithString:beeTypeAsString]];
 		}
+		else if ([type isEqualToString:@"BEEATER-BIRD"] ||
+				 [type isEqualToString:@"BEEATER-FISH"])
+		{
+			NSString *beeTypeAsString = [entity objectForKey:@"bee"];
+			[levelLayoutEntry setBeeTypeAsString:[NSString stringWithString:beeTypeAsString]];
+			
+			NSArray *movePositionsAsStrings = [entity objectForKey:@"movePositions"];
+			for (NSString *movePositionAsString in movePositionsAsStrings)
+			{
+				CGPoint movePosition = [self stringToPosition:movePositionAsString];
+				[levelLayoutEntry addMovePosition:[NSValue valueWithCGPoint:movePosition]];
+			}
+		}
 		else if ([type isEqualToString:@"LEAF"] ||
 				 [type isEqualToString:@"HANGNEST"])
 		{
@@ -121,6 +134,20 @@
 				 [[levelLayoutEntry type] isEqualToString:@"BEEATER-CEILING"])
 		{
 			[entity setObject:[levelLayoutEntry beeTypeAsString] forKey:@"bee"];
+		}
+		else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER-BIRD"] ||
+				 [[levelLayoutEntry type] isEqualToString:@"BEEATER-FISH"])
+		{
+			[entity setObject:[levelLayoutEntry beeTypeAsString] forKey:@"bee"];
+			
+			NSMutableArray *movePositionsAsStrings = [NSMutableArray array];
+			for (NSValue *movePositionAsValue in [levelLayoutEntry movePositions])
+			{
+				CGPoint movePosition = [movePositionAsValue CGPointValue];
+				NSString *movePositionAsString = [self positionToString:movePosition];
+				[movePositionsAsStrings addObject:movePositionAsString];
+			}
+			[entity setObject:movePositionsAsStrings forKey:@"movePositions"];
 		}
 		else if ([[levelLayoutEntry type] isEqualToString:@"LEAF"] ||
 				 [[levelLayoutEntry type] isEqualToString:@"HANGNEST"])
@@ -176,6 +203,23 @@
 			{
 				BeeaterComponent *beeaterComponent = (BeeaterComponent *)[entity getComponent:[BeeaterComponent class]];
 				[levelLayoutEntry setBeeTypeAsString:[[beeaterComponent containedBeeType] name]];
+			}
+			else if ([[editComponent levelLayoutType] isEqualToString:@"BEEATER-BIRD"] ||
+					 [[editComponent levelLayoutType] isEqualToString:@"BEEATER-FISH"])
+			{
+				BeeaterComponent *beeaterComponent = (BeeaterComponent *)[entity getComponent:[BeeaterComponent class]];
+				[levelLayoutEntry setBeeTypeAsString:[[beeaterComponent containedBeeType] name]];
+				
+				Entity *currentMovementIndicatorEntity = [editComponent nextMovementIndicatorEntity];
+				while (currentMovementIndicatorEntity != nil)
+				{
+					TransformComponent *currentTransformComponent = [TransformComponent getFrom:currentMovementIndicatorEntity];
+					EditComponent *currentEditComponent = [EditComponent getFrom:currentMovementIndicatorEntity];
+					
+					[levelLayoutEntry addMovePosition:[NSValue valueWithCGPoint:[currentTransformComponent position]]];
+					
+					currentMovementIndicatorEntity = [currentEditComponent nextMovementIndicatorEntity];
+				}
 			}
 			else if ([[editComponent levelLayoutType] isEqualToString:@"LEAF"] ||
 					 [[editComponent levelLayoutType] isEqualToString:@"HANGNEST"])

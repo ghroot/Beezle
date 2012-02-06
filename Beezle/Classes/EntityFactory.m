@@ -202,6 +202,42 @@
     return beeaterCeilingEntity;
 }
 
++(Entity *) createBeeaterBird:(World *)world withBeeType:(BeeType *)beeType
+{
+	Entity *beeaterBirdEntity = [self createEntity:@"Beeater-Bird" world:world];
+	
+	[[BeeaterComponent getFrom:beeaterBirdEntity] setContainedBeeType:beeType];
+	
+    GroupManager *groupManager = (GroupManager *)[world getManager:[GroupManager class]];
+    [groupManager addEntity:beeaterBirdEntity toGroup:@"BEEATERS"];
+	
+	RenderSprite *bodyRenderSprite = [[RenderComponent getFrom:beeaterBirdEntity] getRenderSprite:@"body"];
+	RenderSprite *headRenderSprite = [[RenderComponent getFrom:beeaterBirdEntity] getRenderSprite:@"head"];
+    [bodyRenderSprite playAnimation:@"Beeater-Body-Bird-Idle"];
+	NSString *headAnimationName = [NSString stringWithFormat:@"Beeater-Head-Idle-With%@", [beeType capitalizedString]];
+    [headRenderSprite playAnimation:headAnimationName];
+    
+    return beeaterBirdEntity;
+}
+
++(Entity *) createBeeaterFish:(World *)world withBeeType:(BeeType *)beeType
+{
+	Entity *beeaterFishEntity = [self createEntity:@"Beeater-Fish" world:world];
+	
+	[[BeeaterComponent getFrom:beeaterFishEntity] setContainedBeeType:beeType];
+	
+    GroupManager *groupManager = (GroupManager *)[world getManager:[GroupManager class]];
+    [groupManager addEntity:beeaterFishEntity toGroup:@"BEEATERS"];
+	
+	RenderSprite *bodyRenderSprite = [[RenderComponent getFrom:beeaterFishEntity] getRenderSprite:@"body"];
+	RenderSprite *headRenderSprite = [[RenderComponent getFrom:beeaterFishEntity] getRenderSprite:@"head"];
+    [bodyRenderSprite playAnimation:@"Beeater-Body-Fish-Idle"];
+	NSString *headAnimationName = [NSString stringWithFormat:@"Beeater-Head-Idle-With%@", [beeType capitalizedString]];
+    [headRenderSprite playAnimation:headAnimationName];
+    
+    return beeaterFishEntity;
+}
+
 +(Entity *) createRamp:(World *)world
 {
     Entity *rampEntity = [self createEntity:@"Ramp" world:world];
@@ -303,35 +339,41 @@
 	
     // Transform
     TransformComponent *transformComponent = [TransformComponent component];
+	[transformComponent setScale:CGPointMake(0.5f, 0.5f)];
     [movementIndicatorEntity addComponent:transformComponent];
 	
     // Render (TODO: Copy render component from main entity)
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	if ([[[RenderComponent getFrom:entity] renderSprites] count] == 1)
-	{
-		RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Leaf-Animations.plist" z:Z_ORDER_LEAF];
-		[[renderSprite sprite] setOpacity:128];
-		RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
-		[movementIndicatorEntity addComponent:renderComponent];
-		
-		[renderComponent playAnimation:@"Leaf-Idle"];
-	}
-	else
-	{
-		RenderSprite *mainRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"HangNest-Animations.plist" z:Z_ORDER_HANGNEST];
-		[[mainRenderSprite sprite] setAnchorPoint:CGPointMake(0.6f, 0.0f)];
-		[[mainRenderSprite sprite] setOpacity:128];
-		RenderSprite *lianRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"HangNestLian-Animations.plist" z:Z_ORDER_HANGNEST_LIAN];
-		[[lianRenderSprite sprite] setAnchorPoint:CGPointMake(0.8f, -0.3f)];
-		[[lianRenderSprite sprite] setOpacity:128];
-		RenderComponent *renderComponent = [RenderComponent component];
-		[renderComponent addRenderSprite:mainRenderSprite withName:@"main"];
-		[renderComponent addRenderSprite:lianRenderSprite withName:@"lian"];
-		[movementIndicatorEntity addComponent:renderComponent];
-		
-		[mainRenderSprite playAnimation:@"HangNest-Idle"];
-		[lianRenderSprite playAnimation:@"HangNestLian-Idle"];
-	}
+//	if ([[[RenderComponent getFrom:entity] renderSprites] count] == 1)
+//	{
+//		RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Leaf-Animations.plist" z:Z_ORDER_LEAF];
+//		[[renderSprite sprite] setOpacity:128];
+//		RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
+//		[movementIndicatorEntity addComponent:renderComponent];
+//		
+//		[renderComponent playAnimation:@"Leaf-Idle"];
+//	}
+//	else
+//	{
+//		RenderSprite *mainRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"HangNest-Animations.plist" z:Z_ORDER_HANGNEST];
+//		[[mainRenderSprite sprite] setAnchorPoint:CGPointMake(0.6f, 0.0f)];
+//		[[mainRenderSprite sprite] setOpacity:128];
+//		RenderSprite *lianRenderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"HangNestLian-Animations.plist" z:Z_ORDER_HANGNEST_LIAN];
+//		[[lianRenderSprite sprite] setAnchorPoint:CGPointMake(0.8f, -0.3f)];
+//		[[lianRenderSprite sprite] setOpacity:128];
+//		RenderComponent *renderComponent = [RenderComponent component];
+//		[renderComponent addRenderSprite:mainRenderSprite withName:@"main"];
+//		[renderComponent addRenderSprite:lianRenderSprite withName:@"lian"];
+//		[movementIndicatorEntity addComponent:renderComponent];
+//		
+//		[mainRenderSprite playAnimation:@"HangNest-Idle"];
+//		[lianRenderSprite playAnimation:@"HangNestLian-Idle"];
+//	}
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Pollen-Animations.plist" z:10];
+	[renderSprite playAnimation:@"Pollen-Idle"];
+	[[renderSprite sprite] setOpacity:128];
+	RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
+	[movementIndicatorEntity addComponent:renderComponent];
 	
 	// Edit
 	EditComponent *editComponent = [EditComponent component];

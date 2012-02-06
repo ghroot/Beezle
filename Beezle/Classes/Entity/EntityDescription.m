@@ -26,6 +26,7 @@
 -(TransformComponent *) createTransformComponent:(NSDictionary *)dict world:(World *)world;
 -(RenderComponent *) createRenderComponent:(NSDictionary *)dict world:(World *)world;
 -(PhysicsComponent *) createPhysicsComponent:(NSDictionary *)dict world:(World *)world;
+-(MovementComponent *) createMovementComponent:(NSDictionary *)dict world:(World *)world;
 
 @end
 
@@ -55,7 +56,7 @@
 		}
 		else if ([componentType isEqualToString:@"movement"])
 		{
-			component = [MovementComponent component];
+			component = [self createMovementComponent:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"physics"])
 		{
@@ -201,6 +202,20 @@
 	}
 	
 	return physicsComponent;
+}
+
+-(MovementComponent *) createMovementComponent:(NSDictionary *)dict world:(World *)world
+{
+	MovementComponent *movementComponent = [MovementComponent component];
+	
+	BOOL alwaysFaceForward = FALSE;
+	if ([dict objectForKey:@"alwaysFaceForward"] != nil)
+	{
+		alwaysFaceForward = [[dict objectForKey:@"alwaysFaceForward"] boolValue];
+	}
+	[movementComponent setAlwaysFaceForward:alwaysFaceForward];
+	
+	return movementComponent;
 }
 
 @end

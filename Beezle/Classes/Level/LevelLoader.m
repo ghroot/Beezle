@@ -15,6 +15,7 @@
 #import "LevelLayoutCache.h"
 #import "LevelLayoutEntry.h"
 #import "LevelLoader.h"
+#import "MovementComponent.h"
 #import "PhysicsComponent.h"
 #import "TransformComponent.h"
 
@@ -135,6 +136,40 @@
         {
             BeeType *beeType = [BeeType enumFromName:[levelLayoutEntry beeTypeAsString]];
             entity = [EntityFactory createBeeaterCeiling:world withBeeType:beeType];
+        }
+		else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER-BIRD"] ||
+				 [[levelLayoutEntry type] isEqualToString:@"BEEATER-FISH"])
+        {
+            BeeType *beeType = [BeeType enumFromName:[levelLayoutEntry beeTypeAsString]];
+			if ([[levelLayoutEntry type] isEqualToString:@"BEEATER-BIRD"])
+			{
+				entity = [EntityFactory createBeeaterBird:world withBeeType:beeType];
+			}
+			else
+			{
+				entity = [EntityFactory createBeeaterFish:world withBeeType:beeType];
+			}
+			
+			if (edit)
+			{
+				// Load movement points as movement indicator entities to allow for editing
+				EditComponent *currentEditComponent = editComponent;
+				for (NSValue *movePositionAsValue in [levelLayoutEntry movePositions])
+				{
+					Entity *movementIndicator = [EntityFactory createMovementIndicator:world forEntity:entity];
+					[EntityUtil setEntityPosition:movementIndicator position:[movePositionAsValue CGPointValue]];
+					[currentEditComponent setNextMovementIndicatorEntity:movementIndicator];
+					[currentEditComponent setMainMoveEntity:entity];
+					currentEditComponent = (EditComponent *)[movementIndicator getComponent:[EditComponent class]];
+				}
+				[currentEditComponent setMainMoveEntity:entity];
+			}
+			else
+			{
+				// Load movement points normally
+				MovementComponent *movementComponent = [MovementComponent getFrom:entity];
+				[movementComponent setPositions:[NSArray arrayWithArray:[levelLayoutEntry movePositions]]];
+			}
         }
         else if ([[levelLayoutEntry type] isEqualToString:@"RAMP"])
         {

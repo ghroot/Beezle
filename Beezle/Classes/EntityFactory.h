@@ -23,6 +23,8 @@
 +(Entity *) createBee:(World *)world withBeeType:(BeeType *)type andVelocity:(CGPoint)velocity;
 +(Entity *) createBeeater:(World *)world withBeeType:(BeeType *)beeType;
 +(Entity *) createBeeaterCeiling:(World *)world withBeeType:(BeeType *)beeType;
++(Entity *) createBeeaterBird:(World *)world withBeeType:(BeeType *)beeType;
++(Entity *) createBeeaterFish:(World *)world withBeeType:(BeeType *)beeType;
 +(Entity *) createRamp:(World *)world;
 +(Entity *) createPollen:(World *)world;
 +(Entity *) createMushroom:(World *)world;

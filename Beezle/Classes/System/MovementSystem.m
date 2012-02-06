@@ -147,6 +147,7 @@
 -(void) moveTowardsNextPosition:(Entity *)entity
 {
 	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
+	MovementComponent *movementComponent = [MovementComponent getFrom:entity];
 	
 	CGPoint currentPosition = [self getCurrentPosition:entity];
 	CGPoint velocity = [self calculateVelocityTowardsNextPosition:entity];
@@ -154,6 +155,19 @@
 	ChipmunkBody *body = [physicsComponent body];
 	[body setPos:CGPointMake(currentPosition.x + velocity.x, currentPosition.y + velocity.y)];
 	[body setVel:velocity];
+	
+	if ([movementComponent alwaysFaceForward])
+	{
+		TransformComponent *transformComponent = [TransformComponent getFrom:entity];
+		if (velocity.x < 0)
+		{
+			[transformComponent setScale:CGPointMake(abs([transformComponent scale].x), [transformComponent scale].y)];
+		}
+		else
+		{
+			[transformComponent setScale:CGPointMake(-abs([transformComponent scale].x), [transformComponent scale].y)];
+		}
+	}
 }
 
 @end
