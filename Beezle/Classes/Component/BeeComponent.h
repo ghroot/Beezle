@@ -14,7 +14,7 @@
 	BeeType *_type;
 }
 
-@property (nonatomic, readonly) BeeType *type;
+@property (nonatomic, assign) BeeType *type;
 
 +(id) componentWithType:(BeeType *)type;
 

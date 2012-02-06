@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>BEEATER</string>
+	<string>BOMBEE</string>
 	<key>components</key>
 	<dict>
-		<key>beeater</key>
+		<key>bee</key>
 		<dict/>
 		<key>disposable</key>
 		<dict/>
@@ -15,7 +15,11 @@
 			<key>body</key>
 			<dict>
 				<key>type</key>
-				<string>static</string>
+				<string>dynamic</string>
+				<key>mass</key>
+				<real>1</real>
+				<key>moment</key>
+				<real>1</real>
 			</dict>
 			<key>shapes</key>
 			<array>
@@ -24,17 +28,23 @@
 					<string>poly</string>
 					<key>vertices</key>
 					<array>
-						<string>{ -15, 0 }</string>
-						<string>{ -15, 40 }</string>
-						<string>{ 15, 40}</string>
-						<string>{ 15, 0 }</string>
+						<string>{ -2, 6 }</string>
+						<string>{ 2, 6 }</string>
+						<string>{ 6, 2 }</string>
+						<string>{ 6, -2 }</string>
+						<string>{ 2, -6 }</string>
+						<string>{ -2, -6 }</string>
+						<string>{ -6, -2 }</string>
+						<string>{ -6, 2 }</string>
 					</array>
 					<key>elasticity</key>
 					<real>0.8</real>
 					<key>friction</key>
-					<real>0.5</real>
+					<real>1</real>
 					<key>collisionType</key>
-					<string>BEEATER</string>
+					<string>BEE</string>
+					<key>layers</key>
+					<real>1</real>
 				</dict>
 			</array>
 		</dict>
@@ -44,27 +54,17 @@
 			<array>
 				<dict>
 					<key>name</key>
-					<string>body</string>
+					<string>default</string>
 					<key>spriteSheetName</key>
 					<string>Sprites</string>
 					<key>animationFile</key>
-					<string>Beeater-Body-Animations.plist</string>
+					<string>Bombee-Animations.plist</string>
 					<key>z</key>
-					<real>5</real>
+					<real>10</real>
 					<key>anchorPoint</key>
-					<string>{ 0.6, 0.0 }</string>
-				</dict>
-				<dict>
-					<key>name</key>
-					<string>head</string>
-					<key>spriteSheetName</key>
-					<string>Sprites</string>
-					<key>animationFile</key>
-					<string>Beeater-Head-Animations.plist</string>
-					<key>z</key>
-					<real>6</real>
-					<key>anchorPoint</key>
-					<string>{ 0.8, -0.3 }</string>
+					<string>{ 0.5, 0.5 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Bombee-Idle</string>
 				</dict>
 			</array>
 		</dict>

@@ -3,19 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>BEEATER</string>
+	<string>HANGNEST</string>
 	<key>components</key>
 	<dict>
-		<key>beeater</key>
-		<dict/>
-		<key>disposable</key>
+		<key>movement</key>
 		<dict/>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
 			<dict>
 				<key>type</key>
-				<string>static</string>
+				<string>rouge</string>
 			</dict>
 			<key>shapes</key>
 			<array>
@@ -24,17 +22,17 @@
 					<string>poly</string>
 					<key>vertices</key>
 					<array>
-						<string>{ -15, 0 }</string>
-						<string>{ -15, 40 }</string>
-						<string>{ 15, 40}</string>
-						<string>{ 15, 0 }</string>
+						<string>{ -8, 0 }</string>
+						<string>{ -8, 90 }</string>
+						<string>{ 2, 90 }</string>
+						<string>{ 2, 0 }</string>
 					</array>
 					<key>elasticity</key>
 					<real>0.8</real>
 					<key>friction</key>
 					<real>0.5</real>
 					<key>collisionType</key>
-					<string>BEEATER</string>
+					<string>HANGNEST</string>
 				</dict>
 			</array>
 		</dict>
@@ -44,27 +42,31 @@
 			<array>
 				<dict>
 					<key>name</key>
-					<string>body</string>
+					<string>main</string>
 					<key>spriteSheetName</key>
 					<string>Sprites</string>
 					<key>animationFile</key>
-					<string>Beeater-Body-Animations.plist</string>
+					<string>HangNest-Animations.plist</string>
 					<key>z</key>
-					<real>5</real>
+					<real>10</real>
 					<key>anchorPoint</key>
 					<string>{ 0.6, 0.0 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>HangNest-Idle</string>
 				</dict>
 				<dict>
 					<key>name</key>
-					<string>head</string>
+					<string>lian</string>
 					<key>spriteSheetName</key>
 					<string>Sprites</string>
 					<key>animationFile</key>
-					<string>Beeater-Head-Animations.plist</string>
+					<string>HangNestLian-Animations.plist</string>
 					<key>z</key>
-					<real>6</real>
+					<real>10</real>
 					<key>anchorPoint</key>
 					<string>{ 0.8, -0.3 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>HangNestLian-Idle</string>
 				</dict>
 			</array>
 		</dict>

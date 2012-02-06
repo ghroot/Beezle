@@ -17,12 +17,12 @@
 @interface PhysicsComponent : Component
 {
     ChipmunkBody *_body;
-    NSArray *_shapes;
+    NSMutableArray *_shapes;
 	BOOL _isRougeBody;
 	BOOL _positionUpdatedManually;
 }
 
-@property (nonatomic, readonly) ChipmunkBody *body;
+@property (nonatomic, retain) ChipmunkBody *body;
 @property (nonatomic, readonly) NSArray *shapes;
 @property (nonatomic) BOOL positionUpdatedManually;
 @property (nonatomic) BOOL isRougeBody;
@@ -32,6 +32,7 @@
 
 -(id) initWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes;
 -(id) initWithBody:(ChipmunkBody *)body andShape:(ChipmunkShape *)shape;
+-(void) addShape:(ChipmunkShape *)shape;
 -(ChipmunkShape *) firstPhysicsShape;
 -(void) setPositionManually:(CGPoint)position;
 -(void) setRotationManually:(float)rotation;

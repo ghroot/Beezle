@@ -244,6 +244,9 @@
 		2CC3EC0D14D608870025F5DA /* EditComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EC0C14D608870025F5DA /* EditComponent.m */; };
 		2CC3EC1314D608980025F5DA /* EditIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EC1014D608980025F5DA /* EditIngameMenuState.m */; };
 		2CC3EC1414D608980025F5DA /* EditState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EC1214D608980025F5DA /* EditState.m */; };
+		2CC717FE14E0877700059B66 /* Bombee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CC717FB14E0877700059B66 /* Bombee.plist */; };
+		2CC717FF14E0877700059B66 /* Sawee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CC717FC14E0877700059B66 /* Sawee.plist */; };
+		2CC7180014E0877700059B66 /* Speedee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CC717FD14E0877700059B66 /* Speedee.plist */; };
 		2CD2C42E14D19E2A00DC0BD5 /* GandEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD2C42D14D19E2A00DC0BD5 /* GandEnum.m */; };
 		2CD33ED8147D72AD000869C1 /* GameplayState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33ED7147D72AD000869C1 /* GameplayState.m */; };
 		2CD33EEA147EE7AD000869C1 /* TestState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE9147EE7AD000869C1 /* TestState.m */; };
@@ -262,6 +265,12 @@
 		2CE348D414DF4B5E00FEB492 /* Mushroom.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE348D314DF4B5E00FEB492 /* Mushroom.plist */; };
 		2CE348D614DF4CDD00FEB492 /* SmokeMushroom.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE348D514DF4CDD00FEB492 /* SmokeMushroom.plist */; };
 		2CE348D814DF4DD900FEB492 /* Wood.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE348D714DF4DD900FEB492 /* Wood.plist */; };
+		2CE348DA14E0709600FEB492 /* Nut.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE348D914E0709600FEB492 /* Nut.plist */; };
+		2CE348DC14E073DE00FEB492 /* Egg.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE348DB14E073DE00FEB492 /* Egg.plist */; };
+		2CE348DE14E074B500FEB492 /* AimPollen.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE348DD14E074B500FEB492 /* AimPollen.plist */; };
+		2CE348E014E078F300FEB492 /* Leaf.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE348DF14E078F300FEB492 /* Leaf.plist */; };
+		2CE348E214E0812A00FEB492 /* HangNest.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE348E114E0812900FEB492 /* HangNest.plist */; };
+		2CE348E414E0853A00FEB492 /* Bee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE348E314E0853900FEB492 /* Bee.plist */; };
 		2CE508CF14B1E98300A9E8D8 /* LevelSelectMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */; };
 		2CE508D314B31D2B00A9E8D8 /* LevelSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508D214B31D2B00A9E8D8 /* LevelSender.m */; };
 		2CEA3278145F66F7000FF575 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3277145F66F7000FF575 /* QuartzCore.framework */; };
@@ -774,6 +783,9 @@
 		2CC3EC1014D608980025F5DA /* EditIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditIngameMenuState.m; sourceTree = "<group>"; };
 		2CC3EC1114D608980025F5DA /* EditState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditState.h; sourceTree = "<group>"; };
 		2CC3EC1214D608980025F5DA /* EditState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditState.m; sourceTree = "<group>"; };
+		2CC717FB14E0877700059B66 /* Bombee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Bombee.plist; sourceTree = "<group>"; };
+		2CC717FC14E0877700059B66 /* Sawee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sawee.plist; sourceTree = "<group>"; };
+		2CC717FD14E0877700059B66 /* Speedee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Speedee.plist; sourceTree = "<group>"; };
 		2CD2C42C14D19E2A00DC0BD5 /* GandEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GandEnum.h; sourceTree = "<group>"; };
 		2CD2C42D14D19E2A00DC0BD5 /* GandEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GandEnum.m; sourceTree = "<group>"; };
 		2CD33ED6147D72AD000869C1 /* GameplayState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameplayState.h; sourceTree = "<group>"; };
@@ -802,6 +814,12 @@
 		2CE348D314DF4B5E00FEB492 /* Mushroom.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Mushroom.plist; sourceTree = "<group>"; };
 		2CE348D514DF4CDD00FEB492 /* SmokeMushroom.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SmokeMushroom.plist; sourceTree = "<group>"; };
 		2CE348D714DF4DD900FEB492 /* Wood.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Wood.plist; sourceTree = "<group>"; };
+		2CE348D914E0709600FEB492 /* Nut.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Nut.plist; sourceTree = "<group>"; };
+		2CE348DB14E073DE00FEB492 /* Egg.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Egg.plist; sourceTree = "<group>"; };
+		2CE348DD14E074B500FEB492 /* AimPollen.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AimPollen.plist; sourceTree = "<group>"; };
+		2CE348DF14E078F300FEB492 /* Leaf.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Leaf.plist; sourceTree = "<group>"; };
+		2CE348E114E0812900FEB492 /* HangNest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HangNest.plist; sourceTree = "<group>"; };
+		2CE348E314E0853900FEB492 /* Bee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Bee.plist; sourceTree = "<group>"; };
 		2CE508CD14B1E98300A9E8D8 /* LevelSelectMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectMenuState.h; sourceTree = "<group>"; };
 		2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectMenuState.m; sourceTree = "<group>"; };
 		2CE508D114B31D2B00A9E8D8 /* LevelSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSender.h; sourceTree = "<group>"; };
@@ -1573,13 +1591,22 @@
 		2CE348B514DF003A00FEB492 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				2CE348CF14DF475900FEB492 /* Beeater-Ceiling.plist */,
+				2CE348DD14E074B500FEB492 /* AimPollen.plist */,
+				2CE348E314E0853900FEB492 /* Bee.plist */,
 				2CE348B614DF005100FEB492 /* Beeater.plist */,
+				2CE348CF14DF475900FEB492 /* Beeater-Ceiling.plist */,
+				2CC717FB14E0877700059B66 /* Bombee.plist */,
+				2CE348DB14E073DE00FEB492 /* Egg.plist */,
+				2CE348E114E0812900FEB492 /* HangNest.plist */,
+				2CE348DF14E078F300FEB492 /* Leaf.plist */,
 				2CE348D314DF4B5E00FEB492 /* Mushroom.plist */,
+				2CE348D914E0709600FEB492 /* Nut.plist */,
 				2CE348D114DF489E00FEB492 /* Pollen.plist */,
 				2CE348CD14DF45A700FEB492 /* Ramp.plist */,
+				2CC717FC14E0877700059B66 /* Sawee.plist */,
 				2CE348CB14DF441B00FEB492 /* Slinger.plist */,
 				2CE348D514DF4CDD00FEB492 /* SmokeMushroom.plist */,
+				2CC717FD14E0877700059B66 /* Speedee.plist */,
 				2CE348D714DF4DD900FEB492 /* Wood.plist */,
 			);
 			name = Entities;
@@ -1994,6 +2021,15 @@
 				2CE348D414DF4B5E00FEB492 /* Mushroom.plist in Resources */,
 				2CE348D614DF4CDD00FEB492 /* SmokeMushroom.plist in Resources */,
 				2CE348D814DF4DD900FEB492 /* Wood.plist in Resources */,
+				2CE348DA14E0709600FEB492 /* Nut.plist in Resources */,
+				2CE348DC14E073DE00FEB492 /* Egg.plist in Resources */,
+				2CE348DE14E074B500FEB492 /* AimPollen.plist in Resources */,
+				2CE348E014E078F300FEB492 /* Leaf.plist in Resources */,
+				2CE348E214E0812A00FEB492 /* HangNest.plist in Resources */,
+				2CE348E414E0853A00FEB492 /* Bee.plist in Resources */,
+				2CC717FE14E0877700059B66 /* Bombee.plist in Resources */,
+				2CC717FF14E0877700059B66 /* Sawee.plist in Resources */,
+				2CC7180014E0877700059B66 /* Speedee.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

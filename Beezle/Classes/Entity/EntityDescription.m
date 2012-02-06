@@ -8,8 +8,10 @@
 
 #import "EntityDescription.h"
 #import "BeeaterComponent.h"
+#import "BeeComponent.h"
 #import "CollisionType.h"
 #import "DisposableComponent.h"
+#import "MovementComponent.h"
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
@@ -21,6 +23,7 @@
 
 @interface EntityDescription()
 
+-(TransformComponent *) createTransformComponent:(NSDictionary *)dict world:(World *)world;
 -(RenderComponent *) createRenderComponent:(NSDictionary *)dict world:(World *)world;
 -(PhysicsComponent *) createPhysicsComponent:(NSDictionary *)dict world:(World *)world;
 
@@ -38,13 +41,21 @@
 	{
 		Component *component = nil;
 		NSDictionary *componentDict = [_componentsDict objectForKey:componentType];
-		if ([componentType isEqualToString:@"beeater"])
+		if ([componentType isEqualToString:@"bee"])
+		{
+			component = [BeeComponent component];
+		}
+		else if ([componentType isEqualToString:@"beeater"])
 		{
 			component = [BeeaterComponent component];
 		}
 		else if ([componentType isEqualToString:@"disposable"])
 		{
 			component = [DisposableComponent component];
+		}
+		else if ([componentType isEqualToString:@"movement"])
+		{
+			component = [MovementComponent component];
 		}
 		else if ([componentType isEqualToString:@"physics"])
 		{
@@ -64,7 +75,7 @@
 		}
 		else if ([componentType isEqualToString:@"transform"])
 		{
-			component = [TransformComponent component];
+			component = [self createTransformComponent:componentDict world:world];
 		}
 		if (component != nil)
 		{
@@ -72,6 +83,19 @@
 		}
 	}
 	return components;
+}
+
+-(TransformComponent *) createTransformComponent:(NSDictionary *)dict world:(World *)world
+{
+	TransformComponent *transformComponent = [TransformComponent component];
+	
+	if ([dict objectForKey:@"scale"] != nil)
+	{
+		CGPoint scale = [Utils stringToPosition:[dict objectForKey:@"scale"]];
+		[transformComponent setScale:scale];
+	}
+	
+	return transformComponent;
 }
 
 -(RenderComponent *) createRenderComponent:(NSDictionary *)dict world:(World *)world
@@ -85,33 +109,52 @@
 		NSString *animationFile = [spriteDict objectForKey:@"animationFile"];
 		int z = [[spriteDict objectForKey:@"z"] intValue];
 		CGPoint anchorPoint = [Utils stringToPosition:[spriteDict objectForKey:@"anchorPoint"]];
+		NSString *defaultIdleAnimationName = [spriteDict objectForKey:@"defaultIdleAnimation"];
 		
 		RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:spriteSheetName animationFile:animationFile z:z];
 		[[renderSprite sprite] setAnchorPoint:anchorPoint];
 		[renderComponent addRenderSprite:renderSprite withName:name];
+		
+		if (defaultIdleAnimationName != nil)
+		{
+			[renderSprite playAnimation:defaultIdleAnimationName];
+		}
 	}
 	return renderComponent;
 }
 
 -(PhysicsComponent *) createPhysicsComponent:(NSDictionary *)dict world:(World *)world
 {
+	PhysicsComponent *physicsComponent = [PhysicsComponent component];
+	
 	NSDictionary *bodyDict = [dict objectForKey:@"body"];
-	BOOL isStatic = [[bodyDict objectForKey:@"static"] boolValue];
+	NSString *bodyType = [bodyDict objectForKey:@"type"];
 	ChipmunkBody *body = nil;
-	if (isStatic)
+	if ([bodyType isEqualToString:@"static"])
 	{
 		body = [ChipmunkBody staticBody];
 	}
+	else if ([bodyType isEqualToString:@"rouge"])
+	{
+		body = [ChipmunkBody bodyWithMass:INFINITY andMoment:INFINITY];
+		[physicsComponent setIsRougeBody:TRUE];
+	}
+	else if ([bodyType isEqualToString:@"dynamic"])
+	{
+		float mass = [[bodyDict objectForKey:@"mass"] floatValue];
+		float moment = [[bodyDict objectForKey:@"moment"] floatValue];
+		body = [ChipmunkBody bodyWithMass:mass andMoment:moment];
+	}
 	else
 	{
-		body = [ChipmunkBody bodyWithMass:1.0f andMoment:1.0f];
+		NSLog(@"Unknown body type: %@", bodyType);
 	}
+	[physicsComponent setBody:body];
 	
 	NSArray *shapeDicts = [dict objectForKey:@"shapes"];
-	NSMutableArray *shapes = [NSMutableArray array];
 	for (NSDictionary *shapeDict in shapeDicts)
 	{
-		NSString *type = [shapeDict objectForKey:@"type"];
+		NSString *shapeType = [shapeDict objectForKey:@"type"];
 		float elasticity = [[shapeDict objectForKey:@"elasticity"] floatValue];
 		float friction = [[shapeDict objectForKey:@"friction"] floatValue];
 		CollisionType *collisionType = [CollisionType enumFromName:[shapeDict objectForKey:@"collisionType"]];
@@ -126,7 +169,7 @@
 		}
 		
 		ChipmunkShape *shape = nil;
-		if ([type isEqualToString:@"poly"])
+		if ([shapeType isEqualToString:@"poly"])
 		{
 			NSArray *verticesAsStrings = [shapeDict objectForKey:@"vertices"];
 			CGPoint verts[[verticesAsStrings count]];
@@ -137,7 +180,7 @@
 			}
 			shape = [ChipmunkPolyShape polyWithBody:body count:[verticesAsStrings count] verts:verts offset:offset];
 		}
-		else if ([type isEqualToString:@"circle"])
+		else if ([shapeType isEqualToString:@"circle"])
 		{
 			float radius = [[shapeDict objectForKey:@"radius"] floatValue];
 			shape = [ChipmunkCircleShape circleWithBody:body radius:radius offset:offset];
@@ -149,10 +192,15 @@
 		{
 			[shape setLayers:[[shapeDict objectForKey:@"layers"] intValue]];
 		}
-		[shapes addObject:shape];
+		if ([shapeDict objectForKey:@"group"] != nil)
+		{
+			[shape setGroup:[CollisionType enumFromName:[shapeDict objectForKey:@"group"]]];
+		}
+		
+		[physicsComponent addShape:shape];
 	}
 	
-	return [PhysicsComponent componentWithBody:body andShapes:shapes];
+	return physicsComponent;
 }
 
 @end

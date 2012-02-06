@@ -29,8 +29,11 @@
 {
     if (self = [super init])
     {
-        _body = [body retain];
-        _shapes = [shapes retain];
+		if (body != nil)
+		{
+			_body = [body retain];
+		}
+        _shapes = [[NSMutableArray arrayWithArray:shapes] retain];
 		_positionUpdatedManually = FALSE;
     }
     return self;
@@ -42,12 +45,23 @@
     return self;
 }
 
+-(id) init
+{
+	self = [self initWithBody:nil andShapes:[NSMutableArray array]];
+	return self;
+}
+
 - (void)dealloc
 {
     [_shapes release];
     [_body release];
     
     [super dealloc];
+}
+
+-(void) addShape:(ChipmunkShape *)shape
+{
+	[_shapes addObject:shape];
 }
 
 -(ChipmunkShape *) firstPhysicsShape

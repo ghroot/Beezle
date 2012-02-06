@@ -3,11 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>BEEATER</string>
+	<string>NUT</string>
 	<key>components</key>
 	<dict>
-		<key>beeater</key>
-		<dict/>
 		<key>disposable</key>
 		<dict/>
 		<key>physics</key>
@@ -21,20 +19,17 @@
 			<array>
 				<dict>
 					<key>type</key>
-					<string>poly</string>
-					<key>vertices</key>
-					<array>
-						<string>{ -15, 0 }</string>
-						<string>{ -15, 40 }</string>
-						<string>{ 15, 40}</string>
-						<string>{ 15, 0 }</string>
-					</array>
+					<string>circle</string>
+					<key>radius</key>
+					<real>20</real>
+					<key>offset</key>
+					<string>{ 0, 20 }</string>
 					<key>elasticity</key>
-					<real>0.8</real>
+					<real>0</real>
 					<key>friction</key>
-					<real>0.5</real>
+					<real>0</real>
 					<key>collisionType</key>
-					<string>BEEATER</string>
+					<string>NUT</string>
 				</dict>
 			</array>
 		</dict>
@@ -44,27 +39,19 @@
 			<array>
 				<dict>
 					<key>name</key>
-					<string>body</string>
+					<string>default</string>
 					<key>spriteSheetName</key>
 					<string>Sprites</string>
 					<key>animationFile</key>
-					<string>Beeater-Body-Animations.plist</string>
+					<string>Nut-Animations.plist</string>
 					<key>z</key>
-					<real>5</real>
+					<real>10</real>
 					<key>anchorPoint</key>
-					<string>{ 0.6, 0.0 }</string>
-				</dict>
-				<dict>
-					<key>name</key>
-					<string>head</string>
-					<key>spriteSheetName</key>
-					<string>Sprites</string>
-					<key>animationFile</key>
-					<string>Beeater-Head-Animations.plist</string>
-					<key>z</key>
-					<real>6</real>
-					<key>anchorPoint</key>
-					<string>{ 0.8, -0.3 }</string>
+					<string>{ 0.5, 0.0 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Nut-Idle</string>
+					<key>defaultDestroyAnimation</key>
+					<string>Nut-Collect</string>
 				</dict>
 			</array>
 		</dict>
