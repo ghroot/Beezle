@@ -83,6 +83,7 @@
 				
 				float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
 				float power = [self calculatePower:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
+				float modifiedPower = power * [[slingerComponent loadedBeeType] slingerShootSpeedModifier];
 				
 				// Trajectory
 				float slingerHeight = 25.0f;
@@ -90,7 +91,7 @@
 				CGPoint tipPosition = CGPointMake([transformComponent position].x + slingerTipVector.x, [transformComponent position].y + slingerTipVector.y);
 				[trajectoryComponent setStartPoint:tipPosition];
 				[trajectoryComponent setAngle:aimAngle];
-				[trajectoryComponent setPower:power];
+				[trajectoryComponent setPower:modifiedPower];
                 
 				// Rotation
                 float compatibleAimAngle = 360 - CC_RADIANS_TO_DEGREES(aimAngle) + 90 + 180;

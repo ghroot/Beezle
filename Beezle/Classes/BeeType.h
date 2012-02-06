@@ -13,11 +13,13 @@
     BOOL _canDestroyRamp;
     BOOL _canDestroyWood;
 	BOOL _canExplode;
+	float _slingerShootSpeedModifier;
 }
 
 @property (nonatomic) BOOL canDestroyRamp;
 @property (nonatomic) BOOL canDestroyWood;
 @property (nonatomic) BOOL canExplode;
+@property (nonatomic) float slingerShootSpeedModifier;
 
 +(BeeType *) BEE;
 +(BeeType *) SAWEE;
