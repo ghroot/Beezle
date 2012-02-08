@@ -8,10 +8,13 @@
 
 #import "EntityFactory.h"
 #import "BeeComponent.h"
+#import "BeeType.h"
 #import "CollisionType.h"
 #import "EditComponent.h"
+#import "EntityDescription.h"
 #import "EntityDescriptionCache.h"
 #import "EntityDescriptionLoader.h"
+#import "LevelLayoutEntry.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
 #import "RenderComponent.h"
@@ -33,7 +36,7 @@
     [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB565];
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
     NSString *imageFileName = [NSString stringWithFormat:@"%@.jpg", name];
-    RenderSprite *renderSprite = [renderSystem createRenderSpriteWithFile:imageFileName z:Z_ORDER_BACKGROUND];
+    RenderSprite *renderSprite = [renderSystem createRenderSpriteWithFile:imageFileName z:1];
     [renderSprite markAsBackground];
 	RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
     [backgroundEntity addComponent:renderComponent];

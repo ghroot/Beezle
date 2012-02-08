@@ -22,7 +22,6 @@
 #import "PhysicsSystem.h"
 #import "RenderSystem.h"
 #import "SlingerControlSystem.h"
-#import "SortOrders.h"
 #import "TransformComponent.h"
 
 @interface GameplayState()
@@ -109,7 +108,7 @@
 	[systemManager setSystem:_beeExpirationSystem];
 	_beeControlSystem = [[[BeeControlSystem alloc] init] autorelease];
 	[systemManager setSystem:_beeControlSystem];
-	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithZ:Z_ORDER_BEE_QUEUE] autorelease];
+	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithZ:2] autorelease];
 	[systemManager setSystem:_beeQueueRenderingSystem];
 	if (_debug)
 	{

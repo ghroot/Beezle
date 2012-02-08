@@ -8,10 +8,8 @@
 
 #import "artemis.h"
 #import "cocos2d.h"
-#import "BeeType.h"
-#import "EntityDescription.h"
-#import "LevelLayoutEntry.h"
-#import "SortOrders.h"
+
+@class BeeType;
 
 @interface EntityFactory : NSObject
 
