@@ -138,9 +138,7 @@
 				BeeType *containedBeeType = [BeeType enumFromName:containedBeeTypeAsString];
 				[[BeeaterComponent getFrom:entity] setContainedBeeType:containedBeeType];
 				
-				RenderSprite *headRenderSprite = [[RenderComponent getFrom:entity] getRenderSprite:@"head"];
-				NSString *headAnimationName = [NSString stringWithFormat:@"Beeater-Head-Idle-With%@", [containedBeeType capitalizedString]];
-				[headRenderSprite playAnimation:headAnimationName];
+				[EntityUtil animateBeeaterHeadBasedOnContainedBeeType:entity];
 			}
 		}
 		

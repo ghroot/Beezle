@@ -67,6 +67,15 @@
 	}
 }
 
++(void) animateBeeaterHeadBasedOnContainedBeeType:(Entity *)beeaterEntity
+{
+	BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:beeaterEntity];
+	RenderComponent *renderComponent = [RenderComponent getFrom:beeaterEntity];
+	RenderSprite *headRenderSprite = [renderComponent getRenderSprite:@"head"];
+	NSString *headAnimationName = [NSString stringWithFormat:@"Beeater-Head-Idle-With%@", [[beeaterComponent containedBeeType] capitalizedString]];
+    [headRenderSprite playAnimation:headAnimationName];
+}
+
 +(void) animateDeleteAndSaveBeeFromBeeaterEntity:(Entity *)beeaterEntity
 {
 	// Save bee

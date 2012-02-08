@@ -286,10 +286,7 @@
 	BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:_entityWithOptionsDisplayed];
 	[beeaterComponent setContainedBeeType:[BeeType enumFromName:beeTypeAsString]];
 	
-	RenderComponent *renderComponent = [RenderComponent getFrom:_entityWithOptionsDisplayed];
-	RenderSprite *headRenderSprite = [renderComponent getRenderSprite:@"head"];
-	NSString *headAnimationName = [NSString stringWithFormat:@"Beeater-Head-Idle-With%@", [[beeaterComponent containedBeeType] capitalizedString]];
-    [headRenderSprite playAnimation:headAnimationName];
+	[EntityUtil animateBeeaterHeadBasedOnContainedBeeType:_entityWithOptionsDisplayed];
 }
 
 -(void) doOptionAddSlingerBeeType:(id)sender

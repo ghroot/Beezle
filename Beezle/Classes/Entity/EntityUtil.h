@@ -15,6 +15,7 @@
 +(void) setEntityMirrored:(Entity *)entity mirrored:(BOOL)mirrored;
 +(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName disablePhysics:(BOOL)disablePhysics;
 
++(void) animateBeeaterHeadBasedOnContainedBeeType:(Entity *)beeaterEntity;
 +(void) animateDeleteAndSaveBeeFromBeeaterEntity:(Entity *)beeaterEntity;
 
 @end
