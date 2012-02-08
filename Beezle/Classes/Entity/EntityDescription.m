@@ -46,15 +46,15 @@
 		}
 		else if ([componentType isEqualToString:@"movement"])
 		{
-			component = [MovementComponent componentFromDictionary:componentDict world:world];
+			component = [MovementComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"physics"])
 		{
-			component = [PhysicsComponent componentFromDictionary:componentDict world:world];
+			component = [PhysicsComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"render"])
 		{
-			component = [RenderComponent componentFromDictionary:componentDict world:world];
+			component = [RenderComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"slinger"])
 		{
@@ -66,7 +66,7 @@
 		}
 		else if ([componentType isEqualToString:@"transform"])
 		{
-			component = [TransformComponent componentFromDictionary:componentDict world:world];
+			component = [TransformComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		if (component != nil)
 		{

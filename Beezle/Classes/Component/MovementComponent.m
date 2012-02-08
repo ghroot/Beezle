@@ -18,9 +18,9 @@
 @synthesize startPosition = _startPosition;
 @synthesize isMovingTowardsStartPosition = _isMovingTowardsStartPosition;
 
-+(MovementComponent *) componentFromDictionary:(NSDictionary *)dict world:(World *)world
++(MovementComponent *) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
 {
-	return [[[self alloc] initFromDictionary:dict world:world] autorelease];
+	return [[[self alloc] initWithContentsOfDictionary:dict world:world] autorelease];
 }
 
 // Designated initializer
@@ -36,7 +36,7 @@
 	return self;
 }
 
--(id) initFromDictionary:(NSDictionary *)dict world:(World *)world
+-(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
 {
 	if (self = [self init])
 	{

@@ -13,9 +13,9 @@
 
 @implementation RenderComponent
 
-+(RenderComponent *) componentFromDictionary:(NSDictionary *)dict world:(World *)world
++(RenderComponent *) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
 {
-	return [[[self alloc] initFromDictionary:dict world:world] autorelease];
+	return [[[self alloc] initWithContentsOfDictionary:dict world:world] autorelease];
 }
 
 +(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite
@@ -36,7 +36,7 @@
 	return self;
 }
 
--(id) initFromDictionary:(NSDictionary *)dict world:(World *)world
+-(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
 {
 	if (self = [self init])
 	{

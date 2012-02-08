@@ -17,9 +17,9 @@
 @synthesize positionUpdatedManually = _positionUpdatedManually;
 @synthesize isRougeBody = _isRougeBody;
 
-+(id) componentFromDictionary:(NSDictionary *)dict world:(World *)world
++(id) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
 {
-	return [[[self alloc] initFromDictionary:dict world:world] autorelease];
+	return [[[self alloc] initWithContentsOfDictionary:dict world:world] autorelease];
 }
 
 +(id) componentWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes
@@ -32,7 +32,7 @@
 	return [[[self alloc] initWithBody:body andShape:shape] autorelease];
 }
 
--(id) initFromDictionary:(NSDictionary *)dict world:(World *)world
+-(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
 {
 	if (self = [self init])
 	{
