@@ -11,10 +11,16 @@
 @interface EntityDescription : NSObject
 {
 	NSString *_type;
+	NSArray *_groups;
+	NSArray *_labels;
+	NSArray *_tags;
 	NSDictionary *_componentsDict;
 }
 
 @property (nonatomic, copy) NSString *type;
+@property (nonatomic, copy) NSArray *groups;
+@property (nonatomic, copy) NSArray *labels;
+@property (nonatomic, copy) NSArray *tags;
 @property (nonatomic, copy) NSDictionary *componentsDict;
 
 -(NSArray *) createComponents:(World *)world;

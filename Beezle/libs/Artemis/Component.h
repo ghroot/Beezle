@@ -32,13 +32,17 @@
 
 @interface Component : NSObject
 {
+	NSString *_name;
     BOOL _enabled;
 }
 
+@property (nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) BOOL enabled;
 
 +(id) component;
 +(id) getFrom:(Entity *)entity;
+
+-(NSDictionary *) getAsDictionary;
 
 -(void) enable;
 -(void) disable;

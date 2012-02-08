@@ -27,9 +27,11 @@
 @property (nonatomic) BOOL positionUpdatedManually;
 @property (nonatomic) BOOL isRougeBody;
 
++(id) componentFromDictionary:(NSDictionary *)dict world:(World *)world;
 +(id) componentWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes;
 +(id) componentWithBody:(ChipmunkBody *)body andShape:(ChipmunkShape *)shape;
 
+-(id) initFromDictionary:(NSDictionary *)dict world:(World *)world;
 -(id) initWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes;
 -(id) initWithBody:(ChipmunkBody *)body andShape:(ChipmunkShape *)shape;
 -(void) addShape:(ChipmunkShape *)shape;

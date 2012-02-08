@@ -8,8 +8,15 @@
 
 #import "RenderComponent.h"
 #import "RenderSprite.h"
+#import "RenderSystem.h"
+#import "Utils.h"
 
 @implementation RenderComponent
+
++(RenderComponent *) componentFromDictionary:(NSDictionary *)dict world:(World *)world
+{
+	return [[[self alloc] initFromDictionary:dict world:world] autorelease];
+}
 
 +(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite
 {
@@ -18,11 +25,40 @@
 	return renderComponent;
 }
 
+// Designated initializer
 -(id) init
 {
 	if (self = [super init])
 	{
+		_name = @"render";
 		_renderSpritesByName = [[NSMutableDictionary alloc] init];
+	}
+	return self;
+}
+
+-(id) initFromDictionary:(NSDictionary *)dict world:(World *)world
+{
+	if (self = [self init])
+	{
+		RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+		for (NSDictionary *spriteDict in [dict objectForKey:@"sprites"])
+		{
+			NSString *name = [spriteDict objectForKey:@"name"];
+			NSString *spriteSheetName = [spriteDict objectForKey:@"spriteSheetName"];
+			NSString *animationFile = [spriteDict objectForKey:@"animationFile"];
+			int z = [[spriteDict objectForKey:@"z"] intValue];
+			CGPoint anchorPoint = [Utils stringToPoint:[spriteDict objectForKey:@"anchorPoint"]];
+			NSString *defaultIdleAnimationName = [spriteDict objectForKey:@"defaultIdleAnimation"];
+			
+			RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:spriteSheetName animationFile:animationFile z:z];
+			[[renderSprite sprite] setAnchorPoint:anchorPoint];
+			[_renderSpritesByName setObject:renderSprite forKey:name];
+			
+			if (defaultIdleAnimationName != nil)
+			{
+				[renderSprite playAnimation:defaultIdleAnimationName];
+			}
+		}
 	}
 	return self;
 }

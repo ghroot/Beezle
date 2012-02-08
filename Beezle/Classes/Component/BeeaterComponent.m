@@ -16,9 +16,17 @@
 {
 	if (self = [super init])
 	{
+		_name = @"beeater";
 		_containedBeeType = nil;
 	}
 	return self;
+}
+
+-(NSDictionary *) getAsDictionary
+{
+	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	[dict setObject:[_containedBeeType name] forKey:@"containedBeeType"];
+	return dict;
 }
 
 -(BOOL) hasContainedBee

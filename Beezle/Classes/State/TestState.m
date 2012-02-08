@@ -110,7 +110,7 @@
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     CGPoint randomPosition = CGPointMake(RANDOM_INT(0, (int)winSize.width), RANDOM_INT(0, (int)winSize.height));
     
-    Entity *entity = [EntityFactory createPollen:_world];
+    Entity *entity = [EntityFactory createEntity:@"POLLEN" world:_world];
     [EntityUtil setEntityPosition:entity position:randomPosition];
 	
     GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];

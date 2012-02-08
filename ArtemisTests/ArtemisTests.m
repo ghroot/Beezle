@@ -38,8 +38,10 @@
     Component *component = [[[Component alloc] init] autorelease];
     [entity addComponent:component];
     Component *retrievedComponent = [entity getComponent:[Component class]];
+	NSArray *retrievedComponents = [entity getComponents];
     
     STAssertNotNil(retrievedComponent, @"");
+	STAssertTrue([retrievedComponents count] == 1, @"");
 }
 
 -(void) test_givenSystemSetOnSystemManager_canBeRetrieved

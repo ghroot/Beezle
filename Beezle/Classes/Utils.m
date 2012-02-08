@@ -10,7 +10,7 @@
 
 @implementation Utils
 
-+(CGPoint) stringToPosition:(NSString *)string
++(CGPoint) stringToPoint:(NSString *)string
 {
     NSString *modifiedString = string;
     modifiedString = [modifiedString stringByReplacingOccurrencesOfString:@"{ " withString:@""];
@@ -19,7 +19,7 @@
     return CGPointMake([[array objectAtIndex:0] floatValue], [[array objectAtIndex:1] floatValue]);
 }
 
-+(NSString *) positionToString:(CGPoint)position
++(NSString *) pointToString:(CGPoint)position
 {
 	return [NSString stringWithFormat:@"{ %.2f, %.2f }", position.x, position.y];
 }

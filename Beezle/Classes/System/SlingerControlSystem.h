@@ -11,7 +11,7 @@
 
 @class InputSystem;
 
-@interface SlingerControlSystem : TagEntitySystem
+@interface SlingerControlSystem : EntityComponentSystem
 {
 	InputSystem *_inputSystem;
 	

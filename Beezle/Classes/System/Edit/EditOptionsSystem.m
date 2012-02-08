@@ -206,84 +206,14 @@
 	NSString *type = [menuItem userData];
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	
-	Entity *entity = nil;
-	if ([type isEqualToString:@"POLLEN"])
-	{
-		entity = [EntityFactory createPollen:_world];
-	}
-	else if ([type isEqualToString:@"BEEATER"])
-	{
-		entity = [EntityFactory createBeeater:_world withBeeType:[BeeType enumFromName:@"BEE"]];
-	}
-	else if ([type isEqualToString:@"BEEATER-CEILING"])
-	{
-		entity = [EntityFactory createBeeaterCeiling:_world withBeeType:[BeeType enumFromName:@"BEE"]];
-	}
-	else if ([type isEqualToString:@"BEEATER-BIRD"])
-	{
-		entity = [EntityFactory createBeeaterBird:_world withBeeType:[BeeType enumFromName:@"BEE"]];
-	}
-	else if ([type isEqualToString:@"BEEATER-FISH"])
-	{
-		entity = [EntityFactory createBeeaterFish:_world withBeeType:[BeeType enumFromName:@"BEE"]];
-	}
-	else if ([type isEqualToString:@"RAMP"])
-	{
-		entity = [EntityFactory createRamp:_world];
-	}
-	else if ([type isEqualToString:@"NUT"])
-	{
-		entity = [EntityFactory createNut:_world];
-	}
-	else if ([type isEqualToString:@"EGG"])
-	{
-		entity = [EntityFactory createEgg:_world];
-	}
-	else if ([type isEqualToString:@"MUSHROOM"])
-	{
-		entity = [EntityFactory createMushroom:_world];
-	}
-	else if ([type isEqualToString:@"SMOKEMUSHROOM"])
-	{
-		entity = [EntityFactory createSmokeMushroom:_world];
-	}
-	else if ([type isEqualToString:@"SLINGER"])
-	{
-		BOOL slingerExists = FALSE;
-		for (Entity *entity in [[_world entityManager] entities])
-		{
-			if ([entity hasComponent:[SlingerComponent class]])
-			{
-				slingerExists = TRUE;
-				break;
-			}
-		}
-		if (!slingerExists)
-		{
-			entity = [EntityFactory createSlinger:_world withBeeTypes:[NSArray array]];
-		}
-	}
-	else if ([type isEqualToString:@"WOOD"])
-	{
-		entity = [EntityFactory createWood:_world];
-	}
-	else if ([type isEqualToString:@"LEAF"])
-	{
-		entity = [EntityFactory createLeaf:_world withMovePositions:[NSArray array]];
-	}
-	else if ([type isEqualToString:@"HANGNEST"])
-	{
-		entity = [EntityFactory createHangNest:_world withMovePositions:[NSArray array]];
-	}
+	Entity *entity = [EntityFactory createEntity:type world:_world];
 	
-	if (entity != nil)
-	{
-		[entity addComponent:[EditComponent componentWithLevelLayoutType:type]];
-		[entity refresh];
-		[EntityUtil setEntityPosition:entity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
-		
-		[_editControlSystem selectEntity:entity];
-	}
+	[entity addComponent:[EditComponent componentWithLevelLayoutType:type]];
+	[entity refresh];
+	
+	[EntityUtil setEntityPosition:entity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
+	
+	[_editControlSystem selectEntity:entity];
 }
 
 -(void) doOptionMirror:(id)sender

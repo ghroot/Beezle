@@ -33,6 +33,7 @@
 
 @implementation Component
 
+@synthesize name = _name;
 @synthesize enabled = _enabled;
 
 -(id) init
@@ -52,6 +53,11 @@
 +(id) getFrom:(Entity *)entity
 {
 	return [entity getComponent:[self class]];
+}
+
+-(NSDictionary *) getAsDictionary
+{
+	return [NSDictionary dictionary];
 }
 
 -(void) enable

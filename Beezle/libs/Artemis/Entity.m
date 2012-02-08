@@ -55,6 +55,11 @@
     [_entityManager addComponent:component toEntity:self];
 }
 
+-(BOOL) hasComponent:(Class)componentClass
+{
+    return [self getComponent:componentClass] != nil;
+}
+
 -(void) removeComponent:(Component *)component
 {
     [_entityManager removeComponent:component fromEntity:self];
@@ -65,9 +70,9 @@
     return [_entityManager getComponentWithClass:componentClass fromEntity:self];
 }
 
--(BOOL) hasComponent:(Class)componentClass
+-(NSArray *) getComponents
 {
-    return [self getComponent:componentClass] != nil;
+	return [_entityManager getComponents:self];
 }
 
 -(void) refresh

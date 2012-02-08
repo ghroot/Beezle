@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "Component.h"
+#import "artemis.h"
 
 @interface MovementComponent : Component
 {
@@ -24,5 +24,9 @@
 @property (nonatomic) BOOL isMovingForwardInPositionList;
 @property (nonatomic) CGPoint startPosition;
 @property (nonatomic) BOOL isMovingTowardsStartPosition;
+
++(MovementComponent *) componentFromDictionary:(NSDictionary *)dict world:(World *)world;
+
+-(id) initFromDictionary:(NSDictionary *)dict world:(World *)world;
 
 @end

@@ -86,7 +86,7 @@
     NSMutableDictionary *componentsByEntity;
     if ([_componentsByClass objectForKey:[component class]] == nil)
     {
-        componentsByEntity = [[[NSMutableDictionary alloc] init] autorelease];
+        componentsByEntity = [NSMutableDictionary dictionary];
         [_componentsByClass setObject:componentsByEntity forKey:[component class]];
     }
     else
@@ -146,10 +146,10 @@
 -(NSArray *) getComponents:(Entity *)entity
 {
     NSMutableArray *entityComponents = [NSMutableArray array];
-    for (NSMutableDictionary *componentsByEntity in [_componentsByClass allValues])
+    for (NSDictionary *componentsByEntity in [_componentsByClass allValues])
     {
-        Component *component = [componentsByEntity objectForKey:entity];
-        if (component != NULL)
+        Component *component = [componentsByEntity objectForKey:[NSNumber numberWithInt:[entity entityId]]];
+        if (component != nil)
         {
             [entityComponents addObject:component];
         }

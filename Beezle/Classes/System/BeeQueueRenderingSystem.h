@@ -12,7 +12,7 @@
 @class RenderSprite;
 @class RenderSystem;
 
-@interface BeeQueueRenderingSystem : TagEntitySystem
+@interface BeeQueueRenderingSystem : EntityComponentSystem
 {
 	RenderSystem *_renderSystem;
 	int _z;

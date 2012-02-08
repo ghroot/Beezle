@@ -4,6 +4,10 @@
 <dict>
 	<key>type</key>
 	<string>SLINGER</string>
+	<key>tags</key>
+	<array>
+		<string>SLINGER</string>
+	</array>
 	<key>components</key>
 	<dict>
 		<key>render</key>
@@ -21,6 +25,8 @@
 					<real>10</real>
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.93 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Sling-Idle</string>
 				</dict>
 			</array>
 		</dict>

@@ -10,6 +10,12 @@
 #import "EntityDescription.h"
 #import "EntityDescriptionSerializer.h"
 
+@interface EntityDescriptionLoader()
+
+-(NSString *) convertTypeToFileName:(NSString *)type;
+
+@end
+
 @implementation EntityDescriptionLoader
 
 +(EntityDescriptionLoader *) sharedLoader
@@ -24,10 +30,25 @@
 
 -(EntityDescription *) loadEntityDescription:(NSString *)type
 {
-	NSString *fileName = [NSString stringWithFormat:@"%@.plist", type];
+	NSString *fileName = [self convertTypeToFileName:type];
 	NSString *filePath = [CCFileUtils fullPathFromRelativePath:fileName];
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
 	return [[EntityDescriptionSerializer sharedSerializer] entityDescriptionFromDictionary:dict];
+}
+
+-(NSString *) convertTypeToFileName:(NSString *)type
+{
+	NSArray *stringComponents = [type componentsSeparatedByString:@"-"];
+	NSMutableString *capitalizedString = [NSMutableString string];
+	for (NSString *stringComponent in stringComponents)
+	{
+		[capitalizedString appendString:[stringComponent capitalizedString]];
+		if (stringComponent != [stringComponents lastObject])
+		{
+			[capitalizedString appendString:@"-"];
+		}
+	}
+	return [NSString stringWithFormat:@"%@.plist", capitalizedString];
 }
 
 @end

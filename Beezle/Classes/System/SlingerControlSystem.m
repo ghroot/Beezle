@@ -44,7 +44,7 @@
 
 -(id) init
 {
-    self = [super initWithTag:@"SLINGER"];
+    self = [super initWithUsedComponentClasses:[NSArray arrayWithObject:[SlingerComponent class]]];
     return self;
 }
 
@@ -53,7 +53,7 @@
 	_inputSystem = (InputSystem *)[[_world systemManager] getSystem:[InputSystem class]];
 }
 
--(void) processTaggedEntity:(Entity *)entity
+-(void) processEntity:(Entity *)entity
 {
     TrajectoryComponent *trajectoryComponent = [TrajectoryComponent getFrom:entity];
     if ([_inputSystem hasInputActions])
@@ -62,6 +62,7 @@
         
 		SlingerComponent *slingerComponent = [SlingerComponent getFrom:entity];
         TransformComponent *transformComponent = [TransformComponent getFrom:entity];
+		RenderComponent *renderComponent = [RenderComponent getFrom:entity];
         
         switch ([nextInputAction touchType])
         {
@@ -113,11 +114,13 @@
 				{
 					// Create bee
 					Entity *beeEntity = [EntityFactory createBee:_world withBeeType:[slingerComponent loadedBeeType] andVelocity:[trajectoryComponent startVelocity]];
-					[EntityUtil setEntityPosition:beeEntity position:[trajectoryComponent startPoint]];
+								[EntityUtil setEntityPosition:beeEntity position:[trajectoryComponent startPoint]];
 					
 					[slingerComponent clearLoadedBee];
 					
 					[transformComponent setScale:CGPointMake(1.0f, 1.0f)];
+					
+					[renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];
 					
 					[[SoundManager sharedManager] playSound:@"33369__herbertboland__mouthpop.wav"];
 					

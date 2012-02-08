@@ -16,6 +16,7 @@
 {
     if (self = [super init])
     {
+		_name = @"disposable";
         _isDisposed = FALSE;
     }
     return self;

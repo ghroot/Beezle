@@ -49,6 +49,7 @@
 -(BOOL) hasComponent:(Class)componentClass;
 -(void) removeComponent:(Component *)component;
 -(Component *) getComponent:(Class)componentClass;
+-(NSArray *) getComponents;
 -(void) refresh;
 -(void) deleteEntity;
 

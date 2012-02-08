@@ -17,6 +17,7 @@
 {
 	if (self = [super init])
 	{
+		_name = @"slinger";
 		_queuedBeeTypes = [[NSMutableArray alloc] init];
 		_loadedBeeType = nil;
 	}
@@ -33,6 +34,18 @@
 	}
 	
 	[super dealloc];
+}
+
+-(NSDictionary *) getAsDictionary
+{
+	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	NSMutableArray *queuedBeeTypesAsStrings = [NSMutableArray array];
+	for (BeeType *queuedBeeType in _queuedBeeTypes)
+	{
+		[queuedBeeTypesAsStrings addObject:[queuedBeeType name]];
+	}
+	[dict setObject:queuedBeeTypesAsStrings forKey:@"queuedBeeTypes"];
+	return dict;
 }
 
 -(void) pushBeeType:(BeeType *)beeType

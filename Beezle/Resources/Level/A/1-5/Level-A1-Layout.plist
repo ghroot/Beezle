@@ -5,62 +5,83 @@
 	<key>entities</key>
 	<array>
 		<dict>
-			<key>bees</key>
-			<array>
-				<string>BEE</string>
-			</array>
-			<key>mirrored</key>
-			<false/>
-			<key>position</key>
-			<string>{ 98.50, 263.00 }</string>
-			<key>rotation</key>
-			<integer>-36</integer>
 			<key>type</key>
 			<string>SLINGER</string>
+			<key>components</key>
+			<dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 98.50, 263.00 }</string>
+					<key>rotation</key>
+					<integer>-36</integer>
+				</dict>
+				<key>slinger</key>
+				<dict>
+					<key>queuedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
+				</dict>
+			</dict>
 		</dict>
 		<dict>
-			<key>mirrored</key>
-			<false/>
-			<key>position</key>
-			<string>{ 254.00, 267.50 }</string>
-			<key>rotation</key>
-			<integer>0</integer>
 			<key>type</key>
 			<string>POLLEN</string>
+			<key>components</key>
+			<dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 254.00, 267.50 }</string>
+				</dict>
+			</dict>
 		</dict>
 		<dict>
-			<key>bee</key>
-			<string>BEE</string>
-			<key>mirrored</key>
-			<false/>
-			<key>position</key>
-			<string>{ 285.50, 23.50 }</string>
-			<key>rotation</key>
-			<integer>0</integer>
 			<key>type</key>
 			<string>BEEATER</string>
+			<key>components</key>
+			<dict>
+				<key>beeater</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>BEE</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 285.50, 23.50 }</string>
+				</dict>
+			</dict>
 		</dict>
 		<dict>
-			<key>bee</key>
-			<string>BEE</string>
-			<key>mirrored</key>
-			<false/>
-			<key>position</key>
-			<string>{ 345.00, 240.00 }</string>
-			<key>rotation</key>
-			<integer>0</integer>
 			<key>type</key>
 			<string>BEEATER</string>
+			<key>components</key>
+			<dict>
+				<key>beeater</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>BEE</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 345.00, 240.00 }</string>
+				</dict>
+			</dict>
 		</dict>
 		<dict>
-			<key>mirrored</key>
-			<false/>
-			<key>position</key>
-			<string>{ 225.50, 266.50 }</string>
-			<key>rotation</key>
-			<integer>0</integer>
 			<key>type</key>
 			<string>POLLEN</string>
+			<key>components</key>
+			<dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 225.50, 266.50 }</string>
+				</dict>
+			</dict>
 		</dict>
 	</array>
 	<key>name</key>

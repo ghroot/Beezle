@@ -9,25 +9,12 @@
 @interface LevelLayoutEntry : NSObject
 {
     NSString *_type;
-    CGPoint _position;
-    BOOL _mirrored;
-    int _rotation;
-    NSString *_beeTypeAsString;
-    NSMutableArray *_beeTypesAsStrings;
-	NSMutableArray *_movePositions;
+    NSDictionary *_componentsDict;
 }
 
-@property (nonatomic, retain) NSString *type;
-@property (nonatomic) CGPoint position;
-@property (nonatomic) BOOL mirrored;
-@property (nonatomic) int rotation;
-@property (nonatomic, retain) NSString *beeTypeAsString;
-@property (nonatomic, retain) NSArray *beeTypesAsStrings;
-@property (nonatomic, retain) NSArray *movePositions;
+@property (nonatomic, copy) NSString *type;
+@property (nonatomic, copy) NSDictionary *componentsDict;
 
 +(LevelLayoutEntry *) entry;
-
--(void) addBeeTypeAsString:(NSString *)beeTypeAsString;
--(void) addMovePosition:(NSValue *)movePosition;
 
 @end

@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "Component.h"
+#import "artemis.h"
 
 @interface TransformComponent : Component
 {
@@ -19,8 +19,10 @@
 @property (nonatomic) float rotation;
 @property (nonatomic) CGPoint scale;
 
++(id) componentFromDictionary:(NSDictionary *)dict world:(World *)world;
 +(id) componentWithPosition:(CGPoint)position;
 
+-(id) initFromDictionary:(NSDictionary *)dict world:(World *)world;
 -(id) initWithPosition:(CGPoint)position;
 
 @end

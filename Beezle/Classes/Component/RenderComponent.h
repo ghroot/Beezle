@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "Component.h"
+#import "artemis.h"
 #import "cocos2d.h"
 
 @class RenderSprite;
@@ -16,7 +16,10 @@
 	NSMutableDictionary *_renderSpritesByName;
 }
 
++(RenderComponent *) componentFromDictionary:(NSDictionary *)dict world:(World *)world;
 +(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite;
+
+-(id) initFromDictionary:(NSDictionary *)dict world:(World *)world;
 
 -(void) addRenderSprite:(RenderSprite *)renderSprite withName:(NSString *)name;
 -(RenderSprite *) getRenderSprite:(NSString *)name;

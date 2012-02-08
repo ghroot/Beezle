@@ -21,6 +21,7 @@
 {
 	if (self = [super init])
 	{
+		_name = @"bee";
 		_type = type;
 	}
 	return self;

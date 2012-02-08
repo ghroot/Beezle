@@ -15,13 +15,11 @@
 #import "MovementComponent.h"
 #import "SlingerComponent.h"
 #import "TransformComponent.h"
+#import "Utils.h"
 
 @interface LevelSerializer()
 
 -(BOOL) isLevelLayoutEntity:(Entity *)entity;
-
--(CGPoint) stringToPosition:(NSString *)string;
--(NSString *) positionToString:(CGPoint)position;
 
 @end
 
@@ -55,52 +53,8 @@
 		NSString *type = [entity objectForKey:@"type"];
 		[levelLayoutEntry setType:[NSString stringWithString:type]];
 		
-		CGPoint position = [self stringToPosition:[entity objectForKey:@"position"]];
-		[levelLayoutEntry setPosition:position];
-		
-		BOOL mirrored = [[entity objectForKey:@"mirrored"] boolValue];
-		[levelLayoutEntry setMirrored:mirrored];
-		
-		int rotation = [[entity objectForKey:@"rotation"] intValue];
-		[levelLayoutEntry setRotation:rotation];
-		
-		if ([type isEqualToString:@"SLINGER"])
-		{
-			NSArray *beeTypesAsStrings = [entity objectForKey:@"bees"];
-			for (NSString *beeTypeAsString in beeTypesAsStrings)
-			{
-				[levelLayoutEntry addBeeTypeAsString:[NSString stringWithString:beeTypeAsString]];
-			}
-		}
-		else if ([type isEqualToString:@"BEEATER"] ||
-				 [type isEqualToString:@"BEEATER-CEILING"])
-		{
-			NSString *beeTypeAsString = [entity objectForKey:@"bee"];
-			[levelLayoutEntry setBeeTypeAsString:[NSString stringWithString:beeTypeAsString]];
-		}
-		else if ([type isEqualToString:@"BEEATER-BIRD"] ||
-				 [type isEqualToString:@"BEEATER-FISH"])
-		{
-			NSString *beeTypeAsString = [entity objectForKey:@"bee"];
-			[levelLayoutEntry setBeeTypeAsString:[NSString stringWithString:beeTypeAsString]];
-			
-			NSArray *movePositionsAsStrings = [entity objectForKey:@"movePositions"];
-			for (NSString *movePositionAsString in movePositionsAsStrings)
-			{
-				CGPoint movePosition = [self stringToPosition:movePositionAsString];
-				[levelLayoutEntry addMovePosition:[NSValue valueWithCGPoint:movePosition]];
-			}
-		}
-		else if ([type isEqualToString:@"LEAF"] ||
-				 [type isEqualToString:@"HANGNEST"])
-		{
-			NSArray *movePositionsAsStrings = [entity objectForKey:@"movePositions"];
-			for (NSString *movePositionAsString in movePositionsAsStrings)
-			{
-				CGPoint movePosition = [self stringToPosition:movePositionAsString];
-				[levelLayoutEntry addMovePosition:[NSValue valueWithCGPoint:movePosition]];
-			}
-		}
+		NSDictionary *components = [entity objectForKey:@"components"];
+		[levelLayoutEntry setComponentsDict:components];
 		
 		[levelLayout addLevelLayoutEntry:levelLayoutEntry];
 	}
@@ -119,49 +73,8 @@
 	for (LevelLayoutEntry *levelLayoutEntry in [layout entries])
 	{
 		NSMutableDictionary *entity = [NSMutableDictionary dictionary];
-		
 		[entity setObject:[levelLayoutEntry type] forKey:@"type"];
-		[entity setObject:[self positionToString:[levelLayoutEntry position]] forKey:@"position"];
-		[entity setObject:[NSNumber numberWithBool:[levelLayoutEntry mirrored]] forKey:@"mirrored"];
-		[entity setObject:[NSNumber numberWithInt:[levelLayoutEntry rotation]] forKey:@"rotation"];
-		
-		if ([[levelLayoutEntry type] isEqualToString:@"SLINGER"])
-		{
-			NSMutableArray *bees = [NSMutableArray arrayWithArray:[levelLayoutEntry beeTypesAsStrings]];
-			[entity setObject:bees forKey:@"bees"];
-		}
-		else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER"] ||
-				 [[levelLayoutEntry type] isEqualToString:@"BEEATER-CEILING"])
-		{
-			[entity setObject:[levelLayoutEntry beeTypeAsString] forKey:@"bee"];
-		}
-		else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER-BIRD"] ||
-				 [[levelLayoutEntry type] isEqualToString:@"BEEATER-FISH"])
-		{
-			[entity setObject:[levelLayoutEntry beeTypeAsString] forKey:@"bee"];
-			
-			NSMutableArray *movePositionsAsStrings = [NSMutableArray array];
-			for (NSValue *movePositionAsValue in [levelLayoutEntry movePositions])
-			{
-				CGPoint movePosition = [movePositionAsValue CGPointValue];
-				NSString *movePositionAsString = [self positionToString:movePosition];
-				[movePositionsAsStrings addObject:movePositionAsString];
-			}
-			[entity setObject:movePositionsAsStrings forKey:@"movePositions"];
-		}
-		else if ([[levelLayoutEntry type] isEqualToString:@"LEAF"] ||
-				 [[levelLayoutEntry type] isEqualToString:@"HANGNEST"])
-		{
-			NSMutableArray *movePositionsAsStrings = [NSMutableArray array];
-			for (NSValue *movePositionAsValue in [levelLayoutEntry movePositions])
-			{
-				CGPoint movePosition = [movePositionAsValue CGPointValue];
-				NSString *movePositionAsString = [self positionToString:movePosition];
-				[movePositionsAsStrings addObject:movePositionAsString];
-			}
-			[entity setObject:movePositionsAsStrings forKey:@"movePositions"];
-		}
-		
+		[entity setObject:[levelLayoutEntry componentsDict] forKey:@"components"];
 		[entities addObject:entity];
 	}
 	[dict setObject:entities forKey:@"entities"];
@@ -182,60 +95,41 @@
 		{
 			LevelLayoutEntry *levelLayoutEntry = [[[LevelLayoutEntry alloc] init] autorelease];
 			
-			EditComponent *editComponent = (EditComponent *)[entity getComponent:[EditComponent class]];
-			TransformComponent *transformComponent = (TransformComponent *)[entity getComponent:[TransformComponent class]];
-			
+			EditComponent *editComponent = [EditComponent getFrom:entity];
 			[levelLayoutEntry setType:[editComponent levelLayoutType]];
-			[levelLayoutEntry setPosition:[transformComponent position]];
-			[levelLayoutEntry setMirrored:[transformComponent scale].x == -1];
-			[levelLayoutEntry setRotation:[transformComponent rotation]];
 			
-			if ([[editComponent levelLayoutType] isEqualToString:@"SLINGER"])
+			NSMutableDictionary *componentsDict = [NSMutableDictionary dictionary];
+			NSArray *components = [entity getComponents];
+			for (Component *component in components)
 			{
-				SlingerComponent *slingerComponent = (SlingerComponent *)[entity getComponent:[SlingerComponent class]];
-				for (BeeType *beeType in [slingerComponent queuedBeeTypes])
+				if ([component isKindOfClass:[MovementComponent class]])
 				{
-					[levelLayoutEntry addBeeTypeAsString:[beeType name]];
+					NSMutableDictionary *componentDict = [NSMutableDictionary dictionary];
+					NSMutableArray *positionsAsStrings = [NSMutableArray array];
+					Entity *currentMovementIndicatorEntity = [editComponent nextMovementIndicatorEntity];
+					while (currentMovementIndicatorEntity != nil)
+					{
+						TransformComponent *currentTransformComponent = [TransformComponent getFrom:currentMovementIndicatorEntity];
+						EditComponent *currentEditComponent = [EditComponent getFrom:currentMovementIndicatorEntity];
+						
+						[positionsAsStrings addObject:[Utils pointToString:[currentTransformComponent position]]];
+						
+						currentMovementIndicatorEntity = [currentEditComponent nextMovementIndicatorEntity];
+					}
+					[componentDict setObject:positionsAsStrings forKey:@"positions"];
+					[componentsDict setObject:componentDict forKey:[component name]];
+				}
+				else
+				{
+					NSDictionary *componentDict = [component getAsDictionary];
+					if ([componentDict count] > 0)
+					{
+						[componentsDict setObject:componentDict forKey:[component name]];
+					}
 				}
 			}
-			else if ([[editComponent levelLayoutType] isEqualToString:@"BEEATER"] ||
-					 [[editComponent levelLayoutType] isEqualToString:@"BEEATER-CEILING"])
-			{
-				BeeaterComponent *beeaterComponent = (BeeaterComponent *)[entity getComponent:[BeeaterComponent class]];
-				[levelLayoutEntry setBeeTypeAsString:[[beeaterComponent containedBeeType] name]];
-			}
-			else if ([[editComponent levelLayoutType] isEqualToString:@"BEEATER-BIRD"] ||
-					 [[editComponent levelLayoutType] isEqualToString:@"BEEATER-FISH"])
-			{
-				BeeaterComponent *beeaterComponent = (BeeaterComponent *)[entity getComponent:[BeeaterComponent class]];
-				[levelLayoutEntry setBeeTypeAsString:[[beeaterComponent containedBeeType] name]];
-				
-				Entity *currentMovementIndicatorEntity = [editComponent nextMovementIndicatorEntity];
-				while (currentMovementIndicatorEntity != nil)
-				{
-					TransformComponent *currentTransformComponent = [TransformComponent getFrom:currentMovementIndicatorEntity];
-					EditComponent *currentEditComponent = [EditComponent getFrom:currentMovementIndicatorEntity];
-					
-					[levelLayoutEntry addMovePosition:[NSValue valueWithCGPoint:[currentTransformComponent position]]];
-					
-					currentMovementIndicatorEntity = [currentEditComponent nextMovementIndicatorEntity];
-				}
-			}
-			else if ([[editComponent levelLayoutType] isEqualToString:@"LEAF"] ||
-					 [[editComponent levelLayoutType] isEqualToString:@"HANGNEST"])
-			{
-				Entity *currentMovementIndicatorEntity = [editComponent nextMovementIndicatorEntity];
-				while (currentMovementIndicatorEntity != nil)
-				{
-					TransformComponent *currentTransformComponent = [TransformComponent getFrom:currentMovementIndicatorEntity];
-					EditComponent *currentEditComponent = [EditComponent getFrom:currentMovementIndicatorEntity];
-					
-					[levelLayoutEntry addMovePosition:[NSValue valueWithCGPoint:[currentTransformComponent position]]];
-					
-					currentMovementIndicatorEntity = [currentEditComponent nextMovementIndicatorEntity];
-				}
-			}
-			
+			[levelLayoutEntry setComponentsDict:componentsDict];
+						
 			[levelLayout addLevelLayoutEntry:levelLayoutEntry];
 		}
 	}
@@ -254,20 +148,6 @@
 		}
 	}
 	return FALSE;
-}
-
--(CGPoint) stringToPosition:(NSString *)string
-{
-    NSString *modifiedString = string;
-    modifiedString = [modifiedString stringByReplacingOccurrencesOfString:@"{ " withString:@""];
-    modifiedString = [modifiedString stringByReplacingOccurrencesOfString:@" }" withString:@""];
-    NSArray *array = [modifiedString componentsSeparatedByString:@","];
-    return CGPointMake([[array objectAtIndex:0] floatValue], [[array objectAtIndex:1] floatValue]);
-}
-				 
--(NSString *) positionToString:(CGPoint)position
-{
-	return [NSString stringWithFormat:@"{ %.2f, %.2f }", position.x, position.y];
 }
 
 @end

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>SMOKEMUSHROOM</string>
+	<string>AIM-POLLEN</string>
 	<key>components</key>
 	<dict>
 		<key>disposable</key>
@@ -13,23 +13,38 @@
 			<key>body</key>
 			<dict>
 				<key>type</key>
-				<string>static</string>
+				<string>dynamic</string>
+				<key>mass</key>
+				<real>1</real>
+				<key>moment</key>
+				<real>1</real>
 			</dict>
 			<key>shapes</key>
 			<array>
 				<dict>
 					<key>type</key>
-					<string>circle</string>
-					<key>radius</key>
-					<real>20</real>
-					<key>offset</key>
-					<string>{ 0, 16 }</string>
+					<string>poly</string>
+					<key>vertices</key>
+					<array>
+						<string>{ -2, 6 }</string>
+						<string>{ 2, 6 }</string>
+						<string>{ 6, 2 }</string>
+						<string>{ 6, -2 }</string>
+						<string>{ 2, -6 }</string>
+						<string>{ -2, -6 }</string>
+						<string>{ -6, -2 }</string>
+						<string>{ -6, 2 }</string>
+					</array>
 					<key>elasticity</key>
-					<real>1.5</real>
+					<real>0.8</real>
 					<key>friction</key>
-					<real>0.5</real>
+					<real>1</real>
 					<key>collisionType</key>
-					<string>MUSHROOM</string>
+					<string>AIM_POLLEN</string>
+					<key>group</key>
+					<string>AIM_POLLEN</string>
+					<key>layers</key>
+					<real>2</real>
 				</dict>
 			</array>
 		</dict>
@@ -43,16 +58,21 @@
 					<key>spriteSheetName</key>
 					<string>Sprites</string>
 					<key>animationFile</key>
-					<string>SmokeMushroom-Animations.plist</string>
+					<string>Pollen-Animations.plist</string>
 					<key>z</key>
 					<real>10</real>
 					<key>anchorPoint</key>
-					<string>{ 0.5, 0.0 }</string>
+					<string>{ 0.5, 0.5 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Pollen-Idle</string>
 				</dict>
 			</array>
 		</dict>
 		<key>transform</key>
-		<dict/>
+		<dict>
+			<key>scale</key>
+			<string>{ 0.33, 0.33 }</string>
+		</dict>
 	</dict>
 </dict>
 </plist>

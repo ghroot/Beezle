@@ -7,6 +7,7 @@
 //
 
 #import "TransformComponent.h"
+#import "Utils.h"
 
 @implementation TransformComponent
 
@@ -14,15 +15,34 @@
 @synthesize rotation = _rotation;
 @synthesize scale = _scale;
 
++(id) componentFromDictionary:(NSDictionary *)dict world:(World *)world
+{
+	return [[[self alloc] initFromDictionary:dict world:world] autorelease];
+}
+
 +(id) componentWithPosition:(CGPoint)position
 {
 	return [[[self alloc] initWithPosition:position] autorelease];
 }
 
+-(id) initFromDictionary:(NSDictionary *)dict world:(World *)world
+{
+	if (self = [self init])
+	{
+		if ([dict objectForKey:@"scale"] != nil)
+		{
+			_scale = [Utils stringToPoint:[dict objectForKey:@"scale"]];
+		}
+	}
+	return self;
+}
+
+// Designated initializer
 -(id) initWithPosition:(CGPoint)position
 {
     if (self = [super init])
     {
+		_name = @"transform";
         _position = position;
         _rotation = 0.0f;
         _scale = CGPointMake(1.0f, 1.0f);
@@ -33,6 +53,15 @@
 -(id) init
 {
 	return [self initWithPosition:CGPointZero];
+}
+
+-(NSDictionary *) getAsDictionary
+{
+	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	[dict setObject:[Utils pointToString:_position] forKey:@"position"];
+	[dict setObject:[NSNumber numberWithFloat:_rotation] forKey:@"rotation"];
+	[dict setObject:[Utils pointToString:_scale] forKey:@"scale"];
+	return dict;
 }
 
 @end

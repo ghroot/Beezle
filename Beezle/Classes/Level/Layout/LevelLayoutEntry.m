@@ -11,12 +11,7 @@
 @implementation LevelLayoutEntry
 
 @synthesize type = _type;
-@synthesize position = _position;
-@synthesize mirrored = _mirrored;
-@synthesize rotation = _rotation;
-@synthesize beeTypeAsString = _beeTypeAsString;
-@synthesize beeTypesAsStrings = _beeTypesAsStrings;
-@synthesize movePositions = _movePositions;
+@synthesize componentsDict = _componentsDict;
 
 +(LevelLayoutEntry *) entry
 {
@@ -27,8 +22,7 @@
 {
     if (self = [super init])
     {
-        _beeTypesAsStrings = [[NSMutableArray alloc] init];
-		_movePositions = [[NSMutableArray alloc] init];
+		_componentsDict = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -36,21 +30,9 @@
 -(void) dealloc
 {
 	[_type release];
-	[_beeTypeAsString release];
-    [_beeTypesAsStrings release];
-	[_movePositions release];
+	[_componentsDict release];
     
     [super dealloc];
-}
-
--(void) addBeeTypeAsString:(NSString *)beeTypeAsString
-{
-    [_beeTypesAsStrings addObject:beeTypeAsString];
-}
-
--(void) addMovePosition:(NSValue *)movePosition
-{
-	[_movePositions addObject:movePosition];
 }
 
 @end

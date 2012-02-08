@@ -45,7 +45,7 @@
 
 -(id) initWithZ:(int)z
 {
-	if (self = [super initWithTag:@"SLINGER"])
+	if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObject:[SlingerComponent class]]])
 	{
 		_z = z;
 		
@@ -99,7 +99,7 @@
     [self refreshSprites:entity];
 }
 
--(void) processTaggedEntity:(Entity *)entity
+-(void) processEntity:(Entity *)entity
 {
 	while ([_notifications count] > 0 &&
 		   [self canHandleNotifications])

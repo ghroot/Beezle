@@ -7,6 +7,7 @@
 //
 
 #import "LevelLoader.h"
+#import "BeeaterComponent.h"
 #import "BeeType.h"
 #import "EditComponent.h"
 #import "EntityFactory.h"
@@ -17,7 +18,11 @@
 #import "LevelLoader.h"
 #import "MovementComponent.h"
 #import "PhysicsComponent.h"
+#import "RenderComponent.h"
+#import "RenderSprite.h"
+#import "SlingerComponent.h"
 #import "TransformComponent.h"
+#import "Utils.h"
 
 @interface LevelLoader()
 
@@ -106,55 +111,56 @@
 		}
 	}
 	
+	// Background
 	Entity *backgroundEntity = [EntityFactory createBackground:world withLevelName:levelName];
 	[EntityUtil setEntityPosition:backgroundEntity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
 	
+	// Edge
     [EntityFactory createEdge:world];
 	
     for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
     {
-		Entity *entity = nil;
-		EditComponent *editComponent = [EditComponent componentWithLevelLayoutType:[levelLayoutEntry type]];
+		Entity *entity = [EntityFactory createEntity:[levelLayoutEntry type] world:world];
 		
-        if ([[levelLayoutEntry type] isEqualToString:@"SLINGER"])
-        {
-            NSMutableArray *beeTypes = [NSMutableArray array];
-            for (NSString *beeTypeAsString in [levelLayoutEntry beeTypesAsStrings])
-            {
-                BeeType *beeType = [BeeType enumFromName:beeTypeAsString];
-                [beeTypes addObject:beeType];
-            }
-            
-            entity = [EntityFactory createSlinger:world withBeeTypes:beeTypes];
-        }
-        else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER"])
-        {
-            BeeType *beeType = [BeeType enumFromName:[levelLayoutEntry beeTypeAsString]];
-            entity = [EntityFactory createBeeater:world withBeeType:beeType];
-        }
-		else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER-CEILING"])
-        {
-            BeeType *beeType = [BeeType enumFromName:[levelLayoutEntry beeTypeAsString]];
-            entity = [EntityFactory createBeeaterCeiling:world withBeeType:beeType];
-        }
-		else if ([[levelLayoutEntry type] isEqualToString:@"BEEATER-BIRD"] ||
-				 [[levelLayoutEntry type] isEqualToString:@"BEEATER-FISH"])
-        {
-            BeeType *beeType = [BeeType enumFromName:[levelLayoutEntry beeTypeAsString]];
-			if ([[levelLayoutEntry type] isEqualToString:@"BEEATER-BIRD"])
+		if (CONFIG_CAN_EDIT_LEVELS)
+		{
+			EditComponent *editComponent = [EditComponent componentWithLevelLayoutType:[levelLayoutEntry type]];
+			[entity addComponent:editComponent];
+			[entity refresh];
+		}
+		
+		if ([[levelLayoutEntry componentsDict] objectForKey:@"beeater"] != nil)
+		{
+			NSDictionary *beeaterDict = [[levelLayoutEntry componentsDict] objectForKey:@"beeater"];
+			if ([beeaterDict objectForKey:@"containedBeeType"])
 			{
-				entity = [EntityFactory createBeeaterBird:world withBeeType:beeType];
+				NSString *containedBeeTypeAsString = [beeaterDict objectForKey:@"containedBeeType"];
+				BeeType *containedBeeType = [BeeType enumFromName:containedBeeTypeAsString];
+				[[BeeaterComponent getFrom:entity] setContainedBeeType:containedBeeType];
+				
+				RenderSprite *headRenderSprite = [[RenderComponent getFrom:entity] getRenderSprite:@"head"];
+				NSString *headAnimationName = [NSString stringWithFormat:@"Beeater-Head-Idle-With%@", [containedBeeType capitalizedString]];
+				[headRenderSprite playAnimation:headAnimationName];
 			}
-			else
+		}
+		
+		if ([[levelLayoutEntry componentsDict] objectForKey:@"movement"] != nil)
+		{
+			NSDictionary *movementDict = [[levelLayoutEntry componentsDict] objectForKey:@"movement"];
+			
+			NSArray *positionsAsStrings = [movementDict objectForKey:@"positions"];
+			NSMutableArray *positions = [NSMutableArray array];
+			for (NSString *positionAsString in positionsAsStrings)
 			{
-				entity = [EntityFactory createBeeaterFish:world withBeeType:beeType];
+				CGPoint position = [Utils stringToPoint:positionAsString];
+				[positions addObject:[NSValue valueWithCGPoint:position]];
 			}
 			
 			if (edit)
 			{
 				// Load movement points as movement indicator entities to allow for editing
-				EditComponent *currentEditComponent = editComponent;
-				for (NSValue *movePositionAsValue in [levelLayoutEntry movePositions])
+				EditComponent *currentEditComponent = [EditComponent getFrom:entity];
+				for (NSValue *movePositionAsValue in positions)
 				{
 					Entity *movementIndicator = [EntityFactory createMovementIndicator:world forEntity:entity];
 					[EntityUtil setEntityPosition:movementIndicator position:[movePositionAsValue CGPointValue]];
@@ -167,97 +173,43 @@
 			else
 			{
 				// Load movement points normally
-				MovementComponent *movementComponent = [MovementComponent getFrom:entity];
-				[movementComponent setPositions:[NSArray arrayWithArray:[levelLayoutEntry movePositions]]];
+				[[MovementComponent getFrom:entity] setPositions:positions];
 			}
-        }
-        else if ([[levelLayoutEntry type] isEqualToString:@"RAMP"])
-        {
-            entity = [EntityFactory createRamp:world];
-        }
-        else if ([[levelLayoutEntry type] isEqualToString:@"POLLEN"])
-        {
-            entity = [EntityFactory createPollen:world];
-        }
-        else if ([[levelLayoutEntry type] isEqualToString:@"MUSHROOM"])
-        {
-            entity = [EntityFactory createMushroom:world];
-        }
-		else if ([[levelLayoutEntry type] isEqualToString:@"SMOKEMUSHROOM"])
-        {
-            entity = [EntityFactory createSmokeMushroom:world];
-        }
-        else if ([[levelLayoutEntry type] isEqualToString:@"WOOD"])
-        {
-            entity = [EntityFactory createWood:world];
-        }
-        else if ([[levelLayoutEntry type] isEqualToString:@"NUT"])
-        {
-            entity = [EntityFactory createNut:world];
-        }
-		else if ([[levelLayoutEntry type] isEqualToString:@"EGG"])
-        {
-            entity = [EntityFactory createEgg:world];
-        }
-		else if ([[levelLayoutEntry type] isEqualToString:@"LEAF"])
-		{
-			if (edit)
-			{
-				// Load movement points as movement indicator entities to allow for editing
-				entity = [EntityFactory createLeaf:world withMovePositions:[NSArray array]];
-				EditComponent *currentEditComponent = editComponent;
-				for (NSValue *movePositionAsValue in [levelLayoutEntry movePositions])
-				{
-					Entity *movementIndicator = [EntityFactory createMovementIndicator:world forEntity:entity];
-					[EntityUtil setEntityPosition:movementIndicator position:[movePositionAsValue CGPointValue]];
-					[currentEditComponent setNextMovementIndicatorEntity:movementIndicator];
-					[currentEditComponent setMainMoveEntity:entity];
-					currentEditComponent = (EditComponent *)[movementIndicator getComponent:[EditComponent class]];
-				}
-				[currentEditComponent setMainMoveEntity:entity];
-			}
-			else
-			{
-				// Load movement points normally
-				entity = [EntityFactory createLeaf:world withMovePositions:[levelLayoutEntry movePositions]];
-			}
-		}
-		else if ([[levelLayoutEntry type] isEqualToString:@"HANGNEST"])
-		{
-			if (edit)
-			{
-				// Load movement points as movement indicator entities to allow for editing
-				entity = [EntityFactory createHangNest:world withMovePositions:[NSArray array]];
-				EditComponent *currentEditComponent = editComponent;
-				for (NSValue *movePositionAsValue in [levelLayoutEntry movePositions])
-				{
-					Entity *movementIndicator = [EntityFactory createMovementIndicator:world forEntity:entity];
-					[EntityUtil setEntityPosition:movementIndicator position:[movePositionAsValue CGPointValue]];
-					[currentEditComponent setNextMovementIndicatorEntity:movementIndicator];
-					[currentEditComponent setMainMoveEntity:entity];
-					currentEditComponent = (EditComponent *)[movementIndicator getComponent:[EditComponent class]];
-				}
-				[currentEditComponent setMainMoveEntity:entity];
-			}
-			else
-			{
-				// Load movement points normally
-				entity = [EntityFactory createHangNest:world withMovePositions:[levelLayoutEntry movePositions]];
-			}
-		}
 
-		NSAssert(entity != nil, @"Unrecognized level layout entry type: %@", [levelLayoutEntry type]);
+		}
 		
-		if (entity != nil)
+		if ([[levelLayoutEntry componentsDict] objectForKey:@"slinger"] != nil)
 		{
-			[EntityUtil setEntityPosition:entity position:[levelLayoutEntry position]];
-			[EntityUtil setEntityRotation:entity rotation:[levelLayoutEntry rotation]];
-			[EntityUtil setEntityMirrored:entity mirrored:[levelLayoutEntry mirrored]];
-			
-			if (CONFIG_CAN_EDIT_LEVELS)
+			NSDictionary *slingerDict = [[levelLayoutEntry componentsDict] objectForKey:@"slinger"];
+			if ([slingerDict objectForKey:@"queuedBeeTypes"])
 			{
-				[entity addComponent:editComponent];
-				[entity refresh];
+				NSArray *queuedBeeTypesAsStrings = [slingerDict objectForKey:@"queuedBeeTypes"];
+				for (NSString *queuedBeeTypeAsString in queuedBeeTypesAsStrings)
+				{
+					BeeType *queuedBeeType = [BeeType enumFromName:queuedBeeTypeAsString];
+					[[SlingerComponent getFrom:entity] pushBeeType:queuedBeeType];
+				}
+			}
+		}
+		
+		if ([[levelLayoutEntry componentsDict] objectForKey:@"transform"] != nil)
+		{
+			NSDictionary *transformDict = [[levelLayoutEntry componentsDict] objectForKey:@"transform"];
+			if ([transformDict objectForKey:@"position"] != nil)
+			{
+				CGPoint position = [Utils stringToPoint:[transformDict objectForKey:@"position"]];
+				[EntityUtil setEntityPosition:entity position:position];
+			}
+			if ([transformDict objectForKey:@"rotation"] != nil)
+			{
+				float rotation = [[transformDict objectForKey:@"rotation"] floatValue];
+				[EntityUtil setEntityRotation:entity rotation:rotation];
+			}
+			if ([transformDict objectForKey:@"scale"] != nil)
+			{
+				CGPoint scale = [Utils stringToPoint:[transformDict objectForKey:@"scale"]];
+				TransformComponent *transformComponent = [TransformComponent getFrom:entity];
+				[transformComponent setScale:CGPointMake([transformComponent scale].x * scale.x, [transformComponent scale].y * scale.y)];
 			}
 		}
     }

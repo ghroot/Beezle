@@ -4,6 +4,10 @@
 <dict>
 	<key>type</key>
 	<string>BEEATER</string>
+	<key>groups</key>
+	<array>
+		<string>BEEATERS</string>
+	</array>
 	<key>components</key>
 	<dict>
 		<key>beeater</key>
@@ -53,6 +57,8 @@
 					<real>5</real>
 					<key>anchorPoint</key>
 					<string>{ 0.6, 0.0 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Beeater-Body-Idle</string>
 				</dict>
 				<dict>
 					<key>name</key>
@@ -65,6 +71,8 @@
 					<real>6</real>
 					<key>anchorPoint</key>
 					<string>{ 0.8, -0.3 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Beeater-Head-Idle-NoBee</string>
 				</dict>
 			</array>
 		</dict>

@@ -8,7 +8,7 @@
 
 @interface Utils : NSObject
 
-+(CGPoint) stringToPosition:(NSString *)string;
-+(NSString *) positionToString:(CGPoint)position;
++(CGPoint) stringToPoint:(NSString *)string;
++(NSString *) pointToString:(CGPoint)position;
 
 @end

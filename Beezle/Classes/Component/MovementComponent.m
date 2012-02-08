@@ -7,6 +7,7 @@
 //
 
 #import "MovementComponent.h"
+#import "Utils.h"
 
 @implementation MovementComponent
 
@@ -17,13 +18,32 @@
 @synthesize startPosition = _startPosition;
 @synthesize isMovingTowardsStartPosition = _isMovingTowardsStartPosition;
 
++(MovementComponent *) componentFromDictionary:(NSDictionary *)dict world:(World *)world
+{
+	return [[[self alloc] initFromDictionary:dict world:world] autorelease];
+}
+
+// Designated initializer
 -(id) init
 {
 	if (self = [super init])
 	{
+		_name = @"movement";
 		_positions = [[NSArray alloc] init];
 		_alwaysFaceForward = FALSE;
 		_isMovingForwardInPositionList = TRUE;
+	}
+	return self;
+}
+
+-(id) initFromDictionary:(NSDictionary *)dict world:(World *)world
+{
+	if (self = [self init])
+	{
+		if ([dict objectForKey:@"alwaysFaceForward"] != nil)
+		{
+			_alwaysFaceForward = [[dict objectForKey:@"alwaysFaceForward"] boolValue];
+		}
 	}
 	return self;
 }
@@ -33,6 +53,18 @@
 	[_positions release];
 	
 	[super dealloc];
+}
+
+-(NSDictionary *) getAsDictionary
+{
+	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	NSMutableArray *positionsAsStrings = [NSMutableArray array];
+	for (NSValue *positionAsValue in _positions)
+	{
+		[positionsAsStrings addObject:[Utils pointToString:[positionAsValue CGPointValue]]];
+	}
+	[dict setObject:positionsAsStrings forKey:@"positions"];
+	return dict;
 }
 
 @end

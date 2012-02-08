@@ -26,6 +26,8 @@
 	EntityDescription *entityDescription = [[[EntityDescription alloc] init] autorelease];
 	
 	[entityDescription setType:[dict objectForKey:@"type"]];
+	[entityDescription setGroups:[dict objectForKey:@"groups"]];
+	[entityDescription setTags:[dict objectForKey:@"tags"]];
 	[entityDescription setComponentsDict:[dict objectForKey:@"components"]];
 	
 	return entityDescription;

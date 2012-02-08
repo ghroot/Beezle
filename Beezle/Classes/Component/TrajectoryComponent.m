@@ -14,6 +14,7 @@
 {
 	if (self = [super init])
 	{
+		_name = @"trajectory";
 		_startPoint = CGPointZero;
 		_power = 0.0f;
 		_angle = 0.0f;
