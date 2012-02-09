@@ -70,6 +70,18 @@
     [super dealloc];
 }
 
+-(id) copyWithZone:(NSZone *)zone
+{
+	RenderComponent *copiedRenderComponent = [super copyWithZone:zone];
+	for (NSString *name in [_renderSpritesByName allKeys])
+	{
+		RenderSprite *renderSprite = [_renderSpritesByName objectForKey:name];
+		RenderSprite *copiedRenderSprite = [renderSprite copy];
+		[copiedRenderComponent addRenderSprite:copiedRenderSprite withName:name];
+	}
+	return copiedRenderComponent;
+}
+
 -(void) addRenderSprite:(RenderSprite *)renderSprite withName:(NSString *)name
 {
 	[_renderSpritesByName setObject:renderSprite forKey:name];
@@ -83,6 +95,14 @@
 -(NSArray *) renderSprites
 {
     return [_renderSpritesByName allValues];
+}
+
+-(void) setAlpha:(float)alpha
+{
+	for (RenderSprite *renderSprite in [_renderSpritesByName allValues])
+	{
+		[[renderSprite sprite] setOpacity:(alpha * 256)];
+	}
 }
 
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops

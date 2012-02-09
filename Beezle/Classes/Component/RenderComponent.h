@@ -11,7 +11,7 @@
 
 @class RenderSprite;
 
-@interface RenderComponent : Component
+@interface RenderComponent : Component <NSCopying>
 {
 	NSMutableDictionary *_renderSpritesByName;
 }
@@ -24,6 +24,7 @@
 -(void) addRenderSprite:(RenderSprite *)renderSprite withName:(NSString *)name;
 -(RenderSprite *) getRenderSprite:(NSString *)name;
 -(NSArray *) renderSprites;
+-(void) setAlpha:(float)alpha;
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops;
 -(void) playAnimation:(NSString *)animationName;
 -(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector;

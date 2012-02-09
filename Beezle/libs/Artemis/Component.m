@@ -37,6 +37,11 @@
 @synthesize parentEntity = _parentEntity;
 @synthesize enabled = _enabled;
 
++(id) component
+{
+	return [[[self alloc] init] autorelease];
+}
+
 -(id) init
 {
     if (self = [super init])
@@ -46,9 +51,11 @@
     return self;
 }
 
-+(id) component
+-(id) copyWithZone:(NSZone *)zone
 {
-	return [[[self alloc] init] autorelease];
+	Component *copiedComponent = [[[self class] allocWithZone:zone] init];
+	[copiedComponent setParentEntity:_parentEntity];
+	return copiedComponent;
 }
 
 +(id) getFrom:(Entity *)entity

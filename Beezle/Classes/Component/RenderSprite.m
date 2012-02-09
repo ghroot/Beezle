@@ -15,6 +15,16 @@
 @synthesize sprite = _sprite;
 @synthesize z = _z;
 
++(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z
+{
+	return [[[RenderSprite alloc] initWithSpriteSheet:spriteSheet z:z] autorelease];
+}
+
++(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet
+{
+	return [[[RenderSprite alloc] initWithSpriteSheet:spriteSheet] autorelease];
+}
+
 // Designated initialiser
 -(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z
 {
@@ -39,14 +49,11 @@
     [super dealloc];
 }
 
-+(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z
+-(id) copyWithZone:(NSZone *)zone
 {
-	return [[[RenderSprite alloc] initWithSpriteSheet:spriteSheet z:z] autorelease];
-}
-
-+(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet
-{
-	return [[[RenderSprite alloc] initWithSpriteSheet:spriteSheet] autorelease];
+	RenderSprite *copiedRenderSprite = [[[self class] allocWithZone:zone] initWithSpriteSheet:_spriteSheet z:_z];
+	[[copiedRenderSprite sprite] setDisplayFrame:[_sprite displayedFrame]];
+	return copiedRenderSprite;
 }
 
 -(void) addSpriteToSpriteSheet

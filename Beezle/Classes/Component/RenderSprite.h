@@ -8,7 +8,7 @@
 
 #import "cocos2d.h"
 
-@interface RenderSprite : NSObject
+@interface RenderSprite : NSObject <NSCopying>
 {
     CCSpriteBatchNode *_spriteSheet;
     CCSprite *_sprite;
@@ -19,10 +19,12 @@
 @property (nonatomic, readonly, retain) CCSprite *sprite;
 @property (nonatomic, readonly) int z;
 
--(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z;
--(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z;
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
+
+-(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z;
+-(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
+
 -(void) addSpriteToSpriteSheet;
 -(void) removeSpriteFromSpriteSheet;
 -(void) markAsBackground;

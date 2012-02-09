@@ -134,8 +134,12 @@
 		{
 			NSDictionary *movementDict = [[levelLayoutEntry componentsDict] objectForKey:@"movement"];
 			[[MovementComponent getFrom:entity] populateWithContentsOfDictionary:movementDict world:world];
-			
-			if (CONFIG_CAN_EDIT_LEVELS && edit)
+		}
+		
+		// TODO: How do we get rid of this?
+		if (CONFIG_CAN_EDIT_LEVELS && edit)
+		{
+			if ([[levelLayoutEntry componentsDict] objectForKey:@"movement"] != nil)
 			{
 				// Load movement points as movement indicator entities to allow for editing
 				MovementComponent *movementComponent = [MovementComponent getFrom:entity];

@@ -31,7 +31,7 @@
 @class Entity;
 @class World;
 
-@interface Component : NSObject
+@interface Component : NSObject <NSCopying>
 {
 	NSString *_name;
 	Entity *_parentEntity;

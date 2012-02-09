@@ -165,20 +165,14 @@
 {
 	Entity *movementIndicatorEntity = [world createEntity];
 	
-    // Transform
     TransformComponent *transformComponent = [TransformComponent component];
-	[transformComponent setScale:CGPointMake(0.5f, 0.5f)];
     [movementIndicatorEntity addComponent:transformComponent];
 	
-    // Render (TODO: Copy render component from main entity)
-	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:@"Pollen-Animations.plist" z:10];
-	[renderSprite playAnimation:@"Pollen-Idle"];
-	[[renderSprite sprite] setOpacity:128];
-	RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
-	[movementIndicatorEntity addComponent:renderComponent];
+	RenderComponent *originalRenderComponent = [RenderComponent getFrom:entity];
+	RenderComponent *copiedRenderComponent = [originalRenderComponent copy];
+	[copiedRenderComponent setAlpha:0.5f];
+	[movementIndicatorEntity addComponent:copiedRenderComponent];
 	
-	// Edit
 	EditComponent *editComponent = [EditComponent component];
 	[movementIndicatorEntity addComponent:editComponent];
 	
