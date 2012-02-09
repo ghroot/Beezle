@@ -9,11 +9,13 @@
 #import "artemis.h"
 #import "ObjectiveChipmunk.h"
 
+@class BeeQueueRenderingSystem;
 @class InputSystem;
 
 @interface EditControlSystem : EntityComponentSystem
 {
 	InputSystem *_inputSystem;
+	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
 	
 	CGPoint _touchBeganLocation;
 	BOOL _hasTouchMoved;

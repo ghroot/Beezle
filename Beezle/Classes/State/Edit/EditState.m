@@ -7,6 +7,7 @@
 //
 
 #import "EditState.h"
+#import "BeeaterAnimationSystem.h"
 #import "BeeQueueRenderingSystem.h"
 #import "EditControlSystem.h"
 #import "EditIngameMenuState.h"
@@ -91,6 +92,8 @@
 	[systemManager setSystem:_editOptionsSystem];
 	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithZ:2] autorelease];
 	[systemManager setSystem:_beeQueueRenderingSystem];
+	_beeaterAnimationSystem = [[[BeeaterAnimationSystem alloc] init] autorelease];
+	[systemManager setSystem:_beeaterAnimationSystem];
 	
 	[systemManager initialiseAll];
 }

@@ -67,4 +67,19 @@
 	return dict;
 }
 
+-(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+{
+	if ([dict objectForKey:@"positions"] != nil)
+	{
+		NSArray *positionsAsStrings = [dict objectForKey:@"positions"];
+		NSMutableArray *positions = [NSMutableArray array];
+		for (NSString *positionAsString in positionsAsStrings)
+		{
+			CGPoint position = [Utils stringToPoint:positionAsString];
+			[positions addObject:[NSValue valueWithCGPoint:position]];
+		}
+		[self setPositions:positions];
+	}
+}
+
 @end

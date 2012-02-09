@@ -8,8 +8,8 @@
 
 #import "Component.h"
 #import "artemis.h"
-#import "ObjectiveChipmunk.h"
 #import "cocos2d.h"
+#import "ObjectiveChipmunk.h"
 
 @class PhysicsBody;
 @class PhysicsShape;

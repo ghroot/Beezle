@@ -8,11 +8,11 @@
 
 #import "EditControlSystem.h"
 #import "ActionTags.h"
+#import "BeeQueueRenderingSystem.h"
 #import "EditComponent.h"
 #import "EntityUtil.h"
 #import "InputAction.h"
 #import "InputSystem.h"
-#import "NotificationTypes.h"
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
@@ -38,6 +38,7 @@
 -(void) initialise
 {
 	_inputSystem = (InputSystem *)[[_world systemManager] getSystem:[InputSystem class]];
+	_beeQueueRenderingSystem = (BeeQueueRenderingSystem *)[[_world systemManager] getSystem:[BeeQueueRenderingSystem class]];
 }
 
 -(void) begin
@@ -63,8 +64,10 @@
 					
 					[EntityUtil setEntityPosition:_selectedEntity position:newLocation];
 					
-					// Game notification
-					[[NSNotificationCenter defaultCenter] postNotificationName:EDIT_NOTIFICATION_ENTITY_MOVED object:self];
+					if ([_selectedEntity hasComponent:[SlingerComponent class]])
+					{
+						[_beeQueueRenderingSystem refreshSprites:_selectedEntity];
+					}
 				}
 				_hasTouchMoved = TRUE;
                 break;

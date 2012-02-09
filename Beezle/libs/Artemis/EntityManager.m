@@ -77,6 +77,10 @@
 {
     for (NSMutableDictionary *componentsByEntity in [_componentsByClass allValues])
     {
+		for (Component *component in [componentsByEntity allValues])
+		{
+			[component setParentEntity:nil];
+		}
         [componentsByEntity removeObjectForKey:[NSNumber numberWithInt:[entity entityId]]];
     }
 }
@@ -94,6 +98,7 @@
         componentsByEntity = [_componentsByClass objectForKey:[component class]];
     }
     [componentsByEntity setObject:component forKey:[NSNumber numberWithInt:[entity entityId]]];
+	[component setParentEntity:entity];
 }
 
 -(void) refreshEntity:(Entity *)entity
@@ -108,6 +113,7 @@
 -(void) removeComponent:(Component *)component fromEntity:(Entity *)entity
 {
     [self removeComponentWithClass:[component class] fromEntity:entity];
+	[component setParentEntity:nil];
 }
 
 -(void) removeComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity

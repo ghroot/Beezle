@@ -27,4 +27,6 @@
 
 -(id) initWithZ:(int)z;
 
+-(void) refreshSprites:(Entity *)slingerEntity;
+
 @end

@@ -64,4 +64,22 @@
 	return dict;
 }
 
+-(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+{
+	if ([dict objectForKey:@"position"] != nil)
+	{
+		_position = [Utils stringToPoint:[dict objectForKey:@"position"]];
+	}
+	if ([dict objectForKey:@"rotation"] != nil)
+	{
+		_rotation = [[dict objectForKey:@"rotation"] floatValue];
+	}
+	if ([dict objectForKey:@"scale"] != nil)
+	{
+		// Scale is multiplied with current values
+		CGPoint scale = [Utils stringToPoint:[dict objectForKey:@"scale"]];
+		_scale = CGPointMake(_scale.x * scale.x, _scale.y * scale.y);
+	}
+}
+
 @end

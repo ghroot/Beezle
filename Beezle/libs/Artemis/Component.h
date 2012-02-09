@@ -29,20 +29,24 @@
 */
 
 @class Entity;
+@class World;
 
 @interface Component : NSObject
 {
 	NSString *_name;
+	Entity *_parentEntity;
     BOOL _enabled;
 }
 
 @property (nonatomic, readonly) NSString *name;
+@property (nonatomic, assign) Entity *parentEntity;
 @property (nonatomic, readonly) BOOL enabled;
 
 +(id) component;
 +(id) getFrom:(Entity *)entity;
 
 -(NSDictionary *) getAsDictionary;
+-(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
 
 -(void) enable;
 -(void) disable;

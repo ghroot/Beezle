@@ -9,11 +9,13 @@
 #import "artemis.h"
 #import "cocos2d.h"
 
+@class BeeQueueRenderingSystem;
 @class EditControlSystem;
 
 @interface EditOptionsSystem : EntityComponentSystem
 {
 	EditControlSystem *_editControlSystem;
+	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
 	
 	CCLayer *_layer;
 	

@@ -9,6 +9,7 @@
 #import "LevelLoader.h"
 #import "BeeaterComponent.h"
 #import "BeeType.h"
+#import "DisposableComponent.h"
 #import "EditComponent.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
@@ -129,36 +130,17 @@
 			[entity refresh];
 		}
 		
-		if ([[levelLayoutEntry componentsDict] objectForKey:@"beeater"] != nil)
-		{
-			NSDictionary *beeaterDict = [[levelLayoutEntry componentsDict] objectForKey:@"beeater"];
-			if ([beeaterDict objectForKey:@"containedBeeType"])
-			{
-				NSString *containedBeeTypeAsString = [beeaterDict objectForKey:@"containedBeeType"];
-				BeeType *containedBeeType = [BeeType enumFromName:containedBeeTypeAsString];
-				[[BeeaterComponent getFrom:entity] setContainedBeeType:containedBeeType];
-				
-				[EntityUtil animateBeeaterHeadBasedOnContainedBeeType:entity];
-			}
-		}
-		
 		if ([[levelLayoutEntry componentsDict] objectForKey:@"movement"] != nil)
 		{
 			NSDictionary *movementDict = [[levelLayoutEntry componentsDict] objectForKey:@"movement"];
+			[[MovementComponent getFrom:entity] populateWithContentsOfDictionary:movementDict world:world];
 			
-			NSArray *positionsAsStrings = [movementDict objectForKey:@"positions"];
-			NSMutableArray *positions = [NSMutableArray array];
-			for (NSString *positionAsString in positionsAsStrings)
-			{
-				CGPoint position = [Utils stringToPoint:positionAsString];
-				[positions addObject:[NSValue valueWithCGPoint:position]];
-			}
-			
-			if (edit)
+			if (CONFIG_CAN_EDIT_LEVELS && edit)
 			{
 				// Load movement points as movement indicator entities to allow for editing
+				MovementComponent *movementComponent = [MovementComponent getFrom:entity];
 				EditComponent *currentEditComponent = [EditComponent getFrom:entity];
-				for (NSValue *movePositionAsValue in positions)
+				for (NSValue *movePositionAsValue in [movementComponent positions])
 				{
 					Entity *movementIndicator = [EntityFactory createMovementIndicator:world forEntity:entity];
 					[EntityUtil setEntityPosition:movementIndicator position:[movePositionAsValue CGPointValue]];
@@ -168,47 +150,37 @@
 				}
 				[currentEditComponent setMainMoveEntity:entity];
 			}
-			else
-			{
-				// Load movement points normally
-				[[MovementComponent getFrom:entity] setPositions:positions];
-			}
-
 		}
 		
+		if ([[levelLayoutEntry componentsDict] objectForKey:@"beeater"] != nil)
+		{
+			NSDictionary *beeaterDict = [[levelLayoutEntry componentsDict] objectForKey:@"beeater"];
+			[[BeeaterComponent getFrom:entity] populateWithContentsOfDictionary:beeaterDict world:world];
+		}
+		if ([[levelLayoutEntry componentsDict] objectForKey:@"disposable"] != nil)
+		{
+			NSDictionary *disposableDict = [[levelLayoutEntry componentsDict] objectForKey:@"disposable"];
+			[[DisposableComponent getFrom:entity] populateWithContentsOfDictionary:disposableDict world:world];
+		}
+		if ([[levelLayoutEntry componentsDict] objectForKey:@"physics"] != nil)
+		{
+			NSDictionary *physicsDict = [[levelLayoutEntry componentsDict] objectForKey:@"physics"];
+			[[PhysicsComponent getFrom:entity] populateWithContentsOfDictionary:physicsDict world:world];
+		}
+		if ([[levelLayoutEntry componentsDict] objectForKey:@"render"] != nil)
+		{
+			NSDictionary *renderDict = [[levelLayoutEntry componentsDict] objectForKey:@"render"];
+			[[RenderComponent getFrom:entity] populateWithContentsOfDictionary:renderDict world:world];
+		}
 		if ([[levelLayoutEntry componentsDict] objectForKey:@"slinger"] != nil)
 		{
 			NSDictionary *slingerDict = [[levelLayoutEntry componentsDict] objectForKey:@"slinger"];
-			if ([slingerDict objectForKey:@"queuedBeeTypes"])
-			{
-				NSArray *queuedBeeTypesAsStrings = [slingerDict objectForKey:@"queuedBeeTypes"];
-				for (NSString *queuedBeeTypeAsString in queuedBeeTypesAsStrings)
-				{
-					BeeType *queuedBeeType = [BeeType enumFromName:queuedBeeTypeAsString];
-					[[SlingerComponent getFrom:entity] pushBeeType:queuedBeeType];
-				}
-			}
+			[[SlingerComponent getFrom:entity] populateWithContentsOfDictionary:slingerDict world:world];
 		}
-		
 		if ([[levelLayoutEntry componentsDict] objectForKey:@"transform"] != nil)
 		{
 			NSDictionary *transformDict = [[levelLayoutEntry componentsDict] objectForKey:@"transform"];
-			if ([transformDict objectForKey:@"position"] != nil)
-			{
-				CGPoint position = [Utils stringToPoint:[transformDict objectForKey:@"position"]];
-				[EntityUtil setEntityPosition:entity position:position];
-			}
-			if ([transformDict objectForKey:@"rotation"] != nil)
-			{
-				float rotation = [[transformDict objectForKey:@"rotation"] floatValue];
-				[EntityUtil setEntityRotation:entity rotation:rotation];
-			}
-			if ([transformDict objectForKey:@"scale"] != nil)
-			{
-				CGPoint scale = [Utils stringToPoint:[transformDict objectForKey:@"scale"]];
-				TransformComponent *transformComponent = [TransformComponent getFrom:entity];
-				[transformComponent setScale:CGPointMake([transformComponent scale].x * scale.x, [transformComponent scale].y * scale.y)];
-			}
+			[[TransformComponent getFrom:entity] populateWithContentsOfDictionary:transformDict world:world];
 		}
     }
 }

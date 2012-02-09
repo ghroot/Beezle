@@ -34,6 +34,7 @@
 @implementation Component
 
 @synthesize name = _name;
+@synthesize parentEntity = _parentEntity;
 @synthesize enabled = _enabled;
 
 -(id) init
@@ -58,6 +59,10 @@
 -(NSDictionary *) getAsDictionary
 {
 	return [NSDictionary dictionary];
+}
+
+-(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+{
 }
 
 -(void) enable

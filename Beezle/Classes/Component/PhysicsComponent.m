@@ -148,6 +148,28 @@
     [super dealloc];
 }
 
+-(NSDictionary *) getAsDictionary
+{
+	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	[dict setObject:[Utils pointToString:[_body pos]] forKey:@"position"];
+	[dict setObject:[NSNumber numberWithFloat:[_body angle]] forKey:@"angle"];
+	return dict;
+}
+
+-(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+{
+	if ([dict objectForKey:@"position"] != nil)
+	{
+		CGPoint position = [Utils stringToPoint:[dict objectForKey:@"position"]];
+		[_body setPos:position];
+	}
+	if ([dict objectForKey:@"angle"] != nil)
+	{
+		float angle = [[dict objectForKey:@"angle"] floatValue];
+		[_body setAngle:angle];
+	}
+}
+
 -(void) addShape:(ChipmunkShape *)shape
 {
 	[_shapes addObject:shape];

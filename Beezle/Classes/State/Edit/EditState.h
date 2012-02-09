@@ -9,6 +9,7 @@
 #import "GameState.h"
 #import "artemis.h"
 
+@class BeeaterAnimationSystem;
 @class BeeQueueRenderingSystem;
 @class EditControlSystem;
 @class EditOptionsSystem;
@@ -31,6 +32,7 @@
 	EditControlSystem *_editControlSystem;
 	EditOptionsSystem *_editOptionsSystem;
 	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
+	BeeaterAnimationSystem *_beeaterAnimationSystem;
 }
 
 @property (nonatomic, readonly) NSString *levelName;

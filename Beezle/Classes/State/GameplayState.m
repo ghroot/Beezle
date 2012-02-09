@@ -7,6 +7,7 @@
 //
 
 #import "GameplayState.h"
+#import "BeeaterAnimationSystem.h"
 #import "BeeControlSystem.h"
 #import "BeeQueueRenderingSystem.h"
 #import "BeeExpiratonSystem.h"
@@ -110,6 +111,8 @@
 	[systemManager setSystem:_beeControlSystem];
 	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithZ:2] autorelease];
 	[systemManager setSystem:_beeQueueRenderingSystem];
+	_beeaterAnimationSystem = [[[BeeaterAnimationSystem alloc] init] autorelease];
+	[systemManager setSystem:_beeaterAnimationSystem];
 	if (_debug)
 	{
 		_debugRenderPhysicsSystem = [[[DebugRenderPhysicsSystem alloc] initWithScene:self] autorelease];
@@ -130,6 +133,7 @@
                                                      _inputSystem,
                                                      _slingerControlSystem,
 													 _beeQueueRenderingSystem,
+													 _beeaterAnimationSystem,
                                                      nil]];
     
     _shootingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
@@ -142,14 +146,17 @@
 													   _beeExpirationSystem,
 													   _beeControlSystem,
 													   _beeQueueRenderingSystem,
+													   _beeaterAnimationSystem,
 													   nil]];
     
     _levelCompletedMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
 															 _beeQueueRenderingSystem,
+															 _beeaterAnimationSystem,
 															 nil]];
     
     _levelFailedMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
 														  _beeQueueRenderingSystem,
+														  _beeaterAnimationSystem,
 														  nil]];
     
     _currentMode = _aimingMode;

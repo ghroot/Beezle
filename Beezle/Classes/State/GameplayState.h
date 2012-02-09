@@ -11,6 +11,7 @@
 #import "cocos2d.h"
 #import "GameMode.h"
 
+@class BeeaterAnimationSystem;
 @class BeeExpiratonSystem;
 @class BeeControlSystem;
 @class BeeQueueRenderingSystem;
@@ -44,6 +45,7 @@
     BeeExpiratonSystem *_beeExpirationSystem;
 	BeeControlSystem *_beeControlSystem;
 	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
+	BeeaterAnimationSystem *_beeaterAnimationSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
     
     GameMode *_currentMode;

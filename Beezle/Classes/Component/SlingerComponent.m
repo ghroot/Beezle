@@ -48,6 +48,19 @@
 	return dict;
 }
 
+-(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+{
+	if ([dict objectForKey:@"queuedBeeTypes"])
+	{
+		NSArray *queuedBeeTypesAsStrings = [dict objectForKey:@"queuedBeeTypes"];
+		for (NSString *queuedBeeTypeAsString in queuedBeeTypesAsStrings)
+		{
+			BeeType *queuedBeeType = [BeeType enumFromName:queuedBeeTypeAsString];
+			[self pushBeeType:queuedBeeType];
+		}
+	}
+}
+
 -(void) pushBeeType:(BeeType *)beeType
 {
 	[_queuedBeeTypes addObject:beeType];
@@ -58,6 +71,7 @@
 	BeeType *nextBeeType = [_queuedBeeTypes objectAtIndex:0];
 	[nextBeeType retain];
 	[_queuedBeeTypes removeObjectAtIndex:0];
+	
 	return [nextBeeType autorelease];
 }
 
