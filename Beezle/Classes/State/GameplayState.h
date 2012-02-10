@@ -23,6 +23,7 @@
 @class PhysicsSystem;
 @class RenderSystem;
 @class SlingerControlSystem;
+@class TrailSystem;
 
 @interface GameplayState : GameState
 {
@@ -46,6 +47,7 @@
 	BeeControlSystem *_beeControlSystem;
 	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
 	BeeaterAnimationSystem *_beeaterAnimationSystem;
+	TrailSystem *_trailSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
     
     GameMode *_currentMode;

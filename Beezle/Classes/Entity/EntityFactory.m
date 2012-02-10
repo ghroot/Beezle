@@ -181,4 +181,21 @@
 	return movementIndicatorEntity;
 }
 
++(Entity *) createSimpleAnimatedEntity:(World *)world
+{
+	Entity *entity = [world createEntity];
+	
+    TransformComponent *transformComponent = [TransformComponent component];
+    [entity addComponent:transformComponent];
+	
+	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" z:3];
+	RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
+	[entity addComponent:renderComponent];
+	
+	[entity refresh];
+	
+	return entity;
+}
+
 @end

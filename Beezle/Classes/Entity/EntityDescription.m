@@ -15,6 +15,7 @@
 #import "RenderComponent.h"
 #import "SlingerComponent.h"
 #import "TransformComponent.h"
+#import "TrailComponent.h"
 #import "TrajectoryComponent.h"
 
 @implementation EntityDescription
@@ -59,6 +60,10 @@
 		else if ([componentType isEqualToString:@"slinger"])
 		{
 			component = [SlingerComponent component];
+		}
+		else if ([componentType isEqualToString:@"trail"])
+		{
+			component = [TrailComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"trajectory"])
 		{

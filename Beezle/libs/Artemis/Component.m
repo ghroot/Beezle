@@ -51,6 +51,13 @@
     return self;
 }
 
+-(void) dealloc
+{
+	[_name release];
+	
+	[super dealloc];
+}
+
 -(id) copyWithZone:(NSZone *)zone
 {
 	Component *copiedComponent = [[[self class] allocWithZone:zone] init];

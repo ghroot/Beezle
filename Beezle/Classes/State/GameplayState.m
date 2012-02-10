@@ -23,6 +23,7 @@
 #import "PhysicsSystem.h"
 #import "RenderSystem.h"
 #import "SlingerControlSystem.h"
+#import "TrailSystem.h"
 #import "TransformComponent.h"
 
 @interface GameplayState()
@@ -113,6 +114,8 @@
 	[systemManager setSystem:_beeQueueRenderingSystem];
 	_beeaterAnimationSystem = [[[BeeaterAnimationSystem alloc] init] autorelease];
 	[systemManager setSystem:_beeaterAnimationSystem];
+	_trailSystem = [[[TrailSystem alloc] init] autorelease];
+	[systemManager setSystem:_trailSystem];
 	if (_debug)
 	{
 		_debugRenderPhysicsSystem = [[[DebugRenderPhysicsSystem alloc] initWithScene:self] autorelease];
@@ -147,6 +150,7 @@
 													   _beeControlSystem,
 													   _beeQueueRenderingSystem,
 													   _beeaterAnimationSystem,
+													   _trailSystem,
 													   nil]];
     
     _levelCompletedMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
