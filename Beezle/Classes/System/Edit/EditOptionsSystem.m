@@ -306,6 +306,8 @@
 	SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
 	
 	[slingerComponent clearBeeTypes];
+	
+	[_beeQueueRenderingSystem refreshSprites:slingerEntity];
 }
 
 -(void) doOptionAddMovementIndicator:(id)sender
