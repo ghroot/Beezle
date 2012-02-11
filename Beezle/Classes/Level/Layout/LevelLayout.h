@@ -13,12 +13,14 @@
 @interface LevelLayout : NSObject
 {
 	NSString *_levelName;
+	int _format;
 	int _version;
     NSMutableArray *_entries;
 	BOOL _isEdited;
 }
 
 @property (nonatomic, retain) NSString *levelName;
+@property (nonatomic) int format;
 @property (nonatomic) int version;
 @property (nonatomic, readonly) NSArray *entries;
 @property (nonatomic) BOOL isEdited;

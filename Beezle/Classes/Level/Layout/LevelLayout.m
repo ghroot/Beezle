@@ -13,6 +13,7 @@
 @implementation LevelLayout
 
 @synthesize levelName = _levelName;
+@synthesize format = _format;
 @synthesize version = _version;
 @synthesize entries = _entries;
 @synthesize isEdited = _isEdited;
@@ -43,6 +44,7 @@
 	if (self = [super init])
     {
 		_levelName = [levelName retain];
+		_format = 0;
 		_version = 0;
         _entries = [[NSMutableArray alloc] init];
 		_isEdited = FALSE;

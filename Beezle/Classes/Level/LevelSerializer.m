@@ -45,6 +45,17 @@
 	int version = [[dict objectForKey:@"version"] intValue];
 	[levelLayout setVersion:version];
 	
+	int format;
+	if ([dict objectForKey:@"format"] != nil)
+	{
+		format = [[dict objectForKey:@"format"] intValue];
+	}
+	else
+	{
+		format = 1;
+	}
+	[levelLayout setFormat:format];
+	
 	NSArray *entities = [dict objectForKey:@"entities"];
 	for (NSDictionary *entity in entities) 
 	{
@@ -68,6 +79,7 @@
 	
 	[dict setObject:[layout levelName] forKey:@"name"];
 	[dict setObject:[NSNumber numberWithInt:[layout version]] forKey:@"version"];
+	[dict setObject:[NSNumber numberWithInt:[layout format]] forKey:@"format"];
 	
 	NSMutableArray *entities = [NSMutableArray array];
 	for (LevelLayoutEntry *levelLayoutEntry in [layout entries])
