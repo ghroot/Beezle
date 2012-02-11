@@ -119,8 +119,6 @@
 		2C157BF1148FEA8E003F9040 /* GameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157BEF148FEA8E003F9040 /* GameState.m */; };
 		2C157BF3149009F9003F9040 /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BF2149009F9003F9040 /* Pause.png */; };
 		2C157C0E14901B88003F9040 /* DebugRenderPhysicsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C0D14901B88003F9040 /* DebugRenderPhysicsLayer.m */; };
-		2C157C1614914F5D003F9040 /* RenderTrajectoryLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1314914F5C003F9040 /* RenderTrajectoryLayer.m */; };
-		2C157C1714914F5D003F9040 /* RenderTrajectorySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1514914F5D003F9040 /* RenderTrajectorySystem.m */; };
 		2C157C1A14914F6A003F9040 /* TrajectoryComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1914914F6A003F9040 /* TrajectoryComponent.m */; };
 		2C157C1C14926BE1003F9040 /* Nut-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C157C1B14926BE1003F9040 /* Nut-Animations.plist */; };
 		2C157C1F149382D8003F9040 /* GameRulesSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1E149382D6003F9040 /* GameRulesSystem.m */; };
@@ -571,10 +569,6 @@
 		2C157BF2149009F9003F9040 /* Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Pause.png; path = Resources/Pause.png; sourceTree = "<group>"; };
 		2C157C0C14901B88003F9040 /* DebugRenderPhysicsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugRenderPhysicsLayer.h; path = Classes/System/DebugRenderPhysicsLayer.h; sourceTree = "<group>"; };
 		2C157C0D14901B88003F9040 /* DebugRenderPhysicsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugRenderPhysicsLayer.m; path = Classes/System/DebugRenderPhysicsLayer.m; sourceTree = "<group>"; };
-		2C157C1214914F5C003F9040 /* RenderTrajectoryLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderTrajectoryLayer.h; path = Classes/System/RenderTrajectoryLayer.h; sourceTree = "<group>"; };
-		2C157C1314914F5C003F9040 /* RenderTrajectoryLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderTrajectoryLayer.m; path = Classes/System/RenderTrajectoryLayer.m; sourceTree = "<group>"; };
-		2C157C1414914F5C003F9040 /* RenderTrajectorySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderTrajectorySystem.h; path = Classes/System/RenderTrajectorySystem.h; sourceTree = "<group>"; };
-		2C157C1514914F5D003F9040 /* RenderTrajectorySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderTrajectorySystem.m; path = Classes/System/RenderTrajectorySystem.m; sourceTree = "<group>"; };
 		2C157C1814914F6A003F9040 /* TrajectoryComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrajectoryComponent.h; path = Classes/Component/TrajectoryComponent.h; sourceTree = "<group>"; };
 		2C157C1914914F6A003F9040 /* TrajectoryComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrajectoryComponent.m; path = Classes/Component/TrajectoryComponent.m; sourceTree = "<group>"; };
 		2C157C1B14926BE1003F9040 /* Nut-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Nut-Animations.plist"; sourceTree = "<group>"; };
@@ -1435,10 +1429,6 @@
 				2C7CE5F91469D092001F331F /* PhysicsSystem.m */,
 				2C7CE5F51469AD06001F331F /* RenderSystem.h */,
 				2C7CE5F61469AD06001F331F /* RenderSystem.m */,
-				2C157C1214914F5C003F9040 /* RenderTrajectoryLayer.h */,
-				2C157C1314914F5C003F9040 /* RenderTrajectoryLayer.m */,
-				2C157C1414914F5C003F9040 /* RenderTrajectorySystem.h */,
-				2C157C1514914F5D003F9040 /* RenderTrajectorySystem.m */,
 				2C7CE620146FD66F001F331F /* SlingerControlSystem.h */,
 				2C7CE621146FD66F001F331F /* SlingerControlSystem.m */,
 				2C5EFC2F14E499C20071ED39 /* TrailSystem.h */,
@@ -2212,8 +2202,6 @@
 				2C157BF0148FEA8E003F9040 /* Game.m in Sources */,
 				2C157BF1148FEA8E003F9040 /* GameState.m in Sources */,
 				2C157C0E14901B88003F9040 /* DebugRenderPhysicsLayer.m in Sources */,
-				2C157C1614914F5D003F9040 /* RenderTrajectoryLayer.m in Sources */,
-				2C157C1714914F5D003F9040 /* RenderTrajectorySystem.m in Sources */,
 				2C157C1A14914F6A003F9040 /* TrajectoryComponent.m in Sources */,
 				2C157C1F149382D8003F9040 /* GameRulesSystem.m in Sources */,
 				2C157C241493B3DE003F9040 /* GameMode.m in Sources */,
