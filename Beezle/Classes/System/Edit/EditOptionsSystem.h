@@ -11,12 +11,14 @@
 
 @class BeeQueueRenderingSystem;
 @class EditControlSystem;
+@class EditState;
 
 @interface EditOptionsSystem : EntityComponentSystem
 {
 	EditControlSystem *_editControlSystem;
 	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
 	
+	EditState *_editState;
 	CCLayer *_layer;
 	
 	CCMenu *_generalOptionsMenu;
@@ -27,9 +29,9 @@
 	CCMenu *_movementOptionsMenu;
 }
 
--(id) initWithLayer:(CCLayer *)layer;
+-(id) initWithLayer:(CCLayer *)layer andEditState:(EditState *)editState;
 
--(void) doOptionAddEntity:(id)sender;
+-(void) doOptionOpenEntityMenu:(id)sender;
 
 -(void) doOptionMirror:(id)sender;
 -(void) doOptionRotateLeft:(id)sender;

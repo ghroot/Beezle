@@ -12,8 +12,11 @@
 #import "BeeType.h"
 #import "EditComponent.h"
 #import "EditControlSystem.h"
+#import "EditState.h"
 #import "EntityFactory.h"
+#import "EntitySelectIngameMenuState.h"
 #import "EntityUtil.h"
+#import "Game.h"
 #import "MovementComponent.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
@@ -28,6 +31,7 @@
 -(void) createSlingerOptionsMenu;
 -(void) createMovementOptionsMenu;
 -(CCMenuItem *) createMenuItem:(NSString *)label selector:(SEL)selector userData:(void *)userData;
+-(void) updateMenus;
 -(void) ensureMenuIsNotInLayer:(CCMenu *)menu;
 -(void) removeAllMenus;
 
@@ -35,18 +39,20 @@
 
 @implementation EditOptionsSystem
 
--(id) initWithLayer:(CCLayer *)layer
+-(id) initWithLayer:(CCLayer *)layer andEditState:(EditState *)editState
 {
-	if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[EditComponent class], nil]])
+	if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObject:[EditComponent class]]])
 	{
 		_layer = layer;
+		_editState = editState;
 		
 		[self createGeneralOptionsMenu];
 		[self createGeneralEntityOptionsMenu];
 		[self createBeeaterOptionsMenu];
 		[self createSlingerOptionsMenu];
 		[self createMovementOptionsMenu];
-		[_layer addChild:_generalOptionsMenu];
+		
+		[self updateMenus];
 	}
 	return self;
 }
@@ -64,33 +70,14 @@
 
 -(void) createGeneralOptionsMenu
 {
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	
 	_generalOptionsMenu = [[CCMenu menuWithItems:nil] retain];
-	[_generalOptionsMenu setPosition:CGPointMake(winSize.width / 2, 14)];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"Beat" selector:@selector(doOptionAddEntity:) userData:@"BEEATER"]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"BeatCeil" selector:@selector(doOptionAddEntity:) userData:@"BEEATER-CEILING"]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"BeatBird" selector:@selector(doOptionAddEntity:) userData:@"BEEATER-BIRD"]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"BeatFish" selector:@selector(doOptionAddEntity:) userData:@"BEEATER-FISH"]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"Mushroom" selector:@selector(doOptionAddEntity:) userData:@"MUSHROOM"]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"SmMushroom" selector:@selector(doOptionAddEntity:) userData:@"SMOKEMUSHROOM"]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"Nut" selector:@selector(doOptionAddEntity:) userData:@"NUT"]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"Egg" selector:@selector(doOptionAddEntity:) userData:@"EGG"]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"Pollen" selector:@selector(doOptionAddEntity:) userData:@"POLLEN"]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"Ramp" selector:@selector(doOptionAddEntity:) userData:@"RAMP"]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"Sling" selector:@selector(doOptionAddEntity:) userData:@"SLINGER"]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"Wood" selector:@selector(doOptionAddEntity:) userData:@"WOOD"]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"Leaf" selector:@selector(doOptionAddEntity:) userData:@"LEAF"]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"Nest" selector:@selector(doOptionAddEntity:) userData:@"HANGNEST"]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"Add Entity" selector:@selector(doOptionOpenEntityMenu:) userData:nil]];
 	[_generalOptionsMenu alignItemsHorizontallyWithPadding:5.0f];
 }
 
 -(void) createGeneralEntityOptionsMenu
 {
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	
 	_generalEntityOptionsMenu = [[CCMenu menuWithItems:nil] retain];
-	[_generalEntityOptionsMenu setPosition:CGPointMake(winSize.width / 2, 14)];
 	[_generalEntityOptionsMenu addChild:[self createMenuItem:@"Mirror" selector:@selector(doOptionMirror:) userData:nil]];
 	[_generalEntityOptionsMenu addChild:[self createMenuItem:@"Rotate Left" selector:@selector(doOptionRotateLeft:) userData:nil]];
 	[_generalEntityOptionsMenu addChild:[self createMenuItem:@"Rotate Right" selector:@selector(doOptionRotateRight:) userData:nil]];
@@ -100,10 +87,7 @@
 
 -(void) createBeeaterOptionsMenu
 {
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	
 	_beeaterOptionsMenu = [[CCMenu menuWithItems:nil] retain];
-	[_beeaterOptionsMenu setPosition:CGPointMake(winSize.width / 2, 34)];
 	[_beeaterOptionsMenu addChild:[self createMenuItem:@"Bee" selector:@selector(doOptionSetBeeaterBeeType:) userData:@"BEE"]];
 	[_beeaterOptionsMenu addChild:[self createMenuItem:@"Bombee" selector:@selector(doOptionSetBeeaterBeeType:) userData:@"BOMBEE"]];
 	[_beeaterOptionsMenu addChild:[self createMenuItem:@"Speedee" selector:@selector(doOptionSetBeeaterBeeType:) userData:@"SPEEDEE"]];
@@ -113,10 +97,7 @@
 
 -(void) createSlingerOptionsMenu
 {
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	
 	_slingerOptionsMenu = [[CCMenu menuWithItems:nil] retain];
-	[_slingerOptionsMenu setPosition:CGPointMake(winSize.width / 2, 34)];
 	[_slingerOptionsMenu addChild:[self createMenuItem:@"Bee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"BEE"]];
 	[_slingerOptionsMenu addChild:[self createMenuItem:@"Bombee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"BOMBEE"]];
 	[_slingerOptionsMenu addChild:[self createMenuItem:@"Speedee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"SPEEDEE"]];
@@ -127,10 +108,7 @@
 
 -(void) createMovementOptionsMenu
 {
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	
 	_movementOptionsMenu = [[CCMenu menuWithItems:nil] retain];
-	[_movementOptionsMenu setPosition:CGPointMake(winSize.width / 2, 34)];
 	[_movementOptionsMenu addChild:[self createMenuItem:@"Add move point" selector:@selector(doOptionAddMovementIndicator:) userData:nil]];	
 	[_movementOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
 }
@@ -153,30 +131,49 @@
 {
 	if (_entityWithOptionsDisplayed != [_editControlSystem selectedEntity])
 	{
-		_entityWithOptionsDisplayed = [_editControlSystem selectedEntity];
+		[self updateMenus];
+	}
+}
+
+-(void) updateMenus
+{
+	_entityWithOptionsDisplayed = [_editControlSystem selectedEntity];
+	
+	[self removeAllMenus];
+	
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	int currentX = winSize.width / 2;
+	int currentY = 14;
+	
+	if (_entityWithOptionsDisplayed != nil)
+	{
+		[_generalEntityOptionsMenu setPosition:CGPointMake(currentX, currentY)];
+		currentY += 20;
+		[_layer addChild:_generalEntityOptionsMenu];
 		
-		[self removeAllMenus];
-		
-		if (_entityWithOptionsDisplayed != nil)
+		if ([_entityWithOptionsDisplayed hasComponent:[BeeaterComponent class]])
 		{
-			[_layer addChild:_generalEntityOptionsMenu];
-			if ([_entityWithOptionsDisplayed hasComponent:[BeeaterComponent class]])
-			{
-				[_layer addChild:_beeaterOptionsMenu];
-			}
-			if ([_entityWithOptionsDisplayed hasComponent:[SlingerComponent class]])
-			{
-				[_layer addChild:_slingerOptionsMenu];
-			}
-			if ([_entityWithOptionsDisplayed hasComponent:[MovementComponent class]])
-			{
-				[_layer addChild:_movementOptionsMenu];
-			}
+			[_beeaterOptionsMenu setPosition:CGPointMake(currentX, currentY)];
+			currentY += 20;
+			[_layer addChild:_beeaterOptionsMenu];
 		}
-		else
+		if ([_entityWithOptionsDisplayed hasComponent:[SlingerComponent class]])
 		{
-			[_layer addChild:_generalOptionsMenu];
+			[_slingerOptionsMenu setPosition:CGPointMake(currentX, currentY)];
+			currentY += 20;
+			[_layer addChild:_slingerOptionsMenu];
 		}
+		if ([_entityWithOptionsDisplayed hasComponent:[MovementComponent class]])
+		{
+			[_movementOptionsMenu setPosition:CGPointMake(currentX, currentY)];
+			currentY += 20;
+			[_layer addChild:_movementOptionsMenu];
+		}
+	}
+	else
+	{
+		[_generalOptionsMenu setPosition:CGPointMake(currentX, currentY)];
+		[_layer addChild:_generalOptionsMenu];
 	}
 }
 		 
@@ -201,20 +198,10 @@
 	[self ensureMenuIsNotInLayer:_movementOptionsMenu];
 }
 
--(void) doOptionAddEntity:(id)sender
+-(void) doOptionOpenEntityMenu:(id)sender
 {
-	CCMenuItem *menuItem = (CCMenuItem *)sender;
-	NSString *type = [menuItem userData];
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	
-	Entity *entity = [EntityFactory createEntity:type world:_world];
-	
-	[entity addComponent:[EditComponent componentWithLevelLayoutType:type]];
-	[entity refresh];
-	
-	[EntityUtil setEntityPosition:entity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
-	
-	[_editControlSystem selectEntity:entity];
+	Game *game = [_editState game];
+	[game pushState:[EntitySelectIngameMenuState state]];
 }
 
 -(void) doOptionMirror:(id)sender

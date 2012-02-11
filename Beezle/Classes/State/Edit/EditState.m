@@ -9,9 +9,12 @@
 #import "EditState.h"
 #import "BeeaterAnimationSystem.h"
 #import "BeeQueueRenderingSystem.h"
+#import "EditComponent.h"
 #import "EditControlSystem.h"
 #import "EditIngameMenuState.h"
 #import "EditOptionsSystem.h"
+#import "EntityFactory.h"
+#import "EntityUtil.h"
 #import "Game.h"
 #import "InputSystem.h"
 #import "LabelManager.h"
@@ -88,7 +91,7 @@
 	[systemManager setSystem:_inputSystem];
 	_editControlSystem = [[[EditControlSystem alloc] init] autorelease];
 	[systemManager setSystem:_editControlSystem];
-	_editOptionsSystem = [[[EditOptionsSystem alloc] initWithLayer:_uiLayer] autorelease];
+	_editOptionsSystem = [[[EditOptionsSystem alloc] initWithLayer:_uiLayer andEditState:self] autorelease];
 	[systemManager setSystem:_editOptionsSystem];
 	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithZ:2] autorelease];
 	[systemManager setSystem:_beeQueueRenderingSystem];
@@ -126,6 +129,19 @@
 	[_world setDelta:(1000.0f * delta)];
     
 	[[_world systemManager] processAll];
+}
+
+-(void) addEntityWithType:(NSString *)type
+{	
+	Entity *entity = [EntityFactory createEntity:type world:_world];
+	
+	[entity addComponent:[EditComponent componentWithLevelLayoutType:type]];
+	[entity refresh];
+	
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	[EntityUtil setEntityPosition:entity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
+	
+	[_editControlSystem selectEntity:entity];
 }
 
 -(void) pauseGame:(id)sender

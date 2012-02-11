@@ -157,6 +157,7 @@
 		2C5EFC2B14E496A10071ED39 /* TrailComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC2A14E496A10071ED39 /* TrailComponent.m */; };
 		2C5EFC2E14E497720071ED39 /* Speedee-Puff.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC2D14E497720071ED39 /* Speedee-Puff.plist */; };
 		2C5EFC3114E499C20071ED39 /* TrailSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3014E499C20071ED39 /* TrailSystem.m */; };
+		2C5EFC3414E6C5510071ED39 /* EntitySelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3314E6C5510071ED39 /* EntitySelectIngameMenuState.m */; };
 		2C64AD0914B89D7E00ABD114 /* Levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C64ACEC14B89D7E00ABD114 /* Levels.plist */; };
 		2C64AD1414BA4F0400ABD114 /* BeeControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C64AD1314BA4F0300ABD114 /* BeeControlSystem.m */; };
 		2C74DCE014DC8BBF00AA54F4 /* SmokeMushroom-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C74DCDF14DC8BBF00AA54F4 /* SmokeMushroom-Animations.plist */; };
@@ -636,6 +637,8 @@
 		2C5EFC2D14E497720071ED39 /* Speedee-Puff.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Speedee-Puff.plist"; sourceTree = "<group>"; };
 		2C5EFC2F14E499C20071ED39 /* TrailSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrailSystem.h; path = Classes/System/TrailSystem.h; sourceTree = "<group>"; };
 		2C5EFC3014E499C20071ED39 /* TrailSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrailSystem.m; path = Classes/System/TrailSystem.m; sourceTree = "<group>"; };
+		2C5EFC3214E6C5510071ED39 /* EntitySelectIngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntitySelectIngameMenuState.h; sourceTree = "<group>"; };
+		2C5EFC3314E6C5510071ED39 /* EntitySelectIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntitySelectIngameMenuState.m; sourceTree = "<group>"; };
 		2C64ACEC14B89D7E00ABD114 /* Levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Levels.plist; sourceTree = "<group>"; };
 		2C64AD1214BA4F0300ABD114 /* BeeControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeControlSystem.h; path = Classes/System/BeeControlSystem.h; sourceTree = "<group>"; };
 		2C64AD1314BA4F0300ABD114 /* BeeControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeControlSystem.m; path = Classes/System/BeeControlSystem.m; sourceTree = "<group>"; };
@@ -1557,6 +1560,8 @@
 				2CC3EC1014D608980025F5DA /* EditIngameMenuState.m */,
 				2CC3EC1114D608980025F5DA /* EditState.h */,
 				2CC3EC1214D608980025F5DA /* EditState.m */,
+				2C5EFC3214E6C5510071ED39 /* EntitySelectIngameMenuState.h */,
+				2C5EFC3314E6C5510071ED39 /* EntitySelectIngameMenuState.m */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -2253,6 +2258,7 @@
 				2CC26A6114E46913004702DA /* BeeaterAnimationSystem.m in Sources */,
 				2C5EFC2B14E496A10071ED39 /* TrailComponent.m in Sources */,
 				2C5EFC3114E499C20071ED39 /* TrailSystem.m in Sources */,
+				2C5EFC3414E6C5510071ED39 /* EntitySelectIngameMenuState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

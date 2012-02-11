@@ -42,6 +42,7 @@
 
 -(id) initWithLevelName:(NSString *)levelName;
 
+-(void) addEntityWithType:(NSString *)type;
 -(void) pauseGame:(id)sender;
 
 @end
