@@ -93,10 +93,7 @@
 
 -(void) loadLevel:(NSString *)levelName inWorld:(World *)world edit:(BOOL)edit
 {
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	
 	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
-	
 	if (levelLayout == nil)
 	{
 		levelLayout = [self loadLevelLayoutWithHighestVersion:levelName];
@@ -113,22 +110,17 @@
 	}
 	
 	// Background
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	Entity *backgroundEntity = [EntityFactory createBackground:world withLevelName:levelName];
 	[EntityUtil setEntityPosition:backgroundEntity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
 	
 	// Edge
     [EntityFactory createEdge:world];
 	
+	// Entities
     for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
     {
 		Entity *entity = [EntityFactory createEntity:[levelLayoutEntry type] world:world];
-		
-		if (CONFIG_CAN_EDIT_LEVELS)
-		{
-			EditComponent *editComponent = [EditComponent componentWithLevelLayoutType:[levelLayoutEntry type]];
-			[entity addComponent:editComponent];
-			[entity refresh];
-		}
 		
 		if ([[levelLayoutEntry componentsDict] objectForKey:@"movement"] != nil)
 		{
@@ -136,21 +128,25 @@
 			[[MovementComponent getFrom:entity] populateWithContentsOfDictionary:movementDict world:world];
 		}
 		
-		// TODO: How do we get rid of this?
 		if (CONFIG_CAN_EDIT_LEVELS && edit)
 		{
+			EditComponent *editComponent = [EditComponent componentWithLevelLayoutType:[levelLayoutEntry type]];
+			[entity addComponent:editComponent];
+			[entity refresh];
+			
+			// TODO: How do we get rid of this?
 			if ([[levelLayoutEntry componentsDict] objectForKey:@"movement"] != nil)
 			{
 				// Load movement points as movement indicator entities to allow for editing
 				MovementComponent *movementComponent = [MovementComponent getFrom:entity];
-				EditComponent *currentEditComponent = [EditComponent getFrom:entity];
+				EditComponent *currentEditComponent = editComponent;
 				for (NSValue *movePositionAsValue in [movementComponent positions])
 				{
 					Entity *movementIndicator = [EntityFactory createMovementIndicator:world forEntity:entity];
 					[EntityUtil setEntityPosition:movementIndicator position:[movePositionAsValue CGPointValue]];
 					[currentEditComponent setNextMovementIndicatorEntity:movementIndicator];
 					[currentEditComponent setMainMoveEntity:entity];
-					currentEditComponent = (EditComponent *)[movementIndicator getComponent:[EditComponent class]];
+					currentEditComponent = [EditComponent getFrom:movementIndicator];
 				}
 				[currentEditComponent setMainMoveEntity:entity];
 			}
