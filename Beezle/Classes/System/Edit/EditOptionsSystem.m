@@ -166,7 +166,6 @@
 		if ([_entityWithOptionsDisplayed hasComponent:[MovementComponent class]])
 		{
 			[_movementOptionsMenu setPosition:CGPointMake(currentX, currentY)];
-			currentY += 20;
 			[_layer addChild:_movementOptionsMenu];
 		}
 	}

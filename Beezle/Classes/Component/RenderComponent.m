@@ -78,6 +78,7 @@
 		RenderSprite *renderSprite = [_renderSpritesByName objectForKey:name];
 		RenderSprite *copiedRenderSprite = [renderSprite copy];
 		[copiedRenderComponent addRenderSprite:copiedRenderSprite withName:name];
+		[copiedRenderSprite release];
 	}
 	return copiedRenderComponent;
 }

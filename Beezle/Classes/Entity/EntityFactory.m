@@ -174,6 +174,7 @@
 	RenderComponent *copiedRenderComponent = [originalRenderComponent copy];
 	[copiedRenderComponent setAlpha:0.5f];
 	[movementIndicatorEntity addComponent:copiedRenderComponent];
+	[copiedRenderComponent release];
 	
 	EditComponent *editComponent = [EditComponent component];
 	[movementIndicatorEntity addComponent:editComponent];
