@@ -46,9 +46,9 @@
 	[_space setGravity:CGPointMake(0.0f, GRAVITY)];
 }
 
--(PhysicsComponent *) createPhysicsComponentWithFile:(NSString *)fileName bodyName:(NSString *)bodyName collisionType:(cpCollisionType)collisionType
+-(BodyInfo *) createBodyInfoFromFile:(NSString *)fileName bodyName:(NSString *)bodyName collisionType:(CollisionType *)collisionType
 {
-    if (![_loadedShapeFileNames containsObject:fileName])
+	if (![_loadedShapeFileNames containsObject:fileName])
     {
         [[GCpShapeCache sharedShapeCache] addShapesWithFile:fileName];
         [_loadedShapeFileNames addObject:fileName];
@@ -56,14 +56,15 @@
     
     BodyInfo *bodyInfo = [[GCpShapeCache sharedShapeCache] createBodyWithName:bodyName];
     
-    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:[bodyInfo body] andShapes:[bodyInfo shapes]];
+	if (collisionType != nil)
+	{
+		for (ChipmunkShape *shape in [bodyInfo shapes])
+		{
+			[shape setCollisionType:collisionType];
+		}
+	}
     
-    for (ChipmunkShape *shape in [physicsComponent shapes])
-    {
-		[shape setCollisionType:collisionType];
-    }
-    
-    return physicsComponent;
+    return bodyInfo;
 }
 
 -(void) detectBeforeCollisionsBetween:(cpCollisionType)type1 and:(cpCollisionType)type2

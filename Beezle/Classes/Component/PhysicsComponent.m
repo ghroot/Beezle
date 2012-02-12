@@ -9,7 +9,7 @@
 #import "PhysicsComponent.h"
 #import "BodyInfo.h"
 #import "CollisionType.h"
-#import "GCpShapeCache.h"
+#import "PhysicsSystem.h"
 #import "Utils.h"
 
 @implementation PhysicsComponent
@@ -17,7 +17,6 @@
 @synthesize body = _body;
 @synthesize shapes = _shapes;
 @synthesize positionUpdatedManually = _positionUpdatedManually;
-@synthesize isRougeBody = _isRougeBody;
 
 +(id) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
 {
@@ -40,23 +39,22 @@
 	{
 		if ([dict objectForKey:@"file"] != nil)
 		{
-			// TODO: Don't load each file more than once (cached)
-			[[GCpShapeCache sharedShapeCache] addShapesWithFile:[dict objectForKey:@"file"]];
+			NSString *filePath = [dict objectForKey:@"file"];
+			NSString *bodyName = [dict objectForKey:@"bodyName"];
 			
-			// TODO: Is body name needed?
-			BodyInfo *bodyInfo = [[GCpShapeCache sharedShapeCache] createBodyWithName:@"FloatingBlockA-01"];
+			CollisionType *collisionType = nil;
+			if ([dict objectForKey:@"collisionType"] != nil)
+			{
+				collisionType = [CollisionType enumFromName:[dict objectForKey:@"collisionType"]];
+			}
+			
+			PhysicsSystem *physicsSystem = (PhysicsSystem *)[[world systemManager] getSystem:[PhysicsSystem class]];
+			BodyInfo *bodyInfo = [physicsSystem createBodyInfoFromFile:filePath bodyName:bodyName collisionType:collisionType];
 			
 			[self setBody:[bodyInfo body]];
 			for (ChipmunkShape *shape in [bodyInfo shapes])
 			{
 				[self addShape:shape];
-				
-				// TODO: Set collision type
-			}
-			
-			if ([_body mass] == INFINITY)
-			{
-				_isRougeBody = TRUE;
 			}
 		}
 		else
@@ -71,7 +69,6 @@
 			else if (mass < 0.0f)
 			{
 				body = [ChipmunkBody bodyWithMass:INFINITY andMoment:INFINITY];
-				_isRougeBody = TRUE;
 			}
 			else
 			{
@@ -168,6 +165,11 @@
     [_body release];
     
     [super dealloc];
+}
+
+-(BOOL) isRougeBody
+{
+	return [_body mass] == INFINITY;
 }
 
 -(NSDictionary *) getAsDictionary

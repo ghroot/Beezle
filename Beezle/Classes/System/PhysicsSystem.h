@@ -11,6 +11,8 @@
 #import "cocos2d.h"
 #import "ObjectiveChipmunk.h"
 
+@class BodyInfo;
+@class CollisionType;
 @class PhysicsComponent;
 
 @interface PhysicsSystem : EntityComponentSystem
@@ -21,7 +23,7 @@
 
 @property (nonatomic, readonly) ChipmunkSpace *space;
 
--(PhysicsComponent *) createPhysicsComponentWithFile:(NSString *)fileName bodyName:(NSString *)bodyName collisionType:(cpCollisionType)collisionType;
+-(BodyInfo *) createBodyInfoFromFile:(NSString *)fileName bodyName:(NSString *)bodyName collisionType:(CollisionType *)collisionType;
 -(void) detectBeforeCollisionsBetween:(cpCollisionType)type1 and:(cpCollisionType)type2;
 -(void) detectAfterCollisionsBetween:(cpCollisionType)type1 and:(cpCollisionType)type2;
 -(BOOL) beginCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space;

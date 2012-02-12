@@ -18,14 +18,12 @@
 {
     ChipmunkBody *_body;
     NSMutableArray *_shapes;
-	BOOL _isRougeBody;
 	BOOL _positionUpdatedManually;
 }
 
 @property (nonatomic, retain) ChipmunkBody *body;
 @property (nonatomic, readonly) NSArray *shapes;
 @property (nonatomic) BOOL positionUpdatedManually;
-@property (nonatomic) BOOL isRougeBody;
 
 +(id) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
 +(id) componentWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes;
@@ -34,6 +32,7 @@
 -(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
 -(id) initWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes;
 -(id) initWithBody:(ChipmunkBody *)body andShape:(ChipmunkShape *)shape;
+-(BOOL) isRougeBody;
 -(void) addShape:(ChipmunkShape *)shape;
 -(ChipmunkShape *) firstPhysicsShape;
 -(void) setPositionManually:(CGPoint)position;

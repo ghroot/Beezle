@@ -9,6 +9,7 @@
 #import "EntityFactory.h"
 #import "BeeComponent.h"
 #import "BeeType.h"
+#import "BodyInfo.h"
 #import "CollisionType.h"
 #import "EditComponent.h"
 #import "EntityDescription.h"
@@ -45,7 +46,8 @@
     // Physics
     PhysicsSystem *physicsSystem = (PhysicsSystem *)[[world systemManager] getSystem:[PhysicsSystem class]];
     NSString *shapesFileName = [NSString stringWithFormat:@"%@-Shapes.plist", name];
-    PhysicsComponent *physicsComponent = [physicsSystem createPhysicsComponentWithFile:shapesFileName bodyName:name collisionType:[CollisionType BACKGROUND]];
+	BodyInfo *bodyInfo = [physicsSystem createBodyInfoFromFile:shapesFileName bodyName:name collisionType:[CollisionType BACKGROUND]];
+	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:[bodyInfo body] andShapes:[bodyInfo shapes]];
     [backgroundEntity addComponent:physicsComponent];
     
     [backgroundEntity refresh];
