@@ -48,10 +48,10 @@
 					TransformComponent *transformComponent = [TransformComponent getFrom:entity];
 					PhysicsComponent *otherPhysicsComponent = [PhysicsComponent getFrom:otherEntity];
 					
-					int left = [transformComponent position].x - 30;
-					int right = [transformComponent position].x + 30;
-					int top = [transformComponent position].y + 30;
-					int bottom = [transformComponent position].y - 30;
+					int left = [transformComponent position].x - 40;
+					int right = [transformComponent position].x + 40;
+					int top = [transformComponent position].y + 40;
+					int bottom = [transformComponent position].y - 40;
 					cpBB explosionBB = cpBBNew(left, bottom, right, top);
 					
 					cpBB otherBB = [[otherPhysicsComponent firstPhysicsShape] bb];
