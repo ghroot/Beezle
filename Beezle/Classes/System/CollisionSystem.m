@@ -30,6 +30,16 @@
 -(void) handleBeforeCollisionBetween:(CollisionType *)type1 and:(CollisionType *)type2 selector:(SEL)selector;
 -(void) handleAfterCollisionBetween:(CollisionType *)type1 and:(CollisionType *)type2 selector:(SEL)selector;
 -(CollisionMediator *) findMediatorForCollision:(Collision *)collision;
+-(void) handleCollisions;
+-(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity;
+-(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity;
+-(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity;
+-(void) handleCollisionBee:(Entity *)beeEntity withPollenOrange:(Entity *)pollenOrangeEntity;
+-(void) handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity;
+-(void) handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity;
+-(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity;
+-(void) handleCollisionBee:(Entity *)beeEntity withEgg:(Entity *)eggEntity;
+-(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity;
 
 @end
 
@@ -60,12 +70,10 @@
 
 -(void) initialise
 {
-	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionBee:withBackground:)];
-	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType BEEATER] selector:@selector(handleCollisionBee:withBeeater:)];
+	[self handleBeforeCollisionBetween:[CollisionType BEE] and:[CollisionType BEEATER] selector:@selector(handleCollisionBee:withBeeater:)];
 	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType EDGE] selector:@selector(handleCollisionBee:withEdge:)];
 	[self handleBeforeCollisionBetween:[CollisionType BEE] and:[CollisionType POLLEN] selector:@selector(handleCollisionBee:withPollen:)];
 	[self handleBeforeCollisionBetween:[CollisionType BEE] and:[CollisionType POLLEN_ORANGE] selector:@selector(handleCollisionBee:withPollenOrange:)];
-	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType RAMP] selector:@selector(handleCollisionBee:withRamp:)];
 	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType MUSHROOM] selector:@selector(handleCollisionBee:withMushroom:)];
     [self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType WOOD] selector:@selector(handleCollisionBee:withWood:)];
 	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType NUT] selector:@selector(handleCollisionBee:withNut:)];
@@ -122,26 +130,6 @@
     [_collisions removeAllObjects];    
 }
 
--(void) handleCollisionBee:(Entity *)beeEntity withRamp:(Entity *)rampEntity
-{
-    BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
-    BeeType *beeType = [beeComponent type];
-    
-    DisposableComponent *rampDisposableComponent = [DisposableComponent getFrom:rampEntity];
-    
-    if (![rampDisposableComponent isDisposed] &&
-        [beeType canDestroyRamp])
-    {
-		[rampDisposableComponent setIsDisposed:TRUE];
-		
-        [beeEntity deleteEntity];
-        
-		[EntityUtil animateAndDeleteEntity:rampEntity animationName:@"Ramp-Crash" disablePhysics:TRUE];
-        
-		[[SoundManager sharedManager] playSound:@"52144__blaukreuz__imp-02.m4a"];
-    }
-}
-
 -(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity
 {   
     DisposableComponent *beeaterDisposableComponent = [DisposableComponent getFrom:beeaterEntity];
@@ -149,15 +137,19 @@
     if (![beeaterDisposableComponent isDisposed])
     {
 		[beeaterDisposableComponent setIsDisposed:TRUE];
-		
-        [beeEntity deleteEntity];
-		
 		[EntityUtil animateDeleteAndSaveBeeFromBeeaterEntity:beeaterEntity];
-    }
-}
 
--(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity
-{
+		BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
+		if ([beeComponent type] == [BeeType SPEEDEE] &&
+			![beeComponent speedeeHitBeeater])
+		{
+			[beeComponent setSpeedeeHitBeeater:TRUE];
+		}
+		else
+		{
+			[EntityUtil animateAndDeleteEntity:beeEntity animationName:@"Bee-Crash" disablePhysics:TRUE];
+		}
+    }
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity
@@ -220,7 +212,6 @@
 	{
 		BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
 		BeeType *beeType = [beeComponent type];
-		
 		if ([beeType canDestroyWood])
 		{
 			[woodDisposableComponent setIsDisposed:TRUE];

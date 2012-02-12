@@ -14,7 +14,6 @@
 +(CollisionType *) EDGE;
 +(CollisionType *) BEE;
 +(CollisionType *) BEEATER;
-+(CollisionType *) RAMP;
 +(CollisionType *) POLLEN;
 +(CollisionType *) POLLEN_ORANGE;
 +(CollisionType *) MUSHROOM;

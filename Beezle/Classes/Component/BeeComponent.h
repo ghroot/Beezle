@@ -12,9 +12,11 @@
 @interface BeeComponent : Component
 {
 	BeeType *_type;
+	BOOL _speedeeHitBeeater;
 }
 
 @property (nonatomic, assign) BeeType *type;
+@property (nonatomic) BOOL speedeeHitBeeater;
 
 +(id) componentWithType:(BeeType *)type;
 

@@ -10,15 +10,14 @@
 
 @implementation BeeType
 
-@dynamic canDestroyRamp;
 @dynamic canDestroyWood;
 @dynamic canExplode;
 @dynamic slingerShootSpeedModifier;
 
-GANDENUM(BEE, 0, [NSNumber numberWithBool:FALSE], @"canDestroyRamp", [NSNumber numberWithBool:FALSE], @"canDestroyWood", [NSNumber numberWithBool:FALSE], @"canExplode", [NSNumber numberWithFloat:1.0f], @"slingerShootSpeedModifier")
-GANDENUM(SAWEE, 1, [NSNumber numberWithBool:FALSE], @"canDestroyRamp", [NSNumber numberWithBool:TRUE], @"canDestroyWood", [NSNumber numberWithBool:FALSE], @"canExplode", [NSNumber numberWithFloat:1.0f], @"slingerShootSpeedModifier")
-GANDENUM(SPEEDEE, 2,[NSNumber numberWithBool:FALSE], @"canDestroyRamp", [NSNumber numberWithBool:FALSE], @"canDestroyWood", [NSNumber numberWithBool:FALSE], @"canExplode", [NSNumber numberWithFloat:1.6f], @"slingerShootSpeedModifier")
-GANDENUM(BOMBEE, 3, [NSNumber numberWithBool:FALSE], @"canDestroyRamp", [NSNumber numberWithBool:FALSE], @"canDestroyWood", [NSNumber numberWithBool:TRUE], @"canExplode", [NSNumber numberWithFloat:0.7f], @"slingerShootSpeedModifier")
+GANDENUM(BEE, 0, [NSNumber numberWithBool:FALSE], @"canDestroyWood", [NSNumber numberWithBool:FALSE], @"canExplode", [NSNumber numberWithFloat:1.0f], @"slingerShootSpeedModifier")
+GANDENUM(SAWEE, 1, [NSNumber numberWithBool:TRUE], @"canDestroyWood", [NSNumber numberWithBool:FALSE], @"canExplode", [NSNumber numberWithFloat:1.0f], @"slingerShootSpeedModifier")
+GANDENUM(SPEEDEE, 2, [NSNumber numberWithBool:FALSE], @"canDestroyWood", [NSNumber numberWithBool:FALSE], @"canExplode", [NSNumber numberWithFloat:1.6f], @"slingerShootSpeedModifier")
+GANDENUM(BOMBEE, 3, [NSNumber numberWithBool:FALSE], @"canDestroyWood", [NSNumber numberWithBool:TRUE], @"canExplode", [NSNumber numberWithFloat:0.7f], @"slingerShootSpeedModifier")
 
 -(NSString *) capitalizedString
 {

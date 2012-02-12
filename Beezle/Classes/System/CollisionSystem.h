@@ -19,17 +19,5 @@
 }
 
 -(void) pushCollision:(Collision *)collision;
--(void) handleCollisions;
--(void) handleCollisionBee:(Entity *)beeEntity withRamp:(Entity *)rampEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withPollenOrange:(Entity *)pollenOrangeEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withEgg:(Entity *)eggEntity;
--(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity;
 
 @end

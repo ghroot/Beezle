@@ -11,6 +11,7 @@
 @implementation BeeComponent
 
 @synthesize type = _type;
+@synthesize speedeeHitBeeater = _speedeeHitBeeater;
 
 +(id) componentWithType:(BeeType *)type
 {
