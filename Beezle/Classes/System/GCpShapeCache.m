@@ -234,8 +234,12 @@ typedef enum
     ChipmunkBody *body;
     if (bd->mass > 0.0f)
     {
-        body = [ChipmunkBody bodyWithMass:bd->mass andMoment:bd->momentum];
+		body = [ChipmunkBody bodyWithMass:bd->mass andMoment:bd->momentum];
     }
+	else if (bd->mass < 0.0f)
+	{
+		body = [ChipmunkBody bodyWithMass:INFINITY andMoment:INFINITY];
+	}
     else
     {
         body = [ChipmunkBody staticBody];

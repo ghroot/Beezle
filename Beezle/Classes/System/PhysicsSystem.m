@@ -168,6 +168,8 @@
 {
     if ([_world delta] > 0)
 	{
+//		[_space step:FIXED_TIMESTEP];
+		
 		[_space step:(FIXED_TIMESTEP / 2.0f)];
 		[_space step:(FIXED_TIMESTEP / 2.0f)];
 	}

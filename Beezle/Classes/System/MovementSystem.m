@@ -80,7 +80,7 @@
 {
 	CGPoint currentPosition = [self getCurrentPosition:entity];
 	CGPoint nextPosition = [self getNextPosition:entity];
-	float moveSpeed = 0.8f;
+	float moveSpeed = 0.5f;
 	if (ccpDistance(currentPosition, nextPosition) < moveSpeed)
 	{
 		return ccpSub(nextPosition, currentPosition);

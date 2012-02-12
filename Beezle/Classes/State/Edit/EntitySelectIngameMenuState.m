@@ -37,7 +37,7 @@
 		[cancelMenuItem setFontSize:22];
 		[_menu addChild:cancelMenuItem];
 		
-		[_menu alignItemsInRows:[NSNumber numberWithInt:8], [NSNumber numberWithInt:7], nil];
+		[_menu alignItemsInRows:[NSNumber numberWithInt:8], [NSNumber numberWithInt:8], nil];
 		
 		[self addChild:_menu];
 	}
@@ -51,6 +51,7 @@
 	[self addMenuItemForEntityType:@"BEEATER-FISH"];
 	[self addMenuItemForEntityType:@"BEEATER"];
 	[self addMenuItemForEntityType:@"EGG"];
+	[self addMenuItemForEntityType:@"FLOATING-BLOCK-A"];
 	[self addMenuItemForEntityType:@"HANGNEST"];
 	[self addMenuItemForEntityType:@"LEAF"];
 	[self addMenuItemForEntityType:@"MUSHROOM"];

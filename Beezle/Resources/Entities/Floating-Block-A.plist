@@ -3,35 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>POLLEN</string>
+	<string>FLOATING-BLOCK-A</string>
 	<key>components</key>
 	<dict>
-		<key>disposable</key>
+		<key>movement</key>
 		<dict/>
 		<key>physics</key>
 		<dict>
-			<key>body</key>
-			<dict>
-				<key>mass</key>
-				<real>0</real>
-			</dict>
-			<key>shapes</key>
-			<array>
-				<dict>
-					<key>type</key>
-					<string>circle</string>
-					<key>radius</key>
-					<real>8</real>
-					<key>elasticity</key>
-					<real>0.8</real>
-					<key>friction</key>
-					<real>0.5</real>
-					<key>collisionType</key>
-					<string>POLLEN</string>
-					<key>layers</key>
-					<real>1</real>
-				</dict>
-			</array>
+			<key>file</key>
+			<string>FloatingBlockA-Shapes.plist</string>
 		</dict>
 		<key>render</key>
 		<dict>
@@ -43,13 +23,13 @@
 					<key>spriteSheetName</key>
 					<string>Sprites</string>
 					<key>animationFile</key>
-					<string>Pollen-Animations.plist</string>
+					<string>FloatingBlockA-Animations.plist</string>
 					<key>z</key>
 					<integer>2</integer>
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.5 }</string>
 					<key>defaultIdleAnimation</key>
-					<string>Pollen-Idle</string>
+					<string>FloatingBlockA-Idle</string>
 				</dict>
 			</array>
 		</dict>

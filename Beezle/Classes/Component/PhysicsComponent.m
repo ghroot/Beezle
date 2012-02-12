@@ -7,7 +7,9 @@
 //
 
 #import "PhysicsComponent.h"
+#import "BodyInfo.h"
 #import "CollisionType.h"
+#import "GCpShapeCache.h"
 #import "Utils.h"
 
 @implementation PhysicsComponent
@@ -36,77 +38,97 @@
 {
 	if (self = [self init])
 	{
-		NSDictionary *bodyDict = [dict objectForKey:@"body"];
-		NSString *bodyType = [bodyDict objectForKey:@"type"];
-		ChipmunkBody *body = nil;
-		if ([bodyType isEqualToString:@"static"])
+		if ([dict objectForKey:@"file"] != nil)
 		{
-			body = [ChipmunkBody staticBody];
-		}
-		else if ([bodyType isEqualToString:@"rouge"])
-		{
-			body = [ChipmunkBody bodyWithMass:INFINITY andMoment:INFINITY];
-			_isRougeBody = TRUE;
-		}
-		else if ([bodyType isEqualToString:@"dynamic"])
-		{
-			float mass = [[bodyDict objectForKey:@"mass"] floatValue];
-			float moment = [[bodyDict objectForKey:@"moment"] floatValue];
-			body = [ChipmunkBody bodyWithMass:mass andMoment:moment];
+			// TODO: Don't load each file more than once (cached)
+			[[GCpShapeCache sharedShapeCache] addShapesWithFile:[dict objectForKey:@"file"]];
+			
+			// TODO: Is body name needed?
+			BodyInfo *bodyInfo = [[GCpShapeCache sharedShapeCache] createBodyWithName:@"FloatingBlockA-01"];
+			
+			[self setBody:[bodyInfo body]];
+			for (ChipmunkShape *shape in [bodyInfo shapes])
+			{
+				[self addShape:shape];
+				
+				// TODO: Set collision type
+			}
+			
+			if ([_body mass] == INFINITY)
+			{
+				_isRougeBody = TRUE;
+			}
 		}
 		else
 		{
-			NSLog(@"Unknown body type: %@", bodyType);
-		}
-		_body = [body retain];
-		
-		NSArray *shapeDicts = [dict objectForKey:@"shapes"];
-		for (NSDictionary *shapeDict in shapeDicts)
-		{
-			NSString *shapeType = [shapeDict objectForKey:@"type"];
-			float elasticity = [[shapeDict objectForKey:@"elasticity"] floatValue];
-			float friction = [[shapeDict objectForKey:@"friction"] floatValue];
-			CollisionType *collisionType = [CollisionType enumFromName:[shapeDict objectForKey:@"collisionType"]];
-			CGPoint offset;
-			if ([shapeDict objectForKey:@"offset"] != nil)
+			NSDictionary *bodyDict = [dict objectForKey:@"body"];
+			float mass = [[bodyDict objectForKey:@"mass"] floatValue];
+			ChipmunkBody *body = nil;
+			if (mass == 0.0f)
 			{
-				offset = [Utils stringToPoint:[shapeDict objectForKey:@"offset"]];
+				body = [ChipmunkBody staticBody];
+			}
+			else if (mass < 0.0f)
+			{
+				body = [ChipmunkBody bodyWithMass:INFINITY andMoment:INFINITY];
+				_isRougeBody = TRUE;
 			}
 			else
 			{
-				offset = CGPointZero;
+				
+				float moment = [[bodyDict objectForKey:@"moment"] floatValue];
+				body = [ChipmunkBody bodyWithMass:mass andMoment:moment];
 			}
+			_body = [body retain];
 			
-			ChipmunkShape *shape = nil;
-			if ([shapeType isEqualToString:@"poly"])
+			NSArray *shapeDicts = [dict objectForKey:@"shapes"];
+			for (NSDictionary *shapeDict in shapeDicts)
 			{
-				NSArray *verticesAsStrings = [shapeDict objectForKey:@"vertices"];
-				CGPoint verts[[verticesAsStrings count]];
-				for (NSString *vertexAsString in verticesAsStrings)
+				NSString *shapeType = [shapeDict objectForKey:@"type"];
+				float elasticity = [[shapeDict objectForKey:@"elasticity"] floatValue];
+				float friction = [[shapeDict objectForKey:@"friction"] floatValue];
+				CollisionType *collisionType = [CollisionType enumFromName:[shapeDict objectForKey:@"collisionType"]];
+				CGPoint offset;
+				if ([shapeDict objectForKey:@"offset"] != nil)
 				{
-					CGPoint vert = [Utils stringToPoint:vertexAsString];
-					verts[[verticesAsStrings indexOfObject:vertexAsString]] = vert;
+					offset = [Utils stringToPoint:[shapeDict objectForKey:@"offset"]];
 				}
-				shape = [ChipmunkPolyShape polyWithBody:body count:[verticesAsStrings count] verts:verts offset:offset];
+				else
+				{
+					offset = CGPointZero;
+				}
+				
+				ChipmunkShape *shape = nil;
+				if ([shapeType isEqualToString:@"poly"])
+				{
+					NSArray *verticesAsStrings = [shapeDict objectForKey:@"vertices"];
+					CGPoint verts[[verticesAsStrings count]];
+					for (NSString *vertexAsString in verticesAsStrings)
+					{
+						CGPoint vert = [Utils stringToPoint:vertexAsString];
+						verts[[verticesAsStrings indexOfObject:vertexAsString]] = vert;
+					}
+					shape = [ChipmunkPolyShape polyWithBody:body count:[verticesAsStrings count] verts:verts offset:offset];
+				}
+				else if ([shapeType isEqualToString:@"circle"])
+				{
+					float radius = [[shapeDict objectForKey:@"radius"] floatValue];
+					shape = [ChipmunkCircleShape circleWithBody:body radius:radius offset:offset];
+				}
+				[shape setElasticity:elasticity];
+				[shape setFriction:friction];
+				[shape setCollisionType:collisionType];
+				if ([shapeDict objectForKey:@"layers"] != nil)
+				{
+					[shape setLayers:[[shapeDict objectForKey:@"layers"] intValue]];
+				}
+				if ([shapeDict objectForKey:@"group"] != nil)
+				{
+					[shape setGroup:[CollisionType enumFromName:[shapeDict objectForKey:@"group"]]];
+				}
+				
+				[_shapes addObject:shape];
 			}
-			else if ([shapeType isEqualToString:@"circle"])
-			{
-				float radius = [[shapeDict objectForKey:@"radius"] floatValue];
-				shape = [ChipmunkCircleShape circleWithBody:body radius:radius offset:offset];
-			}
-			[shape setElasticity:elasticity];
-			[shape setFriction:friction];
-			[shape setCollisionType:collisionType];
-			if ([shapeDict objectForKey:@"layers"] != nil)
-			{
-				[shape setLayers:[[shapeDict objectForKey:@"layers"] intValue]];
-			}
-			if ([shapeDict objectForKey:@"group"] != nil)
-			{
-				[shape setGroup:[CollisionType enumFromName:[shapeDict objectForKey:@"group"]]];
-			}
-			
-			[_shapes addObject:shape];
 		}
 	}
 	return self;
