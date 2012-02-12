@@ -35,9 +35,11 @@
 {
 	World *_world;
     NSMutableArray *_entities;
+	BOOL _active;
 }
 
 @property (nonatomic, assign) World *world;
+@property (nonatomic, readonly) BOOL active;
 
 -(void) initialise;
 -(void) begin;

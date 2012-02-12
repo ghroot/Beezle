@@ -52,6 +52,7 @@
 -(id) copyWithZone:(NSZone *)zone
 {
 	RenderSprite *copiedRenderSprite = [[[self class] allocWithZone:zone] initWithSpriteSheet:_spriteSheet z:_z];
+	[[copiedRenderSprite sprite] setAnchorPoint:[_sprite anchorPoint]];
 	[[copiedRenderSprite sprite] setDisplayFrame:[_sprite displayedFrame]];
 	return copiedRenderSprite;
 }

@@ -31,10 +31,10 @@
 					<string>poly</string>
 					<key>vertices</key>
 					<array>
+						<string>{ -15, -40 }</string>
 						<string>{ -15, 0 }</string>
-						<string>{ -15, 40 }</string>
-						<string>{ 15, 40 }</string>
 						<string>{ 15, 0 }</string>
+						<string>{ 15, -40 }</string>
 					</array>
 					<key>elasticity</key>
 					<real>0.8</real>
@@ -59,7 +59,7 @@
 					<key>z</key>
 					<integer>2</integer>
 					<key>anchorPoint</key>
-					<string>{ 0.6, -0.1 }</string>
+					<string>{ 0.6, 0.9 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>Beeater-Body-Ceiling-Idle</string>
 				</dict>
@@ -73,7 +73,7 @@
 					<key>z</key>
 					<integer>3</integer>
 					<key>anchorPoint</key>
-					<string>{ 0.8, 0.3 }</string>
+					<string>{ 0.8, 1.1 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>Beeater-Head-Idle-NoBee</string>
 				</dict>

@@ -38,11 +38,13 @@
 
 -(void) deactivate
 {
+	[super deactivate];
     [self stopListeningForTouches];
 }
 
 -(void) activate
 {
+	[super activate];
     [self startListeningForTouches];
 }
 

@@ -6,16 +6,15 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import "artemis.h"
 #import "cocos2d.h"
 #import "ObjectiveChipmunk.h"
 
 @interface DebugRenderPhysicsLayer : CCLayer
 {
-    NSMutableArray *_shapesToDraw;
+    NSMutableArray *_entitiesToDraw;
 }
 
-@property (nonatomic, retain) NSMutableArray *shapesToDraw;
-
--(void) drawShape:(ChipmunkShape *)shape;
+@property (nonatomic, retain) NSMutableArray *entitiesToDraw;
 
 @end

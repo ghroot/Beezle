@@ -34,12 +34,14 @@
 @implementation EntitySystem
 
 @synthesize world = _world;
+@synthesize active = _active;
 
 -(id) init
 {
     if (self = [super init])
     {
         _entities = [[NSMutableArray alloc] init];
+		_active = TRUE;
     }
     return self;
 }
@@ -122,10 +124,12 @@
 
 -(void) deactivate
 {
+	_active = FALSE;
 }
 
 -(void) activate
 {
+	_active = TRUE;
 }
 
 @end

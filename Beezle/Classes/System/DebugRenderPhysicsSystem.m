@@ -9,7 +9,6 @@
 #import "DebugRenderPhysicsSystem.h"
 #import "DebugRenderPhysicsLayer.h"
 #import "PhysicsComponent.h"
-#import "PhysicsSystem.h"
 
 @implementation DebugRenderPhysicsSystem
 
@@ -34,17 +33,24 @@
 
 -(void) begin
 {
-    [[_debugRenderPhysicsLayer shapesToDraw] removeAllObjects];
+    [[_debugRenderPhysicsLayer entitiesToDraw] removeAllObjects];
 }
 
 -(void) processEntity:(Entity *)entity
 {
-    PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
-    
-    for (ChipmunkShape *shape in [physicsComponent shapes])
-    {
-        [[_debugRenderPhysicsLayer shapesToDraw] addObject:shape];
-    }
+	[[_debugRenderPhysicsLayer entitiesToDraw] addObject:entity];
+}
+
+-(void) activate
+{
+	[super activate];
+	[_scene addChild:_debugRenderPhysicsLayer];
+}
+
+-(void) deactivate
+{
+	[super deactivate];
+	[_scene removeChild:_debugRenderPhysicsLayer cleanup:TRUE];
 }
 
 @end

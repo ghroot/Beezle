@@ -11,6 +11,7 @@
 
 @class BeeaterAnimationSystem;
 @class BeeQueueRenderingSystem;
+@class DebugRenderPhysicsSystem;
 @class EditControlSystem;
 @class EditOptionsSystem;
 @class InputSystem;
@@ -33,6 +34,7 @@
 	EditOptionsSystem *_editOptionsSystem;
 	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
 	BeeaterAnimationSystem *_beeaterAnimationSystem;
+	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
 }
 
 @property (nonatomic, readonly) NSString *levelName;
@@ -43,6 +45,7 @@
 -(id) initWithLevelName:(NSString *)levelName;
 
 -(void) addEntityWithType:(NSString *)type;
+-(void) toggleDebugPhysicsDrawing;
 -(void) pauseGame:(id)sender;
 
 @end

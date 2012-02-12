@@ -71,8 +71,9 @@
 -(void) createGeneralOptionsMenu
 {
 	_generalOptionsMenu = [[CCMenu menuWithItems:nil] retain];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"Add Entity" selector:@selector(doOptionOpenEntityMenu:) userData:nil]];
-	[_generalOptionsMenu alignItemsHorizontallyWithPadding:5.0f];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"Add entity" selector:@selector(doOptionOpenEntityMenu:) userData:nil]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"Toggle lines" selector:@selector(doOptionToggleLines:) userData:nil]];
+	[_generalOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
 }
 
 -(void) createGeneralEntityOptionsMenu
@@ -201,6 +202,11 @@
 {
 	Game *game = [_editState game];
 	[game pushState:[EntitySelectIngameMenuState state]];
+}
+
+-(void) doOptionToggleLines:(id)sender
+{
+	[_editState toggleDebugPhysicsDrawing];
 }
 
 -(void) doOptionMirror:(id)sender

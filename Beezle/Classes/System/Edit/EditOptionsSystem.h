@@ -32,6 +32,7 @@
 -(id) initWithLayer:(CCLayer *)layer andEditState:(EditState *)editState;
 
 -(void) doOptionOpenEntityMenu:(id)sender;
+-(void) doOptionToggleLines:(id)sender;
 
 -(void) doOptionMirror:(id)sender;
 -(void) doOptionRotateLeft:(id)sender;

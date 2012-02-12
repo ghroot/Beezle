@@ -9,6 +9,7 @@
 #import "EditState.h"
 #import "BeeaterAnimationSystem.h"
 #import "BeeQueueRenderingSystem.h"
+#import "DebugRenderPhysicsSystem.h"
 #import "EditComponent.h"
 #import "EditControlSystem.h"
 #import "EditIngameMenuState.h"
@@ -97,6 +98,9 @@
 	[systemManager setSystem:_beeQueueRenderingSystem];
 	_beeaterAnimationSystem = [[[BeeaterAnimationSystem alloc] init] autorelease];
 	[systemManager setSystem:_beeaterAnimationSystem];
+	_debugRenderPhysicsSystem = [[[DebugRenderPhysicsSystem alloc] initWithScene:self] autorelease];
+	[systemManager setSystem:_debugRenderPhysicsSystem];
+	[_debugRenderPhysicsSystem deactivate];
 	
 	[systemManager initialiseAll];
 }
@@ -142,6 +146,18 @@
 	[EntityUtil setEntityPosition:entity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
 	
 	[_editControlSystem selectEntity:entity];
+}
+
+-(void) toggleDebugPhysicsDrawing
+{
+	if ([_debugRenderPhysicsSystem active])
+	{
+		[_debugRenderPhysicsSystem deactivate];
+	}
+	else
+	{
+		[_debugRenderPhysicsSystem activate];
+	}
 }
 
 -(void) pauseGame:(id)sender
