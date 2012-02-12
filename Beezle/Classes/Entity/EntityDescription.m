@@ -39,7 +39,7 @@
 		}
 		else if ([componentType isEqualToString:@"beeater"])
 		{
-			component = [BeeaterComponent component];
+			component = [BeeaterComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"disposable"])
 		{
