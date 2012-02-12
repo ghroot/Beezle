@@ -169,6 +169,9 @@
 		2C5EFC6214E7DACF0071ED39 /* Sprites.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC4C14E7DACF0071ED39 /* Sprites.png */; };
 		2C5EFC6414E7DB480071ED39 /* Floating-Block-A.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC6314E7DB470071ED39 /* Floating-Block-A.plist */; };
 		2C5EFC6614E7DCC20071ED39 /* FloatingBlockA-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC6514E7DCC20071ED39 /* FloatingBlockA-Animations.plist */; };
+		2C5EFC6814E811420071ED39 /* Pollen-Orange.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC6714E811400071ED39 /* Pollen-Orange.plist */; };
+		2C5EFC6A14E811840071ED39 /* PollenO-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC6914E811840071ED39 /* PollenO-Shapes.plist */; };
+		2C5EFC6C14E811E40071ED39 /* PollenO-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC6B14E811E40071ED39 /* PollenO-Animations.plist */; };
 		2C64AD0914B89D7E00ABD114 /* Levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C64ACEC14B89D7E00ABD114 /* Levels.plist */; };
 		2C64AD1414BA4F0400ABD114 /* BeeControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C64AD1314BA4F0300ABD114 /* BeeControlSystem.m */; };
 		2C74DCE914DC975E00AA54F4 /* Level-A1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C74DCE414DC975E00AA54F4 /* Level-A1-hd.jpg */; };
@@ -653,6 +656,9 @@
 		2C5EFC4C14E7DACF0071ED39 /* Sprites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sprites.png; sourceTree = "<group>"; };
 		2C5EFC6314E7DB470071ED39 /* Floating-Block-A.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Floating-Block-A.plist"; sourceTree = "<group>"; };
 		2C5EFC6514E7DCC20071ED39 /* FloatingBlockA-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FloatingBlockA-Animations.plist"; sourceTree = "<group>"; };
+		2C5EFC6714E811400071ED39 /* Pollen-Orange.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Pollen-Orange.plist"; sourceTree = "<group>"; };
+		2C5EFC6914E811840071ED39 /* PollenO-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PollenO-Shapes.plist"; sourceTree = "<group>"; };
+		2C5EFC6B14E811E40071ED39 /* PollenO-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PollenO-Animations.plist"; sourceTree = "<group>"; };
 		2C64ACEC14B89D7E00ABD114 /* Levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Levels.plist; sourceTree = "<group>"; };
 		2C64AD1214BA4F0300ABD114 /* BeeControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeControlSystem.h; path = Classes/System/BeeControlSystem.h; sourceTree = "<group>"; };
 		2C64AD1314BA4F0300ABD114 /* BeeControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeControlSystem.m; path = Classes/System/BeeControlSystem.m; sourceTree = "<group>"; };
@@ -1314,6 +1320,7 @@
 				2C5EFC3E14E7DACF0071ED39 /* Mushroom-Animations.plist */,
 				2C5EFC3F14E7DACF0071ED39 /* Nut-Animations.plist */,
 				2C5EFC4014E7DACF0071ED39 /* Pollen-Animations.plist */,
+				2C5EFC6B14E811E40071ED39 /* PollenO-Animations.plist */,
 				2C5EFC4114E7DACF0071ED39 /* Ramp-Animations.plist */,
 				2C5EFC4214E7DACF0071ED39 /* Sawee-Animations.plist */,
 				2C5EFC4314E7DACF0071ED39 /* Sling-Animations.plist */,
@@ -1328,6 +1335,7 @@
 			isa = PBXGroup;
 			children = (
 				2C5EFC4814E7DACF0071ED39 /* FloatingBlockA-Shapes.plist */,
+				2C5EFC6914E811840071ED39 /* PollenO-Shapes.plist */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -1642,6 +1650,7 @@
 				2CC7184214E1E29500059B66 /* Mushroom.plist */,
 				2CC7184314E1E29500059B66 /* Nut.plist */,
 				2CC7184414E1E29500059B66 /* Pollen.plist */,
+				2C5EFC6714E811400071ED39 /* Pollen-Orange.plist */,
 				2CC7184514E1E29500059B66 /* Ramp.plist */,
 				2CC7184614E1E29500059B66 /* Sawee.plist */,
 				2CC7184714E1E29500059B66 /* Slinger.plist */,
@@ -2078,6 +2087,9 @@
 				2C5EFC6214E7DACF0071ED39 /* Sprites.png in Resources */,
 				2C5EFC6414E7DB480071ED39 /* Floating-Block-A.plist in Resources */,
 				2C5EFC6614E7DCC20071ED39 /* FloatingBlockA-Animations.plist in Resources */,
+				2C5EFC6814E811420071ED39 /* Pollen-Orange.plist in Resources */,
+				2C5EFC6A14E811840071ED39 /* PollenO-Shapes.plist in Resources */,
+				2C5EFC6C14E811E40071ED39 /* PollenO-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>POLLEN-ORANGE</string>
+	<key>components</key>
+	<dict>
+		<key>disposable</key>
+		<dict/>
+		<key>physics</key>
+		<dict>
+			<key>file</key>
+			<string>PollenO-Shapes.plist</string>
+			<key>bodyName</key>
+			<string>PollenO-01</string>
+			<key>collisionType</key>
+			<string>POLLEN_ORANGE</string>
+		</dict>
+		<key>render</key>
+		<dict>
+			<key>sprites</key>
+			<array>
+				<dict>
+					<key>name</key>
+					<string>default</string>
+					<key>spriteSheetName</key>
+					<string>Sprites</string>
+					<key>animationFile</key>
+					<string>PollenO-Animations.plist</string>
+					<key>z</key>
+					<integer>2</integer>
+					<key>anchorPoint</key>
+					<string>{ 0.5, 0.5 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>PollenO-Idle</string>
+				</dict>
+			</array>
+		</dict>
+		<key>transform</key>
+		<dict/>
+	</dict>
+</dict>
+</plist>

@@ -33,11 +33,14 @@
 		
 		[self createEntityMenuItems];
 		
-		CCMenuItemFont *cancelMenuItem = [CCMenuItemFont itemFromString:@"<CANCEL>" target:self selector:@selector(cancel:)];
+		CCMenuItemFont *cancelMenuItem = [CCMenuItemFont itemFromString:@"<cancel>" target:self selector:@selector(cancel:)];
 		[cancelMenuItem setFontSize:22];
 		[_menu addChild:cancelMenuItem];
 		
-		[_menu alignItemsInRows:[NSNumber numberWithInt:8], [NSNumber numberWithInt:8], nil];
+		int nMenuItems = [[_menu  children] count];
+		int num1 = ceilf(nMenuItems / 2.0f);
+		int num2 = floorf(nMenuItems / 2.0f);
+		[_menu alignItemsInRows:[NSNumber numberWithInt:num1], [NSNumber numberWithInt:num2], nil];
 		
 		[self addChild:_menu];
 	}
@@ -57,6 +60,7 @@
 	[self addMenuItemForEntityType:@"MUSHROOM"];
 	[self addMenuItemForEntityType:@"NUT"];
 	[self addMenuItemForEntityType:@"POLLEN"];
+	[self addMenuItemForEntityType:@"POLLEN-ORANGE"];
 	[self addMenuItemForEntityType:@"RAMP"];
 	[self addMenuItemForEntityType:@"SLINGER"];
 	[self addMenuItemForEntityType:@"SMOKE-MUSHROOM"];
