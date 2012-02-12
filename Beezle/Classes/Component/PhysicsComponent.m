@@ -53,7 +53,16 @@
 			
 			[self setBody:[bodyInfo body]];
 			for (ChipmunkShape *shape in [bodyInfo shapes])
-			{
+			{	
+				if ([dict objectForKey:@"layers"] != nil)
+				{
+					[shape setLayers:[[dict objectForKey:@"layers"] intValue]];
+				}
+				if ([dict objectForKey:@"group"] != nil)
+				{
+					[shape setGroup:[CollisionType enumFromName:[dict objectForKey:@"group"]]];
+				}
+				
 				[self addShape:shape];
 			}
 		}
