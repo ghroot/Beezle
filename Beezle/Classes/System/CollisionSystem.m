@@ -131,15 +131,16 @@
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity
-{   
+{  
+	BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
     DisposableComponent *beeaterDisposableComponent = [DisposableComponent getFrom:beeaterEntity];
     
-    if (![beeaterDisposableComponent isDisposed])
+    if ([beeComponent type] != [BeeType BOMBEE] &&
+		![beeaterDisposableComponent isDisposed])
     {
 		[beeaterDisposableComponent setIsDisposed:TRUE];
 		[EntityUtil animateDeleteAndSaveBeeFromBeeaterEntity:beeaterEntity];
 
-		BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
 		if ([beeComponent type] == [BeeType SPEEDEE] &&
 			![beeComponent speedeeHitBeeater])
 		{
