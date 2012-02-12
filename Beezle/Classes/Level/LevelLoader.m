@@ -94,7 +94,10 @@
 	if (levelLayout == nil)
 	{
 		levelLayout = [self loadLevelLayoutWithHighestVersion:levelName];
-		[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:levelLayout];
+		if (levelLayout != nil)
+		{
+			[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:levelLayout];
+		}
 		
 		if (levelLayout != nil)
 		{

@@ -50,7 +50,10 @@
 	for (NSString *levelName in levelNames)
 	{
 		LevelLayout *levelLayoutWithHighestVersion = [[LevelLoader sharedLoader] loadLevelLayoutWithHighestVersion:levelName];
-		[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:levelLayoutWithHighestVersion];
+		if (levelLayoutWithHighestVersion != nil)
+		{
+			[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:levelLayoutWithHighestVersion];
+		}
 	}
 }
 
