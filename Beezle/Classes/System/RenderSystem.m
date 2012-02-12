@@ -55,17 +55,17 @@
     if (spriteSheet == nil)
     {
         // Create sprite batch node
-        NSString *dataFileName = [NSString stringWithFormat:@"%@.plist", name];
-        NSString *dataPath = [CCFileUtils fullPathFromRelativePath:dataFileName];
-        NSDictionary *dataDict = [NSDictionary dictionaryWithContentsOfFile:dataPath];
-        NSDictionary *metadataDict = [dataDict objectForKey:@"metadata"];
+        NSString *spriteSheetFileName = [NSString stringWithFormat:@"%@.plist", name];
+        NSString *spriteSheetFilePath = [CCFileUtils fullPathFromRelativePath:spriteSheetFileName];
+        NSDictionary *spriteSheetDict = [NSDictionary dictionaryWithContentsOfFile:spriteSheetFilePath];
+        NSDictionary *metadataDict = [spriteSheetDict objectForKey:@"metadata"];
         NSString *texturePath = [metadataDict objectForKey:@"textureFileName"];
         spriteSheet = [CCSpriteBatchNode batchNodeWithFile:texturePath];
         [_layer addChild:spriteSheet z:z];
         [_spriteSheetsByName setObject:spriteSheet forKey:name];
         
 		// Create frames from file
-		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", name]];
+		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:spriteSheetFileName];
     }
     
     if (animationsFileName != nil)
