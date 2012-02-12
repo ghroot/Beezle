@@ -7,6 +7,9 @@
 //
 
 #import "MovementComponent.h"
+#import "EditComponent.h"
+#import "EntityFactory.h"
+#import "EntityUtil.h"
 #import "Utils.h"
 
 @implementation MovementComponent
@@ -69,6 +72,11 @@
 
 -(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
 {
+	[self populateWithContentsOfDictionary:dict world:world edit:FALSE];
+}
+
+-(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world edit:(BOOL)edit
+{
 	if ([dict objectForKey:@"positions"] != nil)
 	{
 		NSArray *positionsAsStrings = [dict objectForKey:@"positions"];
@@ -79,6 +87,21 @@
 			[positions addObject:[NSValue valueWithCGPoint:position]];
 		}
 		[self setPositions:positions];
+		
+		if (CONFIG_CAN_EDIT_LEVELS && edit)
+		{
+			// Create movement indicator entities to allow for editing
+			EditComponent *currentEditComponent = [EditComponent getFrom:_parentEntity];
+			for (NSValue *movePositionAsValue in _positions)
+			{
+				Entity *movementIndicator = [EntityFactory createMovementIndicator:world forEntity:_parentEntity];
+				[EntityUtil setEntityPosition:movementIndicator position:[movePositionAsValue CGPointValue]];
+				[currentEditComponent setNextMovementIndicatorEntity:movementIndicator];
+				[currentEditComponent setMainMoveEntity:_parentEntity];
+				currentEditComponent = [EditComponent getFrom:movementIndicator];
+			}
+			[currentEditComponent setMainMoveEntity:_parentEntity];
+		}
 	}
 }
 

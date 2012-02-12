@@ -8,7 +8,6 @@
 
 #import "LevelLoader.h"
 #import "BeeaterComponent.h"
-#import "BeeType.h"
 #import "DisposableComponent.h"
 #import "EditComponent.h"
 #import "EntityFactory.h"
@@ -20,10 +19,8 @@
 #import "MovementComponent.h"
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
-#import "RenderSprite.h"
 #import "SlingerComponent.h"
 #import "TransformComponent.h"
-#import "Utils.h"
 
 @interface LevelLoader()
 
@@ -122,34 +119,11 @@
     {
 		Entity *entity = [EntityFactory createEntity:[levelLayoutEntry type] world:world];
 		
-		if ([[levelLayoutEntry componentsDict] objectForKey:@"movement"] != nil)
-		{
-			NSDictionary *movementDict = [[levelLayoutEntry componentsDict] objectForKey:@"movement"];
-			[[MovementComponent getFrom:entity] populateWithContentsOfDictionary:movementDict world:world];
-		}
-		
 		if (CONFIG_CAN_EDIT_LEVELS && edit)
 		{
 			EditComponent *editComponent = [EditComponent componentWithLevelLayoutType:[levelLayoutEntry type]];
 			[entity addComponent:editComponent];
 			[entity refresh];
-			
-			// TODO: How do we get rid of this?
-			if ([[levelLayoutEntry componentsDict] objectForKey:@"movement"] != nil)
-			{
-				// Load movement points as movement indicator entities to allow for editing
-				MovementComponent *movementComponent = [MovementComponent getFrom:entity];
-				EditComponent *currentEditComponent = editComponent;
-				for (NSValue *movePositionAsValue in [movementComponent positions])
-				{
-					Entity *movementIndicator = [EntityFactory createMovementIndicator:world forEntity:entity];
-					[EntityUtil setEntityPosition:movementIndicator position:[movePositionAsValue CGPointValue]];
-					[currentEditComponent setNextMovementIndicatorEntity:movementIndicator];
-					[currentEditComponent setMainMoveEntity:entity];
-					currentEditComponent = [EditComponent getFrom:movementIndicator];
-				}
-				[currentEditComponent setMainMoveEntity:entity];
-			}
 		}
 		
 		if ([[levelLayoutEntry componentsDict] objectForKey:@"beeater"] != nil)
@@ -161,6 +135,11 @@
 		{
 			NSDictionary *disposableDict = [[levelLayoutEntry componentsDict] objectForKey:@"disposable"];
 			[[DisposableComponent getFrom:entity] populateWithContentsOfDictionary:disposableDict world:world];
+		}
+		if ([[levelLayoutEntry componentsDict] objectForKey:@"movement"] != nil)
+		{
+			NSDictionary *movementDict = [[levelLayoutEntry componentsDict] objectForKey:@"movement"];
+			[[MovementComponent getFrom:entity] populateWithContentsOfDictionary:movementDict world:world edit:edit];
 		}
 		if ([[levelLayoutEntry componentsDict] objectForKey:@"physics"] != nil)
 		{
