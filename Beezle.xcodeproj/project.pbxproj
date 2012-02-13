@@ -185,6 +185,10 @@
 		2C5EFCB014E9B8990071ED39 /* Level-A27-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFCAD14E9B8990071ED39 /* Level-A27-Shapes.plist */; };
 		2C5EFCB114E9B8990071ED39 /* Level-A27.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFCAE14E9B8990071ED39 /* Level-A27.jpg */; };
 		2C5EFCB314E9BAF10071ED39 /* Level-A27-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFCB214E9BAF10071ED39 /* Level-A27-Layout.plist */; };
+		2C5EFCB814E9BDA90071ED39 /* Level-A36-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFCB514E9BDA90071ED39 /* Level-A36-hd.jpg */; };
+		2C5EFCB914E9BDA90071ED39 /* Level-A36-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFCB614E9BDA90071ED39 /* Level-A36-Shapes.plist */; };
+		2C5EFCBA14E9BDA90071ED39 /* Level-A36.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFCB714E9BDA90071ED39 /* Level-A36.jpg */; };
+		2C5EFCBC14E9C4050071ED39 /* Level-A36-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFCBB14E9C4050071ED39 /* Level-A36-Layout.plist */; };
 		2C64AD0914B89D7E00ABD114 /* Levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C64ACEC14B89D7E00ABD114 /* Levels.plist */; };
 		2C64AD1414BA4F0400ABD114 /* BeeControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C64AD1314BA4F0300ABD114 /* BeeControlSystem.m */; };
 		2C74DCE914DC975E00AA54F4 /* Level-A1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C74DCE414DC975E00AA54F4 /* Level-A1-hd.jpg */; };
@@ -668,6 +672,10 @@
 		2C5EFCAD14E9B8990071ED39 /* Level-A27-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A27-Shapes.plist"; sourceTree = "<group>"; };
 		2C5EFCAE14E9B8990071ED39 /* Level-A27.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A27.jpg"; sourceTree = "<group>"; };
 		2C5EFCB214E9BAF10071ED39 /* Level-A27-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A27-Layout.plist"; sourceTree = "<group>"; };
+		2C5EFCB514E9BDA90071ED39 /* Level-A36-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A36-hd.jpg"; sourceTree = "<group>"; };
+		2C5EFCB614E9BDA90071ED39 /* Level-A36-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A36-Shapes.plist"; sourceTree = "<group>"; };
+		2C5EFCB714E9BDA90071ED39 /* Level-A36.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A36.jpg"; sourceTree = "<group>"; };
+		2C5EFCBB14E9C4050071ED39 /* Level-A36-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A36-Layout.plist"; sourceTree = "<group>"; };
 		2C64ACEC14B89D7E00ABD114 /* Levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Levels.plist; sourceTree = "<group>"; };
 		2C64AD1214BA4F0300ABD114 /* BeeControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeControlSystem.h; path = Classes/System/BeeControlSystem.h; sourceTree = "<group>"; };
 		2C64AD1314BA4F0300ABD114 /* BeeControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeControlSystem.m; path = Classes/System/BeeControlSystem.m; sourceTree = "<group>"; };
@@ -1367,6 +1375,17 @@
 			path = "26-30";
 			sourceTree = "<group>";
 		};
+		2C5EFCB414E9BDA80071ED39 /* 31-35 */ = {
+			isa = PBXGroup;
+			children = (
+				2C5EFCB514E9BDA90071ED39 /* Level-A36-hd.jpg */,
+				2C5EFCBB14E9C4050071ED39 /* Level-A36-Layout.plist */,
+				2C5EFCB614E9BDA90071ED39 /* Level-A36-Shapes.plist */,
+				2C5EFCB714E9BDA90071ED39 /* Level-A36.jpg */,
+			);
+			path = "31-35";
+			sourceTree = "<group>";
+		};
 		2C64ACCF14B89D7E00ABD114 /* Level */ = {
 			isa = PBXGroup;
 			children = (
@@ -1383,6 +1402,7 @@
 				2C74DCE314DC975E00AA54F4 /* 1-5 */,
 				2C74DCE814DC975E00AA54F4 /* 6-10 */,
 				2C5EFCAB14E9B8990071ED39 /* 26-30 */,
+				2C5EFCB414E9BDA80071ED39 /* 31-35 */,
 			);
 			path = A;
 			sourceTree = "<group>";
@@ -2098,6 +2118,10 @@
 				2C5EFCB014E9B8990071ED39 /* Level-A27-Shapes.plist in Resources */,
 				2C5EFCB114E9B8990071ED39 /* Level-A27.jpg in Resources */,
 				2C5EFCB314E9BAF10071ED39 /* Level-A27-Layout.plist in Resources */,
+				2C5EFCB814E9BDA90071ED39 /* Level-A36-hd.jpg in Resources */,
+				2C5EFCB914E9BDA90071ED39 /* Level-A36-Shapes.plist in Resources */,
+				2C5EFCBA14E9BDA90071ED39 /* Level-A36.jpg in Resources */,
+				2C5EFCBC14E9C4050071ED39 /* Level-A36-Layout.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
