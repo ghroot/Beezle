@@ -28,6 +28,7 @@
 	[entityDescription setType:[dict objectForKey:@"type"]];
 	[entityDescription setGroups:[dict objectForKey:@"groups"]];
 	[entityDescription setTags:[dict objectForKey:@"tags"]];
+	[entityDescription setLabels:[dict objectForKey:@"labels"]];
 	[entityDescription setComponentsDict:[dict objectForKey:@"components"]];
 	
 	return entityDescription;
