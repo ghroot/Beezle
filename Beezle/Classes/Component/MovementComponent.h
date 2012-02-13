@@ -27,8 +27,6 @@
 
 +(MovementComponent *) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
-
 -(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world edit:(BOOL)edit;
 
 @end

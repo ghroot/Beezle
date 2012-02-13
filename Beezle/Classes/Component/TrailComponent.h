@@ -23,8 +23,6 @@
 
 +(id) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
-
 -(void) resetCountdown;
 
 @end

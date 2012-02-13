@@ -45,6 +45,8 @@
 +(id) component;
 +(id) getFrom:(Entity *)entity;
 
+-(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
+
 -(NSDictionary *) getAsDictionary;
 -(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
 

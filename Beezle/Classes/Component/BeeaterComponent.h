@@ -18,8 +18,6 @@
 
 +(BeeaterComponent *) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
-
 -(BOOL) hasContainedBee;
 
 @end

@@ -29,7 +29,6 @@
 +(id) componentWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes;
 +(id) componentWithBody:(ChipmunkBody *)body andShape:(ChipmunkShape *)shape;
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
 -(id) initWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes;
 -(id) initWithBody:(ChipmunkBody *)body andShape:(ChipmunkShape *)shape;
 -(BOOL) isRougeBody;

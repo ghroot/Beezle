@@ -19,8 +19,6 @@
 +(RenderComponent *) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
 +(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite;
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
-
 -(void) addRenderSprite:(RenderSprite *)renderSprite withName:(NSString *)name;
 -(RenderSprite *) getRenderSprite:(NSString *)name;
 -(NSArray *) renderSprites;

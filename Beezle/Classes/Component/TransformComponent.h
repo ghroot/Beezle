@@ -22,7 +22,6 @@
 +(id) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
 +(id) componentWithPosition:(CGPoint)position;
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
 -(id) initWithPosition:(CGPoint)position;
 
 @end

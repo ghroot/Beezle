@@ -42,6 +42,11 @@
 	return [[[self alloc] init] autorelease];
 }
 
+-(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+{
+	return [self init];
+}
+
 -(id) init
 {
     if (self = [super init])
