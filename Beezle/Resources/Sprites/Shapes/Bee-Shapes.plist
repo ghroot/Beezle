@@ -23,7 +23,7 @@
                         <key>elasticity</key>
                         <real>0.6</real>
                         <key>friction</key>
-                        <real>0.5</real>
+                        <real>0.6</real>
                         <key>surface_velocity</key>
                         <string>{ 0.00000,0.00000 }</string>
                         <key>layers</key>
@@ -35,21 +35,15 @@
                         <key>isSensor</key>
                         <false/>
                         <key>fixture_type</key>
-                        <key>POLYGON</key>
+                        <key>CIRCLE</key>
                         
-						<key>polygons</key>
-						<array>
-							<array>	
-								<string>{ -6.00000,2.00000 }</string>	
-								<string>{ -2.00000,6.00000 }</string>	
-								<string>{ 2.00000,6.00000 }</string>	
-								<string>{ 6.00000,2.00000 }</string>	
-								<string>{ 6.00000,-2.00000 }</string>	
-								<string>{ 2.00000,-6.00000 }</string>	
-								<string>{ -2.00000,-6.00000 }</string>	
-								<string>{ -6.00000,-2.00000 }</string>
-							</array>
-						</array>
+                        <key>circle</key>
+                        <dict>
+                            <key>radius</key> 
+                            <real>6.000</real>
+                            <key>position</key> 
+                            <string>{ 0.000,0.125 }</string>
+                        </dict>
                         
 					</dict>
 
