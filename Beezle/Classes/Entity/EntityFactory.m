@@ -23,6 +23,9 @@
 #import "RenderSystem.h"
 #import "TransformComponent.h"
 
+#define BACKGROUND_FRICTION 0.7f
+#define BACKGROUND_ELASTICITY 0.7f
+
 @implementation EntityFactory
 
 +(Entity *) createBackground:(World *)world withLevelName:(NSString *)name
@@ -47,6 +50,11 @@
     PhysicsSystem *physicsSystem = (PhysicsSystem *)[[world systemManager] getSystem:[PhysicsSystem class]];
     NSString *shapesFileName = [NSString stringWithFormat:@"%@-Shapes.plist", name];
 	BodyInfo *bodyInfo = [physicsSystem createBodyInfoFromFile:shapesFileName bodyName:name collisionType:[CollisionType BACKGROUND]];
+	for (ChipmunkShape *shape in [bodyInfo shapes])
+	{
+		[shape setFriction:BACKGROUND_FRICTION];
+		[shape setElasticity:BACKGROUND_ELASTICITY];
+	}
 	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:[bodyInfo body] andShapes:[bodyInfo shapes]];
     [backgroundEntity addComponent:physicsComponent];
     
