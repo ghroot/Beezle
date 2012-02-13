@@ -10,6 +10,7 @@
 #import "EditComponent.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
+#import "TransformComponent.h"
 #import "Utils.h"
 
 @implementation MovementComponent
@@ -61,12 +62,27 @@
 -(NSDictionary *) getAsDictionary
 {
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	
 	NSMutableArray *positionsAsStrings = [NSMutableArray array];
-	for (NSValue *positionAsValue in _positions)
+	
+	Entity *currentMovementIndicatorEntity = [[EditComponent getFrom:_parentEntity] nextMovementIndicatorEntity];
+	while (currentMovementIndicatorEntity != nil)
 	{
-		[positionsAsStrings addObject:[Utils pointToString:[positionAsValue CGPointValue]]];
+		TransformComponent *currentTransformComponent = [TransformComponent getFrom:currentMovementIndicatorEntity];
+		EditComponent *currentEditComponent = [EditComponent getFrom:currentMovementIndicatorEntity];
+		
+		[positionsAsStrings addObject:[Utils pointToString:[currentTransformComponent position]]];
+		
+		currentMovementIndicatorEntity = [currentEditComponent nextMovementIndicatorEntity];
 	}
+	
+//	for (NSValue *positionAsValue in _positions)
+//	{
+//		[positionsAsStrings addObject:[Utils pointToString:[positionAsValue CGPointValue]]];
+//	}
+	
 	[dict setObject:positionsAsStrings forKey:@"positions"];
+	
 	return dict;
 }
 

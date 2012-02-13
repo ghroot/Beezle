@@ -7,15 +7,10 @@
 //
 
 #import "LevelSerializer.h"
-#import "BeeaterComponent.h"
 #import "EditComponent.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "LevelLayoutEntry.h"
-#import "MovementComponent.h"
-#import "SlingerComponent.h"
-#import "TransformComponent.h"
-#import "Utils.h"
 
 @interface LevelSerializer()
 
@@ -114,30 +109,10 @@
 			NSArray *components = [entity getComponents];
 			for (Component *component in components)
 			{
-				if ([component isKindOfClass:[MovementComponent class]])
+				NSDictionary *componentDict = [component getAsDictionary];
+				if ([componentDict count] > 0)
 				{
-					NSMutableDictionary *componentDict = [NSMutableDictionary dictionary];
-					NSMutableArray *positionsAsStrings = [NSMutableArray array];
-					Entity *currentMovementIndicatorEntity = [editComponent nextMovementIndicatorEntity];
-					while (currentMovementIndicatorEntity != nil)
-					{
-						TransformComponent *currentTransformComponent = [TransformComponent getFrom:currentMovementIndicatorEntity];
-						EditComponent *currentEditComponent = [EditComponent getFrom:currentMovementIndicatorEntity];
-						
-						[positionsAsStrings addObject:[Utils pointToString:[currentTransformComponent position]]];
-						
-						currentMovementIndicatorEntity = [currentEditComponent nextMovementIndicatorEntity];
-					}
-					[componentDict setObject:positionsAsStrings forKey:@"positions"];
 					[componentsDict setObject:componentDict forKey:[component name]];
-				}
-				else
-				{
-					NSDictionary *componentDict = [component getAsDictionary];
-					if ([componentDict count] > 0)
-					{
-						[componentsDict setObject:componentDict forKey:[component name]];
-					}
 				}
 			}
 			[levelLayoutEntry setComponentsDict:componentsDict];
