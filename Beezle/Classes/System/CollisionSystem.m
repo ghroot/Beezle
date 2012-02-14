@@ -135,8 +135,7 @@
 	BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
     DisposableComponent *beeaterDisposableComponent = [DisposableComponent getFrom:beeaterEntity];
     
-    if ([beeComponent type] != [BeeType BOMBEE] &&
-		![beeaterDisposableComponent isDisposed])
+    if (![beeaterDisposableComponent isDisposed])
     {
 		[beeaterDisposableComponent setIsDisposed:TRUE];
 		[EntityUtil animateDeleteAndSaveBeeFromBeeaterEntity:beeaterEntity];
@@ -182,7 +181,7 @@
     }
 }
 
--(void)handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity
+-(void) handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity
 {
 	RenderComponent *mushroomRenderComponent = [RenderComponent getFrom:mushroomEntity];
 	if ([mushroomEntity hasComponent:[DisposableComponent class]])
@@ -205,7 +204,7 @@
 	}
 }
 
--(void)handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity
+-(void) handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity
 {
 	DisposableComponent *woodDisposableComponent = [DisposableComponent getFrom:woodEntity];
 	

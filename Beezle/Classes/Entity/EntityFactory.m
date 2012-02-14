@@ -25,6 +25,8 @@
 
 #define BACKGROUND_FRICTION 0.7f
 #define BACKGROUND_ELASTICITY 0.7f
+#define BACKGROUND_LAYERS 7
+#define EDGE_LAYERS 7
 
 @implementation EntityFactory
 
@@ -54,6 +56,7 @@
 	{
 		[shape setFriction:BACKGROUND_FRICTION];
 		[shape setElasticity:BACKGROUND_ELASTICITY];
+		[shape setLayers:BACKGROUND_LAYERS];
 	}
 	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:[bodyInfo body] andShapes:[bodyInfo shapes]];
     [backgroundEntity addComponent:physicsComponent];
@@ -90,7 +93,7 @@
 		[shape setElasticity:0.0f];
 		[shape setFriction:0.5f];
 		[shape setCollisionType:[CollisionType EDGE]];
-        
+        [shape setLayers:EDGE_LAYERS];
         [shapes addObject:shape];
     }
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShapes:shapes];
