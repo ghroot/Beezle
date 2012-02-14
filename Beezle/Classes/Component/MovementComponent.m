@@ -65,21 +65,27 @@
 	
 	NSMutableArray *positionsAsStrings = [NSMutableArray array];
 	
-	Entity *currentMovementIndicatorEntity = [[EditComponent getFrom:_parentEntity] nextMovementIndicatorEntity];
-	while (currentMovementIndicatorEntity != nil)
+	if (CONFIG_CAN_EDIT_LEVELS &&
+		[_parentEntity hasComponent:[EditComponent class]])
 	{
-		TransformComponent *currentTransformComponent = [TransformComponent getFrom:currentMovementIndicatorEntity];
-		EditComponent *currentEditComponent = [EditComponent getFrom:currentMovementIndicatorEntity];
-		
-		[positionsAsStrings addObject:[Utils pointToString:[currentTransformComponent position]]];
-		
-		currentMovementIndicatorEntity = [currentEditComponent nextMovementIndicatorEntity];
+		Entity *currentMovementIndicatorEntity = [[EditComponent getFrom:_parentEntity] nextMovementIndicatorEntity];
+		while (currentMovementIndicatorEntity != nil)
+		{
+			TransformComponent *currentTransformComponent = [TransformComponent getFrom:currentMovementIndicatorEntity];
+			EditComponent *currentEditComponent = [EditComponent getFrom:currentMovementIndicatorEntity];
+			
+			[positionsAsStrings addObject:[Utils pointToString:[currentTransformComponent position]]];
+			
+			currentMovementIndicatorEntity = [currentEditComponent nextMovementIndicatorEntity];
+		}
 	}
-	
-//	for (NSValue *positionAsValue in _positions)
-//	{
-//		[positionsAsStrings addObject:[Utils pointToString:[positionAsValue CGPointValue]]];
-//	}
+	else
+	{
+		for (NSValue *positionAsValue in _positions)
+		{
+			[positionsAsStrings addObject:[Utils pointToString:[positionAsValue CGPointValue]]];
+		}
+	}
 	
 	[dict setObject:positionsAsStrings forKey:@"positions"];
 	
