@@ -45,7 +45,7 @@
 		}
 		else if ([componentType isEqualToString:@"crumble"])
 		{
-			component = [CrumbleComponent component];
+			component = [CrumbleComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"disposable"])
 		{

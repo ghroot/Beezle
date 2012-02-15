@@ -8,7 +8,6 @@
 
 #import "ExplodeControlSystem.h"
 #import "ExplodeComponent.h"
-#import "BeeType.h"
 #import "CrumbleComponent.h"
 #import "DisposableComponent.h"
 #import "EntityUtil.h"
@@ -66,15 +65,21 @@
 					{
 						if ([self doesExplodedEntity:entity intersectCrumbleEntity:otherEntity])
 						{
-//							if ([labelManager hasEntity:otherEntity label:@"RAMP"])
-//							{
-//								[EntityUtil animateAndDeleteEntity:otherEntity animationName:@"Ramp-Crash" disablePhysics:TRUE];
-//							}
-//							else if ([groupManager isEntity:otherEntity inGroup:@"BEEATERS"])
+							CrumbleComponent *crumbleComponent = [CrumbleComponent getFrom:otherEntity];
+							if ([crumbleComponent crumbleAnimationName] != nil)
+							{
+								[EntityUtil animateAndDeleteEntity:otherEntity animationName:[crumbleComponent crumbleAnimationName] disablePhysics:TRUE];
+							}
+							else
+							{
+								[otherEntity deleteEntity];
+							}
+							
+							// TODO: Handle this generically
+//							if ([groupManager isEntity:otherEntity inGroup:@"BEEATERS"])
 //							{
 //								[EntityUtil animateDeleteAndSaveBeeFromBeeaterEntity:otherEntity];
 //							}
-							[otherEntity deleteEntity];
 						}
 					}
 				}

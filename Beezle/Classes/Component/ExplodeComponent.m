@@ -23,6 +23,7 @@
 	if (self = [super init])
 	{
 		_name = @"explode";
+		_explodeAnimationName = nil;
 	}
 	return self;
 }
