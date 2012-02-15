@@ -7,7 +7,6 @@
 //
 
 #import "ExplodeControlSystem.h"
-#import "BeeaterComponent.h"
 #import "CrumbleComponent.h"
 #import "ExplodeComponent.h"
 #import "DisposableComponent.h"
@@ -72,16 +71,9 @@
 							{
 								[EntityUtil animateAndDeleteEntity:otherEntity animationName:[crumbleComponent crumbleAnimationName] disablePhysics:TRUE];
 							}
-							else if ([otherEntity hasComponent:[BeeaterComponent class]])
-							{
-								// TODO: Handle more generically
-								NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:otherEntity forKey:@"beeaterEntity"];
-								[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEEATER_KILLED object:self userInfo:notificationUserInfo];
-							}
-							else
-							{
-								[otherEntity deleteEntity];
-							}
+							
+							NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:otherEntity forKey:@"entity"];
+							[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_CRUMBLED object:self userInfo:notificationUserInfo];
 						}
 					}
 				}

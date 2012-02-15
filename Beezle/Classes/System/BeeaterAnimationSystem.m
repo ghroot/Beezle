@@ -23,6 +23,8 @@
 -(void) handleNotification:(NSNotification *)notification;
 -(void) handleBeeaterBeeChanged:(NSNotification *)notification;
 -(void) handleBeeaterKilled:(NSNotification *)notification;
+-(void) handleEntityCrumbled:(NSNotification *)notification;
+-(void) animateBeeaterAndSaveContainedBee:(Entity *)beeaterEntity;
 
 @end
 
@@ -51,6 +53,7 @@
 {
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEEATER_CONTAINED_BEE_CHANGED object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEEATER_KILLED object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_ENTITY_CRUMBLED object:nil];
 }
 
 -(void) queueNotification:(NSNotification *)notification
@@ -79,6 +82,10 @@
 	{
 		[self handleBeeaterKilled:notification];
 	}
+	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_ENTITY_CRUMBLED])
+	{
+		[self handleEntityCrumbled:notification];
+	}
 }
 
 -(void) handleBeeaterBeeChanged:(NSNotification *)notification
@@ -93,8 +100,22 @@
 
 -(void) handleBeeaterKilled:(NSNotification *)notification
 {
-	// Save bee
 	Entity *beeaterEntity = [[notification userInfo] objectForKey:@"beeaterEntity"];
+	[self animateBeeaterAndSaveContainedBee:beeaterEntity];
+}
+
+-(void) handleEntityCrumbled:(NSNotification *)notification
+{
+	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
+	if ([entity hasComponent:[BeeaterComponent class]])
+	{
+		[self animateBeeaterAndSaveContainedBee:entity];
+	}
+}
+		 
+-(void) animateBeeaterAndSaveContainedBee:(Entity *)beeaterEntity
+{
+	// Save bee
 	TagManager *tagManager = (TagManager *)[[beeaterEntity world] getManager:[TagManager class]];
 	Entity *slingerEntity = (Entity *)[tagManager getEntity:@"SLINGER"];
 	BeeaterComponent *beeaterComponent = (BeeaterComponent *)[beeaterEntity getComponent:[BeeaterComponent class]];
