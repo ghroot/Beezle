@@ -13,7 +13,7 @@
 
 @class BeeaterAnimationSystem;
 @class BeeExpiratonSystem;
-@class BeeControlSystem;
+@class ExplodeControlSystem;
 @class BeeQueueRenderingSystem;
 @class CollisionSystem;
 @class DebugRenderPhysicsSystem;
@@ -44,7 +44,7 @@
     InputSystem *_inputSystem;
     SlingerControlSystem *_slingerControlSystem;
     BeeExpiratonSystem *_beeExpirationSystem;
-	BeeControlSystem *_beeControlSystem;
+	ExplodeControlSystem *_explodeControlSystem;
 	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
 	BeeaterAnimationSystem *_beeaterAnimationSystem;
 	TrailSystem *_trailSystem;

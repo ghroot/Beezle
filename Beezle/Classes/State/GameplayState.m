@@ -8,7 +8,7 @@
 
 #import "GameplayState.h"
 #import "BeeaterAnimationSystem.h"
-#import "BeeControlSystem.h"
+#import "ExplodeControlSystem.h"
 #import "BeeQueueRenderingSystem.h"
 #import "BeeExpiratonSystem.h"
 #import "CollisionSystem.h"
@@ -108,8 +108,8 @@
 	[systemManager setSystem:_slingerControlSystem];
 	_beeExpirationSystem = [[[BeeExpiratonSystem alloc] init] autorelease];
 	[systemManager setSystem:_beeExpirationSystem];
-	_beeControlSystem = [[[BeeControlSystem alloc] init] autorelease];
-	[systemManager setSystem:_beeControlSystem];
+	_explodeControlSystem = [[[ExplodeControlSystem alloc] init] autorelease];
+	[systemManager setSystem:_explodeControlSystem];
 	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithZ:2] autorelease];
 	[systemManager setSystem:_beeQueueRenderingSystem];
 	_beeaterAnimationSystem = [[[BeeaterAnimationSystem alloc] init] autorelease];
@@ -147,7 +147,7 @@
 													   _renderSystem,
 													   _inputSystem,
 													   _beeExpirationSystem,
-													   _beeControlSystem,
+													   _explodeControlSystem,
 													   _beeQueueRenderingSystem,
 													   _beeaterAnimationSystem,
 													   _trailSystem,

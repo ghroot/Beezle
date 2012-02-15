@@ -9,7 +9,9 @@
 #import "EntityDescription.h"
 #import "BeeaterComponent.h"
 #import "BeeComponent.h"
+#import "CrumbleComponent.h"
 #import "DisposableComponent.h"
+#import "ExplodeComponent.h"
 #import "MovementComponent.h"
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
@@ -41,9 +43,17 @@
 		{
 			component = [BeeaterComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
+		else if ([componentType isEqualToString:@"crumble"])
+		{
+			component = [CrumbleComponent component];
+		}
 		else if ([componentType isEqualToString:@"disposable"])
 		{
 			component = [DisposableComponent component];
+		}
+		else if ([componentType isEqualToString:@"explode"])
+		{
+			component = [ExplodeComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"movement"])
 		{

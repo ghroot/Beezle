@@ -189,8 +189,10 @@
 		2C5EFCB914E9BDA90071ED39 /* Level-A36-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFCB614E9BDA90071ED39 /* Level-A36-Shapes.plist */; };
 		2C5EFCBA14E9BDA90071ED39 /* Level-A36.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFCB714E9BDA90071ED39 /* Level-A36.jpg */; };
 		2C5EFCBC14E9C4050071ED39 /* Level-A36-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFCBB14E9C4050071ED39 /* Level-A36-Layout.plist */; };
+		2C5EFCBF14EC60400071ED39 /* ExplodeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFCBE14EC603D0071ED39 /* ExplodeComponent.m */; };
+		2C5EFCC214EC60580071ED39 /* CrumbleComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFCC114EC60560071ED39 /* CrumbleComponent.m */; };
 		2C64AD0914B89D7E00ABD114 /* Levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C64ACEC14B89D7E00ABD114 /* Levels.plist */; };
-		2C64AD1414BA4F0400ABD114 /* BeeControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C64AD1314BA4F0300ABD114 /* BeeControlSystem.m */; };
+		2C64AD1414BA4F0400ABD114 /* ExplodeControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C64AD1314BA4F0300ABD114 /* ExplodeControlSystem.m */; };
 		2C74DCE914DC975E00AA54F4 /* Level-A1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C74DCE414DC975E00AA54F4 /* Level-A1-hd.jpg */; };
 		2C74DCEA14DC975E00AA54F4 /* Level-A1-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C74DCE514DC975E00AA54F4 /* Level-A1-Layout.plist */; };
 		2C74DCEB14DC975E00AA54F4 /* Level-A1-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C74DCE614DC975E00AA54F4 /* Level-A1-Shapes.plist */; };
@@ -676,9 +678,13 @@
 		2C5EFCB614E9BDA90071ED39 /* Level-A36-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A36-Shapes.plist"; sourceTree = "<group>"; };
 		2C5EFCB714E9BDA90071ED39 /* Level-A36.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A36.jpg"; sourceTree = "<group>"; };
 		2C5EFCBB14E9C4050071ED39 /* Level-A36-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A36-Layout.plist"; sourceTree = "<group>"; };
+		2C5EFCBD14EC60390071ED39 /* ExplodeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExplodeComponent.h; path = Classes/Component/ExplodeComponent.h; sourceTree = "<group>"; };
+		2C5EFCBE14EC603D0071ED39 /* ExplodeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExplodeComponent.m; path = Classes/Component/ExplodeComponent.m; sourceTree = "<group>"; };
+		2C5EFCC014EC60530071ED39 /* CrumbleComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CrumbleComponent.h; path = Classes/Component/CrumbleComponent.h; sourceTree = "<group>"; };
+		2C5EFCC114EC60560071ED39 /* CrumbleComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CrumbleComponent.m; path = Classes/Component/CrumbleComponent.m; sourceTree = "<group>"; };
 		2C64ACEC14B89D7E00ABD114 /* Levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Levels.plist; sourceTree = "<group>"; };
-		2C64AD1214BA4F0300ABD114 /* BeeControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeControlSystem.h; path = Classes/System/BeeControlSystem.h; sourceTree = "<group>"; };
-		2C64AD1314BA4F0300ABD114 /* BeeControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeControlSystem.m; path = Classes/System/BeeControlSystem.m; sourceTree = "<group>"; };
+		2C64AD1214BA4F0300ABD114 /* ExplodeControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExplodeControlSystem.h; path = Classes/System/ExplodeControlSystem.h; sourceTree = "<group>"; };
+		2C64AD1314BA4F0300ABD114 /* ExplodeControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExplodeControlSystem.m; path = Classes/System/ExplodeControlSystem.m; sourceTree = "<group>"; };
 		2C74DCE414DC975E00AA54F4 /* Level-A1-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A1-hd.jpg"; sourceTree = "<group>"; };
 		2C74DCE514DC975E00AA54F4 /* Level-A1-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A1-Layout.plist"; sourceTree = "<group>"; };
 		2C74DCE614DC975E00AA54F4 /* Level-A1-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A1-Shapes.plist"; sourceTree = "<group>"; };
@@ -1470,8 +1476,8 @@
 			children = (
 				2CC26A5F14E46912004702DA /* BeeaterAnimationSystem.h */,
 				2CC26A6014E46912004702DA /* BeeaterAnimationSystem.m */,
-				2C64AD1214BA4F0300ABD114 /* BeeControlSystem.h */,
-				2C64AD1314BA4F0300ABD114 /* BeeControlSystem.m */,
+				2C64AD1214BA4F0300ABD114 /* ExplodeControlSystem.h */,
+				2C64AD1314BA4F0300ABD114 /* ExplodeControlSystem.m */,
 				2C3A6F911489809F002721E3 /* BeeExpiratonSystem.h */,
 				2C3A6F921489809F002721E3 /* BeeExpiratonSystem.m */,
 				2C535FCB14992B0B00BC7DB6 /* BeeQueueRenderingSystem.h */,
@@ -1884,9 +1890,13 @@
 				2C1147E3148D4291002E4DBD /* BeeaterComponent.m */,
 				2C3A6F94148980AF002721E3 /* BeeComponent.h */,
 				2C3A6F95148980AF002721E3 /* BeeComponent.m */,
+				2C5EFCC014EC60530071ED39 /* CrumbleComponent.h */,
+				2C5EFCC114EC60560071ED39 /* CrumbleComponent.m */,
 				2C85B83A149563ED005D7BAB /* DisposableComponent.h */,
 				2C85B83B149563ED005D7BAB /* DisposableComponent.m */,
 				2CC3EC0A14D608870025F5DA /* Edit */,
+				2C5EFCBD14EC60390071ED39 /* ExplodeComponent.h */,
+				2C5EFCBE14EC603D0071ED39 /* ExplodeComponent.m */,
 				2CC3EBFB14D466460025F5DA /* MovementComponent.h */,
 				2CC3EBFC14D466460025F5DA /* MovementComponent.m */,
 				2CEA352F1466B2C9000FF575 /* PhysicsComponent.h */,
@@ -2297,7 +2307,7 @@
 				2C9EF99914B4E91800F9EE34 /* LevelLayout.m in Sources */,
 				2C9EF99A14B4E91800F9EE34 /* LevelLayoutCache.m in Sources */,
 				2C9EF99B14B4E91800F9EE34 /* LevelLayoutEntry.m in Sources */,
-				2C64AD1414BA4F0400ABD114 /* BeeControlSystem.m in Sources */,
+				2C64AD1414BA4F0400ABD114 /* ExplodeControlSystem.m in Sources */,
 				2CD2C42E14D19E2A00DC0BD5 /* GandEnum.m in Sources */,
 				2C27E90014D20577002165CD /* Component.m in Sources */,
 				2C27E90114D20577002165CD /* Entity.m in Sources */,
@@ -2331,6 +2341,8 @@
 				2C5EFC2B14E496A10071ED39 /* TrailComponent.m in Sources */,
 				2C5EFC3114E499C20071ED39 /* TrailSystem.m in Sources */,
 				2C5EFC3414E6C5510071ED39 /* EntitySelectIngameMenuState.m in Sources */,
+				2C5EFCBF14EC60400071ED39 /* ExplodeComponent.m in Sources */,
+				2C5EFCC214EC60580071ED39 /* CrumbleComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

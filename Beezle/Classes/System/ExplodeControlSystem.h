@@ -1,5 +1,5 @@
 //
-//  BeeControlSystem.h
+//  ExplodeControlSystem.h
 //  Beezle
 //
 //  Created by Me on 08/01/2012.
@@ -10,7 +10,7 @@
 
 @class InputSystem;
 
-@interface BeeControlSystem : EntityComponentSystem
+@interface ExplodeControlSystem : EntityComponentSystem
 {
 	InputSystem *_inputSystem;
 }
