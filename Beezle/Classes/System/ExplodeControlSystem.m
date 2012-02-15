@@ -7,12 +7,14 @@
 //
 
 #import "ExplodeControlSystem.h"
-#import "ExplodeComponent.h"
+#import "BeeaterComponent.h"
 #import "CrumbleComponent.h"
+#import "ExplodeComponent.h"
 #import "DisposableComponent.h"
 #import "EntityUtil.h"
 #import "InputAction.h"
 #import "InputSystem.h"
+#import "NotificationTypes.h"
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
 #import "TransformComponent.h"
@@ -70,16 +72,16 @@
 							{
 								[EntityUtil animateAndDeleteEntity:otherEntity animationName:[crumbleComponent crumbleAnimationName] disablePhysics:TRUE];
 							}
+							else if ([otherEntity hasComponent:[BeeaterComponent class]])
+							{
+								// TODO: Handle more generically
+								NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:otherEntity forKey:@"beeaterEntity"];
+								[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEEATER_KILLED object:self userInfo:notificationUserInfo];
+							}
 							else
 							{
 								[otherEntity deleteEntity];
 							}
-							
-							// TODO: Handle this generically
-//							if ([groupManager isEntity:otherEntity inGroup:@"BEEATERS"])
-//							{
-//								[EntityUtil animateDeleteAndSaveBeeFromBeeaterEntity:otherEntity];
-//							}
 						}
 					}
 				}

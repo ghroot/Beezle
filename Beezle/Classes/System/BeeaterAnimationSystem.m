@@ -10,6 +10,11 @@
 #import "BeeaterComponent.h"
 #import "EntityUtil.h"
 #import "NotificationTypes.h"
+#import "PhysicsComponent.h"
+#import "RenderComponent.h"
+#import "RenderSprite.h"
+#import "SlingerComponent.h"
+#import "TransformComponent.h"
 
 @interface BeeaterAnimationSystem()
 
@@ -17,6 +22,7 @@
 -(void) queueNotification:(NSNotification *)notification;
 -(void) handleNotification:(NSNotification *)notification;
 -(void) handleBeeaterBeeChanged:(NSNotification *)notification;
+-(void) handleBeeaterKilled:(NSNotification *)notification;
 
 @end
 
@@ -44,6 +50,7 @@
 -(void) addNotificationObservers
 {
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEEATER_CONTAINED_BEE_CHANGED object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEEATER_KILLED object:nil];
 }
 
 -(void) queueNotification:(NSNotification *)notification
@@ -68,13 +75,51 @@
 	{
 		[self handleBeeaterBeeChanged:notification];
 	}
+	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_BEEATER_KILLED])
+	{
+		[self handleBeeaterKilled:notification];
+	}
 }
 
 -(void) handleBeeaterBeeChanged:(NSNotification *)notification
 {
 	BeeaterComponent *beeaterComponent = [notification object];
 	Entity *beeaterEntity = [beeaterComponent parentEntity];
-	[EntityUtil animateBeeaterHeadBasedOnContainedBeeType:beeaterEntity];
+	RenderComponent *renderComponent = [RenderComponent getFrom:beeaterEntity];
+	RenderSprite *headRenderSprite = [renderComponent getRenderSprite:@"head"];
+	NSString *headAnimationName = [NSString stringWithFormat:@"Beeater-Head-Idle-With%@", [[beeaterComponent containedBeeType] capitalizedString]];
+    [headRenderSprite playAnimation:headAnimationName];
+}
+
+-(void) handleBeeaterKilled:(NSNotification *)notification
+{
+	// Save bee
+	Entity *beeaterEntity = [[notification userInfo] objectForKey:@"beeaterEntity"];
+	TagManager *tagManager = (TagManager *)[[beeaterEntity world] getManager:[TagManager class]];
+	Entity *slingerEntity = (Entity *)[tagManager getEntity:@"SLINGER"];
+	BeeaterComponent *beeaterComponent = (BeeaterComponent *)[beeaterEntity getComponent:[BeeaterComponent class]];
+	SlingerComponent *slingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
+	[slingerComponent pushBeeType:[beeaterComponent containedBeeType]];
+	
+	// Destroy beeater
+	TransformComponent *beeaterTransformComponent = (TransformComponent *)[beeaterEntity getComponent:[TransformComponent class]];
+	RenderComponent *beeaterRenderComponent = (RenderComponent *)[beeaterEntity getComponent:[RenderComponent class]];
+	RenderSprite *beeaterBodyRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"body"];
+	RenderSprite *beeaterHeadRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"head"];
+	[beeaterTransformComponent setScale:CGPointMake(1.0f, 1.0f)];
+	[beeaterHeadRenderSprite hide];
+	[beeaterBodyRenderSprite playAnimation:@"Beeater-Body-Destroy" withCallbackTarget:beeaterEntity andCallbackSelector:@selector(deleteEntity)];
+	
+	// Disable physics
+	PhysicsComponent *beeaterPhysicsComponent = [PhysicsComponent getFrom:beeaterEntity];
+	[beeaterPhysicsComponent disable];
+	[beeaterEntity refresh];
+	
+	// Game notification
+	NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
+	[notificationUserInfo setObject:[NSValue valueWithCGPoint:[beeaterTransformComponent position]] forKey:@"beeaterEntityPosition"];
+	[notificationUserInfo setObject:[beeaterComponent containedBeeType] forKey:@"beeType"];
+	[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_SAVED object:self userInfo:notificationUserInfo];
 }
 
 @end

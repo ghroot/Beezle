@@ -138,7 +138,9 @@
     if (![beeaterDisposableComponent isDisposed])
     {
 		[beeaterDisposableComponent setIsDisposed:TRUE];
-		[EntityUtil animateDeleteAndSaveBeeFromBeeaterEntity:beeaterEntity];
+		
+		NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:beeaterEntity forKey:@"beeaterEntity"];
+		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEEATER_KILLED object:self userInfo:notificationUserInfo];
 
 		if ([beeComponent type] == [BeeType SPEEDEE] &&
 			![beeComponent speedeeHitBeeater])
