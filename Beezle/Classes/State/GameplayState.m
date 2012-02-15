@@ -12,6 +12,7 @@
 #import "BeeQueueRenderingSystem.h"
 #import "BeeExpiratonSystem.h"
 #import "CollisionSystem.h"
+#import "DebugNotificationTrackerSystem.h"
 #import "DebugRenderPhysicsSystem.h"
 #import "Game.h"
 #import "GameRulesSystem.h"
@@ -120,6 +121,8 @@
 	{
 		_debugRenderPhysicsSystem = [[[DebugRenderPhysicsSystem alloc] initWithScene:self] autorelease];
 		[systemManager setSystem:_debugRenderPhysicsSystem];
+		_debugNotificationTrackerSystem = [[[DebugNotificationTrackerSystem alloc] init] autorelease];
+		[systemManager setSystem:_debugNotificationTrackerSystem];
 	}
 	
 	[systemManager initialiseAll];
@@ -203,6 +206,7 @@
 	if (_debug)
 	{
         [_debugRenderPhysicsSystem process];
+		[_debugNotificationTrackerSystem process];
 	}
     
     [self updateMode];

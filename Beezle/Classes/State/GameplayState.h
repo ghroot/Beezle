@@ -16,6 +16,7 @@
 @class ExplodeControlSystem;
 @class BeeQueueRenderingSystem;
 @class CollisionSystem;
+@class DebugNotificationTrackerSystem;
 @class DebugRenderPhysicsSystem;
 @class GameRulesSystem;
 @class InputSystem;
@@ -49,6 +50,7 @@
 	BeeaterAnimationSystem *_beeaterAnimationSystem;
 	TrailSystem *_trailSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
+	DebugNotificationTrackerSystem *_debugNotificationTrackerSystem;
     
     GameMode *_currentMode;
     GameMode *_aimingMode;
