@@ -18,12 +18,37 @@
 	return [[[self alloc] initWithType:type] autorelease];
 }
 
--(id) initWithType:(BeeType *)type
++(BeeComponent *) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+{
+	return [[[self alloc] initWithContentsOfDictionary:dict world:world] autorelease];
+}
+
+-(id) init
 {
 	if (self = [super init])
 	{
 		_name = @"bee";
+	}
+	return self;
+}
+
+-(id) initWithType:(BeeType *)type
+{
+	if (self = [self init])
+	{
 		_type = type;
+	}
+	return self;
+}
+
+-(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+{
+	if (self = [self init])
+	{
+		if ([dict objectForKey:@"type"] != nil)
+		{
+			_type = [BeeType enumFromName:[dict objectForKey:@"type"]];
+		}
 	}
 	return self;
 }

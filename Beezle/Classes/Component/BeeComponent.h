@@ -19,6 +19,7 @@
 @property (nonatomic) BOOL speedeeHitBeeater;
 
 +(id) componentWithType:(BeeType *)type;
++(BeeComponent *) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
 
 -(id) initWithType:(BeeType *)type;
 

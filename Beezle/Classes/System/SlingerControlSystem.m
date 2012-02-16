@@ -111,7 +111,7 @@
 				{
 					// Create bee
 					Entity *beeEntity = [EntityFactory createBee:_world withBeeType:[slingerComponent loadedBeeType] andVelocity:[trajectoryComponent startVelocity]];
-								[EntityUtil setEntityPosition:beeEntity position:[trajectoryComponent startPoint]];
+					[EntityUtil setEntityPosition:beeEntity position:[trajectoryComponent startPoint]];
 					
 					[slingerComponent clearLoadedBee];
 					

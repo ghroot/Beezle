@@ -37,7 +37,7 @@
 		NSDictionary *componentDict = [_componentsDict objectForKey:componentType];
 		if ([componentType isEqualToString:@"bee"])
 		{
-			component = [BeeComponent component];
+			component = [BeeComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"beeater"])
 		{

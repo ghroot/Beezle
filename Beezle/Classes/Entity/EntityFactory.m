@@ -146,11 +146,7 @@
 
 +(Entity *) createBee:(World *)world withBeeType:(BeeType *)beeType andVelocity:(CGPoint)velocity
 {
-	NSString *type = [beeType name];
-    Entity *beeEntity = [self createEntity:type world:world];
-	
-	BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
-	[beeComponent setType:beeType];
+    Entity *beeEntity = [self createEntity:[beeType name] world:world];
 	
 	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:beeEntity];
 	[[physicsComponent body] setVel:velocity];
