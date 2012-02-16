@@ -37,7 +37,6 @@
 -(void) addNotificationObservers
 {
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(printNotification:) name:GAME_NOTIFICATION_BEE_LOADED object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(printNotification:) name:GAME_NOTIFICATION_SLINGER_ROTATED object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(printNotification:) name:GAME_NOTIFICATION_BEE_FIRED object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(printNotification:) name:GAME_NOTIFICATION_BEE_EXPIRED object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(printNotification:) name:GAME_NOTIFICATION_BEE_SAVED object:nil];

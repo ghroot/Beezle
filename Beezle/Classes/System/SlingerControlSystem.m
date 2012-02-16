@@ -102,9 +102,6 @@
 				float percent = (power - SLINGER_MIN_POWER) / (SLINGER_MAX_POWER - SLINGER_MIN_POWER);
 				float scale = SCALE_AT_MIN_POWER + percent * (SCALE_AT_MAX_POWER - SCALE_AT_MIN_POWER);
 				[transformComponent setScale:CGPointMake(1.0f, scale)];
-				
-				// Game notification
-				[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_SLINGER_ROTATED object:self];
                 
                 break;
             }

@@ -27,10 +27,10 @@
 -(BOOL) canHandleNotifications;
 -(void) handleNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) handleBeeLoadedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
--(void) handleSlingerRotatedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) handleBeeFiredNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) handleBeeSavedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) decreaseMovingBeesCount;
+-(void) updateLoadedBeeRotation:(Entity *)slingerEntity;
 -(RenderSprite *) createBeeQueueRenderSpriteWithBeeType:(BeeType *)beeType position:(CGPoint)position;
 -(CGPoint) calculatePositionForBeeQueueRenderSpriteAtIndex:(int)index slingerEntity:(Entity *)slingerEntity;
 -(CGPoint) calculatePositionForNextBeeQueueRenderSprite:(Entity *)slingerEntity;
@@ -59,7 +59,6 @@
 -(void) addNotificationObservers
 {
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEE_LOADED object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_SLINGER_ROTATED object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEE_FIRED object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEE_SAVED object:nil];
 }
@@ -100,6 +99,8 @@
 		[self handleNotification:nextNotification slingerEntity:entity];
 		[nextNotification release];
 	}
+	
+	[self updateLoadedBeeRotation:entity];
 }
 
 -(void) queueNotification:(NSNotification *)notification
@@ -122,10 +123,6 @@
 	if ([[notification name] isEqualToString:GAME_NOTIFICATION_BEE_LOADED])
 	{
 		[self handleBeeLoadedNotification:notification slingerEntity:entity];
-	}
-	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_SLINGER_ROTATED])
-	{
-		[self handleSlingerRotatedNotification:notification slingerEntity:entity];
 	}
 	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_BEE_FIRED])
 	{
@@ -164,7 +161,7 @@
 	}
 }
 
--(void) handleSlingerRotatedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity
+-(void) updateLoadedBeeRotation:(Entity *)slingerEntity
 {
 	if (_beeLoadedRenderSprite != nil)
 	{
