@@ -132,9 +132,7 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity
 {  
-	BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
     DisposableComponent *beeaterDisposableComponent = [DisposableComponent getFrom:beeaterEntity];
-    
     if (![beeaterDisposableComponent isDisposed])
     {
 		[beeaterDisposableComponent setIsDisposed:TRUE];
@@ -142,6 +140,7 @@
 		NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:beeaterEntity forKey:@"beeaterEntity"];
 		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEEATER_KILLED object:self userInfo:notificationUserInfo];
 
+		BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
 		[beeComponent decreaseBeeaterHitsLeft];
 		if ([beeComponent isOutOfBeeaterKills])
 		{
@@ -160,11 +159,9 @@
 -(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity
 {
     DisposableComponent *pollenDisposableComponent = [DisposableComponent getFrom:pollenEntity];
-    
     if (![pollenDisposableComponent isDisposed])
     {
         [pollenDisposableComponent setIsDisposed:TRUE];
-		
 		[EntityUtil animateAndDeleteEntity:pollenEntity animationName:@"Pollen-Pickup" disablePhysics:TRUE];
     }
 }
@@ -172,11 +169,9 @@
 -(void) handleCollisionBee:(Entity *)beeEntity withPollenOrange:(Entity *)pollenOrangeEntity
 {
     DisposableComponent *pollenDisposableComponent = [DisposableComponent getFrom:pollenOrangeEntity];
-    
     if (![pollenDisposableComponent isDisposed])
     {
         [pollenDisposableComponent setIsDisposed:TRUE];
-		
 		[EntityUtil animateAndDeleteEntity:pollenOrangeEntity animationName:@"PollenO-Pickup" disablePhysics:TRUE];
     }
 }
@@ -190,7 +185,6 @@
 		if (![mushroomDisposableComponent isDisposed])
 		{
 			[mushroomDisposableComponent setIsDisposed:TRUE];
-			
 			[EntityUtil animateAndDeleteEntity:mushroomEntity animationName:@"SmokeMushroom-BounceAndPuff" disablePhysics:FALSE];
 			
 			[[SoundManager sharedManager] playSound:@"11097__a43__a43-blipp.aif"];
@@ -207,19 +201,16 @@
 -(void) handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity
 {
 	DisposableComponent *woodDisposableComponent = [DisposableComponent getFrom:woodEntity];
-	
 	if (![woodDisposableComponent isDisposed])
 	{
 		BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
-		BeeType *beeType = [beeComponent type];
-		if ([beeType canDestroyWood])
+		if ([beeComponent type] == [BeeType SAWEE])
 		{
 			[woodDisposableComponent setIsDisposed:TRUE];
+			[EntityUtil animateAndDeleteEntity:woodEntity animationName:@"Wood-Destroy" disablePhysics:FALSE];
 			
 			[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
 			[beeEntity deleteEntity];
-			
-			[EntityUtil animateAndDeleteEntity:woodEntity animationName:@"Wood-Destroy" disablePhysics:FALSE];
 			
 			[[SoundManager sharedManager] playSound:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
 		}
@@ -229,30 +220,26 @@
 -(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity
 {
 	DisposableComponent *nutDisposableComponent = [DisposableComponent getFrom:nutEntity];
-	
 	if (![nutDisposableComponent isDisposed])
 	{
 		[nutDisposableComponent setIsDisposed:TRUE];
+		[EntityUtil animateAndDeleteEntity:nutEntity animationName:@"Nut-Collect" disablePhysics:TRUE];
 		
 		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
 		[beeEntity deleteEntity];
-		
-		[EntityUtil animateAndDeleteEntity:nutEntity animationName:@"Nut-Collect" disablePhysics:TRUE];
 	}
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withEgg:(Entity *)eggEntity
 {
 	DisposableComponent *eggDisposableComponent = [DisposableComponent getFrom:eggEntity];
-	
 	if (![eggDisposableComponent isDisposed])
 	{
 		[eggDisposableComponent setIsDisposed:TRUE];
+		[EntityUtil animateAndDeleteEntity:eggEntity animationName:@"Egg-Collect" disablePhysics:TRUE];
 		
 		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
 		[beeEntity deleteEntity];
-		
-		[EntityUtil animateAndDeleteEntity:eggEntity animationName:@"Egg-Collect" disablePhysics:TRUE];
 	}
 }
 

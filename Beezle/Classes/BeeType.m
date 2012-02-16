@@ -10,13 +10,12 @@
 
 @implementation BeeType
 
-@dynamic canDestroyWood;
 @dynamic slingerShootSpeedModifier;
 
-GANDENUM(BEE, 0, [NSNumber numberWithBool:FALSE], @"canDestroyWood", [NSNumber numberWithFloat:1.0f], @"slingerShootSpeedModifier")
-GANDENUM(SAWEE, 1, [NSNumber numberWithBool:TRUE], @"canDestroyWood", [NSNumber numberWithFloat:1.0f], @"slingerShootSpeedModifier")
-GANDENUM(SPEEDEE, 2, [NSNumber numberWithBool:FALSE], @"canDestroyWood", [NSNumber numberWithFloat:1.6f], @"slingerShootSpeedModifier")
-GANDENUM(BOMBEE, 3, [NSNumber numberWithBool:FALSE], @"canDestroyWood", [NSNumber numberWithFloat:0.7f], @"slingerShootSpeedModifier")
+GANDENUM(BEE, 0, [NSNumber numberWithFloat:1.0f], @"slingerShootSpeedModifier")
+GANDENUM(SAWEE, 1, [NSNumber numberWithFloat:1.0f], @"slingerShootSpeedModifier")
+GANDENUM(SPEEDEE, 2, [NSNumber numberWithFloat:1.6f], @"slingerShootSpeedModifier")
+GANDENUM(BOMBEE, 3, [NSNumber numberWithFloat:0.7f], @"slingerShootSpeedModifier")
 
 -(NSString *) capitalizedString
 {
