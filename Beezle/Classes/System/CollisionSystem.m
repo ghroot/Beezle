@@ -142,12 +142,8 @@
 		NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:beeaterEntity forKey:@"beeaterEntity"];
 		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEEATER_KILLED object:self userInfo:notificationUserInfo];
 
-		if ([beeComponent type] == [BeeType SPEEDEE] &&
-			![beeComponent speedeeHitBeeater])
-		{
-			[beeComponent setSpeedeeHitBeeater:TRUE];
-		}
-		else
+		[beeComponent decreaseBeeaterHitsLeft];
+		if ([beeComponent isOutOfBeeaterKills])
 		{
 			[EntityUtil animateAndDeleteEntity:beeEntity animationName:@"Bee-Crash" disablePhysics:TRUE];
 		}
