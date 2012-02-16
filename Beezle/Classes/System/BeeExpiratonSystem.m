@@ -8,6 +8,7 @@
 
 #import "BeeExpiratonSystem.h"
 #import "BeeComponent.h"
+#import "DisposableComponent.h"
 #import "EntityUtil.h"
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
@@ -17,7 +18,7 @@
 
 -(id) init
 {
-    self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[BeeComponent class], [PhysicsComponent class], nil]];
+    self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[BeeComponent class], [PhysicsComponent class], [DisposableComponent class], nil]];
     return self;
 }
 
@@ -26,6 +27,8 @@
     PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
 	if ([[physicsComponent body] isSleeping])
 	{
+		[[DisposableComponent getFrom:entity] setIsDisposed:TRUE];
+		
         [EntityUtil animateAndDeleteEntity:entity animationName:@"Bee-Crash" disablePhysics:TRUE];
 		
 		// Game notification

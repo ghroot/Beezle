@@ -145,6 +145,7 @@
 		[beeComponent decreaseBeeaterHitsLeft];
 		if ([beeComponent isOutOfBeeaterKills])
 		{
+			[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
 			[EntityUtil animateAndDeleteEntity:beeEntity animationName:@"Bee-Crash" disablePhysics:TRUE];
 		}
     }
@@ -152,6 +153,7 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity
 {
+	[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
 	[beeEntity deleteEntity];
 }
 
@@ -214,6 +216,7 @@
 		{
 			[woodDisposableComponent setIsDisposed:TRUE];
 			
+			[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
 			[beeEntity deleteEntity];
 			
 			[EntityUtil animateAndDeleteEntity:woodEntity animationName:@"Wood-Destroy" disablePhysics:FALSE];
@@ -231,6 +234,7 @@
 	{
 		[nutDisposableComponent setIsDisposed:TRUE];
 		
+		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
 		[beeEntity deleteEntity];
 		
 		[EntityUtil animateAndDeleteEntity:nutEntity animationName:@"Nut-Collect" disablePhysics:TRUE];
@@ -245,6 +249,7 @@
 	{
 		[eggDisposableComponent setIsDisposed:TRUE];
 		
+		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
 		[beeEntity deleteEntity];
 		
 		[EntityUtil animateAndDeleteEntity:eggEntity animationName:@"Egg-Collect" disablePhysics:TRUE];
@@ -253,6 +258,7 @@
 
 -(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity
 {
+	[[DisposableComponent getFrom:aimPollenEntity] setIsDisposed:TRUE];
     [aimPollenEntity deleteEntity];
 }
 
