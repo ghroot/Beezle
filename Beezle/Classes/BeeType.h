@@ -10,11 +10,9 @@
 
 @interface BeeType : GandEnum
 {
-    BOOL _canDestroyWood;
 	float _slingerShootSpeedModifier;
 }
 
-@property (nonatomic) BOOL canDestroyWood;
 @property (nonatomic) float slingerShootSpeedModifier;
 
 +(BeeType *) BEE;

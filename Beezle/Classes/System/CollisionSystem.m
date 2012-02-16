@@ -211,8 +211,7 @@
 	if (![woodDisposableComponent isDisposed])
 	{
 		BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
-		BeeType *beeType = [beeComponent type];
-		if ([beeType canDestroyWood])
+		if ([beeComponent type] == [BeeType SAWEE])
 		{
 			[woodDisposableComponent setIsDisposed:TRUE];
 			
