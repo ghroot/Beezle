@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>GLASS-A29</string>
+	<key>components</key>
+	<dict>
+		<key>crumble</key>
+		<dict/>
+		<key>disposable</key>
+		<dict/>
+		<key>glass</key>
+		<dict/>
+		<key>physics</key>
+		<dict>
+			<key>file</key>
+			<string>Glass-A29-Shapes.plist</string>
+			<key>bodyName</key>
+			<string>GlassA29</string>
+			<key>layers</key>
+			<integer>7</integer>
+		</dict>
+		<key>render</key>
+		<dict>
+			<key>sprites</key>
+			<array>
+				<dict>
+					<key>name</key>
+					<string>default</string>
+					<key>spriteSheetName</key>
+					<string>Sprites</string>
+					<key>animationFile</key>
+					<string>Glass-Animations.plist</string>
+					<key>z</key>
+					<integer>2</integer>
+					<key>anchorPoint</key>
+					<string>{ 1, 1 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Glass-A29-Idle</string>
+				</dict>
+			</array>
+		</dict>
+		<key>transform</key>
+		<dict/>
+	</dict>
+</dict>
+</plist>

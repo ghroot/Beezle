@@ -16,6 +16,7 @@
 #import "DebugRenderPhysicsSystem.h"
 #import "Game.h"
 #import "GameRulesSystem.h"
+#import "GlassAnimationSystem.h"
 #import "IngameMenuState.h"
 #import "InputAction.h"
 #import "InputSystem.h"
@@ -115,6 +116,8 @@
 	[systemManager setSystem:_beeQueueRenderingSystem];
 	_beeaterAnimationSystem = [[[BeeaterAnimationSystem alloc] init] autorelease];
 	[systemManager setSystem:_beeaterAnimationSystem];
+	_glassAnimationSystem = [[[GlassAnimationSystem alloc] init] autorelease];
+	[systemManager setSystem:_glassAnimationSystem];
 	_trailSystem = [[[TrailSystem alloc] init] autorelease];
 	[systemManager setSystem:_trailSystem];
 	if (_debug)
@@ -153,6 +156,7 @@
 													   _explodeControlSystem,
 													   _beeQueueRenderingSystem,
 													   _beeaterAnimationSystem,
+													   _glassAnimationSystem,
 													   _trailSystem,
 													   nil]];
     

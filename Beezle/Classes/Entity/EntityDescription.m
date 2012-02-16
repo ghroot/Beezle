@@ -12,6 +12,7 @@
 #import "CrumbleComponent.h"
 #import "DisposableComponent.h"
 #import "ExplodeComponent.h"
+#import "GlassComponent.h"
 #import "MovementComponent.h"
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
@@ -54,6 +55,10 @@
 		else if ([componentType isEqualToString:@"explode"])
 		{
 			component = [ExplodeComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+		else if ([componentType isEqualToString:@"glass"])
+		{
+			component = [GlassComponent component];
 		}
 		else if ([componentType isEqualToString:@"movement"])
 		{

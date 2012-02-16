@@ -34,7 +34,7 @@
 		[self createEntityMenuItems];
 		
 		CCMenuItemFont *cancelMenuItem = [CCMenuItemFont itemFromString:@"<cancel>" target:self selector:@selector(cancel:)];
-		[cancelMenuItem setFontSize:22];
+		[cancelMenuItem setFontSize:20];
 		[_menu addChild:cancelMenuItem];
 		
 		int nMenuItems = [[_menu  children] count];
@@ -55,6 +55,7 @@
 	[self addMenuItemForEntityType:@"BEEATER"];
 	[self addMenuItemForEntityType:@"EGG"];
 	[self addMenuItemForEntityType:@"FLOATING-BLOCK-A"];
+	[self addMenuItemForEntityType:@"GLASS-A29"];
 	[self addMenuItemForEntityType:@"HANGNEST"];
 	[self addMenuItemForEntityType:@"LEAF"];
 	[self addMenuItemForEntityType:@"MUSHROOM"];

@@ -337,6 +337,16 @@
 		2CEA352E1466B2B5000FF575 /* RenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA352D1466B2B5000FF575 /* RenderComponent.m */; };
 		2CEA35311466B2C9000FF575 /* PhysicsComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA35301466B2C9000FF575 /* PhysicsComponent.m */; };
 		2CEB9D6714EC7BE000CAC505 /* DebugNotificationTrackerSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB9D6614EC7BE000CAC505 /* DebugNotificationTrackerSystem.m */; };
+		2CEB9D6B14EDB7E800CAC505 /* Glass-A29.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEB9D6A14EDB7E800CAC505 /* Glass-A29.plist */; };
+		2CEB9D6D14EDB99A00CAC505 /* Glass-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEB9D6C14EDB99A00CAC505 /* Glass-Animations.plist */; };
+		2CEB9D7114EDBB6B00CAC505 /* Level-A29-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CEB9D6E14EDBB6B00CAC505 /* Level-A29-hd.jpg */; };
+		2CEB9D7214EDBB6B00CAC505 /* Level-A29-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEB9D6F14EDBB6B00CAC505 /* Level-A29-Shapes.plist */; };
+		2CEB9D7314EDBB6B00CAC505 /* Level-A29.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7014EDBB6B00CAC505 /* Level-A29.jpg */; };
+		2CEB9D7514EDBDDF00CAC505 /* Glass-A29-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7414EDBDDF00CAC505 /* Glass-A29-Shapes.plist */; };
+		2CEB9D7814EDC0A600CAC505 /* GlassAnimationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7714EDC0A600CAC505 /* GlassAnimationSystem.m */; };
+		2CEB9D7B14EDC1BB00CAC505 /* GlassComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7A14EDC1BA00CAC505 /* GlassComponent.m */; };
+		2CEB9D7D14EDC34C00CAC505 /* Glass-Pc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7C14EDC34C00CAC505 /* Glass-Pc.plist */; };
+		2CEB9D7F14EDCA9000CAC505 /* Level-A29-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7E14EDCA9000CAC505 /* Level-A29-Layout.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -913,6 +923,18 @@
 		2CEA35301466B2C9000FF575 /* PhysicsComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhysicsComponent.m; path = Classes/Component/PhysicsComponent.m; sourceTree = "<group>"; };
 		2CEB9D6514EC7BE000CAC505 /* DebugNotificationTrackerSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugNotificationTrackerSystem.h; sourceTree = "<group>"; };
 		2CEB9D6614EC7BE000CAC505 /* DebugNotificationTrackerSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugNotificationTrackerSystem.m; sourceTree = "<group>"; };
+		2CEB9D6A14EDB7E800CAC505 /* Glass-A29.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A29.plist"; sourceTree = "<group>"; };
+		2CEB9D6C14EDB99A00CAC505 /* Glass-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-Animations.plist"; sourceTree = "<group>"; };
+		2CEB9D6E14EDBB6B00CAC505 /* Level-A29-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A29-hd.jpg"; sourceTree = "<group>"; };
+		2CEB9D6F14EDBB6B00CAC505 /* Level-A29-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A29-Shapes.plist"; sourceTree = "<group>"; };
+		2CEB9D7014EDBB6B00CAC505 /* Level-A29.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A29.jpg"; sourceTree = "<group>"; };
+		2CEB9D7414EDBDDF00CAC505 /* Glass-A29-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A29-Shapes.plist"; sourceTree = "<group>"; };
+		2CEB9D7614EDC0A600CAC505 /* GlassAnimationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlassAnimationSystem.h; path = Classes/System/GlassAnimationSystem.h; sourceTree = "<group>"; };
+		2CEB9D7714EDC0A600CAC505 /* GlassAnimationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlassAnimationSystem.m; path = Classes/System/GlassAnimationSystem.m; sourceTree = "<group>"; };
+		2CEB9D7914EDC1BA00CAC505 /* GlassComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlassComponent.h; path = Classes/Component/GlassComponent.h; sourceTree = "<group>"; };
+		2CEB9D7A14EDC1BA00CAC505 /* GlassComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlassComponent.m; path = Classes/Component/GlassComponent.m; sourceTree = "<group>"; };
+		2CEB9D7C14EDC34C00CAC505 /* Glass-Pc.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-Pc.plist"; sourceTree = "<group>"; };
+		2CEB9D7E14EDCA9000CAC505 /* Level-A29-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A29-Layout.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1323,6 +1345,7 @@
 				2C5EFC3914E7DACF0071ED39 /* Bombee-Animations.plist */,
 				2C5EFC3A14E7DACF0071ED39 /* Egg-Animations.plist */,
 				2C5EFC6514E7DCC20071ED39 /* FloatingBlockA-Animations.plist */,
+				2CEB9D6C14EDB99A00CAC505 /* Glass-Animations.plist */,
 				2C5EFC3B14E7DACF0071ED39 /* HangNest-Animations.plist */,
 				2C5EFC3C14E7DACF0071ED39 /* HangNestLian-Animations.plist */,
 				2C5EFC3D14E7DACF0071ED39 /* Leaf-Animations.plist */,
@@ -1345,6 +1368,7 @@
 			children = (
 				2C5EFC6D14E829390071ED39 /* Bee-Shapes.plist */,
 				2C5EFC4814E7DACF0071ED39 /* FloatingBlockA-Shapes.plist */,
+				2CEB9D7414EDBDDF00CAC505 /* Glass-A29-Shapes.plist */,
 				2C5EFC6914E811840071ED39 /* PollenO-Shapes.plist */,
 			);
 			path = Shapes;
@@ -1380,6 +1404,10 @@
 				2C5EFCB214E9BAF10071ED39 /* Level-A27-Layout.plist */,
 				2C5EFCAD14E9B8990071ED39 /* Level-A27-Shapes.plist */,
 				2C5EFCAE14E9B8990071ED39 /* Level-A27.jpg */,
+				2CEB9D6E14EDBB6B00CAC505 /* Level-A29-hd.jpg */,
+				2CEB9D7E14EDCA9000CAC505 /* Level-A29-Layout.plist */,
+				2CEB9D6F14EDBB6B00CAC505 /* Level-A29-Shapes.plist */,
+				2CEB9D7014EDBB6B00CAC505 /* Level-A29.jpg */,
 			);
 			path = "26-30";
 			sourceTree = "<group>";
@@ -1499,6 +1527,8 @@
 				2C157C1E149382D6003F9040 /* GameRulesSystem.m */,
 				2C764DD8148A1F4000820587 /* GCpShapeCache.h */,
 				2C764DD9148A1F4000820587 /* GCpShapeCache.m */,
+				2CEB9D7614EDC0A600CAC505 /* GlassAnimationSystem.h */,
+				2CEB9D7714EDC0A600CAC505 /* GlassAnimationSystem.m */,
 				2CADCC6F1471C76400302475 /* InputAction.h */,
 				2CADCC701471C76400302475 /* InputAction.m */,
 				2C7CE61A146C73FE001F331F /* InputSystem.h */,
@@ -1700,6 +1730,7 @@
 				2C5EFC7A14E82BA40071ED39 /* Beeater */,
 				2CC7183F14E1E29500059B66 /* Egg.plist */,
 				2C5EFC6314E7DB470071ED39 /* Floating-Block-A.plist */,
+				2CEB9D6914EDB7E800CAC505 /* Glass */,
 				2CC7184014E1E29500059B66 /* Hangnest.plist */,
 				2CC7184114E1E29500059B66 /* Leaf.plist */,
 				2CC7184214E1E29500059B66 /* Mushroom.plist */,
@@ -1911,6 +1942,8 @@
 				2CC3EC0A14D608870025F5DA /* Edit */,
 				2C5EFCBD14EC60390071ED39 /* ExplodeComponent.h */,
 				2C5EFCBE14EC603D0071ED39 /* ExplodeComponent.m */,
+				2CEB9D7914EDC1BA00CAC505 /* GlassComponent.h */,
+				2CEB9D7A14EDC1BA00CAC505 /* GlassComponent.m */,
 				2CC3EBFB14D466460025F5DA /* MovementComponent.h */,
 				2CC3EBFC14D466460025F5DA /* MovementComponent.m */,
 				2CEA352F1466B2C9000FF575 /* PhysicsComponent.h */,
@@ -1929,6 +1962,15 @@
 				2C068A33146858B9003E200D /* TransformComponent.m */,
 			);
 			name = Component;
+			sourceTree = "<group>";
+		};
+		2CEB9D6914EDB7E800CAC505 /* Glass */ = {
+			isa = PBXGroup;
+			children = (
+				2CEB9D6A14EDB7E800CAC505 /* Glass-A29.plist */,
+				2CEB9D7C14EDC34C00CAC505 /* Glass-Pc.plist */,
+			);
+			path = Glass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2146,6 +2188,14 @@
 				2C5EFCB914E9BDA90071ED39 /* Level-A36-Shapes.plist in Resources */,
 				2C5EFCBA14E9BDA90071ED39 /* Level-A36.jpg in Resources */,
 				2C5EFCBC14E9C4050071ED39 /* Level-A36-Layout.plist in Resources */,
+				2CEB9D6B14EDB7E800CAC505 /* Glass-A29.plist in Resources */,
+				2CEB9D6D14EDB99A00CAC505 /* Glass-Animations.plist in Resources */,
+				2CEB9D7114EDBB6B00CAC505 /* Level-A29-hd.jpg in Resources */,
+				2CEB9D7214EDBB6B00CAC505 /* Level-A29-Shapes.plist in Resources */,
+				2CEB9D7314EDBB6B00CAC505 /* Level-A29.jpg in Resources */,
+				2CEB9D7514EDBDDF00CAC505 /* Glass-A29-Shapes.plist in Resources */,
+				2CEB9D7D14EDC34C00CAC505 /* Glass-Pc.plist in Resources */,
+				2CEB9D7F14EDCA9000CAC505 /* Level-A29-Layout.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2358,6 +2408,8 @@
 				2CD4A99914EC7BAC0065FA90 /* DebugRenderPhysicsLayer.m in Sources */,
 				2CD4A99A14EC7BAC0065FA90 /* DebugRenderPhysicsSystem.m in Sources */,
 				2CEB9D6714EC7BE000CAC505 /* DebugNotificationTrackerSystem.m in Sources */,
+				2CEB9D7814EDC0A600CAC505 /* GlassAnimationSystem.m in Sources */,
+				2CEB9D7B14EDC1BB00CAC505 /* GlassComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

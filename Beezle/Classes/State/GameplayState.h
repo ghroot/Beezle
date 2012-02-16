@@ -19,6 +19,7 @@
 @class DebugNotificationTrackerSystem;
 @class DebugRenderPhysicsSystem;
 @class GameRulesSystem;
+@class GlassAnimationSystem;
 @class InputSystem;
 @class MovementSystem;
 @class PhysicsSystem;
@@ -48,6 +49,7 @@
 	ExplodeControlSystem *_explodeControlSystem;
 	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
 	BeeaterAnimationSystem *_beeaterAnimationSystem;
+	GlassAnimationSystem *_glassAnimationSystem;
 	TrailSystem *_trailSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
 	DebugNotificationTrackerSystem *_debugNotificationTrackerSystem;
