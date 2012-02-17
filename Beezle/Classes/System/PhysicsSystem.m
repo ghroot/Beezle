@@ -14,8 +14,8 @@
 #import "PhysicsComponent.h"
 #import "TransformComponent.h"
 
-#define GRAVITY -100
-#define FIXED_TIMESTEP (1.0f / 60.0f)
+#define GRAVITY -120
+#define FIXED_TIMESTEP (1.0f / 45.0f)
 
 @implementation PhysicsSystem
 
@@ -169,10 +169,7 @@
 {
     if ([_world delta] > 0)
 	{
-//		[_space step:FIXED_TIMESTEP];
-		
-		[_space step:(FIXED_TIMESTEP / 2.0f)];
-		[_space step:(FIXED_TIMESTEP / 2.0f)];
+		[_space step:FIXED_TIMESTEP];
 	}
 }
 

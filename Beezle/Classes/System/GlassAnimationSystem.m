@@ -16,6 +16,10 @@
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "TransformComponent.h"
+#import "Utils.h"
+
+#define PIECES_MIN_VELOCITY 50
+#define PIECES_MAX_VELOCITY 100
 
 @interface GlassAnimationSystem()
 
@@ -84,33 +88,40 @@
 	if ([entity hasComponent:[GlassComponent class]])
 	{
 		TransformComponent *transformComponent = [TransformComponent getFrom:entity];
-		
-		for (int i = 0; i < 10; i++)
+		GlassComponent *glassComponent = [GlassComponent getFrom:entity];
+		for (int i = 0; i < [glassComponent piecesCount]; i++)
 		{
-			CGPoint position = CGPointMake([transformComponent position].x - 40 + (rand() % 40), [transformComponent position].y - 40 + (rand() % 40));
-			cpVect velocity = CGPointMake(-150 + (rand() % 300), -150 + (rand() % 300));
-			
+			// Create entity
 			Entity *glassPieceEntity = [EntityFactory createEntity:@"GLASS-PC" world:_world];
-			[EntityUtil setEntityPosition:glassPieceEntity position:position];
+			
+			// Position
+			CGPoint centerPoint = CGPointMake(
+						[transformComponent position].x + [glassComponent piecesSpawnAreaOffset].x,
+						[transformComponent position].y + [glassComponent piecesSpawnAreaOffset].y);
+			CGPoint topLeft = CGPointMake(
+						centerPoint.x - [glassComponent piecesSpawnAreaSize].width / 2,
+										  centerPoint.y - [glassComponent piecesSpawnAreaSize].height / 2);
+			CGPoint randomPosition = CGPointMake(
+						topLeft.x + (rand() % (int)[glassComponent piecesSpawnAreaSize].width),
+						topLeft.y + (rand() % (int)[glassComponent piecesSpawnAreaSize].height));
+			[EntityUtil setEntityPosition:glassPieceEntity position:randomPosition];
+			
+			// Velocity
 			PhysicsComponent *glassPiecePhysicsComponent = [PhysicsComponent getFrom:glassPieceEntity];
-			[[glassPiecePhysicsComponent body] setVel:velocity];
+			cpVect randomVelocity = [Utils createVectorWithRandomAngleAndLengthBetween:PIECES_MIN_VELOCITY and:PIECES_MAX_VELOCITY];
+			[[glassPiecePhysicsComponent body] setVel:randomVelocity];
 			
+			// Animation
 			RenderComponent *renderComponent = [RenderComponent getFrom:glassPieceEntity];
-			RenderSprite *renderSprite = [[renderComponent renderSprites] objectAtIndex:0];
+			NSString *animationName = [NSString stringWithFormat:@"Glass-Pc%d-Idle", (1 + (rand() % 8))];
+			[[renderComponent firstRenderSprite] playAnimation:animationName];
 			
-			int randomAnimationNumber = 1 + (rand() % 8);
-			NSString *animationName = [NSString stringWithFormat:@"Glass-Pc%d-Idle", randomAnimationNumber];
-			[renderSprite playAnimation:animationName];
-			
-			CCFadeOut *fadeOutAction = [CCFadeOut actionWithDuration:7.0f];
-			CCCallFunc *callFunctionAction = [CCCallFunc actionWithTarget:glassPieceEntity selector:@selector(deleteEntity)];
-			[[renderSprite sprite] runAction:[CCSequence actions:fadeOutAction, callFunctionAction, nil]];
+			// Fade out
+			[EntityUtil fadeOutAndDeleteEntity:glassPieceEntity duration:7.0f];
 		}
 		
 		[[DisposableComponent getFrom:entity] setIsDisposed:TRUE];
 		[entity deleteEntity];
-		
-		
 	}
 }
 

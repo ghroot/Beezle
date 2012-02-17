@@ -278,6 +278,7 @@
 		2CD33EF3147EFFA8000869C1 /* MainMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EF2147EFFA7000869C1 /* MainMenuState.m */; };
 		2CD4A99914EC7BAC0065FA90 /* DebugRenderPhysicsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4A99614EC7BAC0065FA90 /* DebugRenderPhysicsLayer.m */; };
 		2CD4A99A14EC7BAC0065FA90 /* DebugRenderPhysicsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4A99814EC7BAC0065FA90 /* DebugRenderPhysicsSystem.m */; };
+		2CD51BBC14EEF1FB00FCD8FF /* Glass-Pc-Small.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD51BBB14EEF1FB00FCD8FF /* Glass-Pc-Small.plist */; };
 		2CE348B314DDFD0100FEB492 /* BootStrap.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348B214DDFD0000FEB492 /* BootStrap.m */; };
 		2CE348BB14DF06FB00FEB492 /* EntityDescriptionSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348BA14DF06FB00FEB492 /* EntityDescriptionSerializer.m */; };
 		2CE348BE14DF070A00FEB492 /* EntityDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348BD14DF070A00FEB492 /* EntityDescription.m */; };
@@ -848,6 +849,7 @@
 		2CD4A99614EC7BAC0065FA90 /* DebugRenderPhysicsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugRenderPhysicsLayer.m; sourceTree = "<group>"; };
 		2CD4A99714EC7BAC0065FA90 /* DebugRenderPhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugRenderPhysicsSystem.h; sourceTree = "<group>"; };
 		2CD4A99814EC7BAC0065FA90 /* DebugRenderPhysicsSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugRenderPhysicsSystem.m; sourceTree = "<group>"; };
+		2CD51BBB14EEF1FB00FCD8FF /* Glass-Pc-Small.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-Pc-Small.plist"; sourceTree = "<group>"; };
 		2CE348B114DDFD0000FEB492 /* BootStrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BootStrap.h; path = Classes/BootStrap.h; sourceTree = "<group>"; };
 		2CE348B214DDFD0000FEB492 /* BootStrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BootStrap.m; path = Classes/BootStrap.m; sourceTree = "<group>"; };
 		2CE348B914DF06FB00FEB492 /* EntityDescriptionSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityDescriptionSerializer.h; sourceTree = "<group>"; };
@@ -1969,6 +1971,7 @@
 			children = (
 				2CEB9D6A14EDB7E800CAC505 /* Glass-A29.plist */,
 				2CEB9D7C14EDC34C00CAC505 /* Glass-Pc.plist */,
+				2CD51BBB14EEF1FB00FCD8FF /* Glass-Pc-Small.plist */,
 			);
 			path = Glass;
 			sourceTree = "<group>";
@@ -2196,6 +2199,7 @@
 				2CEB9D7514EDBDDF00CAC505 /* Glass-A29-Shapes.plist in Resources */,
 				2CEB9D7D14EDC34C00CAC505 /* Glass-Pc.plist in Resources */,
 				2CEB9D7F14EDCA9000CAC505 /* Level-A29-Layout.plist in Resources */,
+				2CD51BBC14EEF1FB00FCD8FF /* Glass-Pc-Small.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

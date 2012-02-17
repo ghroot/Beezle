@@ -22,6 +22,7 @@
 -(void) addRenderSprite:(RenderSprite *)renderSprite withName:(NSString *)name;
 -(RenderSprite *) getRenderSprite:(NSString *)name;
 -(NSArray *) renderSprites;
+-(RenderSprite *) firstRenderSprite;
 -(void) setAlpha:(float)alpha;
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops;
 -(void) playAnimation:(NSString *)animationName;

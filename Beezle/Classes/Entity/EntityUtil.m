@@ -63,4 +63,20 @@
 	}
 }
 
++(void) fadeOutAndDeleteEntity:(Entity *)entity duration:(float)duration
+{
+	RenderComponent *renderComponent = [RenderComponent getFrom:entity];
+	for (RenderSprite *renderSprite in [renderComponent renderSprites])
+	{
+		NSMutableArray *actions = [[NSMutableArray alloc] initWithObjects:[CCFadeOut actionWithDuration:duration], nil];
+		if (renderSprite == [[renderComponent renderSprites] objectAtIndex:0])
+		{
+			// Let the first render sprite take care of the entity deletion at the end of the fadeout
+			[actions addObject:[CCCallFunc actionWithTarget:entity selector:@selector(deleteEntity)]];
+		}
+		[[renderSprite sprite] runAction:[CCSequence actionsWithArray:actions]];
+		[actions release];
+	}
+}
+
 @end

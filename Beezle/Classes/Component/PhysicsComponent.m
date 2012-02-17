@@ -46,6 +46,7 @@
 			if ([dict objectForKey:@"collisionType"] != nil)
 			{
 				collisionType = [CollisionType enumFromName:[dict objectForKey:@"collisionType"]];
+				NSAssert(collisionType != nil, @"Unknown collisionType");
 			}
 			
 			PhysicsSystem *physicsSystem = (PhysicsSystem *)[[world systemManager] getSystem:[PhysicsSystem class]];

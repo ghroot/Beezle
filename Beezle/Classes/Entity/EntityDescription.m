@@ -58,7 +58,7 @@
 		}
 		else if ([componentType isEqualToString:@"glass"])
 		{
-			component = [GlassComponent component];
+			component = [GlassComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"movement"])
 		{

@@ -14,6 +14,7 @@
 #import "CollisionMediator.h"
 #import "CollisionType.h"
 #import "DisposableComponent.h"
+#import "EntityFactory.h"
 #import "EntityUtil.h"
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
@@ -24,6 +25,7 @@
 #import "SoundManager.h"
 #import "TagManager.h"
 #import "TransformComponent.h"
+#import "Utils.h"
 
 @interface CollisionSystem()
 
@@ -40,6 +42,7 @@
 -(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity;
 -(void) handleCollisionBee:(Entity *)beeEntity withEgg:(Entity *)eggEntity;
 -(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity;
+-(void) handleCollisionGlassPiece:(Entity *)glassPieceEntity withEntity:(Entity *)otherEntity;
 
 @end
 
@@ -79,6 +82,8 @@
 	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType NUT] selector:@selector(handleCollisionBee:withNut:)];
 	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType EGG] selector:@selector(handleCollisionBee:withEgg:)];
 	[self handleAfterCollisionBetween:[CollisionType AIM_POLLEN] and:[CollisionType EDGE] selector:@selector(handleCollisionAimPollen:withEdge:)];
+	[self handleAfterCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionGlassPiece:withEntity:)];
+	[self handleAfterCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType EDGE] selector:@selector(handleCollisionGlassPiece:withEntity:)];
 }
 
 -(void) handleBeforeCollisionBetween:(CollisionType *)type1 and:(CollisionType *)type2 selector:(SEL)selector
@@ -247,6 +252,35 @@
 {
 	[[DisposableComponent getFrom:aimPollenEntity] setIsDisposed:TRUE];
     [aimPollenEntity deleteEntity];
+}
+
+-(void) handleCollisionGlassPiece:(Entity *)glassPieceEntity withEntity:(Entity *)otherEntity
+{
+	TransformComponent *transformComponent = [TransformComponent getFrom:glassPieceEntity];
+	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:glassPieceEntity];
+	for (int i = 0; i < 3; i++)
+	{
+		// Create entity
+		Entity *glassPieceSmallEntity = [EntityFactory createEntity:@"GLASS-PC-SMALL" world:_world];
+		
+		// Position
+		[EntityUtil setEntityPosition:glassPieceSmallEntity position:[transformComponent position]];
+		
+		// Velocity
+		PhysicsComponent *smallPhysicsComponent = [PhysicsComponent getFrom:glassPieceSmallEntity];
+		cpVect randomVelocity = [Utils createVectorWithRandomAngleAndLengthBetween:20 and:50];
+		cpVect summedVelocity = cpv([[physicsComponent body] vel].x + randomVelocity.x, [[physicsComponent body] vel].y + randomVelocity.y);
+		[[smallPhysicsComponent body] setVel:summedVelocity];
+		
+		// Animation
+		RenderComponent *smallRenderComponent = [RenderComponent getFrom:glassPieceSmallEntity];
+		NSString *animationName = [NSString stringWithFormat:@"Glass-Pc%d-Idle", (1 + (rand() % 8))];
+		[[smallRenderComponent firstRenderSprite] playAnimation:animationName];
+		
+		// Fade out
+		[EntityUtil fadeOutAndDeleteEntity:glassPieceSmallEntity duration:4.0f];
+	}
+	[glassPieceEntity deleteEntity];
 }
 
 @end

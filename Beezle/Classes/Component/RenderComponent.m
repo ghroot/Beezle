@@ -98,6 +98,11 @@
     return [_renderSpritesByName allValues];
 }
 
+-(RenderSprite *) firstRenderSprite
+{
+	return [[_renderSpritesByName allValues] objectAtIndex:0];
+}
+
 -(void) setAlpha:(float)alpha
 {
 	for (RenderSprite *renderSprite in [_renderSpritesByName allValues])
