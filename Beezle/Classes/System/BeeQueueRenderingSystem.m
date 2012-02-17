@@ -192,7 +192,7 @@
 	
 	// Move from beeater to slinger queue
 	_movingBeesCount++;
-	CCMoveTo *moveToQueueAction = [CCMoveTo actionWithDuration:0.7f position:nextPosition];
+	CCEaseSineOut *moveToQueueAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.7f position:nextPosition]];
 	CCCallFunc *decreaseMovingBeesCountAction = [CCCallFunc actionWithTarget:self selector:@selector(decreaseMovingBeesCount)];
 	[[beeQueueRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
 	CCAction *action = [CCSequence actions:moveToQueueAction, decreaseMovingBeesCountAction, [self createSwayAction:nextPosition], nil];
