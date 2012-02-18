@@ -183,7 +183,7 @@
 	{
 		if (child == menu)
 		{
-			[_layer removeChild:menu cleanup:TRUE];
+			[_layer removeChild:menu cleanup:FALSE];
 			break;
 		}
 	}
