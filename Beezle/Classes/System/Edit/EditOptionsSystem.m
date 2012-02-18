@@ -116,7 +116,7 @@
 
 -(CCMenuItem *) createMenuItem:(NSString *)label selector:(SEL)selector userData:(void *)userData
 {
-	CCMenuItemFont *menuItem = [CCMenuItemFont itemFromString:label target:self selector:selector];
+	CCMenuItemFont *menuItem = [CCMenuItemFont itemWithString:label target:self selector:selector];
 	[menuItem setFontSize:14];
 	[menuItem setUserData:userData];
 	return menuItem;

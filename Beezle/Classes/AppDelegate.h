@@ -7,22 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 #import "cocos2d.h"
 
 @class EmailInfo;
 @class Game;
 @class RootViewController;
 
-@interface AppDelegate : NSObject <UIApplicationDelegate>
+@interface AppDelegate : NSObject <UIApplicationDelegate, MFMailComposeViewControllerDelegate, CCDirectorDelegate>
 {
 	UIWindow *_window;
-	RootViewController *_viewController;
+	UINavigationController *_navigationController;
+	CCDirectorIOS *_director;
     
     Game *_game;
 }
-
-@property (nonatomic, retain) UIWindow *window;
-@property (nonatomic, retain) RootViewController *viewController;
 
 -(void) sendEmail:(EmailInfo *)emailInfo;
 

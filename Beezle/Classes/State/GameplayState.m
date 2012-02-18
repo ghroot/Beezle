@@ -79,7 +79,7 @@
     _uiLayer = [CCLayer node];
     [self addChild:_uiLayer];
     
-    CCMenuItemImage *pauseMenuItem = [CCMenuItemImage itemFromNormalImage:@"Pause.png" selectedImage:@"Pause.png" target:self selector:@selector(pauseGame:)];
+    CCMenuItemImage *pauseMenuItem = [CCMenuItemImage itemWithNormalImage:@"Pause.png" selectedImage:@"Pause.png" target:self selector:@selector(pauseGame:)];
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     [pauseMenuItem setPosition:CGPointMake(winSize.width, winSize.height)];
     [pauseMenuItem setAnchorPoint:CGPointMake(1.0f, 1.0f)];

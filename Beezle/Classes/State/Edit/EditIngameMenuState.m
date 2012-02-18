@@ -25,15 +25,15 @@
         
 		_menu = [CCMenu menuWithItems:nil];
 		
-		CCMenuItem *resumeMenuItem = [CCMenuItemFont itemFromString:@"Resume" target:self selector:@selector(resumeGame:)];
+		CCMenuItem *resumeMenuItem = [CCMenuItemFont itemWithString:@"Resume" target:self selector:@selector(resumeGame:)];
 		[_menu addChild:resumeMenuItem];
-		CCMenuItem *tryMenuItem = [CCMenuItemFont itemFromString:@"Try" target:self selector:@selector(tryGame:)];
+		CCMenuItem *tryMenuItem = [CCMenuItemFont itemWithString:@"Try" target:self selector:@selector(tryGame:)];
 		[_menu addChild:tryMenuItem];
-		CCMenuItem *saveMenuItem = [CCMenuItemFont itemFromString:@"Save" target:self selector:@selector(saveLevel:)];
+		CCMenuItem *saveMenuItem = [CCMenuItemFont itemWithString:@"Save" target:self selector:@selector(saveLevel:)];
 		[_menu addChild:saveMenuItem];
-		CCMenuItem *resetMenuItem = [CCMenuItemFont itemFromString:@"Reset" target:self selector:@selector(resetLevel:)];
+		CCMenuItem *resetMenuItem = [CCMenuItemFont itemWithString:@"Reset" target:self selector:@selector(resetLevel:)];
 		[_menu addChild:resetMenuItem];
-		CCMenuItem *quitMenuItem = [CCMenuItemFont itemFromString:@"Quit" target:self selector:@selector(gotoMainMenu:)];
+		CCMenuItem *quitMenuItem = [CCMenuItemFont itemWithString:@"Quit" target:self selector:@selector(gotoMainMenu:)];
 		[_menu addChild:quitMenuItem];
 		
 		[_menu alignItemsVerticallyWithPadding:30.0f];

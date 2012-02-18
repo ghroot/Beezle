@@ -20,13 +20,13 @@
 
 -(void) enter
 {
-    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:TRUE];
+    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:TRUE];
     [self scheduleUpdate];
 }
 
 -(void) leave
 {
-    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+    [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
     [self unscheduleUpdate]; 
 }
 

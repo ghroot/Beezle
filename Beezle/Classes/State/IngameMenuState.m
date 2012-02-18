@@ -22,16 +22,16 @@
         
 		_menu = [CCMenu menuWithItems:nil];
 		
-		CCMenuItem *resumeMenuItem = [CCMenuItemFont itemFromString:@"Resume" target:self selector:@selector(resumeGame:)];
+		CCMenuItem *resumeMenuItem = [CCMenuItemFont itemWithString:@"Resume" target:self selector:@selector(resumeGame:)];
 		[_menu addChild:resumeMenuItem];
-		CCMenuItem *restartMenuItem = [CCMenuItemFont itemFromString:@"Restart" target:self selector:@selector(restartGame:)];
+		CCMenuItem *restartMenuItem = [CCMenuItemFont itemWithString:@"Restart" target:self selector:@selector(restartGame:)];
 		[_menu addChild:restartMenuItem];
 		if (CONFIG_CAN_EDIT_LEVELS)
 		{
-			CCMenuItem *editMenuItem = [CCMenuItemFont itemFromString:@"Edit" target:self selector:@selector(editGame:)];
+			CCMenuItem *editMenuItem = [CCMenuItemFont itemWithString:@"Edit" target:self selector:@selector(editGame:)];
 			[_menu addChild:editMenuItem];
 		}
-		CCMenuItem *quitMenuItem = [CCMenuItemFont itemFromString:@"Quit" target:self selector:@selector(gotoMainMenu:)];
+		CCMenuItem *quitMenuItem = [CCMenuItemFont itemWithString:@"Quit" target:self selector:@selector(gotoMainMenu:)];
 		[_menu addChild:quitMenuItem];
 		
 		[_menu alignItemsVerticallyWithPadding:30.0f];

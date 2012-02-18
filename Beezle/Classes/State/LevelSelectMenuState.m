@@ -34,12 +34,12 @@
 		NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesForTheme:theme];
         for (NSString *levelName in levelNames)
         {
-            CCMenuItemFont *levelMenuItem = [CCMenuItemFont itemFromString:levelName target:self selector:@selector(startGame:)];
+            CCMenuItemFont *levelMenuItem = [CCMenuItemFont itemWithString:levelName target:self selector:@selector(startGame:)];
 			[levelMenuItem setFontSize:24];
             [levelMenuItem setUserData:levelName];
             [_menu addChild:levelMenuItem];
         }
-		CCMenuItemFont *backMenuItem = [CCMenuItemFont itemFromString:@"Back" target:self selector:@selector(goBack:)];
+		CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
 		[backMenuItem setFontSize:24];
 		[_menu addChild:backMenuItem];
 		

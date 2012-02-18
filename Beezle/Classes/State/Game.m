@@ -32,7 +32,7 @@
     [_gameStateStack addObject:gameState];
 	[gameState setGame:self];
     [gameState enter];
-	[[CCDirector sharedDirector] runWithScene:gameState];
+	[[CCDirector sharedDirector] pushScene:gameState];
 }
 
 -(void) replaceState:(GameState *)gameState

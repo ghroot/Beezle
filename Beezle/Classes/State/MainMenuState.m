@@ -22,14 +22,14 @@
         
         _menu = [CCMenu menuWithItems:nil];
 		
-		CCMenuItem *playMenuItem = [CCMenuItemFont itemFromString:@"Play" target:self selector:@selector(selectLevel:)];
+		CCMenuItem *playMenuItem = [CCMenuItemFont itemWithString:@"Play" target:self selector:@selector(selectLevel:)];
 		[_menu addChild:playMenuItem];
 		if (CONFIG_CAN_EDIT_LEVELS)
 		{
-			CCMenuItem *sendMenuItem = [CCMenuItemFont itemFromString:@"Send Edited Levels" target:self selector:@selector(sendEditedLevels:)];
+			CCMenuItem *sendMenuItem = [CCMenuItemFont itemWithString:@"Send Edited Levels" target:self selector:@selector(sendEditedLevels:)];
 			[_menu addChild:sendMenuItem];
 		}
-        CCMenuItem *testMenuItem = [CCMenuItemFont itemFromString:@"Test" target:self selector:@selector(startTest:)];
+        CCMenuItem *testMenuItem = [CCMenuItemFont itemWithString:@"Test" target:self selector:@selector(startTest:)];
         [_menu addChild:testMenuItem];
         
         [_menu alignItemsVerticallyWithPadding:20.0f];

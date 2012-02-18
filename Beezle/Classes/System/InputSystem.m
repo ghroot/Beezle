@@ -50,12 +50,12 @@
 
 -(void) startListeningForTouches
 {
-    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:TRUE];
+    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:TRUE];
 }
 
 -(void) stopListeningForTouches
 {
-    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+    [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
 }
 
 -(InputAction *) popInputAction
