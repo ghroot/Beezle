@@ -56,6 +56,7 @@
 	[self addMenuItemForEntityType:@"EGG"];
 	[self addMenuItemForEntityType:@"FLOATING-BLOCK-A"];
 	[self addMenuItemForEntityType:@"GLASS-A29"];
+	[self addMenuItemForEntityType:@"GLASS-A34"];
 	[self addMenuItemForEntityType:@"HANGNEST"];
 	[self addMenuItemForEntityType:@"LEAF"];
 	[self addMenuItemForEntityType:@"MUSHROOM"];
@@ -71,7 +72,7 @@
 -(void) addMenuItemForEntityType:(NSString *)entityType
 {
 	CCMenuItemFont *menuItem = [CCMenuItemFont itemWithString:entityType target:self selector:@selector(addEntity:)];
-	[menuItem setFontSize:22];
+	[menuItem setFontSize:20];
 	[menuItem setUserData:entityType];
 	[_menu addChild:menuItem];
 }

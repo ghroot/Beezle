@@ -131,6 +131,11 @@
 		2C24B3BF14EF1520002D1444 /* vec2.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C24B35F14EF1520002D1444 /* vec2.c */; };
 		2C24B3C014EF1520002D1444 /* vec3.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C24B36014EF1520002D1444 /* vec3.c */; };
 		2C24B3C114EF1520002D1444 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C24B36114EF1520002D1444 /* vec4.c */; };
+		2C24B3C514EFEA87002D1444 /* Glass-A34.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C24B3C414EFEA87002D1444 /* Glass-A34.plist */; };
+		2C24B3C714EFEA99002D1444 /* Glass-A34-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C24B3C614EFEA99002D1444 /* Glass-A34-Shapes.plist */; };
+		2C24B3D114EFF5A5002D1444 /* Level-A34-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C24B3CE14EFF5A5002D1444 /* Level-A34-hd.jpg */; };
+		2C24B3D214EFF5A5002D1444 /* Level-A34-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C24B3CF14EFF5A5002D1444 /* Level-A34-Shapes.plist */; };
+		2C24B3D314EFF5A5002D1444 /* Level-A34.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C24B3D014EFF5A5002D1444 /* Level-A34.jpg */; };
 		2C27E90014D20577002165CD /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8E714D20577002165CD /* Component.m */; };
 		2C27E90114D20577002165CD /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8E914D20577002165CD /* Entity.m */; };
 		2C27E90214D20577002165CD /* EntityComponentSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8EB14D20577002165CD /* EntityComponentSystem.m */; };
@@ -587,6 +592,11 @@
 		2C24B35F14EF1520002D1444 /* vec2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vec2.c; sourceTree = "<group>"; };
 		2C24B36014EF1520002D1444 /* vec3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vec3.c; sourceTree = "<group>"; };
 		2C24B36114EF1520002D1444 /* vec4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vec4.c; sourceTree = "<group>"; };
+		2C24B3C414EFEA87002D1444 /* Glass-A34.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A34.plist"; sourceTree = "<group>"; };
+		2C24B3C614EFEA99002D1444 /* Glass-A34-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A34-Shapes.plist"; sourceTree = "<group>"; };
+		2C24B3CE14EFF5A5002D1444 /* Level-A34-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A34-hd.jpg"; sourceTree = "<group>"; };
+		2C24B3CF14EFF5A5002D1444 /* Level-A34-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A34-Shapes.plist"; sourceTree = "<group>"; };
+		2C24B3D014EFF5A5002D1444 /* Level-A34.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A34.jpg"; sourceTree = "<group>"; };
 		2C27E8E514D20577002165CD /* artemis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = artemis.h; sourceTree = "<group>"; };
 		2C27E8E614D20577002165CD /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 		2C27E8E714D20577002165CD /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Component.m; sourceTree = "<group>"; };
@@ -1355,6 +1365,7 @@
 				2C5EFC6D14E829390071ED39 /* Bee-Shapes.plist */,
 				2C5EFC4814E7DACF0071ED39 /* FloatingBlockA-Shapes.plist */,
 				2CEB9D7414EDBDDF00CAC505 /* Glass-A29-Shapes.plist */,
+				2C24B3C614EFEA99002D1444 /* Glass-A34-Shapes.plist */,
 				2C5EFC6914E811840071ED39 /* PollenO-Shapes.plist */,
 			);
 			path = Shapes;
@@ -1401,6 +1412,9 @@
 		2C5EFCB414E9BDA80071ED39 /* 31-35 */ = {
 			isa = PBXGroup;
 			children = (
+				2C24B3CE14EFF5A5002D1444 /* Level-A34-hd.jpg */,
+				2C24B3CF14EFF5A5002D1444 /* Level-A34-Shapes.plist */,
+				2C24B3D014EFF5A5002D1444 /* Level-A34.jpg */,
 				2C5EFCB514E9BDA90071ED39 /* Level-A36-hd.jpg */,
 				2C5EFCBB14E9C4050071ED39 /* Level-A36-Layout.plist */,
 				2C5EFCB614E9BDA90071ED39 /* Level-A36-Shapes.plist */,
@@ -1918,8 +1932,9 @@
 			isa = PBXGroup;
 			children = (
 				2CEB9D6A14EDB7E800CAC505 /* Glass-A29.plist */,
-				2CEB9D7C14EDC34C00CAC505 /* Glass-Pc.plist */,
+				2C24B3C414EFEA87002D1444 /* Glass-A34.plist */,
 				2CD51BBB14EEF1FB00FCD8FF /* Glass-Pc-Small.plist */,
+				2CEB9D7C14EDC34C00CAC505 /* Glass-Pc.plist */,
 			);
 			path = Glass;
 			sourceTree = "<group>";
@@ -2134,6 +2149,11 @@
 				2CD51BBC14EEF1FB00FCD8FF /* Glass-Pc-Small.plist in Resources */,
 				2C24B3B414EF1520002D1444 /* ChangeLog in Resources */,
 				2C24B3B514EF1520002D1444 /* CMakeLists.txt in Resources */,
+				2C24B3C514EFEA87002D1444 /* Glass-A34.plist in Resources */,
+				2C24B3C714EFEA99002D1444 /* Glass-A34-Shapes.plist in Resources */,
+				2C24B3D114EFF5A5002D1444 /* Level-A34-hd.jpg in Resources */,
+				2C24B3D214EFF5A5002D1444 /* Level-A34-Shapes.plist in Resources */,
+				2C24B3D314EFF5A5002D1444 /* Level-A34.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

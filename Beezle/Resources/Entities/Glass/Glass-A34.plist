@@ -3,42 +3,30 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>GLASS-PC</string>
+	<string>GLASS-A29</string>
 	<key>components</key>
 	<dict>
+		<key>crumble</key>
+		<dict/>
+		<key>disposable</key>
+		<dict/>
+		<key>glass</key>
+		<dict>
+			<key>piecesCount</key>
+			<integer>20</integer>
+			<key>piecesSpawnAreaOffset</key>
+			<string>{ 0, 30 }</string>
+			<key>piecesSpawnAreaSize</key>
+			<string>{ 70, 50 }</string>
+		</dict>
 		<key>physics</key>
 		<dict>
-			<key>body</key>
-			<dict>
-				<key>mass</key>
-				<real>1</real>
-				<key>moment</key>
-				<real>1</real>
-			</dict>
-			<key>shapes</key>
-			<array>
-				<dict>
-					<key>type</key>
-					<string>poly</string>
-					<key>vertices</key>
-					<array>
-						<string>{ -8, -3 }</string>
-						<string>{ -8, 3 }</string>
-						<string>{ 8, 3 }</string>
-						<string>{ 8, -3 }</string>
-					</array>
-					<key>elasticity</key>
-					<real>0.5</real>
-					<key>friction</key>
-					<real>0.3</real>
-					<key>collisionType</key>
-					<string>GLASS_PIECE</string>
-					<key>layers</key>
-					<integer>2</integer>
-					<key>group</key>
-					<string>GLASS_PIECE</string>
-				</dict>
-			</array>
+			<key>file</key>
+			<string>Glass-A34-Shapes.plist</string>
+			<key>bodyName</key>
+			<string>GlassA34</string>
+			<key>layers</key>
+			<integer>7</integer>
 		</dict>
 		<key>render</key>
 		<dict>
@@ -55,6 +43,8 @@
 					<integer>2</integer>
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.5 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Glass-A34-Idle</string>
 				</dict>
 			</array>
 		</dict>
