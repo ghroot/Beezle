@@ -43,7 +43,10 @@
 		[backMenuItem setFontSize:24];
 		[_menu addChild:backMenuItem];
 		
-        [_menu alignItemsInRows:[NSNumber numberWithInt:5], [NSNumber numberWithInt:5], [NSNumber numberWithInt:4], nil];
+		int n1 = ceilf(([levelNames count] + 1) / 3);
+		int n2 = n1;
+		int n3 = [levelNames count] + 1 - n1 - n2;
+        [_menu alignItemsInRows:[NSNumber numberWithInt:n1], [NSNumber numberWithInt:n2], [NSNumber numberWithInt:n3], nil];
         
         [self addChild:_menu];
 		
