@@ -137,6 +137,7 @@
 		2C24B3D214EFF5A5002D1444 /* Level-A34-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C24B3CF14EFF5A5002D1444 /* Level-A34-Shapes.plist */; };
 		2C24B3D314EFF5A5002D1444 /* Level-A34.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C24B3D014EFF5A5002D1444 /* Level-A34.jpg */; };
 		2C24B3D714F0682A002D1444 /* PlayerInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C24B3D614F0682A002D1444 /* PlayerInformation.m */; };
+		2C24B3DA14F1B299002D1444 /* PollenComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C24B3D914F1B296002D1444 /* PollenComponent.m */; };
 		2C27E90014D20577002165CD /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8E714D20577002165CD /* Component.m */; };
 		2C27E90114D20577002165CD /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8E914D20577002165CD /* Entity.m */; };
 		2C27E90214D20577002165CD /* EntityComponentSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8EB14D20577002165CD /* EntityComponentSystem.m */; };
@@ -600,6 +601,8 @@
 		2C24B3D014EFF5A5002D1444 /* Level-A34.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A34.jpg"; sourceTree = "<group>"; };
 		2C24B3D514F0682A002D1444 /* PlayerInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerInformation.h; sourceTree = "<group>"; };
 		2C24B3D614F0682A002D1444 /* PlayerInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInformation.m; sourceTree = "<group>"; };
+		2C24B3D814F1B294002D1444 /* PollenComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PollenComponent.h; path = Classes/Component/PollenComponent.h; sourceTree = "<group>"; };
+		2C24B3D914F1B296002D1444 /* PollenComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PollenComponent.m; path = Classes/Component/PollenComponent.m; sourceTree = "<group>"; };
 		2C27E8E514D20577002165CD /* artemis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = artemis.h; sourceTree = "<group>"; };
 		2C27E8E614D20577002165CD /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 		2C27E8E714D20577002165CD /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Component.m; sourceTree = "<group>"; };
@@ -1926,6 +1929,8 @@
 				2CC3EBFC14D466460025F5DA /* MovementComponent.m */,
 				2CEA352F1466B2C9000FF575 /* PhysicsComponent.h */,
 				2CEA35301466B2C9000FF575 /* PhysicsComponent.m */,
+				2C24B3D814F1B294002D1444 /* PollenComponent.h */,
+				2C24B3D914F1B296002D1444 /* PollenComponent.m */,
 				2CEA352C1466B2B5000FF575 /* RenderComponent.h */,
 				2CEA352D1466B2B5000FF575 /* RenderComponent.m */,
 				2C827D3614840C4600517C8F /* RenderSprite.h */,
@@ -2381,6 +2386,7 @@
 				2C24B3C014EF1520002D1444 /* vec3.c in Sources */,
 				2C24B3C114EF1520002D1444 /* vec4.c in Sources */,
 				2C24B3D714F0682A002D1444 /* PlayerInformation.m in Sources */,
+				2C24B3DA14F1B299002D1444 /* PollenComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

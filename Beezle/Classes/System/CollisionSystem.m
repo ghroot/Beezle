@@ -168,7 +168,7 @@
     if (![pollenDisposableComponent isDisposed])
     {
         [pollenDisposableComponent setIsDisposed:TRUE];
-		[[PlayerInformation sharedInformation] addConsumedDisposableIdThisLevel:[pollenDisposableComponent disposableId]];
+		[[PlayerInformation sharedInformation] consumedEntity:pollenEntity];
 		[EntityUtil animateAndDeleteEntity:pollenEntity animationName:@"Pollen-Pickup" disablePhysics:TRUE];
     }
 }
@@ -179,6 +179,7 @@
     if (![pollenDisposableComponent isDisposed])
     {
         [pollenDisposableComponent setIsDisposed:TRUE];
+		[[PlayerInformation sharedInformation] consumedEntity:pollenOrangeEntity];
 		[EntityUtil animateAndDeleteEntity:pollenOrangeEntity animationName:@"PollenO-Pickup" disablePhysics:TRUE];
     }
 }
@@ -243,6 +244,7 @@
 	if (![eggDisposableComponent isDisposed])
 	{
 		[eggDisposableComponent setIsDisposed:TRUE];
+		[[PlayerInformation sharedInformation] consumedEntity:eggEntity];
 		[EntityUtil animateAndDeleteEntity:eggEntity animationName:@"Egg-Collect" disablePhysics:TRUE];
 		
 		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];

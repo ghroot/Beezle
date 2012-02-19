@@ -7,7 +7,10 @@
 	<key>components</key>
 	<dict>
 		<key>disposable</key>
-		<dict/>
+		<dict>
+			<key>consumable</key>
+			<true/>
+		</dict>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
@@ -34,6 +37,11 @@
 					<integer>7</integer>
 				</dict>
 			</array>
+		</dict>
+		<key>pollen</key>
+		<dict>
+			<key>pollenCount</key>
+			<integer>10</integer>
 		</dict>
 		<key>render</key>
 		<dict>

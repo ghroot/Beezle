@@ -65,7 +65,7 @@
 		[self createWorldAndSystems];
         [self createModes];
 		[[LevelLoader sharedLoader] loadLevel:_levelName inWorld:_world edit:FALSE];
-		[[PlayerInformation sharedInformation] resetConsumedDisposableIdsThisLevel];
+		[[PlayerInformation sharedInformation] resetForThisLevel];
     }
     return self;
 }
@@ -235,7 +235,7 @@
         if (_currentMode != _levelCompletedMode)
         {
             [self enterMode:_levelCompletedMode];
-			[[PlayerInformation sharedInformation] storeConsumedDisposableIdsFromThisLevel];
+			[[PlayerInformation sharedInformation] storeForThisLevel];
 			[self showLabel:@"Level Complete!"];
         }
     }

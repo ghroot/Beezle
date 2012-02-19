@@ -15,6 +15,7 @@
 #import "GlassComponent.h"
 #import "MovementComponent.h"
 #import "PhysicsComponent.h"
+#import "PollenComponent.h"
 #import "RenderComponent.h"
 #import "SlingerComponent.h"
 #import "TransformComponent.h"
@@ -67,6 +68,10 @@
 		else if ([componentType isEqualToString:@"physics"])
 		{
 			component = [PhysicsComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+		else if ([componentType isEqualToString:@"pollen"])
+		{
+			component = [PollenComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"render"])
 		{

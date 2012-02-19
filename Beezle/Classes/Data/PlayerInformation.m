@@ -7,8 +7,12 @@
 //
 
 #import "PlayerInformation.h"
+#import "DisposableComponent.h"
+#import "PollenComponent.h"
 
 @implementation PlayerInformation
+
+@synthesize numberOfCollectedPollen = _numberOfCollectedPollen;
 
 +(PlayerInformation *) sharedInformation
 {
@@ -38,15 +42,17 @@
 	[super dealloc];
 }
 
--(void) resetConsumedDisposableIdsThisLevel
+-(void) resetForThisLevel
 {
 	[_consumedDisposableIdsThisLevel removeAllObjects];
+	_numberOfCollectedPollenThisLevel = 0;
 }
 
--(void) storeConsumedDisposableIdsFromThisLevel
+-(void) storeForThisLevel
 {
 	[_consumedDisposableIds addObjectsFromArray:_consumedDisposableIdsThisLevel];
-	[self resetConsumedDisposableIdsThisLevel];
+	_numberOfCollectedPollen += _numberOfCollectedPollenThisLevel;
+	[self resetForThisLevel];
 }
 
 -(void) addConsumedDisposableIdThisLevel:(NSString *)disposableId
@@ -57,6 +63,15 @@
 -(BOOL) hasConsumedDisposableId:(NSString *)disposableId
 {
 	return [_consumedDisposableIds containsObject:disposableId];
+}
+
+-(void) consumedEntity:(Entity *)entity
+{
+	DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
+	[self addConsumedDisposableIdThisLevel:[disposableComponent disposableId]];
+	
+	PollenComponent *pollenComponent = [PollenComponent getFrom:entity];
+	_numberOfCollectedPollenThisLevel += [pollenComponent pollenCount];
 }
 
 @end
