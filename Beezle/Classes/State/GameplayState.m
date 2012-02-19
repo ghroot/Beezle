@@ -34,6 +34,7 @@
 -(void) createModes;
 -(void) enterMode:(GameMode *)mode;
 -(void) updateMode;
+-(void) showLabel:(NSString *)labelText;
 
 @end
 
@@ -231,6 +232,7 @@
         {
             [self enterMode:_levelCompletedMode];
 			[[PlayerInformation sharedInformation] storeConsumedDisposableIdsFromThisLevel];
+			[self showLabel:@"Level Complete!"];
         }
     }
     else if ([_gameRulesSystem isLevelFailed])
@@ -238,6 +240,7 @@
         if (_currentMode != _levelFailedMode)
         {
             [self enterMode:_levelFailedMode];
+			[self showLabel:@"Level Failed..."];
         }
     } 
     else if (_currentMode == _aimingMode &&
@@ -255,6 +258,14 @@
 -(void) pauseGame:(id)sender
 {
 	[_game pushState:[IngameMenuState state]];
+}
+
+-(void) showLabel:(NSString *)labelText
+{
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	CCLabelTTF *label = [CCLabelTTF labelWithString:labelText fontName:@"Courier" fontSize:30];
+	[label setPosition:CGPointMake(winSize.width / 2, winSize.height / 2)];
+	[_uiLayer addChild:label];
 }
 
 @end
