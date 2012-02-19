@@ -11,6 +11,7 @@
 @implementation DisposableComponent
 
 @synthesize disposableId = _disposableId;
+@synthesize isConsumable = _isConsumable;
 @synthesize isDisposed = _isDisposed;
 
 -(id) init
@@ -18,9 +19,20 @@
     if (self = [super init])
     {
 		_name = @"disposable";
-        _isDisposed = FALSE;
     }
     return self;
+}
+
+-(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+{
+	if (self = [self init])
+	{
+		if ([dict objectForKey:@"consumable"] != nil)
+		{
+			_isConsumable = [[dict objectForKey:@"consumable"] boolValue];
+		}
+	}
+	return self;
 }
 
 -(void) dealloc

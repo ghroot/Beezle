@@ -50,7 +50,7 @@
 		}
 		else if ([componentType isEqualToString:@"disposable"])
 		{
-			component = [DisposableComponent component];
+			component = [DisposableComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"explode"])
 		{
@@ -74,7 +74,7 @@
 		}
 		else if ([componentType isEqualToString:@"slinger"])
 		{
-			component = [SlingerComponent component];
+			component = [SlingerComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"trail"])
 		{
@@ -82,7 +82,7 @@
 		}
 		else if ([componentType isEqualToString:@"trajectory"])
 		{
-			component = [TrajectoryComponent component];
+			component = [TrajectoryComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"transform"])
 		{
