@@ -39,6 +39,7 @@
 -(void) deactivate
 {
 	[super deactivate];
+	[_inputActions removeAllObjects];
     [self stopListeningForTouches];
 }
 

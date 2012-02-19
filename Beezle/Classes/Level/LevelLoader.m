@@ -120,6 +120,7 @@
     for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
     {
 		Entity *entity = [EntityFactory createEntity:[levelLayoutEntry type] world:world];
+		
 		BOOL excludeThisEntity = FALSE;
 		
 		if (CONFIG_CAN_EDIT_LEVELS && edit)

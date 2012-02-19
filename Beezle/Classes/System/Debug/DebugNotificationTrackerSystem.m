@@ -41,7 +41,7 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(printNotification:) name:GAME_NOTIFICATION_BEE_EXPIRED object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(printNotification:) name:GAME_NOTIFICATION_BEE_SAVED object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(printNotification:) name:GAME_NOTIFICATION_BEEATER_CONTAINED_BEE_CHANGED object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(printNotification:) name:GAME_NOTIFICATION_BEEATER_KILLED object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(printNotification:) name:GAME_NOTIFICATION_BEEATER_HIT object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(printNotification:) name:GAME_NOTIFICATION_ENTITY_CRUMBLED object:nil];
 }
 

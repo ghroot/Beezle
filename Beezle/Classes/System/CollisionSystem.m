@@ -144,7 +144,7 @@
 		[beeaterDisposableComponent setIsDisposed:TRUE];
 		
 		NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:beeaterEntity forKey:@"beeaterEntity"];
-		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEEATER_KILLED object:self userInfo:notificationUserInfo];
+		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEEATER_HIT object:self userInfo:notificationUserInfo];
 
 		BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
 		[beeComponent decreaseBeeaterHitsLeft];

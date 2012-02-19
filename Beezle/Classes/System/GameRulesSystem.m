@@ -7,6 +7,7 @@
 //
 
 #import "GameRulesSystem.h"
+#import "DisposableComponent.h"
 #import "SlingerComponent.h"
 
 @interface GameRulesSystem()
@@ -14,6 +15,8 @@
 -(void) updateIsLevelCompleted;
 -(void) updateIsLevelFailed;
 -(void) updateIsBeeFlying;
+
+-(int) countNonDisposedEntitiesInGroup:(NSString *)groupName;
 
 @end
 
@@ -32,11 +35,8 @@
 
 -(void) updateIsLevelCompleted
 {
-    GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
-    NSArray *beeaterEntities = [groupManager getEntitiesInGroup:@"BEEATERS"];
-    NSArray *beeEntities = [groupManager getEntitiesInGroup:@"BEES"];
-    
-    _isLevelCompleted = [beeaterEntities count] == 0 && [beeEntities count] == 0;
+	int numberOfUndisposedBeeaters = [self countNonDisposedEntitiesInGroup:@"BEEATERS"];
+    _isLevelCompleted = numberOfUndisposedBeeaters == 0;
 }
 
 -(void) updateIsLevelFailed
@@ -45,18 +45,35 @@
     Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
     SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
     
-    GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
-    NSArray *beeEntities = [groupManager getEntitiesInGroup:@"BEES"];
+	int numberOfUndisposedBees = [self countNonDisposedEntitiesInGroup:@"BEES"];
+	int numberOfUndisposedBeeaters = [self countNonDisposedEntitiesInGroup:@"BEEATERS"];
     
-    _isLevelFailed = ![slingerComponent hasMoreBees] && ![slingerComponent hasLoadedBee] && [beeEntities count] == 0;
+    _isLevelFailed = ![slingerComponent hasMoreBees] &&
+		![slingerComponent hasLoadedBee] &&
+		numberOfUndisposedBees == 0 &&
+		numberOfUndisposedBeeaters > 0;
 }
 
 -(void) updateIsBeeFlying
 {
-    GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
-    NSArray *beeEntities = [groupManager getEntitiesInGroup:@"BEES"];
-    
-    _isBeeFlying = [beeEntities count] > 0;
+	int numberOfUndisposedBees = [self countNonDisposedEntitiesInGroup:@"BEES"];
+    _isBeeFlying = numberOfUndisposedBees > 0;
+}
+										
+-(int) countNonDisposedEntitiesInGroup:(NSString *)groupName
+{
+	GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
+	NSArray *entities = [groupManager getEntitiesInGroup:groupName];
+	int count = 0;
+	for (Entity *entity in entities)
+	{
+		if ([entity hasComponent:[DisposableComponent class]] &&
+			![[DisposableComponent getFrom:entity] isDisposed])
+		{
+			count++;
+		}
+	}
+	return count;
 }
 
 @end

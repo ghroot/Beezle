@@ -162,13 +162,17 @@
 													   nil]];
     
     _levelCompletedMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
+															 _physicsSystem,
+															 _collisionSystem,
+															 _renderSystem,
 															 _beeQueueRenderingSystem,
-															 _beeaterAnimationSystem,
 															 nil]];
     
     _levelFailedMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
+														  _physicsSystem,
+														  _collisionSystem,
+														  _renderSystem,
 														  _beeQueueRenderingSystem,
-														  _beeaterAnimationSystem,
 														  nil]];
     
     _currentMode = _aimingMode;

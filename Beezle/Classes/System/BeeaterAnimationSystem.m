@@ -22,7 +22,7 @@
 -(void) queueNotification:(NSNotification *)notification;
 -(void) handleNotification:(NSNotification *)notification;
 -(void) handleBeeaterBeeChanged:(NSNotification *)notification;
--(void) handleBeeaterKilled:(NSNotification *)notification;
+-(void) handleBeeaterHit:(NSNotification *)notification;
 -(void) handleEntityCrumbled:(NSNotification *)notification;
 -(void) animateBeeaterAndSaveContainedBee:(Entity *)beeaterEntity;
 
@@ -52,7 +52,7 @@
 -(void) addNotificationObservers
 {
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEEATER_CONTAINED_BEE_CHANGED object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEEATER_KILLED object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEEATER_HIT object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_ENTITY_CRUMBLED object:nil];
 }
 
@@ -78,9 +78,9 @@
 	{
 		[self handleBeeaterBeeChanged:notification];
 	}
-	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_BEEATER_KILLED])
+	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_BEEATER_HIT])
 	{
-		[self handleBeeaterKilled:notification];
+		[self handleBeeaterHit:notification];
 	}
 	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_ENTITY_CRUMBLED])
 	{
@@ -98,7 +98,7 @@
     [headRenderSprite playAnimation:headAnimationName];
 }
 
--(void) handleBeeaterKilled:(NSNotification *)notification
+-(void) handleBeeaterHit:(NSNotification *)notification
 {
 	Entity *beeaterEntity = [[notification userInfo] objectForKey:@"beeaterEntity"];
 	[self animateBeeaterAndSaveContainedBee:beeaterEntity];

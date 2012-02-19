@@ -66,14 +66,20 @@
 					{
 						if ([self doesExplodedEntity:entity intersectCrumbleEntity:otherEntity])
 						{
-							CrumbleComponent *crumbleComponent = [CrumbleComponent getFrom:otherEntity];
-							if ([crumbleComponent crumbleAnimationName] != nil)
+							DisposableComponent *otherDisposableComponent = [DisposableComponent getFrom:otherEntity];
+							if (![otherDisposableComponent isDisposed])
 							{
-								[EntityUtil animateAndDeleteEntity:otherEntity animationName:[crumbleComponent crumbleAnimationName] disablePhysics:TRUE];
+								[otherDisposableComponent setIsDisposed:TRUE];
+								
+								CrumbleComponent *otherCrumbleComponent = [CrumbleComponent getFrom:otherEntity];
+								if ([otherCrumbleComponent crumbleAnimationName] != nil)
+								{
+									[EntityUtil animateAndDeleteEntity:otherEntity animationName:[otherCrumbleComponent crumbleAnimationName] disablePhysics:TRUE];
+								}
+								
+								NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:otherEntity forKey:@"entity"];
+								[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_CRUMBLED object:self userInfo:notificationUserInfo];
 							}
-							
-							NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:otherEntity forKey:@"entity"];
-							[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_CRUMBLED object:self userInfo:notificationUserInfo];
 						}
 					}
 				}
