@@ -42,6 +42,11 @@
 	return [[[self alloc] init] autorelease];
 }
 
++(id) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+{
+	return [[[self alloc] initWithContentsOfDictionary:dict world:world] autorelease];
+}
+
 -(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
 {
 	return [self init];

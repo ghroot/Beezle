@@ -18,11 +18,6 @@
 @synthesize shapes = _shapes;
 @synthesize positionUpdatedManually = _positionUpdatedManually;
 
-+(id) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
-{
-	return [[[self alloc] initWithContentsOfDictionary:dict world:world] autorelease];
-}
-
 +(id) componentWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes
 {
 	return [[[self alloc] initWithBody:body andShapes:shapes] autorelease];

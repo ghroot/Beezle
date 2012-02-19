@@ -16,7 +16,6 @@
 	NSMutableDictionary *_renderSpritesByName;
 }
 
-+(RenderComponent *) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
 +(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite;
 
 -(void) addRenderSprite:(RenderSprite *)renderSprite withName:(NSString *)name;

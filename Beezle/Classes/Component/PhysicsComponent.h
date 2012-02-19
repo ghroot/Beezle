@@ -25,7 +25,6 @@
 @property (nonatomic, readonly) NSArray *shapes;
 @property (nonatomic) BOOL positionUpdatedManually;
 
-+(id) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
 +(id) componentWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes;
 +(id) componentWithBody:(ChipmunkBody *)body andShape:(ChipmunkShape *)shape;
 

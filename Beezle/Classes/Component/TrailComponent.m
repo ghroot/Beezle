@@ -15,11 +15,6 @@
 @synthesize interval = _interval;
 @synthesize countdown = _countdown;
 
-+(id) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
-{
-	return [[[self alloc] initWithContentsOfDictionary:dict world:world] autorelease];
-}
-
 -(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
 {
 	if (self = [self init])

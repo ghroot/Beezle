@@ -10,6 +10,7 @@
 
 @implementation DisposableComponent
 
+@synthesize disposableId = _disposableId;
 @synthesize isDisposed = _isDisposed;
 
 -(id) init
@@ -20,6 +21,31 @@
         _isDisposed = FALSE;
     }
     return self;
+}
+
+-(void) dealloc
+{
+	[_disposableId release];
+	
+	[super dealloc];
+}
+
+-(NSDictionary *) getAsDictionary
+{
+	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	if (_disposableId != nil)
+	{
+		[dict setObject:_disposableId forKey:@"disposableId"];
+	}
+	return dict;
+}
+
+-(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+{
+	if ([dict objectForKey:@"disposableId"] != nil)
+	{
+		[self setDisposableId:[dict objectForKey:@"disposableId"]];
+	}
 }
 
 @end

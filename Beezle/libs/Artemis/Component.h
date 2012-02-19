@@ -43,6 +43,7 @@
 @property (nonatomic, readonly) BOOL enabled;
 
 +(id) component;
++(id) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
 +(id) getFrom:(Entity *)entity;
 
 -(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;

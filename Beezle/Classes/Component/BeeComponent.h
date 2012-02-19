@@ -18,8 +18,6 @@
 
 @property (nonatomic, assign) BeeType *type;
 
-+(BeeComponent *) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
-
 -(void) decreaseBeeaterHitsLeft;
 -(BOOL) isOutOfBeeaterKills;
 

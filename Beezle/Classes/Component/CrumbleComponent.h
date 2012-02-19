@@ -15,6 +15,4 @@
 
 @property (nonatomic, retain) NSString *crumbleAnimationName;
 
-+(CrumbleComponent *) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
-
 @end

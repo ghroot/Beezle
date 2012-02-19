@@ -25,8 +25,6 @@
 @property (nonatomic) CGPoint startPosition;
 @property (nonatomic) BOOL isMovingTowardsStartPosition;
 
-+(MovementComponent *) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
-
 -(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world edit:(BOOL)edit;
 
 @end

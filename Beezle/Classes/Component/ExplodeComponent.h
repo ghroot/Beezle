@@ -17,6 +17,4 @@
 @property (nonatomic) int radius;
 @property (nonatomic, retain) NSString *explodeAnimationName;
 
-+(ExplodeComponent *) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
-
 @end

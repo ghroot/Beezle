@@ -18,15 +18,14 @@
 #import "GameRulesSystem.h"
 #import "GlassAnimationSystem.h"
 #import "IngameMenuState.h"
-#import "InputAction.h"
 #import "InputSystem.h"
 #import "LevelLoader.h"
 #import "MovementSystem.h"
 #import "PhysicsSystem.h"
+#import "PlayerInformation.h"
 #import "RenderSystem.h"
 #import "SlingerControlSystem.h"
 #import "TrailSystem.h"
-#import "TransformComponent.h"
 
 @interface GameplayState()
 
@@ -65,6 +64,7 @@
 		[self createWorldAndSystems];
         [self createModes];
 		[[LevelLoader sharedLoader] loadLevel:_levelName inWorld:_world edit:FALSE];
+		[[PlayerInformation sharedInformation] resetConsumedDisposableIdsThisLevel];
     }
     return self;
 }
@@ -230,6 +230,7 @@
         if (_currentMode != _levelCompletedMode)
         {
             [self enterMode:_levelCompletedMode];
+			[[PlayerInformation sharedInformation] storeConsumedDisposableIdsFromThisLevel];
         }
     }
     else if ([_gameRulesSystem isLevelFailed])
@@ -247,14 +248,7 @@
     else if (_currentMode == _shootingMode &&
              ![_gameRulesSystem isBeeFlying])
     {
-		if ([_gameRulesSystem isLevelCompleted])
-		{
-			[self enterMode:_levelCompletedMode];
-		}
-		else
-		{
-			[self enterMode:_aimingMode];
-		}
+		[self enterMode:_aimingMode];
     }
 }
 

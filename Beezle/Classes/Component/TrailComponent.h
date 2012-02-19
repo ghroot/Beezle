@@ -21,8 +21,6 @@
 @property (nonatomic, readonly) float interval;
 @property (nonatomic) float countdown;
 
-+(id) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
-
 -(void) resetCountdown;
 
 @end

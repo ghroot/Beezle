@@ -18,6 +18,7 @@
 #import "LevelLoader.h"
 #import "MovementComponent.h"
 #import "PhysicsComponent.h"
+#import "PlayerInformation.h"
 #import "RenderComponent.h"
 #import "SlingerComponent.h"
 #import "TransformComponent.h"
@@ -110,9 +111,7 @@
 	}
 	
 	// Background
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	Entity *backgroundEntity = [EntityFactory createBackground:world withLevelName:levelName];
-	[EntityUtil setEntityPosition:backgroundEntity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
+	[EntityFactory createBackground:world withLevelName:levelName];
 	
 	// Edge
     [EntityFactory createEdge:world];
@@ -121,11 +120,11 @@
     for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
     {
 		Entity *entity = [EntityFactory createEntity:[levelLayoutEntry type] world:world];
+		BOOL excludeThisEntity = FALSE;
 		
 		if (CONFIG_CAN_EDIT_LEVELS && edit)
 		{
-			EditComponent *editComponent = [EditComponent componentWithLevelLayoutType:[levelLayoutEntry type]];
-			[entity addComponent:editComponent];
+			[entity addComponent:[EditComponent componentWithLevelLayoutType:[levelLayoutEntry type]]];
 			[entity refresh];
 		}
 		
@@ -137,7 +136,13 @@
 		if ([[levelLayoutEntry componentsDict] objectForKey:@"disposable"] != nil)
 		{
 			NSDictionary *disposableDict = [[levelLayoutEntry componentsDict] objectForKey:@"disposable"];
-			[[DisposableComponent getFrom:entity] populateWithContentsOfDictionary:disposableDict world:world];
+			DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
+			[disposableComponent populateWithContentsOfDictionary:disposableDict world:world];
+			
+			if ([disposableComponent disposableId] != nil)
+			{
+				excludeThisEntity = [[PlayerInformation sharedInformation] hasConsumedDisposableId:[disposableComponent disposableId]];
+			}
 		}
 		if ([[levelLayoutEntry componentsDict] objectForKey:@"movement"] != nil)
 		{
@@ -163,6 +168,11 @@
 		{
 			NSDictionary *transformDict = [[levelLayoutEntry componentsDict] objectForKey:@"transform"];
 			[[TransformComponent getFrom:entity] populateWithContentsOfDictionary:transformDict world:world];
+		}
+		
+		if (excludeThisEntity)
+		{
+			[entity deleteEntity];
 		}
     }
 }

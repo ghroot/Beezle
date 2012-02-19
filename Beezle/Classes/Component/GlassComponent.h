@@ -19,6 +19,4 @@
 @property (nonatomic, readonly) CGPoint piecesSpawnAreaOffset;
 @property (nonatomic, readonly) CGSize piecesSpawnAreaSize;
 
-+(id) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
-
 @end

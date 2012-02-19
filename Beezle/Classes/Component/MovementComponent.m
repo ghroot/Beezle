@@ -22,11 +22,6 @@
 @synthesize startPosition = _startPosition;
 @synthesize isMovingTowardsStartPosition = _isMovingTowardsStartPosition;
 
-+(MovementComponent *) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
-{
-	return [[[self alloc] initWithContentsOfDictionary:dict world:world] autorelease];
-}
-
 // Designated initializer
 -(id) init
 {

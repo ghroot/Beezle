@@ -15,11 +15,6 @@
 @synthesize rotation = _rotation;
 @synthesize scale = _scale;
 
-+(id) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
-{
-	return [[[self alloc] initWithContentsOfDictionary:dict world:world] autorelease];
-}
-
 +(id) componentWithPosition:(CGPoint)position
 {
 	return [[[self alloc] initWithPosition:position] autorelease];

@@ -19,7 +19,6 @@
 @property (nonatomic) float rotation;
 @property (nonatomic) CGPoint scale;
 
-+(id) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world;
 +(id) componentWithPosition:(CGPoint)position;
 
 -(id) initWithPosition:(CGPoint)position;

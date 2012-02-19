@@ -136,6 +136,7 @@
 		2C24B3D114EFF5A5002D1444 /* Level-A34-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C24B3CE14EFF5A5002D1444 /* Level-A34-hd.jpg */; };
 		2C24B3D214EFF5A5002D1444 /* Level-A34-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C24B3CF14EFF5A5002D1444 /* Level-A34-Shapes.plist */; };
 		2C24B3D314EFF5A5002D1444 /* Level-A34.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C24B3D014EFF5A5002D1444 /* Level-A34.jpg */; };
+		2C24B3D714F0682A002D1444 /* PlayerInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C24B3D614F0682A002D1444 /* PlayerInformation.m */; };
 		2C27E90014D20577002165CD /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8E714D20577002165CD /* Component.m */; };
 		2C27E90114D20577002165CD /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8E914D20577002165CD /* Entity.m */; };
 		2C27E90214D20577002165CD /* EntityComponentSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8EB14D20577002165CD /* EntityComponentSystem.m */; };
@@ -597,6 +598,8 @@
 		2C24B3CE14EFF5A5002D1444 /* Level-A34-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A34-hd.jpg"; sourceTree = "<group>"; };
 		2C24B3CF14EFF5A5002D1444 /* Level-A34-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A34-Shapes.plist"; sourceTree = "<group>"; };
 		2C24B3D014EFF5A5002D1444 /* Level-A34.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A34.jpg"; sourceTree = "<group>"; };
+		2C24B3D514F0682A002D1444 /* PlayerInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerInformation.h; sourceTree = "<group>"; };
+		2C24B3D614F0682A002D1444 /* PlayerInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInformation.m; sourceTree = "<group>"; };
 		2C27E8E514D20577002165CD /* artemis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = artemis.h; sourceTree = "<group>"; };
 		2C27E8E614D20577002165CD /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 		2C27E8E714D20577002165CD /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Component.m; sourceTree = "<group>"; };
@@ -1266,6 +1269,16 @@
 			path = GL;
 			sourceTree = "<group>";
 		};
+		2C24B3D414F06807002D1444 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2C24B3D514F0682A002D1444 /* PlayerInformation.h */,
+				2C24B3D614F0682A002D1444 /* PlayerInformation.m */,
+			);
+			name = Data;
+			path = Classes/Data;
+			sourceTree = "<group>";
+		};
 		2C27E8E414D20577002165CD /* Artemis */ = {
 			isa = PBXGroup;
 			children = (
@@ -1866,6 +1879,7 @@
 		2CEA34CE146205BE000FF575 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2C24B3D414F06807002D1444 /* Data */,
 				2CE348B814DF06C900FEB492 /* Entity */,
 				2CD33ED5147D72AC000869C1 /* State */,
 				2CEA35281466B202000FF575 /* Component */,
@@ -2366,6 +2380,7 @@
 				2C24B3BF14EF1520002D1444 /* vec2.c in Sources */,
 				2C24B3C014EF1520002D1444 /* vec3.c in Sources */,
 				2C24B3C114EF1520002D1444 /* vec4.c in Sources */,
+				2C24B3D714F0682A002D1444 /* PlayerInformation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

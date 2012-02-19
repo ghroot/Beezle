@@ -13,11 +13,6 @@
 
 @implementation RenderComponent
 
-+(RenderComponent *) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
-{
-	return [[[self alloc] initWithContentsOfDictionary:dict world:world] autorelease];
-}
-
 +(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite
 {
 	RenderComponent *renderComponent = [[[RenderComponent alloc] init] autorelease];

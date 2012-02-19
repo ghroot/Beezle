@@ -12,11 +12,6 @@
 
 @synthesize crumbleAnimationName = _crumbleAnimationName;
 
-+(CrumbleComponent *) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
-{
-	return [[[self alloc] initWithContentsOfDictionary:dict world:world] autorelease];
-}
-
 -(id) init
 {
 	if (self = [super init])

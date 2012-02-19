@@ -19,6 +19,7 @@
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
+#import "PlayerInformation.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "SlingerComponent.h"
@@ -167,6 +168,7 @@
     if (![pollenDisposableComponent isDisposed])
     {
         [pollenDisposableComponent setIsDisposed:TRUE];
+		[[PlayerInformation sharedInformation] addConsumedDisposableIdThisLevel:[pollenDisposableComponent disposableId]];
 		[EntityUtil animateAndDeleteEntity:pollenEntity animationName:@"Pollen-Pickup" disablePhysics:TRUE];
     }
 }

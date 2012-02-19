@@ -15,6 +15,7 @@
 #import "EntityDescription.h"
 #import "EntityDescriptionCache.h"
 #import "EntityDescriptionLoader.h"
+#import "EntityUtil.h"
 #import "LevelLayoutEntry.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
@@ -33,7 +34,7 @@
 +(Entity *) createBackground:(World *)world withLevelName:(NSString *)name
 {
     Entity *backgroundEntity = [world createEntity];
-    
+	
     // Transform
     TransformComponent *transformComponent = [TransformComponent component];
     [backgroundEntity addComponent:transformComponent];
@@ -62,6 +63,9 @@
     [backgroundEntity addComponent:physicsComponent];
     
     [backgroundEntity refresh];
+	
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	[EntityUtil setEntityPosition:backgroundEntity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
     
     return backgroundEntity;    
 }
@@ -73,7 +77,7 @@
     Entity *edgeEntity = [world createEntity];
     
     // Transform
-    TransformComponent *transformComponent = [TransformComponent componentWithPosition:CGPointZero];
+    TransformComponent *transformComponent = [TransformComponent component];
     [edgeEntity addComponent:transformComponent];
     
     // Physics
