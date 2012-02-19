@@ -28,7 +28,7 @@
 									numberOfSamples:0];
 	
 	_director = (CCDirectorIOS *)[CCDirector sharedDirector];
-	_director.wantsFullScreenLayout = YES;
+	[_director setWantsFullScreenLayout:TRUE];
 	
 	// Attach the openglView to the director
 	[_director setView:glView];
@@ -52,7 +52,7 @@
 	
 	// Create a Navigation Controller with the Director
 	_navigationController = [[UINavigationController alloc] initWithRootViewController:_director];
-	_navigationController.navigationBarHidden = YES;
+	[_navigationController setNavigationBarHidden:TRUE];
 	
 	// Set the Navigation Controller as the root view controller
 	[_window addSubview:_navigationController.view];
