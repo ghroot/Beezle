@@ -273,6 +273,7 @@
 		2CAB50DC14F2F8D3006EF1A4 /* KeyComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB50DB14F2F8D3006EF1A4 /* KeyComponent.m */; };
 		2CAB50DE14F2FBB0006EF1A4 /* Cavegate.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAB50DD14F2FBB0006EF1A4 /* Cavegate.plist */; };
 		2CAB50E014F2FC33006EF1A4 /* Cavegate-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAB50DF14F2FC33006EF1A4 /* Cavegate-Animations.plist */; };
+		2CAB50E614F30E4A006EF1A4 /* GateComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB50E514F30E4A006EF1A4 /* GateComponent.m */; };
 		2CADCC711471C76400302475 /* InputAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC701471C76400302475 /* InputAction.m */; };
 		2CADCC7714732ADC00302475 /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC7614732ADB00302475 /* CollisionSystem.m */; };
 		2CADCC7A1473314D00302475 /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC791473314C00302475 /* Collision.m */; };
@@ -827,6 +828,8 @@
 		2CAB50DB14F2F8D3006EF1A4 /* KeyComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyComponent.m; path = Classes/Component/KeyComponent.m; sourceTree = "<group>"; };
 		2CAB50DD14F2FBB0006EF1A4 /* Cavegate.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Cavegate.plist; sourceTree = "<group>"; };
 		2CAB50DF14F2FC33006EF1A4 /* Cavegate-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Cavegate-Animations.plist"; sourceTree = "<group>"; };
+		2CAB50E414F30E4A006EF1A4 /* GateComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GateComponent.h; path = Classes/Component/GateComponent.h; sourceTree = "<group>"; };
+		2CAB50E514F30E4A006EF1A4 /* GateComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GateComponent.m; path = Classes/Component/GateComponent.m; sourceTree = "<group>"; };
 		2CADCC6F1471C76400302475 /* InputAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputAction.h; path = Classes/System/InputAction.h; sourceTree = "<group>"; };
 		2CADCC701471C76400302475 /* InputAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputAction.m; path = Classes/System/InputAction.m; sourceTree = "<group>"; };
 		2CADCC7514732ADB00302475 /* CollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionSystem.h; path = Classes/System/CollisionSystem.h; sourceTree = "<group>"; };
@@ -1964,6 +1967,8 @@
 				2CC3EC0A14D608870025F5DA /* Edit */,
 				2C5EFCBD14EC60390071ED39 /* ExplodeComponent.h */,
 				2C5EFCBE14EC603D0071ED39 /* ExplodeComponent.m */,
+				2CAB50E414F30E4A006EF1A4 /* GateComponent.h */,
+				2CAB50E514F30E4A006EF1A4 /* GateComponent.m */,
 				2CEB9D7914EDC1BA00CAC505 /* GlassComponent.h */,
 				2CEB9D7A14EDC1BA00CAC505 /* GlassComponent.m */,
 				2CAB50DA14F2F8D3006EF1A4 /* KeyComponent.h */,
@@ -2441,6 +2446,7 @@
 				2C24B3D714F0682A002D1444 /* PlayerInformation.m in Sources */,
 				2C24B3DA14F1B299002D1444 /* PollenComponent.m in Sources */,
 				2CAB50DC14F2F8D3006EF1A4 /* KeyComponent.m in Sources */,
+				2CAB50E614F30E4A006EF1A4 /* GateComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

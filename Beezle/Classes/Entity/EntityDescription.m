@@ -12,6 +12,7 @@
 #import "CrumbleComponent.h"
 #import "DisposableComponent.h"
 #import "ExplodeComponent.h"
+#import "GateComponent.h"
 #import "GlassComponent.h"
 #import "KeyComponent.h"
 #import "MovementComponent.h"
@@ -57,6 +58,10 @@
 		else if ([componentType isEqualToString:@"explode"])
 		{
 			component = [ExplodeComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+		else if ([componentType isEqualToString:@"gate"])
+		{
+			component = [GateComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"glass"])
 		{

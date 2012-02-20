@@ -16,6 +16,7 @@
 #import "DisposableComponent.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
+#import "GateComponent.h"
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
@@ -42,7 +43,7 @@
 -(void) handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity;
 -(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity;
 -(void) handleCollisionBee:(Entity *)beeEntity withEgg:(Entity *)eggEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withCavegate:(Entity *)cavegateEntity;
+-(void) handleCollisionBee:(Entity *)beeEntity withGate:(Entity *)gateEntity;
 -(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity;
 -(void) handleCollisionGlassPiece:(Entity *)glassPieceEntity withEntity:(Entity *)otherEntity;
 
@@ -83,7 +84,7 @@
     [self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType WOOD] selector:@selector(handleCollisionBee:withWood:)];
 	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType NUT] selector:@selector(handleCollisionBee:withNut:)];
 	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType EGG] selector:@selector(handleCollisionBee:withEgg:)];
-	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType CAVEGATE] selector:@selector(handleCollisionBee:withCavegate:)];
+	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType GATE] selector:@selector(handleCollisionBee:withGate:)];
 	[self handleAfterCollisionBetween:[CollisionType AIM_POLLEN] and:[CollisionType EDGE] selector:@selector(handleCollisionAimPollen:withEdge:)];
 	[self handleAfterCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionGlassPiece:withEntity:)];
 	[self handleAfterCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType EDGE] selector:@selector(handleCollisionGlassPiece:withEntity:)];
@@ -255,14 +256,16 @@
 	}
 }
 
--(void) handleCollisionBee:(Entity *)beeEntity withCavegate:(Entity *)cavegateEntity
+-(void) handleCollisionBee:(Entity *)beeEntity withGate:(Entity *)gateEntity
 {
 	if ([[PlayerInformation sharedInformation] numberOfCurrentKeys] > 0)
 	{
 		[[PlayerInformation sharedInformation] decrementNumberOfCurrentKeys];
 		
-		RenderComponent *cavegateRenderComponent = [RenderComponent getFrom:cavegateEntity];
-		[cavegateRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Cavegate-Opening", @"Cavegate-Open-Idle", nil]];
+		[[GateComponent getFrom:gateEntity] setIsOpened:TRUE];
+		
+		RenderComponent *gateRenderComponent = [RenderComponent getFrom:gateEntity];
+		[gateRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Cavegate-Opening", @"Cavegate-Open-Idle", nil]];
 		
 		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
 		[beeEntity deleteEntity];

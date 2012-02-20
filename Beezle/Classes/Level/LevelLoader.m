@@ -12,6 +12,7 @@
 #import "EditComponent.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
+#import "GateComponent.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "LevelLayoutEntry.h"
@@ -121,8 +122,6 @@
     {
 		Entity *entity = [EntityFactory createEntity:[levelLayoutEntry type] world:world];
 		
-		BOOL excludeThisEntity = FALSE;
-		
 		if (CONFIG_CAN_EDIT_LEVELS && edit)
 		{
 			[entity addComponent:[EditComponent componentWithLevelLayoutType:[levelLayoutEntry type]]];
@@ -140,10 +139,23 @@
 			DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
 			[disposableComponent populateWithContentsOfDictionary:disposableDict world:world];
 			
+			// TEMP
 			if ([disposableComponent disposableId] != nil)
 			{
-				excludeThisEntity = [[PlayerInformation sharedInformation] hasConsumedDisposableId:[disposableComponent disposableId]];
+				if ([[PlayerInformation sharedInformation] hasConsumedDisposableId:[disposableComponent disposableId]])
+				{
+					[entity deleteEntity];
+				}
 			}
+		}
+		if ([[levelLayoutEntry componentsDict] objectForKey:@"gate"] != nil)
+		{
+			// TEMP
+//			if ()
+//			{
+//				GateComponent *gateComponent = [GateComponent getFrom:entity];
+//				[gateComponent setIsOpened:TRUE];
+//			}
 		}
 		if ([[levelLayoutEntry componentsDict] objectForKey:@"movement"] != nil)
 		{
@@ -169,11 +181,6 @@
 		{
 			NSDictionary *transformDict = [[levelLayoutEntry componentsDict] objectForKey:@"transform"];
 			[[TransformComponent getFrom:entity] populateWithContentsOfDictionary:transformDict world:world];
-		}
-		
-		if (excludeThisEntity)
-		{
-			[entity deleteEntity];
 		}
     }
 }

@@ -6,10 +6,12 @@
 	<string>CAVEGATE</string>
 	<key>groups</key>
 	<array>
-		<string>CAVEGATES</string>
+		<string>GATES</string>
 	</array>
 	<key>components</key>
 	<dict>
+		<key>gate</key>
+		<dict/>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
@@ -34,7 +36,7 @@
 					<key>friction</key>
 					<real>0.5</real>
 					<key>collisionType</key>
-					<string>CAVEGATE</string>
+					<string>GATE</string>
 					<key>layers</key>
 					<integer>7</integer>
 				</dict>

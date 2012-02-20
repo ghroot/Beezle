@@ -8,6 +8,7 @@
 
 #import "GameRulesSystem.h"
 #import "DisposableComponent.h"
+#import "GateComponent.h"
 #import "SlingerComponent.h"
 
 @interface GameRulesSystem()
@@ -16,8 +17,8 @@
 -(void) updateIsLevelFailed;
 -(void) updateIsBeeFlying;
 
--(int) countEntitiesInGroup:(NSString *)groupName;
 -(int) countNonDisposedEntitiesInGroup:(NSString *)groupName;
+-(BOOL) hasUnopenedGates;
 
 @end
 
@@ -37,10 +38,9 @@
 -(void) updateIsLevelCompleted
 {
 	int numberOfUndisposedBeeaters = [self countNonDisposedEntitiesInGroup:@"BEEATERS"];
-	int numberOfCavegates = [self countEntitiesInGroup:@"CAVEGATES"];
-	
+							   
     _isLevelCompleted = numberOfUndisposedBeeaters == 0 &&
-		numberOfCavegates == 0;
+		[self hasUnopenedGates] == 0;
 }
 
 -(void) updateIsLevelFailed
@@ -63,13 +63,6 @@
 	int numberOfUndisposedBees = [self countNonDisposedEntitiesInGroup:@"BEES"];
     _isBeeFlying = numberOfUndisposedBees > 0;
 }
-
--(int) countEntitiesInGroup:(NSString *)groupName
-{
-	GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
-	NSArray *entities = [groupManager getEntitiesInGroup:groupName];
-	return [entities count];
-}
 										
 -(int) countNonDisposedEntitiesInGroup:(NSString *)groupName
 {
@@ -85,6 +78,20 @@
 		}
 	}
 	return count;
+}
+
+-(BOOL) hasUnopenedGates
+{
+	GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
+	NSArray *gateEntities = [groupManager getEntitiesInGroup:@"GATES"];
+	for (Entity *gateEntity in gateEntities)
+	{
+		if (![[GateComponent getFrom:gateEntity] isOpened])
+		{
+			return TRUE;
+		}
+	}
+	return FALSE;
 }
 
 @end
