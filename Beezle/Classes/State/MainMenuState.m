@@ -10,6 +10,7 @@
 #import "Game.h"
 #import "LevelSelectMenuState.h"
 #import "LevelSender.h"
+#import "PlayerInformation.h"
 #import "TestState.h"
 
 @implementation MainMenuState
@@ -31,6 +32,8 @@
 		}
         CCMenuItem *testMenuItem = [CCMenuItemFont itemWithString:@"Test" target:self selector:@selector(startTest:)];
         [_menu addChild:testMenuItem];
+		CCMenuItem *resetMenuItem = [CCMenuItemFont itemWithString:@"Reset player information" target:self selector:@selector(resetPlayerInformation:)];
+        [_menu addChild:resetMenuItem];
         
         [_menu alignItemsVerticallyWithPadding:20.0f];
         
@@ -52,6 +55,11 @@
 -(void) startTest:(id)sender
 {
 	[_game replaceState:[TestState state]];
+}
+
+-(void) resetPlayerInformation:(id)sender
+{
+	[[PlayerInformation sharedInformation] reset];
 }
 
 @end

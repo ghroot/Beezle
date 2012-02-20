@@ -23,6 +23,8 @@
 
 +(PlayerInformation *) sharedInformation;
 
+-(void) save;
+-(void) reset;
 -(void) resetForThisLevel;
 -(void) storeForThisLevel;
 -(void) addConsumedDisposableIdThisLevel:(NSString *)disposableId;

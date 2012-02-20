@@ -236,6 +236,7 @@
         {
             [self enterMode:_levelCompletedMode];
 			[[PlayerInformation sharedInformation] storeForThisLevel];
+			[[PlayerInformation sharedInformation] save];
 			[self showLabel:@"Level Complete!"];
         }
     }
