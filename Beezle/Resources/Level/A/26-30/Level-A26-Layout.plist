@@ -169,12 +169,35 @@
 			<key>type</key>
 			<string>RAMP</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 399.00, 220.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 399.00, 220.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>CAVEGATE</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>0</integer>
 	<key>name</key>
 	<string>Level-A26</string>
 	<key>version</key>
-	<integer>3</integer>
+	<integer>4</integer>
 </dict>
 </plist>
