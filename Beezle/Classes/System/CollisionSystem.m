@@ -42,6 +42,7 @@
 -(void) handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity;
 -(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity;
 -(void) handleCollisionBee:(Entity *)beeEntity withEgg:(Entity *)eggEntity;
+-(void) handleCollisionBee:(Entity *)beeEntity withCavegate:(Entity *)cavegateEntity;
 -(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity;
 -(void) handleCollisionGlassPiece:(Entity *)glassPieceEntity withEntity:(Entity *)otherEntity;
 
@@ -82,6 +83,7 @@
     [self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType WOOD] selector:@selector(handleCollisionBee:withWood:)];
 	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType NUT] selector:@selector(handleCollisionBee:withNut:)];
 	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType EGG] selector:@selector(handleCollisionBee:withEgg:)];
+	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType CAVEGATE] selector:@selector(handleCollisionBee:withCavegate:)];
 	[self handleAfterCollisionBetween:[CollisionType AIM_POLLEN] and:[CollisionType EDGE] selector:@selector(handleCollisionAimPollen:withEdge:)];
 	[self handleAfterCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionGlassPiece:withEntity:)];
 	[self handleAfterCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType EDGE] selector:@selector(handleCollisionGlassPiece:withEntity:)];
@@ -231,6 +233,7 @@
 	if (![nutDisposableComponent isDisposed])
 	{
 		[nutDisposableComponent setIsDisposed:TRUE];
+		[[PlayerInformation sharedInformation] consumedEntity:nutEntity];
 		[EntityUtil animateAndDeleteEntity:nutEntity animationName:@"Nut-Collect" disablePhysics:TRUE];
 		
 		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
@@ -246,6 +249,20 @@
 		[eggDisposableComponent setIsDisposed:TRUE];
 		[[PlayerInformation sharedInformation] consumedEntity:eggEntity];
 		[EntityUtil animateAndDeleteEntity:eggEntity animationName:@"Egg-Collect" disablePhysics:TRUE];
+		
+		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
+		[beeEntity deleteEntity];
+	}
+}
+
+-(void) handleCollisionBee:(Entity *)beeEntity withCavegate:(Entity *)cavegateEntity
+{
+	if ([[PlayerInformation sharedInformation] numberOfCurrentKeys] > 0)
+	{
+		[[PlayerInformation sharedInformation] decrementNumberOfCurrentKeys];
+		
+		RenderComponent *cavegateRenderComponent = [RenderComponent getFrom:cavegateEntity];
+		[cavegateRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Cavegate-Opening", @"Cavegate-Open-Idle", nil]];
 		
 		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
 		[beeEntity deleteEntity];

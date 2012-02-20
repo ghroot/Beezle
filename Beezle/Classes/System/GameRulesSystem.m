@@ -16,6 +16,7 @@
 -(void) updateIsLevelFailed;
 -(void) updateIsBeeFlying;
 
+-(int) countEntitiesInGroup:(NSString *)groupName;
 -(int) countNonDisposedEntitiesInGroup:(NSString *)groupName;
 
 @end
@@ -36,7 +37,10 @@
 -(void) updateIsLevelCompleted
 {
 	int numberOfUndisposedBeeaters = [self countNonDisposedEntitiesInGroup:@"BEEATERS"];
-    _isLevelCompleted = numberOfUndisposedBeeaters == 0;
+	int numberOfCavegates = [self countEntitiesInGroup:@"CAVEGATES"];
+	
+    _isLevelCompleted = numberOfUndisposedBeeaters == 0 &&
+		numberOfCavegates == 0;
 }
 
 -(void) updateIsLevelFailed
@@ -58,6 +62,13 @@
 {
 	int numberOfUndisposedBees = [self countNonDisposedEntitiesInGroup:@"BEES"];
     _isBeeFlying = numberOfUndisposedBees > 0;
+}
+
+-(int) countEntitiesInGroup:(NSString *)groupName
+{
+	GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
+	NSArray *entities = [groupManager getEntitiesInGroup:groupName];
+	return [entities count];
 }
 										
 -(int) countNonDisposedEntitiesInGroup:(NSString *)groupName

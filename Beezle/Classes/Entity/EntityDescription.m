@@ -13,6 +13,7 @@
 #import "DisposableComponent.h"
 #import "ExplodeComponent.h"
 #import "GlassComponent.h"
+#import "KeyComponent.h"
 #import "MovementComponent.h"
 #import "PhysicsComponent.h"
 #import "PollenComponent.h"
@@ -60,6 +61,10 @@
 		else if ([componentType isEqualToString:@"glass"])
 		{
 			component = [GlassComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+		else if ([componentType isEqualToString:@"key"])
+		{
+			component = [KeyComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"movement"])
 		{

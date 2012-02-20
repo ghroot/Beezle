@@ -8,11 +8,13 @@
 
 #import "PlayerInformation.h"
 #import "DisposableComponent.h"
+#import "KeyComponent.h"
 #import "PollenComponent.h"
 
 @implementation PlayerInformation
 
 @synthesize numberOfCollectedPollen = _numberOfCollectedPollen;
+@synthesize numberOfCurrentKeys = _numberOfCurrentKeys;
 
 +(PlayerInformation *) sharedInformation
 {
@@ -46,12 +48,14 @@
 {
 	[_consumedDisposableIdsThisLevel removeAllObjects];
 	_numberOfCollectedPollenThisLevel = 0;
+	_numberOfCollectedKeysThisLevel = 0;
 }
 
 -(void) storeForThisLevel
 {
 	[_consumedDisposableIds addObjectsFromArray:_consumedDisposableIdsThisLevel];
 	_numberOfCollectedPollen += _numberOfCollectedPollenThisLevel;
+	_numberOfCurrentKeys += _numberOfCollectedKeysThisLevel;
 	[self resetForThisLevel];
 }
 
@@ -70,8 +74,19 @@
 	DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
 	[self addConsumedDisposableIdThisLevel:[disposableComponent disposableId]];
 	
-	PollenComponent *pollenComponent = [PollenComponent getFrom:entity];
-	_numberOfCollectedPollenThisLevel += [pollenComponent pollenCount];
+	if ([entity hasComponent:[PollenComponent class]])
+	{
+		_numberOfCollectedPollenThisLevel += [[PollenComponent getFrom:entity] pollenCount];
+	}
+	if ([entity hasComponent:[KeyComponent class]])
+	{
+		_numberOfCollectedKeysThisLevel++;
+	}
+}
+
+-(void) decrementNumberOfCurrentKeys
+{
+	_numberOfCurrentKeys--;
 }
 
 @end

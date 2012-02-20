@@ -23,5 +23,6 @@
 +(CollisionType *) HANGNEST;
 +(CollisionType *) AIM_POLLEN;
 +(CollisionType *) GLASS_PIECE;
++(CollisionType *) CAVEGATE;
 
 @end

@@ -14,9 +14,12 @@
 	NSMutableArray *_consumedDisposableIdsThisLevel;
 	int _numberOfCollectedPollen;
 	int _numberOfCollectedPollenThisLevel;
+	int _numberOfCurrentKeys;
+	int _numberOfCollectedKeysThisLevel;
 }
 
 @property (nonatomic) int numberOfCollectedPollen;
+@property (nonatomic, readonly) int numberOfCurrentKeys;
 
 +(PlayerInformation *) sharedInformation;
 
@@ -25,5 +28,6 @@
 -(void) addConsumedDisposableIdThisLevel:(NSString *)disposableId;
 -(BOOL) hasConsumedDisposableId:(NSString *)disposableId;
 -(void) consumedEntity:(Entity *)entity;
+-(void) decrementNumberOfCurrentKeys;
 
 @end

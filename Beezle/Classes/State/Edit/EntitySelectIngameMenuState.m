@@ -53,6 +53,7 @@
 	[self addMenuItemForEntityType:@"BEEATER-CEILING"];
 	[self addMenuItemForEntityType:@"BEEATER-FISH"];
 	[self addMenuItemForEntityType:@"BEEATER"];
+	[self addMenuItemForEntityType:@"CAVEGATE"];
 	[self addMenuItemForEntityType:@"EGG"];
 	[self addMenuItemForEntityType:@"FLOATING-BLOCK-A"];
 	[self addMenuItemForEntityType:@"GLASS-A29"];

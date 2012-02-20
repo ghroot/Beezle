@@ -3,16 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>NUT</string>
+	<string>CAVEGATE</string>
+	<key>groups</key>
+	<array>
+		<string>CAVEGATES</string>
+	</array>
 	<key>components</key>
 	<dict>
-		<key>disposable</key>
-		<dict>
-			<key>consumable</key>
-			<true/>
-		</dict>
-		<key>key</key>
-		<dict/>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
@@ -24,17 +21,20 @@
 			<array>
 				<dict>
 					<key>type</key>
-					<string>circle</string>
-					<key>radius</key>
-					<real>20</real>
-					<key>offset</key>
-					<string>{ 0, 20 }</string>
+					<string>poly</string>
+					<key>vertices</key>
+					<array>
+						<string>{ -4, 0 }</string>
+						<string>{ -4, 60 }</string>
+						<string>{ 4, 60 }</string>
+						<string>{ 4, 0 }</string>
+					</array>
 					<key>elasticity</key>
-					<real>0</real>
+					<real>0.8</real>
 					<key>friction</key>
-					<real>0</real>
+					<real>0.5</real>
 					<key>collisionType</key>
-					<string>NUT</string>
+					<string>CAVEGATE</string>
 					<key>layers</key>
 					<integer>7</integer>
 				</dict>
@@ -50,15 +50,13 @@
 					<key>spriteSheetName</key>
 					<string>Sprites</string>
 					<key>animationFile</key>
-					<string>Nut-Animations.plist</string>
+					<string>Cavegate-Animations.plist</string>
 					<key>z</key>
 					<integer>2</integer>
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.0 }</string>
 					<key>defaultIdleAnimation</key>
-					<string>Nut-Idle</string>
-					<key>defaultDestroyAnimation</key>
-					<string>Nut-Collect</string>
+					<string>Cavegate-Idle</string>
 				</dict>
 			</array>
 		</dict>
