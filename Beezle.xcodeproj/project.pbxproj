@@ -257,6 +257,7 @@
 		2C7CE5FA1469D092001F331F /* PhysicsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5F91469D092001F331F /* PhysicsSystem.m */; };
 		2C7CE61C146C73FE001F331F /* InputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE61B146C73FE001F331F /* InputSystem.m */; };
 		2C7CE622146FD670001F331F /* SlingerControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE621146FD66F001F331F /* SlingerControlSystem.m */; };
+		2C7DAC3814F3191D006CE0BA /* Level-A34-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC3714F3191D006CE0BA /* Level-A34-Layout.plist */; };
 		2C827D3814840C4900517C8F /* RenderSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C827D3714840C4700517C8F /* RenderSprite.m */; };
 		2C853D6314B4D7C600C90C55 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C853D6214B4D7C600C90C55 /* SoundManager.m */; };
 		2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B83B149563ED005D7BAB /* DisposableComponent.m */; };
@@ -767,6 +768,7 @@
 		2C7CE61B146C73FE001F331F /* InputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputSystem.m; path = Classes/System/InputSystem.m; sourceTree = "<group>"; };
 		2C7CE620146FD66F001F331F /* SlingerControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlingerControlSystem.h; path = Classes/System/SlingerControlSystem.h; sourceTree = "<group>"; };
 		2C7CE621146FD66F001F331F /* SlingerControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlingerControlSystem.m; path = Classes/System/SlingerControlSystem.m; sourceTree = "<group>"; };
+		2C7DAC3714F3191D006CE0BA /* Level-A34-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A34-Layout.plist"; sourceTree = "<group>"; };
 		2C827D3614840C4600517C8F /* RenderSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderSprite.h; path = Classes/Component/RenderSprite.h; sourceTree = "<group>"; };
 		2C827D3714840C4700517C8F /* RenderSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSprite.m; path = Classes/Component/RenderSprite.m; sourceTree = "<group>"; };
 		2C853D6114B4D7C600C90C55 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundManager.h; path = Classes/SoundManager.h; sourceTree = "<group>"; };
@@ -1466,6 +1468,7 @@
 			isa = PBXGroup;
 			children = (
 				2C24B3CE14EFF5A5002D1444 /* Level-A34-hd.jpg */,
+				2C7DAC3714F3191D006CE0BA /* Level-A34-Layout.plist */,
 				2C24B3CF14EFF5A5002D1444 /* Level-A34-Shapes.plist */,
 				2C24B3D014EFF5A5002D1444 /* Level-A34.jpg */,
 				2C5EFCB514E9BDA90071ED39 /* Level-A36-hd.jpg */,
@@ -2223,6 +2226,7 @@
 				2CAB50D814F2F7B8006EF1A4 /* Level-A26-Layout.plist in Resources */,
 				2CAB50DE14F2FBB0006EF1A4 /* Cavegate.plist in Resources */,
 				2CAB50E014F2FC33006EF1A4 /* Cavegate-Animations.plist in Resources */,
+				2C7DAC3814F3191D006CE0BA /* Level-A34-Layout.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
