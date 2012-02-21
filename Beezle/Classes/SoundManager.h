@@ -7,16 +7,22 @@
 //
 
 #import "SimpleAudioEngine.h"
+#import "cocos2d.h"
 
 @interface SoundManager : NSObject
 {
     BOOL _setupHasRun;
     BOOL _isFunctional;
+	NSDictionary *_soundFilePathsByName;
+	NSMutableDictionary *_soundIdsBySoundName;
 }
 
 +(SoundManager *) sharedManager;
 
 -(void) setup;
 -(void) playSound:(NSString *)name;
+-(void) stopSound:(NSString *)name;
+-(void) playMusic:(NSString *)name;
+-(void) stopMusic;
 
 @end

@@ -16,6 +16,8 @@
 {
 	NSMutableArray *_collisionMediators;
     NSMutableArray *_collisions;
+	
+	Collision *_currentCollision;
 }
 
 -(void) pushCollision:(Collision *)collision;

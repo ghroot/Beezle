@@ -14,6 +14,7 @@
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "SlingerComponent.h"
+#import "SoundManager.h"
 #import "TransformComponent.h"
 
 @interface BeeaterAnimationSystem()
@@ -141,6 +142,8 @@
 	[notificationUserInfo setObject:[NSValue valueWithCGPoint:[beeaterTransformComponent position]] forKey:@"beeaterEntityPosition"];
 	[notificationUserInfo setObject:[beeaterComponent containedBeeType] forKey:@"beeType"];
 	[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_SAVED object:self userInfo:notificationUserInfo];
+	
+	[[SoundManager sharedManager] playSound:@"BeeaterKill"];
 }
 
 @end

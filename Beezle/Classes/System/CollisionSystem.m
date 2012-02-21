@@ -35,6 +35,7 @@
 -(void) handleAfterCollisionBetween:(CollisionType *)type1 and:(CollisionType *)type2 selector:(SEL)selector;
 -(CollisionMediator *) findMediatorForCollision:(Collision *)collision;
 -(void) handleCollisions;
+-(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity;
 -(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity;
 -(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity;
 -(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity;
@@ -43,6 +44,7 @@
 -(void) handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity;
 -(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity;
 -(void) handleCollisionBee:(Entity *)beeEntity withEgg:(Entity *)eggEntity;
+-(void) handleCollisionBee:(Entity *)beeEntity withGlass:(Entity *)glassEntity;
 -(void) handleCollisionBee:(Entity *)beeEntity withGate:(Entity *)gateEntity;
 -(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity;
 -(void) handleCollisionGlassPiece:(Entity *)glassPieceEntity withEntity:(Entity *)otherEntity;
@@ -76,6 +78,7 @@
 
 -(void) initialise
 {
+	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionBee:withBackground:)];
 	[self handleBeforeCollisionBetween:[CollisionType BEE] and:[CollisionType BEEATER] selector:@selector(handleCollisionBee:withBeeater:)];
 	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType EDGE] selector:@selector(handleCollisionBee:withEdge:)];
 	[self handleBeforeCollisionBetween:[CollisionType BEE] and:[CollisionType POLLEN] selector:@selector(handleCollisionBee:withPollen:)];
@@ -84,6 +87,7 @@
     [self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType WOOD] selector:@selector(handleCollisionBee:withWood:)];
 	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType NUT] selector:@selector(handleCollisionBee:withNut:)];
 	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType EGG] selector:@selector(handleCollisionBee:withEgg:)];
+	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType GLASS] selector:@selector(handleCollisionBee:withGlass:)];
 	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType GATE] selector:@selector(handleCollisionBee:withGate:)];
 	[self handleAfterCollisionBetween:[CollisionType AIM_POLLEN] and:[CollisionType EDGE] selector:@selector(handleCollisionAimPollen:withEdge:)];
 	[self handleAfterCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionGlassPiece:withEntity:)];
@@ -133,10 +137,20 @@
 		CollisionMediator *mediator = [self findMediatorForCollision:collision];
 		if (mediator != nil)
 		{
+			_currentCollision = collision;
 			[self performSelector:[mediator selector] withObject:[collision firstEntity] withObject:[collision secondEntity]];
+			_currentCollision = nil;
 		}
     }
     [_collisions removeAllObjects];    
+}
+	 
+-(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity
+{
+	if (cpvlength([_currentCollision impulse]) >= 50)
+	{
+		[[SoundManager sharedManager] playSound:@"BeeHitWall"];
+	}
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity
@@ -198,7 +212,7 @@
 			[mushroomDisposableComponent setIsDisposed:TRUE];
 			[EntityUtil animateAndDeleteEntity:mushroomEntity animationName:@"SmokeMushroom-BounceAndPuff" disablePhysics:FALSE];
 			
-			[[SoundManager sharedManager] playSound:@"11097__a43__a43-blipp.aif"];
+			[[SoundManager sharedManager] playSound:@"SmokeMushroom"];
 		}
 	}
 	else
@@ -239,6 +253,8 @@
 		
 		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
 		[beeEntity deleteEntity];
+		
+		[[SoundManager sharedManager] playSound:@"BonusKey"];
 	}
 }
 
@@ -256,6 +272,11 @@
 	}
 }
 
+-(void) handleCollisionBee:(Entity *)beeEntity withGlass:(Entity *)glassEntity
+{
+	[[SoundManager sharedManager] playSound:@"BeeHitGlass"];
+}
+
 -(void) handleCollisionBee:(Entity *)beeEntity withGate:(Entity *)gateEntity
 {
 	if ([[PlayerInformation sharedInformation] numberOfCurrentKeys] > 0)
@@ -269,6 +290,8 @@
 		
 		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
 		[beeEntity deleteEntity];
+		
+		[[SoundManager sharedManager] playSound:@"CaveDoorOpens"];
 	}
 }
 
@@ -305,6 +328,8 @@
 		[EntityUtil fadeOutAndDeleteEntity:glassPieceSmallEntity duration:4.0f];
 	}
 	[glassPieceEntity deleteEntity];
+	
+	[[SoundManager sharedManager] playSound:@"GlassSmall"];
 }
 
 @end

@@ -22,6 +22,7 @@
 +(CollisionType *) EGG;
 +(CollisionType *) HANGNEST;
 +(CollisionType *) AIM_POLLEN;
++(CollisionType *) GLASS;
 +(CollisionType *) GLASS_PIECE;
 +(CollisionType *) GATE;
 
