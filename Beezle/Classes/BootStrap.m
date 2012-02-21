@@ -35,7 +35,7 @@
 -(void) start
 {
 	// Preload resources
-	[[SoundManager sharedManager] preloadSounds];
+	[[SoundManager sharedManager] setup];
 	if (CONFIG_CAN_EDIT_LEVELS)
 	{
 		[self preloadAllLevelLayouts];
