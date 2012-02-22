@@ -241,16 +241,19 @@
         {
             [self enterMode:_levelCompletedMode];
 			BOOL isRecord = [[PlayerInformation sharedInformation] isCurrentLevelRecord:_levelName];
-			[[PlayerInformation sharedInformation] storeForThisLevel:_levelName];
-			[[PlayerInformation sharedInformation] save];
 			if (isRecord)
 			{
+				[[PlayerInformation sharedInformation] storeForThisLevel:_levelName];
+				
 				[self showLabel:@"Level Complete! (Record!)"];
 			}
 			else
 			{
+				[[PlayerInformation sharedInformation] resetForThisLevel];
+				
 				[self showLabel:@"Level Complete!"];
 			}
+			[[PlayerInformation sharedInformation] save];
 		}
     }
     else if ([_gameRulesSystem isLevelFailed])
