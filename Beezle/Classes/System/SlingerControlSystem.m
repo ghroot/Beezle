@@ -70,6 +70,9 @@
             {
                 [self setStartLocation:[nextInputAction touchLocation]];
                 [self startShootingAimPollens];
+				
+				[[SoundManager sharedManager] playSound:@"SlingerStretch"];
+				
                 break;
             }
             case TOUCH_MOVED:
@@ -113,13 +116,18 @@
 					Entity *beeEntity = [EntityFactory createBee:_world withBeeType:[slingerComponent loadedBeeType] andVelocity:[trajectoryComponent startVelocity]];
 					[EntityUtil setEntityPosition:beeEntity position:[trajectoryComponent startPoint]];
 					
-					[slingerComponent clearLoadedBee];
-					
 					[transformComponent setScale:CGPointMake(1.0f, 1.0f)];
 					
 					[renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];
 					
+					[[SoundManager sharedManager] stopSound:@"SlingerStretch"];
 					[[SoundManager sharedManager] playSound:@"33369__herbertboland__mouthpop.wav"];
+					if ([slingerComponent loadedBeeType] == [BeeType SPEEDEE])
+					{
+						[[SoundManager sharedManager] playSound:@"SpeedeeSling"];
+					}
+					
+					[slingerComponent clearLoadedBee];
 					
 					[trajectoryComponent reset];
 					

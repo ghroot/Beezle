@@ -16,10 +16,12 @@
 {
     Entity *_firstEntity;
     Entity *_secondEntity;
+	cpVect _impulse;
 }
 
 @property (nonatomic, readonly) Entity *firstEntity;
 @property (nonatomic, readonly) Entity *secondEntity;
+@property (nonatomic) cpVect impulse;
 
 +(id) collisionWithFirstEntity:(Entity *)firstEntity andSecondEntity:(Entity *)secondEntity;
 

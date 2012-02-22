@@ -15,6 +15,7 @@
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
+#import "SoundManager.h"
 #import "TransformComponent.h"
 #import "Utils.h"
 
@@ -120,6 +121,8 @@
 		
 		[[DisposableComponent getFrom:entity] setIsDisposed:TRUE];
 		[entity deleteEntity];
+		
+		[[SoundManager sharedManager] playSound:@"GlassLarge"];
 	}
 }
 

@@ -25,6 +25,7 @@
 #import "PlayerInformation.h"
 #import "RenderSystem.h"
 #import "SlingerControlSystem.h"
+#import "SoundManager.h"
 #import "TrailSystem.h"
 
 @interface GameplayState()
@@ -197,10 +198,14 @@
     [super enter];
     
     [_currentMode enter];
+	
+	[[SoundManager sharedManager] playMusic:@"MusicA"];
 }
 
 -(void) leave
 {
+	[[SoundManager sharedManager] stopMusic];
+	
     [_currentMode leave];
     
     [super leave];

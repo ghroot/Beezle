@@ -12,6 +12,7 @@
 @interface SoundManager()
 
 -(void) asynchronousSetup;
+-(void) loadSoundMappings;
 -(void) preloadSounds;
 
 @end
@@ -26,6 +27,23 @@
         manager = [[self alloc] init];
     }
     return manager;
+}
+
+-(id) init
+{
+	if (self = [super init])
+	{
+		_soundIdsBySoundName = [NSMutableDictionary new];
+	}
+	return self;
+}
+
+-(void) dealloc
+{
+	[_soundFilePathsByName release];
+	[_soundIdsBySoundName release];
+	
+	[super dealloc];
 }
 
 -(void) setup
@@ -60,15 +78,29 @@
     {
         [audioManager setResignBehavior:kAMRBStopPlay autoHandle:TRUE];
         [SimpleAudioEngine sharedEngine];
+		[self loadSoundMappings];
         [self preloadSounds];
         
         _isFunctional = TRUE;
     }
 }
 
+-(void) loadSoundMappings
+{
+	NSString *fileName = @"Sounds.plist";
+	NSString *filePath = [CCFileUtils fullPathFromRelativePath:fileName];
+	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
+	_soundFilePathsByName = [[NSDictionary dictionaryWithDictionary:[dict objectForKey:@"sounds"]] retain];
+}
 
 -(void) preloadSounds
 {
+	for (NSString *soundFilePath in [_soundFilePathsByName allValues])
+	{
+		[[SimpleAudioEngine sharedEngine] preloadEffect:soundFilePath];
+	}
+	
+	// TEMP: Remove/move to Sounds.plist
 	[[SimpleAudioEngine sharedEngine] preloadEffect:@"11097__a43__a43-blipp.aif"];
 	[[SimpleAudioEngine sharedEngine] preloadEffect:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
 	[[SimpleAudioEngine sharedEngine] preloadEffect:@"27134__zippi1__fart1.wav"];
@@ -80,8 +112,39 @@
 {
     if (_isFunctional)
     {
-        [[SimpleAudioEngine sharedEngine] playEffect:name];
+		NSString *soundFilePath = [_soundFilePathsByName objectForKey:name];
+		ALuint soundId = 0;
+		if (soundFilePath != nil)
+		{
+			soundId = [[SimpleAudioEngine sharedEngine] playEffect:soundFilePath];
+		}
+		else
+		{
+			// TEMP
+			soundId = [[SimpleAudioEngine sharedEngine] playEffect:name];
+		}
+		[_soundIdsBySoundName setObject:[NSNumber numberWithInt:soundId] forKey:name];
     }
+}
+
+-(void) stopSound:(NSString *)name
+{
+	int soundId = [[_soundIdsBySoundName objectForKey:name] intValue];
+	[[SimpleAudioEngine sharedEngine] stopEffect:soundId];
+}
+
+-(void) playMusic:(NSString *)name
+{
+	if (_isFunctional)
+    {
+		NSString *musicFilePath = [_soundFilePathsByName objectForKey:name];
+		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:musicFilePath loop:TRUE];
+    }
+}
+
+-(void) stopMusic
+{
+	[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 }
 
 @end

@@ -243,9 +243,16 @@
 -(CGPoint) calculatePositionForBeeQueueRenderSpriteAtIndex:(int)index slingerEntity:(Entity *)slingerEntity
 {
 	TransformComponent *slingerTransformComponent = (TransformComponent *)[slingerEntity getComponent:[TransformComponent class]];
-    int x = [slingerTransformComponent position].x + QUEUE_START_OFFSET_X - index * QUEUE_SPACING_X;
-	int y = [slingerTransformComponent position].y + QUEUE_START_OFFSET_Y;
-	return CGPointMake(x, y);
+	
+	// Method 1: Straight line
+//	int x = [slingerTransformComponent position].x + QUEUE_START_OFFSET_X - index * QUEUE_SPACING_X;
+//	int y = [slingerTransformComponent position].y + QUEUE_START_OFFSET_Y;
+//	return CGPointMake(x, y);
+	
+	// Method 2: Slightly curved
+	float angle = CC_DEGREES_TO_RADIANS(92 + index * 10);
+	return CGPointMake([slingerTransformComponent position].x - 20 + 150 * cosf(angle),
+					   [slingerTransformComponent position].y - 150 + 150 * sinf(angle));
 }
 
 -(CGPoint) calculatePositionForNextBeeQueueRenderSprite:(Entity *)slingerEntity

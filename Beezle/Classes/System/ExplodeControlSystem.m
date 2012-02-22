@@ -16,6 +16,7 @@
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
+#import "SoundManager.h"
 #import "TransformComponent.h"
 
 @interface ExplodeControlSystem()
@@ -86,6 +87,8 @@
 				
 				ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
 				[EntityUtil animateAndDeleteEntity:entity animationName:[explodeComponent explodeAnimationName] disablePhysics:TRUE];
+				
+				[[SoundManager sharedManager] playSound:@"BombeeBoom"];
 			}
 		}
 	}

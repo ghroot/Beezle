@@ -13,6 +13,7 @@
 
 @synthesize firstEntity = _firstEntity;
 @synthesize secondEntity = _secondEntity;
+@synthesize impulse = _impulse;
 
 +(id) collisionWithFirstEntity:(Entity *)firstEntity andSecondEntity:(Entity *)secondEntity
 {

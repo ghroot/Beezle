@@ -78,41 +78,55 @@
 }
 
 -(BOOL) beginCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space
-{
-    cpShape *firstShape;
-    cpShape *secondShape;
-    cpArbiterGetShapes(arbiter, &firstShape, &secondShape);
+{	
+	BOOL isFirstContact = cpArbiterIsFirstContact(arbiter);
+	if (isFirstContact)
+	{
+		cpShape *firstShape;
+		cpShape *secondShape;
+		cpArbiterGetShapes(arbiter, &firstShape, &secondShape);
+		
+		ChipmunkShape *firstChipmunkShape = (ChipmunkShape *)firstShape->data;
+		ChipmunkShape *secondChipmunkShape = (ChipmunkShape *)secondShape->data;
+		
+		cpVect impulse = cpArbiterTotalImpulse(arbiter);
+		
+		Entity *firstEntity = (Entity *)[firstChipmunkShape data];
+		Entity *secondEntity = (Entity *)[secondChipmunkShape data];
+		
+		PhysicsSystem *physicsSystem = (PhysicsSystem *)[space data];
+		CollisionSystem *collisionSystem = (CollisionSystem *)[[[physicsSystem world] systemManager] getSystem:[CollisionSystem class]];
+		Collision *collision = [Collision collisionWithFirstEntity:firstEntity andSecondEntity:secondEntity];
+		[collision setImpulse:impulse];
+		[collisionSystem pushCollision:collision];
+    }
 	
-	ChipmunkShape *firstChipmunkShape = (ChipmunkShape *)firstShape->data;
-	ChipmunkShape *secondChipmunkShape = (ChipmunkShape *)secondShape->data;
-    
-    Entity *firstEntity = (Entity *)[firstChipmunkShape data];
-    Entity *secondEntity = (Entity *)[secondChipmunkShape data];
-    
-    PhysicsSystem *physicsSystem = (PhysicsSystem *)[space data];
-    CollisionSystem *collisionSystem = (CollisionSystem *)[[[physicsSystem world] systemManager] getSystem:[CollisionSystem class]];
-    Collision *collision = [Collision collisionWithFirstEntity:firstEntity andSecondEntity:secondEntity];
-    [collisionSystem pushCollision:collision];
-    
     return FALSE;
 }
 
 -(void) postSolveCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space
 {
-    cpShape *firstShape;
-    cpShape *secondShape;
-    cpArbiterGetShapes(arbiter, &firstShape, &secondShape);
-    
-	ChipmunkShape *firstChipmunkShape = (ChipmunkShape *)firstShape->data;
-	ChipmunkShape *secondChipmunkShape = (ChipmunkShape *)secondShape->data;
-    
-    Entity *firstEntity = (Entity *)[firstChipmunkShape data];
-    Entity *secondEntity = (Entity *)[secondChipmunkShape data];
-    
-    PhysicsSystem *physicsSystem = (PhysicsSystem *)[space data];
-    CollisionSystem *collisionSystem = (CollisionSystem *)[[[physicsSystem world] systemManager] getSystem:[CollisionSystem class]];
-    Collision *collision = [Collision collisionWithFirstEntity:firstEntity andSecondEntity:secondEntity];
-    [collisionSystem pushCollision:collision];
+	BOOL isFirstContact = cpArbiterIsFirstContact(arbiter);
+	if (isFirstContact)
+	{
+		cpShape *firstShape;
+		cpShape *secondShape;
+		cpArbiterGetShapes(arbiter, &firstShape, &secondShape);
+		
+		ChipmunkShape *firstChipmunkShape = (ChipmunkShape *)firstShape->data;
+		ChipmunkShape *secondChipmunkShape = (ChipmunkShape *)secondShape->data;
+		
+		cpVect impulse = cpArbiterTotalImpulse(arbiter);
+		
+		Entity *firstEntity = (Entity *)[firstChipmunkShape data];
+		Entity *secondEntity = (Entity *)[secondChipmunkShape data];
+		
+		PhysicsSystem *physicsSystem = (PhysicsSystem *)[space data];
+		CollisionSystem *collisionSystem = (CollisionSystem *)[[[physicsSystem world] systemManager] getSystem:[CollisionSystem class]];
+		Collision *collision = [Collision collisionWithFirstEntity:firstEntity andSecondEntity:secondEntity];
+		[collision setImpulse:impulse];
+		[collisionSystem pushCollision:collision];
+    }
 }
 
 -(void) entityAdded:(Entity *)entity
