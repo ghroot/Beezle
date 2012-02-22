@@ -154,7 +154,7 @@
 	
 	ChipmunkBody *body = [physicsComponent body];
 	[body setPos:CGPointMake(currentPosition.x + velocity.x, currentPosition.y + velocity.y)];
-	[body setVel:velocity];
+    [body setVel:cpvmult(velocity, 1.0f / (1.0f / 45.0f))];
 	
 	if ([movementComponent alwaysFaceForward])
 	{
