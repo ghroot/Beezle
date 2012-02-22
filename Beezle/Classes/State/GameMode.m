@@ -52,7 +52,6 @@
 
 -(void) enter
 {
-    // NOTE: This is mainly here for InputSystem, could possibly be solved in a better way
     for (EntitySystem *system in _systems)
     {
         [system activate];
@@ -61,7 +60,6 @@
 
 -(void) leave
 {
-    // NOTE: This is mainly here for InputSystem, could possibly be solved in a better way
     for (EntitySystem *system in _systems)
     {
         [system deactivate];
