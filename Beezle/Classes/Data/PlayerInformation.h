@@ -10,26 +10,18 @@
 
 @interface PlayerInformation : NSObject
 {
-	NSMutableArray *_consumedDisposableIds;
-	NSMutableArray *_consumedDisposableIdsThisLevel;
-	int _numberOfCollectedPollen;
+	NSMutableDictionary *_pollenCollectionRecordByLevelName;
 	int _numberOfCollectedPollenThisLevel;
-	int _numberOfCurrentKeys;
-	int _numberOfCollectedKeysThisLevel;
 }
-
-@property (nonatomic) int numberOfCollectedPollen;
-@property (nonatomic, readonly) int numberOfCurrentKeys;
 
 +(PlayerInformation *) sharedInformation;
 
 -(void) save;
 -(void) reset;
 -(void) resetForThisLevel;
--(void) storeForThisLevel;
--(void) addConsumedDisposableIdThisLevel:(NSString *)disposableId;
--(BOOL) hasConsumedDisposableId:(NSString *)disposableId;
+-(void) storeForThisLevel:(NSString *)levelName;
 -(void) consumedEntity:(Entity *)entity;
--(void) decrementNumberOfCurrentKeys;
+-(BOOL) isCurrentLevelRecord:(NSString *)levelName;
+-(int) numberOfCollectedPollen;
 
 @end

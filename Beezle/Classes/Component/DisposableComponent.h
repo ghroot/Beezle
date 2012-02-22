@@ -10,13 +10,9 @@
 
 @interface DisposableComponent : Component
 {
-	NSString *_disposableId;
-	BOOL _isConsumable;
     BOOL _isDisposed;
 }
 
-@property (nonatomic, copy) NSString *disposableId;
-@property (nonatomic) BOOL isConsumable;
 @property (nonatomic) BOOL isDisposed;
 
 @end

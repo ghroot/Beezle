@@ -279,20 +279,21 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withGate:(Entity *)gateEntity
 {
-	if ([[PlayerInformation sharedInformation] numberOfCurrentKeys] > 0)
+	GateComponent *gateComponent = [GateComponent getFrom:gateEntity];
+	if ([gateComponent isOpened])
 	{
-		[[PlayerInformation sharedInformation] decrementNumberOfCurrentKeys];
-		
-		[[GateComponent getFrom:gateEntity] setIsOpened:TRUE];
-		
-		RenderComponent *gateRenderComponent = [RenderComponent getFrom:gateEntity];
-		[gateRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Cavegate-Opening", @"Cavegate-Open-Idle", nil]];
-		
 		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
 		[beeEntity deleteEntity];
 		
-		[[SoundManager sharedManager] playSound:@"CaveDoorOpens"];
+		// TODO: Load bonus level
 	}
+	
+//	[gateComponent setIsOpened:TRUE];
+//	
+//	RenderComponent *gateRenderComponent = [RenderComponent getFrom:gateEntity];
+//	[gateRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Cavegate-Opening", @"Cavegate-Open-Idle", nil]];
+//	
+//	[[SoundManager sharedManager] playSound:@"CaveDoorOpens"];
 }
 
 -(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity

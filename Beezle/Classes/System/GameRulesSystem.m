@@ -18,7 +18,6 @@
 -(void) updateIsBeeFlying;
 
 -(int) countNonDisposedEntitiesInGroup:(NSString *)groupName;
--(BOOL) hasUnopenedGates;
 
 @end
 
@@ -38,9 +37,10 @@
 -(void) updateIsLevelCompleted
 {
 	int numberOfUndisposedBeeaters = [self countNonDisposedEntitiesInGroup:@"BEEATERS"];
+	int numberOfGates = [self countNonDisposedEntitiesInGroup:@"GATES"];
 							   
     _isLevelCompleted = numberOfUndisposedBeeaters == 0 &&
-		[self hasUnopenedGates] == 0;
+		numberOfGates == 0;
 }
 
 -(void) updateIsLevelFailed
@@ -71,27 +71,13 @@
 	int count = 0;
 	for (Entity *entity in entities)
 	{
-		if ([entity hasComponent:[DisposableComponent class]] &&
+		if (![entity hasComponent:[DisposableComponent class]] ||
 			![[DisposableComponent getFrom:entity] isDisposed])
 		{
 			count++;
 		}
 	}
 	return count;
-}
-
--(BOOL) hasUnopenedGates
-{
-	GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
-	NSArray *gateEntities = [groupManager getEntitiesInGroup:@"GATES"];
-	for (Entity *gateEntity in gateEntities)
-	{
-		if (![[GateComponent getFrom:gateEntity] isOpened])
-		{
-			return TRUE;
-		}
-	}
-	return FALSE;
 }
 
 @end

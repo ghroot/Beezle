@@ -140,17 +140,6 @@
 {	
 	Entity *entity = [EntityFactory createEntity:type world:_world];
 	
-	if ([entity hasComponent:[DisposableComponent class]])
-	{
-		DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
-		if ([disposableComponent isConsumable])
-		{
-			NSString *timestamp = [NSString stringWithFormat:@"%0.0f", [[NSDate date] timeIntervalSince1970]];
-			NSString *newDisposableId = [NSString stringWithFormat:@"%@-%@-%@", _levelName, type, timestamp];
-			[disposableComponent setDisposableId:newDisposableId];
-		}
-	}
-	
 	[entity addComponent:[EditComponent componentWithLevelLayoutType:type]];
 	[entity refresh];
 	

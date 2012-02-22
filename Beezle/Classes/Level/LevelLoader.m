@@ -138,24 +138,6 @@
 			NSDictionary *disposableDict = [[levelLayoutEntry componentsDict] objectForKey:@"disposable"];
 			DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
 			[disposableComponent populateWithContentsOfDictionary:disposableDict world:world];
-			
-			// TEMP
-			if ([disposableComponent disposableId] != nil)
-			{
-				if ([[PlayerInformation sharedInformation] hasConsumedDisposableId:[disposableComponent disposableId]])
-				{
-					[entity deleteEntity];
-				}
-			}
-		}
-		if ([[levelLayoutEntry componentsDict] objectForKey:@"gate"] != nil)
-		{
-			// TEMP
-//			if ()
-//			{
-//				GateComponent *gateComponent = [GateComponent getFrom:entity];
-//				[gateComponent setIsOpened:TRUE];
-//			}
 		}
 		if ([[levelLayoutEntry componentsDict] objectForKey:@"movement"] != nil)
 		{
