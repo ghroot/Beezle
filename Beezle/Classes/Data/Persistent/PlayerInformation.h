@@ -8,20 +8,19 @@
 
 #import "artemis.h"
 
+@class LevelSession;
+
 @interface PlayerInformation : NSObject
 {
 	NSMutableDictionary *_pollenCollectionRecordByLevelName;
-	int _numberOfCollectedPollenThisLevel;
 }
 
 +(PlayerInformation *) sharedInformation;
 
 -(void) save;
 -(void) reset;
--(void) resetForThisLevel;
--(void) storeForThisLevel:(NSString *)levelName;
--(void) consumedEntity:(Entity *)entity;
--(BOOL) isCurrentLevelRecord:(NSString *)levelName;
--(int) numberOfCollectedPollen;
+-(BOOL) isRecord:(LevelSession *)levelSession;
+-(void) store:(LevelSession *)levelSession;
+-(int) totalNumberOfCollectedPollen;
 
 @end

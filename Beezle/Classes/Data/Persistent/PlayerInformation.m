@@ -9,6 +9,7 @@
 #import "PlayerInformation.h"
 #import "DisposableComponent.h"
 #import "KeyComponent.h"
+#import "LevelSession.h"
 #import "PollenComponent.h"
 
 @interface PlayerInformation()
@@ -76,7 +77,6 @@
 -(void) reset
 {
 	[_pollenCollectionRecordByLevelName removeAllObjects];
-	_numberOfCollectedPollenThisLevel = 0;
 	
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -92,39 +92,25 @@
 	return dict;
 }
 
--(void) resetForThisLevel
+-(void) store:(LevelSession *)levelSession
 {
-	_numberOfCollectedPollenThisLevel = 0;
+	[_pollenCollectionRecordByLevelName setObject:[NSNumber numberWithInt:[levelSession numberOfCollectedPollen]] forKey:[levelSession levelName]];
 }
 
--(void) storeForThisLevel:(NSString *)levelName
+-(BOOL) isRecord:(LevelSession *)levelSession
 {
-	[_pollenCollectionRecordByLevelName setObject:[NSNumber numberWithInt:_numberOfCollectedPollenThisLevel] forKey:levelName];
-	[self resetForThisLevel];
-}
-
--(void) consumedEntity:(Entity *)entity
-{	
-	if ([entity hasComponent:[PollenComponent class]])
+	if ([_pollenCollectionRecordByLevelName objectForKey:[levelSession levelName]] != nil)
 	{
-		_numberOfCollectedPollenThisLevel += [[PollenComponent getFrom:entity] pollenCount];
-	}
-}
-
--(BOOL) isCurrentLevelRecord:(NSString *)levelName
-{
-	if ([_pollenCollectionRecordByLevelName objectForKey:levelName] != nil)
-	{
-		int recordForLevel = [[_pollenCollectionRecordByLevelName objectForKey:levelName] intValue];
-		return _numberOfCollectedPollenThisLevel > recordForLevel;
+		int recordForLevel = [[_pollenCollectionRecordByLevelName objectForKey:[levelSession levelName]] intValue];
+		return [levelSession numberOfCollectedPollen] > recordForLevel;
 	}
 	else
 	{
-		return _numberOfCollectedPollenThisLevel > 0;
+		return TRUE;
 	}
 }
 
--(int) numberOfCollectedPollen
+-(int) totalNumberOfCollectedPollen
 {
 	int total = 0;
 	for (NSNumber *pollenCollectionRecord in [_pollenCollectionRecordByLevelName allValues])

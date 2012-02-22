@@ -11,9 +11,12 @@
 #import "cocos2d.h"
 
 @class Collision;
+@class GameRulesSystem;
 
 @interface CollisionSystem : EntitySystem
 {
+	GameRulesSystem *_gameRulesSystem;
+	
 	NSMutableArray *_collisionMediators;
     NSMutableArray *_collisions;
 	

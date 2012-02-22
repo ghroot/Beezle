@@ -9,6 +9,7 @@
 #import "GameRulesSystem.h"
 #import "DisposableComponent.h"
 #import "GateComponent.h"
+#import "LevelSession.h"
 #import "SlingerComponent.h"
 
 @interface GameRulesSystem()
@@ -26,6 +27,23 @@
 @synthesize isLevelCompleted = _isLevelCompleted;
 @synthesize isLevelFailed = _isLevelFailed;
 @synthesize isBeeFlying = _isBeeFlying;
+@synthesize levelSession = _levelSession;
+
+-(id) initWithLevelName:(NSString *)levelName
+{
+	if (self = [super init])
+	{
+		_levelSession = [[LevelSession alloc] initWithLevelName:levelName];
+	}
+	return self;
+}
+
+-(void) dealloc
+{
+	[_levelSession release];
+	
+	[super dealloc];
+}
 
 -(void) begin
 {

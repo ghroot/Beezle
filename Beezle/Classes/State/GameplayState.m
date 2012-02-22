@@ -66,7 +66,6 @@
 		[self createWorldAndSystems];
         [self createModes];
 		[[LevelLoader sharedLoader] loadLevel:_levelName inWorld:_world edit:FALSE];
-		[[PlayerInformation sharedInformation] resetForThisLevel];
     }
     return self;
 }
@@ -96,7 +95,7 @@
     
 	SystemManager *systemManager = [_world systemManager];
 	
-    _gameRulesSystem = [[[GameRulesSystem alloc] init] autorelease];
+    _gameRulesSystem = [[[GameRulesSystem alloc] initWithLevelName:_levelName] autorelease];
     [systemManager setSystem:_gameRulesSystem];
 	_physicsSystem = [[[PhysicsSystem alloc] init] autorelease];
 	[systemManager setSystem:_physicsSystem];
@@ -240,20 +239,18 @@
         if (_currentMode != _levelCompletedMode)
         {
             [self enterMode:_levelCompletedMode];
-			BOOL isRecord = [[PlayerInformation sharedInformation] isCurrentLevelRecord:_levelName];
+			BOOL isRecord = [[PlayerInformation sharedInformation] isRecord:[_gameRulesSystem levelSession]];
 			if (isRecord)
 			{
-				[[PlayerInformation sharedInformation] storeForThisLevel:_levelName];
+				[[PlayerInformation sharedInformation] store:[_gameRulesSystem levelSession]];
+				[[PlayerInformation sharedInformation] save];
 				
 				[self showLabel:@"Level Complete! (Record!)"];
 			}
 			else
-			{
-				[[PlayerInformation sharedInformation] resetForThisLevel];
-				
+			{	
 				[self showLabel:@"Level Complete!"];
 			}
-			[[PlayerInformation sharedInformation] save];
 		}
     }
     else if ([_gameRulesSystem isLevelFailed])

@@ -133,7 +133,6 @@
 		2C24B3C114EF1520002D1444 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C24B36114EF1520002D1444 /* vec4.c */; };
 		2C24B3C514EFEA87002D1444 /* Glass-A34.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C24B3C414EFEA87002D1444 /* Glass-A34.plist */; };
 		2C24B3C714EFEA99002D1444 /* Glass-A34-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C24B3C614EFEA99002D1444 /* Glass-A34-Shapes.plist */; };
-		2C24B3D714F0682A002D1444 /* PlayerInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C24B3D614F0682A002D1444 /* PlayerInformation.m */; };
 		2C24B3DA14F1B299002D1444 /* PollenComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C24B3D914F1B296002D1444 /* PollenComponent.m */; };
 		2C27E90014D20577002165CD /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8E714D20577002165CD /* Component.m */; };
 		2C27E90114D20577002165CD /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8E914D20577002165CD /* Entity.m */; };
@@ -228,6 +227,8 @@
 		2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B83B149563ED005D7BAB /* DisposableComponent.m */; };
 		2C85B84014957285005D7BAB /* CollisionMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B83F14957285005D7BAB /* CollisionMediator.m */; };
 		2C88B5D114A3DA8700B5B190 /* libObjectiveChipmunk-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C88B5CF14A3DA8700B5B190 /* libObjectiveChipmunk-iPhone.a */; };
+		2C88E2C514F5A36400496938 /* PlayerInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2C314F5A36400496938 /* PlayerInformation.m */; };
+		2C88E2C814F5A37900496938 /* LevelSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2C714F5A37900496938 /* LevelSession.m */; };
 		2C8A4B7C1495184300C0C154 /* BeeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A4B7B1495184300C0C154 /* BeeType.m */; };
 		2C9EF99014B4E8DF00F9EE34 /* LevelSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF98F14B4E8DF00F9EE34 /* LevelSerializer.m */; };
 		2C9EF99914B4E91800F9EE34 /* LevelLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF99414B4E91800F9EE34 /* LevelLayout.m */; };
@@ -631,8 +632,6 @@
 		2C24B36114EF1520002D1444 /* vec4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vec4.c; sourceTree = "<group>"; };
 		2C24B3C414EFEA87002D1444 /* Glass-A34.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A34.plist"; sourceTree = "<group>"; };
 		2C24B3C614EFEA99002D1444 /* Glass-A34-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A34-Shapes.plist"; sourceTree = "<group>"; };
-		2C24B3D514F0682A002D1444 /* PlayerInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerInformation.h; sourceTree = "<group>"; };
-		2C24B3D614F0682A002D1444 /* PlayerInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInformation.m; sourceTree = "<group>"; };
 		2C24B3D814F1B294002D1444 /* PollenComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PollenComponent.h; path = Classes/Component/PollenComponent.h; sourceTree = "<group>"; };
 		2C24B3D914F1B296002D1444 /* PollenComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PollenComponent.m; path = Classes/Component/PollenComponent.m; sourceTree = "<group>"; };
 		2C27E8E514D20577002165CD /* artemis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = artemis.h; sourceTree = "<group>"; };
@@ -800,6 +799,10 @@
 		2C88B5CE14A3DA8700B5B190 /* ChipmunkSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChipmunkSpace.h; sourceTree = "<group>"; };
 		2C88B5CF14A3DA8700B5B190 /* libObjectiveChipmunk-iPhone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libObjectiveChipmunk-iPhone.a"; sourceTree = "<group>"; };
 		2C88B5D014A3DA8700B5B190 /* ObjectiveChipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveChipmunk.h; sourceTree = "<group>"; };
+		2C88E2C214F5A36400496938 /* PlayerInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerInformation.h; sourceTree = "<group>"; };
+		2C88E2C314F5A36400496938 /* PlayerInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInformation.m; sourceTree = "<group>"; };
+		2C88E2C614F5A37900496938 /* LevelSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSession.h; sourceTree = "<group>"; };
+		2C88E2C714F5A37900496938 /* LevelSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSession.m; sourceTree = "<group>"; };
 		2C8A4B7A1495184300C0C154 /* BeeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeType.h; path = Classes/BeeType.h; sourceTree = "<group>"; };
 		2C8A4B7B1495184300C0C154 /* BeeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeType.m; path = Classes/BeeType.m; sourceTree = "<group>"; };
 		2C9EF98E14B4E8DF00F9EE34 /* LevelSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSerializer.h; sourceTree = "<group>"; };
@@ -1347,8 +1350,8 @@
 		2C24B3D414F06807002D1444 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				2C24B3D514F0682A002D1444 /* PlayerInformation.h */,
-				2C24B3D614F0682A002D1444 /* PlayerInformation.m */,
+				2C88E2C114F5A36400496938 /* Persistent */,
+				2C88E2C414F5A36400496938 /* Transient */,
 			);
 			name = Data;
 			path = Classes/Data;
@@ -1633,6 +1636,24 @@
 				2C88B5BF14A3DA8700B5B190 /* util.h */,
 			);
 			path = constraints;
+			sourceTree = "<group>";
+		};
+		2C88E2C114F5A36400496938 /* Persistent */ = {
+			isa = PBXGroup;
+			children = (
+				2C88E2C214F5A36400496938 /* PlayerInformation.h */,
+				2C88E2C314F5A36400496938 /* PlayerInformation.m */,
+			);
+			path = Persistent;
+			sourceTree = "<group>";
+		};
+		2C88E2C414F5A36400496938 /* Transient */ = {
+			isa = PBXGroup;
+			children = (
+				2C88E2C614F5A37900496938 /* LevelSession.h */,
+				2C88E2C714F5A37900496938 /* LevelSession.m */,
+			);
+			path = Transient;
 			sourceTree = "<group>";
 		};
 		2C9EF99214B4E91800F9EE34 /* Layout */ = {
@@ -2543,10 +2564,11 @@
 				2C24B3BF14EF1520002D1444 /* vec2.c in Sources */,
 				2C24B3C014EF1520002D1444 /* vec3.c in Sources */,
 				2C24B3C114EF1520002D1444 /* vec4.c in Sources */,
-				2C24B3D714F0682A002D1444 /* PlayerInformation.m in Sources */,
 				2C24B3DA14F1B299002D1444 /* PollenComponent.m in Sources */,
 				2CAB50DC14F2F8D3006EF1A4 /* KeyComponent.m in Sources */,
 				2CAB50E614F30E4A006EF1A4 /* GateComponent.m in Sources */,
+				2C88E2C514F5A36400496938 /* PlayerInformation.m in Sources */,
+				2C88E2C814F5A37900496938 /* LevelSession.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
