@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>entities</key>
+	<array>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>slinger</key>
+				<dict>
+					<key>queuedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+						<string>BEE</string>
+					</array>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 62.00, 285.00 }</string>
+					<key>rotation</key>
+					<real>-40</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>SLINGER</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 85.00, 110.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 85.00, 110.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN-ORANGE</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 333.00, 35.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 333.00, 35.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>MUSHROOM</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>beeater</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>BEE</string>
+				</dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 418.00, 241.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 418.00, 241.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>BEEATER-CEILING</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 197.00, 134.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 197.00, 134.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 197.00, 165.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 197.00, 165.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 196.00, 197.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 196.00, 197.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 167.00, 165.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 167.00, 165.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 136.00, 165.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 136.00, 165.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 133.00, 195.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 133.00, 195.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 164.00, 195.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 164.00, 195.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 163.00, 225.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 163.00, 225.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 132.00, 225.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 132.00, 225.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 130.00, 256.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 130.00, 256.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 227.00, 197.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 227.00, 197.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 228.00, 165.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 228.00, 165.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 230.00, 133.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 230.00, 133.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 257.00, 166.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 257.00, 166.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 260.00, 132.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 260.00, 132.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 261.00, 97.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 261.00, 97.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 294.00, 133.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 294.00, 133.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 295.00, 96.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 295.00, 96.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 328.00, 133.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 328.00, 133.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 330.00, 95.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 330.00, 95.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 366.00, 95.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 366.00, 95.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 364.00, 133.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 364.00, 133.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 402.00, 96.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 402.00, 96.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 398.00, 135.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 398.00, 135.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 398.00, 169.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 398.00, 169.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 430.00, 169.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 430.00, 169.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN</string>
+		</dict>
+	</array>
+	<key>format</key>
+	<integer>0</integer>
+	<key>name</key>
+	<string>Level-H1</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>

@@ -7,12 +7,15 @@
 //
 
 #import "LevelSession.h"
+#import "KeyComponent.h"
 #import "PollenComponent.h"
 
 @implementation LevelSession
 
 @synthesize levelName = _levelName;
 @synthesize numberOfCollectedPollen = _numberOfCollectedPollen;
+@synthesize didCollectKey = _didCollectKey;
+@synthesize didUseKey = _didUseKey;
 
 -(id) initWithLevelName:(NSString *)levelName
 {
@@ -36,7 +39,10 @@
 	{
 		_numberOfCollectedPollen += [[PollenComponent getFrom:entity] pollenCount];
 	}
+	if ([entity hasComponent:[KeyComponent class]])
+	{
+		_didCollectKey = TRUE;
+	}
 }
-
 
 @end

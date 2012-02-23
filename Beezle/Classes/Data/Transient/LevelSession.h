@@ -12,10 +12,14 @@
 {
 	NSString *_levelName;
 	int _numberOfCollectedPollen;
+	BOOL _didCollectKey;
+	BOOL _didUseKey;
 }
 
 @property (nonatomic, readonly) NSString *levelName;
 @property (nonatomic, readonly) int numberOfCollectedPollen;
+@property (nonatomic, readonly) BOOL didCollectKey;
+@property (nonatomic) BOOL didUseKey;
 
 -(id) initWithLevelName:(NSString *)levelName;
 

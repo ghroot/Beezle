@@ -10,6 +10,7 @@
 
 @implementation GateComponent
 
+@synthesize hiddenLevelName = _hiddenLevelName;
 @synthesize isOpened = _isOpened;
 
 -(id) init
@@ -19,6 +20,21 @@
 		_name = @"gate";
 	}
 	return self;
+}
+
+-(void) dealloc
+{
+	[_hiddenLevelName release];
+	
+	[super dealloc];
+}
+
+-(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+{
+	if ([dict objectForKey:@"hiddenLevel"])
+	{
+		_hiddenLevelName = [[dict objectForKey:@"hiddenLevel"] copy];
+	}
 }
 
 @end

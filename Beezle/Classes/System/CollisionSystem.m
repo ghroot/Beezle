@@ -293,15 +293,11 @@
 		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
 		[beeEntity deleteEntity];
 		
-		// TODO: Load bonus level
+		// Game notification
+		NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
+		[notificationUserInfo setObject:[gateComponent hiddenLevelName] forKey:@"hiddenLevelName"];
+		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_GATE_ENTERED object:self userInfo:notificationUserInfo];
 	}
-	
-//	[gateComponent setIsOpened:TRUE];
-//	
-//	RenderComponent *gateRenderComponent = [RenderComponent getFrom:gateEntity];
-//	[gateRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Cavegate-Opening", @"Cavegate-Open-Idle", nil]];
-//	
-//	[[SoundManager sharedManager] playSound:@"CaveDoorOpens"];
 }
 
 -(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity

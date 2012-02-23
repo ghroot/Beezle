@@ -16,12 +16,14 @@
 #import "DebugRenderPhysicsSystem.h"
 #import "Game.h"
 #import "GameRulesSystem.h"
+#import "GateOpeningSystem.h"
 #import "GlassAnimationSystem.h"
 #import "IngameMenuState.h"
 #import "InputSystem.h"
 #import "LevelLoader.h"
 #import "LevelSession.h"
 #import "MovementSystem.h"
+#import "NotificationTypes.h"
 #import "PhysicsSystem.h"
 #import "PlayerInformation.h"
 #import "RenderSystem.h"
@@ -33,6 +35,11 @@
 
 -(void) createUI;
 -(void) createWorldAndSystems;
+-(void) addNotificationObservers;
+-(void) queueNotification:(NSNotification *)notification;
+-(void) handleNotifications;
+-(void) handleNotification:(NSNotification *)notification;
+-(void) handleGateEntered:(NSNotification *)notification;
 -(void) createModes;
 -(void) enterMode:(GameMode *)mode;
 -(void) updateMode;
@@ -41,8 +48,6 @@
 @end
 
 @implementation GameplayState
-
-@synthesize levelName = _levelName;
 
 +(id) stateWithLevelName:(NSString *)levelName
 {
@@ -59,6 +64,9 @@
 		_levelSession = [[LevelSession alloc] initWithLevelName:levelName];
 		
 		_debug = FALSE;
+		
+		_notifications = [NSMutableArray new];
+		[self addNotificationObservers];
 		
 		_gameLayer = [CCLayer node];
 		[self addChild:_gameLayer];
@@ -118,6 +126,8 @@
 	[systemManager setSystem:_beeQueueRenderingSystem];
 	_beeaterSystem = [[[BeeaterSystem alloc] init] autorelease];
 	[systemManager setSystem:_beeaterSystem];
+	_gateOpeningSystem = [[[GateOpeningSystem alloc] init] autorelease];
+	[systemManager setSystem:_gateOpeningSystem];
 	_glassAnimationSystem = [[[GlassAnimationSystem alloc] init] autorelease];
 	[systemManager setSystem:_glassAnimationSystem];
 	_trailSystem = [[[TrailSystem alloc] init] autorelease];
@@ -131,6 +141,11 @@
 	}
 	
 	[systemManager initialiseAll];
+}
+
+-(void) addNotificationObservers
+{
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_GATE_ENTERED object:nil];
 }
 
 -(void) createModes
@@ -156,6 +171,7 @@
 													   _beeExpirationSystem,
 													   _explodeControlSystem,
 													   _beeaterSystem,
+													   _gateOpeningSystem,
 													   _beeQueueRenderingSystem,
 													   _glassAnimationSystem,
 													   _trailSystem,
@@ -180,7 +196,9 @@
 
 -(void) dealloc
 {	
-	[_levelName release];
+	[_levelSession release];
+	
+	[_notifications release];
 	
     [_aimingMode release];
     [_shootingMode release];
@@ -190,6 +208,41 @@
     [_world release];
 	
 	[super dealloc];
+}
+
+-(NSString *) levelName
+{
+	return [_levelSession levelName];
+}
+
+-(void) queueNotification:(NSNotification *)notification
+{
+	[_notifications addObject:notification];
+}
+
+-(void) handleNotifications
+{
+	while ([_notifications count] > 0)
+	{
+		NSNotification *nextNotification = [[_notifications objectAtIndex:0] retain];
+		[_notifications removeObjectAtIndex:0];
+		[self handleNotification:nextNotification];
+		[nextNotification release];
+	}
+}
+
+-(void) handleNotification:(NSNotification *)notification
+{
+	if ([[notification name] isEqualToString:GAME_NOTIFICATION_GATE_ENTERED])
+	{
+		[self handleGateEntered:notification];
+	}
+}
+
+-(void) handleGateEntered:(NSNotification *)notification
+{
+	NSString *levelName = [[notification userInfo] objectForKey:@"hiddenLevelName"];
+	[_game replaceState:[GameplayState stateWithLevelName:levelName]];
 }
 
 -(void) enter
@@ -223,6 +276,8 @@
 	}
     
     [self updateMode];
+	
+	[self handleNotifications];
 }
 
 -(void) enterMode:(GameMode *)mode
@@ -239,18 +294,19 @@
         if (_currentMode != _levelCompletedMode)
         {
             [self enterMode:_levelCompletedMode];
-			BOOL isRecord = [[PlayerInformation sharedInformation] isRecord:_levelSession];
+			
+			BOOL isRecord = [[PlayerInformation sharedInformation] isPollenRecord:_levelSession];
 			if (isRecord)
-			{
-				[[PlayerInformation sharedInformation] store:_levelSession];
-				[[PlayerInformation sharedInformation] save];
-				
+			{	
 				[self showLabel:@"Level Complete! (Record!)"];
 			}
 			else
 			{	
 				[self showLabel:@"Level Complete!"];
 			}
+			
+			[[PlayerInformation sharedInformation] store:_levelSession];
+			[[PlayerInformation sharedInformation] save];
 		}
     }
     else if ([_gameRulesSystem isLevelFailed])
@@ -258,6 +314,7 @@
         if (_currentMode != _levelFailedMode)
         {
             [self enterMode:_levelFailedMode];
+			
 			[self showLabel:@"Level Failed..."];
         }
     } 

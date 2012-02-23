@@ -10,6 +10,7 @@
 #import "DisposableComponent.h"
 #import "GateComponent.h"
 #import "LevelSession.h"
+#import "PlayerInformation.h"
 #import "SlingerComponent.h"
 
 @interface GameRulesSystem()
@@ -46,11 +47,21 @@
 
 -(void) updateIsLevelCompleted
 {
-	int numberOfUndisposedBeeaters = [self countNonDisposedEntitiesInGroup:@"BEEATERS"];
-	int numberOfGates = [self countNonDisposedEntitiesInGroup:@"GATES"];
-							   
-    _isLevelCompleted = numberOfUndisposedBeeaters == 0 &&
-		numberOfGates == 0;
+	GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
+	NSArray *entities = [groupManager getEntitiesInGroup:@"GATES"];
+	BOOL levelHasGate = [entities count] > 0;
+	BOOL hasUsedKeyInLevelBefore = [[PlayerInformation sharedInformation] hasUsedKeyInLevel:[_levelSession levelName]];
+	if (levelHasGate &&
+		!hasUsedKeyInLevelBefore)
+	{
+		// Keep level from completing if gate is open
+		_isLevelCompleted = FALSE;
+	}
+	else
+	{
+		int numberOfUndisposedBeeaters = [self countNonDisposedEntitiesInGroup:@"BEEATERS"];
+		_isLevelCompleted = numberOfUndisposedBeeaters == 0;
+	}
 }
 
 -(void) updateIsLevelFailed
@@ -81,8 +92,7 @@
 	int count = 0;
 	for (Entity *entity in entities)
 	{
-		if (![entity hasComponent:[DisposableComponent class]] ||
-			![[DisposableComponent getFrom:entity] isDisposed])
+		if (![[DisposableComponent getFrom:entity] isDisposed])
 		{
 			count++;
 		}

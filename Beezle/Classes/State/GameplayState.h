@@ -19,6 +19,7 @@
 @class DebugNotificationTrackerSystem;
 @class DebugRenderPhysicsSystem;
 @class GameRulesSystem;
+@class GateOpeningSystem;
 @class GlassAnimationSystem;
 @class InputSystem;
 @class LevelSession;
@@ -34,6 +35,8 @@
 	
 	CCLayer *_gameLayer;
 	CCLayer *_uiLayer;
+	
+	NSMutableArray *_notifications;
 
 	World *_world;
 	
@@ -50,6 +53,7 @@
 	ExplodeControlSystem *_explodeControlSystem;
 	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
 	BeeaterSystem *_beeaterSystem;
+	GateOpeningSystem *_gateOpeningSystem;
 	GlassAnimationSystem *_glassAnimationSystem;
 	TrailSystem *_trailSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
@@ -62,11 +66,10 @@
     GameMode *_levelFailedMode;
 }
 
-@property (nonatomic, readonly) NSString *levelName;
-
 +(id) stateWithLevelName:(NSString *)levelName;
 
 -(id) initWithLevelName:(NSString *)levelName;
+-(NSString *) levelName;
 -(void) pauseGame:(id)sender;
 
 @end

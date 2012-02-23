@@ -136,8 +136,12 @@
 		if ([[levelLayoutEntry componentsDict] objectForKey:@"disposable"] != nil)
 		{
 			NSDictionary *disposableDict = [[levelLayoutEntry componentsDict] objectForKey:@"disposable"];
-			DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
-			[disposableComponent populateWithContentsOfDictionary:disposableDict world:world];
+			[[DisposableComponent getFrom:entity] populateWithContentsOfDictionary:disposableDict world:world];
+		}
+		if ([[levelLayoutEntry componentsDict] objectForKey:@"gate"] != nil)
+		{
+			NSDictionary *gateDict = [[levelLayoutEntry componentsDict] objectForKey:@"gate"];
+			[[GateComponent getFrom:entity] populateWithContentsOfDictionary:gateDict world:world];
 		}
 		if ([[levelLayoutEntry componentsDict] objectForKey:@"movement"] != nil)
 		{

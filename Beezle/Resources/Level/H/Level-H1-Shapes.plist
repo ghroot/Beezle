@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+    <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>1</integer>
+        </dict>
+        <key>bodies</key>
+		<dict>
+
+			<key>Level-H1</key>
+			<dict>
+				<key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>fixtures</key>
+                <array>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0.4</real>
+                        <key>friction</key>
+                        <real>0.6</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <key>POLYGON</key>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ 65.00000,-125.00000 }</string>	
+								<string>{ 34.00000,-160.00000 }</string>	
+								<string>{ 34.00000,-109.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 240.00000,160.00000 }</string>	
+								<string>{ 154.00000,84.00000 }</string>	
+								<string>{ 29.00000,27.00000 }</string>	
+								<string>{ 30.00000,160.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 60.00000,10.00000 }</string>	
+								<string>{ 29.00000,27.00000 }</string>	
+								<string>{ 129.00000,59.00000 }</string>	
+								<string>{ 99.00000,16.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 132.00000,-120.00000 }</string>	
+								<string>{ 240.00000,-160.00000 }</string>	
+								<string>{ 34.00000,-160.00000 }</string>	
+								<string>{ 65.00000,-125.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 195.00000,-70.00000 }</string>	
+								<string>{ 240.00000,-160.00000 }</string>	
+								<string>{ 132.00000,-120.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 227.00000,-24.00000 }</string>	
+								<string>{ 240.00000,-160.00000 }</string>	
+								<string>{ 195.00000,-70.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 29.00000,27.00000 }</string>	
+								<string>{ 154.00000,84.00000 }</string>	
+								<string>{ 129.00000,59.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 240.00000,160.00000 }</string>	
+								<string>{ 176.00000,85.00000 }</string>	
+								<string>{ 154.00000,84.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 240.00000,160.00000 }</string>	
+								<string>{ 211.00000,59.00000 }</string>	
+								<string>{ 176.00000,85.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 240.00000,160.00000 }</string>	
+								<string>{ 231.00000,7.00000 }</string>	
+								<string>{ 211.00000,59.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 240.00000,-160.00000 }</string>	
+								<string>{ 231.00000,7.00000 }</string>	
+								<string>{ 240.00000,160.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 240.00000,-160.00000 }</string>	
+								<string>{ 227.00000,-24.00000 }</string>	
+								<string>{ 231.00000,7.00000 }</string>
+							</array>
+						</array>
+                        
+					</dict>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0.4</real>
+                        <key>friction</key>
+                        <real>0.6</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <key>POLYGON</key>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ -64.00000,108.00000 }</string>	
+								<string>{ 30.00000,160.00000 }</string>	
+								<string>{ 29.00000,28.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -136.00000,-22.00000 }</string>	
+								<string>{ -195.00000,-39.00000 }</string>	
+								<string>{ -155.00000,-12.00000 }</string>	
+								<string>{ -134.00000,-11.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 34.00000,-160.00000 }</string>	
+								<string>{ -240.00000,-160.00000 }</string>	
+								<string>{ -151.00000,-72.00000 }</string>	
+								<string>{ -120.00000,-60.00000 }</string>	
+								<string>{ -57.00000,-43.00000 }</string>	
+								<string>{ -9.00000,-65.00000 }</string>	
+								<string>{ 34.00000,-109.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -127.00000,135.00000 }</string>	
+								<string>{ 30.00000,160.00000 }</string>	
+								<string>{ -64.00000,108.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -195.00000,-39.00000 }</string>	
+								<string>{ -205.00000,67.00000 }</string>	
+								<string>{ -175.00000,42.00000 }</string>	
+								<string>{ -155.00000,-12.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -57.00000,-43.00000 }</string>	
+								<string>{ -120.00000,-60.00000 }</string>	
+								<string>{ -91.00000,-42.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -127.00000,135.00000 }</string>	
+								<string>{ -167.00000,134.00000 }</string>	
+								<string>{ -240.00000,160.00000 }</string>	
+								<string>{ 30.00000,160.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -199.00000,109.00000 }</string>	
+								<string>{ -240.00000,160.00000 }</string>	
+								<string>{ -167.00000,134.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -240.00000,-160.00000 }</string>	
+								<string>{ -240.00000,160.00000 }</string>	
+								<string>{ -199.00000,109.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -205.00000,-50.00000 }</string>	
+								<string>{ -205.00000,67.00000 }</string>	
+								<string>{ -195.00000,-39.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -205.00000,-50.00000 }</string>	
+								<string>{ -240.00000,-160.00000 }</string>	
+								<string>{ -205.00000,67.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -199.00000,-65.00000 }</string>	
+								<string>{ -240.00000,-160.00000 }</string>	
+								<string>{ -205.00000,-50.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -151.00000,-72.00000 }</string>	
+								<string>{ -240.00000,-160.00000 }</string>	
+								<string>{ -199.00000,-65.00000 }</string>
+							</array>
+						</array>
+                        
+					</dict>
+
+				</array>
+			</dict>
+
+		</dict>
+	</dict>
+</plist>
+
+
+
+
