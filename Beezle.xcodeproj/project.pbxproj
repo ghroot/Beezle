@@ -310,7 +310,7 @@
 		2CB926A414F46277008972FD /* Level-A36-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB9266414F46277008972FD /* Level-A36-Layout.plist */; };
 		2CB926A514F46277008972FD /* Level-A36-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB9266514F46277008972FD /* Level-A36-Shapes.plist */; };
 		2CB926A614F46277008972FD /* Level-A36.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CB9266614F46277008972FD /* Level-A36.jpg */; };
-		2CC26A6114E46913004702DA /* BeeaterAnimationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC26A6014E46912004702DA /* BeeaterAnimationSystem.m */; };
+		2CC26A6114E46913004702DA /* BeeaterSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC26A6014E46912004702DA /* BeeaterSystem.m */; };
 		2CC3EBFD14D466460025F5DA /* MovementComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EBFC14D466460025F5DA /* MovementComponent.m */; };
 		2CC3EC0014D466700025F5DA /* MovementSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EBFF14D466700025F5DA /* MovementSystem.m */; };
 		2CC3EC0814D6086F0025F5DA /* EditControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EC0514D6086F0025F5DA /* EditControlSystem.m */; };
@@ -896,8 +896,8 @@
 		2CB9266414F46277008972FD /* Level-A36-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A36-Layout.plist"; sourceTree = "<group>"; };
 		2CB9266514F46277008972FD /* Level-A36-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A36-Shapes.plist"; sourceTree = "<group>"; };
 		2CB9266614F46277008972FD /* Level-A36.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A36.jpg"; sourceTree = "<group>"; };
-		2CC26A5F14E46912004702DA /* BeeaterAnimationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeaterAnimationSystem.h; path = Classes/System/BeeaterAnimationSystem.h; sourceTree = "<group>"; };
-		2CC26A6014E46912004702DA /* BeeaterAnimationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeaterAnimationSystem.m; path = Classes/System/BeeaterAnimationSystem.m; sourceTree = "<group>"; };
+		2CC26A5F14E46912004702DA /* BeeaterSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; name = BeeaterSystem.h; path = Classes/System/BeeaterSystem.h; sourceTree = "<group>"; };
+		2CC26A6014E46912004702DA /* BeeaterSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeaterSystem.m; path = Classes/System/BeeaterSystem.m; sourceTree = "<group>"; };
 		2CC3EBFB14D466460025F5DA /* MovementComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovementComponent.h; path = Classes/Component/MovementComponent.h; sourceTree = "<group>"; };
 		2CC3EBFC14D466460025F5DA /* MovementComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovementComponent.m; path = Classes/Component/MovementComponent.m; sourceTree = "<group>"; };
 		2CC3EBFE14D466700025F5DA /* MovementSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovementSystem.h; path = Classes/System/MovementSystem.h; sourceTree = "<group>"; };
@@ -1538,8 +1538,8 @@
 		2C7CE5F31469ACDE001F331F /* System */ = {
 			isa = PBXGroup;
 			children = (
-				2CC26A5F14E46912004702DA /* BeeaterAnimationSystem.h */,
-				2CC26A6014E46912004702DA /* BeeaterAnimationSystem.m */,
+				2CC26A5F14E46912004702DA /* BeeaterSystem.h */,
+				2CC26A6014E46912004702DA /* BeeaterSystem.m */,
 				2C3A6F911489809F002721E3 /* BeeExpiratonSystem.h */,
 				2C3A6F921489809F002721E3 /* BeeExpiratonSystem.m */,
 				2C535FCB14992B0B00BC7DB6 /* BeeQueueRenderingSystem.h */,
@@ -2459,7 +2459,7 @@
 				2CE348CA14DF0BF900FEB492 /* Utils.m in Sources */,
 				2CC7183614E1D15F00059B66 /* EntityFactory.m in Sources */,
 				2CC7183714E1D15F00059B66 /* EntityUtil.m in Sources */,
-				2CC26A6114E46913004702DA /* BeeaterAnimationSystem.m in Sources */,
+				2CC26A6114E46913004702DA /* BeeaterSystem.m in Sources */,
 				2C5EFC2B14E496A10071ED39 /* TrailComponent.m in Sources */,
 				2C5EFC3114E499C20071ED39 /* TrailSystem.m in Sources */,
 				2C5EFC3414E6C5510071ED39 /* EntitySelectIngameMenuState.m in Sources */,

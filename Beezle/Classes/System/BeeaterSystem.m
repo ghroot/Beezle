@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "BeeaterAnimationSystem.h"
+#import "BeeaterSystem.h"
 #import "BeeaterComponent.h"
 #import "EntityUtil.h"
 #import "NotificationTypes.h"
@@ -17,7 +17,7 @@
 #import "SoundManager.h"
 #import "TransformComponent.h"
 
-@interface BeeaterAnimationSystem()
+@interface BeeaterSystem()
 
 -(void) addNotificationObservers;
 -(void) queueNotification:(NSNotification *)notification;
@@ -29,7 +29,7 @@
 
 @end
 
-@implementation BeeaterAnimationSystem
+@implementation BeeaterSystem
 
 -(id) init
 {

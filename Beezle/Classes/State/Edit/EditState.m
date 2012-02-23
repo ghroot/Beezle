@@ -7,7 +7,7 @@
 //
 
 #import "EditState.h"
-#import "BeeaterAnimationSystem.h"
+#import "BeeaterSystem.h"
 #import "BeeQueueRenderingSystem.h"
 #import "DebugRenderPhysicsSystem.h"
 #import "DisposableComponent.h"
@@ -97,7 +97,7 @@
 	[systemManager setSystem:_editOptionsSystem];
 	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithZ:2] autorelease];
 	[systemManager setSystem:_beeQueueRenderingSystem];
-	_beeaterAnimationSystem = [[[BeeaterAnimationSystem alloc] init] autorelease];
+	_beeaterAnimationSystem = [[[BeeaterSystem alloc] init] autorelease];
 	[systemManager setSystem:_beeaterAnimationSystem];
 	_debugRenderPhysicsSystem = [[[DebugRenderPhysicsSystem alloc] initWithScene:self] autorelease];
 	[systemManager setSystem:_debugRenderPhysicsSystem];

@@ -7,7 +7,7 @@
 //
 
 #import "GameplayState.h"
-#import "BeeaterAnimationSystem.h"
+#import "BeeaterSystem.h"
 #import "ExplodeControlSystem.h"
 #import "BeeQueueRenderingSystem.h"
 #import "BeeExpiratonSystem.h"
@@ -115,8 +115,8 @@
 	[systemManager setSystem:_explodeControlSystem];
 	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithZ:2] autorelease];
 	[systemManager setSystem:_beeQueueRenderingSystem];
-	_beeaterAnimationSystem = [[[BeeaterAnimationSystem alloc] init] autorelease];
-	[systemManager setSystem:_beeaterAnimationSystem];
+	_beeaterSystem = [[[BeeaterSystem alloc] init] autorelease];
+	[systemManager setSystem:_beeaterSystem];
 	_glassAnimationSystem = [[[GlassAnimationSystem alloc] init] autorelease];
 	[systemManager setSystem:_glassAnimationSystem];
 	_trailSystem = [[[TrailSystem alloc] init] autorelease];
@@ -154,7 +154,7 @@
 													   _inputSystem,
 													   _beeExpirationSystem,
 													   _explodeControlSystem,
-													   _beeaterAnimationSystem,
+													   _beeaterSystem,
 													   _beeQueueRenderingSystem,
 													   _glassAnimationSystem,
 													   _trailSystem,

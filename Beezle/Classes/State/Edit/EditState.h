@@ -9,7 +9,7 @@
 #import "GameState.h"
 #import "artemis.h"
 
-@class BeeaterAnimationSystem;
+@class BeeaterSystem;
 @class BeeQueueRenderingSystem;
 @class DebugRenderPhysicsSystem;
 @class EditControlSystem;
@@ -33,7 +33,7 @@
 	EditControlSystem *_editControlSystem;
 	EditOptionsSystem *_editOptionsSystem;
 	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
-	BeeaterAnimationSystem *_beeaterAnimationSystem;
+	BeeaterSystem *_beeaterAnimationSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
 }
 

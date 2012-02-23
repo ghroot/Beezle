@@ -8,7 +8,7 @@
 
 #import "artemis.h"
 
-@interface BeeaterAnimationSystem : EntitySystem
+@interface BeeaterSystem : EntitySystem
 {
 	NSMutableArray *_notifications;
 }
