@@ -27,22 +27,14 @@
 @synthesize isLevelCompleted = _isLevelCompleted;
 @synthesize isLevelFailed = _isLevelFailed;
 @synthesize isBeeFlying = _isBeeFlying;
-@synthesize levelSession = _levelSession;
 
--(id) initWithLevelName:(NSString *)levelName
+-(id) initWithLevelSession:(LevelSession *)levelSession
 {
 	if (self = [super init])
 	{
-		_levelSession = [[LevelSession alloc] initWithLevelName:levelName];
+		_levelSession = levelSession;
 	}
 	return self;
-}
-
--(void) dealloc
-{
-	[_levelSession release];
-	
-	[super dealloc];
 }
 
 -(void) begin

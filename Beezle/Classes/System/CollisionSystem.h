@@ -11,17 +11,19 @@
 #import "cocos2d.h"
 
 @class Collision;
-@class GameRulesSystem;
+@class LevelSession;
 
 @interface CollisionSystem : EntitySystem
 {
-	GameRulesSystem *_gameRulesSystem;
+	LevelSession *_levelSession;
 	
 	NSMutableArray *_collisionMediators;
     NSMutableArray *_collisions;
 	
 	Collision *_currentCollision;
 }
+
+-(id) initWithLevelSession:(LevelSession *)levelSession;
 
 -(void) pushCollision:(Collision *)collision;
 

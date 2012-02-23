@@ -16,7 +16,6 @@
 #import "DisposableComponent.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
-#import "GameRulesSystem.h"
 #import "GateComponent.h"
 #import "LevelSession.h"
 #import "NotificationTypes.h"
@@ -55,13 +54,20 @@
 
 @implementation CollisionSystem
 
--(id) init
+-(id) initWithLevelSession:(LevelSession *)levelSession
 {
-    if (self = [super init])
-    {
+	if (self = [super init])
+	{
 		_collisionMediators = [[NSMutableArray alloc] init];
         _collisions = [[NSMutableArray alloc] init];
-    }
+		_levelSession = levelSession;
+	}
+	return self;
+}
+
+-(id) init
+{
+    self = [self initWithLevelSession:nil];
     return self;
 }
 
@@ -80,8 +86,6 @@
 
 -(void) initialise
 {
-	_gameRulesSystem = (GameRulesSystem *)[[_world systemManager] getSystem:[GameRulesSystem class]];
-	
 	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionBee:withBackground:)];
 	[self handleBeforeCollisionBetween:[CollisionType BEE] and:[CollisionType BEEATER] selector:@selector(handleCollisionBee:withBeeater:)];
 	[self handleAfterCollisionBetween:[CollisionType BEE] and:[CollisionType EDGE] selector:@selector(handleCollisionBee:withEdge:)];
@@ -189,7 +193,7 @@
     if (![pollenDisposableComponent isDisposed])
     {
         [pollenDisposableComponent setIsDisposed:TRUE];
-		[[_gameRulesSystem levelSession] consumedEntity:pollenEntity];
+		[_levelSession consumedEntity:pollenEntity];
 		[EntityUtil animateAndDeleteEntity:pollenEntity animationName:@"Pollen-Pickup" disablePhysics:TRUE];
     }
 }
@@ -200,7 +204,7 @@
     if (![pollenDisposableComponent isDisposed])
     {
         [pollenDisposableComponent setIsDisposed:TRUE];
-		[[_gameRulesSystem levelSession] consumedEntity:pollenOrangeEntity];
+		[_levelSession consumedEntity:pollenOrangeEntity];
 		[EntityUtil animateAndDeleteEntity:pollenOrangeEntity animationName:@"PollenO-Pickup" disablePhysics:TRUE];
     }
 }
@@ -252,7 +256,7 @@
 	if (![nutDisposableComponent isDisposed])
 	{
 		[nutDisposableComponent setIsDisposed:TRUE];
-		[[_gameRulesSystem levelSession] consumedEntity:nutEntity];
+		[_levelSession consumedEntity:nutEntity];
 		[EntityUtil animateAndDeleteEntity:nutEntity animationName:@"Nut-Collect" disablePhysics:TRUE];
 		
 		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
@@ -268,7 +272,7 @@
 	if (![eggDisposableComponent isDisposed])
 	{
 		[eggDisposableComponent setIsDisposed:TRUE];
-		[[_gameRulesSystem levelSession] consumedEntity:eggEntity];
+		[_levelSession consumedEntity:eggEntity];
 		[EntityUtil animateAndDeleteEntity:eggEntity animationName:@"Egg-Collect" disablePhysics:TRUE];
 		
 		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];

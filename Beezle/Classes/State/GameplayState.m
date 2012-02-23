@@ -20,6 +20,7 @@
 #import "IngameMenuState.h"
 #import "InputSystem.h"
 #import "LevelLoader.h"
+#import "LevelSession.h"
 #import "MovementSystem.h"
 #import "PhysicsSystem.h"
 #import "PlayerInformation.h"
@@ -53,9 +54,9 @@
 {
     if (self = [super init])
     {
-		_levelName = [levelName retain];
-		
 		[[CCDirector sharedDirector] setNeedClear:FALSE];
+		
+		_levelSession = [[LevelSession alloc] initWithLevelName:levelName];
 		
 		_debug = FALSE;
 		
@@ -65,7 +66,7 @@
 		[self createUI];
 		[self createWorldAndSystems];
         [self createModes];
-		[[LevelLoader sharedLoader] loadLevel:_levelName inWorld:_world edit:FALSE];
+		[[LevelLoader sharedLoader] loadLevel:levelName inWorld:_world edit:FALSE];
     }
     return self;
 }
@@ -95,13 +96,13 @@
     
 	SystemManager *systemManager = [_world systemManager];
 	
-    _gameRulesSystem = [[[GameRulesSystem alloc] initWithLevelName:_levelName] autorelease];
+    _gameRulesSystem = [[[GameRulesSystem alloc] initWithLevelSession:_levelSession] autorelease];
     [systemManager setSystem:_gameRulesSystem];
 	_physicsSystem = [[[PhysicsSystem alloc] init] autorelease];
 	[systemManager setSystem:_physicsSystem];
 	_movementSystem = [[[MovementSystem alloc] init] autorelease];
 	[systemManager setSystem:_movementSystem];
-	_collisionSystem = [[[CollisionSystem alloc] init] autorelease];
+	_collisionSystem = [[[CollisionSystem alloc] initWithLevelSession:_levelSession] autorelease];
 	[systemManager setSystem:_collisionSystem];
 	_renderSystem = [[[RenderSystem alloc] initWithLayer:_gameLayer] autorelease];
 	[systemManager setSystem:_renderSystem];
@@ -238,10 +239,10 @@
         if (_currentMode != _levelCompletedMode)
         {
             [self enterMode:_levelCompletedMode];
-			BOOL isRecord = [[PlayerInformation sharedInformation] isRecord:[_gameRulesSystem levelSession]];
+			BOOL isRecord = [[PlayerInformation sharedInformation] isRecord:_levelSession];
 			if (isRecord)
 			{
-				[[PlayerInformation sharedInformation] store:[_gameRulesSystem levelSession]];
+				[[PlayerInformation sharedInformation] store:_levelSession];
 				[[PlayerInformation sharedInformation] save];
 				
 				[self showLabel:@"Level Complete! (Record!)"];

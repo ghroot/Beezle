@@ -21,8 +21,7 @@
 @property (nonatomic, readonly) BOOL isLevelCompleted;
 @property (nonatomic, readonly) BOOL isLevelFailed;
 @property (nonatomic, readonly) BOOL isBeeFlying;
-@property (nonatomic, readonly) LevelSession *levelSession;
 
--(id) initWithLevelName:(NSString *)levelName;
+-(id) initWithLevelSession:(LevelSession *)levelSession;
 
 @end

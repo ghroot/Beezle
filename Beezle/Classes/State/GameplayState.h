@@ -21,6 +21,7 @@
 @class GameRulesSystem;
 @class GlassAnimationSystem;
 @class InputSystem;
+@class LevelSession;
 @class MovementSystem;
 @class PhysicsSystem;
 @class RenderSystem;
@@ -29,7 +30,7 @@
 
 @interface GameplayState : GameState
 {
-	NSString *_levelName;
+	LevelSession *_levelSession;
 	
 	CCLayer *_gameLayer;
 	CCLayer *_uiLayer;
