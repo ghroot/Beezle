@@ -315,6 +315,7 @@
 		2CB926A414F46277008972FD /* Level-A36-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB9266414F46277008972FD /* Level-A36-Layout.plist */; };
 		2CB926A514F46277008972FD /* Level-A36-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB9266514F46277008972FD /* Level-A36-Shapes.plist */; };
 		2CB926A614F46277008972FD /* Level-A36.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CB9266614F46277008972FD /* Level-A36.jpg */; };
+		2CBCDDB314F7DCE700B11627 /* SoundComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCDDB214F7DCE700B11627 /* SoundComponent.m */; };
 		2CC26A6114E46913004702DA /* BeeaterSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC26A6014E46912004702DA /* BeeaterSystem.m */; };
 		2CC3EBFD14D466460025F5DA /* MovementComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EBFC14D466460025F5DA /* MovementComponent.m */; };
 		2CC3EC0014D466700025F5DA /* MovementSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EBFF14D466700025F5DA /* MovementSystem.m */; };
@@ -812,7 +813,7 @@
 		2C88E2C314F5A36400496938 /* PlayerInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInformation.m; sourceTree = "<group>"; };
 		2C88E2C614F5A37900496938 /* LevelSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSession.h; sourceTree = "<group>"; };
 		2C88E2C714F5A37900496938 /* LevelSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSession.m; sourceTree = "<group>"; };
-		2C88E2C914F6E23400496938 /* GateOpeningSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; name = GateOpeningSystem.h; path = Classes/System/GateOpeningSystem.h; sourceTree = "<group>"; };
+		2C88E2C914F6E23400496938 /* GateOpeningSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GateOpeningSystem.h; path = Classes/System/GateOpeningSystem.h; sourceTree = "<group>"; };
 		2C88E2CA14F6E23400496938 /* GateOpeningSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GateOpeningSystem.m; path = Classes/System/GateOpeningSystem.m; sourceTree = "<group>"; };
 		2C8A4B7A1495184300C0C154 /* BeeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeType.h; path = Classes/BeeType.h; sourceTree = "<group>"; };
 		2C8A4B7B1495184300C0C154 /* BeeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeType.m; path = Classes/BeeType.m; sourceTree = "<group>"; };
@@ -907,6 +908,8 @@
 		2CB9266414F46277008972FD /* Level-A36-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A36-Layout.plist"; sourceTree = "<group>"; };
 		2CB9266514F46277008972FD /* Level-A36-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A36-Shapes.plist"; sourceTree = "<group>"; };
 		2CB9266614F46277008972FD /* Level-A36.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A36.jpg"; sourceTree = "<group>"; };
+		2CBCDDB114F7DCE600B11627 /* SoundComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundComponent.h; path = Classes/Component/SoundComponent.h; sourceTree = "<group>"; };
+		2CBCDDB214F7DCE700B11627 /* SoundComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoundComponent.m; path = Classes/Component/SoundComponent.m; sourceTree = "<group>"; };
 		2CC26A5F14E46912004702DA /* BeeaterSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeaterSystem.h; path = Classes/System/BeeaterSystem.h; sourceTree = "<group>"; };
 		2CC26A6014E46912004702DA /* BeeaterSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeaterSystem.m; path = Classes/System/BeeaterSystem.m; sourceTree = "<group>"; };
 		2CC3EBFB14D466460025F5DA /* MovementComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovementComponent.h; path = Classes/Component/MovementComponent.h; sourceTree = "<group>"; };
@@ -2108,6 +2111,8 @@
 				2C827D3714840C4700517C8F /* RenderSprite.m */,
 				2C1147E4148D4291002E4DBD /* SlingerComponent.h */,
 				2C1147E5148D4292002E4DBD /* SlingerComponent.m */,
+				2CBCDDB114F7DCE600B11627 /* SoundComponent.h */,
+				2CBCDDB214F7DCE700B11627 /* SoundComponent.m */,
 				2C5EFC2914E496A00071ED39 /* TrailComponent.h */,
 				2C5EFC2A14E496A10071ED39 /* TrailComponent.m */,
 				2C157C1814914F6A003F9040 /* TrajectoryComponent.h */,
@@ -2599,6 +2604,7 @@
 				2C88E2C514F5A36400496938 /* PlayerInformation.m in Sources */,
 				2C88E2C814F5A37900496938 /* LevelSession.m in Sources */,
 				2C88E2CB14F6E23400496938 /* GateOpeningSystem.m in Sources */,
+				2CBCDDB314F7DCE700B11627 /* SoundComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

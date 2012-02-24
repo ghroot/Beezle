@@ -22,6 +22,7 @@
 #import "PhysicsSystem.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
+#import "SoundComponent.h"
 #import "SoundManager.h"
 #import "TransformComponent.h"
 #import "Utils.h"
@@ -35,7 +36,6 @@
 -(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity collision:(Collision *)collision;
 -(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity collision:(Collision *)collision;
 -(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity collision:(Collision *)collision;
--(void) handleCollisionBee:(Entity *)beeEntity withPollenOrange:(Entity *)pollenOrangeEntity collision:(Collision *)collision;
 -(void) handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity collision:(Collision *)collision;
 -(void) handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity collision:(Collision *)collision;
 -(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity collision:(Collision *)collision;
@@ -85,7 +85,7 @@
 	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionBee:withBackground:collision:)];
 	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType BEEATER] selector:@selector(handleCollisionBee:withBeeater:collision:)];
 	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType POLLEN] selector:@selector(handleCollisionBee:withPollen:collision:)];
-	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType POLLEN_ORANGE] selector:@selector(handleCollisionBee:withPollenOrange:collision:)];
+	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType POLLEN_ORANGE] selector:@selector(handleCollisionBee:withPollen:collision:)];
 	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType MUSHROOM] selector:@selector(handleCollisionBee:withMushroom:collision:)];
     [self handleCollisionBetween:[CollisionType BEE] and:[CollisionType WOOD] selector:@selector(handleCollisionBee:withWood:collision:)];
 	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType NUT] selector:@selector(handleCollisionBee:withNut:collision:)];
@@ -177,16 +177,6 @@
     }
 }
 
--(void) handleCollisionBee:(Entity *)beeEntity withPollenOrange:(Entity *)pollenOrangeEntity collision:(Collision *)collision
-{
-    if (![EntityUtil isEntityDisposed:pollenOrangeEntity])
-    {
-        [EntityUtil setEntityDisposed:pollenOrangeEntity];
-		[_levelSession consumedEntity:pollenOrangeEntity];
-        [EntityUtil animateAndDeleteEntity:pollenOrangeEntity];
-    }
-}
-
 -(void) handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity collision:(Collision *)collision
 {
     if ([EntityUtil isEntityDisposable:mushroomEntity])
@@ -195,7 +185,7 @@
 		{
             [EntityUtil setEntityDisposed:mushroomEntity];
             [EntityUtil animateAndDeleteEntity:mushroomEntity disablePhysics:FALSE];
-			[[SoundManager sharedManager] playSound:@"SmokeMushroom"];
+            [EntityUtil playDefaultDestroySound:mushroomEntity];
 		}
 	}
 	else
@@ -230,11 +220,10 @@
         [EntityUtil setEntityDisposed:nutEntity];
 		[_levelSession consumedEntity:nutEntity];
         [EntityUtil animateAndDeleteEntity:nutEntity];
+        [EntityUtil playDefaultDestroySound:nutEntity];
 		
         [EntityUtil setEntityDisposed:beeEntity];
         [EntityUtil animateAndDeleteEntity:beeEntity];
-		
-		[[SoundManager sharedManager] playSound:@"BonusKey"];
 	}
 }
 
@@ -310,7 +299,7 @@
 	}
 	[glassPieceEntity deleteEntity];
 	
-	[[SoundManager sharedManager] playSound:@"GlassSmall"];
+    [EntityUtil playDefaultDestroySound:glassPieceEntity];
 }
 
 @end

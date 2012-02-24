@@ -143,7 +143,7 @@
 	[notificationUserInfo setObject:[beeaterComponent containedBeeType] forKey:@"beeType"];
 	[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_SAVED object:self userInfo:notificationUserInfo];
 	
-	[[SoundManager sharedManager] playSound:@"BeeaterKill"];
+    [EntityUtil playDefaultDestroySound:beeaterEntity];
 }
 
 @end

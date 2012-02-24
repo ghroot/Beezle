@@ -67,15 +67,14 @@
 					{
 						if ([self doesExplodedEntity:entity intersectCrumbleEntity:otherEntity])
 						{
-							DisposableComponent *otherDisposableComponent = [DisposableComponent getFrom:otherEntity];
-							if (![otherDisposableComponent isDisposed])
+                            if (![EntityUtil isEntityDisposed:otherEntity])
 							{
-								[otherDisposableComponent setIsDisposed:TRUE];
+                                [EntityUtil setEntityDisposed:otherEntity];
 								
 								CrumbleComponent *otherCrumbleComponent = [CrumbleComponent getFrom:otherEntity];
 								if ([otherCrumbleComponent crumbleAnimationName] != nil)
 								{
-									[EntityUtil animateAndDeleteEntity:otherEntity animationName:[otherCrumbleComponent crumbleAnimationName] disablePhysics:TRUE];
+									[EntityUtil animateAndDeleteEntity:otherEntity animationName:[otherCrumbleComponent crumbleAnimationName]];
 								}
 								
 								NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:otherEntity forKey:@"entity"];
@@ -85,8 +84,7 @@
 					}
 				}
 				
-				ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
-				[EntityUtil animateAndDeleteEntity:entity animationName:[explodeComponent explodeAnimationName] disablePhysics:TRUE];
+				[EntityUtil animateAndDeleteEntity:entity animationName:[[ExplodeComponent getFrom:entity] explodeAnimationName]];
 				
 				[[SoundManager sharedManager] playSound:@"BombeeBoom"];
 			}

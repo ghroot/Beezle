@@ -10,6 +10,8 @@
 #import "DisposableComponent.h"
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
+#import "SoundComponent.h"
+#import "SoundManager.h"
 #import "TransformComponent.h"
 
 @implementation EntityUtil
@@ -77,6 +79,11 @@
 	}
 }
 
++(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName
+{
+    [self animateAndDeleteEntity:entity animationName:animationName disablePhysics:TRUE];
+}
+
 +(void) animateAndDeleteEntity:(Entity *)entity disablePhysics:(BOOL)disablePhysics
 {
     [[RenderComponent getFrom:entity] playDefaultDestroyAnimationWithCallbackTarget:entity andCallbackSelector:@selector(deleteEntity)];
@@ -106,6 +113,11 @@
 		[[renderSprite sprite] runAction:[CCSequence actionsWithArray:actions]];
 		[actions release];
 	}
+}
+
++(void) playDefaultDestroySound:(Entity *)entity
+{
+    [[SoundManager sharedManager] playSound:[[SoundComponent getFrom:entity] defaultDestroySoundName]];
 }
 
 @end

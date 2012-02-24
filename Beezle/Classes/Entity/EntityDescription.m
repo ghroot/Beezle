@@ -20,6 +20,7 @@
 #import "PollenComponent.h"
 #import "RenderComponent.h"
 #import "SlingerComponent.h"
+#import "SoundComponent.h"
 #import "TransformComponent.h"
 #import "TrailComponent.h"
 #import "TrajectoryComponent.h"
@@ -90,6 +91,10 @@
 		else if ([componentType isEqualToString:@"slinger"])
 		{
 			component = [SlingerComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+        else if ([componentType isEqualToString:@"sound"])
+		{
+			component = [SoundComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"trail"])
 		{
