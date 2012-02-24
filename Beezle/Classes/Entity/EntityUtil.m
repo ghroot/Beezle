@@ -77,6 +77,21 @@
 	}
 }
 
++(void) animateAndDeleteEntity:(Entity *)entity disablePhysics:(BOOL)disablePhysics
+{
+    [[RenderComponent getFrom:entity] playDefaultDestroyAnimationWithCallbackTarget:entity andCallbackSelector:@selector(deleteEntity)];
+	if (disablePhysics)
+	{
+		[[PhysicsComponent getFrom:entity] disable];
+		[entity refresh];
+	}
+}
+
++(void) animateAndDeleteEntity:(Entity *)entity
+{
+    [self animateAndDeleteEntity:entity disablePhysics:TRUE];
+}
+
 +(void) fadeOutAndDeleteEntity:(Entity *)entity duration:(float)duration
 {
 	RenderComponent *renderComponent = [RenderComponent getFrom:entity];

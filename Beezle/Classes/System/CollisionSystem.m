@@ -162,7 +162,7 @@
 		if ([beeComponent isOutOfBeeaterKills])
 		{
             [EntityUtil setEntityDisposed:beeEntity];
-			[EntityUtil animateAndDeleteEntity:beeEntity animationName:@"Bee-Crash" disablePhysics:TRUE];
+            [EntityUtil animateAndDeleteEntity:beeEntity disablePhysics:TRUE];
 		}
     }
 }
@@ -173,7 +173,7 @@
     {
         [EntityUtil setEntityDisposed:pollenEntity];
 		[_levelSession consumedEntity:pollenEntity];
-		[EntityUtil animateAndDeleteEntity:pollenEntity animationName:@"Pollen-Pickup" disablePhysics:TRUE];
+        [EntityUtil animateAndDeleteEntity:pollenEntity];
     }
 }
 
@@ -183,7 +183,7 @@
     {
         [EntityUtil setEntityDisposed:pollenOrangeEntity];
 		[_levelSession consumedEntity:pollenOrangeEntity];
-		[EntityUtil animateAndDeleteEntity:pollenOrangeEntity animationName:@"PollenO-Pickup" disablePhysics:TRUE];
+        [EntityUtil animateAndDeleteEntity:pollenOrangeEntity];
     }
 }
 
@@ -194,7 +194,7 @@
         if (![EntityUtil isEntityDisposed:mushroomEntity])
 		{
             [EntityUtil setEntityDisposed:mushroomEntity];
-			[EntityUtil animateAndDeleteEntity:mushroomEntity animationName:@"SmokeMushroom-BounceAndPuff" disablePhysics:FALSE];
+            [EntityUtil animateAndDeleteEntity:mushroomEntity disablePhysics:FALSE];
 			[[SoundManager sharedManager] playSound:@"SmokeMushroom"];
 		}
 	}
@@ -213,7 +213,7 @@
 		if ([beeComponent type] == [BeeType SAWEE])
 		{
             [EntityUtil setEntityDisposed:woodEntity];
-			[EntityUtil animateAndDeleteEntity:woodEntity animationName:@"Wood-Destroy" disablePhysics:FALSE];
+            [EntityUtil animateAndDeleteEntity:woodEntity];
 			
             [EntityUtil setEntityDisposed:beeEntity];
 			[beeEntity deleteEntity];
@@ -229,10 +229,10 @@
 	{
         [EntityUtil setEntityDisposed:nutEntity];
 		[_levelSession consumedEntity:nutEntity];
-		[EntityUtil animateAndDeleteEntity:nutEntity animationName:@"Nut-Collect" disablePhysics:TRUE];
+        [EntityUtil animateAndDeleteEntity:nutEntity];
 		
         [EntityUtil setEntityDisposed:beeEntity];
-		[EntityUtil animateAndDeleteEntity:beeEntity animationName:@"Bee-Crash" disablePhysics:TRUE];
+        [EntityUtil animateAndDeleteEntity:beeEntity];
 		
 		[[SoundManager sharedManager] playSound:@"BonusKey"];
 	}
@@ -244,10 +244,10 @@
 	{
         [EntityUtil setEntityDisposed:eggEntity];
 		[_levelSession consumedEntity:eggEntity];
-		[EntityUtil animateAndDeleteEntity:eggEntity animationName:@"Egg-Collect" disablePhysics:TRUE];
+        [EntityUtil animateAndDeleteEntity:eggEntity];
 		
         [EntityUtil setEntityDisposed:beeEntity];
-		[EntityUtil animateAndDeleteEntity:beeEntity animationName:@"Bee-Crash" disablePhysics:TRUE];
+        [EntityUtil animateAndDeleteEntity:beeEntity];
 	}
 }
 

@@ -14,6 +14,8 @@
 @synthesize spriteSheet = _spriteSheet;
 @synthesize sprite = _sprite;
 @synthesize z = _z;
+@synthesize defaultIdleAnimationName = _defaultIdleAnimationName;
+@synthesize defaultDestroyAnimationName = _defaultDestroyAnimationName;
 
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z
 {
@@ -163,6 +165,22 @@
     CCRepeatForever *repeat = [CCRepeatForever actionWithAction:[CCSequence actionsWithArray:actions]];
     [repeat setTag:ACTION_TAG_ANIMATION];
     [_sprite runAction:repeat];
+}
+
+-(void) playDefaultIdleAnimation
+{
+    if (_defaultIdleAnimationName != nil)
+    {
+        [self playAnimation:_defaultIdleAnimationName];
+    }
+}
+
+-(void) playDefaultDestroyAnimation
+{
+    if (_defaultDestroyAnimationName != nil)
+    {
+        [self playAnimation:_defaultDestroyAnimationName withLoops:1];
+    }
 }
 
 -(void) setFrame:(NSString *)frameName

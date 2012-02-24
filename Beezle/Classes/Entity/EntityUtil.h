@@ -17,6 +17,8 @@
 +(BOOL) isEntityDisposed:(Entity *)entity;
 +(void) setEntityDisposed:(Entity *)entity;
 +(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName disablePhysics:(BOOL)disablePhysics;
++(void) animateAndDeleteEntity:(Entity *)entity disablePhysics:(BOOL)disablePhysics;
++(void) animateAndDeleteEntity:(Entity *)entity;
 +(void) fadeOutAndDeleteEntity:(Entity *)entity duration:(float)duration;
 
 @end
