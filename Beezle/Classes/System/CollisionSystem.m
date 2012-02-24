@@ -35,19 +35,19 @@
 -(void) handleCollisionBetween:(CollisionType *)type1 and:(CollisionType *)type2 selector:(SEL)selector;
 -(CollisionMediator *) findMediatorForCollision:(Collision *)collision;
 -(void) handleCollisions;
--(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withPollenOrange:(Entity *)pollenOrangeEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withEgg:(Entity *)eggEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withGlass:(Entity *)glassEntity;
--(void) handleCollisionBee:(Entity *)beeEntity withGate:(Entity *)gateEntity;
--(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity;
--(void) handleCollisionGlassPiece:(Entity *)glassPieceEntity withEntity:(Entity *)otherEntity;
+-(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity collision:(Collision *)collision;
+-(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity collision:(Collision *)collision;
+-(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity collision:(Collision *)collision;
+-(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity collision:(Collision *)collision;
+-(void) handleCollisionBee:(Entity *)beeEntity withPollenOrange:(Entity *)pollenOrangeEntity collision:(Collision *)collision;
+-(void) handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity collision:(Collision *)collision;
+-(void) handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity collision:(Collision *)collision;
+-(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity collision:(Collision *)collision;
+-(void) handleCollisionBee:(Entity *)beeEntity withEgg:(Entity *)eggEntity collision:(Collision *)collision;
+-(void) handleCollisionBee:(Entity *)beeEntity withGlass:(Entity *)glassEntity collision:(Collision *)collision;
+-(void) handleCollisionBee:(Entity *)beeEntity withGate:(Entity *)gateEntity collision:(Collision *)collision;
+-(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity collision:(Collision *)collision;
+-(void) handleCollisionGlassPiece:(Entity *)glassPieceEntity withEntity:(Entity *)otherEntity collision:(Collision *)collision;
 
 @end
 
@@ -85,20 +85,20 @@
 
 -(void) initialise
 {
-	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionBee:withBackground:)];
-	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType BEEATER] selector:@selector(handleCollisionBee:withBeeater:)];
-	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType EDGE] selector:@selector(handleCollisionBee:withEdge:)];
-	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType POLLEN] selector:@selector(handleCollisionBee:withPollen:)];
-	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType POLLEN_ORANGE] selector:@selector(handleCollisionBee:withPollenOrange:)];
-	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType MUSHROOM] selector:@selector(handleCollisionBee:withMushroom:)];
-    [self handleCollisionBetween:[CollisionType BEE] and:[CollisionType WOOD] selector:@selector(handleCollisionBee:withWood:)];
-	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType NUT] selector:@selector(handleCollisionBee:withNut:)];
-	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType EGG] selector:@selector(handleCollisionBee:withEgg:)];
-	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType GLASS] selector:@selector(handleCollisionBee:withGlass:)];
-	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType GATE] selector:@selector(handleCollisionBee:withGate:)];
-	[self handleCollisionBetween:[CollisionType AIM_POLLEN] and:[CollisionType EDGE] selector:@selector(handleCollisionAimPollen:withEdge:)];
-	[self handleCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionGlassPiece:withEntity:)];
-	[self handleCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType EDGE] selector:@selector(handleCollisionGlassPiece:withEntity:)];
+	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionBee:withBackground:collision:)];
+	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType BEEATER] selector:@selector(handleCollisionBee:withBeeater:collision:)];
+	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType EDGE] selector:@selector(handleCollisionBee:withEdge:collision:)];
+	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType POLLEN] selector:@selector(handleCollisionBee:withPollen:collision:)];
+	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType POLLEN_ORANGE] selector:@selector(handleCollisionBee:withPollenOrange:collision:)];
+	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType MUSHROOM] selector:@selector(handleCollisionBee:withMushroom:collision:)];
+    [self handleCollisionBetween:[CollisionType BEE] and:[CollisionType WOOD] selector:@selector(handleCollisionBee:withWood:collision:)];
+	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType NUT] selector:@selector(handleCollisionBee:withNut:collision:)];
+	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType EGG] selector:@selector(handleCollisionBee:withEgg:collision:)];
+	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType GLASS] selector:@selector(handleCollisionBee:withGlass:collision:)];
+	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType GATE] selector:@selector(handleCollisionBee:withGate:collision:)];
+	[self handleCollisionBetween:[CollisionType AIM_POLLEN] and:[CollisionType EDGE] selector:@selector(handleCollisionAimPollen:withEdge:collision:)];
+	[self handleCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionGlassPiece:withEntity:collision:)];
+	[self handleCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType EDGE] selector:@selector(handleCollisionGlassPiece:withEntity:collision:)];
 }
 
 -(void) handleCollisionBetween:(CollisionType *)type1 and:(CollisionType *)type2 selector:(SEL)selector
@@ -106,7 +106,7 @@
 	PhysicsSystem *physicsSystem = (PhysicsSystem *)[[_world systemManager] getSystem:[PhysicsSystem class]];
 	[physicsSystem detectCollisionsBetween:type1 and:type2];
 	
-	CollisionMediator *mediator = [CollisionMediator mediatorWithType1:type1 type2:type2 selector:selector];
+	CollisionMediator *mediator = [CollisionMediator mediatorWithType1:type1 type2:type2 target:self selector:selector];
 	[_collisionMediators addObject:mediator];
 }
 
@@ -114,11 +114,10 @@
 {
 	for (CollisionMediator *mediator in _collisionMediators)
 	{
-		if ([mediator type1] == [collision type1] &&
-			[mediator type2] == [collision type2])
-		{
-			return mediator;
-		}
+        if ([mediator appliesForCollision:collision])
+        {
+            return mediator;
+        }
 	}	
 	return nil;
 }
@@ -133,25 +132,21 @@
     for (Collision *collision in _collisions)
     {
 		CollisionMediator *mediator = [self findMediatorForCollision:collision];
-		if (mediator != nil)
-		{
-			_currentCollision = collision;
-			[self performSelector:[mediator selector] withObject:[collision firstEntity] withObject:[collision secondEntity]];
-			_currentCollision = nil;
-		}
+        NSAssert(mediator != nil, @"Collision mediator should always exist.");
+        [mediator mediateCollision:collision];
     }
     [_collisions removeAllObjects];    
 }
 	 
--(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity
+-(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity collision:(Collision *)collision
 {
-	if ([_currentCollision impulseLength] >= 50)
+	if ([collision impulseLength] >= 50)
 	{
 		[[SoundManager sharedManager] playSound:@"BeeHitWall"];
 	}
 }
 
--(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity
+-(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity collision:(Collision *)collision
 {  
     DisposableComponent *beeaterDisposableComponent = [DisposableComponent getFrom:beeaterEntity];
     if (![beeaterDisposableComponent isDisposed])
@@ -171,13 +166,13 @@
     }
 }
 
--(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity
+-(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity collision:(Collision *)collision
 {
 	[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
 	[beeEntity deleteEntity];
 }
 
--(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity
+-(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity collision:(Collision *)collision
 {
     DisposableComponent *pollenDisposableComponent = [DisposableComponent getFrom:pollenEntity];
     if (![pollenDisposableComponent isDisposed])
@@ -188,7 +183,7 @@
     }
 }
 
--(void) handleCollisionBee:(Entity *)beeEntity withPollenOrange:(Entity *)pollenOrangeEntity
+-(void) handleCollisionBee:(Entity *)beeEntity withPollenOrange:(Entity *)pollenOrangeEntity collision:(Collision *)collision
 {
     DisposableComponent *pollenDisposableComponent = [DisposableComponent getFrom:pollenOrangeEntity];
     if (![pollenDisposableComponent isDisposed])
@@ -199,7 +194,7 @@
     }
 }
 
--(void) handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity
+-(void) handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity collision:(Collision *)collision
 {
 	RenderComponent *mushroomRenderComponent = [RenderComponent getFrom:mushroomEntity];
 	if ([mushroomEntity hasComponent:[DisposableComponent class]])
@@ -221,7 +216,7 @@
 	}
 }
 
--(void) handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity
+-(void) handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity collision:(Collision *)collision
 {
 	DisposableComponent *woodDisposableComponent = [DisposableComponent getFrom:woodEntity];
 	if (![woodDisposableComponent isDisposed])
@@ -240,7 +235,7 @@
 	}
 }
 
--(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity
+-(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity collision:(Collision *)collision
 {
 	DisposableComponent *nutDisposableComponent = [DisposableComponent getFrom:nutEntity];
 	if (![nutDisposableComponent isDisposed])
@@ -256,7 +251,7 @@
 	}
 }
 
--(void) handleCollisionBee:(Entity *)beeEntity withEgg:(Entity *)eggEntity
+-(void) handleCollisionBee:(Entity *)beeEntity withEgg:(Entity *)eggEntity collision:(Collision *)collision
 {
 	DisposableComponent *eggDisposableComponent = [DisposableComponent getFrom:eggEntity];
 	if (![eggDisposableComponent isDisposed])
@@ -270,7 +265,7 @@
 	}
 }
 
--(void) handleCollisionBee:(Entity *)beeEntity withGlass:(Entity *)glassEntity
+-(void) handleCollisionBee:(Entity *)beeEntity withGlass:(Entity *)glassEntity collision:(Collision *)collision
 {
 	[[SoundManager sharedManager] playSound:@"BeeHitGlass"];
 }
@@ -292,13 +287,13 @@
 	}
 }
 
--(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity
+-(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity collision:(Collision *)collision
 {
 	[[DisposableComponent getFrom:aimPollenEntity] setIsDisposed:TRUE];
     [aimPollenEntity deleteEntity];
 }
 
--(void) handleCollisionGlassPiece:(Entity *)glassPieceEntity withEntity:(Entity *)otherEntity
+-(void) handleCollisionGlassPiece:(Entity *)glassPieceEntity withEntity:(Entity *)otherEntity collision:(Collision *)collision
 {
 	TransformComponent *transformComponent = [TransformComponent getFrom:glassPieceEntity];
 	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:glassPieceEntity];

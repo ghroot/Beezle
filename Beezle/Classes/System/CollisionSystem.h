@@ -19,8 +19,6 @@
 	
 	NSMutableArray *_collisionMediators;
     NSMutableArray *_collisions;
-	
-	Collision *_currentCollision;
 }
 
 -(id) initWithLevelSession:(LevelSession *)levelSession;

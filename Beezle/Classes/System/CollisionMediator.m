@@ -10,24 +10,42 @@
 
 @implementation CollisionMediator
 
-@synthesize type1 = _type1;
-@synthesize type2 = _type2;
-@synthesize selector = _selector;
-
-+(CollisionMediator *) mediatorWithType1:(cpCollisionType)type1 type2:(cpCollisionType)type2 selector:(SEL)selector
++(CollisionMediator *) mediatorWithType1:(CollisionType *)type1 type2:(CollisionType *)type2 target:(id)target selector:(SEL)selector
 {
-	return [[[self alloc] initWithType1:type1 type2:type2 selector:selector] autorelease];
+	return [[[self alloc] initWithType1:type1 type2:type2 target:target selector:selector] autorelease];
 }
 
--(id) initWithType1:(cpCollisionType)type1 type2:(cpCollisionType)type2 selector:(SEL)selector
+-(id) initWithType1:(CollisionType *)type1 type2:(CollisionType *)type2 target:(id)target selector:(SEL)selector
 {
 	if (self = [super init])
 	{
 		_type1 = type1;
 		_type2 = type2;
+        _target = target;
 		_selector = selector;
 	}
 	return self;
+}
+
+-(BOOL) appliesForCollision:(Collision *)collision
+{
+    return _type1 == [collision type1] && 
+        _type2 == [collision type2];
+}
+
+-(void) mediateCollision:(Collision *)collision
+{
+    Entity *firstEntity = [collision firstEntity];
+    Entity *secondEntity = [collision secondEntity];
+    
+    NSMethodSignature *signature = [_target methodSignatureForSelector:_selector];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+    [invocation setTarget:_target];
+    [invocation setSelector:_selector];
+    [invocation setArgument:&firstEntity atIndex:2];
+    [invocation setArgument:&secondEntity atIndex:3];
+    [invocation setArgument:&collision atIndex:4];
+    [invocation invoke];
 }
 
 @end
