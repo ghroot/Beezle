@@ -7,6 +7,7 @@
 //
 
 #import "EntityUtil.h"
+#import "DisposableComponent.h"
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
 #import "TransformComponent.h"
@@ -51,14 +52,27 @@
 	}
 }
 
++(BOOL) isEntityDisposable:(Entity *)entity
+{
+    return [entity hasComponent:[DisposableComponent class]];
+}
+
++(BOOL) isEntityDisposed:(Entity *)entity
+{
+    return [[DisposableComponent getFrom:entity] isDisposed];
+}
+
++(void) setEntityDisposed:(Entity *)entity
+{
+    [[DisposableComponent getFrom:entity] setIsDisposed:TRUE];
+}
+
 +(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName disablePhysics:(BOOL)disablePhysics
 {
-	RenderComponent *renderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
-	[renderComponent playAnimation:animationName withCallbackTarget:entity andCallbackSelector:@selector(deleteEntity)];
+	[[RenderComponent getFrom:entity] playAnimation:animationName withCallbackTarget:entity andCallbackSelector:@selector(deleteEntity)];
 	if (disablePhysics)
 	{
-		PhysicsComponent *physicsComponent = (PhysicsComponent *)[entity getComponent:[PhysicsComponent class]];
-		[physicsComponent disable];
+		[[PhysicsComponent getFrom:entity] disable];
 		[entity refresh];
 	}
 }

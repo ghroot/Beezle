@@ -13,6 +13,9 @@
 +(void) setEntityPosition:(Entity *)entity position:(CGPoint)position;
 +(void) setEntityRotation:(Entity *)entity rotation:(float)rotation;
 +(void) setEntityMirrored:(Entity *)entity mirrored:(BOOL)mirrored;
++(BOOL) isEntityDisposable:(Entity *)entity;
++(BOOL) isEntityDisposed:(Entity *)entity;
++(void) setEntityDisposed:(Entity *)entity;
 +(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName disablePhysics:(BOOL)disablePhysics;
 +(void) fadeOutAndDeleteEntity:(Entity *)entity duration:(float)duration;
 

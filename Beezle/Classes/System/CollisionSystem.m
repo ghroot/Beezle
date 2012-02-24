@@ -13,7 +13,6 @@
 #import "Collision.h"
 #import "CollisionMediator.h"
 #import "CollisionType.h"
-#import "DisposableComponent.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
 #import "GateComponent.h"
@@ -21,12 +20,9 @@
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
-#import "PlayerInformation.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
-#import "SlingerComponent.h"
 #import "SoundManager.h"
-#import "TagManager.h"
 #import "TransformComponent.h"
 #import "Utils.h"
 
@@ -35,9 +31,9 @@
 -(void) handleCollisionBetween:(CollisionType *)type1 and:(CollisionType *)type2 selector:(SEL)selector;
 -(CollisionMediator *) findMediatorForCollision:(Collision *)collision;
 -(void) handleCollisions;
+-(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity collision:(Collision *)collision;
 -(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity collision:(Collision *)collision;
 -(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity collision:(Collision *)collision;
--(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity collision:(Collision *)collision;
 -(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity collision:(Collision *)collision;
 -(void) handleCollisionBee:(Entity *)beeEntity withPollenOrange:(Entity *)pollenOrangeEntity collision:(Collision *)collision;
 -(void) handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity collision:(Collision *)collision;
@@ -85,9 +81,9 @@
 
 -(void) initialise
 {
+	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType EDGE] selector:@selector(handleCollisionBee:withEdge:collision:)];
 	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionBee:withBackground:collision:)];
 	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType BEEATER] selector:@selector(handleCollisionBee:withBeeater:collision:)];
-	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType EDGE] selector:@selector(handleCollisionBee:withEdge:collision:)];
 	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType POLLEN] selector:@selector(handleCollisionBee:withPollen:collision:)];
 	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType POLLEN_ORANGE] selector:@selector(handleCollisionBee:withPollenOrange:collision:)];
 	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType MUSHROOM] selector:@selector(handleCollisionBee:withMushroom:collision:)];
@@ -137,6 +133,12 @@
     }
     [_collisions removeAllObjects];    
 }
+
+-(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity collision:(Collision *)collision
+{
+    [EntityUtil setEntityDisposed:beeEntity];
+	[beeEntity deleteEntity];
+}
 	 
 -(void) handleCollisionBee:(Entity *)beeEntity withBackground:(Entity *)backgroundEntity collision:(Collision *)collision
 {
@@ -148,10 +150,9 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withBeeater:(Entity *)beeaterEntity collision:(Collision *)collision
 {  
-    DisposableComponent *beeaterDisposableComponent = [DisposableComponent getFrom:beeaterEntity];
-    if (![beeaterDisposableComponent isDisposed])
+    if (![EntityUtil isEntityDisposed:beeaterEntity])
     {
-		[beeaterDisposableComponent setIsDisposed:TRUE];
+        [EntityUtil setEntityDisposed:beeaterEntity];
 		
 		NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:beeaterEntity forKey:@"beeaterEntity"];
 		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEEATER_HIT object:self userInfo:notificationUserInfo];
@@ -160,24 +161,17 @@
 		[beeComponent decreaseBeeaterHitsLeft];
 		if ([beeComponent isOutOfBeeaterKills])
 		{
-			[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
+            [EntityUtil setEntityDisposed:beeEntity];
 			[EntityUtil animateAndDeleteEntity:beeEntity animationName:@"Bee-Crash" disablePhysics:TRUE];
 		}
     }
 }
 
--(void) handleCollisionBee:(Entity *)beeEntity withEdge:(Entity *)edgeEntity collision:(Collision *)collision
-{
-	[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
-	[beeEntity deleteEntity];
-}
-
 -(void) handleCollisionBee:(Entity *)beeEntity withPollen:(Entity *)pollenEntity collision:(Collision *)collision
 {
-    DisposableComponent *pollenDisposableComponent = [DisposableComponent getFrom:pollenEntity];
-    if (![pollenDisposableComponent isDisposed])
+    if (![EntityUtil isEntityDisposed:pollenEntity])
     {
-        [pollenDisposableComponent setIsDisposed:TRUE];
+        [EntityUtil setEntityDisposed:pollenEntity];
 		[_levelSession consumedEntity:pollenEntity];
 		[EntityUtil animateAndDeleteEntity:pollenEntity animationName:@"Pollen-Pickup" disablePhysics:TRUE];
     }
@@ -185,10 +179,9 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withPollenOrange:(Entity *)pollenOrangeEntity collision:(Collision *)collision
 {
-    DisposableComponent *pollenDisposableComponent = [DisposableComponent getFrom:pollenOrangeEntity];
-    if (![pollenDisposableComponent isDisposed])
+    if (![EntityUtil isEntityDisposed:pollenOrangeEntity])
     {
-        [pollenDisposableComponent setIsDisposed:TRUE];
+        [EntityUtil setEntityDisposed:pollenOrangeEntity];
 		[_levelSession consumedEntity:pollenOrangeEntity];
 		[EntityUtil animateAndDeleteEntity:pollenOrangeEntity animationName:@"PollenO-Pickup" disablePhysics:TRUE];
     }
@@ -196,38 +189,33 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withMushroom:(Entity *)mushroomEntity collision:(Collision *)collision
 {
-	RenderComponent *mushroomRenderComponent = [RenderComponent getFrom:mushroomEntity];
-	if ([mushroomEntity hasComponent:[DisposableComponent class]])
+    if ([EntityUtil isEntityDisposable:mushroomEntity])
 	{
-		DisposableComponent *mushroomDisposableComponent = [DisposableComponent getFrom:mushroomEntity];
-		if (![mushroomDisposableComponent isDisposed])
+        if (![EntityUtil isEntityDisposed:mushroomEntity])
 		{
-			[mushroomDisposableComponent setIsDisposed:TRUE];
+            [EntityUtil setEntityDisposed:mushroomEntity];
 			[EntityUtil animateAndDeleteEntity:mushroomEntity animationName:@"SmokeMushroom-BounceAndPuff" disablePhysics:FALSE];
-			
 			[[SoundManager sharedManager] playSound:@"SmokeMushroom"];
 		}
 	}
 	else
 	{
-		[mushroomRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Mushroom-Bounce", @"Mushroom-Idle", nil]];
-		
+		[[RenderComponent getFrom:mushroomEntity] playAnimationsLoopLast:[NSArray arrayWithObjects:@"Mushroom-Bounce", @"Mushroom-Idle", nil]];
 		[[SoundManager sharedManager] playSound:@"11097__a43__a43-blipp.aif"];
 	}
 }
 
 -(void) handleCollisionBee:(Entity *)beeEntity withWood:(Entity *)woodEntity collision:(Collision *)collision
 {
-	DisposableComponent *woodDisposableComponent = [DisposableComponent getFrom:woodEntity];
-	if (![woodDisposableComponent isDisposed])
+    if (![EntityUtil isEntityDisposed:woodEntity])
 	{
 		BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
 		if ([beeComponent type] == [BeeType SAWEE])
 		{
-			[woodDisposableComponent setIsDisposed:TRUE];
+            [EntityUtil setEntityDisposed:woodEntity];
 			[EntityUtil animateAndDeleteEntity:woodEntity animationName:@"Wood-Destroy" disablePhysics:FALSE];
 			
-			[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
+            [EntityUtil setEntityDisposed:beeEntity];
 			[beeEntity deleteEntity];
 			
 			[[SoundManager sharedManager] playSound:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
@@ -237,15 +225,14 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withNut:(Entity *)nutEntity collision:(Collision *)collision
 {
-	DisposableComponent *nutDisposableComponent = [DisposableComponent getFrom:nutEntity];
-	if (![nutDisposableComponent isDisposed])
+    if (![EntityUtil isEntityDisposed:nutEntity])
 	{
-		[nutDisposableComponent setIsDisposed:TRUE];
+        [EntityUtil setEntityDisposed:nutEntity];
 		[_levelSession consumedEntity:nutEntity];
 		[EntityUtil animateAndDeleteEntity:nutEntity animationName:@"Nut-Collect" disablePhysics:TRUE];
 		
-		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
-		[beeEntity deleteEntity];
+        [EntityUtil setEntityDisposed:beeEntity];
+		[EntityUtil animateAndDeleteEntity:beeEntity animationName:@"Bee-Crash" disablePhysics:TRUE];
 		
 		[[SoundManager sharedManager] playSound:@"BonusKey"];
 	}
@@ -253,15 +240,14 @@
 
 -(void) handleCollisionBee:(Entity *)beeEntity withEgg:(Entity *)eggEntity collision:(Collision *)collision
 {
-	DisposableComponent *eggDisposableComponent = [DisposableComponent getFrom:eggEntity];
-	if (![eggDisposableComponent isDisposed])
+    if (![EntityUtil isEntityDisposed:eggEntity])
 	{
-		[eggDisposableComponent setIsDisposed:TRUE];
+        [EntityUtil setEntityDisposed:eggEntity];
 		[_levelSession consumedEntity:eggEntity];
 		[EntityUtil animateAndDeleteEntity:eggEntity animationName:@"Egg-Collect" disablePhysics:TRUE];
 		
-		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
-		[beeEntity deleteEntity];
+        [EntityUtil setEntityDisposed:beeEntity];
+		[EntityUtil animateAndDeleteEntity:beeEntity animationName:@"Bee-Crash" disablePhysics:TRUE];
 	}
 }
 
@@ -275,7 +261,7 @@
 	GateComponent *gateComponent = [GateComponent getFrom:gateEntity];
 	if ([gateComponent isOpened])
 	{
-		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
+        [EntityUtil setEntityDisposed:beeEntity];
 		[beeEntity deleteEntity];
 		
 		[_levelSession setDidUseKey:TRUE];
@@ -289,8 +275,11 @@
 
 -(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity collision:(Collision *)collision
 {
-	[[DisposableComponent getFrom:aimPollenEntity] setIsDisposed:TRUE];
-    [aimPollenEntity deleteEntity];
+    if (![EntityUtil isEntityDisposed:aimPollenEntity])
+    {
+        [EntityUtil setEntityDisposed:aimPollenEntity];
+        [aimPollenEntity deleteEntity];
+    }
 }
 
 -(void) handleCollisionGlassPiece:(Entity *)glassPieceEntity withEntity:(Entity *)otherEntity collision:(Collision *)collision
