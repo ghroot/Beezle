@@ -25,5 +25,6 @@
 +(CollisionType *) GLASS;
 +(CollisionType *) GLASS_PIECE;
 +(CollisionType *) GATE;
++(CollisionType *) WATER_DROP;
 
 @end

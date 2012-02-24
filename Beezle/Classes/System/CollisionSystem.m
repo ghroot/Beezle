@@ -44,6 +44,7 @@
 -(void) handleCollisionBee:(Entity *)beeEntity withGate:(Entity *)gateEntity collision:(Collision *)collision;
 -(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity collision:(Collision *)collision;
 -(void) handleCollisionGlassPiece:(Entity *)glassPieceEntity withEntity:(Entity *)otherEntity collision:(Collision *)collision;
+-(void) handleCollisionWaterdrop:(Entity *)waterdropEntity withBackground:(Entity *)backgroundEntity collision:(Collision *)collision;
 
 @end
 
@@ -95,6 +96,7 @@
 	[self handleCollisionBetween:[CollisionType AIM_POLLEN] and:[CollisionType EDGE] selector:@selector(handleCollisionAimPollen:withEdge:collision:)];
 	[self handleCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionGlassPiece:withEntity:collision:)];
 	[self handleCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType EDGE] selector:@selector(handleCollisionGlassPiece:withEntity:collision:)];
+	[self handleCollisionBetween:[CollisionType WATER_DROP] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionWaterdrop:withBackground:collision:)];
 }
 
 -(void) handleCollisionBetween:(CollisionType *)type1 and:(CollisionType *)type2 selector:(SEL)selector
@@ -300,6 +302,20 @@
 	[glassPieceEntity deleteEntity];
 	
     [EntityUtil playDefaultDestroySound:glassPieceEntity];
+}
+
+-(void) handleCollisionWaterdrop:(Entity *)waterdropEntity withBackground:(Entity *)backgroundEntity collision:(Collision *)collision
+{
+	if (![EntityUtil isEntityDisposed:waterdropEntity])
+	{
+		[EntityUtil setEntityDisposed:waterdropEntity];
+		[waterdropEntity deleteEntity];
+		
+		Entity *splashEntity = [EntityFactory createSimpleAnimatedEntity:_world];
+		TransformComponent *transforComponent = [TransformComponent getFrom:waterdropEntity];
+		[EntityUtil setEntityPosition:splashEntity position:[transforComponent position]];
+		[EntityUtil animateAndDeleteEntity:splashEntity animationName:@"Waterdrop-Splash"];
+	}
 }
 
 @end

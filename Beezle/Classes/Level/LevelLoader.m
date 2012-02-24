@@ -9,7 +9,6 @@
 #import "LevelLoader.h"
 #import "BeeaterComponent.h"
 #import "DisposableComponent.h"
-#import "EditComponent.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
 #import "GateComponent.h"
@@ -120,13 +119,7 @@
 	// Entities
     for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
     {
-		Entity *entity = [EntityFactory createEntity:[levelLayoutEntry type] world:world];
-		
-		if (CONFIG_CAN_EDIT_LEVELS && edit)
-		{
-			[entity addComponent:[EditComponent componentWithLevelLayoutType:[levelLayoutEntry type]]];
-			[entity refresh];
-		}
+		Entity *entity = [EntityFactory createEntity:[levelLayoutEntry type] world:world edit:edit];
 		
 		if ([[levelLayoutEntry componentsDict] objectForKey:@"beeater"] != nil)
 		{

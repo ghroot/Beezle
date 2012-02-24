@@ -158,8 +158,8 @@
 		2C3C990E14A2574400284A60 /* CollisionType.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3C990D14A2574300284A60 /* CollisionType.m */; };
 		2C535FCD14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C535FCC14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m */; };
 		2C596D3E14A13FDD00DFCC14 /* LevelLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */; };
-		2C5EFC2B14E496A10071ED39 /* TrailComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC2A14E496A10071ED39 /* TrailComponent.m */; };
-		2C5EFC3114E499C20071ED39 /* TrailSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3014E499C20071ED39 /* TrailSystem.m */; };
+		2C5EFC2B14E496A10071ED39 /* SpawnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */; };
+		2C5EFC3114E499C20071ED39 /* SpawnSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3014E499C20071ED39 /* SpawnSystem.m */; };
 		2C5EFC3414E6C5510071ED39 /* EntitySelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3314E6C5510071ED39 /* EntitySelectIngameMenuState.m */; };
 		2C5EFC4D14E7DACF0071ED39 /* Bee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3614E7DACF0071ED39 /* Bee-Animations.plist */; };
 		2C5EFC4E14E7DACF0071ED39 /* Beeater-Body-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3714E7DACF0071ED39 /* Beeater-Body-Animations.plist */; };
@@ -213,6 +213,9 @@
 		2C7CE5FA1469D092001F331F /* PhysicsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5F91469D092001F331F /* PhysicsSystem.m */; };
 		2C7CE61C146C73FE001F331F /* InputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE61B146C73FE001F331F /* InputSystem.m */; };
 		2C7CE622146FD670001F331F /* SlingerControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE621146FD66F001F331F /* SlingerControlSystem.m */; };
+		2C7D0AB814F841AB00221427 /* Waterdrop.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7D0AB714F841AB00221427 /* Waterdrop.plist */; };
+		2C7D0ABD14F843AF00221427 /* Waterdrop-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7D0ABC14F843AF00221427 /* Waterdrop-Animations.plist */; };
+		2C7D0ABF14F8441500221427 /* Waterdrop-Spawner.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7D0ABE14F8441500221427 /* Waterdrop-Spawner.plist */; };
 		2C7DAC3B14F43CF4006CE0BA /* Sounds.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC3A14F43CF4006CE0BA /* Sounds.plist */; };
 		2C7DAC3F14F43D52006CE0BA /* BeeHitGlass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC3C14F43D52006CE0BA /* BeeHitGlass.mp3 */; };
 		2C7DAC4114F43D52006CE0BA /* GlassSmall3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC3E14F43D52006CE0BA /* GlassSmall3.wav */; };
@@ -687,10 +690,10 @@
 		2C535FCF149ADEE800BC7DB6 /* ActionTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionTags.h; path = Classes/ActionTags.h; sourceTree = "<group>"; };
 		2C596D3914A13FDD00DFCC14 /* LevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLoader.h; sourceTree = "<group>"; };
 		2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLoader.m; sourceTree = "<group>"; };
-		2C5EFC2914E496A00071ED39 /* TrailComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrailComponent.h; path = Classes/Component/TrailComponent.h; sourceTree = "<group>"; };
-		2C5EFC2A14E496A10071ED39 /* TrailComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrailComponent.m; path = Classes/Component/TrailComponent.m; sourceTree = "<group>"; };
-		2C5EFC2F14E499C20071ED39 /* TrailSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrailSystem.h; path = Classes/System/TrailSystem.h; sourceTree = "<group>"; };
-		2C5EFC3014E499C20071ED39 /* TrailSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrailSystem.m; path = Classes/System/TrailSystem.m; sourceTree = "<group>"; };
+		2C5EFC2914E496A00071ED39 /* SpawnComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; name = SpawnComponent.h; path = Classes/Component/SpawnComponent.h; sourceTree = "<group>"; };
+		2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpawnComponent.m; path = Classes/Component/SpawnComponent.m; sourceTree = "<group>"; };
+		2C5EFC2F14E499C20071ED39 /* SpawnSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; name = SpawnSystem.h; path = Classes/System/SpawnSystem.h; sourceTree = "<group>"; };
+		2C5EFC3014E499C20071ED39 /* SpawnSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpawnSystem.m; path = Classes/System/SpawnSystem.m; sourceTree = "<group>"; };
 		2C5EFC3214E6C5510071ED39 /* EntitySelectIngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntitySelectIngameMenuState.h; sourceTree = "<group>"; };
 		2C5EFC3314E6C5510071ED39 /* EntitySelectIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntitySelectIngameMenuState.m; sourceTree = "<group>"; };
 		2C5EFC3614E7DACF0071ED39 /* Bee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bee-Animations.plist"; sourceTree = "<group>"; };
@@ -754,6 +757,9 @@
 		2C7CE61B146C73FE001F331F /* InputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputSystem.m; path = Classes/System/InputSystem.m; sourceTree = "<group>"; };
 		2C7CE620146FD66F001F331F /* SlingerControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlingerControlSystem.h; path = Classes/System/SlingerControlSystem.h; sourceTree = "<group>"; };
 		2C7CE621146FD66F001F331F /* SlingerControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlingerControlSystem.m; path = Classes/System/SlingerControlSystem.m; sourceTree = "<group>"; };
+		2C7D0AB714F841AB00221427 /* Waterdrop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Waterdrop.plist; sourceTree = "<group>"; };
+		2C7D0ABC14F843AF00221427 /* Waterdrop-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Waterdrop-Animations.plist"; sourceTree = "<group>"; };
+		2C7D0ABE14F8441500221427 /* Waterdrop-Spawner.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Waterdrop-Spawner.plist"; sourceTree = "<group>"; };
 		2C7DAC3A14F43CF4006CE0BA /* Sounds.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sounds.plist; sourceTree = "<group>"; };
 		2C7DAC3C14F43D52006CE0BA /* BeeHitGlass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BeeHitGlass.mp3; sourceTree = "<group>"; };
 		2C7DAC3E14F43D52006CE0BA /* GlassSmall3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GlassSmall3.wav; sourceTree = "<group>"; };
@@ -1471,6 +1477,7 @@
 				2C5EFC4314E7DACF0071ED39 /* Sling-Animations.plist */,
 				2C5EFC4414E7DACF0071ED39 /* SmokeMushroom-Animations.plist */,
 				2C5EFC4514E7DACF0071ED39 /* Speedee-Animations.plist */,
+				2C7D0ABC14F843AF00221427 /* Waterdrop-Animations.plist */,
 				2C5EFC4614E7DACF0071ED39 /* Wood-Animations.plist */,
 			);
 			path = Animations;
@@ -1602,8 +1609,8 @@
 				2C7CE5F61469AD06001F331F /* RenderSystem.m */,
 				2C7CE620146FD66F001F331F /* SlingerControlSystem.h */,
 				2C7CE621146FD66F001F331F /* SlingerControlSystem.m */,
-				2C5EFC2F14E499C20071ED39 /* TrailSystem.h */,
-				2C5EFC3014E499C20071ED39 /* TrailSystem.m */,
+				2C5EFC2F14E499C20071ED39 /* SpawnSystem.h */,
+				2C5EFC3014E499C20071ED39 /* SpawnSystem.m */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -1926,6 +1933,8 @@
 				2CC7184514E1E29500059B66 /* Ramp.plist */,
 				2CC7184714E1E29500059B66 /* Slinger.plist */,
 				2CC7184814E1E29500059B66 /* Smoke-Mushroom.plist */,
+				2C7D0ABE14F8441500221427 /* Waterdrop-Spawner.plist */,
+				2C7D0AB714F841AB00221427 /* Waterdrop.plist */,
 				2CC7184A14E1E29500059B66 /* Wood.plist */,
 			);
 			name = Entities;
@@ -2113,8 +2122,8 @@
 				2C1147E5148D4292002E4DBD /* SlingerComponent.m */,
 				2CBCDDB114F7DCE600B11627 /* SoundComponent.h */,
 				2CBCDDB214F7DCE700B11627 /* SoundComponent.m */,
-				2C5EFC2914E496A00071ED39 /* TrailComponent.h */,
-				2C5EFC2A14E496A10071ED39 /* TrailComponent.m */,
+				2C5EFC2914E496A00071ED39 /* SpawnComponent.h */,
+				2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */,
 				2C157C1814914F6A003F9040 /* TrajectoryComponent.h */,
 				2C157C1914914F6A003F9040 /* TrajectoryComponent.m */,
 				2C068A32146858B9003E200D /* TransformComponent.h */,
@@ -2386,6 +2395,9 @@
 				2C140F6A14F6EC8100FE1965 /* Level-H1-Shapes.plist in Resources */,
 				2C140F6B14F6EC8100FE1965 /* Level-H1.jpg in Resources */,
 				2C140F6D14F6EF7600FE1965 /* Level-H1-Layout.plist in Resources */,
+				2C7D0AB814F841AB00221427 /* Waterdrop.plist in Resources */,
+				2C7D0ABD14F843AF00221427 /* Waterdrop-Animations.plist in Resources */,
+				2C7D0ABF14F8441500221427 /* Waterdrop-Spawner.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2494,8 +2506,8 @@
 				2CC7183614E1D15F00059B66 /* EntityFactory.m in Sources */,
 				2CC7183714E1D15F00059B66 /* EntityUtil.m in Sources */,
 				2CC26A6114E46913004702DA /* BeeaterSystem.m in Sources */,
-				2C5EFC2B14E496A10071ED39 /* TrailComponent.m in Sources */,
-				2C5EFC3114E499C20071ED39 /* TrailSystem.m in Sources */,
+				2C5EFC2B14E496A10071ED39 /* SpawnComponent.m in Sources */,
+				2C5EFC3114E499C20071ED39 /* SpawnSystem.m in Sources */,
 				2C5EFC3414E6C5510071ED39 /* EntitySelectIngameMenuState.m in Sources */,
 				2C5EFCBF14EC60400071ED39 /* ExplodeComponent.m in Sources */,
 				2C5EFCC214EC60580071ED39 /* CrumbleComponent.m in Sources */,

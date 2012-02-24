@@ -34,7 +34,7 @@
 #import "RenderSystem.h"
 #import "SlingerControlSystem.h"
 #import "SoundManager.h"
-#import "TrailSystem.h"
+#import "SpawnSystem.h"
 
 @interface GameplayState()
 
@@ -136,8 +136,8 @@
 	[systemManager setSystem:_gateOpeningSystem];
 	_glassAnimationSystem = [[[GlassAnimationSystem alloc] init] autorelease];
 	[systemManager setSystem:_glassAnimationSystem];
-	_trailSystem = [[[TrailSystem alloc] init] autorelease];
-	[systemManager setSystem:_trailSystem];
+	_spawnSystem = [[[SpawnSystem alloc] init] autorelease];
+	[systemManager setSystem:_spawnSystem];
 	if (_debug)
 	{
 		_debugRenderPhysicsSystem = [[[DebugRenderPhysicsSystem alloc] initWithScene:self] autorelease];
@@ -165,6 +165,7 @@
                                                      _inputSystem,
                                                      _slingerControlSystem,
 													 _beeQueueRenderingSystem,
+													 _spawnSystem,
                                                      nil]];
     
     _shootingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
@@ -180,7 +181,7 @@
 													   _gateOpeningSystem,
 													   _beeQueueRenderingSystem,
 													   _glassAnimationSystem,
-													   _trailSystem,
+													   _spawnSystem,
 													   nil]];
     
     _levelCompletedMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
@@ -188,6 +189,7 @@
 															 _collisionSystem,
 															 _renderSystem,
 															 _beeQueueRenderingSystem,
+															 _spawnSystem,
 															 nil]];
     
     _levelFailedMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
@@ -195,6 +197,7 @@
 														  _collisionSystem,
 														  _renderSystem,
 														  _beeQueueRenderingSystem,
+														  _spawnSystem,
 														  nil]];
     
     _currentMode = _aimingMode;

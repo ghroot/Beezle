@@ -1,5 +1,5 @@
 //
-//  TrailSystem.h
+//  SpawnSystem.h
 //  Beezle
 //
 //  Created by KM Lagerstrom on 10/02/2012.
@@ -8,6 +8,6 @@
 
 #import "artemis.h"
 
-@interface TrailSystem : EntityComponentSystem
+@interface SpawnSystem : EntityComponentSystem
 
 @end

@@ -138,7 +138,7 @@
 
 -(void) addEntityWithType:(NSString *)type
 {	
-	Entity *entity = [EntityFactory createEntity:type world:_world];
+	Entity *entity = [EntityFactory createEntity:type world:_world edit:TRUE];
 	
 	[entity addComponent:[EditComponent componentWithLevelLayoutType:type]];
 	[entity refresh];

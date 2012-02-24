@@ -52,12 +52,14 @@
 				</dict>
 			</array>
 		</dict>
-		<key>trail</key>
+		<key>spawn</key>
 		<dict>
 			<key>entityType</key>
 			<string>SPEEDEE-PUFF</string>
 			<key>animationName</key>
 			<string>Speedee-Puff</string>
+			<key>autoDestroy</key>
+			<true/>
 			<key>interval</key>
 			<real>0.15</real>
 		</dict>

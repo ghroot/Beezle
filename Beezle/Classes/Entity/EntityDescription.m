@@ -21,8 +21,8 @@
 #import "RenderComponent.h"
 #import "SlingerComponent.h"
 #import "SoundComponent.h"
+#import "SpawnComponent.h"
 #import "TransformComponent.h"
-#import "TrailComponent.h"
 #import "TrajectoryComponent.h"
 
 @implementation EntityDescription
@@ -96,9 +96,9 @@
 		{
 			component = [SoundComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
-		else if ([componentType isEqualToString:@"trail"])
+		else if ([componentType isEqualToString:@"spawn"])
 		{
-			component = [TrailComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [SpawnComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"trajectory"])
 		{

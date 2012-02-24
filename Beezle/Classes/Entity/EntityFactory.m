@@ -22,12 +22,19 @@
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "RenderSystem.h"
+#import "SpawnComponent.h"
 #import "TransformComponent.h"
 
 #define BACKGROUND_FRICTION 0.7f
 #define BACKGROUND_ELASTICITY 0.7f
 #define BACKGROUND_LAYERS 7
 #define EDGE_LAYERS 7
+
+@interface EntityFactory()
+
++(EntityDescription *) getEntityDescription:(NSString *)type;
+
+@end
 
 @implementation EntityFactory
 
@@ -108,21 +115,36 @@
     return edgeEntity;
 }
 
-+(Entity *) createEntity:(NSString *)type world:(World *)world
++(Entity *) createEntity:(NSString *)type world:(World *)world edit:(BOOL)edit
 {
 	Entity *entity = [world createEntity];
 	
-	EntityDescription *entityDescription = [[EntityDescriptionCache sharedCache] entityDescriptionByType:type];
-	if (entityDescription == nil)
+	if (edit)
 	{
-		entityDescription = [[EntityDescriptionLoader sharedLoader] loadEntityDescription:type];
-		[[EntityDescriptionCache sharedCache] addEntityDescription:entityDescription];
+		[entity addComponent:[EditComponent componentWithLevelLayoutType:type]];
 	}
 	
+	EntityDescription *entityDescription = [self getEntityDescription:type];
 	NSArray *components = [entityDescription createComponents:world];
 	for (Component *component in components)
 	{
 		[entity addComponent:component];
+	}
+	
+	if (edit)
+	{
+		if ([entity hasComponent:[SpawnComponent class]] &&
+			![entity hasComponent:[RenderComponent class]])
+		{
+			NSString *spawnType = [[SpawnComponent getFrom:entity] entityType];
+			EntityDescription *spawnEntityDescription = [self getEntityDescription:spawnType];
+			NSDictionary *renderComponentDict = [[spawnEntityDescription componentsDict] objectForKey:@"render"];
+			if (renderComponentDict != nil)
+			{
+				RenderComponent *spawnRenderComponent = [RenderComponent componentWithContentsOfDictionary:renderComponentDict world:world];
+				[entity addComponent:spawnRenderComponent];
+			}
+		}
 	}
 	
 	GroupManager *groupManager = (GroupManager *)[world getManager:[GroupManager class]];
@@ -146,6 +168,22 @@
 	[entity refresh];
 	
 	return entity;
+}
+
++(EntityDescription *) getEntityDescription:(NSString *)type
+{
+	EntityDescription *entityDescription = [[EntityDescriptionCache sharedCache] entityDescriptionByType:type];
+	if (entityDescription == nil)
+	{
+		entityDescription = [[EntityDescriptionLoader sharedLoader] loadEntityDescription:type];
+		[[EntityDescriptionCache sharedCache] addEntityDescription:entityDescription];
+	}
+	return entityDescription;
+}
+
++(Entity *) createEntity:(NSString *)type world:(World *)world
+{
+	return [self createEntity:type world:world edit:FALSE];
 }
 
 +(Entity *) createBee:(World *)world withBeeType:(BeeType *)beeType andVelocity:(CGPoint)velocity

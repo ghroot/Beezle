@@ -27,7 +27,7 @@
 @class PhysicsSystem;
 @class RenderSystem;
 @class SlingerControlSystem;
-@class TrailSystem;
+@class SpawnSystem;
 
 @interface GameplayState : GameState
 {
@@ -55,7 +55,7 @@
 	BeeaterSystem *_beeaterSystem;
 	GateOpeningSystem *_gateOpeningSystem;
 	GlassAnimationSystem *_glassAnimationSystem;
-	TrailSystem *_trailSystem;
+	SpawnSystem *_spawnSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
 	DebugNotificationTrackerSystem *_debugNotificationTrackerSystem;
     
