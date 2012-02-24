@@ -120,6 +120,12 @@
 	}
 }
 
+-(void) storeAndSave:(LevelSession *)levelSession
+{
+	[self store:levelSession];
+	[self save];
+}
+
 -(BOOL) isPollenRecord:(LevelSession *)levelSession
 {
 	if ([_pollenCollectionRecordByLevelName objectForKey:[levelSession levelName]] != nil)
@@ -131,6 +137,11 @@
 	{
 		return TRUE;
 	}
+}
+
+-(BOOL) hasCollectedKeyInLevel:(NSString *)levelName
+{
+	return [_levelNamesWhereKeysWereCollected containsObject:levelName];
 }
 
 -(BOOL) hasUsedKeyInLevel:(NSString *)levelName

@@ -14,18 +14,23 @@
 #import "CollisionSystem.h"
 #import "DebugNotificationTrackerSystem.h"
 #import "DebugRenderPhysicsSystem.h"
+#import "DisposableComponent.h"
 #import "Game.h"
 #import "GameRulesSystem.h"
+#import "GateComponent.h"
 #import "GateOpeningSystem.h"
 #import "GlassAnimationSystem.h"
 #import "IngameMenuState.h"
 #import "InputSystem.h"
+#import "KeyComponent.h"
 #import "LevelLoader.h"
 #import "LevelSession.h"
 #import "MovementSystem.h"
 #import "NotificationTypes.h"
+#import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
 #import "PlayerInformation.h"
+#import "RenderComponent.h"
 #import "RenderSystem.h"
 #import "SlingerControlSystem.h"
 #import "SoundManager.h"
@@ -41,6 +46,7 @@
 -(void) handleNotification:(NSNotification *)notification;
 -(void) handleGateEntered:(NSNotification *)notification;
 -(void) createModes;
+-(void) loadLevel;
 -(void) enterMode:(GameMode *)mode;
 -(void) updateMode;
 -(void) showLabel:(NSString *)labelText;
@@ -74,7 +80,7 @@
 		[self createUI];
 		[self createWorldAndSystems];
         [self createModes];
-		[[LevelLoader sharedLoader] loadLevel:levelName inWorld:_world edit:FALSE];
+		[self loadLevel];
     }
     return self;
 }
@@ -194,11 +200,34 @@
     _currentMode = _aimingMode;
 }
 
--(void) dealloc
-{	
-	[_levelSession release];
+-(void) loadLevel
+{
+	[[LevelLoader sharedLoader] loadLevel:[_levelSession levelName] inWorld:_world edit:FALSE];
 	
+	for (Entity *entity in [[_world entityManager] entities])
+	{
+		if ([[PlayerInformation sharedInformation] hasUsedKeyInLevel:[_levelSession levelName]] &&
+			[entity hasComponent:[GateComponent class]])
+		{
+			[[GateComponent getFrom:entity] setIsOpened:TRUE];
+			[[RenderComponent getFrom:entity] playAnimation:@"Cavegate-Open-Idle"];
+		}
+		if ([[PlayerInformation sharedInformation] hasCollectedKeyInLevel:[_levelSession levelName]] &&
+			[entity hasComponent:[KeyComponent class]])
+		{
+			[[DisposableComponent getFrom:entity] setIsDisposed:TRUE];
+			[[PhysicsComponent getFrom:entity] disable];
+			[[RenderComponent getFrom:entity] playAnimation:@"Nut-Open-Idle"];
+		}
+	}
+}
+
+-(void) dealloc
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[_notifications release];
+	
+	[_levelSession release];
 	
     [_aimingMode release];
     [_shootingMode release];
@@ -241,8 +270,10 @@
 
 -(void) handleGateEntered:(NSNotification *)notification
 {
+	[[PlayerInformation sharedInformation] storeAndSave:_levelSession];
+	
 	NSString *levelName = [[notification userInfo] objectForKey:@"hiddenLevelName"];
-	[_game replaceState:[GameplayState stateWithLevelName:levelName]];
+	[_game replaceState:[GameplayState stateWithLevelName:levelName] withTransition:[CCTransitionSlideInB class]];
 }
 
 -(void) enter
@@ -305,8 +336,7 @@
 				[self showLabel:@"Level Complete!"];
 			}
 			
-			[[PlayerInformation sharedInformation] store:_levelSession];
-			[[PlayerInformation sharedInformation] save];
+			[[PlayerInformation sharedInformation] storeAndSave:_levelSession];
 		}
     }
     else if ([_gameRulesSystem isLevelFailed])

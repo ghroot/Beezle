@@ -22,7 +22,9 @@
 -(void) save;
 -(void) reset;
 -(void) store:(LevelSession *)levelSession;
+-(void) storeAndSave:(LevelSession *)levelSession;
 -(BOOL) isPollenRecord:(LevelSession *)levelSession;
+-(BOOL) hasCollectedKeyInLevel:(NSString *)levelName;
 -(BOOL) hasUsedKeyInLevel:(NSString *)levelName;
 -(int) totalNumberOfCollectedPollen;
 -(int) totalNumberOfKeys;

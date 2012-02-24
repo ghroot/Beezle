@@ -17,6 +17,7 @@
 
 -(void) startWithState:(GameState *)gameState;
 -(void) replaceState:(GameState *)gameState;
+-(void) replaceState:(GameState *)gameState withTransition:(Class)transitionClass;
 -(void) pushState:(GameState *)gameState;
 -(void) popState;
 -(void) popAndReplaceState:(GameState *)gameState;

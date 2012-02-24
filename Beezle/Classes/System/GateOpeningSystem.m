@@ -9,26 +9,15 @@
 #import "GateOpeningSystem.h"
 #import "DisposableComponent.h"
 #import "GateComponent.h"
-#import "LevelSession.h"
 #import "RenderComponent.h"
 #import "SoundManager.h"
 
 @implementation GateOpeningSystem
 
-// Designated initializer
--(id) initWithLevelSession:(LevelSession *)levelSession
-{
-	if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObject:[GateComponent class]]])
-	{
-		_levelSession = levelSession;
-	}
-	return self;
-
-}
-
 -(id) init
 {
-	return [self initWithLevelSession:nil];
+	self = [super initWithUsedComponentClasses:[NSArray arrayWithObject:[GateComponent class]]];
+	return self;
 }
 
 -(void) processEntity:(Entity *)entity
@@ -50,8 +39,6 @@
 		if (![gateComponent isOpened])
 		{
 			[gateComponent setIsOpened:TRUE];
-			
-			[_levelSession setDidUseKey:TRUE];
 			
 			RenderComponent *gateRenderComponent = [RenderComponent getFrom:entity];
 			[gateRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Cavegate-Opening", @"Cavegate-Open-Idle", nil]];

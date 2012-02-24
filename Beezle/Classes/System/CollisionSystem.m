@@ -293,6 +293,8 @@
 		[[DisposableComponent getFrom:beeEntity] setIsDisposed:TRUE];
 		[beeEntity deleteEntity];
 		
+		[_levelSession setDidUseKey:TRUE];
+		
 		// Game notification
 		NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
 		[notificationUserInfo setObject:[gateComponent hiddenLevelName] forKey:@"hiddenLevelName"];
