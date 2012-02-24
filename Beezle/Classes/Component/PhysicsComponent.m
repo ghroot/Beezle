@@ -89,6 +89,11 @@
 				NSString *shapeType = [shapeDict objectForKey:@"type"];
 				float elasticity = [[shapeDict objectForKey:@"elasticity"] floatValue];
 				float friction = [[shapeDict objectForKey:@"friction"] floatValue];
+                BOOL isSensor = FALSE;
+                if ([shapeDict objectForKey:@"isSensor"] != nil)
+                {
+                    isSensor = [[shapeDict objectForKey:@"isSensor"] boolValue];
+                }
 				CollisionType *collisionType = [CollisionType enumFromName:[shapeDict objectForKey:@"collisionType"]];
 				CGPoint offset;
 				if ([shapeDict objectForKey:@"offset"] != nil)
@@ -119,6 +124,7 @@
 				}
 				[shape setElasticity:elasticity];
 				[shape setFriction:friction];
+                [shape setSensor:isSensor];
 				[shape setCollisionType:collisionType];
 				if ([shapeDict objectForKey:@"layers"] != nil)
 				{

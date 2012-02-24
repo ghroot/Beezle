@@ -10,12 +10,18 @@
 #import "BodyInfo.h"
 #import "CollisionSystem.h"
 #import "Collision.h"
+#import "CollisionType.h"
 #import "GCpShapeCache.h"
 #import "PhysicsComponent.h"
 #import "TransformComponent.h"
 
 #define GRAVITY -120
-#define FIXED_TIMESTEP (1.0f / 45.0f)
+
+@interface PhysicsSystem()
+
+-(BOOL) beginCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space;
+
+@end
 
 @implementation PhysicsSystem
 
@@ -39,7 +45,9 @@
 }
 
 -(void) initialise
-{   
+{
+    _collisionSystem = (CollisionSystem *)[[_world systemManager] getSystem:[CollisionSystem class]];
+    
 	_space = [[ChipmunkSpace alloc] init];
 	[_space setSleepTimeThreshold:1.0f];
 	[_space setData:self];
@@ -67,14 +75,9 @@
     return bodyInfo;
 }
 
--(void) detectBeforeCollisionsBetween:(cpCollisionType)type1 and:(cpCollisionType)type2
+-(void) detectCollisionsBetween:(CollisionType *)type1 and:(CollisionType *)type2
 {
 	[_space addCollisionHandler:self typeA:type1 typeB:type2 begin:@selector(beginCollision:space:) preSolve:nil postSolve:nil separate:nil];
-}
-
--(void) detectAfterCollisionsBetween:(cpCollisionType)type1 and:(cpCollisionType)type2
-{
-	[_space addCollisionHandler:self typeA:type1 typeB:type2 begin:nil preSolve:nil postSolve:@selector(postSolveCollision:space:) separate:nil];
 }
 
 -(BOOL) beginCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space
@@ -89,44 +92,17 @@
 		ChipmunkShape *firstChipmunkShape = (ChipmunkShape *)firstShape->data;
 		ChipmunkShape *secondChipmunkShape = (ChipmunkShape *)secondShape->data;
 		
-		cpVect impulse = cpArbiterTotalImpulse(arbiter);
-		
 		Entity *firstEntity = (Entity *)[firstChipmunkShape data];
 		Entity *secondEntity = (Entity *)[secondChipmunkShape data];
+        
+        cpVect impulse = cpArbiterTotalImpulse(arbiter);
 		
-		PhysicsSystem *physicsSystem = (PhysicsSystem *)[space data];
-		CollisionSystem *collisionSystem = (CollisionSystem *)[[[physicsSystem world] systemManager] getSystem:[CollisionSystem class]];
 		Collision *collision = [Collision collisionWithFirstEntity:firstEntity andSecondEntity:secondEntity];
 		[collision setImpulse:impulse];
-		[collisionSystem pushCollision:collision];
+		[_collisionSystem pushCollision:collision];
     }
 	
-    return FALSE;
-}
-
--(void) postSolveCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space
-{
-	BOOL isFirstContact = cpArbiterIsFirstContact(arbiter);
-	if (isFirstContact)
-	{
-		cpShape *firstShape;
-		cpShape *secondShape;
-		cpArbiterGetShapes(arbiter, &firstShape, &secondShape);
-		
-		ChipmunkShape *firstChipmunkShape = (ChipmunkShape *)firstShape->data;
-		ChipmunkShape *secondChipmunkShape = (ChipmunkShape *)secondShape->data;
-		
-		cpVect impulse = cpArbiterTotalImpulse(arbiter);
-		
-		Entity *firstEntity = (Entity *)[firstChipmunkShape data];
-		Entity *secondEntity = (Entity *)[secondChipmunkShape data];
-		
-		PhysicsSystem *physicsSystem = (PhysicsSystem *)[space data];
-		CollisionSystem *collisionSystem = (CollisionSystem *)[[[physicsSystem world] systemManager] getSystem:[CollisionSystem class]];
-		Collision *collision = [Collision collisionWithFirstEntity:firstEntity andSecondEntity:secondEntity];
-		[collision setImpulse:impulse];
-		[collisionSystem pushCollision:collision];
-    }
+    return TRUE;
 }
 
 -(void) entityAdded:(Entity *)entity

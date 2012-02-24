@@ -27,7 +27,9 @@
 
 -(id) initWithFirstEntity:(Entity *)firstEntity andSecondEntity:(Entity *)secondEntity;
 
--(cpCollisionType) type1;
--(cpCollisionType) type2;
+-(CollisionType *) type1;
+-(CollisionType *) type2;
+
+-(float) impulseLength;
 
 @end

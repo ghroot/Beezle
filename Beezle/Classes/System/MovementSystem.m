@@ -9,6 +9,7 @@
 #import "MovementSystem.h"
 #import "MovementComponent.h"
 #import "PhysicsComponent.h"
+#import "PhysicsSystem.h"
 #import "TransformComponent.h"
 
 @interface MovementSystem()
@@ -154,7 +155,7 @@
 	
 	ChipmunkBody *body = [physicsComponent body];
 	[body setPos:CGPointMake(currentPosition.x + velocity.x, currentPosition.y + velocity.y)];
-    [body setVel:cpvmult(velocity, 1.0f / (1.0f / 45.0f))];
+    [body setVel:cpvmult(velocity, 1.0f / FIXED_TIMESTEP)];
 	
 	if ([movementComponent alwaysFaceForward])
 	{

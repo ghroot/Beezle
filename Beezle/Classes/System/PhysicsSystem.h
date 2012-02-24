@@ -9,14 +9,19 @@
 #import "EntityComponentSystem.h"
 #import "artemis.h"
 #import "cocos2d.h"
+#import "CollisionSystem.h"
 #import "ObjectiveChipmunk.h"
 
 @class BodyInfo;
 @class CollisionType;
 @class PhysicsComponent;
 
+#define FIXED_TIMESTEP (1.0f / 45.0f)
+
 @interface PhysicsSystem : EntityComponentSystem
 {
+    CollisionSystem *_collisionSystem;
+    
     ChipmunkSpace *_space;
     NSMutableArray *_loadedShapeFileNames;
 }
@@ -24,9 +29,6 @@
 @property (nonatomic, readonly) ChipmunkSpace *space;
 
 -(BodyInfo *) createBodyInfoFromFile:(NSString *)fileName bodyName:(NSString *)bodyName collisionType:(CollisionType *)collisionType;
--(void) detectBeforeCollisionsBetween:(cpCollisionType)type1 and:(cpCollisionType)type2;
--(void) detectAfterCollisionsBetween:(cpCollisionType)type1 and:(cpCollisionType)type2;
--(BOOL) beginCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space;
--(void) postSolveCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space;
+-(void) detectCollisionsBetween:(CollisionType *)type1 and:(CollisionType *)type2;
 
 @end
