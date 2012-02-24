@@ -270,7 +270,7 @@
 	[[SoundManager sharedManager] playSound:@"BeeHitGlass"];
 }
 
--(void) handleCollisionBee:(Entity *)beeEntity withGate:(Entity *)gateEntity
+-(void) handleCollisionBee:(Entity *)beeEntity withGate:(Entity *)gateEntity collision:(Collision *)collision
 {
 	GateComponent *gateComponent = [GateComponent getFrom:gateEntity];
 	if ([gateComponent isOpened])
