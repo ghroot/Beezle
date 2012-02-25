@@ -355,6 +355,7 @@
 		2CE348CA14DF0BF900FEB492 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348C914DF0BF800FEB492 /* Utils.m */; };
 		2CE508CF14B1E98300A9E8D8 /* LevelSelectMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */; };
 		2CE508D314B31D2B00A9E8D8 /* LevelSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508D214B31D2B00A9E8D8 /* LevelSender.m */; };
+		2CE8604314F8FA7A00579202 /* CollisionGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE8604214F8FA7A00579202 /* CollisionGroup.m */; };
 		2CEA3278145F66F7000FF575 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3277145F66F7000FF575 /* QuartzCore.framework */; };
 		2CEA327A145F66F7000FF575 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3279145F66F7000FF575 /* OpenGLES.framework */; };
 		2CEA327C145F66F7000FF575 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA327B145F66F7000FF575 /* OpenAL.framework */; };
@@ -976,6 +977,8 @@
 		2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectMenuState.m; sourceTree = "<group>"; };
 		2CE508D114B31D2B00A9E8D8 /* LevelSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSender.h; sourceTree = "<group>"; };
 		2CE508D214B31D2B00A9E8D8 /* LevelSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSender.m; sourceTree = "<group>"; };
+		2CE8604114F8FA7A00579202 /* CollisionGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionGroup.h; path = Classes/CollisionGroup.h; sourceTree = "<group>"; };
+		2CE8604214F8FA7A00579202 /* CollisionGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionGroup.m; path = Classes/CollisionGroup.m; sourceTree = "<group>"; };
 		2CEA3273145F66F7000FF575 /* Beezle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beezle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CEA3277145F66F7000FF575 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2CEA3279145F66F7000FF575 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -2071,6 +2074,8 @@
 				2CEA347A145F66F9000FF575 /* AppDelegate.m */,
 				2C8A4B7A1495184300C0C154 /* BeeType.h */,
 				2C8A4B7B1495184300C0C154 /* BeeType.m */,
+				2CE8604114F8FA7A00579202 /* CollisionGroup.h */,
+				2CE8604214F8FA7A00579202 /* CollisionGroup.m */,
 				2C38A1EA1496D6440019244D /* CollisionType.h */,
 				2C3C990D14A2574300284A60 /* CollisionType.m */,
 				2C535FCE149ACE4100BC7DB6 /* NotificationTypes.h */,
@@ -2617,6 +2622,7 @@
 				2C88E2C814F5A37900496938 /* LevelSession.m in Sources */,
 				2C88E2CB14F6E23400496938 /* GateOpeningSystem.m in Sources */,
 				2CBCDDB314F7DCE700B11627 /* SoundComponent.m in Sources */,
+				2CE8604314F8FA7A00579202 /* CollisionGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

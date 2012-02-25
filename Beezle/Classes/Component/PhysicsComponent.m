@@ -8,6 +8,7 @@
 
 #import "PhysicsComponent.h"
 #import "BodyInfo.h"
+#import "CollisionGroup.h"
 #import "CollisionType.h"
 #import "PhysicsSystem.h"
 #import "Utils.h"
@@ -56,7 +57,7 @@
 				}
 				if ([dict objectForKey:@"group"] != nil)
 				{
-					[shape setGroup:[CollisionType enumFromName:[dict objectForKey:@"group"]]];
+					[shape setGroup:[CollisionGroup enumFromName:[dict objectForKey:@"group"]]];
 				}
 				
 				[self addShape:shape];
@@ -132,7 +133,7 @@
 				}
 				if ([shapeDict objectForKey:@"group"] != nil)
 				{
-					[shape setGroup:[CollisionType enumFromName:[shapeDict objectForKey:@"group"]]];
+					[shape setGroup:[CollisionGroup enumFromName:[shapeDict objectForKey:@"group"]]];
 				}
 				
 				[_shapes addObject:shape];
