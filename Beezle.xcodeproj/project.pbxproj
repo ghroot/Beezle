@@ -356,6 +356,9 @@
 		2CE508CF14B1E98300A9E8D8 /* LevelSelectMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */; };
 		2CE508D314B31D2B00A9E8D8 /* LevelSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508D214B31D2B00A9E8D8 /* LevelSender.m */; };
 		2CE8604314F8FA7A00579202 /* CollisionGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE8604214F8FA7A00579202 /* CollisionGroup.m */; };
+		2CE8604714F90C5600579202 /* DripSmall.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2CE8604414F90C5600579202 /* DripSmall.m4a */; };
+		2CE8604814F90C5600579202 /* DripSmall2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2CE8604514F90C5600579202 /* DripSmall2.m4a */; };
+		2CE8604914F90C5600579202 /* DripSmall3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2CE8604614F90C5600579202 /* DripSmall3.m4a */; };
 		2CEA3278145F66F7000FF575 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3277145F66F7000FF575 /* QuartzCore.framework */; };
 		2CEA327A145F66F7000FF575 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3279145F66F7000FF575 /* OpenGLES.framework */; };
 		2CEA327C145F66F7000FF575 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA327B145F66F7000FF575 /* OpenAL.framework */; };
@@ -979,6 +982,9 @@
 		2CE508D214B31D2B00A9E8D8 /* LevelSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSender.m; sourceTree = "<group>"; };
 		2CE8604114F8FA7A00579202 /* CollisionGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionGroup.h; path = Classes/CollisionGroup.h; sourceTree = "<group>"; };
 		2CE8604214F8FA7A00579202 /* CollisionGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionGroup.m; path = Classes/CollisionGroup.m; sourceTree = "<group>"; };
+		2CE8604414F90C5600579202 /* DripSmall.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = DripSmall.m4a; sourceTree = "<group>"; };
+		2CE8604514F90C5600579202 /* DripSmall2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = DripSmall2.m4a; sourceTree = "<group>"; };
+		2CE8604614F90C5600579202 /* DripSmall3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = DripSmall3.m4a; sourceTree = "<group>"; };
 		2CEA3273145F66F7000FF575 /* Beezle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beezle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CEA3277145F66F7000FF575 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2CEA3279145F66F7000FF575 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1548,24 +1554,27 @@
 		2C764E9B148A917300820587 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				2C7DAC5A14F455D5006CE0BA /* CaveDoorOpens.m4a */,
-				2C7DAC5814F450C5006CE0BA /* A-Level-Music1.m4a */,
-				2C7DAC5214F44DFA006CE0BA /* SlingerStretch.m4a */,
-				2C7DAC4C14F44BE3006CE0BA /* BonusKey.mp3 */,
-				2C7DAC4E14F44BE3006CE0BA /* SmokeMushroom.mp3 */,
-				2C7DAC4A14F44AAE006CE0BA /* SpeedeeSling.mp3 */,
-				2C7DAC4814F449F1006CE0BA /* BeeHitWall4.mp3 */,
 				2C764E9C148A917300820587 /* 11097__a43__a43-blipp.aif */,
 				2C764E9E148A937D00820587 /* 18339__jppi-stu__sw-paper-crumple-1.aiff */,
 				2C764E9F148A937D00820587 /* 27134__zippi1__fart1.wav */,
 				2C764EA0148A937D00820587 /* 33369__herbertboland__mouthpop.wav */,
 				2C764EB1148A9D3000820587 /* 52144__blaukreuz__imp-02.m4a */,
+				2C7DAC5814F450C5006CE0BA /* A-Level-Music1.m4a */,
 				2C7DAC4614F445C5006CE0BA /* BeeaterKill.mp3 */,
 				2C7DAC3C14F43D52006CE0BA /* BeeHitGlass.mp3 */,
+				2C7DAC4814F449F1006CE0BA /* BeeHitWall4.mp3 */,
 				2C7DAC4414F44507006CE0BA /* BombeeBoom.mp3 */,
+				2C7DAC4C14F44BE3006CE0BA /* BonusKey.mp3 */,
+				2C7DAC5A14F455D5006CE0BA /* CaveDoorOpens.m4a */,
+				2CE8604414F90C5600579202 /* DripSmall.m4a */,
+				2CE8604514F90C5600579202 /* DripSmall2.m4a */,
+				2CE8604614F90C5600579202 /* DripSmall3.m4a */,
 				2C7DAC4214F44493006CE0BA /* GlassLarge.m4a */,
 				2C7DAC3E14F43D52006CE0BA /* GlassSmall3.wav */,
+				2C7DAC5214F44DFA006CE0BA /* SlingerStretch.m4a */,
+				2C7DAC4E14F44BE3006CE0BA /* SmokeMushroom.mp3 */,
 				2C7DAC3A14F43CF4006CE0BA /* Sounds.plist */,
+				2C7DAC4A14F44AAE006CE0BA /* SpeedeeSling.mp3 */,
 			);
 			name = Sounds;
 			path = Resources/Sounds;
@@ -2403,6 +2412,9 @@
 				2C7D0AB814F841AB00221427 /* Waterdrop.plist in Resources */,
 				2C7D0ABD14F843AF00221427 /* Waterdrop-Animations.plist in Resources */,
 				2C7D0ABF14F8441500221427 /* Waterdrop-Spawner.plist in Resources */,
+				2CE8604714F90C5600579202 /* DripSmall.m4a in Resources */,
+				2CE8604814F90C5600579202 /* DripSmall2.m4a in Resources */,
+				2CE8604914F90C5600579202 /* DripSmall3.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

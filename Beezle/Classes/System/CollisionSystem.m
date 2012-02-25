@@ -315,6 +315,9 @@
 		TransformComponent *transforComponent = [TransformComponent getFrom:waterdropEntity];
 		[EntityUtil setEntityPosition:splashEntity position:[transforComponent position]];
 		[EntityUtil animateAndDeleteEntity:splashEntity animationName:@"Waterdrop-Splash"];
+		
+		NSString *soundName = [NSString stringWithFormat:@"DripSmall%d", (1 + (rand() % 2))];
+		[[SoundManager sharedManager] playSound:soundName];
 	}
 }
 
