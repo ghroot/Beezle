@@ -164,6 +164,7 @@
                                                      _renderSystem,
                                                      _inputSystem,
                                                      _slingerControlSystem,
+													 _beeaterSystem,
 													 _beeQueueRenderingSystem,
 													 _spawnSystem,
                                                      nil]];
