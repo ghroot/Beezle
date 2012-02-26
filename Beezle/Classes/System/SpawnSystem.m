@@ -30,8 +30,8 @@
 -(void) processEntity:(Entity *)entity
 {
 	SpawnComponent *spawnComponent = [SpawnComponent getFrom:entity];
-	[spawnComponent setCountdown:[spawnComponent countdown] - ([_world delta] / 1000.0f)];
-	if ([spawnComponent countdown] <= 0)
+	[spawnComponent decreaseAutoDestroyCountdown:[_world delta] / 1000.0f];
+	if ([spawnComponent didAutoDestroyCountdownReachZero])
 	{
 		Entity *spawnedEntity = [EntityFactory createEntity:[spawnComponent entityType] world:_world];
 		

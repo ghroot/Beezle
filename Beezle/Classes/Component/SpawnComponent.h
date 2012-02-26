@@ -29,5 +29,7 @@
 @property (nonatomic) float countdown;
 
 -(void) resetCountdown;
+-(void) decreaseAutoDestroyCountdown:(float)time;
+-(BOOL) didAutoDestroyCountdownReachZero;
 
 @end

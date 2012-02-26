@@ -77,4 +77,14 @@
 	_countdown = _interval + CCRANDOM_MINUS1_1() * _intervalRandomDeviation;
 }
 
+-(void) decreaseAutoDestroyCountdown:(float)time
+{
+	_countdown -= time;
+}
+
+-(BOOL) didAutoDestroyCountdownReachZero
+{
+	return _countdown <= 0;
+}
+
 @end
