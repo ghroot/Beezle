@@ -10,9 +10,7 @@
 #import "BeeComponent.h"
 #import "DisposableComponent.h"
 #import "EntityUtil.h"
-#import "NotificationTypes.h"
 #import "PhysicsComponent.h"
-#import "RenderComponent.h"
 
 @implementation BeeExpiratonSystem
 
@@ -22,17 +20,35 @@
     return self;
 }
 
+-(void) entityAdded:(Entity *)entity
+{
+	[[BeeComponent getFrom:entity] resetAutoDestroyCountdown];
+}
+
 -(void) processEntity:(Entity *)entity
 {
-    PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
-	if ([[physicsComponent body] isSleeping])
+	if (![EntityUtil isEntityDisposed:entity])
 	{
-		[[DisposableComponent getFrom:entity] setIsDisposed:TRUE];
+		BOOL shouldExpire = FALSE;
 		
-        [EntityUtil animateAndDeleteEntity:entity animationName:@"Bee-Crash" disablePhysics:TRUE];
+		BeeComponent *beeComponent = [BeeComponent getFrom:entity];
+		[beeComponent decreaseAutoDestroyCountdown:[_world delta]];
+		if ([beeComponent didAutoDestroyCountdownReachZero])
+		{
+			shouldExpire = TRUE;
+		}
 		
-		// Game notification
-		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_EXPIRED object:self];
+		PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
+		if ([[physicsComponent body] isSleeping])
+		{
+			shouldExpire = TRUE;
+		}
+		
+		if (shouldExpire)
+		{
+			[EntityUtil setEntityDisposed:entity];
+			[EntityUtil animateAndDeleteEntity:entity];
+		}
 	}
 }
 

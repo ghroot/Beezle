@@ -14,11 +14,15 @@
 	BeeType *_type;
 	int _beeaterHits;
 	int _beeaterHitsLeft;
+	int _autoDestroyCountdown;
 }
 
 @property (nonatomic, assign) BeeType *type;
 
 -(void) decreaseBeeaterHitsLeft;
 -(BOOL) isOutOfBeeaterKills;
+-(void) resetAutoDestroyCountdown;
+-(void) decreaseAutoDestroyCountdown:(float)time;
+-(BOOL) didAutoDestroyCountdownReachZero;
 
 @end

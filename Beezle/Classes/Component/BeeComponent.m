@@ -8,6 +8,8 @@
 
 #import "BeeComponent.h"
 
+#define AUTO_DESTROY_DELAY 10000
+
 @implementation BeeComponent
 
 @synthesize type = _type;
@@ -46,6 +48,21 @@
 -(BOOL) isOutOfBeeaterKills
 {
 	return _beeaterHitsLeft == 0;
+}
+
+-(void) resetAutoDestroyCountdown
+{
+	_autoDestroyCountdown = AUTO_DESTROY_DELAY;
+}
+
+-(void) decreaseAutoDestroyCountdown:(float)time
+{
+	_autoDestroyCountdown -= time;
+}
+
+-(BOOL) didAutoDestroyCountdownReachZero
+{
+	return _autoDestroyCountdown <= 0;
 }
 
 @end
