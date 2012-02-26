@@ -43,7 +43,7 @@
 
 -(void) begin
 {
-    if ([_inputSystem hasInputActions])
+    while ([_inputSystem hasInputActions])
     {
         InputAction *nextInputAction = [_inputSystem popInputAction];
         

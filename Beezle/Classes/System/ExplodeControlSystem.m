@@ -40,7 +40,7 @@
 
 -(void) processEntity:(Entity *)entity
 {
-    if ([_inputSystem hasInputActions])
+    while ([_inputSystem hasInputActions])
     {
         InputAction *nextInputAction = [_inputSystem popInputAction];
 		if ([nextInputAction touchType] == TOUCH_BEGAN)

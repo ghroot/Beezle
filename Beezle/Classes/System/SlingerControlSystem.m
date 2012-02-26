@@ -19,11 +19,12 @@
 #import "TouchTypes.h"
 #import "TrajectoryComponent.h"
 #import "TransformComponent.h"
+#import "Utils.h"
 
-#define SLINGER_POWER_SENSITIVITY 7
+#define SLINGER_POWER_SENSITIVITY 7.5f
 #define SLINGER_MIN_POWER 100
 #define SLINGER_MAX_POWER 400
-#define SLINGER_AIM_SENSITIVITY 4.0
+#define SLINGER_AIM_SENSITIVITY 7.0f
 #define AIM_POLLEN_INTERVAL 16
 #define SCALE_AT_MIN_POWER 1.0f
 #define SCALE_AT_MAX_POWER 0.5f
@@ -40,8 +41,6 @@
 
 @implementation SlingerControlSystem
 
-@synthesize startLocation;
-
 -(id) init
 {
     self = [super initWithUsedComponentClasses:[NSArray arrayWithObject:[SlingerComponent class]]];
@@ -56,7 +55,7 @@
 -(void) processEntity:(Entity *)entity
 {
     TrajectoryComponent *trajectoryComponent = [TrajectoryComponent getFrom:entity];
-    if ([_inputSystem hasInputActions])
+    while ([_inputSystem hasInputActions])
     {
         InputAction *nextInputAction = [_inputSystem popInputAction];
         
@@ -68,7 +67,8 @@
         {
             case TOUCH_BEGAN:
             {
-                [self setStartLocation:[nextInputAction touchLocation]];
+                _startLocation = [nextInputAction touchLocation];
+				_currentAngle = CC_DEGREES_TO_RADIANS(360 - [transformComponent rotation] + 270);
                 [self startShootingAimPollens];
 				
 				[[SoundManager sharedManager] playSound:@"SlingerStretch"];
@@ -98,7 +98,7 @@
 				[trajectoryComponent setPower:modifiedPower];
                 
 				// Rotation
-                float compatibleAimAngle = 360 - CC_RADIANS_TO_DEGREES(aimAngle) + 90 + 180;
+                float compatibleAimAngle = [Utils unwindAngleDegrees:360 - CC_RADIANS_TO_DEGREES(aimAngle) + 270];
                 [transformComponent setRotation:compatibleAimAngle];
 				
 				// Strech scale
@@ -147,20 +147,20 @@
 
 -(float) calculateAimAngle:(CGPoint)touchLocation slingerLocation:(CGPoint)slingerLocation
 {
-	CGPoint slingerToStartVector = ccpSub([self startLocation], slingerLocation);
+	CGPoint slingerToStartVector = ccpSub(_startLocation, slingerLocation);
 	CGPoint slingerToTouchVector = ccpSub(touchLocation, slingerLocation);
 	
 	float startAngle = ccpToAngle(slingerToStartVector);
 	float touchAngle = ccpToAngle(slingerToTouchVector);
 	float angleDifference = touchAngle - startAngle;
-	float aimAngle = startAngle + SLINGER_AIM_SENSITIVITY * angleDifference;
+	float aimAngle = _currentAngle + SLINGER_AIM_SENSITIVITY * angleDifference;
 	
 	return aimAngle;
 }
 
 -(float) calculatePower:(CGPoint)touchLocation slingerLocation:(CGPoint)slingerLocation
 {
-	CGPoint slingerToStartVector = ccpSub([self startLocation], slingerLocation);
+	CGPoint slingerToStartVector = ccpSub(_startLocation, slingerLocation);
 	CGPoint slingerToTouchVector = ccpSub(touchLocation, slingerLocation);
 	
 	float slingerToStartVectorLength = sqrtf(slingerToStartVector.x * slingerToStartVector.x + slingerToStartVector.y * slingerToStartVector.y);

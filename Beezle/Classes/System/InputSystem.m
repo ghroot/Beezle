@@ -73,14 +73,14 @@
 
 -(void) pushInputAction:(InputAction *)inputAction
 {
-    if ([inputAction touchType] == TOUCH_MOVED && [_inputActions count] > 0)
-    {
-        InputAction *lastInputAction = (InputAction *)[_inputActions lastObject];
-        if (lastInputAction.touchType == TOUCH_MOVED)
-        {
-            [_inputActions removeLastObject];
-        }
-    }
+//    if ([inputAction touchType] == TOUCH_MOVED && [_inputActions count] > 0)
+//    {
+//        InputAction *lastInputAction = (InputAction *)[_inputActions lastObject];
+//        if (lastInputAction.touchType == TOUCH_MOVED)
+//        {
+//            [_inputActions removeLastObject];
+//        }
+//    }
     [_inputActions addObject:inputAction];
 }
 

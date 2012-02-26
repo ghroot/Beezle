@@ -22,6 +22,7 @@
 #import "RenderSprite.h"
 #import "SlingerComponent.h"
 #import "TransformComponent.h"
+#import "Utils.h"
 
 @interface EditOptionsSystem()
 
@@ -218,14 +219,14 @@
 -(void) doOptionRotateLeft:(id)sender
 {
 	TransformComponent *transformComponent = [TransformComponent getFrom:_entityWithOptionsDisplayed];
-	float newAngle = [transformComponent rotation] - 2.0f;
+	float newAngle = [Utils unwindAngleDegrees:[transformComponent rotation] - 2.0f];
 	[EntityUtil setEntityRotation:_entityWithOptionsDisplayed rotation:newAngle];
 }
 
 -(void) doOptionRotateRight:(id)sender
 {
 	TransformComponent *transformComponent = [TransformComponent getFrom:_entityWithOptionsDisplayed];
-	float newAngle = [transformComponent rotation] + 2.0f;
+	float newAngle = [Utils unwindAngleDegrees:[transformComponent rotation] + 2.0f];
 	[EntityUtil setEntityRotation:_entityWithOptionsDisplayed rotation:newAngle];
 }
 

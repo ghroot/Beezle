@@ -16,11 +16,10 @@
 	InputSystem *_inputSystem;
 	
     CGPoint _startLocation;
+	float _currentAngle;
     
     BOOL _isShootingAimPollens;
     int _aimPollenCountdown;
 }
-
-@property (nonatomic) CGPoint startLocation;
 
 @end
