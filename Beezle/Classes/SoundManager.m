@@ -129,8 +129,11 @@
 
 -(void) stopSound:(NSString *)name
 {
-	int soundId = [[_soundIdsBySoundName objectForKey:name] intValue];
-	[[SimpleAudioEngine sharedEngine] stopEffect:soundId];
+	if (_isFunctional)
+	{
+		int soundId = [[_soundIdsBySoundName objectForKey:name] intValue];
+		[[SimpleAudioEngine sharedEngine] stopEffect:soundId];
+	}
 }
 
 -(void) playMusic:(NSString *)name
@@ -144,7 +147,10 @@
 
 -(void) stopMusic
 {
-	[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+	if (_isFunctional)
+	{
+		[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+	}
 }
 
 @end
