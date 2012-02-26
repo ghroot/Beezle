@@ -99,7 +99,7 @@
 						[transformComponent position].y + [glassComponent piecesSpawnAreaOffset].y);
 			CGPoint topLeft = CGPointMake(
 						centerPoint.x - [glassComponent piecesSpawnAreaSize].width / 2,
-										  centerPoint.y - [glassComponent piecesSpawnAreaSize].height / 2);
+						centerPoint.y - [glassComponent piecesSpawnAreaSize].height / 2);
 			CGPoint randomPosition = CGPointMake(
 						topLeft.x + (rand() % (int)[glassComponent piecesSpawnAreaSize].width),
 						topLeft.y + (rand() % (int)[glassComponent piecesSpawnAreaSize].height));
