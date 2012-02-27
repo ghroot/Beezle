@@ -224,7 +224,9 @@
 	{
         [EntityUtil setEntityDisposed:nutEntity];
 		[_levelSession consumedEntity:nutEntity];
-        [EntityUtil animateAndDeleteEntity:nutEntity];
+		[[PhysicsComponent getFrom:nutEntity] disable];
+		[nutEntity refresh];
+        [[RenderComponent getFrom:nutEntity] playDefaultDestroyAnimation];
         [EntityUtil playDefaultDestroySound:nutEntity];
 		
         [EntityUtil setEntityDisposed:beeEntity];
