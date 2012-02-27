@@ -13,7 +13,7 @@
 #import "DisposableComponent.h"
 #import "ExplodeComponent.h"
 #import "GateComponent.h"
-#import "GlassComponent.h"
+#import "ShardComponent.h"
 #import "KeyComponent.h"
 #import "MovementComponent.h"
 #import "PhysicsComponent.h"
@@ -64,10 +64,6 @@
 		{
 			component = [GateComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
-		else if ([componentType isEqualToString:@"glass"])
-		{
-			component = [GlassComponent componentWithContentsOfDictionary:componentDict world:world];
-		}
 		else if ([componentType isEqualToString:@"key"])
 		{
 			component = [KeyComponent componentWithContentsOfDictionary:componentDict world:world];
@@ -87,6 +83,10 @@
 		else if ([componentType isEqualToString:@"render"])
 		{
 			component = [RenderComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+		else if ([componentType isEqualToString:@"shard"])
+		{
+			component = [ShardComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"slinger"])
 		{

@@ -229,6 +229,10 @@
 		2C7DAC5314F44DFA006CE0BA /* SlingerStretch.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC5214F44DFA006CE0BA /* SlingerStretch.m4a */; };
 		2C7DAC5914F450C5006CE0BA /* A-Level-Music1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC5814F450C5006CE0BA /* A-Level-Music1.m4a */; };
 		2C7DAC5B14F455D5006CE0BA /* CaveDoorOpens.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC5A14F455D5006CE0BA /* CaveDoorOpens.m4a */; };
+		2C7EB67914FC340400136D57 /* Beeater-Pc1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7EB67814FC340400136D57 /* Beeater-Pc1.plist */; };
+		2C7EB67B14FC349400136D57 /* Beeater-Pc-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7EB67A14FC349400136D57 /* Beeater-Pc-Animations.plist */; };
+		2C7EB67D14FC38A000136D57 /* Beeater-Pc2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7EB67C14FC38A000136D57 /* Beeater-Pc2.plist */; };
+		2C7EB67F14FC39DA00136D57 /* Beeater-Pc3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7EB67E14FC39DA00136D57 /* Beeater-Pc3.plist */; };
 		2C827D3814840C4900517C8F /* RenderSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C827D3714840C4700517C8F /* RenderSprite.m */; };
 		2C853D6314B4D7C600C90C55 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C853D6214B4D7C600C90C55 /* SoundManager.m */; };
 		2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B83B149563ED005D7BAB /* DisposableComponent.m */; };
@@ -385,8 +389,8 @@
 		2CEB9D6B14EDB7E800CAC505 /* Glass-A29.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEB9D6A14EDB7E800CAC505 /* Glass-A29.plist */; };
 		2CEB9D6D14EDB99A00CAC505 /* Glass-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEB9D6C14EDB99A00CAC505 /* Glass-Animations.plist */; };
 		2CEB9D7514EDBDDF00CAC505 /* Glass-A29-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7414EDBDDF00CAC505 /* Glass-A29-Shapes.plist */; };
-		2CEB9D7814EDC0A600CAC505 /* GlassAnimationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7714EDC0A600CAC505 /* GlassAnimationSystem.m */; };
-		2CEB9D7B14EDC1BB00CAC505 /* GlassComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7A14EDC1BA00CAC505 /* GlassComponent.m */; };
+		2CEB9D7814EDC0A600CAC505 /* ShardSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7714EDC0A600CAC505 /* ShardSystem.m */; };
+		2CEB9D7B14EDC1BB00CAC505 /* ShardComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7A14EDC1BA00CAC505 /* ShardComponent.m */; };
 		2CEB9D7D14EDC34C00CAC505 /* Glass-Pc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7C14EDC34C00CAC505 /* Glass-Pc.plist */; };
 /* End PBXBuildFile section */
 
@@ -777,6 +781,10 @@
 		2C7DAC5214F44DFA006CE0BA /* SlingerStretch.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = SlingerStretch.m4a; sourceTree = "<group>"; };
 		2C7DAC5814F450C5006CE0BA /* A-Level-Music1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "A-Level-Music1.m4a"; sourceTree = "<group>"; };
 		2C7DAC5A14F455D5006CE0BA /* CaveDoorOpens.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaveDoorOpens.m4a; sourceTree = "<group>"; };
+		2C7EB67814FC340400136D57 /* Beeater-Pc1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Pc1.plist"; sourceTree = "<group>"; };
+		2C7EB67A14FC349400136D57 /* Beeater-Pc-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Pc-Animations.plist"; sourceTree = "<group>"; };
+		2C7EB67C14FC38A000136D57 /* Beeater-Pc2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Pc2.plist"; sourceTree = "<group>"; };
+		2C7EB67E14FC39DA00136D57 /* Beeater-Pc3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Pc3.plist"; sourceTree = "<group>"; };
 		2C827D3614840C4600517C8F /* RenderSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderSprite.h; path = Classes/Component/RenderSprite.h; sourceTree = "<group>"; };
 		2C827D3714840C4700517C8F /* RenderSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSprite.m; path = Classes/Component/RenderSprite.m; sourceTree = "<group>"; };
 		2C853D6114B4D7C600C90C55 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundManager.h; path = Classes/SoundManager.h; sourceTree = "<group>"; };
@@ -1018,10 +1026,10 @@
 		2CEB9D6A14EDB7E800CAC505 /* Glass-A29.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A29.plist"; sourceTree = "<group>"; };
 		2CEB9D6C14EDB99A00CAC505 /* Glass-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-Animations.plist"; sourceTree = "<group>"; };
 		2CEB9D7414EDBDDF00CAC505 /* Glass-A29-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A29-Shapes.plist"; sourceTree = "<group>"; };
-		2CEB9D7614EDC0A600CAC505 /* GlassAnimationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlassAnimationSystem.h; path = Classes/System/GlassAnimationSystem.h; sourceTree = "<group>"; };
-		2CEB9D7714EDC0A600CAC505 /* GlassAnimationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlassAnimationSystem.m; path = Classes/System/GlassAnimationSystem.m; sourceTree = "<group>"; };
-		2CEB9D7914EDC1BA00CAC505 /* GlassComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlassComponent.h; path = Classes/Component/GlassComponent.h; sourceTree = "<group>"; };
-		2CEB9D7A14EDC1BA00CAC505 /* GlassComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlassComponent.m; path = Classes/Component/GlassComponent.m; sourceTree = "<group>"; };
+		2CEB9D7614EDC0A600CAC505 /* ShardSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShardSystem.h; path = Classes/System/ShardSystem.h; sourceTree = "<group>"; };
+		2CEB9D7714EDC0A600CAC505 /* ShardSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShardSystem.m; path = Classes/System/ShardSystem.m; sourceTree = "<group>"; };
+		2CEB9D7914EDC1BA00CAC505 /* ShardComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShardComponent.h; path = Classes/Component/ShardComponent.h; sourceTree = "<group>"; };
+		2CEB9D7A14EDC1BA00CAC505 /* ShardComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShardComponent.m; path = Classes/Component/ShardComponent.m; sourceTree = "<group>"; };
 		2CEB9D7C14EDC34C00CAC505 /* Glass-Pc.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-Pc.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1469,6 +1477,7 @@
 				2C5EFC3614E7DACF0071ED39 /* Bee-Animations.plist */,
 				2C5EFC3714E7DACF0071ED39 /* Beeater-Body-Animations.plist */,
 				2C5EFC3814E7DACF0071ED39 /* Beeater-Head-Animations.plist */,
+				2C7EB67A14FC349400136D57 /* Beeater-Pc-Animations.plist */,
 				2C5EFC3914E7DACF0071ED39 /* Bombee-Animations.plist */,
 				2CAB50DF14F2FC33006EF1A4 /* Cavegate-Animations.plist */,
 				2C5EFC3A14E7DACF0071ED39 /* Egg-Animations.plist */,
@@ -1522,6 +1531,9 @@
 				2C5EFC7B14E82BA50071ED39 /* Beeater-Bird.plist */,
 				2C5EFC7C14E82BA50071ED39 /* Beeater-Ceiling.plist */,
 				2C5EFC7D14E82BA50071ED39 /* Beeater-Fish.plist */,
+				2C7EB67814FC340400136D57 /* Beeater-Pc1.plist */,
+				2C7EB67C14FC38A000136D57 /* Beeater-Pc2.plist */,
+				2C7EB67E14FC39DA00136D57 /* Beeater-Pc3.plist */,
 				2C5EFC7E14E82BA50071ED39 /* Beeater.plist */,
 			);
 			path = Beeater;
@@ -1607,8 +1619,8 @@
 				2C88E2CA14F6E23400496938 /* GateOpeningSystem.m */,
 				2C764DD8148A1F4000820587 /* GCpShapeCache.h */,
 				2C764DD9148A1F4000820587 /* GCpShapeCache.m */,
-				2CEB9D7614EDC0A600CAC505 /* GlassAnimationSystem.h */,
-				2CEB9D7714EDC0A600CAC505 /* GlassAnimationSystem.m */,
+				2CEB9D7614EDC0A600CAC505 /* ShardSystem.h */,
+				2CEB9D7714EDC0A600CAC505 /* ShardSystem.m */,
 				2CADCC6F1471C76400302475 /* InputAction.h */,
 				2CADCC701471C76400302475 /* InputAction.m */,
 				2C7CE61A146C73FE001F331F /* InputSystem.h */,
@@ -2118,8 +2130,8 @@
 				2C5EFCBE14EC603D0071ED39 /* ExplodeComponent.m */,
 				2CAB50E414F30E4A006EF1A4 /* GateComponent.h */,
 				2CAB50E514F30E4A006EF1A4 /* GateComponent.m */,
-				2CEB9D7914EDC1BA00CAC505 /* GlassComponent.h */,
-				2CEB9D7A14EDC1BA00CAC505 /* GlassComponent.m */,
+				2CEB9D7914EDC1BA00CAC505 /* ShardComponent.h */,
+				2CEB9D7A14EDC1BA00CAC505 /* ShardComponent.m */,
 				2CAB50DA14F2F8D3006EF1A4 /* KeyComponent.h */,
 				2CAB50DB14F2F8D3006EF1A4 /* KeyComponent.m */,
 				2CC3EBFB14D466460025F5DA /* MovementComponent.h */,
@@ -2415,6 +2427,10 @@
 				2CE8604714F90C5600579202 /* DripSmall.m4a in Resources */,
 				2CE8604814F90C5600579202 /* DripSmall2.m4a in Resources */,
 				2CE8604914F90C5600579202 /* DripSmall3.m4a in Resources */,
+				2C7EB67914FC340400136D57 /* Beeater-Pc1.plist in Resources */,
+				2C7EB67B14FC349400136D57 /* Beeater-Pc-Animations.plist in Resources */,
+				2C7EB67D14FC38A000136D57 /* Beeater-Pc2.plist in Resources */,
+				2C7EB67F14FC39DA00136D57 /* Beeater-Pc3.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2531,8 +2547,8 @@
 				2CD4A99914EC7BAC0065FA90 /* DebugRenderPhysicsLayer.m in Sources */,
 				2CD4A99A14EC7BAC0065FA90 /* DebugRenderPhysicsSystem.m in Sources */,
 				2CEB9D6714EC7BE000CAC505 /* DebugNotificationTrackerSystem.m in Sources */,
-				2CEB9D7814EDC0A600CAC505 /* GlassAnimationSystem.m in Sources */,
-				2CEB9D7B14EDC1BB00CAC505 /* GlassComponent.m in Sources */,
+				2CEB9D7814EDC0A600CAC505 /* ShardSystem.m in Sources */,
+				2CEB9D7B14EDC1BB00CAC505 /* ShardComponent.m in Sources */,
 				2C24B36214EF1520002D1444 /* CCAction.m in Sources */,
 				2C24B36314EF1520002D1444 /* CCActionCamera.m in Sources */,
 				2C24B36414EF1520002D1444 /* CCActionEase.m in Sources */,

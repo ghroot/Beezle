@@ -6,15 +6,14 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GlassAnimationSystem.h"
+#import "ShardSystem.h"
 #import "DisposableComponent.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
-#import "GlassComponent.h"
+#import "ShardComponent.h"
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
-#import "RenderComponent.h"
-#import "RenderSprite.h"
+#import "SoundComponent.h"
 #import "SoundManager.h"
 #import "TransformComponent.h"
 #import "Utils.h"
@@ -22,7 +21,7 @@
 #define PIECES_MIN_VELOCITY 50
 #define PIECES_MAX_VELOCITY 100
 
-@interface GlassAnimationSystem()
+@interface ShardSystem()
 
 -(void) addNotificationObservers;
 -(void) queueNotification:(NSNotification *)notification;
@@ -31,7 +30,7 @@
 
 @end
 
-@implementation GlassAnimationSystem
+@implementation ShardSystem
 
 -(id) init
 {
@@ -84,45 +83,44 @@
 -(void) handleEntityCrumbled:(NSNotification *)notification
 {
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
-	if ([entity hasComponent:[GlassComponent class]])
+	if ([entity hasComponent:[ShardComponent class]])
 	{
 		TransformComponent *transformComponent = [TransformComponent getFrom:entity];
-		GlassComponent *glassComponent = [GlassComponent getFrom:entity];
-		for (int i = 0; i < [glassComponent piecesCount]; i++)
+		ShardComponent *shardComponent = [ShardComponent getFrom:entity];
+		for (int i = 0; i < [shardComponent piecesCount]; i++)
 		{
 			// Create entity
-			Entity *glassPieceEntity = [EntityFactory createEntity:@"GLASS-PC" world:_world];
+			Entity *shardPieceEntity = [EntityFactory createEntity:[shardComponent piecesEntityType] world:_world];
 			
 			// Position
 			CGPoint centerPoint = CGPointMake(
-						[transformComponent position].x + [glassComponent piecesSpawnAreaOffset].x,
-						[transformComponent position].y + [glassComponent piecesSpawnAreaOffset].y);
+						[transformComponent position].x + [shardComponent piecesSpawnAreaOffset].x,
+						[transformComponent position].y + [shardComponent piecesSpawnAreaOffset].y);
 			CGPoint topLeft = CGPointMake(
-						centerPoint.x - [glassComponent piecesSpawnAreaSize].width / 2,
-						centerPoint.y - [glassComponent piecesSpawnAreaSize].height / 2);
+						centerPoint.x - [shardComponent piecesSpawnAreaSize].width / 2,
+						centerPoint.y - [shardComponent piecesSpawnAreaSize].height / 2);
 			CGPoint randomPosition = CGPointMake(
-						topLeft.x + (rand() % (int)[glassComponent piecesSpawnAreaSize].width),
-						topLeft.y + (rand() % (int)[glassComponent piecesSpawnAreaSize].height));
-			[EntityUtil setEntityPosition:glassPieceEntity position:randomPosition];
+						topLeft.x + (rand() % (int)[shardComponent piecesSpawnAreaSize].width),
+						topLeft.y + (rand() % (int)[shardComponent piecesSpawnAreaSize].height));
+			[EntityUtil setEntityPosition:shardPieceEntity position:randomPosition];
 			
 			// Velocity
-			PhysicsComponent *glassPiecePhysicsComponent = [PhysicsComponent getFrom:glassPieceEntity];
+			PhysicsComponent *shardPiecePhysicsComponent = [PhysicsComponent getFrom:shardPieceEntity];
 			cpVect randomVelocity = [Utils createVectorWithRandomAngleAndLengthBetween:PIECES_MIN_VELOCITY and:PIECES_MAX_VELOCITY];
-			[[glassPiecePhysicsComponent body] setVel:randomVelocity];
+			[[shardPiecePhysicsComponent body] setVel:randomVelocity];
 			
-			// Animation
-			RenderComponent *renderComponent = [RenderComponent getFrom:glassPieceEntity];
-			NSString *animationName = [NSString stringWithFormat:@"Glass-Pc%d-Idle", (1 + (rand() % 8))];
-			[[renderComponent firstRenderSprite] playAnimation:animationName];
+			// Rotation velocity
+			cpFloat randomAngularVelocity = -8.0f + ((rand() % 160) / 10.0f);
+			[[shardPiecePhysicsComponent body] setAngVel:randomAngularVelocity];
 			
 			// Fade out
-			[EntityUtil fadeOutAndDeleteEntity:glassPieceEntity duration:7.0f];
+			[EntityUtil fadeOutAndDeleteEntity:shardPieceEntity duration:7.0f];
 		}
 		
 		[[DisposableComponent getFrom:entity] setIsDisposed:TRUE];
 		[entity deleteEntity];
 		
-		[[SoundManager sharedManager] playSound:@"GlassLarge"];
+		[[SoundManager sharedManager] playSound:[[SoundComponent getFrom:entity] defaultDestroySoundName]];
 	}
 }
 

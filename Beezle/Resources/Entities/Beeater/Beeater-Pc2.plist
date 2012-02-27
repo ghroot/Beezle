@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>GLASS-PC</string>
+	<string>BEEATER-PC2</string>
 	<key>components</key>
 	<dict>
 		<key>physics</key>
@@ -19,20 +19,15 @@
 			<array>
 				<dict>
 					<key>type</key>
-					<string>poly</string>
-					<key>vertices</key>
-					<array>
-						<string>{ -8, -3 }</string>
-						<string>{ -8, 3 }</string>
-						<string>{ 8, 3 }</string>
-						<string>{ 8, -3 }</string>
-					</array>
+					<string>circle</string>
+					<key>radius</key>
+					<real>5</real>
 					<key>elasticity</key>
-					<real>0.5</real>
-					<key>friction</key>
 					<real>0.3</real>
+					<key>friction</key>
+					<real>0.7</real>
 					<key>collisionType</key>
-					<string>GLASS_PIECE</string>
+					<string>BEEATER_PC2</string>
 					<key>layers</key>
 					<integer>2</integer>
 					<key>group</key>
@@ -50,30 +45,18 @@
 					<key>spriteSheetName</key>
 					<string>Sprites</string>
 					<key>animationFile</key>
-					<string>Glass-Animations.plist</string>
+					<string>Beeater-Pc-Animations.plist</string>
 					<key>z</key>
 					<integer>2</integer>
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.5 }</string>
 					<key>defaultIdleAnimations</key>
 					<array>
-						<string>Glass-Pc1-Idle</string>
-						<string>Glass-Pc2-Idle</string>
-						<string>Glass-Pc3-Idle</string>
-						<string>Glass-Pc4-Idle</string>
-						<string>Glass-Pc5-Idle</string>
-						<string>Glass-Pc6-Idle</string>
-						<string>Glass-Pc7-Idle</string>
-						<string>Glass-Pc8-Idle</string>
+						<string>Beeater-Pc2-Idle</string>
 					</array>
 				</dict>
 			</array>
 		</dict>
-        <key>sound</key>
-        <dict>
-            <key>defaultDestroySound</key>
-            <string>GlassSmall</string>
-        </dict>
 		<key>transform</key>
 		<dict/>
 	</dict>

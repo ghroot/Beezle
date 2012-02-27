@@ -19,7 +19,7 @@
 #import "GameRulesSystem.h"
 #import "GateComponent.h"
 #import "GateOpeningSystem.h"
-#import "GlassAnimationSystem.h"
+#import "ShardSystem.h"
 #import "IngameMenuState.h"
 #import "InputSystem.h"
 #import "KeyComponent.h"
@@ -134,8 +134,8 @@
 	[systemManager setSystem:_beeaterSystem];
 	_gateOpeningSystem = [[[GateOpeningSystem alloc] init] autorelease];
 	[systemManager setSystem:_gateOpeningSystem];
-	_glassAnimationSystem = [[[GlassAnimationSystem alloc] init] autorelease];
-	[systemManager setSystem:_glassAnimationSystem];
+	_shardSystem = [[[ShardSystem alloc] init] autorelease];
+	[systemManager setSystem:_shardSystem];
 	_spawnSystem = [[[SpawnSystem alloc] init] autorelease];
 	[systemManager setSystem:_spawnSystem];
 	if (_debug)
@@ -181,7 +181,7 @@
 													   _beeaterSystem,
 													   _gateOpeningSystem,
 													   _beeQueueRenderingSystem,
-													   _glassAnimationSystem,
+													   _shardSystem,
 													   _spawnSystem,
 													   nil]];
     

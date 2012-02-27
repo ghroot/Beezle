@@ -10,15 +10,6 @@
 		<dict/>
 		<key>disposable</key>
 		<dict/>
-		<key>glass</key>
-		<dict>
-			<key>piecesCount</key>
-			<integer>20</integer>
-			<key>piecesSpawnAreaOffset</key>
-			<string>{ 0, 30 }</string>
-			<key>piecesSpawnAreaSize</key>
-			<string>{ 70, 50 }</string>
-		</dict>
 		<key>physics</key>
 		<dict>
 			<key>file</key>
@@ -51,6 +42,17 @@
 					<string>Glass-A34-Idle</string>
 				</dict>
 			</array>
+		</dict>
+		<key>shard</key>
+		<dict>
+			<key>piecesEntityType</key>
+			<string>GLASS-PC</string>
+			<key>piecesCount</key>
+			<integer>20</integer>
+			<key>piecesSpawnAreaOffset</key>
+			<string>{ 0, 30 }</string>
+			<key>piecesSpawnAreaSize</key>
+			<string>{ 70, 50 }</string>
 		</dict>
 		<key>transform</key>
 		<dict/>

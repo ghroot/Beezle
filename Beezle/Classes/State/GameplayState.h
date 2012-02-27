@@ -20,7 +20,7 @@
 @class DebugRenderPhysicsSystem;
 @class GameRulesSystem;
 @class GateOpeningSystem;
-@class GlassAnimationSystem;
+@class ShardSystem;
 @class InputSystem;
 @class LevelSession;
 @class MovementSystem;
@@ -54,7 +54,7 @@
 	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
 	BeeaterSystem *_beeaterSystem;
 	GateOpeningSystem *_gateOpeningSystem;
-	GlassAnimationSystem *_glassAnimationSystem;
+	ShardSystem *_shardSystem;
 	SpawnSystem *_spawnSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
 	DebugNotificationTrackerSystem *_debugNotificationTrackerSystem;

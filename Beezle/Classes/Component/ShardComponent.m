@@ -6,11 +6,12 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GlassComponent.h"
+#import "ShardComponent.h"
 #import "Utils.h"
 
-@implementation GlassComponent
+@implementation ShardComponent
 
+@synthesize piecesEntityType = _piecesEntityType;
 @synthesize piecesCount = _piecesCount;
 @synthesize piecesSpawnAreaOffset = _piecesSpawnAreaOffset;
 @synthesize piecesSpawnAreaSize = _piecesSpawnAreaSize;
@@ -19,7 +20,7 @@
 {
 	if (self = [super init])
 	{
-		_name = @"glass";
+		_name = @"shard";
 	}
 	return self;
 }
@@ -28,6 +29,10 @@
 {
 	if (self = [self init])
 	{
+		if ([dict objectForKey:@"piecesEntityType"] != nil)
+		{
+			_piecesEntityType = [[dict objectForKey:@"piecesEntityType"] copy];
+		}
 		if ([dict objectForKey:@"piecesCount"] != nil)
 		{
 			_piecesCount = [[dict objectForKey:@"piecesCount"] intValue];
@@ -42,6 +47,13 @@
 		}
 	}
 	return self;
+}
+
+-(void) dealloc
+{
+	[_piecesEntityType release];
+	
+	[super dealloc];
 }
 
 @end

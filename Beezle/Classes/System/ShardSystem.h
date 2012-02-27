@@ -9,7 +9,7 @@
 #import "artemis.h"
 #import "cocos2d.h"
 
-@interface GlassAnimationSystem : EntitySystem
+@interface ShardSystem : EntitySystem
 {
 	NSMutableArray *_notifications;
 }

@@ -26,5 +26,8 @@
 +(CollisionType *) GLASS_PIECE;
 +(CollisionType *) GATE;
 +(CollisionType *) WATER_DROP;
++(CollisionType *) BEEATER_PC1;
++(CollisionType *) BEEATER_PC2;
++(CollisionType *) BEEATER_PC3;
 
 @end

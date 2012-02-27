@@ -43,12 +43,20 @@
 			NSString *animationFile = [spriteDict objectForKey:@"animationFile"];
 			int z = [[spriteDict objectForKey:@"z"] intValue];
 			CGPoint anchorPoint = [Utils stringToPoint:[spriteDict objectForKey:@"anchorPoint"]];
-			NSString *defaultIdleAnimationName = [spriteDict objectForKey:@"defaultIdleAnimation"];
+			NSArray *defaultIdleAnimationNames = nil;
+			if ([spriteDict objectForKey:@"defaultIdleAnimations"] != nil)
+			{
+				defaultIdleAnimationNames = [spriteDict objectForKey:@"defaultIdleAnimations"];
+			}
+			else if ([spriteDict objectForKey:@"defaultIdleAnimation"] != nil)
+			{
+				defaultIdleAnimationNames = [NSArray arrayWithObject:[spriteDict objectForKey:@"defaultIdleAnimation"]];
+			}
 			NSString *defaultDestroyAnimationName = [spriteDict objectForKey:@"defaultDestroyAnimation"];
             
 			RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:spriteSheetName animationFile:animationFile z:z];
 			[[renderSprite sprite] setAnchorPoint:anchorPoint];
-            [renderSprite setDefaultIdleAnimationName:defaultIdleAnimationName];
+            [renderSprite setDefaultIdleAnimationNames:defaultIdleAnimationNames];
             [renderSprite setDefaultDestroyAnimationName:defaultDestroyAnimationName];
 			[_renderSpritesByName setObject:renderSprite forKey:name];
 			

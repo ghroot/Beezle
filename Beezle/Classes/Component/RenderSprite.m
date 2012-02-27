@@ -14,7 +14,7 @@
 @synthesize spriteSheet = _spriteSheet;
 @synthesize sprite = _sprite;
 @synthesize z = _z;
-@synthesize defaultIdleAnimationName = _defaultIdleAnimationName;
+@synthesize defaultIdleAnimationNames = _defaultIdleAnimationNames;
 @synthesize defaultDestroyAnimationName = _defaultDestroyAnimationName;
 
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z
@@ -169,9 +169,10 @@
 
 -(void) playDefaultIdleAnimation
 {
-    if (_defaultIdleAnimationName != nil)
+    if (_defaultIdleAnimationNames != nil)
     {
-        [self playAnimation:_defaultIdleAnimationName];
+		int animationIndex = rand() % [_defaultIdleAnimationNames count];
+        [self playAnimation:[_defaultIdleAnimationNames objectAtIndex:animationIndex]];
     }
 }
 
