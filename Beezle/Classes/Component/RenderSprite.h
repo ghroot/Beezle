@@ -14,14 +14,14 @@
     CCSprite *_sprite;
 	int _z;
 	NSArray *_defaultIdleAnimationNames;
-    NSString *_defaultDestroyAnimationName;
+    NSArray *_defaultDestroyAnimationNames;
 }
 
 @property (nonatomic, readonly, assign) CCSpriteBatchNode *spriteSheet;
 @property (nonatomic, readonly, retain) CCSprite *sprite;
 @property (nonatomic, readonly) int z;
 @property (nonatomic, copy) NSArray *defaultIdleAnimationNames;
-@property (nonatomic, copy) NSString *defaultDestroyAnimationName;
+@property (nonatomic, copy) NSArray *defaultDestroyAnimationNames;
 
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z;
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
@@ -38,7 +38,9 @@
 -(void) playAnimationsLoopLast:(NSArray *)animationNames;
 -(void) playAnimationsLoopAll:(NSArray *)animationNames;
 -(void) playDefaultIdleAnimation;
+-(NSString *) randomDefaultIdleAnimationName;
 -(void) playDefaultDestroyAnimation;
+-(NSString *) randomDefaultDestroyAnimationName;
 -(void) setFrame:(NSString *)frameName;
 -(void) hide;
 -(void) show;

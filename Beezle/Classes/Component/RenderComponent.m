@@ -52,12 +52,20 @@
 			{
 				defaultIdleAnimationNames = [NSArray arrayWithObject:[spriteDict objectForKey:@"defaultIdleAnimation"]];
 			}
-			NSString *defaultDestroyAnimationName = [spriteDict objectForKey:@"defaultDestroyAnimation"];
+			NSArray *defaultDestroyAnimationNames = nil;
+			if ([spriteDict objectForKey:@"defaultDestroyAnimations"] != nil)
+			{
+				defaultDestroyAnimationNames = [spriteDict objectForKey:@"defaultDestroyAnimations"];
+			}
+			else if ([spriteDict objectForKey:@"defaultDestroyAnimation"] != nil)
+			{
+				defaultDestroyAnimationNames = [NSArray arrayWithObject:[spriteDict objectForKey:@"defaultDestroyAnimation"]];
+			}
             
 			RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:spriteSheetName animationFile:animationFile z:z];
 			[[renderSprite sprite] setAnchorPoint:anchorPoint];
             [renderSprite setDefaultIdleAnimationNames:defaultIdleAnimationNames];
-            [renderSprite setDefaultDestroyAnimationName:defaultDestroyAnimationName];
+            [renderSprite setDefaultDestroyAnimationNames:defaultDestroyAnimationNames];
 			[_renderSpritesByName setObject:renderSprite forKey:name];
 			
             [renderSprite playDefaultIdleAnimation];
@@ -155,7 +163,7 @@
         if (renderSprite == [renderSprites objectAtIndex:0])
         {
             // Callback invokation should only be done once, we use the first render sprite for that
-            [renderSprite playAnimation:[renderSprite defaultDestroyAnimationName] withCallbackTarget:target andCallbackSelector:selector];
+            [renderSprite playAnimation:[renderSprite randomDefaultDestroyAnimationName] withCallbackTarget:target andCallbackSelector:selector];
         }
         else
         {

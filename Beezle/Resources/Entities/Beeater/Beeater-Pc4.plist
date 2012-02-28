@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>BEEATER-PC2</string>
+	<string>BEEATER-PC4</string>
 	<key>components</key>
 	<dict>
 		<key>physics</key>
@@ -21,13 +21,11 @@
 					<key>type</key>
 					<string>circle</string>
 					<key>radius</key>
-					<real>5</real>
+					<real>1</real>
 					<key>elasticity</key>
-					<real>0.3</real>
+					<real>0.7</real>
 					<key>friction</key>
 					<real>0.7</real>
-					<key>collisionType</key>
-					<string>BEEATER_PC2</string>
 					<key>layers</key>
 					<integer>2</integer>
 					<key>group</key>
@@ -50,8 +48,11 @@
 					<integer>2</integer>
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.5 }</string>
-					<key>defaultIdleAnimation</key>
-					<string>Beeater-Pc2-Idle</string>
+					<key>defaultDestroyAnimations</key>
+					<array>
+						<string>Beeater-Pc4-1-Idle</string>
+						<string>Beeater-Pc4-2-Idle</string>
+					</array>
 				</dict>
 			</array>
 		</dict>

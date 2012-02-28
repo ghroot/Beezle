@@ -8,6 +8,7 @@
 
 #import "BeeaterSystem.h"
 #import "BeeaterComponent.h"
+#import "EntityFactory.h"
 #import "EntityUtil.h"
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
@@ -16,6 +17,7 @@
 #import "SlingerComponent.h"
 #import "SoundManager.h"
 #import "TransformComponent.h"
+#import "Utils.h"
 
 @interface BeeaterSystem()
 
@@ -130,12 +132,34 @@
 	RenderSprite *beeaterHeadRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"head"];
 	[beeaterTransformComponent setScale:CGPointMake(1.0f, 1.0f)];
 	[beeaterHeadRenderSprite hide];
-	[beeaterBodyRenderSprite playAnimation:@"Beeater-Body-Destroy" withCallbackTarget:beeaterEntity andCallbackSelector:@selector(deleteEntity)];
+	[beeaterBodyRenderSprite playAnimation:@"Beeater-Generic-Ending" withCallbackTarget:beeaterEntity andCallbackSelector:@selector(deleteEntity)];
 	
 	// Disable physics
 	PhysicsComponent *beeaterPhysicsComponent = [PhysicsComponent getFrom:beeaterEntity];
 	[beeaterPhysicsComponent disable];
 	[beeaterEntity refresh];
+	
+	// Particles
+	for (int i = 0; i < 8; i++)
+	{
+		// Create entity
+		Entity *particleEntity = [EntityFactory createEntity:@"BEEATER-PC4" world:_world];
+		
+		// Position
+		CGPoint topLeft = CGPointMake([beeaterTransformComponent position].x - 15,
+									  [beeaterTransformComponent position].y + 5);
+		CGPoint randomPosition = CGPointMake(topLeft.x + (rand() % 30),
+											 topLeft.y + (rand() % 30));
+		[EntityUtil setEntityPosition:particleEntity position:randomPosition];
+		
+		// Velocity
+		PhysicsComponent *particlePhysicsComponent = [PhysicsComponent getFrom:particleEntity];
+		cpVect randomVelocity = [Utils createVectorWithRandomAngleAndLengthBetween:40 and:80];
+		[[particlePhysicsComponent body] setVel:randomVelocity];
+		
+		// Animation
+		[EntityUtil animateAndDeleteEntity:particleEntity disablePhysics:FALSE];
+	}
 	
 	// Game notification
 	NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];

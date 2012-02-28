@@ -15,7 +15,7 @@
 @synthesize sprite = _sprite;
 @synthesize z = _z;
 @synthesize defaultIdleAnimationNames = _defaultIdleAnimationNames;
-@synthesize defaultDestroyAnimationName = _defaultDestroyAnimationName;
+@synthesize defaultDestroyAnimationNames = _defaultDestroyAnimationNames;
 
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z
 {
@@ -47,6 +47,8 @@
 -(void) dealloc
 {
     [_sprite release];
+	[_defaultIdleAnimationNames release];
+	[_defaultDestroyAnimationNames release];
     
     [super dealloc];
 }
@@ -169,19 +171,30 @@
 
 -(void) playDefaultIdleAnimation
 {
-    if (_defaultIdleAnimationNames != nil)
-    {
-		int animationIndex = rand() % [_defaultIdleAnimationNames count];
-        [self playAnimation:[_defaultIdleAnimationNames objectAtIndex:animationIndex]];
-    }
+	if (_defaultIdleAnimationNames != nil)
+	{
+		[self playAnimation:[self randomDefaultIdleAnimationName]];
+	}
+}
+
+-(NSString *) randomDefaultIdleAnimationName
+{
+	int animationIndex = rand() % [_defaultIdleAnimationNames count];
+	return [_defaultIdleAnimationNames objectAtIndex:animationIndex];
 }
 
 -(void) playDefaultDestroyAnimation
 {
-    if (_defaultDestroyAnimationName != nil)
+	if (_defaultDestroyAnimationNames != nil)
     {
-        [self playAnimation:_defaultDestroyAnimationName withLoops:1];
+        [self playAnimation:[self randomDefaultDestroyAnimationName] withLoops:1];
     }
+}
+
+-(NSString *) randomDefaultDestroyAnimationName
+{
+	int animationIndex = rand() % [_defaultDestroyAnimationNames count];
+	return [_defaultDestroyAnimationNames objectAtIndex:animationIndex];
 }
 
 -(void) setFrame:(NSString *)frameName
