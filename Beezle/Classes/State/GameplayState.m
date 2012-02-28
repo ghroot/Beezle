@@ -344,6 +344,9 @@
 			
 			CCMenuItemImage *levelCompleteMenuItem = [CCMenuItemImage itemWithNormalImage:@"Bubbla.png" selectedImage:@"Bubbla.png" target:self selector:@selector(loadNextLevel:)];
 			CCMenu *levelCompleteMenu = [CCMenu menuWithItems:levelCompleteMenuItem, nil];
+			[levelCompleteMenuItem setScale:0.25f];
+			CCEaseElasticInOut *elasticScaleAction = [CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]];
+			[levelCompleteMenuItem runAction:elasticScaleAction];
 			[_uiLayer addChild:levelCompleteMenu];
 			
 			[[PlayerInformation sharedInformation] storeAndSave:_levelSession];
