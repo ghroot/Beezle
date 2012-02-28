@@ -190,12 +190,23 @@
 	CGPoint beePosition = CGPointMake(beeaterPosition.x, beeaterPosition.y + 20);
 	RenderSprite *beeQueueRenderSprite = [self createBeeQueueRenderSpriteWithBeeType:savedBeeType position:beePosition];
 	
+	// Face the slinger
+	if ([[TransformComponent getFrom:slingerEntity] position].x < beePosition.x)
+	{
+		[[beeQueueRenderSprite sprite] setScaleX:-1];
+	}
+	
 	// Move from beeater to slinger queue
 	_movingBeesCount++;
+	CCEaseSineInOut *moveUpAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:0.8f position:CGPointMake(beePosition.x, beePosition.y + 25)]];
 	CCEaseSineOut *moveToQueueAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.7f position:nextPosition]];
+	CCCallBlock *faceRightAction = [CCCallBlock actionWithBlock:^()
+	{
+		[[beeQueueRenderSprite sprite] setScaleX:1];
+	}];
 	CCCallFunc *decreaseMovingBeesCountAction = [CCCallFunc actionWithTarget:self selector:@selector(decreaseMovingBeesCount)];
 	[[beeQueueRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
-	CCAction *action = [CCSequence actions:moveToQueueAction, decreaseMovingBeesCountAction, [self createSwayAction:nextPosition], nil];
+	CCAction *action = [CCSequence actions:moveUpAction, moveToQueueAction, faceRightAction, decreaseMovingBeesCountAction, [self createSwayAction:nextPosition], nil];
 	[action setTag:ACTION_TAG_BEE_QUEUE];
 	[[beeQueueRenderSprite sprite] runAction:action];
 }
