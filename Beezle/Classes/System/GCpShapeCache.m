@@ -350,7 +350,7 @@ typedef enum
             fd->layers = [[fixtureData objectForKey:@"layers"] intValue];            
 //            fd->group = [[fixtureData objectForKey:@"group"] intValue];            
 //            fd->collisionType = [[fixtureData objectForKey:@"collision_type"] intValue];            
-            fd->isSensor = [[fixtureData objectForKey:@"fixtureData"] boolValue];
+            fd->isSensor = [[fixtureData objectForKey:@"isSensor"] boolValue];
             
             NSString *fixtureType = [fixtureData objectForKey:@"fixture_type"];
 
