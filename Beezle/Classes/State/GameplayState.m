@@ -24,6 +24,7 @@
 #import "InputSystem.h"
 #import "KeyComponent.h"
 #import "LevelLoader.h"
+#import "LevelOrganizer.h"
 #import "LevelSession.h"
 #import "MovementSystem.h"
 #import "NotificationTypes.h"
@@ -50,6 +51,7 @@
 -(void) enterMode:(GameMode *)mode;
 -(void) updateMode;
 -(void) showLabel:(NSString *)labelText;
+-(void) loadNextLevel:(id)sender;
 
 @end
 
@@ -330,15 +332,19 @@
         {
             [self enterMode:_levelCompletedMode];
 			
-			BOOL isRecord = [[PlayerInformation sharedInformation] isPollenRecord:_levelSession];
-			if (isRecord)
-			{	
-				[self showLabel:@"Level Complete! (Record!)"];
-			}
-			else
-			{	
-				[self showLabel:@"Level Complete!"];
-			}
+//			BOOL isRecord = [[PlayerInformation sharedInformation] isPollenRecord:_levelSession];
+//			if (isRecord)
+//			{	
+//				[self showLabel:@"Level Complete! (Record!)"];
+//			}
+//			else
+//			{	
+//				[self showLabel:@"Level Complete!"];
+//			}
+			
+			CCMenuItemImage *levelCompleteMenuItem = [CCMenuItemImage itemWithNormalImage:@"Bubbla.png" selectedImage:@"Bubbla.png" target:self selector:@selector(loadNextLevel:)];
+			CCMenu *levelCompleteMenu = [CCMenu menuWithItems:levelCompleteMenuItem, nil];
+			[_uiLayer addChild:levelCompleteMenu];
 			
 			[[PlayerInformation sharedInformation] storeAndSave:_levelSession];
 		}
@@ -375,6 +381,17 @@
 	CCLabelTTF *label = [CCLabelTTF labelWithString:labelText fontName:@"Courier" fontSize:30];
 	[label setPosition:CGPointMake(winSize.width / 2, winSize.height / 2)];
 	[_uiLayer addChild:label];
+}
+
+-(void) loadNextLevel:(id)sender
+{
+	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesForTheme:@"A"];
+	int nextLevelIndex = [levelNames indexOfObject:[_levelSession levelName]] + 1;
+	NSString *nextLevelName = [levelNames objectAtIndex:nextLevelIndex];
+	if (nextLevelName != nil)
+	{
+		[_game replaceState:[GameplayState stateWithLevelName:nextLevelName]];
+	}
 }
 
 @end

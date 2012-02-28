@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C00D85214FD798B00BE5B4C /* Bubbla.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C00D85114FD798B00BE5B4C /* Bubbla.png */; };
 		2C068A34146858B9003E200D /* TransformComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C068A33146858B9003E200D /* TransformComponent.m */; };
 		2C0D500414A8CDBC00466316 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0D500314A8CDBC00466316 /* MessageUI.framework */; };
 		2C1147CA148B9459002E4DBD /* LICENSE_Chipmunk.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C114745148B9459002E4DBD /* LICENSE_Chipmunk.txt */; };
@@ -406,6 +407,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C00D85114FD798B00BE5B4C /* Bubbla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bubbla.png; sourceTree = "<group>"; };
 		2C068A32146858B9003E200D /* TransformComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransformComponent.h; path = Classes/Component/TransformComponent.h; sourceTree = "<group>"; };
 		2C068A33146858B9003E200D /* TransformComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransformComponent.m; path = Classes/Component/TransformComponent.m; sourceTree = "<group>"; };
 		2C0D500314A8CDBC00466316 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -1066,6 +1068,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C00D85014FD798B00BE5B4C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				2C00D85114FD798B00BE5B4C /* Bubbla.png */,
+			);
+			name = Images;
+			path = Resources/Images;
+			sourceTree = "<group>";
+		};
 		2C140F6514F6EC8000FE1965 /* H */ = {
 			isa = PBXGroup;
 			children = (
@@ -2040,6 +2051,7 @@
 			isa = PBXGroup;
 			children = (
 				2CE348B514DF003A00FEB492 /* Entities */,
+				2C00D85014FD798B00BE5B4C /* Images */,
 				2C64ACCF14B89D7E00ABD114 /* Level */,
 				2C764E9B148A917300820587 /* Sounds */,
 				2C3A6F7414898085002721E3 /* Sprites */,
@@ -2435,6 +2447,7 @@
 				2C7EB67D14FC38A000136D57 /* Beeater-Pc2.plist in Resources */,
 				2C7EB67F14FC39DA00136D57 /* Beeater-Pc3.plist in Resources */,
 				2C7EB68114FD6AEA00136D57 /* Beeater-Pc4.plist in Resources */,
+				2C00D85214FD798B00BE5B4C /* Bubbla.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
