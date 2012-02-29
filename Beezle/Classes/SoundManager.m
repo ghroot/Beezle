@@ -110,7 +110,8 @@
 
 -(void) playSound:(NSString *)name
 {
-    if (_isFunctional)
+    if (_isFunctional &&
+		name != nil)
     {
 		NSString *soundFilePath = [_soundFilePathsByName objectForKey:name];
 		ALuint soundId = 0;
@@ -129,7 +130,8 @@
 
 -(void) stopSound:(NSString *)name
 {
-	if (_isFunctional)
+	if (_isFunctional &&
+		name != nil)
 	{
 		int soundId = [[_soundIdsBySoundName objectForKey:name] intValue];
 		[[SimpleAudioEngine sharedEngine] stopEffect:soundId];
@@ -138,7 +140,8 @@
 
 -(void) playMusic:(NSString *)name
 {
-	if (_isFunctional)
+	if (_isFunctional &&
+		name != nil)
     {
 		NSString *musicFilePath = [_soundFilePathsByName objectForKey:name];
 		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:musicFilePath loop:TRUE];
