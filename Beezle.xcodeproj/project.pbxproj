@@ -152,6 +152,7 @@
 		2C27E90A14D20577002165CD /* TagEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FB14D20577002165CD /* TagEntitySystem.m */; };
 		2C27E90B14D20577002165CD /* TagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FD14D20577002165CD /* TagManager.m */; };
 		2C27E90C14D20577002165CD /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FF14D20577002165CD /* World.m */; };
+		2C2C184014FEE92D007C2ADC /* Slinger.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C183F14FEE92D007C2ADC /* Slinger.m4a */; };
 		2C2FB66B14FE800100D115AF /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		2C3A6F931489809F002721E3 /* BeeExpiratonSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F921489809F002721E3 /* BeeExpiratonSystem.m */; };
 		2C3A6F96148980AF002721E3 /* BeeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F95148980AF002721E3 /* BeeComponent.m */; };
@@ -228,7 +229,6 @@
 		2C7DAC4B14F44AAE006CE0BA /* SpeedeeSling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC4A14F44AAE006CE0BA /* SpeedeeSling.mp3 */; };
 		2C7DAC4F14F44BE3006CE0BA /* BonusKey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC4C14F44BE3006CE0BA /* BonusKey.mp3 */; };
 		2C7DAC5114F44BE3006CE0BA /* SmokeMushroom.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC4E14F44BE3006CE0BA /* SmokeMushroom.mp3 */; };
-		2C7DAC5314F44DFA006CE0BA /* SlingerStretch.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC5214F44DFA006CE0BA /* SlingerStretch.m4a */; };
 		2C7DAC5914F450C5006CE0BA /* A-Level-Music1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC5814F450C5006CE0BA /* A-Level-Music1.m4a */; };
 		2C7DAC5B14F455D5006CE0BA /* CaveDoorOpens.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC5A14F455D5006CE0BA /* CaveDoorOpens.m4a */; };
 		2C7EB67914FC340400136D57 /* Beeater-Pc1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7EB67814FC340400136D57 /* Beeater-Pc1.plist */; };
@@ -686,6 +686,7 @@
 		2C27E8FD14D20577002165CD /* TagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagManager.m; sourceTree = "<group>"; };
 		2C27E8FE14D20577002165CD /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		2C27E8FF14D20577002165CD /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
+		2C2C183F14FEE92D007C2ADC /* Slinger.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Slinger.m4a; sourceTree = "<group>"; };
 		2C2FB66914FE800100D115AF /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAnalytics.h; sourceTree = "<group>"; };
 		2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryAnalytics.a; sourceTree = "<group>"; };
 		2C38A1EA1496D6440019244D /* CollisionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionType.h; path = Classes/CollisionType.h; sourceTree = "<group>"; };
@@ -784,7 +785,6 @@
 		2C7DAC4A14F44AAE006CE0BA /* SpeedeeSling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SpeedeeSling.mp3; sourceTree = "<group>"; };
 		2C7DAC4C14F44BE3006CE0BA /* BonusKey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BonusKey.mp3; sourceTree = "<group>"; };
 		2C7DAC4E14F44BE3006CE0BA /* SmokeMushroom.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SmokeMushroom.mp3; sourceTree = "<group>"; };
-		2C7DAC5214F44DFA006CE0BA /* SlingerStretch.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = SlingerStretch.m4a; sourceTree = "<group>"; };
 		2C7DAC5814F450C5006CE0BA /* A-Level-Music1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "A-Level-Music1.m4a"; sourceTree = "<group>"; };
 		2C7DAC5A14F455D5006CE0BA /* CaveDoorOpens.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaveDoorOpens.m4a; sourceTree = "<group>"; };
 		2C7EB67814FC340400136D57 /* Beeater-Pc1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Pc1.plist"; sourceTree = "<group>"; };
@@ -1611,7 +1611,7 @@
 				2CE8604614F90C5600579202 /* DripSmall3.m4a */,
 				2C7DAC4214F44493006CE0BA /* GlassLarge.m4a */,
 				2C7DAC3E14F43D52006CE0BA /* GlassSmall3.wav */,
-				2C7DAC5214F44DFA006CE0BA /* SlingerStretch.m4a */,
+				2C2C183F14FEE92D007C2ADC /* Slinger.m4a */,
 				2C7DAC4E14F44BE3006CE0BA /* SmokeMushroom.mp3 */,
 				2C7DAC3A14F43CF4006CE0BA /* Sounds.plist */,
 				2C7DAC4A14F44AAE006CE0BA /* SpeedeeSling.mp3 */,
@@ -2380,7 +2380,6 @@
 				2C7DAC4B14F44AAE006CE0BA /* SpeedeeSling.mp3 in Resources */,
 				2C7DAC4F14F44BE3006CE0BA /* BonusKey.mp3 in Resources */,
 				2C7DAC5114F44BE3006CE0BA /* SmokeMushroom.mp3 in Resources */,
-				2C7DAC5314F44DFA006CE0BA /* SlingerStretch.m4a in Resources */,
 				2C7DAC5914F450C5006CE0BA /* A-Level-Music1.m4a in Resources */,
 				2C7DAC5B14F455D5006CE0BA /* CaveDoorOpens.m4a in Resources */,
 				2CB9266714F46277008972FD /* Level-A1-hd.jpg in Resources */,
@@ -2463,6 +2462,7 @@
 				2C7EB67F14FC39DA00136D57 /* Beeater-Pc3.plist in Resources */,
 				2C7EB68114FD6AEA00136D57 /* Beeater-Pc4.plist in Resources */,
 				2C00D85214FD798B00BE5B4C /* Bubbla.png in Resources */,
+				2C2C184014FEE92D007C2ADC /* Slinger.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
