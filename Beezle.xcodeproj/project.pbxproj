@@ -152,6 +152,7 @@
 		2C27E90A14D20577002165CD /* TagEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FB14D20577002165CD /* TagEntitySystem.m */; };
 		2C27E90B14D20577002165CD /* TagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FD14D20577002165CD /* TagManager.m */; };
 		2C27E90C14D20577002165CD /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FF14D20577002165CD /* World.m */; };
+		2C2FB66B14FE800100D115AF /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		2C3A6F931489809F002721E3 /* BeeExpiratonSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F921489809F002721E3 /* BeeExpiratonSystem.m */; };
 		2C3A6F96148980AF002721E3 /* BeeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F95148980AF002721E3 /* BeeComponent.m */; };
 		2C3B0E5414A91E4D008949B0 /* EmailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B0E5314A91E4D008949B0 /* EmailInfo.m */; };
@@ -685,6 +686,8 @@
 		2C27E8FD14D20577002165CD /* TagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagManager.m; sourceTree = "<group>"; };
 		2C27E8FE14D20577002165CD /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		2C27E8FF14D20577002165CD /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
+		2C2FB66914FE800100D115AF /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAnalytics.h; sourceTree = "<group>"; };
+		2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryAnalytics.a; sourceTree = "<group>"; };
 		2C38A1EA1496D6440019244D /* CollisionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionType.h; path = Classes/CollisionType.h; sourceTree = "<group>"; };
 		2C3A6F911489809F002721E3 /* BeeExpiratonSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeExpiratonSystem.h; path = Classes/System/BeeExpiratonSystem.h; sourceTree = "<group>"; };
 		2C3A6F921489809F002721E3 /* BeeExpiratonSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeExpiratonSystem.m; path = Classes/System/BeeExpiratonSystem.m; sourceTree = "<group>"; };
@@ -1062,6 +1065,7 @@
 				2CEA3286145F66F7000FF575 /* CoreGraphics.framework in Frameworks */,
 				2C88B5D114A3DA8700B5B190 /* libObjectiveChipmunk-iPhone.a in Frameworks */,
 				2C0D500414A8CDBC00466316 /* MessageUI.framework in Frameworks */,
+				2C2FB66B14FE800100D115AF /* libFlurryAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1451,6 +1455,16 @@
 			);
 			name = Artemis;
 			path = libs/Artemis;
+			sourceTree = "<group>";
+		};
+		2C2FB66814FE800100D115AF /* FlurryAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				2C2FB66914FE800100D115AF /* FlurryAnalytics.h */,
+				2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */,
+			);
+			name = FlurryAnalytics;
+			path = libs/FlurryAnalytics;
 			sourceTree = "<group>";
 		};
 		2C3A6F7414898085002721E3 /* Sprites */ = {
@@ -2077,6 +2091,7 @@
 				2C27E8E414D20577002165CD /* Artemis */,
 				2C24B28A14EF1520002D1444 /* cocos2d */,
 				2C24B33514EF1520002D1444 /* CocosDenshion */,
+				2C2FB66814FE800100D115AF /* FlurryAnalytics */,
 				2CD2C42B14D19E2A00DC0BD5 /* GandEnum */,
 				2C24B33F14EF1520002D1444 /* kazmath */,
 				2C88B5AC14A3DA8700B5B190 /* ObjectiveChipmunk-iPhone */,
@@ -2806,6 +2821,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
+					"\"$(SRCROOT)/Beezle/libs/FlurryAnalytics\"",
 				);
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2833,6 +2849,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
+					"\"$(SRCROOT)/Beezle/libs/FlurryAnalytics\"",
 				);
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";

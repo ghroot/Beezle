@@ -9,9 +9,15 @@
 #import "AppDelegate.h"
 #import "BootStrap.h"
 #import "EmailInfo.h"
+#import "FlurryAnalytics.h"
 #import "Game.h"
 
 @implementation AppDelegate
+
+void uncaughtExceptionHandler(NSException *exception)
+{
+    [FlurryAnalytics logError:@"Uncaught" message:@"Crash!" exception:exception];
+}
 
 -(void) applicationDidFinishLaunching:(UIApplication*)application
 {
@@ -59,6 +65,13 @@
 	
 	// Show
 	[_window makeKeyAndVisible];
+    
+    // Tracking
+    if (CONFIG_USE_TRACKING)
+    {
+        NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+        [FlurryAnalytics startSession:@"2GF435EGU2HN2KIKLCGG"];
+    }
 	
 	// Boot
 	_game = [[Game alloc] init];
