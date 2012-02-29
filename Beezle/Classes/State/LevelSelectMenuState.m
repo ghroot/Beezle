@@ -34,7 +34,17 @@
 		NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesForTheme:theme];
         for (NSString *levelName in levelNames)
         {
-            CCMenuItemFont *levelMenuItem = [CCMenuItemFont itemWithString:levelName target:self selector:@selector(startGame:)];
+			NSString *menuItemName = nil;
+			LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+			if (levelLayout != nil)
+			{
+				menuItemName = [NSString stringWithFormat:@"%@(%d)%@", levelName, [levelLayout version], [levelLayout isEdited] ? @"e" : @""];
+			}
+			else
+			{
+				menuItemName = levelName;
+			}
+            CCMenuItemFont *levelMenuItem = [CCMenuItemFont itemWithString:menuItemName target:self selector:@selector(startGame:)];
 			[levelMenuItem setFontSize:24];
             [levelMenuItem setUserData:levelName];
             [_menu addChild:levelMenuItem];
