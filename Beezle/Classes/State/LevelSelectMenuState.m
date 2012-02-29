@@ -101,6 +101,8 @@
 
 -(void) goBack:(id)sender
 {
+	[sender setIsEnabled:FALSE];
+	
 	[_game popState];
 }
 

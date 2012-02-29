@@ -45,12 +45,16 @@
 
 -(void) resumeGame:(id)sender
 {
+	[sender setIsEnabled:FALSE];
+	
 	// This assumes the previous state was the edit state
 	[_game popState];
 }
 
 -(void) tryGame:(id)sender
 {
+	[sender setIsEnabled:FALSE];
+	
 	// This assumes the previous state was the edit state
 	[_game popState];
 	EditState *editState = (EditState *)[_game currentState];
@@ -72,6 +76,8 @@
 
 -(void) saveLevel:(id)sender
 {
+	[sender setIsEnabled:FALSE];
+	
 	// This assumes the previous state was the edit state
 	[_game popState];
 	EditState *editState = (EditState *)[_game currentState];
@@ -106,6 +112,8 @@
 
 -(void) resetLevel:(id)sender
 {
+	[sender setIsEnabled:FALSE];
+	
 	// This assumes the previous state was the edit state
 	[_game popState];
 	EditState *editState = (EditState *)[_game currentState];
@@ -126,6 +134,8 @@
 
 -(void) gotoMainMenu:(id)sender
 {
+	[sender setIsEnabled:FALSE];
+	
 	// This assumes the previous state was the edit state
 	[_game popAndReplaceState:[MainMenuState state]];
 }

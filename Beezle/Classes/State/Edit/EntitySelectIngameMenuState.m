@@ -81,6 +81,8 @@
 
 -(void) addEntity:(id)sender
 {
+	[sender setIsEnabled:FALSE];
+	
 	CCMenuItem *menuItem = sender;
 	NSString *entityType = [menuItem userData];
 	
@@ -91,6 +93,8 @@
 
 -(void) cancel:(id)sender
 {
+	[sender setIsEnabled:FALSE];
+	
 	[_game popState];
 }
 

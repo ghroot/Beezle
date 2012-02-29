@@ -44,21 +44,29 @@
 
 -(void) selectLevel:(id)sender
 {
+	[sender setIsEnabled:FALSE];
+	
 	[_game pushState:[LevelSelectMenuState stateWithTheme:@"A"]];
 }
 
 -(void) sendEditedLevels:(id)sender
 {
+	[sender setIsEnabled:FALSE];
+	
 	[[LevelSender sharedSender] sendEditedLevels];
 }
 
 -(void) startTest:(id)sender
 {
+	[sender setIsEnabled:FALSE];
+	
 	[_game replaceState:[TestState state]];
 }
 
 -(void) resetPlayerInformation:(id)sender
 {
+	[sender setIsEnabled:FALSE];
+	
 	[[PlayerInformation sharedInformation] reset];
 }
 

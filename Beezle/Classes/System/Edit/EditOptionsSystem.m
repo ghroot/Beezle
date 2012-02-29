@@ -201,6 +201,8 @@
 
 -(void) doOptionOpenEntityMenu:(id)sender
 {
+	[sender setIsEnabled:FALSE];
+	
 	Game *game = [_editState game];
 	[game pushState:[EntitySelectIngameMenuState state]];
 }

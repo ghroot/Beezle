@@ -43,12 +43,16 @@
 
 -(void) resumeGame:(id)sender
 {
+	[sender setIsEnabled:FALSE];
+	
 	// This assumes the previous state was the game play state
 	[_game popState];
 }
 
 -(void) restartGame:(id)sender
 {
+	[sender setIsEnabled:FALSE];
+	
 	// This assumes the previous state was the game play state
 	[_game popState];
 	GameplayState *gameplayState = (GameplayState *)[_game currentState];
@@ -57,6 +61,8 @@
 
 -(void) editGame:(id)sender
 {
+	[sender setIsEnabled:FALSE];
+	
 	// This assumes the previous state was the game play state
 	[_game popState];
 	GameplayState *gameplayState = (GameplayState *)[_game currentState];
@@ -65,6 +71,8 @@
 
 -(void) gotoMainMenu:(id)sender
 {
+	[sender setIsEnabled:FALSE];
+	
 	// This assumes the previous state was the game play state
 	[_game popAndReplaceState:[MainMenuState state]];
 }
