@@ -39,7 +39,7 @@
 -(void) deactivate
 {
 	[super deactivate];
-	[_inputActions removeAllObjects];
+	[self clearInputActions];
     [self stopListeningForTouches];
 }
 
@@ -71,16 +71,13 @@
     return [_inputActions count] > 0;
 }
 
+-(void) clearInputActions
+{
+	[_inputActions removeAllObjects];
+}
+
 -(void) pushInputAction:(InputAction *)inputAction
 {
-//    if ([inputAction touchType] == TOUCH_MOVED && [_inputActions count] > 0)
-//    {
-//        InputAction *lastInputAction = (InputAction *)[_inputActions lastObject];
-//        if (lastInputAction.touchType == TOUCH_MOVED)
-//        {
-//            [_inputActions removeLastObject];
-//        }
-//    }
     [_inputActions addObject:inputAction];
 }
 
@@ -90,7 +87,7 @@
 	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
 	InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_BEGAN andTouchLocation:convertedLocation] autorelease];
 	[self pushInputAction:inputAction];
-	
+
 	return TRUE;
 }
 

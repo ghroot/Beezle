@@ -18,6 +18,7 @@
 
 -(InputAction *) popInputAction;
 -(BOOL) hasInputActions;
+-(void) clearInputActions;
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;
 -(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event;

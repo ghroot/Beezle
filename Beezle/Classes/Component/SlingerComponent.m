@@ -10,6 +10,7 @@
 
 @implementation SlingerComponent
 
+@synthesize state = _state;
 @synthesize queuedBeeTypes = _queuedBeeTypes;
 @synthesize loadedBeeType = _loadedBeeType;
 

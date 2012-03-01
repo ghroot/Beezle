@@ -159,7 +159,6 @@
 -(void) createModes
 {
     _aimingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
-													 _gameRulesSystem,
 													 _movementSystem,
                                                      _physicsSystem,
                                                      _collisionSystem,
@@ -169,10 +168,10 @@
 													 _beeaterSystem,
 													 _beeQueueRenderingSystem,
 													 _spawnSystem,
+													 _gameRulesSystem,
                                                      nil]];
     
     _shootingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
-													   _gameRulesSystem,
 													   _movementSystem,
 													   _physicsSystem,
 													   _collisionSystem,
@@ -185,6 +184,7 @@
 													   _beeQueueRenderingSystem,
 													   _shardSystem,
 													   _spawnSystem,
+													   _gameRulesSystem,
 													   nil]];
     
     _levelCompletedMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
