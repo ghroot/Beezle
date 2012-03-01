@@ -130,9 +130,8 @@
 	RenderComponent *beeaterRenderComponent = (RenderComponent *)[beeaterEntity getComponent:[RenderComponent class]];
 	RenderSprite *beeaterBodyRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"body"];
 	RenderSprite *beeaterHeadRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"head"];
-	[beeaterTransformComponent setScale:CGPointMake(1.0f, 1.0f)];
 	[beeaterHeadRenderSprite hide];
-	[beeaterBodyRenderSprite playAnimation:@"Beeater-Generic-Ending" withCallbackTarget:beeaterEntity andCallbackSelector:@selector(deleteEntity)];
+	[beeaterBodyRenderSprite playAnimation:[beeaterComponent killAnimationName] withCallbackTarget:beeaterEntity andCallbackSelector:@selector(deleteEntity)];
 	
 	// Disable physics
 	PhysicsComponent *beeaterPhysicsComponent = [PhysicsComponent getFrom:beeaterEntity];

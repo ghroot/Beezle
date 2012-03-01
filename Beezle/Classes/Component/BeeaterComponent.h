@@ -12,9 +12,11 @@
 @interface BeeaterComponent : Component
 {
 	BeeType *_containedBeeType;
+	NSString *_killAnimationName;
 }
 
 @property (nonatomic, assign) BeeType *containedBeeType;
+@property (nonatomic, copy) NSString *killAnimationName;
 
 -(BOOL) hasContainedBee;
 
