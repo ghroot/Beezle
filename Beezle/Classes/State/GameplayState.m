@@ -149,7 +149,7 @@
 	[systemManager setSystem:_beeExpirationSystem];
 	_explodeControlSystem = [[[ExplodeControlSystem alloc] init] autorelease];
 	[systemManager setSystem:_explodeControlSystem];
-	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithZ:2] autorelease];
+	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithZ:3] autorelease];
 	[systemManager setSystem:_beeQueueRenderingSystem];
 	_beeaterSystem = [[[BeeaterSystem alloc] init] autorelease];
 	[systemManager setSystem:_beeaterSystem];
