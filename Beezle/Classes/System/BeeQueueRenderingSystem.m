@@ -202,7 +202,7 @@
 	
 	// Move from beeater to slinger queue
 	_movingBeesCount++;
-	CCEaseSineInOut *moveUpAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake(beePosition.x, beePosition.y + 30)]];
+	CCEaseSineInOut *moveUpAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake(beePosition.x, beePosition.y + 30)]];
 	CCCallBlock *animateHappyAction = [CCCallBlock actionWithBlock:^()
 	{
 		NSString *animationName = [NSString stringWithFormat:@"%@-Happy", [savedBeeType capitalizedString]];
