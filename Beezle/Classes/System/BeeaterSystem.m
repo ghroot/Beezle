@@ -156,6 +156,9 @@
 		cpVect randomVelocity = [Utils createVectorWithRandomAngleAndLengthBetween:40 and:80];
 		[[particlePhysicsComponent body] setVel:randomVelocity];
 		
+		// Reduce gravity
+		[[particlePhysicsComponent body] setForce:cpv(0, 30.0f)];
+		
 		// Animation
 		[EntityUtil animateAndDeleteEntity:particleEntity disablePhysics:FALSE];
 	}
