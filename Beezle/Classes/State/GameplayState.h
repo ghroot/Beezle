@@ -32,6 +32,7 @@
 
 @interface GameplayState : GameState
 {
+	NSString *_levelName;
 	LevelSession *_levelSession;
 	
 	CCLayer *_gameLayer;
@@ -68,10 +69,13 @@
     GameMode *_levelFailedMode;
 }
 
+@property (nonatomic, readonly) NSString *levelName;
+
++(id) stateWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession;
 +(id) stateWithLevelName:(NSString *)levelName;
 
+-(id) initWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession;
 -(id) initWithLevelName:(NSString *)levelName;
--(NSString *) levelName;
 -(void) pauseGame:(id)sender;
 
 @end

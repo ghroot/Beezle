@@ -10,10 +10,13 @@
 #import "KeyComponent.h"
 #import "PollenComponent.h"
 
+#define POLLEN_PER_UNUSED_BEE 20
+
 @implementation LevelSession
 
 @synthesize levelName = _levelName;
 @synthesize numberOfCollectedPollen = _numberOfCollectedPollen;
+@synthesize numberOfUnusedBees = _numberOfUnusedBees;
 @synthesize didCollectKey = _didCollectKey;
 @synthesize didUseKey = _didUseKey;
 
@@ -43,6 +46,11 @@
 	{
 		_didCollectKey = TRUE;
 	}
+}
+
+-(int) totalNumberOfPollen
+{
+	return _numberOfCollectedPollen + POLLEN_PER_UNUSED_BEE * _numberOfUnusedBees;
 }
 
 @end

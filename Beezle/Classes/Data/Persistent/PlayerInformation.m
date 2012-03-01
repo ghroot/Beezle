@@ -35,7 +35,7 @@
 {
 	if (self = [super init])
 	{
-		_pollenCollectionRecordByLevelName = [NSMutableDictionary new];
+		_pollenRecordByLevelName = [NSMutableDictionary new];
 		_levelNamesWhereKeysWereCollected = [NSMutableArray new];
 		_levelNamesWhereKeysWereUsed = [NSMutableArray new];
 		[self load];
@@ -45,7 +45,7 @@
 
 -(void) dealloc
 {
-	[_pollenCollectionRecordByLevelName release];
+	[_pollenRecordByLevelName release];
 	[_levelNamesWhereKeysWereCollected release];
 	[_levelNamesWhereKeysWereUsed release];
 	
@@ -74,7 +74,7 @@
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
 	if (dict != nil)
 	{
-		[_pollenCollectionRecordByLevelName addEntriesFromDictionary:[dict objectForKey:@"pollenCollectionRecordByLevelName"]];
+		[_pollenRecordByLevelName addEntriesFromDictionary:[dict objectForKey:@"pollenRecordByLevelName"]];
 		[_levelNamesWhereKeysWereCollected addObjectsFromArray:[dict objectForKey:@"levelNamesWhereKeysWereCollected"]];
 		[_levelNamesWhereKeysWereUsed addObjectsFromArray:[dict objectForKey:@"levelNamesWhereKeysWereUsed"]];
 	}
@@ -82,7 +82,7 @@
 
 -(void) reset
 {
-	[_pollenCollectionRecordByLevelName removeAllObjects];
+	[_pollenRecordByLevelName removeAllObjects];
 	[_levelNamesWhereKeysWereCollected removeAllObjects];
 	[_levelNamesWhereKeysWereUsed removeAllObjects];
 	
@@ -96,7 +96,7 @@
 -(NSDictionary *) getInformationAsDictionary
 {
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-	[dict setObject:[NSDictionary dictionaryWithDictionary:_pollenCollectionRecordByLevelName] forKey:@"pollenCollectionRecordByLevelName"];
+	[dict setObject:[NSDictionary dictionaryWithDictionary:_pollenRecordByLevelName] forKey:@"pollenRecordByLevelName"];
 	[dict setObject:[NSArray arrayWithArray:_levelNamesWhereKeysWereCollected] forKey:@"levelNamesWhereKeysWereCollected"];
 	[dict setObject:[NSArray arrayWithArray:_levelNamesWhereKeysWereUsed] forKey:@"levelNamesWhereKeysWereUsed"];
 	return dict;
@@ -106,7 +106,7 @@
 {
 	if ([self isPollenRecord:levelSession])
 	{
-		[_pollenCollectionRecordByLevelName setObject:[NSNumber numberWithInt:[levelSession numberOfCollectedPollen]] forKey:[levelSession levelName]];
+		[_pollenRecordByLevelName setObject:[NSNumber numberWithInt:[levelSession totalNumberOfPollen]] forKey:[levelSession levelName]];
 	}
 	if ([levelSession didCollectKey] &&
 		![_levelNamesWhereKeysWereCollected containsObject:[levelSession levelName]])
@@ -128,14 +128,18 @@
 
 -(BOOL) isPollenRecord:(LevelSession *)levelSession
 {
-	if ([_pollenCollectionRecordByLevelName objectForKey:[levelSession levelName]] != nil)
+	return [levelSession totalNumberOfPollen] > [self pollenRecord:[levelSession levelName]];
+}
+
+-(int) pollenRecord:(NSString *)levelName
+{
+	if ([_pollenRecordByLevelName objectForKey:levelName] != nil)
 	{
-		int recordForLevel = [[_pollenCollectionRecordByLevelName objectForKey:[levelSession levelName]] intValue];
-		return [levelSession numberOfCollectedPollen] > recordForLevel;
+		return [[_pollenRecordByLevelName objectForKey:levelName] intValue];
 	}
 	else
 	{
-		return TRUE;
+		return 0;
 	}
 }
 
@@ -149,12 +153,12 @@
 	return [_levelNamesWhereKeysWereUsed containsObject:levelName];
 }
 
--(int) totalNumberOfCollectedPollen
+-(int) totalNumberOfPollen
 {
 	int total = 0;
-	for (NSNumber *pollenCollectionRecord in [_pollenCollectionRecordByLevelName allValues])
+	for (NSNumber *pollenRecord in [_pollenRecordByLevelName allValues])
 	{
-		total += [pollenCollectionRecord intValue];
+		total += [pollenRecord intValue];
 	}
 	return total;
 }

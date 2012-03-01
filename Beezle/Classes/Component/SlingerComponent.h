@@ -29,6 +29,7 @@ typedef enum
 -(void) pushBeeType:(BeeType *)beeType;
 -(BeeType *) popNextBeeType;
 -(BOOL) hasMoreBees;
+-(int) numberOfBeesInQueue;
 -(void) clearBeeTypes;
 -(void) loadNextBee;
 -(void) clearLoadedBee;

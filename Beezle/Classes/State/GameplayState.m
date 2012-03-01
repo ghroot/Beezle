@@ -34,6 +34,7 @@
 #import "PlayerInformation.h"
 #import "RenderComponent.h"
 #import "RenderSystem.h"
+#import "SlingerComponent.h"
 #import "SlingerControlSystem.h"
 #import "SoundManager.h"
 #import "SpawnSystem.h"
@@ -58,19 +59,27 @@
 
 @implementation GameplayState
 
+@synthesize levelName = _levelName;
+
++(id) stateWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession
+{
+	return [[[self alloc] initWithLevelName:levelName andLevelSession:levelSession] autorelease];
+}
+
 +(id) stateWithLevelName:(NSString *)levelName
 {
 	return [[[self alloc] initWithLevelName:levelName] autorelease];
 }
 
 // Designated initialiser
--(id) initWithLevelName:(NSString *)levelName
+-(id) initWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession
 {
-    if (self = [super init])
+	if (self = [super init])
     {
 		[[CCDirector sharedDirector] setNeedClear:FALSE];
 		
-		_levelSession = [[LevelSession alloc] initWithLevelName:levelName];
+		_levelName = [levelName retain];
+		_levelSession = [levelSession retain];
 		
 		_debug = FALSE;
 		
@@ -88,9 +97,16 @@
     return self;
 }
 
+-(id) initWithLevelName:(NSString *)levelName
+{
+	self = [self initWithLevelName:levelName andLevelSession:[[[LevelSession alloc] initWithLevelName:levelName] autorelease]];
+	return self;
+}
+
 -(id) init
 {
-	return [self initWithLevelName:nil];
+	self = [self initWithLevelName:nil];
+	return self;
 }
 
 -(void) createUI
@@ -215,7 +231,7 @@
 
 -(void) loadLevel
 {
-	[[LevelLoader sharedLoader] loadLevel:[_levelSession levelName] inWorld:_world edit:FALSE];
+	[[LevelLoader sharedLoader] loadLevel:_levelName inWorld:_world edit:FALSE];
 	
 	for (Entity *entity in [[_world entityManager] entities])
 	{
@@ -240,6 +256,7 @@
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[_notifications release];
 	
+	[_levelName release];
 	[_levelSession release];
 	
     [_aimingMode release];
@@ -250,11 +267,6 @@
     [_world release];
 	
 	[super dealloc];
-}
-
--(NSString *) levelName
-{
-	return [_levelSession levelName];
 }
 
 -(void) queueNotification:(NSNotification *)notification
@@ -283,10 +295,8 @@
 
 -(void) handleGateEntered:(NSNotification *)notification
 {
-	[[PlayerInformation sharedInformation] storeAndSave:_levelSession];
-	
 	NSString *levelName = [[notification userInfo] objectForKey:@"hiddenLevelName"];
-	[_game replaceState:[GameplayState stateWithLevelName:levelName] withTransition:[CCTransitionSlideInB class] duration:1.0f];
+	[_game replaceState:[GameplayState stateWithLevelName:levelName andLevelSession:_levelSession] withTransition:[CCTransitionSlideInB class] duration:1.0f];
 }
 
 -(void) enter
@@ -339,15 +349,20 @@
         {
             [self enterMode:_levelCompletedMode];
 			
-//			BOOL isRecord = [[PlayerInformation sharedInformation] isPollenRecord:_levelSession];
-//			if (isRecord)
-//			{	
-//				[self showLabel:@"Level Complete! (Record!)"];
-//			}
-//			else
-//			{	
-//				[self showLabel:@"Level Complete!"];
-//			}
+			TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
+			Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
+			SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
+			int numberOfUnusedBees = [slingerComponent numberOfBeesInQueue];
+			[_levelSession setNumberOfUnusedBees:numberOfUnusedBees];
+			
+			NSLog(@"Unused bees: %d", [_levelSession numberOfUnusedBees]);
+			NSLog(@"Pollen: %d", [_levelSession totalNumberOfPollen]);
+			NSLog(@"Previous record: %d", [[PlayerInformation sharedInformation] pollenRecord:[_levelSession levelName]]);
+			
+			[[PlayerInformation sharedInformation] storeAndSave:_levelSession];
+			
+			NSLog(@"New record: %d", [[PlayerInformation sharedInformation] pollenRecord:[_levelSession levelName]]);
+			NSLog(@"Total: %d", [[PlayerInformation sharedInformation] totalNumberOfPollen]);
 			
 			CCMenuItemImage *levelCompleteMenuItem = [CCMenuItemImage itemWithNormalImage:@"Bubbla.png" selectedImage:@"Bubbla.png" target:self selector:@selector(loadNextLevel:)];
 			CCMenu *levelCompleteMenu = [CCMenu menuWithItems:levelCompleteMenuItem, nil];
@@ -355,8 +370,6 @@
 			CCEaseElasticInOut *elasticScaleAction = [CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]];
 			[levelCompleteMenuItem runAction:elasticScaleAction];
 			[_uiLayer addChild:levelCompleteMenu];
-			
-			[[PlayerInformation sharedInformation] storeAndSave:_levelSession];
 		}
     }
     else if ([_gameRulesSystem isLevelFailed])

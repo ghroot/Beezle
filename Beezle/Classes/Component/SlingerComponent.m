@@ -78,7 +78,12 @@
 
 -(BOOL) hasMoreBees
 {
-	return [_queuedBeeTypes count] > 0;
+	return [self numberOfBeesInQueue] > 0;
+}
+
+-(int) numberOfBeesInQueue
+{
+	return [_queuedBeeTypes count];
 }
 
 -(void) clearBeeTypes
