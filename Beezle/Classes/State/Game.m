@@ -55,7 +55,7 @@
 	}
 	else
 	{
-		[[CCDirector sharedDirector] replaceScene:gameState];
+		[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.0f scene:gameState]];
 	}
 }
 
@@ -66,7 +66,7 @@
     [_gameStateStack addObject:gameState];
 	[gameState setGame:self];
     [gameState enter];
-	[[CCDirector sharedDirector] pushScene:gameState];
+	[[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:0.0f scene:gameState]];
 }
 
 -(void) popState
@@ -91,7 +91,7 @@
     [_gameStateStack addObject:gameState];
 	[gameState setGame:self];
     [gameState enter];
-	[[CCDirector sharedDirector] replaceScene:gameState];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.0f scene:gameState]];
 }
 
 -(GameState *) currentState

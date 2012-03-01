@@ -91,7 +91,7 @@
 }
 
 -(void) startGame:(id)sender
-{	
+{
 	// This assumes the previous state was the menu state
     NSString *levelName = (NSString *)[sender userData];
 	[_game popAndReplaceState:[GameplayState stateWithLevelName:levelName]];
