@@ -37,10 +37,10 @@
 
 -(void) replaceState:(GameState *)gameState
 {
-    [self replaceState:gameState withTransition:nil];
+    [self replaceState:gameState withTransition:nil duration:0.0f];
 }
 
--(void) replaceState:(GameState *)gameState withTransition:(Class)transitionClass
+-(void) replaceState:(GameState *)gameState withTransition:(Class)transitionClass duration:(float)duration
 {
 	GameState *previousGameState = [_gameStateStack lastObject];
     [_gameStateStack removeLastObject];
@@ -51,7 +51,7 @@
 	if (transitionClass != nil)
 	{
 		[[CCDirector sharedDirector] setNeedClear:TRUE];
-		[[CCDirector sharedDirector] replaceScene:[transitionClass transitionWithDuration:1.0f scene:gameState]];
+		[[CCDirector sharedDirector] replaceScene:[transitionClass transitionWithDuration:duration scene:gameState]];
 	}
 	else
 	{

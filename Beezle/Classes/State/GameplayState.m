@@ -286,7 +286,7 @@
 	[[PlayerInformation sharedInformation] storeAndSave:_levelSession];
 	
 	NSString *levelName = [[notification userInfo] objectForKey:@"hiddenLevelName"];
-	[_game replaceState:[GameplayState stateWithLevelName:levelName] withTransition:[CCTransitionSlideInB class]];
+	[_game replaceState:[GameplayState stateWithLevelName:levelName] withTransition:[CCTransitionSlideInB class] duration:1.0f];
 }
 
 -(void) enter
@@ -400,7 +400,7 @@
 	NSString *nextLevelName = [levelNames objectAtIndex:nextLevelIndex];
 	if (nextLevelName != nil)
 	{
-		[_game replaceState:[GameplayState stateWithLevelName:nextLevelName]];
+		[_game replaceState:[GameplayState stateWithLevelName:nextLevelName] withTransition:[CCTransitionFade class] duration:0.3f];
 	}
 }
 
