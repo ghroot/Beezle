@@ -163,8 +163,6 @@
 
 -(void) pauseGame:(id)sender
 {
-	[sender setIsEnabled:FALSE];
-	
 	[_game pushState:[EditIngameMenuState state]];
 }
 
