@@ -19,7 +19,7 @@ void uncaughtExceptionHandler(NSException *exception)
     [FlurryAnalytics logError:@"Uncaught" message:@"Crash!" exception:exception];
 }
 
--(void) applicationDidFinishLaunching:(UIApplication*)application
+-(void) applicationDidFinishLaunching:(UIApplication *)application
 {
 	// Create the main window
 	_window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -100,7 +100,7 @@ void uncaughtExceptionHandler(NSException *exception)
 	}
 }
 
--(void) applicationDidEnterBackground:(UIApplication*)application
+-(void) applicationDidEnterBackground:(UIApplication *)application
 {
 	if([_navigationController visibleViewController] == _director)
 	{
@@ -108,7 +108,7 @@ void uncaughtExceptionHandler(NSException *exception)
 	}
 }
 
--(void) applicationWillEnterForeground:(UIApplication*)application
+-(void) applicationWillEnterForeground:(UIApplication *)application
 {
 	if([_navigationController visibleViewController] == _director)
 	{
