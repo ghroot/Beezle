@@ -7,7 +7,14 @@
 //
 
 #import "artemis.h"
+#import "cocos2d.h"
 
-@interface HUDSystem : EntitySystem
+@interface HUDRenderingSystem : EntitySystem
+{
+	CCLayer *_layer;
+	NSMutableArray *_keyImageSprites;
+}
+
+-(id) initWithLayer:(CCLayer *)layer;
 
 @end

@@ -20,6 +20,7 @@
 #import "GateComponent.h"
 #import "GateOpeningSystem.h"
 #import "ShardSystem.h"
+#import "HUDRenderingSystem.h"
 #import "IngameMenuState.h"
 #import "InputSystem.h"
 #import "KeyComponent.h"
@@ -122,6 +123,8 @@
 	[systemManager setSystem:_collisionSystem];
 	_renderSystem = [[[RenderSystem alloc] initWithLayer:_gameLayer] autorelease];
 	[systemManager setSystem:_renderSystem];
+	_hudRenderingSystem = [[[HUDRenderingSystem alloc] initWithLayer:_uiLayer] autorelease];
+	[systemManager setSystem:_hudRenderingSystem];
 	_inputSystem = [[[InputSystem alloc] init] autorelease];
 	[systemManager setSystem:_inputSystem];
 	_slingerControlSystem = [[[SlingerControlSystem alloc] init] autorelease];
@@ -163,6 +166,7 @@
                                                      _physicsSystem,
                                                      _collisionSystem,
                                                      _renderSystem,
+													 _hudRenderingSystem,
                                                      _inputSystem,
                                                      _slingerControlSystem,
 													 _beeaterSystem,
@@ -176,6 +180,7 @@
 													   _physicsSystem,
 													   _collisionSystem,
 													   _renderSystem,
+													   _hudRenderingSystem,
 													   _inputSystem,
 													   _beeExpirationSystem,
 													   _explodeControlSystem,
@@ -191,6 +196,7 @@
 															 _physicsSystem,
 															 _collisionSystem,
 															 _renderSystem,
+															 _hudRenderingSystem,
 															 _beeQueueRenderingSystem,
 															 _spawnSystem,
 															 nil]];
@@ -199,6 +205,7 @@
 														  _physicsSystem,
 														  _collisionSystem,
 														  _renderSystem,
+														  _hudRenderingSystem,
 														  _beeQueueRenderingSystem,
 														  _spawnSystem,
 														  nil]];

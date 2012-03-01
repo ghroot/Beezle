@@ -21,6 +21,7 @@
 @class GameRulesSystem;
 @class GateOpeningSystem;
 @class ShardSystem;
+@class HUDRenderingSystem;
 @class InputSystem;
 @class LevelSession;
 @class MovementSystem;
@@ -47,6 +48,7 @@
 	MovementSystem *_movementSystem;
     CollisionSystem *_collisionSystem;
     RenderSystem *_renderSystem;
+	HUDRenderingSystem *_hudRenderingSystem;
     InputSystem *_inputSystem;
     SlingerControlSystem *_slingerControlSystem;
     BeeExpiratonSystem *_beeExpirationSystem;
