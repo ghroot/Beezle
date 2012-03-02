@@ -27,6 +27,7 @@
 #import "LevelLoader.h"
 #import "LevelOrganizer.h"
 #import "LevelSession.h"
+#import "MainMenuState.h"
 #import "MovementSystem.h"
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
@@ -410,11 +411,15 @@
 {
 	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesForTheme:@"A"];
 	int nextLevelIndex = [levelNames indexOfObject:[_levelSession levelName]] + 1;
-	NSString *nextLevelName = [levelNames objectAtIndex:nextLevelIndex];
-	if (nextLevelName != nil)
-	{
-		[_game replaceState:[GameplayState stateWithLevelName:nextLevelName] withTransition:[CCTransitionFade class] duration:0.3f];
-	}
+    if (nextLevelIndex < [levelNames count])
+    {
+        NSString *nextLevelName = [levelNames objectAtIndex:nextLevelIndex];
+        [_game replaceState:[GameplayState stateWithLevelName:nextLevelName] withTransition:[CCTransitionFade class] duration:0.3f];
+    }
+    else
+    {
+        [_game replaceState:[MainMenuState state]];
+    }
 }
 
 @end
