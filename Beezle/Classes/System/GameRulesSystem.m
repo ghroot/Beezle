@@ -69,14 +69,11 @@
     TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
     Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
     SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
-    
 	int numberOfUndisposedBees = [self countNonDisposedEntitiesInGroup:@"BEES"];
-	int numberOfUndisposedBeeaters = [self countNonDisposedEntitiesInGroup:@"BEEATERS"];
     
     _isLevelFailed = ![slingerComponent hasMoreBees] &&
 		![slingerComponent hasLoadedBee] &&
-		numberOfUndisposedBees == 0 &&
-		numberOfUndisposedBeeaters > 0;
+		numberOfUndisposedBees == 0;
 }
 
 -(void) updateIsBeeFlying
