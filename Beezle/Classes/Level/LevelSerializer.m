@@ -12,6 +12,8 @@
 #import "LevelLayoutCache.h"
 #import "LevelLayoutEntry.h"
 
+#define LEVEL_LAYOUT_FORMAT 2
+
 @interface LevelSerializer()
 
 -(BOOL) isLevelLayoutEntity:(Entity *)entity;
@@ -51,19 +53,26 @@
 	}
 	[levelLayout setFormat:format];
 	
-	NSArray *entities = [dict objectForKey:@"entities"];
-	for (NSDictionary *entity in entities) 
-	{
-		LevelLayoutEntry *levelLayoutEntry = [LevelLayoutEntry entry];
-		
-		NSString *type = [entity objectForKey:@"type"];
-		[levelLayoutEntry setType:[NSString stringWithString:type]];
-		
-		NSDictionary *components = [entity objectForKey:@"components"];
-		[levelLayoutEntry setComponentsDict:components];
-		
-		[levelLayout addLevelLayoutEntry:levelLayoutEntry];
-	}
+//    if (format == LEVEL_LAYOUT_FORMAT)
+//    {
+        NSArray *entities = [dict objectForKey:@"entities"];
+        for (NSDictionary *entity in entities) 
+        {
+            LevelLayoutEntry *levelLayoutEntry = [LevelLayoutEntry entry];
+            
+            NSString *type = [entity objectForKey:@"type"];
+            [levelLayoutEntry setType:[NSString stringWithString:type]];
+            
+            NSDictionary *components = [entity objectForKey:@"components"];
+            [levelLayoutEntry setComponentsDict:components];
+            
+            [levelLayout addLevelLayoutEntry:levelLayoutEntry];
+        }
+//    }
+//    else
+//    {
+//        NSLog(@"Unsupported level layout format: %@ (format: %d < %d)", levelName, format, LEVEL_LAYOUT_FORMAT);
+//    }
 	
 	return levelLayout;
 }
@@ -95,6 +104,7 @@
 	
 	[levelLayout setLevelName:levelName];
 	[levelLayout setVersion:version];
+    [levelLayout setFormat:LEVEL_LAYOUT_FORMAT];
 	
 	for (Entity *entity in [[world entityManager] entities])
 	{
