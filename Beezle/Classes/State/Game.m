@@ -8,6 +8,9 @@
 
 #import "Game.h"
 #import "GameState.h"
+#import "LoadingState.h"
+
+#define TRANSITION_DURATION 0.2f
 
 @implementation Game
 
@@ -29,74 +32,92 @@
 
 -(void) startWithState:(GameState *)gameState
 {
-    [_gameStateStack addObject:gameState];
-	[gameState setGame:self];
-    [gameState enter];
-	[[CCDirector sharedDirector] pushScene:gameState];
+	if ([gameState needsLoadingState])
+	{
+		[self startWithState:[LoadingState stateWithGameState:gameState]];
+	}
+	else
+	{
+		[_gameStateStack addObject:gameState];
+		[gameState setGame:self];
+		[gameState initialise];
+		[gameState enter];
+		[[CCDirector sharedDirector] pushScene:gameState];
+	}
 }
 
 -(void) replaceState:(GameState *)gameState
 {
-    [self replaceState:gameState withTransition:nil duration:0.0f];
-}
-
--(void) replaceState:(GameState *)gameState withTransition:(Class)transitionClass duration:(float)duration
-{
-	GameState *previousGameState = [_gameStateStack lastObject];
-    [_gameStateStack removeLastObject];
-    [previousGameState leave];
-    [_gameStateStack addObject:gameState];
-    [gameState setGame:self];
-    [gameState enter];
-	if (transitionClass != nil)
+	if ([gameState needsLoadingState] &&
+		![gameState isInitalised])
 	{
-		[[CCDirector sharedDirector] setNeedClear:TRUE];
-		[[CCDirector sharedDirector] replaceScene:[transitionClass transitionWithDuration:duration scene:gameState]];
+		[self replaceState:[LoadingState stateWithGameState:gameState]];
 	}
 	else
 	{
-		[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.0f scene:gameState]];
-	}
+		[[self currentState] leave];
+		[_gameStateStack removeLastObject];
+		
+		[_gameStateStack addObject:gameState];
+		[gameState setGame:self];
+		if (![gameState isInitalised])
+		{
+			[gameState initialise];
+		}
+		[gameState enter];
+		[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TRANSITION_DURATION scene:gameState]];
+}
 }
 
 -(void) pushState:(GameState *)gameState
 {
-    GameState *previousGameState = [_gameStateStack lastObject];
-    [previousGameState leave];
-    [_gameStateStack addObject:gameState];
-	[gameState setGame:self];
-    [gameState enter];
-	[[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:0.0f scene:gameState]];
+	if ([gameState needsLoadingState] &&
+		![gameState isInitalised])
+	{
+		[self replaceState:[LoadingState stateWithGameState:gameState]];
+	}
+	else
+	{
+		[[self currentState] leave];
+		
+		[_gameStateStack addObject:gameState];
+		[gameState setGame:self];
+		if (![gameState isInitalised])
+		{
+			[gameState initialise];
+		}
+		[gameState enter];
+		[[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:TRANSITION_DURATION scene:gameState]];
+	}
 }
 
 -(void) popState
 {
-    GameState *previousGameState = [_gameStateStack lastObject];
+    [[self currentState] leave];
     [_gameStateStack removeLastObject];
-    [previousGameState leave];
-    GameState *newGameState = [_gameStateStack lastObject];
-    [newGameState enter];
+    [[self currentState] enter];
 	[[CCDirector sharedDirector] popScene];
 }
 
--(void) popAndReplaceState:(GameState *)gameState
+-(void) clearAndReplaceState:(GameState *)gameState
 {
-    GameState *previousGameState = [_gameStateStack lastObject];
-    [_gameStateStack removeLastObject];
-    [previousGameState leave];
-    [[CCDirector sharedDirector] popScene];
-    
-    [_gameStateStack removeLastObject];
-    
-    [_gameStateStack addObject:gameState];
-	[gameState setGame:self];
-    [gameState enter];
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.0f scene:gameState]];
+	while ([_gameStateStack count] > 1)
+	{
+		[_gameStateStack removeObjectAtIndex:0];
+	}
+	[self replaceState:gameState];
 }
 
 -(GameState *) currentState
 {
-	return [_gameStateStack lastObject];
+	if ([_gameStateStack count] > 0)
+	{
+		return [_gameStateStack lastObject];
+	}
+	else
+	{
+		return nil;
+	}
 }
 
 @end

@@ -17,10 +17,9 @@
 
 -(void) startWithState:(GameState *)gameState;
 -(void) replaceState:(GameState *)gameState;
--(void) replaceState:(GameState *)gameState withTransition:(Class)transitionClass duration:(float)duration;
 -(void) pushState:(GameState *)gameState;
 -(void) popState;
--(void) popAndReplaceState:(GameState *)gameState;
+-(void) clearAndReplaceState:(GameState *)gameState;
 -(GameState *) currentState;
 
 @end

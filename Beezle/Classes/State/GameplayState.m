@@ -77,23 +77,10 @@
 {
 	if (self = [super init])
     {
-		[[CCDirector sharedDirector] setNeedClear:FALSE];
-		
 		_levelName = [levelName retain];
 		_levelSession = [levelSession retain];
 		
-		_debug = FALSE;
-		
-		_notifications = [NSMutableArray new];
-		[self addNotificationObservers];
-		
-		_gameLayer = [CCLayer node];
-		[self addChild:_gameLayer];
-		
-		[self createUI];
-		[self createWorldAndSystems];
-        [self createModes];
-		[self loadLevel];
+		_needsLoadingState = TRUE;
     }
     return self;
 }
@@ -108,6 +95,26 @@
 {
 	self = [self initWithLevelName:nil];
 	return self;
+}
+
+-(void) initialise
+{
+	[super initialise];
+	
+	[[CCDirector sharedDirector] setNeedClear:FALSE];
+	
+	_debug = FALSE;
+	
+	_notifications = [NSMutableArray new];
+	[self addNotificationObservers];
+	
+	_gameLayer = [CCLayer node];
+	[self addChild:_gameLayer];
+	
+	[self createUI];
+	[self createWorldAndSystems];
+	[self createModes];
+	[self loadLevel];
 }
 
 -(void) createUI
@@ -297,7 +304,7 @@
 -(void) handleGateEntered:(NSNotification *)notification
 {
 	NSString *levelName = [[notification userInfo] objectForKey:@"hiddenLevelName"];
-	[_game replaceState:[GameplayState stateWithLevelName:levelName andLevelSession:_levelSession] withTransition:[CCTransitionSlideInB class] duration:1.0f];
+	[_game replaceState:[GameplayState stateWithLevelName:levelName andLevelSession:_levelSession]];
 }
 
 -(void) enter
@@ -414,7 +421,7 @@
     if (nextLevelIndex < [levelNames count])
     {
         NSString *nextLevelName = [levelNames objectAtIndex:nextLevelIndex];
-        [_game replaceState:[GameplayState stateWithLevelName:nextLevelName] withTransition:[CCTransitionFade class] duration:0.3f];
+        [_game replaceState:[GameplayState stateWithLevelName:nextLevelName]];
     }
     else
     {

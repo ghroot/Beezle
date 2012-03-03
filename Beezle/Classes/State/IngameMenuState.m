@@ -14,31 +14,29 @@
 
 @implementation IngameMenuState
 
--(id) init
+-(void) initialise
 {
-	if (self = [super init])
+	[super initialise];
+	
+	[[CCDirector sharedDirector] setNeedClear:TRUE];
+	
+	_menu = [CCMenu menuWithItems:nil];
+	
+	CCMenuItem *resumeMenuItem = [CCMenuItemFont itemWithString:@"Resume" target:self selector:@selector(resumeGame:)];
+	[_menu addChild:resumeMenuItem];
+	CCMenuItem *restartMenuItem = [CCMenuItemFont itemWithString:@"Restart" target:self selector:@selector(restartGame:)];
+	[_menu addChild:restartMenuItem];
+	if (CONFIG_CAN_EDIT_LEVELS)
 	{
-        [[CCDirector sharedDirector] setNeedClear:TRUE];
-        
-		_menu = [CCMenu menuWithItems:nil];
-		
-		CCMenuItem *resumeMenuItem = [CCMenuItemFont itemWithString:@"Resume" target:self selector:@selector(resumeGame:)];
-		[_menu addChild:resumeMenuItem];
-		CCMenuItem *restartMenuItem = [CCMenuItemFont itemWithString:@"Restart" target:self selector:@selector(restartGame:)];
-		[_menu addChild:restartMenuItem];
-		if (CONFIG_CAN_EDIT_LEVELS)
-		{
-			CCMenuItem *editMenuItem = [CCMenuItemFont itemWithString:@"Edit" target:self selector:@selector(editGame:)];
-			[_menu addChild:editMenuItem];
-		}
-		CCMenuItem *quitMenuItem = [CCMenuItemFont itemWithString:@"Quit" target:self selector:@selector(gotoMainMenu:)];
-		[_menu addChild:quitMenuItem];
-		
-		[_menu alignItemsVerticallyWithPadding:30.0f];
-		
-		[self addChild:_menu];
+		CCMenuItem *editMenuItem = [CCMenuItemFont itemWithString:@"Edit" target:self selector:@selector(editGame:)];
+		[_menu addChild:editMenuItem];
 	}
-    return self;
+	CCMenuItem *quitMenuItem = [CCMenuItemFont itemWithString:@"Quit" target:self selector:@selector(gotoMainMenu:)];
+	[_menu addChild:quitMenuItem];
+	
+	[_menu alignItemsVerticallyWithPadding:30.0f];
+	
+	[self addChild:_menu];
 }
 
 -(void) resumeGame:(id)sender
@@ -65,8 +63,7 @@
 
 -(void) gotoMainMenu:(id)sender
 {
-	// This assumes the previous state was the game play state
-	[_game popAndReplaceState:[MainMenuState state]];
+	[_game clearAndReplaceState:[MainMenuState state]];
 }
 
 @end

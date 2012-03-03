@@ -126,8 +126,7 @@
 
 -(void) gotoMainMenu:(id)sender
 {
-	// This assumes the previous state was the edit state
-	[_game popAndReplaceState:[MainMenuState state]];
+	[_game clearAndReplaceState:[MainMenuState state]];
 }
 
 @end

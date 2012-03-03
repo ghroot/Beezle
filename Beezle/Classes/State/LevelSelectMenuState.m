@@ -26,54 +26,6 @@
     if (self = [super init])
     {
 		_theme = [theme retain];
-		
-        [[CCDirector sharedDirector] setNeedClear:TRUE];
-        
-        _menu = [CCMenu menuWithItems:nil];
-		
-		NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesForTheme:theme];
-        for (NSString *levelName in levelNames)
-        {
-			NSString *menuItemName = nil;
-			LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
-			if (levelLayout != nil)
-			{
-				menuItemName = [NSString stringWithFormat:@"%@(%d)%@", levelName, [levelLayout version], [levelLayout isEdited] ? @"e" : @""];
-			}
-			else
-			{
-				menuItemName = levelName;
-			}
-            CCMenuItemFont *levelMenuItem = [CCMenuItemFont itemWithString:menuItemName target:self selector:@selector(startGame:)];
-			[levelMenuItem setFontSize:24];
-            [levelMenuItem setUserData:levelName];
-            [_menu addChild:levelMenuItem];
-        }
-		CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
-		[backMenuItem setFontSize:24];
-		[_menu addChild:backMenuItem];
-		
-		int n1 = ceilf(([levelNames count] + 1) / 3);
-		int n2 = n1;
-		int n3 = [levelNames count] + 1 - n1 - n2;
-        [_menu alignItemsInRows:[NSNumber numberWithInt:n1], [NSNumber numberWithInt:n2], [NSNumber numberWithInt:n3], nil];
-        
-        [self addChild:_menu];
-		
-		for (NSString *levelName in levelNames)
-		{
-			LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
-			NSString *string = nil;
-			if (levelLayout != nil)
-			{
-				string = [NSString stringWithFormat:@"%@v%i (%@)", levelName, [levelLayout version], ([levelLayout isEdited] ? @"edited" : @"original")];
-			}
-			else
-			{
-				string = [NSString stringWithFormat:@"%@ (%@)", levelName, @"n/a"];
-			}
-			NSLog(@"%@", string);
-		}
     }
     return self;
 }
@@ -81,6 +33,59 @@
 -(id) init
 {
 	return [self initWithTheme:nil];
+}
+
+-(void) initialise
+{
+	[super initialise];
+	
+	[[CCDirector sharedDirector] setNeedClear:TRUE];
+	
+	_menu = [CCMenu menuWithItems:nil];
+	
+	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesForTheme:_theme];
+	for (NSString *levelName in levelNames)
+	{
+		NSString *menuItemName = nil;
+		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+		if (levelLayout != nil)
+		{
+			menuItemName = [NSString stringWithFormat:@"%@(%d)%@", levelName, [levelLayout version], [levelLayout isEdited] ? @"e" : @""];
+		}
+		else
+		{
+			menuItemName = levelName;
+		}
+		CCMenuItemFont *levelMenuItem = [CCMenuItemFont itemWithString:menuItemName target:self selector:@selector(startGame:)];
+		[levelMenuItem setFontSize:24];
+		[levelMenuItem setUserData:levelName];
+		[_menu addChild:levelMenuItem];
+	}
+	CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
+	[backMenuItem setFontSize:24];
+	[_menu addChild:backMenuItem];
+	
+	int n1 = ceilf(([levelNames count] + 1) / 3);
+	int n2 = n1;
+	int n3 = [levelNames count] + 1 - n1 - n2;
+	[_menu alignItemsInRows:[NSNumber numberWithInt:n1], [NSNumber numberWithInt:n2], [NSNumber numberWithInt:n3], nil];
+	
+	[self addChild:_menu];
+	
+	for (NSString *levelName in levelNames)
+	{
+		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+		NSString *string = nil;
+		if (levelLayout != nil)
+		{
+			string = [NSString stringWithFormat:@"%@v%i (%@)", levelName, [levelLayout version], ([levelLayout isEdited] ? @"edited" : @"original")];
+		}
+		else
+		{
+			string = [NSString stringWithFormat:@"%@ (%@)", levelName, @"n/a"];
+		}
+		NSLog(@"%@", string);
+	}
 }
 
 -(void) dealloc
@@ -92,9 +97,8 @@
 
 -(void) startGame:(id)sender
 {
-	// This assumes the previous state was the menu state
     NSString *levelName = (NSString *)[sender userData];
-	[_game popAndReplaceState:[GameplayState stateWithLevelName:levelName]];
+	[_game clearAndReplaceState:[GameplayState stateWithLevelName:levelName]];
 }
 
 -(void) goBack:(id)sender

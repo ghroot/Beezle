@@ -155,6 +155,7 @@
 		2C2C184014FEE92D007C2ADC /* Slinger.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C183F14FEE92D007C2ADC /* Slinger.m4a */; };
 		2C2C184214FEEB69007C2ADC /* Key-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C184114FEEB69007C2ADC /* Key-01.png */; };
 		2C2FB66B14FE800100D115AF /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		2C333E46150204800023303E /* LoadingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C333E45150204800023303E /* LoadingState.m */; };
 		2C3A6F931489809F002721E3 /* BeeExpiratonSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F921489809F002721E3 /* BeeExpiratonSystem.m */; };
 		2C3A6F96148980AF002721E3 /* BeeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F95148980AF002721E3 /* BeeComponent.m */; };
 		2C3B0E5414A91E4D008949B0 /* EmailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B0E5314A91E4D008949B0 /* EmailInfo.m */; };
@@ -397,6 +398,7 @@
 		2CEB9D7814EDC0A600CAC505 /* ShardSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7714EDC0A600CAC505 /* ShardSystem.m */; };
 		2CEB9D7B14EDC1BB00CAC505 /* ShardComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7A14EDC1BA00CAC505 /* ShardComponent.m */; };
 		2CEB9D7D14EDC34C00CAC505 /* Glass-Pc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7C14EDC34C00CAC505 /* Glass-Pc.plist */; };
+		2CEEEDDD150231B10096DCA1 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEEDDC150231B10096DCA1 /* Loading.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -692,6 +694,8 @@
 		2C2C184114FEEB69007C2ADC /* Key-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key-01.png"; sourceTree = "<group>"; };
 		2C2FB66914FE800100D115AF /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAnalytics.h; sourceTree = "<group>"; };
 		2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryAnalytics.a; sourceTree = "<group>"; };
+		2C333E44150204800023303E /* LoadingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingState.h; sourceTree = "<group>"; };
+		2C333E45150204800023303E /* LoadingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingState.m; sourceTree = "<group>"; };
 		2C38A1EA1496D6440019244D /* CollisionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionType.h; path = Classes/CollisionType.h; sourceTree = "<group>"; };
 		2C3A6F911489809F002721E3 /* BeeExpiratonSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeExpiratonSystem.h; path = Classes/System/BeeExpiratonSystem.h; sourceTree = "<group>"; };
 		2C3A6F921489809F002721E3 /* BeeExpiratonSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeExpiratonSystem.m; path = Classes/System/BeeExpiratonSystem.m; sourceTree = "<group>"; };
@@ -1043,6 +1047,7 @@
 		2CEB9D7914EDC1BA00CAC505 /* ShardComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShardComponent.h; path = Classes/Component/ShardComponent.h; sourceTree = "<group>"; };
 		2CEB9D7A14EDC1BA00CAC505 /* ShardComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShardComponent.m; path = Classes/Component/ShardComponent.m; sourceTree = "<group>"; };
 		2CEB9D7C14EDC34C00CAC505 /* Glass-Pc.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-Pc.plist"; sourceTree = "<group>"; };
+		2CEEEDDC150231B10096DCA1 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1082,6 +1087,7 @@
 			children = (
 				2C00D85114FD798B00BE5B4C /* Bubbla.png */,
 				2C2C184114FEEB69007C2ADC /* Key-01.png */,
+				2CEEEDDC150231B10096DCA1 /* Loading.png */,
 			);
 			name = Images;
 			path = Resources/Images;
@@ -1951,6 +1957,8 @@
 				2C114808148E9317002E4DBD /* IngameMenuState.m */,
 				2CE508CD14B1E98300A9E8D8 /* LevelSelectMenuState.h */,
 				2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */,
+				2C333E44150204800023303E /* LoadingState.h */,
+				2C333E45150204800023303E /* LoadingState.m */,
 				2CD33EF1147EFFA7000869C1 /* MainMenuState.h */,
 				2CD33EF2147EFFA7000869C1 /* MainMenuState.m */,
 				2CD33EE8147EE7AD000869C1 /* TestState.h */,
@@ -2472,6 +2480,7 @@
 				2C00D85214FD798B00BE5B4C /* Bubbla.png in Resources */,
 				2C2C184014FEE92D007C2ADC /* Slinger.m4a in Resources */,
 				2C2C184214FEEB69007C2ADC /* Key-01.png in Resources */,
+				2CEEEDDD150231B10096DCA1 /* Loading.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2693,6 +2702,7 @@
 				2CBCDDB314F7DCE700B11627 /* SoundComponent.m in Sources */,
 				2CE8604314F8FA7A00579202 /* CollisionGroup.m in Sources */,
 				2C4DFC7714FEF17F00D49CF9 /* HUDRenderingSystem.m in Sources */,
+				2C333E46150204800023303E /* LoadingState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

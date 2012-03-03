@@ -15,31 +15,29 @@
 
 @implementation MainMenuState
 
--(id) init
+-(void) initialise
 {
-    if (self = [super init])
-    {   
-        [[CCDirector sharedDirector] setNeedClear:TRUE];
-        
-        _menu = [CCMenu menuWithItems:nil];
-		
-		CCMenuItem *playMenuItem = [CCMenuItemFont itemWithString:@"Play" target:self selector:@selector(selectLevel:)];
-		[_menu addChild:playMenuItem];
-		if (CONFIG_CAN_EDIT_LEVELS)
-		{
-			CCMenuItem *sendMenuItem = [CCMenuItemFont itemWithString:@"Send Edited Levels" target:self selector:@selector(sendEditedLevels:)];
-			[_menu addChild:sendMenuItem];
-		}
-        CCMenuItem *testMenuItem = [CCMenuItemFont itemWithString:@"Test" target:self selector:@selector(startTest:)];
-        [_menu addChild:testMenuItem];
-		CCMenuItem *resetMenuItem = [CCMenuItemFont itemWithString:@"Reset player information" target:self selector:@selector(resetPlayerInformation:)];
-        [_menu addChild:resetMenuItem];
-        
-        [_menu alignItemsVerticallyWithPadding:20.0f];
-        
-        [self addChild:_menu];
-    }
-    return self;
+	[super initialise];
+	
+	[[CCDirector sharedDirector] setNeedClear:TRUE];
+	
+	_menu = [CCMenu menuWithItems:nil];
+	
+	CCMenuItem *playMenuItem = [CCMenuItemFont itemWithString:@"Play" target:self selector:@selector(selectLevel:)];
+	[_menu addChild:playMenuItem];
+	if (CONFIG_CAN_EDIT_LEVELS)
+	{
+		CCMenuItem *sendMenuItem = [CCMenuItemFont itemWithString:@"Send Edited Levels" target:self selector:@selector(sendEditedLevels:)];
+		[_menu addChild:sendMenuItem];
+	}
+	CCMenuItem *testMenuItem = [CCMenuItemFont itemWithString:@"Test" target:self selector:@selector(startTest:)];
+	[_menu addChild:testMenuItem];
+	CCMenuItem *resetMenuItem = [CCMenuItemFont itemWithString:@"Reset player information" target:self selector:@selector(resetPlayerInformation:)];
+	[_menu addChild:resetMenuItem];
+	
+	[_menu alignItemsVerticallyWithPadding:20.0f];
+	
+	[self addChild:_menu];
 }
 
 -(void) selectLevel:(id)sender

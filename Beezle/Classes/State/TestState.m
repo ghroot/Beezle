@@ -37,34 +37,41 @@
 
 -(id) init
 {
-    if (self = [super init])
+	if (self = [super init])
     {
-        [[CCDirector sharedDirector] setNeedClear:TRUE];
-        
-		_layer = [[CCLayer alloc] init];
-		[self addChild:_layer];
-		
-		_world = [[World alloc] init];
-		
-		SystemManager *systemManager = [_world systemManager];
-	
-		_physicsSystem = [[PhysicsSystem alloc] init];
-		[systemManager setSystem:_physicsSystem];
-		_renderSystem = [[RenderSystem alloc] initWithLayer:_layer];
-		[systemManager setSystem:_renderSystem];
-		_debugRenderPhysicsSystem = [[DebugRenderPhysicsSystem alloc] initWithScene:self];
-		[systemManager setSystem:_debugRenderPhysicsSystem];
-    
-		[systemManager initialiseAll];
-	
-        _label = [[CCLabelTTF alloc] initWithString:@"0" fontName:@"Arial" fontSize:20];
-		[_label setPosition:CGPointMake(15, 310)];
-		[_layer addChild:_label];
-		
-		_interval = 5;
-		_countdown = _interval;
+		_needsLoadingState = TRUE;
     }
     return self;
+}
+
+-(void) initialise
+{
+	[super initialise];
+	
+	[[CCDirector sharedDirector] setNeedClear:TRUE];
+	
+	_layer = [[CCLayer alloc] init];
+	[self addChild:_layer];
+	
+	_world = [[World alloc] init];
+	
+	SystemManager *systemManager = [_world systemManager];
+	
+	_physicsSystem = [[PhysicsSystem alloc] init];
+	[systemManager setSystem:_physicsSystem];
+	_renderSystem = [[RenderSystem alloc] initWithLayer:_layer];
+	[systemManager setSystem:_renderSystem];
+	_debugRenderPhysicsSystem = [[DebugRenderPhysicsSystem alloc] initWithScene:self];
+	[systemManager setSystem:_debugRenderPhysicsSystem];
+    
+	[systemManager initialiseAll];
+	
+	_label = [[CCLabelTTF alloc] initWithString:@"0" fontName:@"Arial" fontSize:20];
+	[_label setPosition:CGPointMake(15, 310)];
+	[_layer addChild:_label];
+	
+	_interval = 5;
+	_countdown = _interval;
 }
 
 -(void) dealloc

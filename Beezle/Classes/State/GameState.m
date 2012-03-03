@@ -12,10 +12,27 @@
 @implementation GameState
 
 @synthesize game = _game;
+@synthesize isInitalised = _isInitialised;
+@synthesize needsLoadingState = _needsLoadingState;
 
 +(id) state
 {
 	return [[[self alloc] init] autorelease];
+}
+
+-(id) init
+{
+	if (self = [super init])
+	{
+		_isInitialised = FALSE;
+		_needsLoadingState = FALSE;
+	}
+	return self;
+}
+
+-(void) initialise
+{
+	_isInitialised = TRUE;
 }
 
 -(void) enter
