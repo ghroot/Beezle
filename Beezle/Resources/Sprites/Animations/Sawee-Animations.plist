@@ -4,53 +4,96 @@
 <dict>
 	<key>animations</key>
 	<dict>
+		<key>Sawee-Shoot</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>Sawee/Sawee-1.png</string>
+				<string>Sawee/Sawee-2.png</string>
+				<string>Sawee/Sawee-1.png</string>
+				<string>Sawee/Sawee-2.png</string>
+				<string>Sawee/Sawee-1.png</string>
+				<string>Sawee/Sawee-2.png</string>
+				<string>Sawee/Sawee-Blink.png</string>
+			</array>
+			<key>delay</key>
+			<real>0.1</real>
+		</dict>
 		<key>Sawee-Idle</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Sawee/Sawee-01.png</string>
-				<string>Sawee/Sawee-02.png</string>
+				<string>Sawee/Sawee-1.png</string>
+				<string>Sawee/Sawee-2.png</string>
+				<string>Sawee/Sawee-1.png</string>
+				<string>Sawee/Sawee-2.png</string>
+				<string>Sawee/Sawee-1.png</string>
+				<string>Sawee/Sawee-2.png</string>
+				<string>Sawee/Sawee-Blink.png</string>
 			</array>
 			<key>delay</key>
-			<real>0.05</real>
+			<real>0.1</real>
 		</dict>
-		<key>Bee-Crash</key>
+		<key>Sawee-Crash</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bee/BeeCrash-01.png</string>
-				<string>Bee/BeeCrash-02.png</string>
-				<string>Bee/BeeCrash-03.png</string>
-				<string>Bee/BeeCrash-04.png</string>
-				<string>Bee/BeeCrash-05.png</string>
-				<string>Bee/BeeCrash-06.png</string>
-				<string>Bee/BeeCrash-07.png</string>
-				<string>Bee/BeeCrash-08.png</string>
-				<string>Bee/BeeCrash-09.png</string>
-				<string>Bee/BeeCrash-10.png</string>
+				<string>BeeEnding-General/BeeEnd-1.png</string>
+				<string>BeeEnding-General/BeeEnd-2.png</string>
+				<string>BeeEnding-General/BeeEnd-3.png</string>
+				<string>BeeEnding-General/BeeEnd-4.png</string>
+				<string>BeeEnding-General/BeeEnd-5.png</string>
+				<string>BeeEnding-General/BeeEnd-6.png</string>
+				<string>BeeEnding-General/BeeEnd-7.png</string>
+				<string>BeeEnding-General/BeeEnd-8.png</string>
+				<string>BeeEnding-General/BeeEnd-9.png</string>
+				<string>BeeEnding-General/BeeEnd-10.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.08</real>
 		</dict>
-		<key>Sawee-Saved</key>
+		<key>Sawee-Saved-LookDown</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Sawee/Sawee-01.png</string>
-				<string>Sawee/Sawee-02.png</string>
+				<string>Sawee/SaweeFree-1.png</string>
+				<string>Sawee/SaweeFree-2.png</string>
 			</array>
 			<key>delay</key>
-			<real>0.05</real>
+			<real>0.08</real>
 		</dict>
-		<key>Sawee-Happy</key>
+		<key>Sawee-Saved-LookScreen</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Sawee/Sawee-01.png</string>
-				<string>Sawee/Sawee-02.png</string>
+				<string>Sawee/SaweeFree-3.png</string>
+				<string>Sawee/SaweeFree-4.png</string>
+				<string>Sawee/SaweeFree-3.png</string>
+				<string>Sawee/SaweeFree-4.png</string>
+				<string>Sawee/SaweeFree-5.png</string>
 			</array>
 			<key>delay</key>
-			<real>0.05</real>
+			<real>0.08</real>
+		</dict>
+		<key>Sawee-Saved-LookSide</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>Sawee/SaweeFree-8.png</string>
+				<string>Sawee/SaweeFree-9.png</string>
+			</array>
+			<key>delay</key>
+			<real>0.08</real>
+		</dict>
+		<key>Sawee-Saved-LookAway</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>Sawee/SaweeFree-6.png</string>
+				<string>Sawee/SaweeFree-7.png</string>
+			</array>
+			<key>delay</key>
+			<real>0.08</real>
 		</dict>
 	</dict>
 </dict>

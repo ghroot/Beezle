@@ -4,16 +4,26 @@
 <dict>
 	<key>animations</key>
 	<dict>
+		<key>Bee-Shoot</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>Bee/BeeShoot-1.png</string>
+				<string>Bee/BeeShoot-2.png</string>
+			</array>
+			<key>delay</key>
+			<real>0.3</real>
+		</dict>
 		<key>Bee-Idle</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bee/Bee-01.png</string>
-				<string>Bee/Bee-02.png</string>
-				<string>Bee/Bee-01.png</string>
-				<string>Bee/Bee-02.png</string>
-				<string>Bee/Bee-01.png</string>
-				<string>Bee/Bee-02.png</string>
+				<string>Bee/Bee-1.png</string>
+				<string>Bee/Bee-2.png</string>
+				<string>Bee/Bee-1.png</string>
+				<string>Bee/Bee-2.png</string>
+				<string>Bee/Bee-1.png</string>
+				<string>Bee/Bee-2.png</string>
 				<string>Bee/BeeBlink.png</string>
 			</array>
 			<key>delay</key>
@@ -23,36 +33,56 @@
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bee/BeeCrash-01.png</string>
-				<string>Bee/BeeCrash-02.png</string>
-				<string>Bee/BeeCrash-03.png</string>
-				<string>Bee/BeeCrash-04.png</string>
-				<string>Bee/BeeCrash-05.png</string>
-				<string>Bee/BeeCrash-06.png</string>
-				<string>Bee/BeeCrash-07.png</string>
-				<string>Bee/BeeCrash-08.png</string>
-				<string>Bee/BeeCrash-09.png</string>
-				<string>Bee/BeeCrash-10.png</string>
+				<string>BeeEnding-General/BeeEnd-1.png</string>
+				<string>BeeEnding-General/BeeEnd-2.png</string>
+				<string>BeeEnding-General/BeeEnd-3.png</string>
+				<string>BeeEnding-General/BeeEnd-4.png</string>
+				<string>BeeEnding-General/BeeEnd-5.png</string>
+				<string>BeeEnding-General/BeeEnd-6.png</string>
+				<string>BeeEnding-General/BeeEnd-7.png</string>
+				<string>BeeEnding-General/BeeEnd-8.png</string>
+				<string>BeeEnding-General/BeeEnd-9.png</string>
+				<string>BeeEnding-General/BeeEnd-10.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.08</real>
 		</dict>
-		<key>Bee-Saved</key>
+		<key>Bee-Saved-LookDown</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bee/BeeRelease-1.png</string>
-				<string>Bee/BeeRelease-1b.png</string>
+				<string>Bee/BeeFree-1.png</string>
+				<string>Bee/BeeFree-2.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.08</real>
 		</dict>
-		<key>Bee-Happy</key>
+		<key>Bee-Saved-LookScreen</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bee/BeeRelease-3.png</string>
-				<string>Bee/BeeRelease-3b.png</string>
+				<string>Bee/BeeFree-3.png</string>
+				<string>Bee/BeeFree-4.png</string>
+			</array>
+			<key>delay</key>
+			<real>0.08</real>
+		</dict>
+		<key>Bee-Saved-LookSide</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>Bee/BeeFree-5.png</string>
+				<string>Bee/BeeFree-6.png</string>
+			</array>
+			<key>delay</key>
+			<real>0.08</real>
+		</dict>
+		<key>Bee-Saved-LookAway</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>Bee/BeeFree-7.png</string>
+				<string>Bee/BeeFree-8.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.08</real>

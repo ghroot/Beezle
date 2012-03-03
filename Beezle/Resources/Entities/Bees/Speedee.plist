@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>SPEEDEE</string>
+	<key>groups</key>
+	<array>
+		<string>BEES</string>
+	</array>
+	<key>components</key>
+	<dict>
+		<key>bee</key>
+		<dict>
+			<key>type</key>
+			<string>SPEEDEE</string>
+			<key>beeaterHits</key>
+			<real>2</real>
+		</dict>
+		<key>disposable</key>
+		<dict/>
+		<key>physics</key>
+		<dict>
+			<key>file</key>
+			<string>Bee-Shapes.plist</string>
+			<key>bodyName</key>
+			<string>Bee-01</string>
+			<key>collisionType</key>
+			<string>BEE</string>
+			<key>layers</key>
+			<real>1</real>
+			<key>group</key>
+			<string>OBJECT</string>
+		</dict>
+		<key>render</key>
+		<dict>
+			<key>sprites</key>
+			<array>
+				<dict>
+					<key>name</key>
+					<string>default</string>
+					<key>spriteSheetName</key>
+					<string>Sprites</string>
+					<key>animationFile</key>
+					<string>Speedee-Animations.plist</string>
+					<key>z</key>
+					<integer>4</integer>
+					<key>anchorPoint</key>
+					<string>{ 0.5, 0.5 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Speedee-Idle</string>
+					<key>defaultDestroyAnimation</key>
+					<string>Speedee-Crash</string>
+				</dict>
+			</array>
+		</dict>
+		<key>spawn</key>
+		<dict>
+			<key>entityType</key>
+			<string>SPEEDEE-PUFF</string>
+			<key>animationName</key>
+			<string>Speedee-Puff</string>
+			<key>autoDestroy</key>
+			<true/>
+			<key>interval</key>
+			<real>0.15</real>
+		</dict>
+		<key>transform</key>
+		<dict/>
+	</dict>
+</dict>
+</plist>
