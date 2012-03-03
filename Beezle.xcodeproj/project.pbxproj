@@ -23,7 +23,6 @@
 		2C140F6D14F6EF7600FE1965 /* Level-H1-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C140F6C14F6EF7600FE1965 /* Level-H1-Layout.plist */; };
 		2C157BF0148FEA8E003F9040 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157BED148FEA8E003F9040 /* Game.m */; };
 		2C157BF1148FEA8E003F9040 /* GameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157BEF148FEA8E003F9040 /* GameState.m */; };
-		2C157BF3149009F9003F9040 /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C157BF2149009F9003F9040 /* Pause.png */; };
 		2C157C1A14914F6A003F9040 /* TrajectoryComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1914914F6A003F9040 /* TrajectoryComponent.m */; };
 		2C157C1F149382D8003F9040 /* GameRulesSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1E149382D6003F9040 /* GameRulesSystem.m */; };
 		2C157C241493B3DE003F9040 /* GameMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C231493B3DE003F9040 /* GameMode.m */; };
@@ -215,6 +214,7 @@
 		2C764EA3148A937D00820587 /* 27134__zippi1__fart1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2C764E9F148A937D00820587 /* 27134__zippi1__fart1.wav */; };
 		2C764EA4148A937D00820587 /* 33369__herbertboland__mouthpop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2C764EA0148A937D00820587 /* 33369__herbertboland__mouthpop.wav */; };
 		2C764EB2148A9D3000820587 /* 52144__blaukreuz__imp-02.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C764EB1148A9D3000820587 /* 52144__blaukreuz__imp-02.m4a */; };
+		2C7C3B26150275B800640416 /* PauseArrow-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B25150275B800640416 /* PauseArrow-01.png */; };
 		2C7CE5F71469AD06001F331F /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5F61469AD06001F331F /* RenderSystem.m */; };
 		2C7CE5FA1469D092001F331F /* PhysicsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5F91469D092001F331F /* PhysicsSystem.m */; };
 		2C7CE61C146C73FE001F331F /* InputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE61B146C73FE001F331F /* InputSystem.m */; };
@@ -425,7 +425,6 @@
 		2C157BED148FEA8E003F9040 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		2C157BEE148FEA8E003F9040 /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
 		2C157BEF148FEA8E003F9040 /* GameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameState.m; sourceTree = "<group>"; };
-		2C157BF2149009F9003F9040 /* Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Pause.png; path = Resources/Pause.png; sourceTree = "<group>"; };
 		2C157C1814914F6A003F9040 /* TrajectoryComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrajectoryComponent.h; path = Classes/Component/TrajectoryComponent.h; sourceTree = "<group>"; };
 		2C157C1914914F6A003F9040 /* TrajectoryComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrajectoryComponent.m; path = Classes/Component/TrajectoryComponent.m; sourceTree = "<group>"; };
 		2C157C1D149382D6003F9040 /* GameRulesSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameRulesSystem.h; path = Classes/System/GameRulesSystem.h; sourceTree = "<group>"; };
@@ -763,6 +762,7 @@
 		2C764E9F148A937D00820587 /* 27134__zippi1__fart1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 27134__zippi1__fart1.wav; sourceTree = "<group>"; };
 		2C764EA0148A937D00820587 /* 33369__herbertboland__mouthpop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 33369__herbertboland__mouthpop.wav; sourceTree = "<group>"; };
 		2C764EB1148A9D3000820587 /* 52144__blaukreuz__imp-02.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "52144__blaukreuz__imp-02.m4a"; sourceTree = "<group>"; };
+		2C7C3B25150275B800640416 /* PauseArrow-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01.png"; sourceTree = "<group>"; };
 		2C7CE5F51469AD06001F331F /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderSystem.h; path = Classes/System/RenderSystem.h; sourceTree = "<group>"; };
 		2C7CE5F61469AD06001F331F /* RenderSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSystem.m; path = Classes/System/RenderSystem.m; sourceTree = "<group>"; };
 		2C7CE5F81469D092001F331F /* PhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsSystem.h; path = Classes/System/PhysicsSystem.h; sourceTree = "<group>"; };
@@ -1068,6 +1068,7 @@
 				2C00D85114FD798B00BE5B4C /* Bubbla.png */,
 				2C2C184114FEEB69007C2ADC /* Key-01.png */,
 				2CEEEDDC150231B10096DCA1 /* Loading.png */,
+				2C7C3B25150275B800640416 /* PauseArrow-01.png */,
 			);
 			name = Images;
 			path = Resources/Images;
@@ -2064,7 +2065,6 @@
 				2CEA3295145F66F7000FF575 /* Icon-Small@2x.png */,
 				2CEA3297145F66F7000FF575 /* Icon.png */,
 				2CEA3299145F66F7000FF575 /* Icon@2x.png */,
-				2C157BF2149009F9003F9040 /* Pause.png */,
 				2CEA329B145F66F7000FF575 /* Info.plist */,
 				2CEA329C145F66F7000FF575 /* iTunesArtwork */,
 			);
@@ -2295,7 +2295,6 @@
 				2C1147CB148B9459002E4DBD /* LICENSE_cocos2d.txt in Resources */,
 				2C1147CC148B9459002E4DBD /* LICENSE_CocosDenshion.txt in Resources */,
 				2C1147CD148B9459002E4DBD /* LICENSE_Kazmath.txt in Resources */,
-				2C157BF3149009F9003F9040 /* Pause.png in Resources */,
 				2C64AD0914B89D7E00ABD114 /* Levels.plist in Resources */,
 				2CC7184B14E1E29500059B66 /* Aim-Pollen.plist in Resources */,
 				2CC7185214E1E29500059B66 /* Egg.plist in Resources */,
@@ -2441,6 +2440,7 @@
 				2C2C184014FEE92D007C2ADC /* Slinger.m4a in Resources */,
 				2C2C184214FEEB69007C2ADC /* Key-01.png in Resources */,
 				2CEEEDDD150231B10096DCA1 /* Loading.png in Resources */,
+				2C7C3B26150275B800640416 /* PauseArrow-01.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -58,9 +58,9 @@
 		for (int i = 0; i < numberOfKeys; i++)
 		{
 			CCSprite *keyImageSprite = [CCSprite spriteWithFile:@"Key-01.png"];
-			[keyImageSprite setAnchorPoint:CGPointMake(0.0f, 1.0f)];
+			[keyImageSprite setAnchorPoint:CGPointMake(1.0f, 1.0f)];
 			CGSize winSize = [[CCDirector sharedDirector] winSize];
-			[keyImageSprite setPosition:CGPointMake(5.0f + (i * (5.0f + [keyImageSprite contentSize].width)), winSize.height - 5.0f)];
+			[keyImageSprite setPosition:CGPointMake(winSize.width - 5.0f - (i * (5.0f + [keyImageSprite contentSize].width)), winSize.height - 5.0f)];
 			[_keyImageSprites addObject:keyImageSprite];
 			[_layer addChild:keyImageSprite];
 		}
