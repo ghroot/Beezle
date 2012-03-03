@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C00D85214FD798B00BE5B4C /* Bubbla.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C00D85114FD798B00BE5B4C /* Bubbla.png */; };
 		2C068A34146858B9003E200D /* TransformComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C068A33146858B9003E200D /* TransformComponent.m */; };
 		2C0D500414A8CDBC00466316 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0D500314A8CDBC00466316 /* MessageUI.framework */; };
 		2C1147CA148B9459002E4DBD /* LICENSE_Chipmunk.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C114745148B9459002E4DBD /* LICENSE_Chipmunk.txt */; };
@@ -215,6 +214,8 @@
 		2C764EA4148A937D00820587 /* 33369__herbertboland__mouthpop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2C764EA0148A937D00820587 /* 33369__herbertboland__mouthpop.wav */; };
 		2C764EB2148A9D3000820587 /* 52144__blaukreuz__imp-02.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C764EB1148A9D3000820587 /* 52144__blaukreuz__imp-02.m4a */; };
 		2C7C3B26150275B800640416 /* PauseArrow-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B25150275B800640416 /* PauseArrow-01.png */; };
+		2C7C3B29150276C300640416 /* Level Completed Bubble-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */; };
+		2C7C3B2A150276C300640416 /* Level Failed Bubble-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */; };
 		2C7CE5F71469AD06001F331F /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5F61469AD06001F331F /* RenderSystem.m */; };
 		2C7CE5FA1469D092001F331F /* PhysicsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE5F91469D092001F331F /* PhysicsSystem.m */; };
 		2C7CE61C146C73FE001F331F /* InputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE61B146C73FE001F331F /* InputSystem.m */; };
@@ -402,7 +403,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2C00D85114FD798B00BE5B4C /* Bubbla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bubbla.png; sourceTree = "<group>"; };
 		2C068A32146858B9003E200D /* TransformComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransformComponent.h; path = Classes/Component/TransformComponent.h; sourceTree = "<group>"; };
 		2C068A33146858B9003E200D /* TransformComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransformComponent.m; path = Classes/Component/TransformComponent.m; sourceTree = "<group>"; };
 		2C0D500314A8CDBC00466316 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -763,6 +763,8 @@
 		2C764EA0148A937D00820587 /* 33369__herbertboland__mouthpop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 33369__herbertboland__mouthpop.wav; sourceTree = "<group>"; };
 		2C764EB1148A9D3000820587 /* 52144__blaukreuz__imp-02.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "52144__blaukreuz__imp-02.m4a"; sourceTree = "<group>"; };
 		2C7C3B25150275B800640416 /* PauseArrow-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01.png"; sourceTree = "<group>"; };
+		2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level Completed Bubble-01.png"; sourceTree = "<group>"; };
+		2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level Failed Bubble-01.png"; sourceTree = "<group>"; };
 		2C7CE5F51469AD06001F331F /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderSystem.h; path = Classes/System/RenderSystem.h; sourceTree = "<group>"; };
 		2C7CE5F61469AD06001F331F /* RenderSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSystem.m; path = Classes/System/RenderSystem.m; sourceTree = "<group>"; };
 		2C7CE5F81469D092001F331F /* PhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsSystem.h; path = Classes/System/PhysicsSystem.h; sourceTree = "<group>"; };
@@ -1065,8 +1067,9 @@
 		2C00D85014FD798B00BE5B4C /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				2C00D85114FD798B00BE5B4C /* Bubbla.png */,
 				2C2C184114FEEB69007C2ADC /* Key-01.png */,
+				2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */,
+				2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */,
 				2CEEEDDC150231B10096DCA1 /* Loading.png */,
 				2C7C3B25150275B800640416 /* PauseArrow-01.png */,
 			);
@@ -2436,11 +2439,12 @@
 				2C7EB67D14FC38A000136D57 /* Beeater-Pc2.plist in Resources */,
 				2C7EB67F14FC39DA00136D57 /* Beeater-Pc3.plist in Resources */,
 				2C7EB68114FD6AEA00136D57 /* Beeater-Pc4.plist in Resources */,
-				2C00D85214FD798B00BE5B4C /* Bubbla.png in Resources */,
 				2C2C184014FEE92D007C2ADC /* Slinger.m4a in Resources */,
 				2C2C184214FEEB69007C2ADC /* Key-01.png in Resources */,
 				2CEEEDDD150231B10096DCA1 /* Loading.png in Resources */,
 				2C7C3B26150275B800640416 /* PauseArrow-01.png in Resources */,
+				2C7C3B29150276C300640416 /* Level Completed Bubble-01.png in Resources */,
+				2C7C3B2A150276C300640416 /* Level Failed Bubble-01.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -55,6 +55,7 @@
 -(void) updateMode;
 -(void) showLabel:(NSString *)labelText;
 -(void) loadNextLevel:(id)sender;
+-(void) restartLevel:(id)sender;
 
 @end
 
@@ -372,7 +373,7 @@
 			NSLog(@"New record: %d", [[PlayerInformation sharedInformation] pollenRecord:[_levelSession levelName]]);
 			NSLog(@"Total: %d", [[PlayerInformation sharedInformation] totalNumberOfPollen]);
 			
-			CCMenuItemImage *levelCompleteMenuItem = [CCMenuItemImage itemWithNormalImage:@"Bubbla.png" selectedImage:@"Bubbla.png" target:self selector:@selector(loadNextLevel:)];
+			CCMenuItemImage *levelCompleteMenuItem = [CCMenuItemImage itemWithNormalImage:@"Level Completed Bubble-01.png" selectedImage:@"Level Completed Bubble-01.png" target:self selector:@selector(loadNextLevel:)];
 			CCMenu *levelCompleteMenu = [CCMenu menuWithItems:levelCompleteMenuItem, nil];
 			[levelCompleteMenuItem setScale:0.25f];
 			CCEaseElasticInOut *elasticScaleAction = [CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]];
@@ -386,7 +387,12 @@
         {
             [self enterMode:_levelFailedMode];
 			
-			[self showLabel:@"Level Failed..."];
+			CCMenuItemImage *levelFailedMenuItem = [CCMenuItemImage itemWithNormalImage:@"Level Failed Bubble-01.png" selectedImage:@"Level Failed Bubble-01.png" target:self selector:@selector(restartLevel:)];
+			CCMenu *levelFailedMenu = [CCMenu menuWithItems:levelFailedMenuItem, nil];
+			[levelFailedMenuItem setScale:0.25f];
+			CCEaseElasticInOut *elasticScaleAction = [CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]];
+			[levelFailedMenuItem runAction:elasticScaleAction];
+			[_uiLayer addChild:levelFailedMenu];
         }
     } 
     else if (_currentMode == _aimingMode &&
@@ -427,6 +433,11 @@
     {
         [_game replaceState:[MainMenuState state]];
     }
+}
+
+-(void) restartLevel:(id)sender
+{
+	[_game replaceState:[GameplayState stateWithLevelName:_levelName]];
 }
 
 @end
