@@ -11,6 +11,7 @@
 #import "EmailInfo.h"
 #import "FlurryAnalytics.h"
 #import "Game.h"
+#import "LevelLayoutCache.h"
 
 @implementation AppDelegate
 
@@ -124,6 +125,7 @@ void uncaughtExceptionHandler(NSException *exception)
 -(void) applicationDidReceiveMemoryWarning:(UIApplication *)application
 {
 	[[CCDirector sharedDirector] purgeCachedData];
+	[[LevelLayoutCache sharedLevelLayoutCache] purgeAllCachedLevelLayouts];
 }
 
 -(void) applicationSignificantTimeChange:(UIApplication *)application
