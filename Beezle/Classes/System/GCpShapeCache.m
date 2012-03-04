@@ -232,7 +232,12 @@ typedef enum
     
     // create and add body to space
     ChipmunkBody *body;
-    if (bd->mass > 0.0f)
+	if (bd->mass == 0.0f ||
+		[name hasPrefix:@"Level"])
+	{
+		body = [ChipmunkBody staticBody];
+	}
+    else if (bd->mass > 0.0f)
     {
 		body = [ChipmunkBody bodyWithMass:bd->mass andMoment:bd->momentum];
     }
@@ -240,10 +245,6 @@ typedef enum
 	{
 		body = [ChipmunkBody bodyWithMass:INFINITY andMoment:INFINITY];
 	}
-    else
-    {
-        body = [ChipmunkBody staticBody];
-    }
 	
     [bodyInfo setBody:body];
     
