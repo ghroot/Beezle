@@ -44,7 +44,6 @@
 -(void) handleCollisionBee:(Entity *)beeEntity withGate:(Entity *)gateEntity collision:(Collision *)collision;
 -(void) handleCollisionAimPollen:(Entity *)aimPollenEntity withEdge:(Entity *)edgeEntity collision:(Collision *)collision;
 -(void) handleCollisionGlassPiece:(Entity *)glassPieceEntity withEntity:(Entity *)otherEntity collision:(Collision *)collision;
--(void) handleCollisionBeeaterPiece2:(Entity *)beeaterPiece2Entity withEntity:(Entity *)otherEntity collision:(Collision *)collision;
 -(void) handleCollisionWaterdrop:(Entity *)waterdropEntity withBackground:(Entity *)backgroundEntity collision:(Collision *)collision;
 
 @end
@@ -97,8 +96,6 @@
 	[self handleCollisionBetween:[CollisionType AIM_POLLEN] and:[CollisionType EDGE] selector:@selector(handleCollisionAimPollen:withEdge:collision:)];
 	[self handleCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionGlassPiece:withEntity:collision:)];
 	[self handleCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType EDGE] selector:@selector(handleCollisionGlassPiece:withEntity:collision:)];
-	[self handleCollisionBetween:[CollisionType BEEATER_PC2] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionBeeaterPiece2:withEntity:collision:)];
-	[self handleCollisionBetween:[CollisionType BEEATER_PC2] and:[CollisionType EDGE] selector:@selector(handleCollisionBeeaterPiece2:withEntity:collision:)];
 	[self handleCollisionBetween:[CollisionType WATER_DROP] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionWaterdrop:withBackground:collision:)];
 }
 
@@ -307,28 +304,6 @@
 	[glassPieceEntity deleteEntity];
 	
     [EntityUtil playDefaultDestroySound:glassPieceEntity];
-}
-
--(void) handleCollisionBeeaterPiece2:(Entity *)beeaterPiece2Entity withEntity:(Entity *)otherEntity collision:(Collision *)collision
-{
-	TransformComponent *transformComponent = [TransformComponent getFrom:beeaterPiece2Entity];
-	for (int i = 0; i < 3; i++)
-	{
-		// Create entity
-		Entity *beeaterPieceSmallEntity = [EntityFactory createEntity:@"BEEATER-PC3" world:_world];
-		
-		// Position
-		[EntityUtil setEntityPosition:beeaterPieceSmallEntity position:[transformComponent position]];
-		
-		// Velocity
-		PhysicsComponent *smallPhysicsComponent = [PhysicsComponent getFrom:beeaterPieceSmallEntity];
-		cpVect randomVelocity = [Utils createVectorWithRandomAngleAndLengthBetween:30 and:60];
-		[[smallPhysicsComponent body] setVel:randomVelocity];
-		
-		// Fade out
-		[EntityUtil fadeOutAndDeleteEntity:beeaterPieceSmallEntity duration:4.0f];
-	}
-	[beeaterPiece2Entity deleteEntity];
 }
 
 -(void) handleCollisionWaterdrop:(Entity *)waterdropEntity withBackground:(Entity *)backgroundEntity collision:(Collision *)collision

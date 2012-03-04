@@ -12,7 +12,6 @@
 @implementation BeeaterComponent
 
 @synthesize containedBeeType = _containedBeeType;
-@synthesize killAnimationName = _killAnimationName;
 
 -(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
 {
@@ -23,10 +22,6 @@
 			NSString *defaultContainedBeeTypeAsString = [dict objectForKey:@"defaultContainedBeeType"];
 			BeeType *defaultContainedBeeType = [BeeType enumFromName:defaultContainedBeeTypeAsString];
 			_containedBeeType = defaultContainedBeeType;
-		}
-		if ([dict objectForKey:@"killAnimation"] != nil)
-		{
-			_killAnimationName = [[dict objectForKey:@"killAnimation"] copy];
 		}
 	}
 	return self;
@@ -40,13 +35,6 @@
 		_containedBeeType = nil;
 	}
 	return self;
-}
-
--(void) dealloc
-{
-	[_killAnimationName release];
-	
-	[super dealloc];
 }
 
 -(void) setContainedBeeType:(BeeType *)containedBeeType

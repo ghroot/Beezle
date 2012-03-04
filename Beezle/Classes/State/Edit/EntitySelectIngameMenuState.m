@@ -49,10 +49,9 @@
 
 -(void) createEntityMenuItems
 {
+	[self addMenuItemForEntityType:@"BEEATER-LAND"];
 	[self addMenuItemForEntityType:@"BEEATER-BIRD"];
-	[self addMenuItemForEntityType:@"BEEATER-CEILING"];
 	[self addMenuItemForEntityType:@"BEEATER-FISH"];
-	[self addMenuItemForEntityType:@"BEEATER"];
 	[self addMenuItemForEntityType:@"CAVEGATE"];
 	[self addMenuItemForEntityType:@"EGG"];
 	[self addMenuItemForEntityType:@"FLOATING-BLOCK-A"];

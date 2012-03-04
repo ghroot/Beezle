@@ -97,7 +97,7 @@
 	Entity *beeaterEntity = [beeaterComponent parentEntity];
 	RenderComponent *renderComponent = [RenderComponent getFrom:beeaterEntity];
 	RenderSprite *headRenderSprite = [renderComponent getRenderSprite:@"head"];
-	NSString *headAnimationName = [NSString stringWithFormat:@"Beeater-Head-Idle-With%@", [[beeaterComponent containedBeeType] capitalizedString]];
+	NSString *headAnimationName = [NSString stringWithFormat:@"Beeater-Head-Idle-%@", [[beeaterComponent containedBeeType] capitalizedString]];
     [headRenderSprite playAnimation:headAnimationName];
 }
 
@@ -131,36 +131,39 @@
 	RenderSprite *beeaterBodyRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"body"];
 	RenderSprite *beeaterHeadRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"head"];
 	[beeaterHeadRenderSprite hide];
-	[beeaterBodyRenderSprite playAnimation:[beeaterComponent killAnimationName] withCallbackTarget:beeaterEntity andCallbackSelector:@selector(deleteEntity)];
+	[beeaterBodyRenderSprite playAnimation:[beeaterBodyRenderSprite randomDefaultDestroyAnimationName] withCallbackTarget:beeaterEntity andCallbackSelector:@selector(deleteEntity)];
 	
 	// Disable physics
 	PhysicsComponent *beeaterPhysicsComponent = [PhysicsComponent getFrom:beeaterEntity];
 	[beeaterPhysicsComponent disable];
 	[beeaterEntity refresh];
 	
-	// Particles
-	for (int i = 0; i < 8; i++)
+	// TEMP: Work into shard system
+	if ([[beeaterBodyRenderSprite randomDefaultDestroyAnimationName] isEqualToString:@"Bird-Beeater-Body-Kill"])
 	{
-		// Create entity
-		Entity *particleEntity = [EntityFactory createEntity:@"BEEATER-PC4" world:_world];
-		
-		// Position
-		CGPoint topLeft = CGPointMake([beeaterTransformComponent position].x - 15,
-									  [beeaterTransformComponent position].y + 5);
-		CGPoint randomPosition = CGPointMake(topLeft.x + (rand() % 30),
-											 topLeft.y + (rand() % 30));
-		[EntityUtil setEntityPosition:particleEntity position:randomPosition];
-		
-		// Velocity
-		PhysicsComponent *particlePhysicsComponent = [PhysicsComponent getFrom:particleEntity];
-		cpVect randomVelocity = [Utils createVectorWithRandomAngleAndLengthBetween:40 and:80];
-		[[particlePhysicsComponent body] setVel:randomVelocity];
-		
-		// Reduce gravity
-		[[particlePhysicsComponent body] setForce:cpv(0, 30.0f)];
-		
-		// Animation
-		[EntityUtil animateAndDeleteEntity:particleEntity disablePhysics:FALSE];
+		for (int i = 0; i < 8; i++)
+		{
+			// Create entity
+			Entity *particleEntity = [EntityFactory createEntity:@"BEEATER-PC" world:_world];
+			
+			// Position
+			CGPoint topLeft = CGPointMake([beeaterTransformComponent position].x - 15,
+										  [beeaterTransformComponent position].y + 5);
+			CGPoint randomPosition = CGPointMake(topLeft.x + (rand() % 30),
+												 topLeft.y + (rand() % 30));
+			[EntityUtil setEntityPosition:particleEntity position:randomPosition];
+			
+			// Velocity
+			PhysicsComponent *particlePhysicsComponent = [PhysicsComponent getFrom:particleEntity];
+			cpVect randomVelocity = [Utils createVectorWithRandomAngleAndLengthBetween:40 and:80];
+			[[particlePhysicsComponent body] setVel:randomVelocity];
+			
+			// Reduce gravity
+			[[particlePhysicsComponent body] setForce:cpv(0, 30.0f)];
+			
+			// Animation
+			[EntityUtil animateAndDeleteEntity:particleEntity disablePhysics:FALSE];
+		}
 	}
 	
 	// Game notification

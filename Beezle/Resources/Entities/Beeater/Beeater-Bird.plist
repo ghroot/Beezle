@@ -14,8 +14,6 @@
 		<dict>
 			<key>defaultContainedBeeType</key>
 			<string>BEE</string>
-			<key>killAnimation</key>
-			<string>Beeater-Generic-Ending</string>
 		</dict>
 		<key>crumble</key>
 		<dict/>
@@ -70,13 +68,15 @@
 					<key>spriteSheetName</key>
 					<string>Sprites</string>
 					<key>animationFile</key>
-					<string>Beeater-Body-Animations.plist</string>
+					<string>Bird-Beeater-Body-Animations.plist</string>
 					<key>z</key>
 					<integer>2</integer>
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.6 }</string>
 					<key>defaultIdleAnimation</key>
-					<string>Beeater-Body-Bird-Idle</string>
+					<string>Bird-Beeater-Body-Idle</string>
+					<key>defaultDestroyAnimation</key>
+					<string>Bird-Beeater-Body-Kill</string>
 				</dict>
 				<dict>
 					<key>name</key>
