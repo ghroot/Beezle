@@ -55,10 +55,8 @@
 	[self addMenuItemForEntityType:@"CAVEGATE"];
 	[self addMenuItemForEntityType:@"EGG"];
 	[self addMenuItemForEntityType:@"FLOATING-BLOCK-A"];
-	[self addMenuItemForEntityType:@"GLASS-A29"];
-	[self addMenuItemForEntityType:@"GLASS-A34"];
+	[self addMenuItemForEntityType:@"GLASS-A22"];
 	[self addMenuItemForEntityType:@"HANGNEST"];
-	[self addMenuItemForEntityType:@"LEAF"];
 	[self addMenuItemForEntityType:@"MUSHROOM"];
 	[self addMenuItemForEntityType:@"NUT"];
 	[self addMenuItemForEntityType:@"POLLEN"];

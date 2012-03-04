@@ -10,16 +10,32 @@
 		<dict/>
 		<key>physics</key>
 		<dict>
-			<key>file</key>
-			<string>PollenO-Shapes.plist</string>
-			<key>bodyName</key>
-			<string>PollenO-01</string>
-			<key>collisionType</key>
-			<string>POLLEN_ORANGE</string>
-			<key>layers</key>
-			<integer>5</integer>
-			<key>group</key>
-			<string>LEVEL</string>
+			<key>body</key>
+			<dict>
+				<key>mass</key>
+				<real>0</real>
+			</dict>
+			<key>shapes</key>
+			<array>
+				<dict>
+					<key>type</key>
+					<string>circle</string>
+					<key>radius</key>
+					<real>8</real>
+					<key>elasticity</key>
+					<real>0.8</real>
+					<key>friction</key>
+					<real>0.5</real>
+                    <key>isSensor</key>
+                    <true/>
+					<key>collisionType</key>
+					<string>POLLEN</string>
+					<key>layers</key>
+					<real>5</real>
+					<key>group</key>
+					<string>LEVEL</string>
+				</dict>
+			</array>
 		</dict>
 		<key>pollen</key>
 		<dict>

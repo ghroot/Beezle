@@ -15,7 +15,6 @@
 +(CollisionType *) BEE;
 +(CollisionType *) BEEATER;
 +(CollisionType *) POLLEN;
-+(CollisionType *) POLLEN_ORANGE;
 +(CollisionType *) MUSHROOM;
 +(CollisionType *) WOOD;
 +(CollisionType *) NUT;

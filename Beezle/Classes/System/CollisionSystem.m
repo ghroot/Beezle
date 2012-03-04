@@ -86,7 +86,6 @@
 	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType BACKGROUND] selector:@selector(handleCollisionBee:withBackground:collision:)];
 	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType BEEATER] selector:@selector(handleCollisionBee:withBeeater:collision:)];
 	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType POLLEN] selector:@selector(handleCollisionBee:withPollen:collision:)];
-	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType POLLEN_ORANGE] selector:@selector(handleCollisionBee:withPollen:collision:)];
 	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType MUSHROOM] selector:@selector(handleCollisionBee:withMushroom:collision:)];
     [self handleCollisionBetween:[CollisionType BEE] and:[CollisionType WOOD] selector:@selector(handleCollisionBee:withWood:collision:)];
 	[self handleCollisionBetween:[CollisionType BEE] and:[CollisionType NUT] selector:@selector(handleCollisionBee:withNut:collision:)];
