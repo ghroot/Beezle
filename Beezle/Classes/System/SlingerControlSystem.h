@@ -20,6 +20,7 @@
     
     BOOL _isShootingAimPollens;
     int _aimPollenCountdown;
+	BOOL _stretchSoundPlayed;
 }
 
 @end

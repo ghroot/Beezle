@@ -133,8 +133,11 @@
 	if (_isFunctional &&
 		name != nil)
 	{
-		int soundId = [[_soundIdsBySoundName objectForKey:name] intValue];
-		[[SimpleAudioEngine sharedEngine] stopEffect:soundId];
+		if ([_soundIdsBySoundName objectForKey:name] != nil)
+		{
+			int soundId = [[_soundIdsBySoundName objectForKey:name] intValue];
+			[[SimpleAudioEngine sharedEngine] stopEffect:soundId];
+		}
 	}
 }
 

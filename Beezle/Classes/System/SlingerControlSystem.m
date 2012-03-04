@@ -25,6 +25,7 @@
 #define SLINGER_MIN_POWER 100
 #define SLINGER_MAX_POWER 400
 #define SLINGER_AIM_SENSITIVITY 7.0f
+#define SLINGER_STRETCH_SOUND_SCALE 0.8f
 #define AIM_POLLEN_INTERVAL 16
 #define SCALE_AT_MIN_POWER 1.0f
 #define SCALE_AT_MAX_POWER 0.5f
@@ -79,7 +80,7 @@
 					_currentAngle = CC_DEGREES_TO_RADIANS(360 - [transformComponent rotation] + 270);
 					[self startShootingAimPollens];
 					
-					[[SoundManager sharedManager] playSound:@"SlingerStretch"];
+					_stretchSoundPlayed = FALSE;
 					
 					[slingerComponent setState:SLINGER_STATE_AIMING];
 				}
@@ -117,6 +118,13 @@
 					float percent = (power - SLINGER_MIN_POWER) / (SLINGER_MAX_POWER - SLINGER_MIN_POWER);
 					float scale = SCALE_AT_MIN_POWER + percent * (SCALE_AT_MAX_POWER - SCALE_AT_MIN_POWER);
 					[transformComponent setScale:CGPointMake(1.0f, scale)];
+					
+					if (!_stretchSoundPlayed &&
+						scale <= SLINGER_STRETCH_SOUND_SCALE)
+					{
+						[[SoundManager sharedManager] playSound:@"SlingerStretch"];
+						_stretchSoundPlayed = TRUE;
+					}
                 }
                 break;
             }
