@@ -16,6 +16,7 @@
 @synthesize format = _format;
 @synthesize version = _version;
 @synthesize entries = _entries;
+@synthesize hasWater = _hasWater;
 @synthesize isEdited = _isEdited;
 
 +(LevelLayout *) layout

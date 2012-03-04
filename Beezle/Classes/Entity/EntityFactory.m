@@ -29,6 +29,8 @@
 #define BACKGROUND_ELASTICITY 0.7f
 #define BACKGROUND_LAYERS 7
 #define EDGE_LAYERS 7
+#define WATER_HEIGHT 5.0f
+#define WATER_LAYERS 7
 
 @interface EntityFactory()
 
@@ -113,6 +115,36 @@
     [edgeEntity refresh];
     
     return edgeEntity;
+}
+
++(Entity *) createWater:(World *)world
+{
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    Entity *waterEntity = [world createEntity];
+    
+    // Transform
+    TransformComponent *transformComponent = [TransformComponent component];
+    [waterEntity addComponent:transformComponent];
+    
+    // Physics
+    int num = 4;
+    CGPoint verts[] = {
+        cpv(0.0f, 0.0f),
+        cpv(0.0f, WATER_HEIGHT),
+        cpv(winSize.width, WATER_HEIGHT),
+        cpv(winSize.width, 0.0f)
+    };
+	ChipmunkBody *body = [ChipmunkBody staticBody];
+	ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:num verts:verts offset:CGPointZero];
+	[shape setCollisionType:[CollisionType WATER]];
+	[shape setLayers:WATER_LAYERS];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
+    [waterEntity addComponent:physicsComponent];
+    
+    [waterEntity refresh];
+    
+    return waterEntity;
 }
 
 +(Entity *) createEntity:(NSString *)type world:(World *)world edit:(BOOL)edit
@@ -235,13 +267,18 @@
 
 +(Entity *) createSimpleAnimatedEntity:(World *)world
 {
+	return [self createSimpleAnimatedEntity:world animationFile:nil];
+}
+
++(Entity *) createSimpleAnimatedEntity:(World *)world animationFile:(NSString *)animationFile
+{
 	Entity *entity = [world createEntity];
 	
     TransformComponent *transformComponent = [TransformComponent component];
     [entity addComponent:transformComponent];
 	
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" z:3];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:animationFile z:3];
 	RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
 	[entity addComponent:renderComponent];
 	

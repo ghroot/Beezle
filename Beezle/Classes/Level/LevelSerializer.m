@@ -8,6 +8,7 @@
 
 #import "LevelSerializer.h"
 #import "EditComponent.h"
+#import "EntityUtil.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "LevelLayoutEntry.h"
@@ -53,8 +54,8 @@
 	}
 	[levelLayout setFormat:format];
 	
-//    if (format == LEVEL_LAYOUT_FORMAT)
-//    {
+    if (format == LEVEL_LAYOUT_FORMAT)
+    {
         NSArray *entities = [dict objectForKey:@"entities"];
         for (NSDictionary *entity in entities) 
         {
@@ -68,11 +69,14 @@
             
             [levelLayout addLevelLayoutEntry:levelLayoutEntry];
         }
-//    }
-//    else
-//    {
-//        NSLog(@"Unsupported level layout format: %@ (format: %d < %d)", levelName, format, LEVEL_LAYOUT_FORMAT);
-//    }
+		
+		BOOL hasWater = [[dict objectForKey:@"hasWater"] boolValue];
+		[levelLayout setHasWater:hasWater];
+    }
+    else
+    {
+        NSLog(@"Unsupported level layout format: %@ (format: %d < %d)", levelName, format, LEVEL_LAYOUT_FORMAT);
+    }
 	
 	return levelLayout;
 }
@@ -95,6 +99,8 @@
 	}
 	[dict setObject:entities forKey:@"entities"];
 	
+	[dict setObject:[NSNumber numberWithBool:[layout hasWater]] forKey:@"hasWater"];
+	
 	return dict;
 }
 
@@ -106,6 +112,7 @@
 	[levelLayout setVersion:version];
     [levelLayout setFormat:LEVEL_LAYOUT_FORMAT];
 	
+	BOOL hasWater = FALSE;
 	for (Entity *entity in [[world entityManager] entities])
 	{
 		if ([self isLevelLayoutEntity:entity])
@@ -129,7 +136,12 @@
 						
 			[levelLayout addLevelLayoutEntry:levelLayoutEntry];
 		}
+		else if ([EntityUtil isEntityWater:entity])
+		{
+			hasWater = TRUE;
+		}
 	}
+	[levelLayout setHasWater:hasWater];
 	
 	return levelLayout;
 }

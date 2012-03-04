@@ -245,6 +245,9 @@
 		2CADCC8714746BA100302475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3283145F66F7000FF575 /* Foundation.framework */; };
 		2CADCC8D14746BA200302475 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CADCC8B14746BA200302475 /* InfoPlist.strings */; };
 		2CADCC9014746BA200302475 /* ArtemisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC8F14746BA200302475 /* ArtemisTests.m */; };
+		2CB360E215042985003687C1 /* Bees-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB360E115042985003687C1 /* Bees-Animations.plist */; };
+		2CB360E415043037003687C1 /* Level-A4-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB360E315043037003687C1 /* Level-A4-Layout.plist */; };
+		2CB360E615043043003687C1 /* Level-A6-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB360E515043043003687C1 /* Level-A6-Layout.plist */; };
 		2CB9266714F46277008972FD /* Level-A1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CB9262214F46277008972FD /* Level-A1-hd.jpg */; };
 		2CB9266914F46277008972FD /* Level-A1-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB9262414F46277008972FD /* Level-A1-Shapes.plist */; };
 		2CB9266A14F46277008972FD /* Level-A1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CB9262514F46277008972FD /* Level-A1.jpg */; };
@@ -843,6 +846,9 @@
 		2CADCC8E14746BA200302475 /* ArtemisTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArtemisTests.h; sourceTree = "<group>"; };
 		2CADCC8F14746BA200302475 /* ArtemisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArtemisTests.m; sourceTree = "<group>"; };
 		2CADCC9114746BA200302475 /* ArtemisTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ArtemisTests-Prefix.pch"; sourceTree = "<group>"; };
+		2CB360E115042985003687C1 /* Bees-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bees-Animations.plist"; sourceTree = "<group>"; };
+		2CB360E315043037003687C1 /* Level-A4-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A4-Layout.plist"; sourceTree = "<group>"; };
+		2CB360E515043043003687C1 /* Level-A6-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A6-Layout.plist"; sourceTree = "<group>"; };
 		2CB9262214F46277008972FD /* Level-A1-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A1-hd.jpg"; sourceTree = "<group>"; };
 		2CB9262414F46277008972FD /* Level-A1-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A1-Shapes.plist"; sourceTree = "<group>"; };
 		2CB9262514F46277008972FD /* Level-A1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A1.jpg"; sourceTree = "<group>"; };
@@ -1748,6 +1754,7 @@
 				2CB9262C14F46277008972FD /* Level-A3-Shapes.plist */,
 				2CB9262D14F46277008972FD /* Level-A3.jpg */,
 				2CB9262E14F46277008972FD /* Level-A4-hd.jpg */,
+				2CB360E315043037003687C1 /* Level-A4-Layout.plist */,
 				2CB9263014F46277008972FD /* Level-A4-Shapes.plist */,
 				2CB9263114F46277008972FD /* Level-A4.jpg */,
 				2CB9263214F46277008972FD /* Level-A5-hd.jpg */,
@@ -1764,6 +1771,7 @@
 				2CB9263914F46277008972FD /* Level-A10-Shapes.plist */,
 				2CB9263A14F46277008972FD /* Level-A10.jpg */,
 				2CB9263B14F46277008972FD /* Level-A6-hd.jpg */,
+				2CB360E515043043003687C1 /* Level-A6-Layout.plist */,
 				2CB9263D14F46277008972FD /* Level-A6-Shapes.plist */,
 				2CB9263E14F46277008972FD /* Level-A6.jpg */,
 				2CB9263F14F46277008972FD /* Level-A7-hd.jpg */,
@@ -1894,6 +1902,7 @@
 			isa = PBXGroup;
 			children = (
 				2CC9E7811502E80900C094B0 /* Bee-Animations.plist */,
+				2CB360E115042985003687C1 /* Bees-Animations.plist */,
 				2CC9E7821502E80900C094B0 /* Bombee-Animations.plist */,
 				2CC9E7831502E80900C094B0 /* Sawee-Animations.plist */,
 				2CC9E7841502E80900C094B0 /* Speedee-Animations.plist */,
@@ -2433,6 +2442,9 @@
 				2CC9E7871502E80900C094B0 /* Sawee-Animations.plist in Resources */,
 				2CC9E7881502E80900C094B0 /* Speedee-Animations.plist in Resources */,
 				2CC9E7901503891B00C094B0 /* A22-Glass-Shapes.plist in Resources */,
+				2CB360E215042985003687C1 /* Bees-Animations.plist in Resources */,
+				2CB360E415043037003687C1 /* Level-A4-Layout.plist in Resources */,
+				2CB360E615043043003687C1 /* Level-A6-Layout.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

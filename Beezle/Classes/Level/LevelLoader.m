@@ -116,6 +116,12 @@
 	// Edge
     [EntityFactory createEdge:world];
 	
+	// Water
+	if ([levelLayout hasWater])
+	{
+		[EntityFactory createWater:world];
+	}
+	
 	// Entities
     for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
     {

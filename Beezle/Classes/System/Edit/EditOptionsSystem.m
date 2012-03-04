@@ -73,6 +73,7 @@
 {
 	_generalOptionsMenu = [[CCMenu menuWithItems:nil] retain];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Add entity" selector:@selector(doOptionOpenEntityMenu:) userData:nil]];
+	[_generalOptionsMenu addChild:[self createMenuItem:@"Toggle water" selector:@selector(doOptionToggleWater:) userData:nil]];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Toggle lines" selector:@selector(doOptionToggleLines:) userData:nil]];
 	[_generalOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
 }
@@ -203,6 +204,27 @@
 {
 	Game *game = [_editState game];
 	[game pushState:[EntitySelectIngameMenuState state]];
+}
+	 
+-(void) doOptionToggleWater:(id)sender
+{
+	Entity *waterEntity = nil;
+	for (Entity *entity in [[_world entityManager] entities])
+	{
+		if ([EntityUtil isEntityWater:entity])
+		{
+			waterEntity = entity;
+			break;
+		}
+	}
+	if (waterEntity != nil)
+	{
+		[waterEntity deleteEntity];
+	}
+	else
+	{
+		[EntityFactory createWater:_world];
+	}
 }
 
 -(void) doOptionToggleLines:(id)sender

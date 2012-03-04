@@ -7,6 +7,7 @@
 //
 
 #import "EntityUtil.h"
+#import "CollisionType.h"
 #import "DisposableComponent.h"
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
@@ -67,6 +68,12 @@
 +(void) setEntityDisposed:(Entity *)entity
 {
     [[DisposableComponent getFrom:entity] setIsDisposed:TRUE];
+}
+
++(BOOL) isEntityWater:(Entity *)entity
+{
+	return [entity hasComponent:[PhysicsComponent class]] &&
+		[[[PhysicsComponent getFrom:entity] firstPhysicsShape] collisionType] == [CollisionType WATER];
 }
 
 +(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName disablePhysics:(BOOL)disablePhysics

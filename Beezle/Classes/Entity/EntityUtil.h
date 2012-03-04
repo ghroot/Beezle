@@ -16,6 +16,7 @@
 +(BOOL) isEntityDisposable:(Entity *)entity;
 +(BOOL) isEntityDisposed:(Entity *)entity;
 +(void) setEntityDisposed:(Entity *)entity;
++(BOOL) isEntityWater:(Entity *)entity;
 +(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName disablePhysics:(BOOL)disablePhysics;
 +(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName;
 +(void) animateAndDeleteEntity:(Entity *)entity disablePhysics:(BOOL)disablePhysics;
