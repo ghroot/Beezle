@@ -38,9 +38,9 @@
 		[_menu addChild:cancelMenuItem];
 		
 		int nMenuItems = [[_menu  children] count];
-		int num1 = ceilf(nMenuItems / 2.0f);
-		int num2 = floorf(nMenuItems / 2.0f);
-		[_menu alignItemsInRows:[NSNumber numberWithInt:num1], [NSNumber numberWithInt:num2], nil];
+		int num1 = ceilf(nMenuItems / 3.0f);
+		int num2 = nMenuItems - 2 * num1;
+		[_menu alignItemsInRows:[NSNumber numberWithInt:num1], [NSNumber numberWithInt:num1], [NSNumber numberWithInt:num2], nil];
 		
 		[self addChild:_menu];
 	}
