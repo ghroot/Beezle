@@ -47,15 +47,16 @@
 	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesInTheme:_theme];
 	for (NSString *levelName in levelNames)
 	{
+		NSString *shortLevelName = [levelName stringByReplacingOccurrencesOfString:@"Level-" withString:@""];
 		NSString *menuItemName = nil;
 		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
 		if (levelLayout != nil)
 		{
-			menuItemName = [NSString stringWithFormat:@"%@(%d)%@", levelName, [levelLayout version], [levelLayout isEdited] ? @"e" : @""];
+			menuItemName = [NSString stringWithFormat:@"%@(%d)%@", shortLevelName, [levelLayout version], [levelLayout isEdited] ? @"e" : @""];
 		}
 		else
 		{
-			menuItemName = levelName;
+			menuItemName = shortLevelName;
 		}
 		CCMenuItemFont *levelMenuItem = [CCMenuItemFont itemWithString:menuItemName target:self selector:@selector(startGame:)];
 		[levelMenuItem setFontSize:24];
@@ -74,10 +75,21 @@
 	[backMenuItem setFontSize:24];
 	[_menu addChild:backMenuItem];
 	
-	int n1 = ceilf(([levelNames count] + 1) / 3);
-	int n2 = n1;
-	int n3 = [levelNames count] + 1 - n1 - n2;
-	[_menu alignItemsInRows:[NSNumber numberWithInt:n1], [NSNumber numberWithInt:n2], [NSNumber numberWithInt:n3], nil];
+	int nRows = 9;
+	int n1 = (int)([levelNames count] / nRows) + 1;
+	int n2 = [levelNames count] - (nRows - 1) * n1;
+	[_menu alignItemsInColumns:
+		[NSNumber numberWithInt:n1],
+		[NSNumber numberWithInt:n1],
+		[NSNumber numberWithInt:n1],
+		[NSNumber numberWithInt:n1],
+		[NSNumber numberWithInt:n1],
+		[NSNumber numberWithInt:n1],
+		[NSNumber numberWithInt:n1],
+		[NSNumber numberWithInt:n1],
+		[NSNumber numberWithInt:n2],
+		[NSNumber numberWithInt:1],
+		nil];
 	
 	[self addChild:_menu];
 	
