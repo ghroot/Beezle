@@ -21,7 +21,6 @@
 	if (self = [super init])
 	{
 		_gameStateToLoad = [gameState retain];
-		_initialiseAndReplaceScene = FALSE;
 	}
 	return self;
 }
@@ -49,16 +48,19 @@
 {
 	[super onEnterTransitionDidFinish];
 	
-	_initialiseAndReplaceScene = TRUE;
+	_initialiseAndReplaceSceneCountdown = 3;
 }
 
 -(void) update:(ccTime)delta
 {
-	if (_initialiseAndReplaceScene)
+	if (_initialiseAndReplaceSceneCountdown > 0)
 	{
-		_initialiseAndReplaceScene = FALSE;
-		[_gameStateToLoad initialise];
-		[_game replaceState:_gameStateToLoad];
+		_initialiseAndReplaceSceneCountdown--;
+		if (_initialiseAndReplaceSceneCountdown == 0)
+		{
+			[_gameStateToLoad initialise];
+			[_game replaceState:_gameStateToLoad];
+		}
 	}
 }
 

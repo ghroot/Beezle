@@ -11,7 +11,7 @@
 @interface LoadingState : GameState
 {
 	GameState *_gameStateToLoad;
-	BOOL _initialiseAndReplaceScene;
+	int _initialiseAndReplaceSceneCountdown;
 }
 
 +(id) stateWithGameState:(GameState *)gameState;
