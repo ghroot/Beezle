@@ -168,5 +168,9 @@
 	return [_levelNamesWhereKeysWereCollected count] - [_levelNamesWhereKeysWereUsed count];
 }
 
+-(BOOL) hasCompletedLevelAtLeastOnce:(NSString *)levelName
+{
+    return [_pollenRecordByLevelName objectForKey:levelName] != nil;
+}
 
 @end

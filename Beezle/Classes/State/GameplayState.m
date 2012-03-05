@@ -422,11 +422,9 @@
 
 -(void) loadNextLevel:(id)sender
 {
-	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesForTheme:@"A"];
-	int nextLevelIndex = [levelNames indexOfObject:[_levelSession levelName]] + 1;
-    if (nextLevelIndex < [levelNames count])
+    NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:[_levelSession levelName]];
+    if (nextLevelName != nil)
     {
-        NSString *nextLevelName = [levelNames objectAtIndex:nextLevelIndex];
         [_game replaceState:[GameplayState stateWithLevelName:nextLevelName]];
     }
     else

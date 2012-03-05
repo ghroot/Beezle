@@ -12,6 +12,7 @@
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "LevelOrganizer.h"
+#import "PlayerInformation.h"
 
 @implementation LevelSelectMenuState
 
@@ -43,7 +44,7 @@
 	
 	_menu = [CCMenu menuWithItems:nil];
 	
-	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesForTheme:_theme];
+	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesInTheme:_theme];
 	for (NSString *levelName in levelNames)
 	{
 		NSString *menuItemName = nil;
@@ -60,6 +61,16 @@
 		[levelMenuItem setFontSize:24];
 		[levelMenuItem setUserData:levelName];
 		[_menu addChild:levelMenuItem];
+        
+        if (!CONFIG_CAN_EDIT_LEVELS)
+        {
+            NSString *levelNameBefore = [[LevelOrganizer sharedOrganizer] levelNameBefore:levelName];
+            if (levelNameBefore != nil &&
+                ![[PlayerInformation sharedInformation] hasCompletedLevelAtLeastOnce:levelNameBefore])
+            {
+                [levelMenuItem setIsEnabled:FALSE];
+            }
+        }
 	}
 	CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
 	[backMenuItem setFontSize:24];

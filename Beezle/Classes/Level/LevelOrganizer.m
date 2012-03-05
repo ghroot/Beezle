@@ -61,7 +61,7 @@
 	return [_levelNamesByTheme allKeys];
 }
 
--(NSArray *) levelNamesForTheme:(NSString *)theme
+-(NSArray *) levelNamesInTheme:(NSString *)theme
 {
 	return [_levelNamesByTheme objectForKey:theme];
 }
@@ -71,10 +71,53 @@
 	NSMutableArray *allLevelNames = [NSMutableArray array];
 	for (NSString *theme in [self themes])
 	{
-		NSArray *levelNames = [self levelNamesForTheme:theme];
+		NSArray *levelNames = [self levelNamesInTheme:theme];
 		[allLevelNames addObjectsFromArray:levelNames];
 	}
 	return allLevelNames;
+}
+
+-(NSString *) themeForLevel:(NSString *)levelName
+{
+    for (NSString *theme in [self themes])
+    {
+        NSArray *levelNamesInTheme = [self levelNamesInTheme:theme];
+        if ([levelNamesInTheme containsObject:levelName])
+        {
+            return theme;
+        }
+    }
+    return nil;
+}
+
+-(NSString *) levelNameBefore:(NSString *)levelName
+{
+    NSArray *levelNamesInTheme = [self levelNamesInTheme:[self themeForLevel:levelName]];
+    int index = [levelNamesInTheme indexOfObject:levelName];
+    int indexBefore = index - 1;
+    if (indexBefore < 0)
+    {
+        return nil;
+    }
+    else
+    {
+        return [levelNamesInTheme objectAtIndex:indexBefore];
+    }
+}
+
+-(NSString *) levelNameAfter:(NSString *)levelName
+{
+    NSArray *levelNamesInTheme = [self levelNamesInTheme:[self themeForLevel:levelName]];
+    int index = [levelNamesInTheme indexOfObject:levelName];
+    int indexAfter = index + 1;
+    if (indexAfter >= [levelNamesInTheme count])
+    {
+        return nil;
+    }
+    else
+    {
+        return [levelNamesInTheme objectAtIndex:indexAfter];
+    }
 }
 
 @end
