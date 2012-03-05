@@ -52,7 +52,8 @@
 		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
 		if (levelLayout != nil)
 		{
-			menuItemName = [NSString stringWithFormat:@"%@(%d)%@", shortLevelName, [levelLayout version], [levelLayout isEdited] ? @"e" : @""];
+//			menuItemName = [NSString stringWithFormat:@"%@(%d)%@", shortLevelName, [levelLayout version], [levelLayout isEdited] ? @"e" : @""];
+			menuItemName = [NSString stringWithFormat:@"%@%@", shortLevelName, [levelLayout isEdited] ? @"e" : @""];
 		}
 		else
 		{
