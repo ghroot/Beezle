@@ -207,7 +207,7 @@
 		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookScreen", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimation:animationName];
 	}];
-	CCDelayTime *waitAction1 = [CCDelayTime actionWithDuration:1.0f];
+	CCDelayTime *waitAction1 = [CCDelayTime actionWithDuration:0.6f];
 	CCCallBlock *animateLookSideAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookSide", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimation:animationName];
@@ -217,7 +217,7 @@
 		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookAway", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimation:animationName];
 	}];
-	CCDelayTime *waitAction2 = [CCDelayTime actionWithDuration:0.15f];
+	CCDelayTime *waitAction2 = [CCDelayTime actionWithDuration:0.1f];
 	CCCallBlock *faceRightAction = [CCCallBlock actionWithBlock:^()
 	{
 		[[beeQueueRenderSprite sprite] setScaleX:1];
