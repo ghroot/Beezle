@@ -45,13 +45,19 @@
 -(void) updateIsLevelCompleted
 {
 	GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
-	NSArray *entities = [groupManager getEntitiesInGroup:@"GATES"];
-	BOOL levelHasGate = [entities count] > 0;
-	BOOL hasUsedKeyInLevelBefore = [[PlayerInformation sharedInformation] hasUsedKeyInLevel:[_levelSession levelName]];
-	if (levelHasGate &&
-		!hasUsedKeyInLevelBefore)
+	NSArray *gateEntities = [groupManager getEntitiesInGroup:@"GATES"];
+	BOOL levelHasOpenGate = FALSE;
+	for (Entity *gateEntity in gateEntities)
 	{
-		// Keep level from completing if gate is open
+		if ([[GateComponent getFrom:gateEntity] isOpened])
+		{
+			levelHasOpenGate = TRUE;
+			break;
+		}
+	}
+	if (levelHasOpenGate)
+	{
+		// Keep level from completing if level has open gate
 		_isLevelCompleted = FALSE;
 	}
 	else

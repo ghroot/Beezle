@@ -9,15 +9,26 @@
 #import "GateOpeningSystem.h"
 #import "DisposableComponent.h"
 #import "GateComponent.h"
+#import "LevelSession.h"
+#import "PlayerInformation.h"
 #import "RenderComponent.h"
 #import "SoundManager.h"
 
 @implementation GateOpeningSystem
 
+// Designated initialiser
+-(id) initWithLevelSession:(LevelSession *)levelSession
+{
+	if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObject:[GateComponent class]]])
+	{
+		_levelSession = levelSession;
+	}
+	return self;
+}
+
 -(id) init
 {
-	self = [super initWithUsedComponentClasses:[NSArray arrayWithObject:[GateComponent class]]];
-	return self;
+	return [self initWithLevelSession:nil];
 }
 
 -(void) processEntity:(Entity *)entity
@@ -36,7 +47,8 @@
 	if (!undisposedBeeatersLeft)
 	{
 		GateComponent *gateComponent = [GateComponent getFrom:entity];
-		if (![gateComponent isOpened])
+		if ([[PlayerInformation sharedInformation] totalNumberOfKeys] > 0 &&
+			![gateComponent isOpened])
 		{
 			[gateComponent setIsOpened:TRUE];
 			

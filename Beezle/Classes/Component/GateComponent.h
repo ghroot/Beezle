@@ -10,11 +10,9 @@
 
 @interface GateComponent : Component
 {
-	NSString *_hiddenLevelName;
 	BOOL _isOpened;
 }
 
-@property (nonatomic, readonly) NSString *hiddenLevelName;
 @property (nonatomic) BOOL isOpened;
 
 @end

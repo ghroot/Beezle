@@ -164,7 +164,7 @@
 	[systemManager setSystem:_beeQueueRenderingSystem];
 	_beeaterSystem = [[[BeeaterSystem alloc] init] autorelease];
 	[systemManager setSystem:_beeaterSystem];
-	_gateOpeningSystem = [[[GateOpeningSystem alloc] init] autorelease];
+	_gateOpeningSystem = [[[GateOpeningSystem alloc] initWithLevelSession:_levelSession] autorelease];
 	[systemManager setSystem:_gateOpeningSystem];
 	_shardSystem = [[[ShardSystem alloc] init] autorelease];
 	[systemManager setSystem:_shardSystem];
@@ -306,8 +306,8 @@
 
 -(void) handleGateEntered:(NSNotification *)notification
 {
-	NSString *levelName = [[notification userInfo] objectForKey:@"hiddenLevelName"];
-	[_game replaceState:[GameplayState stateWithLevelName:levelName andLevelSession:_levelSession]];
+	NSString *caveLevelName = [NSString stringWithFormat:@"%@%@", [_levelSession levelName], @"-Cave", nil];
+	[_game replaceState:[GameplayState stateWithLevelName:caveLevelName andLevelSession:_levelSession]];
 }
 
 -(void) enter

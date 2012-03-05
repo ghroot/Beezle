@@ -11,5 +11,10 @@
 @class LevelSession;
 
 @interface GateOpeningSystem : EntityComponentSystem
+{
+	LevelSession *_levelSession;
+}
+
+-(id) initWithLevelSession:(LevelSession *)levelSession;
 
 @end

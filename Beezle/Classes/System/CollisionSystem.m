@@ -255,15 +255,13 @@
 	GateComponent *gateComponent = [GateComponent getFrom:gateEntity];
 	if ([gateComponent isOpened])
 	{
-        [EntityUtil setEntityDisposed:beeEntity];
-		[beeEntity deleteEntity];
-		
 		[_levelSession setDidUseKey:TRUE];
 		
+        [[PhysicsComponent getFrom:beeEntity] disable];
+		[[[RenderComponent getFrom:beeEntity] firstRenderSprite] hide];
+		
 		// Game notification
-		NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
-		[notificationUserInfo setObject:[gateComponent hiddenLevelName] forKey:@"hiddenLevelName"];
-		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_GATE_ENTERED object:self userInfo:notificationUserInfo];
+		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_GATE_ENTERED object:self userInfo:nil];
 	}
 }
 
