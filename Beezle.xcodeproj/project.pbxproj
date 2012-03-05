@@ -159,7 +159,6 @@
 		2C596D3E14A13FDD00DFCC14 /* LevelLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */; };
 		2C5EFC2B14E496A10071ED39 /* SpawnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */; };
 		2C5EFC3114E499C20071ED39 /* SpawnSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3014E499C20071ED39 /* SpawnSystem.m */; };
-		2C5EFC3414E6C5510071ED39 /* EntitySelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3314E6C5510071ED39 /* EntitySelectIngameMenuState.m */; };
 		2C5EFC5114E7DACF0071ED39 /* Egg-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3A14E7DACF0071ED39 /* Egg-Animations.plist */; };
 		2C5EFC5214E7DACF0071ED39 /* HangNest-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3B14E7DACF0071ED39 /* HangNest-Animations.plist */; };
 		2C5EFC5514E7DACF0071ED39 /* Mushroom-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3E14E7DACF0071ED39 /* Mushroom-Animations.plist */; };
@@ -526,6 +525,10 @@
 		2CEB9D7814EDC0A600CAC505 /* ShardSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7714EDC0A600CAC505 /* ShardSystem.m */; };
 		2CEB9D7B14EDC1BB00CAC505 /* ShardComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7A14EDC1BA00CAC505 /* ShardComponent.m */; };
 		2CEB9D7D14EDC34C00CAC505 /* Glass-Pc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7C14EDC34C00CAC505 /* Glass-Pc.plist */; };
+		2CEEC7BA150577B500EAC127 /* Leaf-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7B9150577B500EAC127 /* Leaf-Animations.plist */; };
+		2CEEC7BC1505780200EAC127 /* Leaf.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7BB1505780200EAC127 /* Leaf.plist */; };
+		2CEEC7BE1505807900EAC127 /* Leave-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7BD1505807900EAC127 /* Leave-Shapes.plist */; };
+		2CEEC7C7150584C100EAC127 /* EntitySelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEEC7C6150584C100EAC127 /* EntitySelectIngameMenuState.m */; };
 		2CEEEDDD150231B10096DCA1 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEEDDC150231B10096DCA1 /* Loading.png */; };
 /* End PBXBuildFile section */
 
@@ -839,8 +842,6 @@
 		2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpawnComponent.m; path = Classes/Component/SpawnComponent.m; sourceTree = "<group>"; };
 		2C5EFC2F14E499C20071ED39 /* SpawnSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpawnSystem.h; path = Classes/System/SpawnSystem.h; sourceTree = "<group>"; };
 		2C5EFC3014E499C20071ED39 /* SpawnSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpawnSystem.m; path = Classes/System/SpawnSystem.m; sourceTree = "<group>"; };
-		2C5EFC3214E6C5510071ED39 /* EntitySelectIngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntitySelectIngameMenuState.h; sourceTree = "<group>"; };
-		2C5EFC3314E6C5510071ED39 /* EntitySelectIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntitySelectIngameMenuState.m; sourceTree = "<group>"; };
 		2C5EFC3A14E7DACF0071ED39 /* Egg-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Egg-Animations.plist"; sourceTree = "<group>"; };
 		2C5EFC3B14E7DACF0071ED39 /* HangNest-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "HangNest-Animations.plist"; sourceTree = "<group>"; };
 		2C5EFC3E14E7DACF0071ED39 /* Mushroom-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Mushroom-Animations.plist"; sourceTree = "<group>"; };
@@ -1303,6 +1304,11 @@
 		2CEB9D7914EDC1BA00CAC505 /* ShardComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShardComponent.h; path = Classes/Component/ShardComponent.h; sourceTree = "<group>"; };
 		2CEB9D7A14EDC1BA00CAC505 /* ShardComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShardComponent.m; path = Classes/Component/ShardComponent.m; sourceTree = "<group>"; };
 		2CEB9D7C14EDC34C00CAC505 /* Glass-Pc.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-Pc.plist"; sourceTree = "<group>"; };
+		2CEEC7B9150577B500EAC127 /* Leaf-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Leaf-Animations.plist"; sourceTree = "<group>"; };
+		2CEEC7BB1505780200EAC127 /* Leaf.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Leaf.plist; sourceTree = "<group>"; };
+		2CEEC7BD1505807900EAC127 /* Leave-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Leave-Shapes.plist"; sourceTree = "<group>"; };
+		2CEEC7C5150584C100EAC127 /* EntitySelectIngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntitySelectIngameMenuState.h; sourceTree = "<group>"; };
+		2CEEC7C6150584C100EAC127 /* EntitySelectIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntitySelectIngameMenuState.m; sourceTree = "<group>"; };
 		2CEEEDDC150231B10096DCA1 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1767,6 +1773,7 @@
 				2C5EFC6514E7DCC20071ED39 /* FloatingBlockA-Animations.plist */,
 				2CEB9D6C14EDB99A00CAC505 /* Glass-Animations.plist */,
 				2C5EFC3B14E7DACF0071ED39 /* HangNest-Animations.plist */,
+				2CEEC7B9150577B500EAC127 /* Leaf-Animations.plist */,
 				2C5EFC3E14E7DACF0071ED39 /* Mushroom-Animations.plist */,
 				2C5EFC3F14E7DACF0071ED39 /* Nut-Animations.plist */,
 				2C5EFC4014E7DACF0071ED39 /* Pollen-Animations.plist */,
@@ -1786,6 +1793,7 @@
 				2CC9E78F1503891B00C094B0 /* A22-Glass-Shapes.plist */,
 				2C5EFC6D14E829390071ED39 /* Bee-Shapes.plist */,
 				2C5EFC4814E7DACF0071ED39 /* FloatingBlockA-Shapes.plist */,
+				2CEEC7BD1505807900EAC127 /* Leave-Shapes.plist */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -2330,8 +2338,8 @@
 				2CC3EC1014D608980025F5DA /* EditIngameMenuState.m */,
 				2CC3EC1114D608980025F5DA /* EditState.h */,
 				2CC3EC1214D608980025F5DA /* EditState.m */,
-				2C5EFC3214E6C5510071ED39 /* EntitySelectIngameMenuState.h */,
-				2C5EFC3314E6C5510071ED39 /* EntitySelectIngameMenuState.m */,
+				2CEEC7C5150584C100EAC127 /* EntitySelectIngameMenuState.h */,
+				2CEEC7C6150584C100EAC127 /* EntitySelectIngameMenuState.m */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -2435,6 +2443,7 @@
 				2C5EFC6314E7DB470071ED39 /* Floating-Block-A.plist */,
 				2CEB9D6914EDB7E800CAC505 /* Glass */,
 				2CC7184014E1E29500059B66 /* Hangnest.plist */,
+				2CEEC7BB1505780200EAC127 /* Leaf.plist */,
 				2CC7184214E1E29500059B66 /* Mushroom.plist */,
 				2CC7184314E1E29500059B66 /* Nut.plist */,
 				2C5EFC6714E811400071ED39 /* Pollen-Orange.plist */,
@@ -3049,6 +3058,9 @@
 				2CB3623E15055B6C003687C1 /* Level-A60.jpg in Resources */,
 				2CB3624015056629003687C1 /* Hanging-Beeater-Body-Animations.plist in Resources */,
 				2CB36242150566BB003687C1 /* Beeater-Hanging.plist in Resources */,
+				2CEEC7BA150577B500EAC127 /* Leaf-Animations.plist in Resources */,
+				2CEEC7BC1505780200EAC127 /* Leaf.plist in Resources */,
+				2CEEC7BE1505807900EAC127 /* Leave-Shapes.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3159,7 +3171,6 @@
 				2CC26A6114E46913004702DA /* BeeaterSystem.m in Sources */,
 				2C5EFC2B14E496A10071ED39 /* SpawnComponent.m in Sources */,
 				2C5EFC3114E499C20071ED39 /* SpawnSystem.m in Sources */,
-				2C5EFC3414E6C5510071ED39 /* EntitySelectIngameMenuState.m in Sources */,
 				2C5EFCBF14EC60400071ED39 /* ExplodeComponent.m in Sources */,
 				2C5EFCC214EC60580071ED39 /* CrumbleComponent.m in Sources */,
 				2CD4A99914EC7BAC0065FA90 /* DebugRenderPhysicsLayer.m in Sources */,
@@ -3271,6 +3282,7 @@
 				2CE8604314F8FA7A00579202 /* CollisionGroup.m in Sources */,
 				2C4DFC7714FEF17F00D49CF9 /* HUDRenderingSystem.m in Sources */,
 				2C333E46150204800023303E /* LoadingState.m in Sources */,
+				2CEEC7C7150584C100EAC127 /* EntitySelectIngameMenuState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
