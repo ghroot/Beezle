@@ -29,6 +29,6 @@
 -(BOOL) hasUsedKeyInLevel:(NSString *)levelName;
 -(int) totalNumberOfPollen;
 -(int) totalNumberOfKeys;
--(BOOL) hasCompletedLevelAtLeastOnce:(NSString *)levelName;
+-(BOOL) canPlayLevel:(NSString *)levelName;
 
 @end

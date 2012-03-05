@@ -64,9 +64,7 @@
         
         if (!CONFIG_CAN_EDIT_LEVELS)
         {
-            NSString *levelNameBefore = [[LevelOrganizer sharedOrganizer] levelNameBefore:levelName];
-            if (levelNameBefore != nil &&
-                ![[PlayerInformation sharedInformation] hasCompletedLevelAtLeastOnce:levelNameBefore])
+            if (![[PlayerInformation sharedInformation] canPlayLevel:levelName])
             {
                 [levelMenuItem setIsEnabled:FALSE];
             }

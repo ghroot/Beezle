@@ -9,6 +9,7 @@
 #import "PlayerInformation.h"
 #import "DisposableComponent.h"
 #import "KeyComponent.h"
+#import "LevelOrganizer.h"
 #import "LevelSession.h"
 #import "PollenComponent.h"
 
@@ -16,6 +17,7 @@
 
 -(void) load;
 -(NSDictionary *) getInformationAsDictionary;
+-(BOOL) hasCompletedLevelAtLeastOnce:(NSString *)levelName;
 
 @end
 
@@ -171,6 +173,12 @@
 -(BOOL) hasCompletedLevelAtLeastOnce:(NSString *)levelName
 {
     return [_pollenRecordByLevelName objectForKey:levelName] != nil;
+}
+
+-(BOOL) canPlayLevel:(NSString *)levelName
+{
+	NSString *levelNameBefore = [[LevelOrganizer sharedOrganizer] levelNameBefore:levelName];
+	return levelNameBefore == nil || [self hasCompletedLevelAtLeastOnce:levelNameBefore];
 }
 
 @end
