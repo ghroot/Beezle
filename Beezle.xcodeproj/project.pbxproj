@@ -411,6 +411,8 @@
 		2CB3623C15055B6C003687C1 /* Level-A60-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CB3619D15055B6C003687C1 /* Level-A60-hd.jpg */; };
 		2CB3623D15055B6C003687C1 /* Level-A60-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB3619E15055B6C003687C1 /* Level-A60-Shapes.plist */; };
 		2CB3623E15055B6C003687C1 /* Level-A60.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CB3619F15055B6C003687C1 /* Level-A60.jpg */; };
+		2CB3624015056629003687C1 /* Hanging-Beeater-Body-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB3623F15056629003687C1 /* Hanging-Beeater-Body-Animations.plist */; };
+		2CB36242150566BB003687C1 /* Beeater-Hanging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB36241150566BB003687C1 /* Beeater-Hanging.plist */; };
 		2CB9266714F46277008972FD /* Level-A1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CB9262214F46277008972FD /* Level-A1-hd.jpg */; };
 		2CB9266914F46277008972FD /* Level-A1-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB9262414F46277008972FD /* Level-A1-Shapes.plist */; };
 		2CB9266A14F46277008972FD /* Level-A1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CB9262514F46277008972FD /* Level-A1.jpg */; };
@@ -1151,6 +1153,8 @@
 		2CB3619D15055B6C003687C1 /* Level-A60-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A60-hd.jpg"; sourceTree = "<group>"; };
 		2CB3619E15055B6C003687C1 /* Level-A60-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A60-Shapes.plist"; sourceTree = "<group>"; };
 		2CB3619F15055B6C003687C1 /* Level-A60.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A60.jpg"; sourceTree = "<group>"; };
+		2CB3623F15056629003687C1 /* Hanging-Beeater-Body-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Hanging-Beeater-Body-Animations.plist"; sourceTree = "<group>"; };
+		2CB36241150566BB003687C1 /* Beeater-Hanging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Hanging.plist"; sourceTree = "<group>"; };
 		2CB9262214F46277008972FD /* Level-A1-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A1-hd.jpg"; sourceTree = "<group>"; };
 		2CB9262414F46277008972FD /* Level-A1-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A1-Shapes.plist"; sourceTree = "<group>"; };
 		2CB9262514F46277008972FD /* Level-A1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A1.jpg"; sourceTree = "<group>"; };
@@ -1791,6 +1795,7 @@
 			children = (
 				2C5EFC7B14E82BA50071ED39 /* Beeater-Bird.plist */,
 				2C5EFC7D14E82BA50071ED39 /* Beeater-Fish.plist */,
+				2CB36241150566BB003687C1 /* Beeater-Hanging.plist */,
 				2C5EFC7E14E82BA50071ED39 /* Beeater-Land.plist */,
 				2C7EB68014FD6AEA00136D57 /* Beeater-Pc.plist */,
 			);
@@ -2350,6 +2355,7 @@
 				2CC9E77E1502E56C00C094B0 /* Beeater-Pc-Animations.plist */,
 				2CC9E77A1502E29C00C094B0 /* Bird-Beeater-Body-Animations.plist */,
 				2CC9E77C1502E41700C094B0 /* Fish-Beeater-Body-Animations.plist */,
+				2CB3623F15056629003687C1 /* Hanging-Beeater-Body-Animations.plist */,
 				2CC9E7761502DBB400C094B0 /* Land-Beeater-Body-Animations.plist */,
 			);
 			path = Beeater;
@@ -3041,6 +3047,8 @@
 				2CB3623C15055B6C003687C1 /* Level-A60-hd.jpg in Resources */,
 				2CB3623D15055B6C003687C1 /* Level-A60-Shapes.plist in Resources */,
 				2CB3623E15055B6C003687C1 /* Level-A60.jpg in Resources */,
+				2CB3624015056629003687C1 /* Hanging-Beeater-Body-Animations.plist in Resources */,
+				2CB36242150566BB003687C1 /* Beeater-Hanging.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

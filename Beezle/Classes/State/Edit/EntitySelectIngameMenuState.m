@@ -50,6 +50,7 @@
 -(void) createEntityMenuItems
 {
 	[self addMenuItemForEntityType:@"BEEATER-LAND"];
+	[self addMenuItemForEntityType:@"BEEATER-HANGING"];
 	[self addMenuItemForEntityType:@"BEEATER-BIRD"];
 	[self addMenuItemForEntityType:@"BEEATER-FISH"];
 	[self addMenuItemForEntityType:@"CAVEGATE"];
