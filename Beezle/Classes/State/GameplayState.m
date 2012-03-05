@@ -15,6 +15,7 @@
 #import "DebugNotificationTrackerSystem.h"
 #import "DebugRenderPhysicsSystem.h"
 #import "DisposableComponent.h"
+#import "EntityUtil.h"
 #import "Game.h"
 #import "GameRulesSystem.h"
 #import "GateComponent.h"
@@ -53,6 +54,7 @@
 -(void) loadLevel;
 -(void) enterMode:(GameMode *)mode;
 -(void) updateMode;
+-(BOOL) isBeeFlying;
 -(void) showLabel:(NSString *)labelText;
 -(void) loadNextLevel:(id)sender;
 -(void) restartLevel:(id)sender;
@@ -352,6 +354,11 @@
 
 -(void) updateMode
 {
+	if ([_beeQueueRenderingSystem isBusy])
+	{
+		return;
+	}
+	
     if ([_gameRulesSystem isLevelCompleted])
     {
         if (_currentMode != _levelCompletedMode)
@@ -395,16 +402,34 @@
 			[_uiLayer addChild:levelFailedMenu];
         }
     } 
-    else if (_currentMode == _aimingMode &&
-        [_gameRulesSystem isBeeFlying])
+    else if (_currentMode == _aimingMode)
     {
-        [self enterMode:_shootingMode];
+		if ([self isBeeFlying])
+		{
+			[self enterMode:_shootingMode];
+		}
     }
-    else if (_currentMode == _shootingMode &&
-             ![_gameRulesSystem isBeeFlying])
+    else if (_currentMode == _shootingMode)
     {
-		[self enterMode:_aimingMode];
+		if (![self isBeeFlying])
+		{
+			[self enterMode:_aimingMode];
+		}
     }
+}
+
+-(BOOL) isBeeFlying
+{
+	GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
+	NSArray *beeEntities = [groupManager getEntitiesInGroup:@"BEES"];
+	for (Entity *beeEntity in beeEntities)
+	{
+		if (![EntityUtil isEntityDisposed:beeEntity])
+		{
+			return TRUE;
+		}
+	}
+	return FALSE;
 }
 
 -(void) pauseGame:(id)sender

@@ -28,5 +28,6 @@
 -(id) initWithZ:(int)z;
 
 -(void) refreshSprites:(Entity *)slingerEntity;
+-(BOOL) isBusy;
 
 @end

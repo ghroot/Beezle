@@ -118,6 +118,11 @@
 	_movingBeesCount--;
 }
 
+-(BOOL) isBusy
+{
+	return _movingBeesCount > 0;
+}
+
 -(void) handleNotification:(NSNotification *)notification slingerEntity:(Entity *)entity
 {
 	if ([[notification name] isEqualToString:GAME_NOTIFICATION_BEE_LOADED])

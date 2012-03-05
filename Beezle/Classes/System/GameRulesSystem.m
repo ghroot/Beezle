@@ -17,7 +17,6 @@
 
 -(void) updateIsLevelCompleted;
 -(void) updateIsLevelFailed;
--(void) updateIsBeeFlying;
 
 -(int) countNonDisposedEntitiesInGroup:(NSString *)groupName;
 
@@ -27,7 +26,6 @@
 
 @synthesize isLevelCompleted = _isLevelCompleted;
 @synthesize isLevelFailed = _isLevelFailed;
-@synthesize isBeeFlying = _isBeeFlying;
 
 -(id) initWithLevelSession:(LevelSession *)levelSession
 {
@@ -42,7 +40,6 @@
 {
     [self updateIsLevelCompleted];
     [self updateIsLevelFailed];
-    [self updateIsBeeFlying];
 }
 
 -(void) updateIsLevelCompleted
@@ -74,12 +71,6 @@
     _isLevelFailed = ![slingerComponent hasMoreBees] &&
 		![slingerComponent hasLoadedBee] &&
 		numberOfUndisposedBees == 0;
-}
-
--(void) updateIsBeeFlying
-{
-	int numberOfUndisposedBees = [self countNonDisposedEntitiesInGroup:@"BEES"];
-    _isBeeFlying = numberOfUndisposedBees > 0;
 }
 										
 -(int) countNonDisposedEntitiesInGroup:(NSString *)groupName
