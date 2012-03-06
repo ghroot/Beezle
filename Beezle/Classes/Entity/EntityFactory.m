@@ -149,6 +149,13 @@
 
 +(Entity *) createEntity:(NSString *)type world:(World *)world edit:(BOOL)edit
 {
+	EntityDescription *entityDescription = [self getEntityDescription:type];
+	
+	if (entityDescription == nil)
+	{
+		return nil;
+	}
+	
 	Entity *entity = [world createEntity];
 	
 	if (edit)
@@ -156,7 +163,6 @@
 		[entity addComponent:[EditComponent componentWithLevelLayoutType:type]];
 	}
 	
-	EntityDescription *entityDescription = [self getEntityDescription:type];
 	NSArray *components = [entityDescription createComponents:world];
 	for (Component *component in components)
 	{
@@ -208,7 +214,10 @@
 	if (entityDescription == nil)
 	{
 		entityDescription = [[EntityDescriptionLoader sharedLoader] loadEntityDescription:type];
-		[[EntityDescriptionCache sharedCache] addEntityDescription:entityDescription];
+		if (entityDescription != nil)
+		{
+			[[EntityDescriptionCache sharedCache] addEntityDescription:entityDescription];
+		}
 	}
 	return entityDescription;
 }

@@ -130,7 +130,6 @@
 		2C24B3BF14EF1520002D1444 /* vec2.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C24B35F14EF1520002D1444 /* vec2.c */; };
 		2C24B3C014EF1520002D1444 /* vec3.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C24B36014EF1520002D1444 /* vec3.c */; };
 		2C24B3C114EF1520002D1444 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C24B36114EF1520002D1444 /* vec4.c */; };
-		2C24B3C514EFEA87002D1444 /* Glass-A34.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C24B3C414EFEA87002D1444 /* Glass-A34.plist */; };
 		2C24B3DA14F1B299002D1444 /* PollenComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C24B3D914F1B296002D1444 /* PollenComponent.m */; };
 		2C27E90014D20577002165CD /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8E714D20577002165CD /* Component.m */; };
 		2C27E90114D20577002165CD /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8E914D20577002165CD /* Entity.m */; };
@@ -529,6 +528,32 @@
 		2CEEC7BC1505780200EAC127 /* Leaf.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7BB1505780200EAC127 /* Leaf.plist */; };
 		2CEEC7BE1505807900EAC127 /* Leave-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7BD1505807900EAC127 /* Leave-Shapes.plist */; };
 		2CEEC7C7150584C100EAC127 /* EntitySelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEEC7C6150584C100EAC127 /* EntitySelectIngameMenuState.m */; };
+		2CEEC7D515058AE800EAC127 /* A27-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7C815058AE700EAC127 /* A27-Glass-Shapes.plist */; };
+		2CEEC7D615058AE800EAC127 /* A29-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7C915058AE700EAC127 /* A29-Glass-Shapes.plist */; };
+		2CEEC7D715058AE800EAC127 /* A33-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7CA15058AE700EAC127 /* A33-Glass-Shapes.plist */; };
+		2CEEC7D815058AE800EAC127 /* A35-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7CB15058AE800EAC127 /* A35-Glass-Shapes.plist */; };
+		2CEEC7D915058AE800EAC127 /* A37-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7CC15058AE800EAC127 /* A37-Glass-Shapes.plist */; };
+		2CEEC7DA15058AE800EAC127 /* A45-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7CD15058AE800EAC127 /* A45-Glass-Shapes.plist */; };
+		2CEEC7DB15058AE800EAC127 /* A46-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7CE15058AE800EAC127 /* A46-Glass-Shapes.plist */; };
+		2CEEC7DC15058AE800EAC127 /* A51-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7CF15058AE800EAC127 /* A51-Glass-Shapes.plist */; };
+		2CEEC7DD15058AE800EAC127 /* A53-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7D015058AE800EAC127 /* A53-Glass-Shapes.plist */; };
+		2CEEC7DE15058AE800EAC127 /* A55-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7D115058AE800EAC127 /* A55-Glass-Shapes.plist */; };
+		2CEEC7DF15058AE800EAC127 /* A56-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7D215058AE800EAC127 /* A56-Glass-Shapes.plist */; };
+		2CEEC7E015058AE800EAC127 /* A58-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7D315058AE800EAC127 /* A58-Glass-Shapes.plist */; };
+		2CEEC7E115058AE800EAC127 /* A60-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7D415058AE800EAC127 /* A60-Glass-Shapes.plist */; };
+		2CEEC7EF15058EA400EAC127 /* Glass-A27.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7E215058EA400EAC127 /* Glass-A27.plist */; };
+		2CEEC7F015058EA400EAC127 /* Glass-A29.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7E315058EA400EAC127 /* Glass-A29.plist */; };
+		2CEEC7F115058EA400EAC127 /* Glass-A33.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7E415058EA400EAC127 /* Glass-A33.plist */; };
+		2CEEC7F215058EA400EAC127 /* Glass-A35.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7E515058EA400EAC127 /* Glass-A35.plist */; };
+		2CEEC7F315058EA400EAC127 /* Glass-A37.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7E615058EA400EAC127 /* Glass-A37.plist */; };
+		2CEEC7F415058EA400EAC127 /* Glass-A45.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7E715058EA400EAC127 /* Glass-A45.plist */; };
+		2CEEC7F515058EA400EAC127 /* Glass-A46.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7E815058EA400EAC127 /* Glass-A46.plist */; };
+		2CEEC7F615058EA400EAC127 /* Glass-A51.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7E915058EA400EAC127 /* Glass-A51.plist */; };
+		2CEEC7F715058EA400EAC127 /* Glass-A53.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7EA15058EA400EAC127 /* Glass-A53.plist */; };
+		2CEEC7F815058EA400EAC127 /* Glass-A55.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7EB15058EA400EAC127 /* Glass-A55.plist */; };
+		2CEEC7F915058EA400EAC127 /* Glass-A56.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7EC15058EA400EAC127 /* Glass-A56.plist */; };
+		2CEEC7FA15058EA400EAC127 /* Glass-A58.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7ED15058EA400EAC127 /* Glass-A58.plist */; };
+		2CEEC7FB15058EA400EAC127 /* Glass-A60.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7EE15058EA400EAC127 /* Glass-A60.plist */; };
 		2CEEEDDD150231B10096DCA1 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEEDDC150231B10096DCA1 /* Loading.png */; };
 /* End PBXBuildFile section */
 
@@ -784,7 +809,6 @@
 		2C24B35F14EF1520002D1444 /* vec2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vec2.c; sourceTree = "<group>"; };
 		2C24B36014EF1520002D1444 /* vec3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vec3.c; sourceTree = "<group>"; };
 		2C24B36114EF1520002D1444 /* vec4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vec4.c; sourceTree = "<group>"; };
-		2C24B3C414EFEA87002D1444 /* Glass-A34.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A34.plist"; sourceTree = "<group>"; };
 		2C24B3D814F1B294002D1444 /* PollenComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PollenComponent.h; path = Classes/Component/PollenComponent.h; sourceTree = "<group>"; };
 		2C24B3D914F1B296002D1444 /* PollenComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PollenComponent.m; path = Classes/Component/PollenComponent.m; sourceTree = "<group>"; };
 		2C27E8E514D20577002165CD /* artemis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = artemis.h; sourceTree = "<group>"; };
@@ -1309,6 +1333,32 @@
 		2CEEC7BD1505807900EAC127 /* Leave-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Leave-Shapes.plist"; sourceTree = "<group>"; };
 		2CEEC7C5150584C100EAC127 /* EntitySelectIngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntitySelectIngameMenuState.h; sourceTree = "<group>"; };
 		2CEEC7C6150584C100EAC127 /* EntitySelectIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntitySelectIngameMenuState.m; sourceTree = "<group>"; };
+		2CEEC7C815058AE700EAC127 /* A27-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A27-Glass-Shapes.plist"; sourceTree = "<group>"; };
+		2CEEC7C915058AE700EAC127 /* A29-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A29-Glass-Shapes.plist"; sourceTree = "<group>"; };
+		2CEEC7CA15058AE700EAC127 /* A33-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A33-Glass-Shapes.plist"; sourceTree = "<group>"; };
+		2CEEC7CB15058AE800EAC127 /* A35-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A35-Glass-Shapes.plist"; sourceTree = "<group>"; };
+		2CEEC7CC15058AE800EAC127 /* A37-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A37-Glass-Shapes.plist"; sourceTree = "<group>"; };
+		2CEEC7CD15058AE800EAC127 /* A45-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A45-Glass-Shapes.plist"; sourceTree = "<group>"; };
+		2CEEC7CE15058AE800EAC127 /* A46-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A46-Glass-Shapes.plist"; sourceTree = "<group>"; };
+		2CEEC7CF15058AE800EAC127 /* A51-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A51-Glass-Shapes.plist"; sourceTree = "<group>"; };
+		2CEEC7D015058AE800EAC127 /* A53-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A53-Glass-Shapes.plist"; sourceTree = "<group>"; };
+		2CEEC7D115058AE800EAC127 /* A55-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A55-Glass-Shapes.plist"; sourceTree = "<group>"; };
+		2CEEC7D215058AE800EAC127 /* A56-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A56-Glass-Shapes.plist"; sourceTree = "<group>"; };
+		2CEEC7D315058AE800EAC127 /* A58-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A58-Glass-Shapes.plist"; sourceTree = "<group>"; };
+		2CEEC7D415058AE800EAC127 /* A60-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A60-Glass-Shapes.plist"; sourceTree = "<group>"; };
+		2CEEC7E215058EA400EAC127 /* Glass-A27.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A27.plist"; sourceTree = "<group>"; };
+		2CEEC7E315058EA400EAC127 /* Glass-A29.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A29.plist"; sourceTree = "<group>"; };
+		2CEEC7E415058EA400EAC127 /* Glass-A33.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A33.plist"; sourceTree = "<group>"; };
+		2CEEC7E515058EA400EAC127 /* Glass-A35.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A35.plist"; sourceTree = "<group>"; };
+		2CEEC7E615058EA400EAC127 /* Glass-A37.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A37.plist"; sourceTree = "<group>"; };
+		2CEEC7E715058EA400EAC127 /* Glass-A45.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A45.plist"; sourceTree = "<group>"; };
+		2CEEC7E815058EA400EAC127 /* Glass-A46.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A46.plist"; sourceTree = "<group>"; };
+		2CEEC7E915058EA400EAC127 /* Glass-A51.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A51.plist"; sourceTree = "<group>"; };
+		2CEEC7EA15058EA400EAC127 /* Glass-A53.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A53.plist"; sourceTree = "<group>"; };
+		2CEEC7EB15058EA400EAC127 /* Glass-A55.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A55.plist"; sourceTree = "<group>"; };
+		2CEEC7EC15058EA400EAC127 /* Glass-A56.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A56.plist"; sourceTree = "<group>"; };
+		2CEEC7ED15058EA400EAC127 /* Glass-A58.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A58.plist"; sourceTree = "<group>"; };
+		2CEEC7EE15058EA400EAC127 /* Glass-A60.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A60.plist"; sourceTree = "<group>"; };
 		2CEEEDDC150231B10096DCA1 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1791,6 +1841,19 @@
 			isa = PBXGroup;
 			children = (
 				2CC9E78F1503891B00C094B0 /* A22-Glass-Shapes.plist */,
+				2CEEC7C815058AE700EAC127 /* A27-Glass-Shapes.plist */,
+				2CEEC7C915058AE700EAC127 /* A29-Glass-Shapes.plist */,
+				2CEEC7CA15058AE700EAC127 /* A33-Glass-Shapes.plist */,
+				2CEEC7CB15058AE800EAC127 /* A35-Glass-Shapes.plist */,
+				2CEEC7CC15058AE800EAC127 /* A37-Glass-Shapes.plist */,
+				2CEEC7CD15058AE800EAC127 /* A45-Glass-Shapes.plist */,
+				2CEEC7CE15058AE800EAC127 /* A46-Glass-Shapes.plist */,
+				2CEEC7CF15058AE800EAC127 /* A51-Glass-Shapes.plist */,
+				2CEEC7D015058AE800EAC127 /* A53-Glass-Shapes.plist */,
+				2CEEC7D115058AE800EAC127 /* A55-Glass-Shapes.plist */,
+				2CEEC7D215058AE800EAC127 /* A56-Glass-Shapes.plist */,
+				2CEEC7D315058AE800EAC127 /* A58-Glass-Shapes.plist */,
+				2CEEC7D415058AE800EAC127 /* A60-Glass-Shapes.plist */,
 				2C5EFC6D14E829390071ED39 /* Bee-Shapes.plist */,
 				2C5EFC4814E7DACF0071ED39 /* FloatingBlockA-Shapes.plist */,
 				2CEEC7BD1505807900EAC127 /* Leave-Shapes.plist */,
@@ -2657,7 +2720,19 @@
 			isa = PBXGroup;
 			children = (
 				2CEB9D6A14EDB7E800CAC505 /* Glass-A22.plist */,
-				2C24B3C414EFEA87002D1444 /* Glass-A34.plist */,
+				2CEEC7E215058EA400EAC127 /* Glass-A27.plist */,
+				2CEEC7E315058EA400EAC127 /* Glass-A29.plist */,
+				2CEEC7E415058EA400EAC127 /* Glass-A33.plist */,
+				2CEEC7E515058EA400EAC127 /* Glass-A35.plist */,
+				2CEEC7E615058EA400EAC127 /* Glass-A37.plist */,
+				2CEEC7E715058EA400EAC127 /* Glass-A45.plist */,
+				2CEEC7E815058EA400EAC127 /* Glass-A46.plist */,
+				2CEEC7E915058EA400EAC127 /* Glass-A51.plist */,
+				2CEEC7EA15058EA400EAC127 /* Glass-A53.plist */,
+				2CEEC7EB15058EA400EAC127 /* Glass-A55.plist */,
+				2CEEC7EC15058EA400EAC127 /* Glass-A56.plist */,
+				2CEEC7ED15058EA400EAC127 /* Glass-A58.plist */,
+				2CEEC7EE15058EA400EAC127 /* Glass-A60.plist */,
 				2CD51BBB14EEF1FB00FCD8FF /* Glass-Pc-Small.plist */,
 				2CEB9D7C14EDC34C00CAC505 /* Glass-Pc.plist */,
 			);
@@ -2813,7 +2888,6 @@
 				2CD51BBC14EEF1FB00FCD8FF /* Glass-Pc-Small.plist in Resources */,
 				2C24B3B414EF1520002D1444 /* ChangeLog in Resources */,
 				2C24B3B514EF1520002D1444 /* CMakeLists.txt in Resources */,
-				2C24B3C514EFEA87002D1444 /* Glass-A34.plist in Resources */,
 				2CAB50DE14F2FBB0006EF1A4 /* Cavegate.plist in Resources */,
 				2CAB50E014F2FC33006EF1A4 /* Cavegate-Animations.plist in Resources */,
 				2C7DAC3B14F43CF4006CE0BA /* Sounds.plist in Resources */,
@@ -3061,6 +3135,32 @@
 				2CEEC7BA150577B500EAC127 /* Leaf-Animations.plist in Resources */,
 				2CEEC7BC1505780200EAC127 /* Leaf.plist in Resources */,
 				2CEEC7BE1505807900EAC127 /* Leave-Shapes.plist in Resources */,
+				2CEEC7D515058AE800EAC127 /* A27-Glass-Shapes.plist in Resources */,
+				2CEEC7D615058AE800EAC127 /* A29-Glass-Shapes.plist in Resources */,
+				2CEEC7D715058AE800EAC127 /* A33-Glass-Shapes.plist in Resources */,
+				2CEEC7D815058AE800EAC127 /* A35-Glass-Shapes.plist in Resources */,
+				2CEEC7D915058AE800EAC127 /* A37-Glass-Shapes.plist in Resources */,
+				2CEEC7DA15058AE800EAC127 /* A45-Glass-Shapes.plist in Resources */,
+				2CEEC7DB15058AE800EAC127 /* A46-Glass-Shapes.plist in Resources */,
+				2CEEC7DC15058AE800EAC127 /* A51-Glass-Shapes.plist in Resources */,
+				2CEEC7DD15058AE800EAC127 /* A53-Glass-Shapes.plist in Resources */,
+				2CEEC7DE15058AE800EAC127 /* A55-Glass-Shapes.plist in Resources */,
+				2CEEC7DF15058AE800EAC127 /* A56-Glass-Shapes.plist in Resources */,
+				2CEEC7E015058AE800EAC127 /* A58-Glass-Shapes.plist in Resources */,
+				2CEEC7E115058AE800EAC127 /* A60-Glass-Shapes.plist in Resources */,
+				2CEEC7EF15058EA400EAC127 /* Glass-A27.plist in Resources */,
+				2CEEC7F015058EA400EAC127 /* Glass-A29.plist in Resources */,
+				2CEEC7F115058EA400EAC127 /* Glass-A33.plist in Resources */,
+				2CEEC7F215058EA400EAC127 /* Glass-A35.plist in Resources */,
+				2CEEC7F315058EA400EAC127 /* Glass-A37.plist in Resources */,
+				2CEEC7F415058EA400EAC127 /* Glass-A45.plist in Resources */,
+				2CEEC7F515058EA400EAC127 /* Glass-A46.plist in Resources */,
+				2CEEC7F615058EA400EAC127 /* Glass-A51.plist in Resources */,
+				2CEEC7F715058EA400EAC127 /* Glass-A53.plist in Resources */,
+				2CEEC7F815058EA400EAC127 /* Glass-A55.plist in Resources */,
+				2CEEC7F915058EA400EAC127 /* Glass-A56.plist in Resources */,
+				2CEEC7FA15058EA400EAC127 /* Glass-A58.plist in Resources */,
+				2CEEC7FB15058EA400EAC127 /* Glass-A60.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

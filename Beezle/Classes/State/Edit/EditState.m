@@ -139,14 +139,16 @@
 -(void) addEntityWithType:(NSString *)type
 {	
 	Entity *entity = [EntityFactory createEntity:type world:_world edit:TRUE];
-	
-	[entity addComponent:[EditComponent componentWithLevelLayoutType:type]];
-	[entity refresh];
-	
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	[EntityUtil setEntityPosition:entity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
-	
-	[_editControlSystem selectEntity:entity];
+	if (entity != nil)
+	{
+		[entity addComponent:[EditComponent componentWithLevelLayoutType:type]];
+		[entity refresh];
+		
+		CGSize winSize = [[CCDirector sharedDirector] winSize];
+		[EntityUtil setEntityPosition:entity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
+		
+		[_editControlSystem selectEntity:entity];
+	}
 }
 
 -(void) toggleDebugPhysicsDrawing

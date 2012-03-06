@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>GLASS-A27</string>
+	<key>components</key>
+	<dict>
+		<key>crumble</key>
+		<dict/>
+		<key>disposable</key>
+		<dict/>
+		<key>physics</key>
+		<dict>
+			<key>file</key>
+			<string>A27-Glass-Shapes.plist</string>
+			<key>bodyName</key>
+			<string>A27-Glass</string>
+			<key>collisionType</key>
+			<string>GLASS</string>
+			<key>layers</key>
+			<integer>7</integer>
+			<key>group</key>
+			<string>LEVEL</string>
+		</dict>
+		<key>render</key>
+		<dict>
+			<key>sprites</key>
+			<array>
+				<dict>
+					<key>name</key>
+					<string>default</string>
+					<key>spriteSheetName</key>
+					<string>Sprites</string>
+					<key>animationFile</key>
+					<string>Glass-Animations.plist</string>
+					<key>z</key>
+					<integer>2</integer>
+					<key>anchorPoint</key>
+					<string>{ 0.5, 0.5 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Glass-A27-Idle</string>
+				</dict>
+			</array>
+		</dict>
+		<key>shard</key>
+		<dict>
+			<key>piecesEntityType</key>
+			<string>GLASS-PC</string>
+			<key>piecesCount</key>
+			<integer>20</integer>
+			<key>piecesSpawnAreaOffset</key>
+			<string>{ 0, 0 }</string>
+			<key>piecesSpawnAreaSize</key>
+			<string>{ 120, 120 }</string>
+		</dict>
+		<key>sound</key>
+        <dict>
+            <key>defaultDestroySound</key>
+            <string>GlassLarge</string>
+        </dict>
+		<key>transform</key>
+		<dict/>
+	</dict>
+</dict>
+</plist>

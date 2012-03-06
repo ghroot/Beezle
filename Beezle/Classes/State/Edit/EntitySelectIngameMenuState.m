@@ -56,7 +56,7 @@
 	[self addMenuItemForEntityType:@"CAVEGATE"];
 	[self addMenuItemForEntityType:@"EGG"];
 	[self addMenuItemForEntityType:@"FLOATING-BLOCK-A"];
-	[self addMenuItemForEntityType:@"GLASS-A22"];
+	[self addMenuItemForEntityType:@"GLASS"];
 	[self addMenuItemForEntityType:@"HANGNEST"];
 	[self addMenuItemForEntityType:@"MUSHROOM"];
 	[self addMenuItemForEntityType:@"NUT"];
@@ -84,6 +84,13 @@
 	
 	[_game popState];
 	EditState *editState = (EditState *)[_game currentState];
+	
+	if ([entityType isEqualToString:@"GLASS"])
+	{
+		NSString *levelSuffix = [[[editState levelName] componentsSeparatedByString:@"-"] objectAtIndex:1];
+		entityType = [NSString stringWithFormat:@"GLASS-%@", levelSuffix];
+	}
+	
 	[editState addEntityWithType:entityType];
 }
 
