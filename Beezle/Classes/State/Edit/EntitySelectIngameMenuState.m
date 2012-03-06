@@ -58,6 +58,7 @@
 	[self addMenuItemForEntityType:@"FLOATING-BLOCK-A"];
 	[self addMenuItemForEntityType:@"GLASS"];
 	[self addMenuItemForEntityType:@"HANGNEST"];
+	[self addMenuItemForEntityType:@"LEAF"];
 	[self addMenuItemForEntityType:@"MUSHROOM"];
 	[self addMenuItemForEntityType:@"NUT"];
 	[self addMenuItemForEntityType:@"POLLEN"];
