@@ -18,7 +18,8 @@
     if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], [RenderComponent class], nil]])
     {
         _layer = layer;
-        _spriteSheetsByName = [[NSMutableDictionary alloc] init];
+        _spriteSheetsByName = [NSMutableDictionary new];
+		_loadedAnimationsFileNames = [NSMutableArray new];
     }
     return self;
 }
@@ -26,6 +27,7 @@
 -(void) dealloc
 {
     [_spriteSheetsByName release];
+	[_loadedAnimationsFileNames release];
     
     [super dealloc];
 }
@@ -68,10 +70,12 @@
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:spriteSheetFileName];
     }
     
-    if (animationsFileName != nil)
+    if (animationsFileName != nil &&
+		![_loadedAnimationsFileNames containsObject:animationsFileName])
 	{
         // Create animations from file
         [[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:animationsFileName];
+		[_loadedAnimationsFileNames addObject:animationsFileName];
     }
     
 	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet z:z];
