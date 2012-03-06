@@ -46,16 +46,15 @@
 		if ([nextInputAction touchType] == TOUCH_BEGAN)
 		{
 			BOOL shouldExplode = TRUE;
-			if ([entity hasComponent:[DisposableComponent class]])
+			if ([EntityUtil isEntityDisposable:entity])
 			{
-				DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
-				if ([disposableComponent isDisposed])
+				if ([EntityUtil isEntityDisposed:entity])
 				{
 					shouldExplode = FALSE;
 				}
 				else
 				{
-					[disposableComponent setIsDisposed:TRUE];
+					[EntityUtil setEntityDisposed:entity];
 				}
 			}
 			
