@@ -87,18 +87,20 @@
 	{
 		TransformComponent *transformComponent = [TransformComponent getFrom:entity];
 		ShardComponent *shardComponent = [ShardComponent getFrom:entity];
+		
+		CGPoint centerPoint = CGPointMake(
+										  [transformComponent position].x + [shardComponent piecesSpawnAreaOffset].x,
+										  [transformComponent position].y + [shardComponent piecesSpawnAreaOffset].y);
+		CGPoint topLeft = CGPointMake(
+									  centerPoint.x - [shardComponent piecesSpawnAreaSize].width / 2,
+									  centerPoint.y - [shardComponent piecesSpawnAreaSize].height / 2);
+		
 		for (int i = 0; i < [shardComponent piecesCount]; i++)
 		{
 			// Create entity
 			Entity *shardPieceEntity = [EntityFactory createEntity:[shardComponent piecesEntityType] world:_world];
 			
 			// Position
-			CGPoint centerPoint = CGPointMake(
-						[transformComponent position].x + [shardComponent piecesSpawnAreaOffset].x,
-						[transformComponent position].y + [shardComponent piecesSpawnAreaOffset].y);
-			CGPoint topLeft = CGPointMake(
-						centerPoint.x - [shardComponent piecesSpawnAreaSize].width / 2,
-						centerPoint.y - [shardComponent piecesSpawnAreaSize].height / 2);
 			CGPoint randomPosition = CGPointMake(
 						topLeft.x + (rand() % (int)[shardComponent piecesSpawnAreaSize].width),
 						topLeft.y + (rand() % (int)[shardComponent piecesSpawnAreaSize].height));
