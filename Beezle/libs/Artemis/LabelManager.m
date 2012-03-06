@@ -55,11 +55,11 @@
 	if ([_labelsByEntity objectForKey:entity] == nil)
 	{
 		labelsForEntity = [[[NSMutableArray alloc] init] autorelease];
-		[_labelsByEntity setObject:labelsForEntity forKey:[NSNumber numberWithInt:[entity entityId]]];
+		[_labelsByEntity setObject:labelsForEntity forKey:[entity entityId]];
 	}
 	else
 	{
-		labelsForEntity = [_labelsByEntity objectForKey:[NSNumber numberWithInt:[entity entityId]]];
+		labelsForEntity = [_labelsByEntity objectForKey:[entity entityId]];
 	}
 	[labelsForEntity addObject:labelName];
 	[entity refresh];
@@ -67,9 +67,9 @@
 
 -(BOOL) hasEntity:(Entity *)entity label:(NSString *)labelName
 {
-    if ([_labelsByEntity objectForKey:[NSNumber numberWithInt:[entity entityId]]] != nil)
+    if ([_labelsByEntity objectForKey:[entity entityId]] != nil)
     {
-        NSArray *labelsForEntity = [_labelsByEntity objectForKey:[NSNumber numberWithInt:[entity entityId]]];
+        NSArray *labelsForEntity = [_labelsByEntity objectForKey:[entity entityId]];
         return [labelsForEntity containsObject:labelName];
     }
     else
@@ -80,9 +80,9 @@
 
 -(void) unLabelEntity:(Entity *)entity withLabel:(NSString *)labelName
 {
-    if ([_labelsByEntity objectForKey:[NSNumber numberWithInt:[entity entityId]]] != nil)
+    if ([_labelsByEntity objectForKey:[entity entityId]] != nil)
     {
-        NSMutableArray *labelsForEntity = [_labelsByEntity objectForKey:[NSNumber numberWithInt:[entity entityId]]];
+        NSMutableArray *labelsForEntity = [_labelsByEntity objectForKey:[entity entityId]];
         if ([labelsForEntity containsObject:labelName])
         {
             [labelsForEntity removeObject:labelName];
@@ -93,9 +93,9 @@
 
 -(void) removeEntity:(Entity *)entity
 {
-	if ([_labelsByEntity objectForKey:[NSNumber numberWithInt:[entity entityId]]] != nil)
+	if ([_labelsByEntity objectForKey:[entity entityId]] != nil)
 	{
-		[_labelsByEntity removeObjectForKey:[NSNumber numberWithInt:[entity entityId]]];
+		[_labelsByEntity removeObjectForKey:[entity entityId]];
 	}
 	[entity refresh];
 }

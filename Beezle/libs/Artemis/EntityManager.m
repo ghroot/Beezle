@@ -60,7 +60,7 @@
 
 -(Entity *) createEntity
 {
-    Entity *entity = [[[Entity alloc] initWithWorld:_world andId:++_nextEntityId] autorelease];
+    Entity *entity = [[[Entity alloc] initWithWorld:_world andId:[NSNumber numberWithInt:++_nextEntityId]] autorelease];
     [_entities addObject:entity];
     return entity;
 }
@@ -81,7 +81,7 @@
 		{
 			[component setParentEntity:nil];
 		}
-        [componentsByEntity removeObjectForKey:[NSNumber numberWithInt:[entity entityId]]];
+        [componentsByEntity removeObjectForKey:[entity entityId]];
     }
 }
 
@@ -97,7 +97,7 @@
     {
         componentsByEntity = [_componentsByClass objectForKey:[component class]];
     }
-    [componentsByEntity setObject:component forKey:[NSNumber numberWithInt:[entity entityId]]];
+    [componentsByEntity setObject:component forKey:[entity entityId]];
 	[component setParentEntity:entity];
 }
 
@@ -119,7 +119,7 @@
 -(void) removeComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity
 {
     NSMutableDictionary *componentsByEntity = [_componentsByClass objectForKey:componentClass];
-    [componentsByEntity removeObjectForKey:[NSNumber numberWithInt:[entity entityId]]];
+    [componentsByEntity removeObjectForKey:[entity entityId]];
 }
 
 -(Component *) getComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity
@@ -127,7 +127,7 @@
     if ([_componentsByClass objectForKey:componentClass] != nil)
     {
         NSMutableDictionary *_componentsByEntity = [_componentsByClass objectForKey:componentClass];
-        return [_componentsByEntity objectForKey:[NSNumber numberWithInt:[entity entityId]]];
+        return [_componentsByEntity objectForKey:[entity entityId]];
     }
     else
     {
@@ -135,12 +135,12 @@
     }
 }
 
--(Entity *) getEntity:(int)entityId
+-(Entity *) getEntity:(NSNumber *)entityId
 {
     Entity *entityToReturn = nil;
     for (Entity *entity in _entities)
     {
-        if ([entity entityId] == entityId)
+        if ([[entity entityId] intValue] == [entityId intValue])
         {
             entityToReturn = entity;
             break;
@@ -154,7 +154,7 @@
     NSMutableArray *entityComponents = [NSMutableArray array];
     for (NSDictionary *componentsByEntity in [_componentsByClass allValues])
     {
-        Component *component = [componentsByEntity objectForKey:[NSNumber numberWithInt:[entity entityId]]];
+        Component *component = [componentsByEntity objectForKey:[entity entityId]];
         if (component != nil)
         {
             [entityComponents addObject:component];

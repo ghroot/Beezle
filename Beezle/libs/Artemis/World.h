@@ -52,7 +52,7 @@
 -(void) deleteEntity:(Entity *)entity;
 -(void) refreshEntity:(Entity *)entity;
 -(Entity *) createEntity;
--(Entity *) getEntity:(int) entityId;
+-(Entity *) getEntity:(NSNumber *) entityId;
 -(void) loopStart;
 
 @end

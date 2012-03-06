@@ -39,15 +39,22 @@
 @synthesize world = _world;
 @synthesize deleted = _deleted;
 
--(id) initWithWorld:(World *)world andId:(int)entityId
+-(id) initWithWorld:(World *)world andId:(NSNumber *)entityId
 {
     if (self = [super init])
     {
         _world = world;
         _entityManager = [_world entityManager];
-        _entityId = entityId;
+        _entityId = [entityId retain];
     }
     return self;
+}
+
+-(void) dealloc
+{
+	[_entityId release];
+	
+	[super dealloc];
 }
 
 -(void) addComponent:(Component *)component

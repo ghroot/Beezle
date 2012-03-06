@@ -119,7 +119,7 @@
     return [[self entityManager] createEntity];
 }
 
--(Entity *) getEntity:(int) entityId
+-(Entity *) getEntity:(NSNumber *) entityId
 {
     return [[self entityManager] getEntity:entityId];
 }

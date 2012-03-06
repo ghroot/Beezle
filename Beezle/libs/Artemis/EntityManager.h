@@ -50,7 +50,7 @@
 -(void) removeComponent:(Component *)component fromEntity:(Entity *)entity;
 -(void) removeComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity;
 -(Component *) getComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity;
--(Entity *) getEntity:(int)entityId;
+-(Entity *) getEntity:(NSNumber *)entityId;
 -(NSArray *) getComponents:(Entity *)entity;
 
 @end

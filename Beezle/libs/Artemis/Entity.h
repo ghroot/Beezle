@@ -34,17 +34,17 @@
 
 @interface Entity : NSObject
 {
-    int _entityId;
+    NSNumber *_entityId;
     World *_world;
     EntityManager *_entityManager;
     BOOL _deleted;
 }
 
-@property (nonatomic) int entityId;
+@property (nonatomic, retain) NSNumber *entityId;
 @property (nonatomic, readonly) World *world;
 @property (nonatomic) BOOL deleted;
 
--(id) initWithWorld:(World *)world andId:(int)entityId;
+-(id) initWithWorld:(World *)world andId:(NSNumber *)entityId;
 -(void) addComponent:(Component *)component;
 -(BOOL) hasComponent:(Class)componentClass;
 -(void) removeComponent:(Component *)component;
