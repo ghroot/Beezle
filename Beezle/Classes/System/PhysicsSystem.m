@@ -15,7 +15,7 @@
 #import "PhysicsComponent.h"
 #import "TransformComponent.h"
 
-#define GRAVITY -120
+#define GRAVITY -100
 
 @interface PhysicsSystem()
 
