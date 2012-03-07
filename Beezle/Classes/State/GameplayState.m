@@ -364,29 +364,32 @@
         if (_currentMode != _levelCompletedMode)
         {
             [self enterMode:_levelCompletedMode];
-			
-			TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
-			Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
-			SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
-			int numberOfUnusedBees = [slingerComponent numberOfBeesInQueue];
-			[_levelSession setNumberOfUnusedBees:numberOfUnusedBees];
-			
-			NSLog(@"Unused bees: %d", [_levelSession numberOfUnusedBees]);
-			NSLog(@"Pollen: %d", [_levelSession totalNumberOfPollen]);
-			NSLog(@"Previous record: %d", [[PlayerInformation sharedInformation] pollenRecord:[_levelSession levelName]]);
-			
-			[[PlayerInformation sharedInformation] storeAndSave:_levelSession];
-			
-			NSLog(@"New record: %d", [[PlayerInformation sharedInformation] pollenRecord:[_levelSession levelName]]);
-			NSLog(@"Total: %d", [[PlayerInformation sharedInformation] totalNumberOfPollen]);
-			
-			CCMenuItemImage *levelCompleteMenuItem = [CCMenuItemImage itemWithNormalImage:@"Level Completed Bubble-01.png" selectedImage:@"Level Completed Bubble-01.png" target:self selector:@selector(loadNextLevel:)];
-			CCMenu *levelCompleteMenu = [CCMenu menuWithItems:levelCompleteMenuItem, nil];
-			[levelCompleteMenuItem setScale:0.25f];
-			CCEaseElasticInOut *elasticScaleAction = [CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]];
-			[levelCompleteMenuItem runAction:elasticScaleAction];
-			[_uiLayer addChild:levelCompleteMenu];
-		}
+            
+            // TODO: This should be done before showing the level complete bubble
+            [_beeQueueRenderingSystem turnRemainingBeesIntoPollen];
+
+            TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
+            Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
+            SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
+            int numberOfUnusedBees = [slingerComponent numberOfBeesInQueue];
+            [_levelSession setNumberOfUnusedBees:numberOfUnusedBees];
+            
+            NSLog(@"Unused bees: %d", [_levelSession numberOfUnusedBees]);
+            NSLog(@"Pollen: %d", [_levelSession totalNumberOfPollen]);
+            NSLog(@"Previous record: %d", [[PlayerInformation sharedInformation] pollenRecord:[_levelSession levelName]]);
+            
+            [[PlayerInformation sharedInformation] storeAndSave:_levelSession];
+            
+            NSLog(@"New record: %d", [[PlayerInformation sharedInformation] pollenRecord:[_levelSession levelName]]);
+            NSLog(@"Total: %d", [[PlayerInformation sharedInformation] totalNumberOfPollen]);
+            
+            CCMenuItemImage *levelCompleteMenuItem = [CCMenuItemImage itemWithNormalImage:@"Level Completed Bubble-01.png" selectedImage:@"Level Completed Bubble-01.png" target:self selector:@selector(loadNextLevel:)];
+            CCMenu *levelCompleteMenu = [CCMenu menuWithItems:levelCompleteMenuItem, nil];
+            [levelCompleteMenuItem setScale:0.25f];
+            CCEaseElasticInOut *elasticScaleAction = [CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]];
+            [levelCompleteMenuItem runAction:elasticScaleAction];
+            [_uiLayer addChild:levelCompleteMenu];
+        }
     }
     else if ([_gameRulesSystem isLevelFailed])
     {

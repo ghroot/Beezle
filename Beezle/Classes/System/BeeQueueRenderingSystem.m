@@ -319,4 +319,22 @@
 	return swayAction;
 }
 
+-(void) turnRemainingBeesIntoPollen
+{
+	for (int i = 0; i < [_beeQueueRenderSprites count]; i++)
+	{
+		RenderSprite *beeQueueRenderSprite = [_beeQueueRenderSprites objectAtIndex:i];
+		_movingBeesCount++;
+        CCDelayTime *waitAction = [CCDelayTime actionWithDuration:(i * 0.8f)];
+        CCCallBlock *animateAction = [CCCallBlock actionWithBlock:^(){
+            [[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Bees-Animations.plist"];
+            [beeQueueRenderSprite playAnimation:@"Bee-Turn-Into-Pollen" withCallbackTarget:self andCallbackSelector:@selector(decreaseMovingBeesCount)];
+        }];
+		[[beeQueueRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
+        CCAction *action = [CCSequence actions:waitAction, animateAction, nil];
+		[action setTag:ACTION_TAG_BEE_QUEUE];
+		[[beeQueueRenderSprite sprite] runAction:action];
+	}
+}
+
 @end

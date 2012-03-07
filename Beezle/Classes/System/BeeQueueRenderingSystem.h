@@ -29,5 +29,6 @@
 
 -(void) refreshSprites:(Entity *)slingerEntity;
 -(BOOL) isBusy;
+-(void) turnRemainingBeesIntoPollen;
 
 @end
