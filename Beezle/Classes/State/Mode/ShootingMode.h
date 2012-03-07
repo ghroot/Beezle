@@ -9,21 +9,18 @@
 #import "GameMode.h"
 
 @class AimingMode;
-@class GameRulesSystem;
-@class LevelCompleteMode;
+@class LevelCompletedMode;
 @class LevelFailedMode;
 
 @interface ShootingMode : GameMode
 {
     AimingMode *_aimingMode;
-    LevelCompleteMode *_levelCompletedMode;
+    LevelCompletedMode *_levelCompletedMode;
     LevelFailedMode *_levelFailedMode;
-    
-    GameRulesSystem *_gameRulesSystem;
 }
 
 @property (nonatomic, assign) AimingMode *aimingMode;
-@property (nonatomic, assign) LevelCompleteMode *levelCompletedMode;
+@property (nonatomic, assign) LevelCompletedMode *levelCompletedMode;
 @property (nonatomic, assign) LevelFailedMode *levelFailedMode;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  LevelFailedMode.h
+//  LevelCompleteMode.h
 //  Beezle
 //
 //  Created by Marcus on 3/7/12.
@@ -11,11 +11,12 @@
 
 @class LevelSession;
 
-@interface LevelFailedMode : GameMode
+@interface LevelCompletedMode : GameMode
 {
 	CCLayer *_uiLayer;
 	LevelSession *_levelSession;
-	BOOL _hasShownLevelFailedDialog;
+	BOOL _hasTurnedBeesIntoPollen;
+	BOOL _hasShownLevelCompletedDialog;
 }
 
 -(id) initWithGameplayState:(GameplayState *)gameplayState andUiLayer:(CCLayer *)uiLayer levelSession:(LevelSession *)levelSession;

@@ -44,20 +44,20 @@
 	
 	BOOL _debug;
 	
-    GameRulesSystem *_gameRulesSystem;
-    PhysicsSystem *_physicsSystem;
-	MovementSystem *_movementSystem;
+	BeeaterSystem *_beeaterSystem;
+    BeeExpiratonSystem *_beeExpirationSystem;
+	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
     CollisionSystem *_collisionSystem;
-    RenderSystem *_renderSystem;
+	ExplodeControlSystem *_explodeControlSystem;
+    GameRulesSystem *_gameRulesSystem;
+	GateOpeningSystem *_gateOpeningSystem;
 	HUDRenderingSystem *_hudRenderingSystem;
     InputSystem *_inputSystem;
-    SlingerControlSystem *_slingerControlSystem;
-    BeeExpiratonSystem *_beeExpirationSystem;
-	ExplodeControlSystem *_explodeControlSystem;
-	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
-	BeeaterSystem *_beeaterSystem;
-	GateOpeningSystem *_gateOpeningSystem;
+	MovementSystem *_movementSystem;
+    PhysicsSystem *_physicsSystem;
+    RenderSystem *_renderSystem;
 	ShardSystem *_shardSystem;
+    SlingerControlSystem *_slingerControlSystem;
 	SpawnSystem *_spawnSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
 	DebugNotificationTrackerSystem *_debugNotificationTrackerSystem;
@@ -67,6 +67,22 @@
 }
 
 @property (nonatomic, readonly) NSString *levelName;
+@property (nonatomic, readonly) World *world;
+@property (nonatomic, readonly) BeeaterSystem *beeaterSystem;
+@property (nonatomic, readonly) BeeExpiratonSystem *beeExpirationSystem;
+@property (nonatomic, readonly) BeeQueueRenderingSystem *beeQueueRenderingSystem;
+@property (nonatomic, readonly) CollisionSystem *collisionSystem;
+@property (nonatomic, readonly) ExplodeControlSystem *explodeControlSystem;
+@property (nonatomic, readonly) GameRulesSystem *gameRulesSystem;
+@property (nonatomic, readonly) GateOpeningSystem *gateOpeningSystem;
+@property (nonatomic, readonly) HUDRenderingSystem *hudRenderingSystem;
+@property (nonatomic, readonly) InputSystem *inputSystem;
+@property (nonatomic, readonly) MovementSystem *movementSystem;
+@property (nonatomic, readonly) PhysicsSystem *physicsSystem;
+@property (nonatomic, readonly) RenderSystem *renderSystem;
+@property (nonatomic, readonly) ShardSystem *shardSystem;
+@property (nonatomic, readonly) SlingerControlSystem *slingerControlSystem;
+@property (nonatomic, readonly) SpawnSystem *spawnSystem;
 
 +(id) stateWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession;
 +(id) stateWithLevelName:(NSString *)levelName;

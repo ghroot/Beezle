@@ -8,57 +8,48 @@
 
 #import "GameMode.h"
 
+@interface GameMode()
+
+-(void) processSystems;
+
+@end
+
 @implementation GameMode
 
-@synthesize name = _name;
-
-+(GameMode *) mode
-{
-    return [[[self alloc] init] autorelease];
-}
-
-+(GameMode *) modeWithSystems:(NSArray *)systems
-{
-    return [[[self alloc] initWithSystems:systems] autorelease];
-}
-
 // Designated initialiser
--(id) initWithSystems:(NSArray *)systems
+-(id) initWithGameplayState:(GameplayState *)gameplayState
 {
     if (self = [super init])
     {
-        _systems = [systems retain];
+		_gameplayState = gameplayState;
+		_systems = [NSMutableArray new];
     }
     return self;
 }
 
 -(id) init
 {
-    return [self initWithSystems:[NSArray array]];
+    return [self initWithGameplayState:nil];
 }
 
 -(void) dealloc
 {
-    [_transitionBlock release];
-    [_enterBlock release];
     [_systems release];
     
     [super dealloc];
 }
 
--(void) setTransitionBlock:(BOOL(^)(void))block
+-(void) enter
 {
-	_transitionBlock = [block copy];
+    for (EntitySystem *system in _systems)
+    {
+        [system activate];
+    }
 }
 
--(BOOL) shouldTransition
+-(void) update
 {
-    return _transitionBlock();
-}
-
--(void) setEnterBlock:(void(^)(void))block
-{
-    _enterBlock = [block copy];
+	[self processSystems];
 }
 
 -(void) processSystems
@@ -69,34 +60,12 @@
     }
 }
 
--(void) enter
-{
-    for (EntitySystem *system in _systems)
-    {
-        [system activate];
-    }
-    
-    if (_enterBlock != nil)
-    {
-        _enterBlock();
-    }
-}
-
 -(void) leave
 {
     for (EntitySystem *system in _systems)
     {
         [system deactivate];
     }
-}
-
--(id) initWithWorld:(World *)world
-{
-    if (self = [super init])
-    {
-        _world = world;
-    }
-    return self;
 }
 
 -(GameMode *) nextMode

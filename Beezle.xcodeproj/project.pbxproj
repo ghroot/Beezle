@@ -486,7 +486,7 @@
 		2CE1A3331507C10000F17282 /* GameMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3321507C10000F17282 /* GameMode.m */; };
 		2CE1A3371507C11F00F17282 /* AimingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3361507C11F00F17282 /* AimingMode.m */; };
 		2CE1A33A1507C5AB00F17282 /* ShootingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3391507C5AB00F17282 /* ShootingMode.m */; };
-		2CE1A33D1507C83900F17282 /* LevelCompleteMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A33C1507C83900F17282 /* LevelCompleteMode.m */; };
+		2CE1A33D1507C83900F17282 /* LevelCompletedMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A33C1507C83900F17282 /* LevelCompletedMode.m */; };
 		2CE1A3401507C85700F17282 /* LevelFailedMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A33F1507C85700F17282 /* LevelFailedMode.m */; };
 		2CE348B314DDFD0100FEB492 /* BootStrap.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348B214DDFD0000FEB492 /* BootStrap.m */; };
 		2CE348BB14DF06FB00FEB492 /* EntityDescriptionSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348BA14DF06FB00FEB492 /* EntityDescriptionSerializer.m */; };
@@ -1278,8 +1278,8 @@
 		2CE1A3361507C11F00F17282 /* AimingMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AimingMode.m; sourceTree = "<group>"; };
 		2CE1A3381507C5AB00F17282 /* ShootingMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShootingMode.h; sourceTree = "<group>"; };
 		2CE1A3391507C5AB00F17282 /* ShootingMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShootingMode.m; sourceTree = "<group>"; };
-		2CE1A33B1507C83900F17282 /* LevelCompleteMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelCompleteMode.h; sourceTree = "<group>"; };
-		2CE1A33C1507C83900F17282 /* LevelCompleteMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCompleteMode.m; sourceTree = "<group>"; };
+		2CE1A33B1507C83900F17282 /* LevelCompletedMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelCompletedMode.h; sourceTree = "<group>"; };
+		2CE1A33C1507C83900F17282 /* LevelCompletedMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCompletedMode.m; sourceTree = "<group>"; };
 		2CE1A33E1507C85700F17282 /* LevelFailedMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelFailedMode.h; sourceTree = "<group>"; };
 		2CE1A33F1507C85700F17282 /* LevelFailedMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelFailedMode.m; sourceTree = "<group>"; };
 		2CE348B114DDFD0000FEB492 /* BootStrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BootStrap.h; path = Classes/BootStrap.h; sourceTree = "<group>"; };
@@ -2513,8 +2513,8 @@
 				2CE1A3361507C11F00F17282 /* AimingMode.m */,
 				2CE1A3311507C10000F17282 /* GameMode.h */,
 				2CE1A3321507C10000F17282 /* GameMode.m */,
-				2CE1A33B1507C83900F17282 /* LevelCompleteMode.h */,
-				2CE1A33C1507C83900F17282 /* LevelCompleteMode.m */,
+				2CE1A33B1507C83900F17282 /* LevelCompletedMode.h */,
+				2CE1A33C1507C83900F17282 /* LevelCompletedMode.m */,
 				2CE1A33E1507C85700F17282 /* LevelFailedMode.h */,
 				2CE1A33F1507C85700F17282 /* LevelFailedMode.m */,
 				2CE1A3381507C5AB00F17282 /* ShootingMode.h */,
@@ -3413,7 +3413,7 @@
 				2CE1A3331507C10000F17282 /* GameMode.m in Sources */,
 				2CE1A3371507C11F00F17282 /* AimingMode.m in Sources */,
 				2CE1A33A1507C5AB00F17282 /* ShootingMode.m in Sources */,
-				2CE1A33D1507C83900F17282 /* LevelCompleteMode.m in Sources */,
+				2CE1A33D1507C83900F17282 /* LevelCompletedMode.m in Sources */,
 				2CE1A3401507C85700F17282 /* LevelFailedMode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

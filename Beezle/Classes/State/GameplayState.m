@@ -7,6 +7,7 @@
 //
 
 #import "GameplayState.h"
+#import "AimingMode.h"
 #import "BeeaterSystem.h"
 #import "ExplodeControlSystem.h"
 #import "BeeQueueRenderingSystem.h"
@@ -25,10 +26,10 @@
 #import "IngameMenuState.h"
 #import "InputSystem.h"
 #import "KeyComponent.h"
+#import "LevelCompletedMode.h"
+#import "LevelFailedMode.h"
 #import "LevelLoader.h"
-#import "LevelOrganizer.h"
 #import "LevelSession.h"
-#import "MainMenuState.h"
 #import "MovementSystem.h"
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
@@ -36,6 +37,7 @@
 #import "PlayerInformation.h"
 #import "RenderComponent.h"
 #import "RenderSystem.h"
+#import "ShootingMode.h"
 #import "SlingerComponent.h"
 #import "SlingerControlSystem.h"
 #import "SoundManager.h"
@@ -54,16 +56,29 @@
 -(void) loadLevel;
 -(void) enterMode:(GameMode *)mode;
 -(void) updateMode;
--(BOOL) isBeeFlying;
 -(void) showLabel:(NSString *)labelText;
--(void) loadNextLevel:(id)sender;
--(void) restartLevel:(id)sender;
 
 @end
 
 @implementation GameplayState
 
 @synthesize levelName = _levelName;
+@synthesize world = _world;
+@synthesize beeaterSystem = _beeaterSystem;
+@synthesize beeExpirationSystem = _beeExpirationSystem;
+@synthesize beeQueueRenderingSystem = _beeQueueRenderingSystem;
+@synthesize collisionSystem = _collisionSystem;
+@synthesize explodeControlSystem = _explodeControlSystem;
+@synthesize gameRulesSystem = _gameRulesSystem;
+@synthesize gateOpeningSystem = _gateOpeningSystem;
+@synthesize hudRenderingSystem = _hudRenderingSystem;
+@synthesize inputSystem = _inputSystem;
+@synthesize physicsSystem = _physicsSystem;
+@synthesize movementSystem = _movementSystem;
+@synthesize renderSystem = _renderSystem;
+@synthesize shardSystem = _shardSystem;
+@synthesize slingerControlSystem = _slingerControlSystem;
+@synthesize spawnSystem = _spawnSystem;
 
 +(id) stateWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession
 {
@@ -186,120 +201,26 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_GATE_ENTERED object:nil];
 }
 
-// TODO: Create sub classes of GameMode and move all this into each respective mode
 -(void) createModes
 {
     _modes = [NSMutableArray new];
     
-    GameMode *aimingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
-													 _movementSystem,
-                                                     _physicsSystem,
-                                                     _collisionSystem,
-                                                     _renderSystem,
-													 _hudRenderingSystem,
-                                                     _inputSystem,
-                                                     _slingerControlSystem,
-													 _beeaterSystem,
-													 _beeQueueRenderingSystem,
-													 _spawnSystem,
-													 _gameRulesSystem,
-                                                     nil]];
-    [aimingMode setName:@"aiming"];
-    [aimingMode setTransitionBlock:^BOOL{
-        return ![_gameRulesSystem isLevelCompleted] &&
-            ![_gameRulesSystem isLevelFailed] &&
-            ![_beeQueueRenderingSystem isBusy] && 
-            ![self isBeeFlying];
-    }];
+	AimingMode *aimingMode = [[[AimingMode alloc] initWithGameplayState:self] autorelease];
+	ShootingMode *shootingMode = [[[ShootingMode alloc] initWithGameplayState:self] autorelease];
+	LevelCompletedMode *levelCompletedMode = [[[LevelCompletedMode alloc] initWithGameplayState:self andUiLayer:_uiLayer levelSession:_levelSession] autorelease];
+	LevelFailedMode *levelFailedMode = [[[LevelFailedMode alloc] initWithGameplayState:self andUiLayer:_uiLayer levelSession:_levelSession] autorelease];
+	
+	// Inject dependencies
+	[aimingMode setShootingMode:shootingMode];
+	[shootingMode setAimingMode:aimingMode];
+	[shootingMode setLevelCompletedMode:levelCompletedMode];
+	[shootingMode setLevelFailedMode:levelFailedMode];
+	
     [_modes addObject:aimingMode];
-    
-    GameMode *shootingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
-													   _movementSystem,
-													   _physicsSystem,
-													   _collisionSystem,
-													   _renderSystem,
-													   _hudRenderingSystem,
-													   _inputSystem,
-													   _beeExpirationSystem,
-													   _explodeControlSystem,
-													   _beeaterSystem,
-													   _gateOpeningSystem,
-													   _beeQueueRenderingSystem,
-													   _shardSystem,
-													   _spawnSystem,
-													   _gameRulesSystem,
-													   nil]];
-    [shootingMode setName:@"shooting"];
-    [shootingMode setTransitionBlock:^BOOL{
-        return ![_beeQueueRenderingSystem isBusy] && 
-            [self isBeeFlying];
-    }];
     [_modes addObject:shootingMode];
-    
-    GameMode *levelCompletedMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
-															 _physicsSystem,
-															 _collisionSystem,
-															 _renderSystem,
-															 _hudRenderingSystem,
-															 _beeQueueRenderingSystem,
-															 _spawnSystem,
-															 nil]];
-    [levelCompletedMode setName:@"complete"];
-    [levelCompletedMode setTransitionBlock:^BOOL{
-        return ![_beeQueueRenderingSystem isBusy] &&
-            [_gameRulesSystem isLevelCompleted];
-    }];
-    [levelCompletedMode setEnterBlock:^{
-        // TODO: This should be done before showing the level complete bubble
-        [_beeQueueRenderingSystem turnRemainingBeesIntoPollen];
-        
-        TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
-        Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
-        SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
-        int numberOfUnusedBees = [slingerComponent numberOfBeesInQueue];
-        [_levelSession setNumberOfUnusedBees:numberOfUnusedBees];
-        
-        NSLog(@"Unused bees: %d", [_levelSession numberOfUnusedBees]);
-        NSLog(@"Pollen: %d", [_levelSession totalNumberOfPollen]);
-        NSLog(@"Previous record: %d", [[PlayerInformation sharedInformation] pollenRecord:[_levelSession levelName]]);
-        
-        [[PlayerInformation sharedInformation] storeAndSave:_levelSession];
-        
-        NSLog(@"New record: %d", [[PlayerInformation sharedInformation] pollenRecord:[_levelSession levelName]]);
-        NSLog(@"Total: %d", [[PlayerInformation sharedInformation] totalNumberOfPollen]);
-        
-        CCMenuItemImage *levelCompleteMenuItem = [CCMenuItemImage itemWithNormalImage:@"Level Completed Bubble-01.png" selectedImage:@"Level Completed Bubble-01.png" target:self selector:@selector(loadNextLevel:)];
-        CCMenu *levelCompleteMenu = [CCMenu menuWithItems:levelCompleteMenuItem, nil];
-        [levelCompleteMenuItem setScale:0.25f];
-        CCEaseElasticInOut *elasticScaleAction = [CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]];
-        [levelCompleteMenuItem runAction:elasticScaleAction];
-        [_uiLayer addChild:levelCompleteMenu];
-    }];
-    [_modes addObject:levelCompletedMode];
-    
-    GameMode *levelFailedMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
-														  _physicsSystem,
-														  _collisionSystem,
-														  _renderSystem,
-														  _hudRenderingSystem,
-														  _beeQueueRenderingSystem,
-														  _spawnSystem,
-														  nil]];
-    [levelFailedMode setName:@"failed"];
-    [levelFailedMode setTransitionBlock:^BOOL{
-        return ![_beeQueueRenderingSystem isBusy] &&
-            [_gameRulesSystem isLevelFailed];
-    }];
-    [levelFailedMode setEnterBlock:^{
-        CCMenuItemImage *levelFailedMenuItem = [CCMenuItemImage itemWithNormalImage:@"Level Failed Bubble-01.png" selectedImage:@"Level Failed Bubble-01.png" target:self selector:@selector(restartLevel:)];
-        CCMenu *levelFailedMenu = [CCMenu menuWithItems:levelFailedMenuItem, nil];
-        [levelFailedMenuItem setScale:0.25f];
-        CCEaseElasticInOut *elasticScaleAction = [CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]];
-        [levelFailedMenuItem runAction:elasticScaleAction];
-        [_uiLayer addChild:levelFailedMenu];
-    }];
-    [_modes addObject:levelFailedMode];
-    
+	[_modes addObject:levelCompletedMode];
+	[_modes addObject:levelFailedMode];
+	
     _currentMode = aimingMode;
 }
 
@@ -393,13 +314,6 @@
 	[_world loopStart];
 	[_world setDelta:(1000.0f * delta)];
     
-    [_currentMode processSystems];
-	if (_debug)
-	{
-        [_debugRenderPhysicsSystem process];
-		[_debugNotificationTrackerSystem process];
-	}
-    
     [self updateMode];
 	
 	[self handleNotifications];
@@ -407,8 +321,6 @@
 
 -(void) enterMode:(GameMode *)mode
 {
-    NSLog(@"Entering mode: %@", [mode name]);
-    
     [_currentMode leave];
     _currentMode = mode;
     [_currentMode enter];
@@ -416,29 +328,13 @@
 
 -(void) updateMode
 {
-    for (GameMode *mode in _modes)
-    {
-        if (mode != _currentMode &&
-            [mode shouldTransition])
-        {
-            [self enterMode:mode];
-            break;
-        }
-    }
-}
-
--(BOOL) isBeeFlying
-{
-	GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
-	NSArray *beeEntities = [groupManager getEntitiesInGroup:@"BEES"];
-	for (Entity *beeEntity in beeEntities)
+	[_currentMode update];
+	
+	GameMode *nextMode = [_currentMode nextMode];
+	if (nextMode != nil)
 	{
-		if (![EntityUtil isEntityDisposed:beeEntity])
-		{
-			return TRUE;
-		}
+		[self enterMode:nextMode];
 	}
-	return FALSE;
 }
 
 -(void) pauseGame:(id)sender
@@ -452,24 +348,6 @@
 	CCLabelTTF *label = [CCLabelTTF labelWithString:labelText fontName:@"Courier" fontSize:30];
 	[label setPosition:CGPointMake(winSize.width / 2, winSize.height / 2)];
 	[_uiLayer addChild:label];
-}
-
--(void) loadNextLevel:(id)sender
-{
-    NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:[_levelSession levelName]];
-    if (nextLevelName != nil)
-    {
-        [_game replaceState:[GameplayState stateWithLevelName:nextLevelName]];
-    }
-    else
-    {
-        [_game replaceState:[MainMenuState state]];
-    }
-}
-
--(void) restartLevel:(id)sender
-{
-	[_game replaceState:[GameplayState stateWithLevelName:_levelName]];
 }
 
 @end

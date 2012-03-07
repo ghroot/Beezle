@@ -8,9 +8,11 @@
 
 #import "ShootingMode.h"
 #import "AimingMode.h"
+#import "BeeQueueRenderingSystem.h"
 #import "EntityUtil.h"
+#import "GameplayState.h"
 #import "GameRulesSystem.h"
-#import "LevelCompleteMode.h"
+#import "LevelCompletedMode.h"
 #import "LevelFailedMode.h"
 
 @implementation ShootingMode
@@ -19,27 +21,45 @@
 @synthesize levelCompletedMode = _levelCompletedMode;
 @synthesize levelFailedMode = _levelFailedMode;
 
--(id) initWithWorld:(World *)world
+-(id) initWithGameplayState:(GameplayState *)gameplayState
 {
-    if (self = [super initWithWorld:world])
+    if (self = [super initWithGameplayState:gameplayState])
     {
-        _gameRulesSystem = (GameRulesSystem *)[[world systemManager] getSystem:[GameRulesSystem class]];
+		[_systems addObject:[gameplayState movementSystem]];
+		[_systems addObject:[gameplayState physicsSystem]];
+		[_systems addObject:[gameplayState collisionSystem]];
+		[_systems addObject:[gameplayState renderSystem]];
+		[_systems addObject:[gameplayState hudRenderingSystem]];
+		[_systems addObject:[gameplayState inputSystem]];
+		[_systems addObject:[gameplayState beeExpirationSystem]];
+		[_systems addObject:[gameplayState explodeControlSystem]];
+		[_systems addObject:[gameplayState beeaterSystem]];
+		[_systems addObject:[gameplayState gateOpeningSystem]];
+		[_systems addObject:[gameplayState beeQueueRenderingSystem]];
+		[_systems addObject:[gameplayState shardSystem]];
+		[_systems addObject:[gameplayState spawnSystem]];
+		[_systems addObject:[gameplayState gameRulesSystem]];
     }
     return self;
 }
 
 -(GameMode *) nextMode
 {
-    if ([_gameRulesSystem isLevelCompleted])
+	if ([[_gameplayState beeQueueRenderingSystem] isBusy])
+	{
+		return nil;
+	}
+	
+    if ([[_gameplayState gameRulesSystem] isLevelCompleted])
     {
         return _levelCompletedMode;
     }
-    else if ([_gameRulesSystem isLevelFailed])
+    else if ([[_gameplayState gameRulesSystem] isLevelFailed])
     {
         return _levelFailedMode;
     }
     
-    GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
+    GroupManager *groupManager = (GroupManager *)[[_gameplayState world] getManager:[GroupManager class]];
     NSArray *beeEntities = [groupManager getEntitiesInGroup:@"BEES"];
     BOOL isBeeFlying = FALSE;
     for (Entity *beeEntity in beeEntities)
