@@ -10,6 +10,8 @@
 
 @implementation GameMode
 
+@synthesize name = _name;
+
 +(GameMode *) mode
 {
     return [[[self alloc] init] autorelease];
@@ -37,9 +39,26 @@
 
 -(void) dealloc
 {
+    [_transitionBlock release];
+    [_enterBlock release];
     [_systems release];
     
     [super dealloc];
+}
+
+-(void) setTransitionBlock:(BOOL(^)(void))block
+{
+	_transitionBlock = [block copy];
+}
+
+-(BOOL) shouldTransition
+{
+    return _transitionBlock();
+}
+
+-(void) setEnterBlock:(void(^)(void))block
+{
+    _enterBlock = [block copy];
 }
 
 -(void) processSystems
@@ -55,6 +74,11 @@
     for (EntitySystem *system in _systems)
     {
         [system activate];
+    }
+    
+    if (_enterBlock != nil)
+    {
+        _enterBlock();
     }
 }
 

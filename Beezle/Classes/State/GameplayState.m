@@ -186,9 +186,12 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_GATE_ENTERED object:nil];
 }
 
+// TODO: Create sub classes of GameMode and move all this into each respective mode
 -(void) createModes
 {
-    _aimingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
+    _modes = [NSMutableArray new];
+    
+    GameMode *aimingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
 													 _movementSystem,
                                                      _physicsSystem,
                                                      _collisionSystem,
@@ -201,8 +204,16 @@
 													 _spawnSystem,
 													 _gameRulesSystem,
                                                      nil]];
+    [aimingMode setName:@"aiming"];
+    [aimingMode setTransitionBlock:^BOOL{
+        return ![_gameRulesSystem isLevelCompleted] &&
+            ![_gameRulesSystem isLevelFailed] &&
+            ![_beeQueueRenderingSystem isBusy] && 
+            ![self isBeeFlying];
+    }];
+    [_modes addObject:aimingMode];
     
-    _shootingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
+    GameMode *shootingMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
 													   _movementSystem,
 													   _physicsSystem,
 													   _collisionSystem,
@@ -218,8 +229,14 @@
 													   _spawnSystem,
 													   _gameRulesSystem,
 													   nil]];
+    [shootingMode setName:@"shooting"];
+    [shootingMode setTransitionBlock:^BOOL{
+        return ![_beeQueueRenderingSystem isBusy] && 
+            [self isBeeFlying];
+    }];
+    [_modes addObject:shootingMode];
     
-    _levelCompletedMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
+    GameMode *levelCompletedMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
 															 _physicsSystem,
 															 _collisionSystem,
 															 _renderSystem,
@@ -227,8 +244,40 @@
 															 _beeQueueRenderingSystem,
 															 _spawnSystem,
 															 nil]];
+    [levelCompletedMode setName:@"complete"];
+    [levelCompletedMode setTransitionBlock:^BOOL{
+        return ![_beeQueueRenderingSystem isBusy] &&
+            [_gameRulesSystem isLevelCompleted];
+    }];
+    [levelCompletedMode setEnterBlock:^{
+        // TODO: This should be done before showing the level complete bubble
+        [_beeQueueRenderingSystem turnRemainingBeesIntoPollen];
+        
+        TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
+        Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
+        SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
+        int numberOfUnusedBees = [slingerComponent numberOfBeesInQueue];
+        [_levelSession setNumberOfUnusedBees:numberOfUnusedBees];
+        
+        NSLog(@"Unused bees: %d", [_levelSession numberOfUnusedBees]);
+        NSLog(@"Pollen: %d", [_levelSession totalNumberOfPollen]);
+        NSLog(@"Previous record: %d", [[PlayerInformation sharedInformation] pollenRecord:[_levelSession levelName]]);
+        
+        [[PlayerInformation sharedInformation] storeAndSave:_levelSession];
+        
+        NSLog(@"New record: %d", [[PlayerInformation sharedInformation] pollenRecord:[_levelSession levelName]]);
+        NSLog(@"Total: %d", [[PlayerInformation sharedInformation] totalNumberOfPollen]);
+        
+        CCMenuItemImage *levelCompleteMenuItem = [CCMenuItemImage itemWithNormalImage:@"Level Completed Bubble-01.png" selectedImage:@"Level Completed Bubble-01.png" target:self selector:@selector(loadNextLevel:)];
+        CCMenu *levelCompleteMenu = [CCMenu menuWithItems:levelCompleteMenuItem, nil];
+        [levelCompleteMenuItem setScale:0.25f];
+        CCEaseElasticInOut *elasticScaleAction = [CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]];
+        [levelCompleteMenuItem runAction:elasticScaleAction];
+        [_uiLayer addChild:levelCompleteMenu];
+    }];
+    [_modes addObject:levelCompletedMode];
     
-    _levelFailedMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
+    GameMode *levelFailedMode = [[GameMode alloc] initWithSystems:[NSArray arrayWithObjects:
 														  _physicsSystem,
 														  _collisionSystem,
 														  _renderSystem,
@@ -236,8 +285,22 @@
 														  _beeQueueRenderingSystem,
 														  _spawnSystem,
 														  nil]];
+    [levelFailedMode setName:@"failed"];
+    [levelFailedMode setTransitionBlock:^BOOL{
+        return ![_beeQueueRenderingSystem isBusy] &&
+            [_gameRulesSystem isLevelFailed];
+    }];
+    [levelFailedMode setEnterBlock:^{
+        CCMenuItemImage *levelFailedMenuItem = [CCMenuItemImage itemWithNormalImage:@"Level Failed Bubble-01.png" selectedImage:@"Level Failed Bubble-01.png" target:self selector:@selector(restartLevel:)];
+        CCMenu *levelFailedMenu = [CCMenu menuWithItems:levelFailedMenuItem, nil];
+        [levelFailedMenuItem setScale:0.25f];
+        CCEaseElasticInOut *elasticScaleAction = [CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]];
+        [levelFailedMenuItem runAction:elasticScaleAction];
+        [_uiLayer addChild:levelFailedMenu];
+    }];
+    [_modes addObject:levelFailedMode];
     
-    _currentMode = _aimingMode;
+    _currentMode = aimingMode;
 }
 
 -(void) loadLevel
@@ -270,10 +333,7 @@
 	[_levelName release];
 	[_levelSession release];
 	
-    [_aimingMode release];
-    [_shootingMode release];
-    [_levelCompletedMode release];
-    [_levelFailedMode release];
+    [_modes release];
     
     [_world release];
 	
@@ -347,6 +407,8 @@
 
 -(void) enterMode:(GameMode *)mode
 {
+    NSLog(@"Entering mode: %@", [mode name]);
+    
     [_currentMode leave];
     _currentMode = mode;
     [_currentMode enter];
@@ -354,70 +416,14 @@
 
 -(void) updateMode
 {
-	if ([_beeQueueRenderingSystem isBusy])
-	{
-		return;
-	}
-	
-    if ([_gameRulesSystem isLevelCompleted])
+    for (GameMode *mode in _modes)
     {
-        if (_currentMode != _levelCompletedMode)
+        if (mode != _currentMode &&
+            [mode shouldTransition])
         {
-            [self enterMode:_levelCompletedMode];
-            
-            // TODO: This should be done before showing the level complete bubble
-            [_beeQueueRenderingSystem turnRemainingBeesIntoPollen];
-
-            TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
-            Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
-            SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
-            int numberOfUnusedBees = [slingerComponent numberOfBeesInQueue];
-            [_levelSession setNumberOfUnusedBees:numberOfUnusedBees];
-            
-            NSLog(@"Unused bees: %d", [_levelSession numberOfUnusedBees]);
-            NSLog(@"Pollen: %d", [_levelSession totalNumberOfPollen]);
-            NSLog(@"Previous record: %d", [[PlayerInformation sharedInformation] pollenRecord:[_levelSession levelName]]);
-            
-            [[PlayerInformation sharedInformation] storeAndSave:_levelSession];
-            
-            NSLog(@"New record: %d", [[PlayerInformation sharedInformation] pollenRecord:[_levelSession levelName]]);
-            NSLog(@"Total: %d", [[PlayerInformation sharedInformation] totalNumberOfPollen]);
-            
-            CCMenuItemImage *levelCompleteMenuItem = [CCMenuItemImage itemWithNormalImage:@"Level Completed Bubble-01.png" selectedImage:@"Level Completed Bubble-01.png" target:self selector:@selector(loadNextLevel:)];
-            CCMenu *levelCompleteMenu = [CCMenu menuWithItems:levelCompleteMenuItem, nil];
-            [levelCompleteMenuItem setScale:0.25f];
-            CCEaseElasticInOut *elasticScaleAction = [CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]];
-            [levelCompleteMenuItem runAction:elasticScaleAction];
-            [_uiLayer addChild:levelCompleteMenu];
+            [self enterMode:mode];
+            break;
         }
-    }
-    else if ([_gameRulesSystem isLevelFailed])
-    {
-        if (_currentMode != _levelFailedMode)
-        {
-            [self enterMode:_levelFailedMode];
-			
-			CCMenuItemImage *levelFailedMenuItem = [CCMenuItemImage itemWithNormalImage:@"Level Failed Bubble-01.png" selectedImage:@"Level Failed Bubble-01.png" target:self selector:@selector(restartLevel:)];
-			CCMenu *levelFailedMenu = [CCMenu menuWithItems:levelFailedMenuItem, nil];
-			[levelFailedMenuItem setScale:0.25f];
-			CCEaseElasticInOut *elasticScaleAction = [CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]];
-			[levelFailedMenuItem runAction:elasticScaleAction];
-			[_uiLayer addChild:levelFailedMenu];
-        }
-    } 
-    else if (_currentMode == _aimingMode)
-    {
-		if ([self isBeeFlying])
-		{
-			[self enterMode:_shootingMode];
-		}
-    }
-    else if (_currentMode == _shootingMode)
-    {
-		if (![self isBeeFlying])
-		{
-			[self enterMode:_aimingMode];
-		}
     }
 }
 

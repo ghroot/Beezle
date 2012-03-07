@@ -62,11 +62,8 @@
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
 	DebugNotificationTrackerSystem *_debugNotificationTrackerSystem;
     
+    NSMutableArray *_modes;
     GameMode *_currentMode;
-    GameMode *_aimingMode;
-    GameMode *_shootingMode;
-    GameMode *_levelCompletedMode;
-    GameMode *_levelFailedMode;
 }
 
 @property (nonatomic, readonly) NSString *levelName;
