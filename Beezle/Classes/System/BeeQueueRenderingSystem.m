@@ -9,6 +9,8 @@
 #import "BeeQueueRenderingSystem.h"
 #import "ActionTags.h"
 #import "BeeType.h"
+#import "EntityFactory.h"
+#import "EntityUtil.h"
 #import "NotificationTypes.h"
 #import "RenderSprite.h"
 #import "RenderSystem.h"
@@ -201,13 +203,15 @@
 		[[beeQueueRenderSprite sprite] setScaleX:-1];
 	}
 	
+	CGPoint positionAboveBeeater = CGPointMake(beePosition.x, beePosition.y + 30);
+	
 	// Move from beeater to slinger queue
 	_movingBeesCount++;
 	CCCallBlock *animateLookDownAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookDown", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimation:animationName];
 	}];
-	CCEaseSineInOut *moveUpAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake(beePosition.x, beePosition.y + 30)]];
+	CCEaseSineInOut *moveUpAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:positionAboveBeeater]];
 	CCCallBlock *animateLookScreenAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookScreen", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimation:animationName];
@@ -216,6 +220,12 @@
 	CCCallBlock *animateLookSideAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookSide", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimation:animationName];
+	}];
+	CCCallBlock *spawnLeapAnimationAction = [CCCallBlock actionWithBlock:^(){
+		Entity *leapEntity = [EntityFactory createSimpleAnimatedEntity:_world];
+		[EntityUtil setEntityPosition:leapEntity position:positionAboveBeeater];
+		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-Leap", [savedBeeType capitalizedString]];
+		[EntityUtil animateAndDeleteEntity:leapEntity animationName:animationName];
 	}];
 	CCEaseSineOut *moveToQueueAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.7f position:nextPosition]];
 	CCCallBlock *animateLookAwayAction = [CCCallBlock actionWithBlock:^(){
@@ -239,6 +249,7 @@
 						animateLookScreenAction,
 						waitAction1,
 						animateLookSideAction,
+						spawnLeapAnimationAction,
 						moveToQueueAction,
 						animateLookAwayAction,
 						waitAction2,
