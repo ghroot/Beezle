@@ -20,7 +20,6 @@
 		2C157BF1148FEA8E003F9040 /* GameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157BEF148FEA8E003F9040 /* GameState.m */; };
 		2C157C1A14914F6A003F9040 /* TrajectoryComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1914914F6A003F9040 /* TrajectoryComponent.m */; };
 		2C157C1F149382D8003F9040 /* GameRulesSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1E149382D6003F9040 /* GameRulesSystem.m */; };
-		2C157C241493B3DE003F9040 /* GameMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C231493B3DE003F9040 /* GameMode.m */; };
 		2C24B27D14EF12A8002D1444 /* Position_uColor.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2C24B26314EF1244002D1444 /* Position_uColor.fsh */; };
 		2C24B27E14EF12A8002D1444 /* Position_uColor.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2C24B26414EF1244002D1444 /* Position_uColor.vsh */; };
 		2C24B27F14EF12A8002D1444 /* PositionColor.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2C24B26514EF1244002D1444 /* PositionColor.fsh */; };
@@ -484,6 +483,11 @@
 		2CD4A99914EC7BAC0065FA90 /* DebugRenderPhysicsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4A99614EC7BAC0065FA90 /* DebugRenderPhysicsLayer.m */; };
 		2CD4A99A14EC7BAC0065FA90 /* DebugRenderPhysicsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4A99814EC7BAC0065FA90 /* DebugRenderPhysicsSystem.m */; };
 		2CD51BBC14EEF1FB00FCD8FF /* Glass-Pc-Small.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD51BBB14EEF1FB00FCD8FF /* Glass-Pc-Small.plist */; };
+		2CE1A3331507C10000F17282 /* GameMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3321507C10000F17282 /* GameMode.m */; };
+		2CE1A3371507C11F00F17282 /* AimingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3361507C11F00F17282 /* AimingMode.m */; };
+		2CE1A33A1507C5AB00F17282 /* ShootingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3391507C5AB00F17282 /* ShootingMode.m */; };
+		2CE1A33D1507C83900F17282 /* LevelCompleteMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A33C1507C83900F17282 /* LevelCompleteMode.m */; };
+		2CE1A3401507C85700F17282 /* LevelFailedMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A33F1507C85700F17282 /* LevelFailedMode.m */; };
 		2CE348B314DDFD0100FEB492 /* BootStrap.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348B214DDFD0000FEB492 /* BootStrap.m */; };
 		2CE348BB14DF06FB00FEB492 /* EntityDescriptionSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348BA14DF06FB00FEB492 /* EntityDescriptionSerializer.m */; };
 		2CE348BE14DF070A00FEB492 /* EntityDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348BD14DF070A00FEB492 /* EntityDescription.m */; };
@@ -590,8 +594,6 @@
 		2C157C1914914F6A003F9040 /* TrajectoryComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrajectoryComponent.m; path = Classes/Component/TrajectoryComponent.m; sourceTree = "<group>"; };
 		2C157C1D149382D6003F9040 /* GameRulesSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameRulesSystem.h; path = Classes/System/GameRulesSystem.h; sourceTree = "<group>"; };
 		2C157C1E149382D6003F9040 /* GameRulesSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameRulesSystem.m; path = Classes/System/GameRulesSystem.m; sourceTree = "<group>"; };
-		2C157C221493B3DE003F9040 /* GameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMode.h; sourceTree = "<group>"; };
-		2C157C231493B3DE003F9040 /* GameMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameMode.m; sourceTree = "<group>"; };
 		2C24B26314EF1244002D1444 /* Position_uColor.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Position_uColor.fsh; sourceTree = "<group>"; };
 		2C24B26414EF1244002D1444 /* Position_uColor.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Position_uColor.vsh; sourceTree = "<group>"; };
 		2C24B26514EF1244002D1444 /* PositionColor.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = PositionColor.fsh; sourceTree = "<group>"; };
@@ -1270,6 +1272,16 @@
 		2CD4A99714EC7BAC0065FA90 /* DebugRenderPhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugRenderPhysicsSystem.h; sourceTree = "<group>"; };
 		2CD4A99814EC7BAC0065FA90 /* DebugRenderPhysicsSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugRenderPhysicsSystem.m; sourceTree = "<group>"; };
 		2CD51BBB14EEF1FB00FCD8FF /* Glass-Pc-Small.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-Pc-Small.plist"; sourceTree = "<group>"; };
+		2CE1A3311507C10000F17282 /* GameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMode.h; sourceTree = "<group>"; };
+		2CE1A3321507C10000F17282 /* GameMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameMode.m; sourceTree = "<group>"; };
+		2CE1A3351507C11F00F17282 /* AimingMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AimingMode.h; sourceTree = "<group>"; };
+		2CE1A3361507C11F00F17282 /* AimingMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AimingMode.m; sourceTree = "<group>"; };
+		2CE1A3381507C5AB00F17282 /* ShootingMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShootingMode.h; sourceTree = "<group>"; };
+		2CE1A3391507C5AB00F17282 /* ShootingMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShootingMode.m; sourceTree = "<group>"; };
+		2CE1A33B1507C83900F17282 /* LevelCompleteMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelCompleteMode.h; sourceTree = "<group>"; };
+		2CE1A33C1507C83900F17282 /* LevelCompleteMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCompleteMode.m; sourceTree = "<group>"; };
+		2CE1A33E1507C85700F17282 /* LevelFailedMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelFailedMode.h; sourceTree = "<group>"; };
+		2CE1A33F1507C85700F17282 /* LevelFailedMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelFailedMode.m; sourceTree = "<group>"; };
 		2CE348B114DDFD0000FEB492 /* BootStrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BootStrap.h; path = Classes/BootStrap.h; sourceTree = "<group>"; };
 		2CE348B214DDFD0000FEB492 /* BootStrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BootStrap.m; path = Classes/BootStrap.m; sourceTree = "<group>"; };
 		2CE348B914DF06FB00FEB492 /* EntityDescriptionSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityDescriptionSerializer.h; sourceTree = "<group>"; };
@@ -2460,8 +2472,6 @@
 				2CC3EC0E14D608980025F5DA /* Edit */,
 				2C157BEC148FEA8E003F9040 /* Game.h */,
 				2C157BED148FEA8E003F9040 /* Game.m */,
-				2C157C221493B3DE003F9040 /* GameMode.h */,
-				2C157C231493B3DE003F9040 /* GameMode.m */,
 				2CD33ED6147D72AD000869C1 /* GameplayState.h */,
 				2CD33ED7147D72AD000869C1 /* GameplayState.m */,
 				2C157BEE148FEA8E003F9040 /* GameState.h */,
@@ -2474,6 +2484,7 @@
 				2C333E45150204800023303E /* LoadingState.m */,
 				2CD33EF1147EFFA7000869C1 /* MainMenuState.h */,
 				2CD33EF2147EFFA7000869C1 /* MainMenuState.m */,
+				2CE1A3301507C10000F17282 /* Mode */,
 				2CD33EE8147EE7AD000869C1 /* TestState.h */,
 				2CD33EE9147EE7AD000869C1 /* TestState.m */,
 			);
@@ -2493,6 +2504,23 @@
 			);
 			name = Debug;
 			path = Classes/System/Debug;
+			sourceTree = "<group>";
+		};
+		2CE1A3301507C10000F17282 /* Mode */ = {
+			isa = PBXGroup;
+			children = (
+				2CE1A3351507C11F00F17282 /* AimingMode.h */,
+				2CE1A3361507C11F00F17282 /* AimingMode.m */,
+				2CE1A3311507C10000F17282 /* GameMode.h */,
+				2CE1A3321507C10000F17282 /* GameMode.m */,
+				2CE1A33B1507C83900F17282 /* LevelCompleteMode.h */,
+				2CE1A33C1507C83900F17282 /* LevelCompleteMode.m */,
+				2CE1A33E1507C85700F17282 /* LevelFailedMode.h */,
+				2CE1A33F1507C85700F17282 /* LevelFailedMode.m */,
+				2CE1A3381507C5AB00F17282 /* ShootingMode.h */,
+				2CE1A3391507C5AB00F17282 /* ShootingMode.m */,
+			);
+			path = Mode;
 			sourceTree = "<group>";
 		};
 		2CE348B514DF003A00FEB492 /* Entities */ = {
@@ -3222,7 +3250,6 @@
 				2C157BF1148FEA8E003F9040 /* GameState.m in Sources */,
 				2C157C1A14914F6A003F9040 /* TrajectoryComponent.m in Sources */,
 				2C157C1F149382D8003F9040 /* GameRulesSystem.m in Sources */,
-				2C157C241493B3DE003F9040 /* GameMode.m in Sources */,
 				2C8A4B7C1495184300C0C154 /* BeeType.m in Sources */,
 				2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */,
 				2C85B84014957285005D7BAB /* CollisionMediator.m in Sources */,
@@ -3383,6 +3410,11 @@
 				2C4DFC7714FEF17F00D49CF9 /* HUDRenderingSystem.m in Sources */,
 				2C333E46150204800023303E /* LoadingState.m in Sources */,
 				2CEEC7C7150584C100EAC127 /* EntitySelectIngameMenuState.m in Sources */,
+				2CE1A3331507C10000F17282 /* GameMode.m in Sources */,
+				2CE1A3371507C11F00F17282 /* AimingMode.m in Sources */,
+				2CE1A33A1507C5AB00F17282 /* ShootingMode.m in Sources */,
+				2CE1A33D1507C83900F17282 /* LevelCompleteMode.m in Sources */,
+				2CE1A3401507C85700F17282 /* LevelFailedMode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

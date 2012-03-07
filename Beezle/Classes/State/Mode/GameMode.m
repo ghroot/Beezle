@@ -90,4 +90,18 @@
     }
 }
 
+-(id) initWithWorld:(World *)world
+{
+    if (self = [super init])
+    {
+        _world = world;
+    }
+    return self;
+}
+
+-(GameMode *) nextMode
+{
+    return nil;
+}
+
 @end

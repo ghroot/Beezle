@@ -11,9 +11,13 @@
 @interface GameMode : NSObject
 {
     NSString *_name;
+    
     BOOL(^_transitionBlock)(void);
     void(^_enterBlock)(void);
+    
     NSArray *_systems;
+    
+    World *_world;
 }
 
 @property (nonatomic, copy) NSString *name;
@@ -29,5 +33,8 @@
 -(void) processSystems;
 -(void) enter;
 -(void) leave;
+
+-(id) initWithWorld:(World *)world;
+-(GameMode *) nextMode;
 
 @end
