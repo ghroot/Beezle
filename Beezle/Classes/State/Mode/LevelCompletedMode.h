@@ -16,7 +16,7 @@
 	CCLayer *_uiLayer;
 	LevelSession *_levelSession;
 	BOOL _hasTurnedBeesIntoPollen;
-	BOOL _hasShownLevelCompletedDialog;
+	CCMenu *_levelCompletedMenu;
 }
 
 -(id) initWithGameplayState:(GameplayState *)gameplayState andUiLayer:(CCLayer *)uiLayer levelSession:(LevelSession *)levelSession;

@@ -41,25 +41,26 @@
 {
     [super update];
     
-	if (!_hasShownLevelFailedDialog)
+	if (_levelFailedMenu == nil)
 	{
 		[self showLevelFailedDialog];
-		_hasShownLevelFailedDialog = TRUE;
 	}
 }
 
 -(void) showLevelFailedDialog
 {
 	CCMenuItemImage *levelFailedMenuItem = [CCMenuItemImage itemWithNormalImage:@"Level Failed Bubble-01.png" selectedImage:@"Level Failed Bubble-01.png" target:self selector:@selector(restartLevel:)];
-	CCMenu *levelFailedMenu = [CCMenu menuWithItems:levelFailedMenuItem, nil];
+	_levelFailedMenu = [CCMenu menuWithItems:levelFailedMenuItem, nil];
 	[levelFailedMenuItem setScale:0.25f];
 	CCEaseElasticInOut *elasticScaleAction = [CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]];
 	[levelFailedMenuItem runAction:elasticScaleAction];
-	[_uiLayer addChild:levelFailedMenu];
+	[_uiLayer addChild:_levelFailedMenu];
 }
 
 -(void) restartLevel:(id)sender
 {
+	[_uiLayer removeChild:_levelFailedMenu cleanup:TRUE];
+	
 	[[_gameplayState game] replaceState:[GameplayState stateWithLevelName:[_levelSession levelName]]];
 }
 

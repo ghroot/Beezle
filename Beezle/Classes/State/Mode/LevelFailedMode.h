@@ -15,7 +15,7 @@
 {
 	CCLayer *_uiLayer;
 	LevelSession *_levelSession;
-	BOOL _hasShownLevelFailedDialog;
+	CCMenu *_levelFailedMenu;
 }
 
 -(id) initWithGameplayState:(GameplayState *)gameplayState andUiLayer:(CCLayer *)uiLayer levelSession:(LevelSession *)levelSession;

@@ -48,7 +48,7 @@
 {
 	[super onEnterTransitionDidFinish];
 	
-	_initialiseAndReplaceSceneCountdown = 5;
+	_initialiseAndReplaceSceneCountdown = 2;
 }
 
 -(void) update:(ccTime)delta

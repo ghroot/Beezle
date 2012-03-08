@@ -49,13 +49,12 @@
 	
 	if (_hasTurnedBeesIntoPollen)
 	{
-		if (!_hasShownLevelCompletedDialog &&
+		if (_levelCompletedMenu == nil &&
 			![[_gameplayState beeQueueRenderingSystem] isBusy])
 		{
 			[self updateLevelSessionWithNumberOfUnusedBees];
 			[[PlayerInformation sharedInformation] storeAndSave:_levelSession];
 			[self showLevelCompleteDialog];
-			_hasShownLevelCompletedDialog = TRUE;
 		}
 	}
 	else
@@ -77,15 +76,17 @@
 -(void) showLevelCompleteDialog
 {
 	CCMenuItemImage *levelCompleteMenuItem = [CCMenuItemImage itemWithNormalImage:@"Level Completed Bubble-01.png" selectedImage:@"Level Completed Bubble-01.png" target:self selector:@selector(loadNextLevel:)];
-	CCMenu *levelCompleteMenu = [CCMenu menuWithItems:levelCompleteMenuItem, nil];
+	_levelCompletedMenu = [CCMenu menuWithItems:levelCompleteMenuItem, nil];
 	[levelCompleteMenuItem setScale:0.25f];
 	CCEaseElasticInOut *elasticScaleAction = [CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]];
 	[levelCompleteMenuItem runAction:elasticScaleAction];
-	[_uiLayer addChild:levelCompleteMenu];
+	[_uiLayer addChild:_levelCompletedMenu];
 }
 
 -(void) loadNextLevel:(id)sender
 {
+	[_uiLayer removeChild:_levelCompletedMenu cleanup:TRUE];
+	
     NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:[_levelSession levelName]];
     if (nextLevelName != nil)
     {
