@@ -229,13 +229,15 @@
 	}];
 	CCDelayTime *waitAction1 = [CCDelayTime actionWithDuration:0.6f];
 	CCCallBlock *animateLookSideAction = [CCCallBlock actionWithBlock:^(){
-		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookSide", [savedBeeType capitalizedString]];
-		[beeQueueRenderSprite playAnimation:animationName];
+		NSString *animationName1 = [NSString stringWithFormat:@"%@-Saved-Leap", [savedBeeType capitalizedString]];
+		NSString *animationName2 = [NSString stringWithFormat:@"%@-Saved-LookSide", [savedBeeType capitalizedString]];
+		[beeQueueRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:animationName1, animationName2, nil]];
 	}];
+	CCDelayTime *waitAction2 = [CCDelayTime actionWithDuration:0.6f];
 	CCCallBlock *spawnLeapAnimationAction = [CCCallBlock actionWithBlock:^(){
 		Entity *leapEntity = [EntityFactory createSimpleAnimatedEntity:_world];
 		[EntityUtil setEntityPosition:leapEntity position:positionAboveBeeater];
-		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-Leap", [savedBeeType capitalizedString]];
+		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-Leap-Dust", [savedBeeType capitalizedString]];
 		[EntityUtil animateAndDeleteEntity:leapEntity animationName:animationName];
 	}];
 	CCEaseSineOut *moveToQueueAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.7f position:nextPosition]];
@@ -243,7 +245,7 @@
 		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookAway", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimation:animationName];
 	}];
-	CCDelayTime *waitAction2 = [CCDelayTime actionWithDuration:0.1f];
+	CCDelayTime *waitAction3 = [CCDelayTime actionWithDuration:0.1f];
 	CCCallBlock *faceRightAction = [CCCallBlock actionWithBlock:^()
 	{
 		[[beeQueueRenderSprite sprite] setScaleX:1];
@@ -260,10 +262,11 @@
 						animateLookScreenAction,
 						waitAction1,
 						animateLookSideAction,
+						waitAction2,
 						spawnLeapAnimationAction,
 						moveToQueueAction,
 						animateLookAwayAction,
-						waitAction2,
+						waitAction3,
 						faceRightAction,
 						animateIdleAction,
 						decreaseMovingBeesCountAction,
