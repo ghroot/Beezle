@@ -35,14 +35,6 @@
 
 -(LevelLayout *) layoutFromDictionary:(NSDictionary *)dict
 {
-	LevelLayout *levelLayout = [LevelLayout layout];
-	
-	NSString *levelName = [dict objectForKey:@"name"];
-	[levelLayout setLevelName:levelName];
-	
-	int version = [[dict objectForKey:@"version"] intValue];
-	[levelLayout setVersion:version];
-	
 	int format;
 	if ([dict objectForKey:@"format"] != nil)
 	{
@@ -52,31 +44,38 @@
 	{
 		format = 1;
 	}
-	[levelLayout setFormat:format];
+	NSString *levelName = [dict objectForKey:@"name"];
 	
-    if (format == LEVEL_LAYOUT_FORMAT)
-    {
-        NSArray *entities = [dict objectForKey:@"entities"];
-        for (NSDictionary *entity in entities) 
-        {
-            LevelLayoutEntry *levelLayoutEntry = [LevelLayoutEntry entry];
-            
-            NSString *type = [entity objectForKey:@"type"];
-            [levelLayoutEntry setType:[NSString stringWithString:type]];
-            
-            NSDictionary *components = [entity objectForKey:@"components"];
-            [levelLayoutEntry setComponentsDict:components];
-            
-            [levelLayout addLevelLayoutEntry:levelLayoutEntry];
-        }
+	if (format < LEVEL_LAYOUT_FORMAT)
+	{
+		NSLog(@"Unsupported level layout format: %@ (format: %d < %d)", levelName, format, LEVEL_LAYOUT_FORMAT);
+		return nil;
+	}
+	
+	LevelLayout *levelLayout = [LevelLayout layout];
+	
+	[levelLayout setFormat:format];
+	[levelLayout setLevelName:levelName];
+	
+	int version = [[dict objectForKey:@"version"] intValue];
+	[levelLayout setVersion:version];
+	
+	NSArray *entities = [dict objectForKey:@"entities"];
+	for (NSDictionary *entity in entities) 
+	{
+		LevelLayoutEntry *levelLayoutEntry = [LevelLayoutEntry entry];
 		
-		BOOL hasWater = [[dict objectForKey:@"hasWater"] boolValue];
-		[levelLayout setHasWater:hasWater];
-    }
-    else
-    {
-        NSLog(@"Unsupported level layout format: %@ (format: %d < %d)", levelName, format, LEVEL_LAYOUT_FORMAT);
-    }
+		NSString *type = [entity objectForKey:@"type"];
+		[levelLayoutEntry setType:[NSString stringWithString:type]];
+		
+		NSDictionary *components = [entity objectForKey:@"components"];
+		[levelLayoutEntry setComponentsDict:components];
+		
+		[levelLayout addLevelLayoutEntry:levelLayoutEntry];
+	}
+	
+	BOOL hasWater = [[dict objectForKey:@"hasWater"] boolValue];
+	[levelLayout setHasWater:hasWater];
 	
 	return levelLayout;
 }
