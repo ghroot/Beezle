@@ -7,6 +7,7 @@
 //
 
 #import "SlingerControlSystem.h"
+#import "BeeComponent.h"
 #import "BeeType.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
@@ -137,6 +138,7 @@
 						// Create bee
 						Entity *beeEntity = [EntityFactory createBee:_world withBeeType:[slingerComponent loadedBeeType] andVelocity:[trajectoryComponent startVelocity]];
 						[EntityUtil setEntityPosition:beeEntity position:[trajectoryComponent startPoint]];
+						[EntityUtil setEntityRotation:beeEntity rotation:[transformComponent rotation] + 90];
 						
 						[transformComponent setScale:CGPointMake(1.0f, 1.0f)];
 						
@@ -152,6 +154,12 @@
 						[slingerComponent clearLoadedBee];
 						
 						[trajectoryComponent reset];
+						
+						BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
+						RenderComponent *beeRenderComponent = [RenderComponent getFrom:beeEntity];
+						NSString *shootAnimationName = [NSString stringWithFormat:@"%@-Shoot", [[beeComponent type] capitalizedString]];
+						NSString *idleAnimationName = [NSString stringWithFormat:@"%@-Idle", [[beeComponent type] capitalizedString]];
+						[beeRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:shootAnimationName, idleAnimationName, nil]];
 						
 						// Game notification
 						[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_FIRED object:self];
