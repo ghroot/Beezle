@@ -21,7 +21,7 @@
 +(Entity *) createEntity:(NSString *)type world:(World *)world;
 
 +(Entity *) createBee:(World *)world withBeeType:(BeeType *)beeType andVelocity:(CGPoint)velocity;
-+(Entity *) createAimPollen:(World *)world withVelocity:(CGPoint)velocity;
++(Entity *) createAimPollen:(World *)world withBeeType:(BeeType *)beeType andVelocity:(CGPoint)velocity;
 +(Entity *) createMovementIndicator:(World *)world forEntity:(Entity *)entity;
 +(Entity *) createSimpleAnimatedEntity:(World *)world;
 +(Entity *) createSimpleAnimatedEntity:(World *)world animationFile:(NSString *)animationFile;

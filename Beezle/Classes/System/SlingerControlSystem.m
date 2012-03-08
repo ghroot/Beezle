@@ -37,7 +37,7 @@
 -(float) calculatePower:(CGPoint)touchLocation slingerLocation:(CGPoint)slingerLocation;
 -(void) startShootingAimPollens;
 -(void) stopShootingAimPollens;
--(void) shootAimPollens:(TrajectoryComponent *)trajectoryComponent;
+-(void) shootAimPollens:(SlingerComponent *)slingerComponent trajectory:(TrajectoryComponent *)trajectoryComponent;
 
 @end
 
@@ -62,15 +62,13 @@
 -(void) processEntity:(Entity *)entity
 {
     TrajectoryComponent *trajectoryComponent = [TrajectoryComponent getFrom:entity];
+	SlingerComponent *slingerComponent = [SlingerComponent getFrom:entity];
+	TransformComponent *transformComponent = [TransformComponent getFrom:entity];
+	RenderComponent *renderComponent = [RenderComponent getFrom:entity];
 	
     while ([_inputSystem hasInputActions])
     {
         InputAction *nextInputAction = [_inputSystem popInputAction];
-        
-		SlingerComponent *slingerComponent = [SlingerComponent getFrom:entity];
-        TransformComponent *transformComponent = [TransformComponent getFrom:entity];
-		RenderComponent *renderComponent = [RenderComponent getFrom:entity];
-        
         switch ([nextInputAction touchType])
         {
             case TOUCH_BEGAN:
@@ -201,7 +199,7 @@
         }
     }
     
-    [self shootAimPollens:trajectoryComponent];
+    [self shootAimPollens:slingerComponent trajectory:trajectoryComponent];
 }
 
 -(float) calculateAimAngle:(CGPoint)touchLocation slingerLocation:(CGPoint)slingerLocation
@@ -245,14 +243,15 @@
     _isShootingAimPollens = FALSE;
 }
 
--(void) shootAimPollens:(TrajectoryComponent *)trajectoryComponent
+-(void) shootAimPollens:(SlingerComponent *)slingerComponent trajectory:(TrajectoryComponent *)trajectoryComponent
 {
-    if (_isShootingAimPollens && ![trajectoryComponent isZero])
+    if (_isShootingAimPollens &&
+		![trajectoryComponent isZero])
     {
         _aimPollenCountdown--;
         if (_aimPollenCountdown == 0)
         {
-            Entity *aimPollenEntity = [EntityFactory createAimPollen:_world withVelocity:[trajectoryComponent startVelocity]];
+            Entity *aimPollenEntity = [EntityFactory createAimPollen:_world withBeeType:[slingerComponent loadedBeeType] andVelocity:[trajectoryComponent startVelocity]];
             [EntityUtil setEntityPosition:aimPollenEntity position:[trajectoryComponent startPoint]];
 			
             _aimPollenCountdown = AIM_POLLEN_INTERVAL;

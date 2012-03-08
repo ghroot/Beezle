@@ -31,6 +31,7 @@
 #define EDGE_LAYERS 7
 #define WATER_HEIGHT 5.0f
 #define WATER_LAYERS 7
+#define AIM_POLLEN_LAYERS 2
 
 @interface EntityFactory()
 
@@ -237,12 +238,20 @@
     return beeEntity;
 }
 
-+(Entity *) createAimPollen:(World *)world withVelocity:(CGPoint)velocity
++(Entity *) createAimPollen:(World *)world withBeeType:(BeeType *)beeType andVelocity:(CGPoint)velocity
 {
     Entity *aimPollenEntity = [self createEntity:@"AIM-POLLEN" world:world];
 	
-	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:aimPollenEntity];
+	// Clone bee's physics component
+	EntityDescription *beeEntityDescription = [self getEntityDescription:[beeType capitalizedString]];
+	NSDictionary *beePhysicsDict = [[beeEntityDescription componentsDict] objectForKey:@"physics"];
+	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithContentsOfDictionary:beePhysicsDict world:world];
+	[[physicsComponent firstPhysicsShape] setCollisionType:[CollisionType AIM_POLLEN]];
+	[[physicsComponent firstPhysicsShape] setLayers:AIM_POLLEN_LAYERS];
 	[[physicsComponent body] setVel:velocity];
+	[aimPollenEntity addComponent:physicsComponent];
+	
+	[aimPollenEntity refresh];
     
 	RenderComponent *renderComponent = [RenderComponent getFrom:aimPollenEntity];
 	RenderSprite *renderSprite = [[renderComponent renderSprites] objectAtIndex:0];
