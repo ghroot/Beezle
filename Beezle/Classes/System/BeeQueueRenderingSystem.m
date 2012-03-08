@@ -208,8 +208,10 @@
 	CGPoint beePosition = CGPointMake(beeaterPosition.x, beeaterPosition.y + 20);
 	RenderSprite *beeQueueRenderSprite = [self createBeeQueueRenderSpriteWithBeeType:savedBeeType position:beePosition];
 	
+	BOOL needsToTurn = [[TransformComponent getFrom:slingerEntity] position].x < beePosition.x;
+	
 	// Face the slinger
-	if ([[TransformComponent getFrom:slingerEntity] position].x < beePosition.x)
+	if (needsToTurn)
 	{
 		[[beeQueueRenderSprite sprite] setScaleX:-1];
 	}
@@ -218,62 +220,65 @@
 	
 	// Move from beeater to slinger queue
 	_movingBeesCount++;
+	NSMutableArray *actions = [NSMutableArray new];
 	CCCallBlock *animateLookDownAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookDown", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimation:animationName];
 	}];
+	[actions addObject:animateLookDownAction];
 	CCEaseSineInOut *moveUpAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:positionAboveBeeater]];
+	[actions addObject:moveUpAction];
 	CCCallBlock *animateLookScreenAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookScreen", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimation:animationName];
 	}];
+	[actions addObject:animateLookScreenAction];
 	CCDelayTime *waitAction1 = [CCDelayTime actionWithDuration:0.6f];
+	[actions addObject:waitAction1];
 	CCCallBlock *animateLookSideAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName1 = [NSString stringWithFormat:@"%@-Saved-Leap", [savedBeeType capitalizedString]];
 		NSString *animationName2 = [NSString stringWithFormat:@"%@-Saved-LookSide", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:animationName1, animationName2, nil]];
 	}];
+	[actions addObject:animateLookSideAction];
 	CCDelayTime *waitAction2 = [CCDelayTime actionWithDuration:0.6f];
+	[actions addObject:waitAction2];
 	CCCallBlock *spawnLeapAnimationAction = [CCCallBlock actionWithBlock:^(){
 		Entity *leapEntity = [EntityFactory createSimpleAnimatedEntity:_world];
 		[EntityUtil setEntityPosition:leapEntity position:positionAboveBeeater];
 		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-Leap-Dust", [savedBeeType capitalizedString]];
 		[EntityUtil animateAndDeleteEntity:leapEntity animationName:animationName];
 	}];
+	[actions addObject:spawnLeapAnimationAction];
 	CCEaseSineOut *moveToQueueAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.7f position:nextPosition]];
-	CCCallBlock *animateLookAwayAction = [CCCallBlock actionWithBlock:^(){
-		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookAway", [savedBeeType capitalizedString]];
-		[beeQueueRenderSprite playAnimation:animationName];
-	}];
-	CCDelayTime *waitAction3 = [CCDelayTime actionWithDuration:0.1f];
-	CCCallBlock *faceRightAction = [CCCallBlock actionWithBlock:^()
+	[actions addObject:moveToQueueAction];
+	if (needsToTurn)
 	{
-		[[beeQueueRenderSprite sprite] setScaleX:1];
-	}];
+		CCCallBlock *animateLookAwayAction = [CCCallBlock actionWithBlock:^(){
+			NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookAway", [savedBeeType capitalizedString]];
+			[beeQueueRenderSprite playAnimation:animationName];
+		}];
+		[actions addObject:animateLookAwayAction];
+		CCDelayTime *waitAction3 = [CCDelayTime actionWithDuration:0.1f];
+		[actions addObject:waitAction3];
+		CCCallBlock *faceRightAction = [CCCallBlock actionWithBlock:^()
+		{
+			[[beeQueueRenderSprite sprite] setScaleX:1];
+		}];
+		[actions addObject:faceRightAction];
+	}
 	CCCallBlock *animateIdleAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName = [NSString stringWithFormat:@"%@-Idle", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimation:animationName];
 	}];
+	[actions addObject:animateIdleAction];
 	CCCallFunc *decreaseMovingBeesCountAction = [CCCallFunc actionWithTarget:self selector:@selector(decreaseMovingBeesCount)];
+	[actions addObject:decreaseMovingBeesCountAction];
+	[actions addObject:[self createSwayAction:nextPosition]];
 	[[beeQueueRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
-	CCAction *action = [CCSequence actions:
-						animateLookDownAction,
-						moveUpAction,
-						animateLookScreenAction,
-						waitAction1,
-						animateLookSideAction,
-						waitAction2,
-						spawnLeapAnimationAction,
-						moveToQueueAction,
-						animateLookAwayAction,
-						waitAction3,
-						faceRightAction,
-						animateIdleAction,
-						decreaseMovingBeesCountAction,
-						[self createSwayAction:nextPosition],
-						nil];
-	[action setTag:ACTION_TAG_BEE_QUEUE];
-	[[beeQueueRenderSprite sprite] runAction:action];
+	CCAction *sequence = [CCSequence actionsWithArray:actions];
+	[sequence setTag:ACTION_TAG_BEE_QUEUE];
+	[[beeQueueRenderSprite sprite] runAction:sequence];
 }
 
 -(void) refreshSprites:(Entity *)slingerEntity
