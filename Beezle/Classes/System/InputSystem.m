@@ -10,6 +10,8 @@
 #import "InputAction.h"
 #import "TouchTypes.h"
 
+#define DISTANCE_FROM_EDGE_FOR_TOUCH_CANCEL 8
+
 @interface InputSystem()
 
 -(void) startListeningForTouches;
@@ -118,10 +120,10 @@
 -(BOOL) isTouchAtEdgeOfScreen:(UITouch *)touch
 {
     CGPoint location = [touch locationInView: [touch view]];
-    if (location.x <= 1 ||
-        location.x >= [[touch view] frame].size.width - 1 ||
-        location.y <= 1 ||
-        location.y >= [[touch view] frame].size.height - 1)
+    if (location.x <= DISTANCE_FROM_EDGE_FOR_TOUCH_CANCEL ||
+        location.x >= [[touch view] frame].size.width - DISTANCE_FROM_EDGE_FOR_TOUCH_CANCEL ||
+        location.y <= DISTANCE_FROM_EDGE_FOR_TOUCH_CANCEL ||
+        location.y >= [[touch view] frame].size.height - DISTANCE_FROM_EDGE_FOR_TOUCH_CANCEL)
     {
         return TRUE;
     }
