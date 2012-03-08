@@ -14,6 +14,7 @@
 
 -(void) startListeningForTouches;
 -(void) stopListeningForTouches;
+-(BOOL) isTouchAtEdgeOfScreen:(UITouch *)touch;
 -(void) pushInputAction:(InputAction *)inputAction;
 
 @end
@@ -101,15 +102,41 @@
 
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
-	CGPoint location = [touch locationInView: [touch view]];
-	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
-	InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_ENDED andTouchLocation:convertedLocation] autorelease];
-	[self pushInputAction:inputAction];
+    if ([self isTouchAtEdgeOfScreen:touch])
+    {
+        [self ccTouchCancelled:touch withEvent:event];
+    }
+    else
+    {
+        CGPoint location = [touch locationInView: [touch view]];
+        CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+        InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_ENDED andTouchLocation:convertedLocation] autorelease];
+        [self pushInputAction:inputAction];
+    }
+}
+
+-(BOOL) isTouchAtEdgeOfScreen:(UITouch *)touch
+{
+    CGPoint location = [touch locationInView: [touch view]];
+    if (location.x <= 1 ||
+        location.x >= [[touch view] frame].size.width - 1 ||
+        location.y <= 1 ||
+        location.y >= [[touch view] frame].size.height - 1)
+    {
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
 }
 
 -(void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
 {
-	[self ccTouchEnded:touch withEvent:event];
+    CGPoint location = [touch locationInView: [touch view]];
+	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+	InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_CANCELLED andTouchLocation:convertedLocation] autorelease];
+	[self pushInputAction:inputAction];
 }
 
 @end

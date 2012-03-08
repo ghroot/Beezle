@@ -11,4 +11,5 @@ typedef enum
 	TOUCH_BEGAN,
     TOUCH_MOVED,
 	TOUCH_ENDED,
+    TOUCH_CANCELLED
 } TouchType;

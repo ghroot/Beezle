@@ -73,6 +73,7 @@
                 break;
             }
             case TOUCH_ENDED:
+            case TOUCH_CANCELLED:
             {
 				if (_hasTouchMoved)
 				{

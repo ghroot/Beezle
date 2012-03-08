@@ -78,6 +78,7 @@
 				if ([slingerComponent state] == SLINGER_STATE_IDLE)
 				{
 					_startLocation = [nextInputAction touchLocation];
+                    _startAngle = [transformComponent rotation];
 					_currentAngle = CC_DEGREES_TO_RADIANS(360 - [transformComponent rotation] + 270);
 					[self startShootingAimPollens];
 					
@@ -170,6 +171,30 @@
 					[self stopShootingAimPollens];
 					
 					[slingerComponent setState:SLINGER_STATE_IDLE];
+                }
+                break;
+            }
+            case TOUCH_CANCELLED:
+            {
+                if ([slingerComponent hasLoadedBee])
+                {
+                    [transformComponent setScale:CGPointMake(1.0f, 1.0f)];
+                    [transformComponent setRotation:_startAngle];
+                    
+                    [[SoundManager sharedManager] stopSound:@"SlingerStretch"];
+                    
+                    [slingerComponent revertLoadedBee];
+                    
+                    [trajectoryComponent reset];
+                    
+                    // Game notification
+                    [[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_REVERTED object:self];
+                    
+                    [_inputSystem clearInputActions];
+                    
+                    [self stopShootingAimPollens];
+                    
+                    [slingerComponent setState:SLINGER_STATE_IDLE];
                 }
                 break;
             }

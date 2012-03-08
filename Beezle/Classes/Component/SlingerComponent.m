@@ -102,6 +102,12 @@
 	_loadedBeeType = nil;
 }
 
+-(void) revertLoadedBee
+{
+    [_queuedBeeTypes insertObject:_loadedBeeType atIndex:0];
+    [self clearLoadedBee];
+}
+
 -(BOOL) hasLoadedBee
 {
 	return _loadedBeeType != nil;

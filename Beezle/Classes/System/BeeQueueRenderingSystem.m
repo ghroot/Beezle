@@ -29,6 +29,7 @@
 -(BOOL) canHandleNotifications;
 -(void) handleNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) handleBeeLoadedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
+-(void) handleBeeRevertedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) handleBeeFiredNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) handleBeeSavedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) decreaseMovingBeesCount;
@@ -61,6 +62,7 @@
 -(void) addNotificationObservers
 {
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEE_LOADED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEE_REVERTED object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEE_FIRED object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEE_SAVED object:nil];
 }
@@ -131,6 +133,10 @@
 	{
 		[self handleBeeLoadedNotification:notification slingerEntity:entity];
 	}
+    else if ([[notification name] isEqualToString:GAME_NOTIFICATION_BEE_REVERTED])
+	{
+		[self handleBeeRevertedNotification:notification slingerEntity:entity];
+	}
 	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_BEE_FIRED])
 	{
 		[self handleBeeFiredNotification:notification slingerEntity:entity];
@@ -166,6 +172,11 @@
 		[action setTag:ACTION_TAG_BEE_QUEUE];
 		[[beeQueueRenderSprite sprite] runAction:action];
 	}
+}
+
+-(void) handleBeeRevertedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity
+{
+    [self refreshSprites:slingerEntity];
 }
 
 -(void) updateLoadedBeeRotation:(Entity *)slingerEntity
@@ -269,6 +280,14 @@
 	// Remove all sprites
 	[_beeQueueRenderSprites makeObjectsPerformSelector:@selector(removeSpriteFromSpriteSheet)];
 	[_beeQueueRenderSprites removeAllObjects];
+    
+    if (_beeLoadedRenderSprite != nil)
+    {
+        // Remove loaded bee sprite
+        [_beeLoadedRenderSprite removeSpriteFromSpriteSheet];
+        [_beeLoadedRenderSprite release];
+        _beeLoadedRenderSprite = nil;
+    }
 	
 	// Create sprites
     for (BeeType *beeType in [slingerSlingerComponent queuedBeeTypes])

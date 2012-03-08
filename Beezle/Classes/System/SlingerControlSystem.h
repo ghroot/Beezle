@@ -16,6 +16,7 @@
 	InputSystem *_inputSystem;
 	
     CGPoint _startLocation;
+    float _startAngle;
 	float _currentAngle;
     
     BOOL _isShootingAimPollens;

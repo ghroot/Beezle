@@ -33,6 +33,7 @@ typedef enum
 -(void) clearBeeTypes;
 -(void) loadNextBee;
 -(void) clearLoadedBee;
+-(void) revertLoadedBee;
 -(BOOL) hasLoadedBee;
 
 @end
