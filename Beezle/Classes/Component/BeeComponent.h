@@ -14,6 +14,7 @@
 	BeeType *_type;
 	int _beeaterHits;
 	int _beeaterHitsLeft;
+	int _autoDestroyDelay;
 	int _autoDestroyCountdown;
 }
 

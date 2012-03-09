@@ -8,8 +8,6 @@
 
 #import "BeeComponent.h"
 
-#define AUTO_DESTROY_DELAY 10000
-
 @implementation BeeComponent
 
 @synthesize type = _type;
@@ -36,6 +34,10 @@
 			_beeaterHits = [[dict objectForKey:@"beeaterHits"] intValue];
 			_beeaterHitsLeft = _beeaterHits;
 		}
+		if ([dict objectForKey:@"autoDestroyDelay"] != nil)
+		{
+			_autoDestroyDelay = [[dict objectForKey:@"autoDestroyDelay"] intValue] * 1000;
+		}
 	}
 	return self;
 }
@@ -52,7 +54,7 @@
 
 -(void) resetAutoDestroyCountdown
 {
-	_autoDestroyCountdown = AUTO_DESTROY_DELAY;
+	_autoDestroyCountdown = _autoDestroyDelay;
 }
 
 -(void) decreaseAutoDestroyCountdown:(float)time
