@@ -220,7 +220,7 @@
 	
 	// Move from beeater to slinger queue
 	_movingBeesCount++;
-	NSMutableArray *actions = [NSMutableArray new];
+	NSMutableArray *actions = [NSMutableArray array];
 	CCCallBlock *animateLookDownAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookDown", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimation:animationName];
