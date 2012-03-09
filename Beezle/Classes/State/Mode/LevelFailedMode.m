@@ -9,6 +9,7 @@
 #import "LevelFailedMode.h"
 #import "Game.h"
 #import "GameplayState.h"
+#import "LevelFailedDialog.h"
 #import "LevelSession.h"
 
 @interface LevelFailedMode()
@@ -37,29 +38,32 @@
 	return self;
 }
 
+-(void) dealloc
+{
+	[_levelFailedDialog release];
+	
+	[super dealloc];
+}
+
 -(void) update
 {
     [super update];
     
-	if (_levelFailedMenu == nil)
+	if (_levelFailedDialog == nil)
 	{
 		[self showLevelFailedDialog];
 	}
 }
 
 -(void) showLevelFailedDialog
-{
-	CCMenuItemImage *levelFailedMenuItem = [CCMenuItemImage itemWithNormalImage:@"Level Failed Bubble-01.png" selectedImage:@"Level Failed Bubble-01.png" target:self selector:@selector(restartLevel:)];
-	_levelFailedMenu = [CCMenu menuWithItems:levelFailedMenuItem, nil];
-	[levelFailedMenuItem setScale:0.25f];
-	CCEaseElasticInOut *elasticScaleAction = [CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]];
-	[levelFailedMenuItem runAction:elasticScaleAction];
-	[_uiLayer addChild:_levelFailedMenu];
+{	
+	_levelFailedDialog = [[LevelFailedDialog alloc] initWithTarget:self andSelector:@selector(restartLevel:)];
+	[_uiLayer addChild:_levelFailedDialog];
 }
 
 -(void) restartLevel:(id)sender
 {
-	[_uiLayer removeChild:_levelFailedMenu cleanup:TRUE];
+	[_uiLayer removeChild:_levelFailedDialog cleanup:TRUE];
 	
 	[[_gameplayState game] replaceState:[GameplayState stateWithLevelName:[_levelSession levelName]]];
 }

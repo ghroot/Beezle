@@ -10,6 +10,7 @@
 #import "BeeQueueRenderingSystem.h"
 #import "Game.h"
 #import "GameplayState.h"
+#import "LevelCompletedDialog.h"
 #import "LevelOrganizer.h"
 #import "LevelSession.h"
 #import "MainMenuState.h"
@@ -43,13 +44,20 @@
 	return self;
 }
 
+-(void) dealloc
+{
+	[_levelCompletedDialog release];
+	
+	[super dealloc];
+}
+
 -(void) update
 {
 	[super update];
 	
 	if (_hasTurnedBeesIntoPollen)
 	{
-		if (_levelCompletedMenu == nil &&
+		if (_levelCompletedDialog == nil &&
 			![[_gameplayState beeQueueRenderingSystem] isBusy])
 		{
 			[self updateLevelSessionWithNumberOfUnusedBees];
@@ -75,17 +83,13 @@
 
 -(void) showLevelCompleteDialog
 {
-	CCMenuItemImage *levelCompleteMenuItem = [CCMenuItemImage itemWithNormalImage:@"Level Completed Bubble-01.png" selectedImage:@"Level Completed Bubble-01.png" target:self selector:@selector(loadNextLevel:)];
-	_levelCompletedMenu = [CCMenu menuWithItems:levelCompleteMenuItem, nil];
-	[levelCompleteMenuItem setScale:0.25f];
-	CCEaseElasticInOut *elasticScaleAction = [CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]];
-	[levelCompleteMenuItem runAction:elasticScaleAction];
-	[_uiLayer addChild:_levelCompletedMenu];
+	_levelCompletedDialog = [[LevelCompletedDialog alloc] initWithTarget:self andSelector:@selector(loadNextLevel:)];
+	[_uiLayer addChild:_levelCompletedDialog];
 }
 
 -(void) loadNextLevel:(id)sender
 {
-	[_uiLayer removeChild:_levelCompletedMenu cleanup:TRUE];
+	[_uiLayer removeChild:_levelCompletedDialog cleanup:TRUE];
 	
     NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:[_levelSession levelName]];
     if (nextLevelName != nil)

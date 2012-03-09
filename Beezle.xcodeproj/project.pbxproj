@@ -153,6 +153,11 @@
 		2C3BA3DE14B1DBBA007B1660 /* LevelOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BA3DD14B1DBBA007B1660 /* LevelOrganizer.m */; };
 		2C3C990E14A2574400284A60 /* CollisionType.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3C990D14A2574300284A60 /* CollisionType.m */; };
 		2C4DFC7714FEF17F00D49CF9 /* HUDRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DFC7614FEF17F00D49CF9 /* HUDRenderingSystem.m */; };
+		2C53122415096C0600FDE482 /* CoverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C53122315096C0600FDE482 /* CoverLayer.m */; };
+		2C53122815096FB200FDE482 /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C53122715096FB200FDE482 /* Dialog.m */; };
+		2C53122B15097A8F00FDE482 /* LevelFailedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C53122A15097A8F00FDE482 /* LevelFailedDialog.m */; };
+		2C53122D15097DE400FDE482 /* Bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C53122C15097DE400FDE482 /* Bubble.png */; };
+		2C5312301509819000FDE482 /* LevelCompletedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C53122F1509818F00FDE482 /* LevelCompletedDialog.m */; };
 		2C535FCD14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C535FCC14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m */; };
 		2C596D3E14A13FDD00DFCC14 /* LevelLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */; };
 		2C5EFC2B14E496A10071ED39 /* SpawnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */; };
@@ -859,6 +864,15 @@
 		2C3C990D14A2574300284A60 /* CollisionType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionType.m; path = Classes/CollisionType.m; sourceTree = "<group>"; };
 		2C4DFC7514FEF17F00D49CF9 /* HUDRenderingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HUDRenderingSystem.h; path = Classes/System/HUDRenderingSystem.h; sourceTree = "<group>"; };
 		2C4DFC7614FEF17F00D49CF9 /* HUDRenderingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HUDRenderingSystem.m; path = Classes/System/HUDRenderingSystem.m; sourceTree = "<group>"; };
+		2C53122215096C0600FDE482 /* CoverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverLayer.h; sourceTree = "<group>"; };
+		2C53122315096C0600FDE482 /* CoverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverLayer.m; sourceTree = "<group>"; };
+		2C53122615096FB200FDE482 /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
+		2C53122715096FB200FDE482 /* Dialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dialog.m; sourceTree = "<group>"; };
+		2C53122915097A8E00FDE482 /* LevelFailedDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelFailedDialog.h; sourceTree = "<group>"; };
+		2C53122A15097A8F00FDE482 /* LevelFailedDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelFailedDialog.m; sourceTree = "<group>"; };
+		2C53122C15097DE400FDE482 /* Bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bubble.png; sourceTree = "<group>"; };
+		2C53122E1509818F00FDE482 /* LevelCompletedDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelCompletedDialog.h; sourceTree = "<group>"; };
+		2C53122F1509818F00FDE482 /* LevelCompletedDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCompletedDialog.m; sourceTree = "<group>"; };
 		2C535FCB14992B0B00BC7DB6 /* BeeQueueRenderingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeQueueRenderingSystem.h; path = Classes/System/BeeQueueRenderingSystem.h; sourceTree = "<group>"; };
 		2C535FCC14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeQueueRenderingSystem.m; path = Classes/System/BeeQueueRenderingSystem.m; sourceTree = "<group>"; };
 		2C535FCE149ACE4100BC7DB6 /* NotificationTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationTypes.h; path = Classes/NotificationTypes.h; sourceTree = "<group>"; };
@@ -1411,6 +1425,7 @@
 		2C00D85014FD798B00BE5B4C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2C53122C15097DE400FDE482 /* Bubble.png */,
 				2C2C184114FEEB69007C2ADC /* Key-01.png */,
 				2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */,
 				2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */,
@@ -2514,10 +2529,18 @@
 			children = (
 				2CE1A3351507C11F00F17282 /* AimingMode.h */,
 				2CE1A3361507C11F00F17282 /* AimingMode.m */,
+				2C53122215096C0600FDE482 /* CoverLayer.h */,
+				2C53122315096C0600FDE482 /* CoverLayer.m */,
+				2C53122615096FB200FDE482 /* Dialog.h */,
+				2C53122715096FB200FDE482 /* Dialog.m */,
 				2CE1A3311507C10000F17282 /* GameMode.h */,
 				2CE1A3321507C10000F17282 /* GameMode.m */,
+				2C53122E1509818F00FDE482 /* LevelCompletedDialog.h */,
+				2C53122F1509818F00FDE482 /* LevelCompletedDialog.m */,
 				2CE1A33B1507C83900F17282 /* LevelCompletedMode.h */,
 				2CE1A33C1507C83900F17282 /* LevelCompletedMode.m */,
+				2C53122915097A8E00FDE482 /* LevelFailedDialog.h */,
+				2C53122A15097A8F00FDE482 /* LevelFailedDialog.m */,
 				2CE1A33E1507C85700F17282 /* LevelFailedMode.h */,
 				2CE1A33F1507C85700F17282 /* LevelFailedMode.m */,
 				2CE1A3381507C5AB00F17282 /* ShootingMode.h */,
@@ -3193,6 +3216,7 @@
 				2CEEC7FA15058EA400EAC127 /* Glass-A58.plist in Resources */,
 				2CEEC7FB15058EA400EAC127 /* Glass-A60.plist in Resources */,
 				2CD2529E15095B9A00B9E300 /* Speedee-Shapes.plist in Resources */,
+				2C53122D15097DE400FDE482 /* Bubble.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3419,6 +3443,10 @@
 				2CE1A33A1507C5AB00F17282 /* ShootingMode.m in Sources */,
 				2CE1A33D1507C83900F17282 /* LevelCompletedMode.m in Sources */,
 				2CE1A3401507C85700F17282 /* LevelFailedMode.m in Sources */,
+				2C53122415096C0600FDE482 /* CoverLayer.m in Sources */,
+				2C53122815096FB200FDE482 /* Dialog.m in Sources */,
+				2C53122B15097A8F00FDE482 /* LevelFailedDialog.m in Sources */,
+				2C5312301509819000FDE482 /* LevelCompletedDialog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

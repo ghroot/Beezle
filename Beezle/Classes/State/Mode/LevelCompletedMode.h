@@ -9,6 +9,7 @@
 #import "GameMode.h"
 #import "cocos2d.h"
 
+@class LevelCompletedDialog;
 @class LevelSession;
 
 @interface LevelCompletedMode : GameMode
@@ -16,7 +17,7 @@
 	CCLayer *_uiLayer;
 	LevelSession *_levelSession;
 	BOOL _hasTurnedBeesIntoPollen;
-	CCMenu *_levelCompletedMenu;
+	LevelCompletedDialog *_levelCompletedDialog;
 }
 
 -(id) initWithGameplayState:(GameplayState *)gameplayState andUiLayer:(CCLayer *)uiLayer levelSession:(LevelSession *)levelSession;
