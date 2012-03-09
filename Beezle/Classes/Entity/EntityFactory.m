@@ -10,6 +10,7 @@
 #import "BeeComponent.h"
 #import "BeeType.h"
 #import "BodyInfo.h"
+#import "CollisionGroup.h"
 #import "CollisionType.h"
 #import "EditComponent.h"
 #import "EntityDescription.h"
@@ -68,6 +69,7 @@
 		[shape setFriction:BACKGROUND_FRICTION];
 		[shape setElasticity:BACKGROUND_ELASTICITY];
 		[shape setLayers:BACKGROUND_LAYERS];
+        [shape setGroup:[CollisionGroup LEVEL]];
 	}
 	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:[bodyInfo body] andShapes:[bodyInfo shapes]];
     [backgroundEntity addComponent:physicsComponent];
@@ -108,6 +110,7 @@
 		[shape setFriction:0.5f];
 		[shape setCollisionType:[CollisionType EDGE]];
         [shape setLayers:EDGE_LAYERS];
+        [shape setGroup:[CollisionGroup LEVEL]];
         [shapes addObject:shape];
     }
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShapes:shapes];
@@ -140,6 +143,7 @@
 	ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:num verts:verts offset:CGPointZero];
 	[shape setCollisionType:[CollisionType WATER]];
 	[shape setLayers:WATER_LAYERS];
+    [shape setGroup:[CollisionGroup LEVEL]];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
     [waterEntity addComponent:physicsComponent];
     
