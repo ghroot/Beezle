@@ -13,9 +13,7 @@
 
 @interface EntityFactory : NSObject
 
-+(Entity *) createBackground:(World *)world withLevelName:(NSString *)name;
-+(Entity *) createEdge:(World *)world;
-+(Entity *) createWater:(World *)world;
++(Entity *) createBackground:(World *)world withLevelName:(NSString *)name hasWater:(BOOL)hasWater;
 
 +(Entity *) createEntity:(NSString *)type world:(World *)world edit:(BOOL)edit;
 +(Entity *) createEntity:(NSString *)type world:(World *)world;

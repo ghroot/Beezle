@@ -70,10 +70,33 @@
     [[DisposableComponent getFrom:entity] setIsDisposed:TRUE];
 }
 
-+(BOOL) isEntityWater:(Entity *)entity
++(BOOL) isEntityBackground:(Entity *)entity
 {
-	return [entity hasComponent:[PhysicsComponent class]] &&
-		[[[PhysicsComponent getFrom:entity] firstPhysicsShape] collisionType] == [CollisionType WATER];
+	if ([entity hasComponent:[PhysicsComponent class]])
+	{
+		PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
+		for (ChipmunkShape *shape in [physicsComponent shapes])
+		{
+			if ([shape collisionType] == [CollisionType BACKGROUND])
+			{
+				return TRUE;
+			}
+		}
+	}
+	return FALSE;
+}
+
++(BOOL) hasBackgroundEntityWater:(Entity *)entity
+{
+	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
+	for (ChipmunkShape *shape in [physicsComponent shapes])
+	{
+		if ([shape collisionType] == [CollisionType WATER])
+		{
+			return TRUE;
+		}
+	}
+	return FALSE;
 }
 
 +(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName disablePhysics:(BOOL)disablePhysics

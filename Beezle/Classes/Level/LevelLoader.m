@@ -111,16 +111,7 @@
 	}
 	
 	// Background
-	[EntityFactory createBackground:world withLevelName:levelName];
-	
-	// Edge
-    [EntityFactory createEdge:world];
-	
-	// Water
-	if ([levelLayout hasWater])
-	{
-		[EntityFactory createWater:world];
-	}
+	[EntityFactory createBackground:world withLevelName:levelName hasWater:[levelLayout hasWater]];
 	
 	// Entities
     for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])

@@ -98,6 +98,8 @@
         cpVect impulse = cpArbiterTotalImpulse(arbiter);
 		
 		Collision *collision = [Collision collisionWithFirstEntity:firstEntity andSecondEntity:secondEntity];
+		[collision setType1:[firstChipmunkShape collisionType]];
+		[collision setType2:[secondChipmunkShape collisionType]];
 		[collision setImpulse:impulse];
 		[_collisionSystem pushCollision:collision];
     }

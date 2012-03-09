@@ -16,19 +16,20 @@
 {
     Entity *_firstEntity;
     Entity *_secondEntity;
+	CollisionType *_type1;
+	CollisionType *_type2;
 	cpVect _impulse;
 }
 
 @property (nonatomic, readonly) Entity *firstEntity;
 @property (nonatomic, readonly) Entity *secondEntity;
+@property (nonatomic, assign) CollisionType *type1;
+@property (nonatomic, assign) CollisionType *type2;
 @property (nonatomic) cpVect impulse;
 
 +(id) collisionWithFirstEntity:(Entity *)firstEntity andSecondEntity:(Entity *)secondEntity;
 
 -(id) initWithFirstEntity:(Entity *)firstEntity andSecondEntity:(Entity *)secondEntity;
-
--(CollisionType *) type1;
--(CollisionType *) type2;
 
 -(float) impulseLength;
 

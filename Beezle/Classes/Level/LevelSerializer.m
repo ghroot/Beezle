@@ -135,9 +135,9 @@
 						
 			[levelLayout addLevelLayoutEntry:levelLayoutEntry];
 		}
-		else if ([EntityUtil isEntityWater:entity])
+		else if ([EntityUtil isEntityBackground:entity])
 		{
-			hasWater = TRUE;
+			hasWater = [EntityUtil hasBackgroundEntityWater:entity];
 		}
 	}
 	[levelLayout setHasWater:hasWater];

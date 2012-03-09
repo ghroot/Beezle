@@ -29,6 +29,8 @@
 #define BACKGROUND_FRICTION 0.7f
 #define BACKGROUND_ELASTICITY 0.7f
 #define BACKGROUND_LAYERS 7
+#define EDGE_FRICTION 0.5f
+#define EDGE_ELASTICITY 0.0f
 #define EDGE_LAYERS 7
 #define WATER_HEIGHT 5.0f
 #define WATER_LAYERS 7
@@ -42,7 +44,7 @@
 
 @implementation EntityFactory
 
-+(Entity *) createBackground:(World *)world withLevelName:(NSString *)name
++(Entity *) createBackground:(World *)world withLevelName:(NSString *)name hasWater:(BOOL)hasWater
 {
     Entity *backgroundEntity = [world createEntity];
 	
@@ -62,6 +64,9 @@
     
     // Physics
     PhysicsSystem *physicsSystem = (PhysicsSystem *)[[world systemManager] getSystem:[PhysicsSystem class]];
+	NSMutableArray *shapes = [NSMutableArray array];
+	
+	// Background
     NSString *shapesFileName = [NSString stringWithFormat:@"%@-Shapes.plist", name];
 	BodyInfo *bodyInfo = [physicsSystem createBodyInfoFromFile:shapesFileName bodyName:name collisionType:[CollisionType BACKGROUND]];
 	for (ChipmunkShape *shape in [bodyInfo shapes])
@@ -71,85 +76,54 @@
 		[shape setLayers:BACKGROUND_LAYERS];
         [shape setGroup:[CollisionGroup LEVEL]];
 	}
-	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:[bodyInfo body] andShapes:[bodyInfo shapes]];
+	[shapes addObjectsFromArray:[bodyInfo shapes]];
+	
+	// Edge
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	int numEdgeVerts = 4;
+    CGPoint edgeVerts[] = {
+        cpv(-winSize.width / 2, -winSize.height / 2),
+        cpv(winSize.width / 2, -winSize.height / 2),
+        cpv(winSize.width / 2, winSize.height / 2),
+        cpv(-winSize.width / 2, winSize.height / 2)
+    };
+    for (int i = 0; i < numEdgeVerts; i++)
+    {
+        int nextI = i == numEdgeVerts - 1 ? 0 : i + 1;
+		ChipmunkShape *shape = [ChipmunkSegmentShape segmentWithBody:[bodyInfo body] from:edgeVerts[i] to:edgeVerts[nextI] radius:0];
+		[shape setFriction:EDGE_FRICTION];
+		[shape setElasticity:EDGE_ELASTICITY];
+		[shape setLayers:EDGE_LAYERS];
+		[shape setCollisionType:[CollisionType EDGE]];
+		[shape setGroup:[CollisionGroup LEVEL]];
+        [shapes addObject:shape];
+    }
+	
+	// Water
+	if (hasWater)
+	{
+		int numWaterVerts = 4;
+		CGPoint waterVerts[] = {
+			cpv(-winSize.width / 2, -winSize.height / 2),
+			cpv(-winSize.width / 2, -(winSize.height / 2) + WATER_HEIGHT),
+			cpv(winSize.width / 2, -(winSize.height / 2) + WATER_HEIGHT),
+			cpv(winSize.width / 2, -winSize.height / 2)
+		};
+		ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:[bodyInfo body] count:numWaterVerts verts:waterVerts offset:CGPointZero];
+		[shape setCollisionType:[CollisionType WATER]];
+		[shape setLayers:WATER_LAYERS];
+		[shape setGroup:[CollisionGroup LEVEL]];
+		[shapes addObject:shape];
+	}
+	
+	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:[bodyInfo body] andShapes:shapes];
     [backgroundEntity addComponent:physicsComponent];
     
     [backgroundEntity refresh];
 	
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	[EntityUtil setEntityPosition:backgroundEntity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
     
     return backgroundEntity;    
-}
-
-+(Entity *) createEdge:(World *)world
-{
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    
-    Entity *edgeEntity = [world createEntity];
-    
-    // Transform
-    TransformComponent *transformComponent = [TransformComponent component];
-    [edgeEntity addComponent:transformComponent];
-    
-    // Physics
-    int num = 4;
-    CGPoint verts[] = {
-        cpv(0.0f, 0.0f),
-        cpv(winSize.width, 0.0f),
-        cpv(winSize.width, winSize.height),
-        cpv(0.0f, winSize.height)
-    };
-	ChipmunkBody *body = [ChipmunkBody staticBody];
-    NSMutableArray *shapes = [[[NSMutableArray alloc] init] autorelease];
-    for (int i = 0; i < num; i++)
-    {
-        int nextI = i == num - 1 ? 0 : i + 1;
-		ChipmunkShape *shape = [ChipmunkSegmentShape segmentWithBody:body from:verts[i] to:verts[nextI] radius:0];
-		[shape setElasticity:0.0f];
-		[shape setFriction:0.5f];
-		[shape setCollisionType:[CollisionType EDGE]];
-        [shape setLayers:EDGE_LAYERS];
-        [shape setGroup:[CollisionGroup LEVEL]];
-        [shapes addObject:shape];
-    }
-    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShapes:shapes];
-    [edgeEntity addComponent:physicsComponent];
-    
-    [edgeEntity refresh];
-    
-    return edgeEntity;
-}
-
-+(Entity *) createWater:(World *)world
-{
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    
-    Entity *waterEntity = [world createEntity];
-    
-    // Transform
-    TransformComponent *transformComponent = [TransformComponent component];
-    [waterEntity addComponent:transformComponent];
-    
-    // Physics
-    int num = 4;
-    CGPoint verts[] = {
-        cpv(0.0f, 0.0f),
-        cpv(0.0f, WATER_HEIGHT),
-        cpv(winSize.width, WATER_HEIGHT),
-        cpv(winSize.width, 0.0f)
-    };
-	ChipmunkBody *body = [ChipmunkBody staticBody];
-	ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:num verts:verts offset:CGPointZero];
-	[shape setCollisionType:[CollisionType WATER]];
-	[shape setLayers:WATER_LAYERS];
-    [shape setGroup:[CollisionGroup LEVEL]];
-    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShape:shape];
-    [waterEntity addComponent:physicsComponent];
-    
-    [waterEntity refresh];
-    
-    return waterEntity;
 }
 
 +(Entity *) createEntity:(NSString *)type world:(World *)world edit:(BOOL)edit

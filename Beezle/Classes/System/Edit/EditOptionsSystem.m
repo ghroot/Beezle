@@ -208,23 +208,21 @@
 	 
 -(void) doOptionToggleWater:(id)sender
 {
-	Entity *waterEntity = nil;
+	Entity *backgroundEntity = nil;
 	for (Entity *entity in [[_world entityManager] entities])
 	{
-		if ([EntityUtil isEntityWater:entity])
+		if ([EntityUtil isEntityBackground:entity])
 		{
-			waterEntity = entity;
+			backgroundEntity = entity;
 			break;
 		}
 	}
-	if (waterEntity != nil)
-	{
-		[waterEntity deleteEntity];
-	}
-	else
-	{
-		[EntityFactory createWater:_world];
-	}
+	
+	BOOL hasWater = [EntityUtil hasBackgroundEntityWater:backgroundEntity];
+	
+	[backgroundEntity deleteEntity];
+	
+	[EntityFactory createBackground:_world withLevelName:[_editState levelName] hasWater:!hasWater];
 }
 
 -(void) doOptionToggleLines:(id)sender

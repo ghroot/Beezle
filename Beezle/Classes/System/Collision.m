@@ -14,6 +14,8 @@
 
 @synthesize firstEntity = _firstEntity;
 @synthesize secondEntity = _secondEntity;
+@synthesize type1 = _type1;
+@synthesize type2 = _type2;
 @synthesize impulse = _impulse;
 
 +(id) collisionWithFirstEntity:(Entity *)firstEntity andSecondEntity:(Entity *)secondEntity
@@ -37,18 +39,6 @@
     [_secondEntity release];
     
     [super dealloc];
-}
-
--(CollisionType *) type1
-{
-	PhysicsComponent *firstPhysicsComponent = (PhysicsComponent *)[_firstEntity getComponent:[PhysicsComponent class]];
-	return [[firstPhysicsComponent firstPhysicsShape] shape]->collision_type;
-}
-
--(CollisionType *) type2
-{
-	PhysicsComponent *secondPhysicsComponent = (PhysicsComponent *)[_secondEntity getComponent:[PhysicsComponent class]];
-	return [[secondPhysicsComponent firstPhysicsShape] shape]->collision_type;
 }
 
 -(float) impulseLength
