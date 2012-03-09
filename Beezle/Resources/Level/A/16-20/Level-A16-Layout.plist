@@ -17,9 +17,9 @@
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 79.00, 278.00 }</string>
+					<string>{ 43.50, 294.00 }</string>
 					<key>rotation</key>
-					<real>326</real>
+					<real>330</real>
 					<key>scale</key>
 					<string>{ 1.00, 1.00 }</string>
 				</dict>
@@ -33,49 +33,21 @@
 				<key>beeater</key>
 				<dict>
 					<key>containedBeeType</key>
-					<string>BEE</string>
+					<string>SPEEDEE</string>
 				</dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>0.0</real>
+					<real>-0.034906584769487381</real>
 					<key>position</key>
-					<string>{ 233.00, 197.00 }</string>
+					<string>{ 89.50, 140.50 }</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 233.00, 197.00 }</string>
+					<string>{ 89.50, 140.50 }</string>
 					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>BEEATER-LAND</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>beeater</key>
-				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
-				</dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{ 193.00, 57.00 }</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{ 193.00, 57.00 }</string>
-					<key>rotation</key>
-					<real>0.0</real>
+					<real>2</real>
 					<key>scale</key>
 					<string>{ -1.00, 1.00 }</string>
 				</dict>
@@ -89,21 +61,21 @@
 				<key>beeater</key>
 				<dict>
 					<key>containedBeeType</key>
-					<string>BEE</string>
+					<string>SPEEDEE</string>
 				</dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>0.0</real>
+					<real>-0.069813169538974762</real>
 					<key>position</key>
-					<string>{ 421.00, 75.00 }</string>
+					<string>{ 334.00, 61.00 }</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 421.00, 75.00 }</string>
+					<string>{ 334.00, 61.00 }</string>
 					<key>rotation</key>
-					<real>0.0</real>
+					<real>4</real>
 					<key>scale</key>
 					<string>{ 1.00, 1.00 }</string>
 				</dict>
@@ -114,17 +86,52 @@
 		<dict>
 			<key>components</key>
 			<dict>
+				<key>beeater</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>BEE</string>
+				</dict>
+				<key>movement</key>
+				<dict>
+					<key>positions</key>
+					<array>
+						<string>{ 92.00, 209.00 }</string>
+					</array>
+				</dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 364.00, 287.00 }</string>
+					<string>{ 362.00, 203.00 }</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 364.00, 287.00 }</string>
+					<string>{ 362.00, 203.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>BEEATER-BIRD</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 175.00, 217.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 175.00, 217.00 }</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -137,17 +144,29 @@
 		<dict>
 			<key>components</key>
 			<dict>
+				<key>beeater</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>BEE</string>
+				</dict>
+				<key>movement</key>
+				<dict>
+					<key>positions</key>
+					<array>
+						<string>{ 234.50, 143.00 }</string>
+					</array>
+				</dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 393.00, 287.00 }</string>
+					<string>{ 381.50, 149.50 }</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 393.00, 287.00 }</string>
+					<string>{ 381.50, 149.50 }</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -155,46 +174,7 @@
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>POLLEN</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{ 333.00, 287.00 }</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{ 333.00, 287.00 }</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>POLLEN</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{ 429.50, 244.00 }</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>WATERDROP-SPAWNER</string>
+			<string>BEEATER-BIRD</string>
 		</dict>
 	</array>
 	<key>format</key>
@@ -202,8 +182,8 @@
 	<key>hasWater</key>
 	<false/>
 	<key>name</key>
-	<string>Level-A5</string>
+	<string>Level-A16</string>
 	<key>version</key>
-	<integer>9</integer>
+	<integer>1</integer>
 </dict>
 </plist>
