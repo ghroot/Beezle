@@ -98,7 +98,10 @@
 	RenderComponent *renderComponent = [RenderComponent getFrom:beeaterEntity];
 	RenderSprite *headRenderSprite = [renderComponent getRenderSprite:@"head"];
 	NSString *headAnimationName = [NSString stringWithFormat:@"Beeater-Head-Idle-%@", [[beeaterComponent containedBeeType] capitalizedString]];
-    [headRenderSprite playAnimation:headAnimationName];
+	NSArray *betweenAnimationNames = [NSArray arrayWithObjects:@"Beeater-Head-Idle-Between-Short", @"Beeater-Head-Idle-Between-Medium", @"Beeater-Head-Idle-Between-Long", nil];
+	NSString *firstBetweenAnimationName = [betweenAnimationNames objectAtIndex:(rand() % 3)];
+	NSString *secondBetweenAnimationName = [betweenAnimationNames objectAtIndex:(rand() % 3)];
+	[headRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:firstBetweenAnimationName, headAnimationName, secondBetweenAnimationName, headAnimationName, nil]];
 }
 
 -(void) handleBeeaterHit:(NSNotification *)notification
