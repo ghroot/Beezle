@@ -15,6 +15,7 @@
 #import "InputSystem.h"
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
+#import "RenderSprite.h"
 #import "RenderComponent.h"
 #import "SoundManager.h"
 #import "TransformComponent.h"
@@ -22,6 +23,8 @@
 @interface ExplodeControlSystem()
 
 -(BOOL) doesExplodedEntity:(Entity *)explodedEntity intersectCrumbleEntity:(Entity *)crumbleEntity;
+-(void) startExplode:(Entity *)entity;
+-(void) endExplode:(Entity *)entity;
 
 @end
 
@@ -57,35 +60,9 @@
 					[EntityUtil setEntityDisposed:entity];
 				}
 			}
-			
 			if (shouldExplode)
 			{
-				for (Entity *otherEntity in [[_world entityManager] entities])
-				{
-					if ([otherEntity hasComponent:[CrumbleComponent class]])
-					{
-						if ([self doesExplodedEntity:entity intersectCrumbleEntity:otherEntity])
-						{
-                            if (![EntityUtil isEntityDisposed:otherEntity])
-							{
-                                [EntityUtil setEntityDisposed:otherEntity];
-								
-								CrumbleComponent *otherCrumbleComponent = [CrumbleComponent getFrom:otherEntity];
-								if ([otherCrumbleComponent crumbleAnimationName] != nil)
-								{
-									[EntityUtil animateAndDeleteEntity:otherEntity animationName:[otherCrumbleComponent crumbleAnimationName]];
-								}
-								
-								NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:otherEntity forKey:@"entity"];
-								[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_CRUMBLED object:self userInfo:notificationUserInfo];
-							}
-						}
-					}
-				}
-				
-				[EntityUtil animateAndDeleteEntity:entity animationName:[[ExplodeComponent getFrom:entity] explodeAnimationName]];
-				
-				[[SoundManager sharedManager] playSound:@"BombeeBoom"];
+				[self startExplode:entity];
 			}
 		}
 	}
@@ -110,6 +87,49 @@
 	}
 	
 	return cpBBIntersects(explosionBB, otherBB);
+}
+
+-(void) startExplode:(Entity *)entity
+{
+	ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
+	RenderComponent *renderComponent = [RenderComponent getFrom:entity];
+	RenderSprite *renderSprite = [renderComponent firstRenderSprite];
+	[renderSprite playAnimation:[explodeComponent explodeStartAnimationName] withCallbackTarget:self andCallbackSelector:@selector(endExplode:) object:entity];
+	
+	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
+	[physicsComponent disable];
+	[entity refresh];
+}
+
+-(void) endExplode:(Entity *)entity
+{
+	ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
+	[EntityUtil animateAndDeleteEntity:entity animationName:[explodeComponent explodeEndAnimationName]];
+	
+	for (Entity *otherEntity in [[_world entityManager] entities])
+	{
+		if ([otherEntity hasComponent:[CrumbleComponent class]])
+		{
+			if ([self doesExplodedEntity:entity intersectCrumbleEntity:otherEntity])
+			{
+				if (![EntityUtil isEntityDisposed:otherEntity])
+				{
+					[EntityUtil setEntityDisposed:otherEntity];
+					
+					CrumbleComponent *otherCrumbleComponent = [CrumbleComponent getFrom:otherEntity];
+					if ([otherCrumbleComponent crumbleAnimationName] != nil)
+					{
+						[EntityUtil animateAndDeleteEntity:otherEntity animationName:[otherCrumbleComponent crumbleAnimationName]];
+					}
+					
+					NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:otherEntity forKey:@"entity"];
+					[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_CRUMBLED object:self userInfo:notificationUserInfo];
+				}
+			}
+		}
+	}
+	
+	[[SoundManager sharedManager] playSound:@"BombeeBoom"];
 }
 
 @end

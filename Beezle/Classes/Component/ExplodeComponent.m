@@ -11,14 +11,14 @@
 @implementation ExplodeComponent
 
 @synthesize radius = _radius;
-@synthesize explodeAnimationName = _explodeAnimationName;
+@synthesize explodeStartAnimationName = _explodeStartAnimationName;
+@synthesize explodeEndAnimationName = _explodeEndAnimationName;
 
 -(id) init
 {
 	if (self = [super init])
 	{
 		_name = @"explode";
-		_explodeAnimationName = nil;
 	}
 	return self;
 }
@@ -31,9 +31,11 @@
 		{
 			_radius = [[dict objectForKey:@"radius"] intValue];
 		}
-		if ([dict objectForKey:@"explodeAnimation"] != nil)
+		if ([dict objectForKey:@"explodeStartAnimation"] != nil &&
+			[dict objectForKey:@"explodeEndAnimation"] != nil)
 		{
-			_explodeAnimationName = [[dict objectForKey:@"explodeAnimation"] retain];
+			_explodeStartAnimationName = [[dict objectForKey:@"explodeStartAnimation"] retain];
+			_explodeEndAnimationName = [[dict objectForKey:@"explodeEndAnimation"] retain];
 		}
 	}
 	return self;
@@ -41,7 +43,8 @@
 
 -(void) dealloc
 {
-	[_explodeAnimationName release];
+	[_explodeStartAnimationName release];
+	[_explodeEndAnimationName release];
 	
 	[super dealloc];
 }

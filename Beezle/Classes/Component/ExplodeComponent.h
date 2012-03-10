@@ -11,10 +11,12 @@
 @interface ExplodeComponent : Component
 {
 	int _radius;
-	NSString *_explodeAnimationName;
+	NSString *_explodeStartAnimationName;
+	NSString *_explodeEndAnimationName;
 }
 
 @property (nonatomic) int radius;
-@property (nonatomic, retain) NSString *explodeAnimationName;
+@property (nonatomic, retain) NSString *explodeStartAnimationName;
+@property (nonatomic, retain) NSString *explodeEndAnimationName;
 
 @end
