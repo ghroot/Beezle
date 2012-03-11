@@ -86,35 +86,4 @@
 	[_levelLayoutsByName removeObjectForKey:levelName];
 }
 
--(void) loadLevelLayoutOriginal:(NSString *)levelName
-{
-	// Load from bundle
-	NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
-	NSString *path = [CCFileUtils fullPathFromRelativePath:levelFileName];
-	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-	LevelLayout *levelLayout = [LevelLayout layoutWithContentsOfDictionary:dict];
-	[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:levelLayout];
-}
-
--(BOOL) loadLevelLayoutEdited:(NSString *)levelName
-{
-	// From from document directory
-	NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
-	NSString *documentsDirectory = [paths objectAtIndex:0];
-	NSString *filePath = [documentsDirectory stringByAppendingPathComponent:levelFileName];
-	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
-	if (dict != nil)
-	{
-		LevelLayout *levelLayout = [LevelLayout layoutWithContentsOfDictionary:dict];
-		[levelLayout setIsEdited:TRUE];
-		[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:levelLayout];
-		return TRUE;
-	}
-	else
-	{
-		return FALSE;
-	}
-}
-
 @end
