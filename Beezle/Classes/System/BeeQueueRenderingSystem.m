@@ -226,14 +226,14 @@
 		[beeQueueRenderSprite playAnimation:animationName];
 	}];
 	[actions addObject:animateLookDownAction];
-	CCEaseSineInOut *moveUpAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:positionAboveBeeater]];
+	CCEaseSineInOut *moveUpAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.7f position:positionAboveBeeater]];
 	[actions addObject:moveUpAction];
 	CCCallBlock *animateLookScreenAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookScreen", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimation:animationName];
 	}];
 	[actions addObject:animateLookScreenAction];
-	CCDelayTime *waitAction1 = [CCDelayTime actionWithDuration:0.6f];
+	CCDelayTime *waitAction1 = [CCDelayTime actionWithDuration:0.5f];
 	[actions addObject:waitAction1];
 	CCCallBlock *animateLookSideAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName1 = [NSString stringWithFormat:@"%@-Saved-Leap", [savedBeeType capitalizedString]];
