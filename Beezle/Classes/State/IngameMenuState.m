@@ -10,7 +10,18 @@
 #import "EditState.h"
 #import "Game.h"
 #import "GameplayState.h"
+#import "LevelOrganizer.h"
 #import "MainMenuState.h"
+
+@interface IngameMenuState()
+
+-(void) resumeGame:(id)sender;
+-(void) restartGame:(id)sender;
+-(void) editGame:(id)sender;
+-(void) nextLevel:(id)sender;
+-(void) gotoMainMenu:(id)sender;
+
+@end
 
 @implementation IngameMenuState
 
@@ -30,6 +41,8 @@
 	{
 		CCMenuItem *editMenuItem = [CCMenuItemFont itemWithString:@"Edit" target:self selector:@selector(editGame:)];
 		[_menu addChild:editMenuItem];
+		CCMenuItem *nextLevelMenuItem = [CCMenuItemFont itemWithString:@"Next level" target:self selector:@selector(nextLevel:)];
+		[_menu addChild:nextLevelMenuItem];
 	}
 	CCMenuItem *quitMenuItem = [CCMenuItemFont itemWithString:@"Quit" target:self selector:@selector(gotoMainMenu:)];
 	[_menu addChild:quitMenuItem];
@@ -59,6 +72,22 @@
 	[_game popState];
 	GameplayState *gameplayState = (GameplayState *)[_game currentState];
 	[_game replaceState:[EditState stateWithLevelName:[gameplayState levelName]]];
+}
+
+-(void) nextLevel:(id)sender
+{
+	// This assumes the previous state was the game play state
+	[_game popState];
+	GameplayState *gameplayState = (GameplayState *)[_game currentState];
+	NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:[gameplayState levelName]];
+    if (nextLevelName != nil)
+    {
+        [_game replaceState:[GameplayState stateWithLevelName:nextLevelName]];
+    }
+    else
+    {
+		[_game replaceState:[MainMenuState state]];
+    }
 }
 
 -(void) gotoMainMenu:(id)sender

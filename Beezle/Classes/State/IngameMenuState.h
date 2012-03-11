@@ -14,9 +14,4 @@
     CCMenu *_menu;
 }
 
--(void) resumeGame:(id)sender;
--(void) restartGame:(id)sender;
--(void) editGame:(id)sender;
--(void) gotoMainMenu:(id)sender;
-
 @end
