@@ -48,20 +48,10 @@
         InputAction *nextInputAction = [_inputSystem popInputAction];
 		if ([nextInputAction touchType] == TOUCH_BEGAN)
 		{
-			BOOL shouldExplode = TRUE;
-			if ([EntityUtil isEntityDisposable:entity])
+			ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
+			if (![explodeComponent hasExploded])
 			{
-				if ([EntityUtil isEntityDisposed:entity])
-				{
-					shouldExplode = FALSE;
-				}
-				else
-				{
-					[EntityUtil setEntityDisposed:entity];
-				}
-			}
-			if (shouldExplode)
-			{
+				[explodeComponent setHasExploded:TRUE];
 				[self startExplode:entity];
 			}
 		}
@@ -103,6 +93,8 @@
 
 -(void) endExplode:(Entity *)entity
 {
+	[EntityUtil setEntityDisposed:entity];
+	
 	ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
 	[EntityUtil animateAndDeleteEntity:entity animationName:[explodeComponent explodeEndAnimationName]];
 	

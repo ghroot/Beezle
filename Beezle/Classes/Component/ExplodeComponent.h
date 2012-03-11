@@ -13,10 +13,12 @@
 	int _radius;
 	NSString *_explodeStartAnimationName;
 	NSString *_explodeEndAnimationName;
+	BOOL _hasExploded;
 }
 
 @property (nonatomic) int radius;
 @property (nonatomic, retain) NSString *explodeStartAnimationName;
 @property (nonatomic, retain) NSString *explodeEndAnimationName;
+@property (nonatomic) BOOL hasExploded;
 
 @end

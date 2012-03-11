@@ -13,6 +13,7 @@
 @synthesize radius = _radius;
 @synthesize explodeStartAnimationName = _explodeStartAnimationName;
 @synthesize explodeEndAnimationName = _explodeEndAnimationName;
+@synthesize hasExploded = _hasExploded;
 
 -(id) init
 {
