@@ -112,7 +112,7 @@
 				<key>beeater</key>
 				<dict>
 					<key>containedBeeType</key>
-					<string>BEE</string>
+					<string>SPEEDEE</string>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -157,6 +157,41 @@
 			<key>type</key>
 			<string>SLINGER</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>beeater</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>BEE</string>
+				</dict>
+				<key>movement</key>
+				<dict>
+					<key>positions</key>
+					<array>
+						<string>{ 238.50, 188.50 }</string>
+					</array>
+				</dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 235.00, 282.50 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 235.00, 282.50 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>BEEATER-BIRD</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -165,6 +200,6 @@
 	<key>name</key>
 	<string>Level-A41</string>
 	<key>version</key>
-	<integer>2</integer>
+	<integer>6</integer>
 </dict>
 </plist>
