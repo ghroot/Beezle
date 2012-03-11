@@ -14,6 +14,13 @@
 #import "LevelOrganizer.h"
 #import "PlayerInformation.h"
 
+@interface LevelSelectMenuState()
+
+-(void) createLevelMenuItems;
+-(void) createLevelMenuItemsEdit;
+
+@end
+
 @implementation LevelSelectMenuState
 
 +(LevelSelectMenuState *) stateWithTheme:(NSString *)theme
@@ -44,41 +51,23 @@
 	
 	_menu = [CCMenu menuWithItems:nil];
 	
-	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesInTheme:_theme];
-	for (NSString *levelName in levelNames)
+	if (CONFIG_CAN_EDIT_LEVELS)
 	{
-		NSString *shortLevelName = [levelName stringByReplacingOccurrencesOfString:@"Level-" withString:@""];
-		NSString *menuItemName = nil;
-		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
-		if (levelLayout != nil)
-		{
-//			menuItemName = [NSString stringWithFormat:@"%@(%d)%@", shortLevelName, [levelLayout version], [levelLayout isEdited] ? @"e" : @""];
-			menuItemName = [NSString stringWithFormat:@"%@%@", shortLevelName, [levelLayout isEdited] ? @"e" : @""];
-		}
-		else
-		{
-			menuItemName = shortLevelName;
-		}
-		CCMenuItemFont *levelMenuItem = [CCMenuItemFont itemWithString:menuItemName target:self selector:@selector(startGame:)];
-		[levelMenuItem setFontSize:24];
-		[levelMenuItem setUserData:levelName];
-		[_menu addChild:levelMenuItem];
-        
-        if (!CONFIG_CAN_EDIT_LEVELS)
-        {
-            if (![[PlayerInformation sharedInformation] canPlayLevel:levelName])
-            {
-                [levelMenuItem setIsEnabled:FALSE];
-            }
-        }
+		[self createLevelMenuItemsEdit];
 	}
+	else
+	{
+		[self createLevelMenuItems];
+	}
+	
 	CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
 	[backMenuItem setFontSize:24];
 	[_menu addChild:backMenuItem];
 	
+	int nLevels = [[_menu children] count] - 1;
 	int nRows = 9;
-	int n1 = (int)([levelNames count] / nRows) + 1;
-	int n2 = [levelNames count] - (nRows - 1) * n1;
+	int n1 = (int)(nLevels / nRows) + 1;
+	int n2 = nLevels - (nRows - 1) * n1;
 	[_menu alignItemsInColumns:
 		[NSNumber numberWithInt:n1],
 		[NSNumber numberWithInt:n1],
@@ -93,21 +82,6 @@
 		nil];
 	
 	[self addChild:_menu];
-	
-	for (NSString *levelName in levelNames)
-	{
-		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
-		NSString *string = nil;
-		if (levelLayout != nil)
-		{
-			string = [NSString stringWithFormat:@"%@v%i (%@)", levelName, [levelLayout version], ([levelLayout isEdited] ? @"edited" : @"original")];
-		}
-		else
-		{
-			string = [NSString stringWithFormat:@"%@ (%@)", levelName, @"n/a"];
-		}
-		NSLog(@"%@", string);
-	}
 }
 
 -(void) dealloc
@@ -115,6 +89,34 @@
 	[_theme release];
 	
 	[super dealloc];
+}
+
+-(void) createLevelMenuItems
+{
+	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesInTheme:_theme];
+	for (NSString *levelName in levelNames)
+	{
+		NSString *menuItemName = [levelName stringByReplacingOccurrencesOfString:@"Level-" withString:@""];
+		CCMenuItemFont *levelMenuItem = [CCMenuItemFont itemWithString:menuItemName target:self selector:@selector(startGame:)];
+		[levelMenuItem setFontSize:24];
+		[levelMenuItem setUserData:levelName];
+		[levelMenuItem setIsEnabled:[[PlayerInformation sharedInformation] canPlayLevel:levelName]];
+		[_menu addChild:levelMenuItem];
+	}
+}
+
+-(void) createLevelMenuItemsEdit
+{
+	NSArray *levelLayouts = [[LevelLayoutCache sharedLevelLayoutCache] allLevelLayouts];
+	for (LevelLayout *levelLayout in levelLayouts)
+	{
+		NSString *shortLevelName = [[levelLayout levelName] stringByReplacingOccurrencesOfString:@"Level-" withString:@""];
+		NSString *menuItemName = [NSString stringWithFormat:@"%@%@", shortLevelName, [levelLayout isEdited] ? @"e" : @""];
+		CCMenuItemFont *levelMenuItem = [CCMenuItemFont itemWithString:menuItemName target:self selector:@selector(startGame:)];
+		[levelMenuItem setFontSize:24];
+		[levelMenuItem setUserData:[levelLayout levelName]];
+		[_menu addChild:levelMenuItem];
+	}
 }
 
 -(void) startGame:(id)sender

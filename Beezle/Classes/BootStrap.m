@@ -10,6 +10,7 @@
 #import "Game.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
+#import "LevelLayoutEntry.h"
 #import "LevelLoader.h"
 #import "LevelOrganizer.h"
 #import "MainMenuState.h"
@@ -53,6 +54,25 @@
 		if (levelLayoutWithHighestVersion != nil)
 		{
 			[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:levelLayoutWithHighestVersion];
+			
+			BOOL hasGate = FALSE;
+			for (LevelLayoutEntry *levelLayoutEntry in [levelLayoutWithHighestVersion entries])
+			{
+				if ([[levelLayoutEntry type] isEqualToString:@"CAVEGATE"])
+				{
+					hasGate = TRUE;
+					break;
+				}
+			}
+			if (hasGate)
+			{
+				NSString *caveLevelName = [NSString stringWithFormat:@"%@-Cave", levelName];
+				LevelLayout *caveLevelLayout = [[LevelLoader sharedLoader] loadLevelLayoutWithHighestVersion:caveLevelName];
+				if (caveLevelLayout != nil)
+				{
+					[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:caveLevelLayout];
+				}
+			}
 		}
 	}
 }

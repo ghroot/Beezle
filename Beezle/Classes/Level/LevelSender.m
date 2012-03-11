@@ -38,18 +38,17 @@
 	NSMutableString *message = [NSMutableString string];
 	
 	// Attachments
-	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] allLevelNames];
-	for (NSString *levelName in levelNames)
+	NSArray *levelLayouts = [[LevelLayoutCache sharedLevelLayoutCache] allLevelLayouts];
+	for (LevelLayout *levelLayout in levelLayouts)
 	{
-		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
 		if ([levelLayout isEdited])
 		{
-			NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
+			NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", [levelLayout levelName]];
 			NSString *errorString = nil;
 			NSData *data = [NSPropertyListSerialization dataFromPropertyList:[levelLayout layoutAsDictionary] format:NSPropertyListXMLFormat_v1_0 errorDescription:&errorString];
 			[emailInfo addAttachment:levelFileName data:data];
 			
-			[message appendString:[NSString stringWithFormat:@"%@v%i", levelName, [levelLayout version]]];
+			[message appendString:[NSString stringWithFormat:@"%@v%i", [levelLayout levelName], [levelLayout version]]];
 			[message appendString:@"\n"];
 		}
 	}

@@ -20,6 +20,7 @@
 
 -(void) addLevelLayout:(LevelLayout *)levelLayout;
 -(LevelLayout *) levelLayoutByName:(NSString *)name;
+-(NSArray *) allLevelLayouts;
 -(void) purgeAllCachedLevelLayouts;
 -(void) purgeCachedLevelLayout:(NSString *)levelName;
 
