@@ -67,6 +67,8 @@
 	[self addMenuItemForEntityType:@"SLINGER"];
 	[self addMenuItemForEntityType:@"SMOKE-MUSHROOM"];
 	[self addMenuItemForEntityType:@"WOOD"];
+	[self addMenuItemForEntityType:@"WOOD-2"];
+	[self addMenuItemForEntityType:@"WOOD-3"];
 	[self addMenuItemForEntityType:@"WATERDROP-SPAWNER"];
 }
 
