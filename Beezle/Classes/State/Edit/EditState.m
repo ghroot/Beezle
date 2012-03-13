@@ -10,6 +10,7 @@
 #import "BeeaterSystem.h"
 #import "BeeQueueRenderingSystem.h"
 #import "DebugRenderPhysicsSystem.h"
+#import "DebugRenderShardPiecesSpawnAreaSystem.h"
 #import "DisposableComponent.h"
 #import "EditComponent.h"
 #import "EditControlSystem.h"
@@ -102,6 +103,9 @@
 	_debugRenderPhysicsSystem = [[[DebugRenderPhysicsSystem alloc] initWithScene:self] autorelease];
 	[systemManager setSystem:_debugRenderPhysicsSystem];
 	[_debugRenderPhysicsSystem deactivate];
+	_debugRenderShardPiecesSpawnAreaSystem = [[[DebugRenderShardPiecesSpawnAreaSystem alloc] initWithScene:self] autorelease];
+	[systemManager setSystem:_debugRenderShardPiecesSpawnAreaSystem];
+	[_debugRenderShardPiecesSpawnAreaSystem deactivate];
 	
 	[systemManager initialiseAll];
 }
@@ -156,10 +160,12 @@
 	if ([_debugRenderPhysicsSystem active])
 	{
 		[_debugRenderPhysicsSystem deactivate];
+		[_debugRenderShardPiecesSpawnAreaSystem deactivate];
 	}
 	else
 	{
 		[_debugRenderPhysicsSystem activate];
+		[_debugRenderShardPiecesSpawnAreaSystem activate];
 	}
 }
 

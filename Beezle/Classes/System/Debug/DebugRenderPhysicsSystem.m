@@ -14,10 +14,10 @@
 
 -(id) initWithScene:(CCScene *)scene
 {
-    if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[PhysicsComponent class], nil]])
+    if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObject:[PhysicsComponent class]]])
     {
         _scene = scene;
-        _debugRenderPhysicsLayer = [[DebugRenderPhysicsLayer alloc] init];
+        _debugRenderPhysicsLayer = [DebugRenderPhysicsLayer new];
         [_scene addChild:_debugRenderPhysicsLayer];
     }
     return self;
@@ -25,7 +25,10 @@
 
 -(void) dealloc
 {
-    [_scene removeChild:_debugRenderPhysicsLayer cleanup:TRUE];
+	if ([_debugRenderPhysicsLayer parent] == _scene)
+	{
+		[_scene removeChild:_debugRenderPhysicsLayer cleanup:TRUE];
+	}
     [_debugRenderPhysicsLayer release];
     
     [super dealloc];

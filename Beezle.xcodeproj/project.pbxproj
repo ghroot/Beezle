@@ -485,6 +485,7 @@
 		2C7B184C150EB83A002D86DE /* Wood-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1820150EB83A002D86DE /* Wood-2.plist */; };
 		2C7B184D150EB83A002D86DE /* Wood-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1821150EB83A002D86DE /* Wood-3.plist */; };
 		2C7B184E150EB83A002D86DE /* Wood.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1822150EB83A002D86DE /* Wood.plist */; };
+		2C7B1851150EC514002D86DE /* DebugRenderShardPiecesSpawnAreaSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B1850150EC514002D86DE /* DebugRenderShardPiecesSpawnAreaSystem.m */; };
 		2C7C3B26150275B800640416 /* PauseArrow-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B25150275B800640416 /* PauseArrow-01.png */; };
 		2C7C3B29150276C300640416 /* Level Completed Bubble-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */; };
 		2C7C3B2A150276C300640416 /* Level Failed Bubble-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */; };
@@ -514,6 +515,7 @@
 		2C88E2C814F5A37900496938 /* LevelSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2C714F5A37900496938 /* LevelSession.m */; };
 		2C88E2CB14F6E23400496938 /* GateOpeningSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2CA14F6E23400496938 /* GateOpeningSystem.m */; };
 		2C8A4B7C1495184300C0C154 /* BeeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A4B7B1495184300C0C154 /* BeeType.m */; };
+		2C8C2F07150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C2F06150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m */; };
 		2C9EF99014B4E8DF00F9EE34 /* LevelSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF98F14B4E8DF00F9EE34 /* LevelSerializer.m */; };
 		2C9EF99914B4E91800F9EE34 /* LevelLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF99414B4E91800F9EE34 /* LevelLayout.m */; };
 		2C9EF99A14B4E91800F9EE34 /* LevelLayoutCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF99614B4E91800F9EE34 /* LevelLayoutCache.m */; };
@@ -1265,6 +1267,8 @@
 		2C7B1820150EB83A002D86DE /* Wood-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Wood-2.plist"; sourceTree = "<group>"; };
 		2C7B1821150EB83A002D86DE /* Wood-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Wood-3.plist"; sourceTree = "<group>"; };
 		2C7B1822150EB83A002D86DE /* Wood.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Wood.plist; sourceTree = "<group>"; };
+		2C7B184F150EC513002D86DE /* DebugRenderShardPiecesSpawnAreaSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugRenderShardPiecesSpawnAreaSystem.h; sourceTree = "<group>"; };
+		2C7B1850150EC514002D86DE /* DebugRenderShardPiecesSpawnAreaSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugRenderShardPiecesSpawnAreaSystem.m; sourceTree = "<group>"; };
 		2C7C3B25150275B800640416 /* PauseArrow-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01.png"; sourceTree = "<group>"; };
 		2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level Completed Bubble-01.png"; sourceTree = "<group>"; };
 		2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level Failed Bubble-01.png"; sourceTree = "<group>"; };
@@ -1339,6 +1343,8 @@
 		2C88E2CA14F6E23400496938 /* GateOpeningSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GateOpeningSystem.m; path = Classes/System/GateOpeningSystem.m; sourceTree = "<group>"; };
 		2C8A4B7A1495184300C0C154 /* BeeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeType.h; path = Classes/BeeType.h; sourceTree = "<group>"; };
 		2C8A4B7B1495184300C0C154 /* BeeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeType.m; path = Classes/BeeType.m; sourceTree = "<group>"; };
+		2C8C2F05150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugRenderShardPiecesSpawnAreaLayer.h; sourceTree = "<group>"; };
+		2C8C2F06150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugRenderShardPiecesSpawnAreaLayer.m; sourceTree = "<group>"; };
 		2C9EF98E14B4E8DF00F9EE34 /* LevelSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSerializer.h; sourceTree = "<group>"; };
 		2C9EF98F14B4E8DF00F9EE34 /* LevelSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSerializer.m; sourceTree = "<group>"; };
 		2C9EF99314B4E91800F9EE34 /* LevelLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLayout.h; sourceTree = "<group>"; };
@@ -2721,6 +2727,10 @@
 				2CD4A99614EC7BAC0065FA90 /* DebugRenderPhysicsLayer.m */,
 				2CD4A99714EC7BAC0065FA90 /* DebugRenderPhysicsSystem.h */,
 				2CD4A99814EC7BAC0065FA90 /* DebugRenderPhysicsSystem.m */,
+				2C8C2F05150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.h */,
+				2C8C2F06150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m */,
+				2C7B184F150EC513002D86DE /* DebugRenderShardPiecesSpawnAreaSystem.h */,
+				2C7B1850150EC514002D86DE /* DebugRenderShardPiecesSpawnAreaSystem.m */,
 			);
 			name = Debug;
 			path = Classes/System/Debug;
@@ -3679,6 +3689,8 @@
 				2C53122815096FB200FDE482 /* Dialog.m in Sources */,
 				2C53122B15097A8F00FDE482 /* LevelFailedDialog.m in Sources */,
 				2C5312301509819000FDE482 /* LevelCompletedDialog.m in Sources */,
+				2C7B1851150EC514002D86DE /* DebugRenderShardPiecesSpawnAreaSystem.m in Sources */,
+				2C8C2F07150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
