@@ -16,12 +16,6 @@
 #import "MainMenuState.h"
 #import "SoundManager.h"
 
-@interface BootStrap()
-
--(void) preloadAllLevelLayouts;
-
-@end
-
 @implementation BootStrap
 
 -(id) initWithGame:(Game *)game
@@ -35,46 +29,8 @@
 
 -(void) start
 {
-	// Preload resources
 	[[SoundManager sharedManager] setup];
-	if (CONFIG_CAN_EDIT_LEVELS)
-	{
-		[self preloadAllLevelLayouts];
-	}
-	
 	[_game startWithState:[MainMenuState state]];
-}
-
--(void) preloadAllLevelLayouts
-{
-	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] allLevelNames];
-	for (NSString *levelName in levelNames)
-	{
-		LevelLayout *levelLayoutWithHighestVersion = [[LevelLoader sharedLoader] loadLevelLayoutWithHighestVersion:levelName];
-		if (levelLayoutWithHighestVersion != nil)
-		{
-			[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:levelLayoutWithHighestVersion];
-			
-			BOOL hasGate = FALSE;
-			for (LevelLayoutEntry *levelLayoutEntry in [levelLayoutWithHighestVersion entries])
-			{
-				if ([[levelLayoutEntry type] isEqualToString:@"CAVEGATE"])
-				{
-					hasGate = TRUE;
-					break;
-				}
-			}
-			if (hasGate)
-			{
-				NSString *caveLevelName = [NSString stringWithFormat:@"%@-Cave", levelName];
-				LevelLayout *caveLevelLayout = [[LevelLoader sharedLoader] loadLevelLayoutWithHighestVersion:caveLevelName];
-				if (caveLevelLayout != nil)
-				{
-					[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:caveLevelLayout];
-				}
-			}
-		}
-	}
 }
 
 @end

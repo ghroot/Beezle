@@ -621,6 +621,7 @@
 		2CEEC7E015058AE800EAC127 /* A58-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7D315058AE800EAC127 /* A58-Glass-Shapes.plist */; };
 		2CEEC7E115058AE800EAC127 /* A60-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7D415058AE800EAC127 /* A60-Glass-Shapes.plist */; };
 		2CEEEDDD150231B10096DCA1 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEEDDC150231B10096DCA1 /* Loading.png */; };
+		2CFA8AE515115591003871F8 /* LevelSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA8AE415115591003871F8 /* LevelSelectMenuItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1502,6 +1503,8 @@
 		2CEEC7D315058AE800EAC127 /* A58-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A58-Glass-Shapes.plist"; sourceTree = "<group>"; };
 		2CEEC7D415058AE800EAC127 /* A60-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A60-Glass-Shapes.plist"; sourceTree = "<group>"; };
 		2CEEEDDC150231B10096DCA1 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
+		2CFA8AE315115591003871F8 /* LevelSelectMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; path = LevelSelectMenuItem.h; sourceTree = "<group>"; };
+		2CFA8AE415115591003871F8 /* LevelSelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectMenuItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2706,6 +2709,8 @@
 				2C114808148E9317002E4DBD /* IngameMenuState.m */,
 				2CE508CD14B1E98300A9E8D8 /* LevelSelectMenuState.h */,
 				2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */,
+				2CFA8AE315115591003871F8 /* LevelSelectMenuItem.h */,
+				2CFA8AE415115591003871F8 /* LevelSelectMenuItem.m */,
 				2C333E44150204800023303E /* LoadingState.h */,
 				2C333E45150204800023303E /* LoadingState.m */,
 				2CD33EF1147EFFA7000869C1 /* MainMenuState.h */,
@@ -3691,6 +3696,7 @@
 				2C5312301509819000FDE482 /* LevelCompletedDialog.m in Sources */,
 				2C7B1851150EC514002D86DE /* DebugRenderShardPiecesSpawnAreaSystem.m in Sources */,
 				2C8C2F07150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m in Sources */,
+				2CFA8AE515115591003871F8 /* LevelSelectMenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

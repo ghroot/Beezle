@@ -11,7 +11,10 @@
 #import "GameplayState.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
+#import "LevelLayoutEntry.h"
+#import "LevelLoader.h"
 #import "LevelOrganizer.h"
+#import "LevelSelectMenuItem.h"
 #import "PlayerInformation.h"
 
 @interface LevelSelectMenuState()
@@ -96,33 +99,53 @@
 	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesInTheme:_theme];
 	for (NSString *levelName in levelNames)
 	{
-		NSString *menuItemName = [levelName stringByReplacingOccurrencesOfString:@"Level-" withString:@""];
-		CCMenuItemFont *levelMenuItem = [CCMenuItemFont itemWithString:menuItemName target:self selector:@selector(startGame:)];
-		[levelMenuItem setFontSize:24];
-		[levelMenuItem setUserData:levelName];
-		[levelMenuItem setIsEnabled:[[PlayerInformation sharedInformation] canPlayLevel:levelName]];
+		LevelSelectMenuItem *levelMenuItem = [LevelSelectMenuItem itemWithLevelName:levelName target:self selector:@selector(startGame:)];
 		[_menu addChild:levelMenuItem];
 	}
 }
 
 -(void) createLevelMenuItemsEdit
 {
-	NSArray *levelLayouts = [[LevelLayoutCache sharedLevelLayoutCache] allLevelLayouts];
-	for (LevelLayout *levelLayout in levelLayouts)
+	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesInTheme:_theme];
+	for (NSString *levelName in levelNames)
 	{
-		NSString *shortLevelName = [[levelLayout levelName] stringByReplacingOccurrencesOfString:@"Level-" withString:@""];
-		NSString *menuItemName = [NSString stringWithFormat:@"%@%@", shortLevelName, [levelLayout isEdited] ? @"e" : @""];
-		CCMenuItemFont *levelMenuItem = [CCMenuItemFont itemWithString:menuItemName target:self selector:@selector(startGame:)];
-		[levelMenuItem setFontSize:24];
-		[levelMenuItem setUserData:[levelLayout levelName]];
+		LevelSelectMenuItem *levelMenuItem = [LevelSelectMenuItem itemWithLevelName:levelName target:self selector:@selector(startGame:)];
 		[_menu addChild:levelMenuItem];
+		
+		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+		if (levelLayout == nil)
+		{
+			levelLayout = [[LevelLoader sharedLoader] loadLevelLayoutWithHighestVersion:levelName];
+			if (levelLayout != nil)
+			{
+				[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:levelLayout];
+			}
+		}
+		if (levelLayout != nil)
+		{
+			BOOL hasGate = FALSE;
+			for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
+			{
+				if ([[levelLayoutEntry type] isEqualToString:@"CAVEGATE"])
+				{
+					hasGate = TRUE;
+					break;
+				}
+			}
+			if (hasGate)
+			{
+				NSString *caveLevelName = [NSString stringWithFormat:@"%@-Cave", levelName];
+				LevelSelectMenuItem *caveLevelMenuItem = [LevelSelectMenuItem itemWithLevelName:caveLevelName target:self selector:@selector(startGame:)];
+				[_menu addChild:caveLevelMenuItem];
+			}
+		}
 	}
 }
 
 -(void) startGame:(id)sender
 {
-    NSString *levelName = (NSString *)[sender userData];
-	[_game clearAndReplaceState:[GameplayState stateWithLevelName:levelName]];
+	LevelSelectMenuItem *levelMenuItem = (LevelSelectMenuItem *)sender;
+	[_game clearAndReplaceState:[GameplayState stateWithLevelName:[levelMenuItem levelName]]];
 }
 
 -(void) goBack:(id)sender

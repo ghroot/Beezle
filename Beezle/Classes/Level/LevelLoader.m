@@ -66,7 +66,7 @@
 
 -(LevelLayout *) loadLevelLayoutEdited:(NSString *)levelName
 {
-	// From from document directory
+	// Load from document directory
 	NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -83,9 +83,13 @@
 	{
 		return editedLevelLayout;
 	}
-	else
+	else if (originalLevelLayout != nil)
 	{
 		return originalLevelLayout;
+	}
+	else
+	{
+		return nil;
 	}
 }
 
@@ -99,66 +103,61 @@
 		{
 			[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:levelLayout];
 		}
-		
-		if (levelLayout != nil)
-		{
-			NSLog(@"Loading %@v%i", [levelLayout levelName], [levelLayout version]);
-		}
-		else
-		{
-			NSLog(@"Could not load %@", levelName);
-		}
 	}
 	
-	// Background
-	[EntityFactory createBackground:world withLevelName:levelName hasWater:[levelLayout hasWater]];
-	
-	// Entities
-    for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
-    {
-		Entity *entity = [EntityFactory createEntity:[levelLayoutEntry type] world:world edit:edit];
-		
-		if ([[levelLayoutEntry componentsDict] objectForKey:@"beeater"] != nil)
+	if (levelLayout != nil)
+	{
+		[EntityFactory createBackground:world withLevelName:levelName hasWater:[levelLayout hasWater]];
+		for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
 		{
-			NSDictionary *beeaterDict = [[levelLayoutEntry componentsDict] objectForKey:@"beeater"];
-			[[BeeaterComponent getFrom:entity] populateWithContentsOfDictionary:beeaterDict world:world];
+			Entity *entity = [EntityFactory createEntity:[levelLayoutEntry type] world:world edit:edit];
+			
+			if ([[levelLayoutEntry componentsDict] objectForKey:@"beeater"] != nil)
+			{
+				NSDictionary *beeaterDict = [[levelLayoutEntry componentsDict] objectForKey:@"beeater"];
+				[[BeeaterComponent getFrom:entity] populateWithContentsOfDictionary:beeaterDict world:world];
+			}
+			if ([[levelLayoutEntry componentsDict] objectForKey:@"disposable"] != nil)
+			{
+				NSDictionary *disposableDict = [[levelLayoutEntry componentsDict] objectForKey:@"disposable"];
+				[[DisposableComponent getFrom:entity] populateWithContentsOfDictionary:disposableDict world:world];
+			}
+			if ([[levelLayoutEntry componentsDict] objectForKey:@"gate"] != nil)
+			{
+				NSDictionary *gateDict = [[levelLayoutEntry componentsDict] objectForKey:@"gate"];
+				[[GateComponent getFrom:entity] populateWithContentsOfDictionary:gateDict world:world];
+			}
+			if ([[levelLayoutEntry componentsDict] objectForKey:@"movement"] != nil)
+			{
+				NSDictionary *movementDict = [[levelLayoutEntry componentsDict] objectForKey:@"movement"];
+				[[MovementComponent getFrom:entity] populateWithContentsOfDictionary:movementDict world:world edit:edit];
+			}
+			if ([[levelLayoutEntry componentsDict] objectForKey:@"physics"] != nil)
+			{
+				NSDictionary *physicsDict = [[levelLayoutEntry componentsDict] objectForKey:@"physics"];
+				[[PhysicsComponent getFrom:entity] populateWithContentsOfDictionary:physicsDict world:world];
+			}
+			if ([[levelLayoutEntry componentsDict] objectForKey:@"render"] != nil)
+			{
+				NSDictionary *renderDict = [[levelLayoutEntry componentsDict] objectForKey:@"render"];
+				[[RenderComponent getFrom:entity] populateWithContentsOfDictionary:renderDict world:world];
+			}
+			if ([[levelLayoutEntry componentsDict] objectForKey:@"slinger"] != nil)
+			{
+				NSDictionary *slingerDict = [[levelLayoutEntry componentsDict] objectForKey:@"slinger"];
+				[[SlingerComponent getFrom:entity] populateWithContentsOfDictionary:slingerDict world:world];
+			}
+			if ([[levelLayoutEntry componentsDict] objectForKey:@"transform"] != nil)
+			{
+				NSDictionary *transformDict = [[levelLayoutEntry componentsDict] objectForKey:@"transform"];
+				[[TransformComponent getFrom:entity] populateWithContentsOfDictionary:transformDict world:world];
+			}
 		}
-		if ([[levelLayoutEntry componentsDict] objectForKey:@"disposable"] != nil)
-		{
-			NSDictionary *disposableDict = [[levelLayoutEntry componentsDict] objectForKey:@"disposable"];
-			[[DisposableComponent getFrom:entity] populateWithContentsOfDictionary:disposableDict world:world];
-		}
-		if ([[levelLayoutEntry componentsDict] objectForKey:@"gate"] != nil)
-		{
-			NSDictionary *gateDict = [[levelLayoutEntry componentsDict] objectForKey:@"gate"];
-			[[GateComponent getFrom:entity] populateWithContentsOfDictionary:gateDict world:world];
-		}
-		if ([[levelLayoutEntry componentsDict] objectForKey:@"movement"] != nil)
-		{
-			NSDictionary *movementDict = [[levelLayoutEntry componentsDict] objectForKey:@"movement"];
-			[[MovementComponent getFrom:entity] populateWithContentsOfDictionary:movementDict world:world edit:edit];
-		}
-		if ([[levelLayoutEntry componentsDict] objectForKey:@"physics"] != nil)
-		{
-			NSDictionary *physicsDict = [[levelLayoutEntry componentsDict] objectForKey:@"physics"];
-			[[PhysicsComponent getFrom:entity] populateWithContentsOfDictionary:physicsDict world:world];
-		}
-		if ([[levelLayoutEntry componentsDict] objectForKey:@"render"] != nil)
-		{
-			NSDictionary *renderDict = [[levelLayoutEntry componentsDict] objectForKey:@"render"];
-			[[RenderComponent getFrom:entity] populateWithContentsOfDictionary:renderDict world:world];
-		}
-		if ([[levelLayoutEntry componentsDict] objectForKey:@"slinger"] != nil)
-		{
-			NSDictionary *slingerDict = [[levelLayoutEntry componentsDict] objectForKey:@"slinger"];
-			[[SlingerComponent getFrom:entity] populateWithContentsOfDictionary:slingerDict world:world];
-		}
-		if ([[levelLayoutEntry componentsDict] objectForKey:@"transform"] != nil)
-		{
-			NSDictionary *transformDict = [[levelLayoutEntry componentsDict] objectForKey:@"transform"];
-			[[TransformComponent getFrom:entity] populateWithContentsOfDictionary:transformDict world:world];
-		}
-    }
+	}
+	else
+	{
+		[EntityFactory createBackground:world withLevelName:levelName hasWater:FALSE];
+	}
 }
 
 @end

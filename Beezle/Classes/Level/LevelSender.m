@@ -11,6 +11,7 @@
 #import "EmailInfo.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
+#import "LevelLoader.h"
 #import "LevelOrganizer.h"
 
 #define EMAIL_SUBJECT @"Beezle Levels"
@@ -38,10 +39,20 @@
 	NSMutableString *message = [NSMutableString string];
 	
 	// Attachments
-	NSArray *levelLayouts = [[LevelLayoutCache sharedLevelLayoutCache] allLevelLayouts];
-	for (LevelLayout *levelLayout in levelLayouts)
+	NSArray *allLevelNames = [[LevelOrganizer sharedOrganizer] allLevelNames];
+	for (NSString *levelName in allLevelNames)
 	{
-		if ([levelLayout isEdited])
+		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+		if (levelLayout == nil)
+		{
+			levelLayout = [[LevelLoader sharedLoader] loadLevelLayoutWithHighestVersion:levelName];
+			if (levelLayout != nil)
+			{
+				[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:levelLayout];
+			}
+		}
+		if (levelLayout != nil &&
+			[levelLayout isEdited])
 		{
 			NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", [levelLayout levelName]];
 			NSString *errorString = nil;
