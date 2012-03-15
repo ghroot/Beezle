@@ -57,7 +57,7 @@
 {
 	RenderSprite *copiedRenderSprite = [[[self class] allocWithZone:zone] initWithSpriteSheet:_spriteSheet z:_z];
 	[[copiedRenderSprite sprite] setAnchorPoint:[_sprite anchorPoint]];
-	[[copiedRenderSprite sprite] setDisplayFrame:[_sprite displayedFrame]];
+	[[copiedRenderSprite sprite] setDisplayFrame:[_sprite displayFrame]];
 	return copiedRenderSprite;
 }
 
@@ -91,16 +91,16 @@
     CCAction *action;
     if (nLoops == -1)
     {
-        action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:NO]];
+        action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation]];
     }
     else
     {
-        action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:NO] times:nLoops];
+        action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation] times:nLoops];
     }
     [action setTag:ACTION_TAG_ANIMATION];
     
     // This instantly sets the frame instead of waiting for the first update
-    [_sprite setDisplayFrame:[[animation frames] objectAtIndex:0]];
+	[_sprite setDisplayFrameWithAnimationName:animationName index:0];
     
     [_sprite runAction:action];
 }
@@ -115,7 +115,7 @@
     [_sprite stopActionByTag:ACTION_TAG_ANIMATION];
     
     CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:animationName];
-    CCRepeat *action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:NO] times:1];
+    CCRepeat *action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation] times:1];
 	CCAction *callbackAction = nil;
 	if (object != nil)
 	{
@@ -127,7 +127,7 @@
 	}
     
     // This instantly sets the frame instead of waiting for the first update
-    [_sprite setDisplayFrame:[[animation frames] objectAtIndex:0]];
+	[_sprite setDisplayFrameWithAnimationName:animationName index:0];
     
     CCSequence *sequence = [CCSequence actions:action, callbackAction, nil];
     [sequence setTag:ACTION_TAG_ANIMATION];
@@ -148,13 +148,12 @@
     {
         CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:animationName];
         int nLoops = animationName == [animationNames lastObject] ? -1 : 1;
-        CCRepeat *action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:NO] times:nLoops];
+        CCRepeat *action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation] times:nLoops];
         [actions addObject:action];
     }
     
     // This instantly sets the frame instead of waiting for the first update
-	CCAnimation *firstAnimation = [[CCAnimationCache sharedAnimationCache] animationByName:[animationNames objectAtIndex:0]];
-    [_sprite setDisplayFrame:[[firstAnimation frames] objectAtIndex:0]];
+	[_sprite setDisplayFrameWithAnimationName:[animationNames objectAtIndex:0] index:0];
     
     CCSequence *sequence = [CCSequence actionsWithArray:actions];
     [sequence setTag:ACTION_TAG_ANIMATION];
@@ -169,13 +168,12 @@
     for (NSString *animationName in animationNames)
     {
         CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:animationName];
-        CCRepeat *action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:NO] times:1];
+        CCRepeat *action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation] times:1];
         [actions addObject:action];
     }
 	
 	// This instantly sets the frame instead of waiting for the first update
-    CCAnimation *firstAnimation = [[CCAnimationCache sharedAnimationCache] animationByName:[animationNames objectAtIndex:0]];
-    [_sprite setDisplayFrame:[[firstAnimation frames] objectAtIndex:0]];
+	[_sprite setDisplayFrameWithAnimationName:[animationNames objectAtIndex:0] index:0];
     
     CCRepeatForever *repeat = [CCRepeatForever actionWithAction:[CCSequence actionsWithArray:actions]];
     [repeat setTag:ACTION_TAG_ANIMATION];
@@ -208,12 +206,6 @@
 {
 	int animationIndex = rand() % [_defaultDestroyAnimationNames count];
 	return [_defaultDestroyAnimationNames objectAtIndex:animationIndex];
-}
-
--(void) setFrame:(NSString *)frameName
-{
-	CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
-	[_sprite setDisplayFrame:frame];
 }
 
 -(void) hide

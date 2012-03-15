@@ -42,7 +42,6 @@
 -(NSString *) randomDefaultIdleAnimationName;
 -(void) playDefaultDestroyAnimation;
 -(NSString *) randomDefaultDestroyAnimationName;
--(void) setFrame:(NSString *)frameName;
 -(void) hide;
 -(void) show;
 

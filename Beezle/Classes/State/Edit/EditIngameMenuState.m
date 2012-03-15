@@ -21,8 +21,6 @@
 {
 	if (self = [super init])
 	{
-        [[CCDirector sharedDirector] setNeedClear:TRUE];
-        
 		_menu = [CCMenu menuWithItems:nil];
 		
 		CCMenuItem *resumeMenuItem = [CCMenuItemFont itemWithString:@"Resume" target:self selector:@selector(resumeGame:)];

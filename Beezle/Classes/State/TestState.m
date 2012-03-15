@@ -48,8 +48,6 @@
 {
 	[super initialise];
 	
-	[[CCDirector sharedDirector] setNeedClear:TRUE];
-	
 	_layer = [[CCLayer alloc] init];
 	[self addChild:_layer];
 	

@@ -119,8 +119,6 @@
 {
 	[super initialise];
 	
-	[[CCDirector sharedDirector] setNeedClear:FALSE];
-	
 	_debug = FALSE;
 	
 	_notifications = [NSMutableArray new];

@@ -27,8 +27,6 @@
 {
 	if (self = [super init])
 	{
-        [[CCDirector sharedDirector] setNeedClear:TRUE];
-        
 		_menu = [CCMenu menuWithItems:nil];
 		
 		[self createEntityMenuItems];

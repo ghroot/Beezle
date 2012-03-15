@@ -49,8 +49,6 @@
 {
 	[super initialise];
 	
-	[[CCDirector sharedDirector] setNeedClear:TRUE];
-	
 	_menu = [CCMenu menuWithItems:nil];
 	
 	if (CONFIG_CAN_EDIT_LEVELS)

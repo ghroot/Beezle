@@ -49,8 +49,6 @@
     {
 		_levelName = [levelName retain];
 		
-		[[CCDirector sharedDirector] setNeedClear:FALSE];
-		
 		_gameLayer = [CCLayer node];
 		[self addChild:_gameLayer];
 		

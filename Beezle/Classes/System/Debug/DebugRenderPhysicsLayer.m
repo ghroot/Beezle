@@ -39,7 +39,7 @@
 
 -(void) draw
 {
-	ccDrawColor4f(255.0f, 255.0f, 255.0f, 1.0f);
+	ccDrawColor4F(255.0f, 255.0f, 255.0f, 1.0f);
 	
 	for (Entity *entity in _entitiesToDraw)
 	{

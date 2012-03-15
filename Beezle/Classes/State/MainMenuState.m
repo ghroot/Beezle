@@ -19,8 +19,6 @@
 {
 	[super initialise];
 	
-	[[CCDirector sharedDirector] setNeedClear:TRUE];
-	
 	_menu = [CCMenu menuWithItems:nil];
 	
 	CCMenuItem *playMenuItem = [CCMenuItemFont itemWithString:@"Play" target:self selector:@selector(selectLevel:)];
