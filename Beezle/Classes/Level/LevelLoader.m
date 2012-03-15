@@ -96,15 +96,6 @@
 -(void) loadLevel:(NSString *)levelName inWorld:(World *)world edit:(BOOL)edit
 {
 	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
-	if (levelLayout == nil)
-	{
-		levelLayout = [self loadLevelLayoutWithHighestVersion:levelName];
-		if (levelLayout != nil)
-		{
-			[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:levelLayout];
-		}
-	}
-	
 	if (levelLayout != nil)
 	{
 		[EntityFactory createBackground:world withLevelName:levelName hasWater:[levelLayout hasWater]];

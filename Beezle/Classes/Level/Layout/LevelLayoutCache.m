@@ -8,6 +8,7 @@
 
 #import "LevelLayoutCache.h"
 #import "LevelLayout.h"
+#import "LevelLoader.h"
 
 @implementation LevelLayoutCache
 
@@ -44,6 +45,14 @@
 
 -(LevelLayout *) levelLayoutByName:(NSString *)levelName
 {
+	if ([_levelLayoutsByName objectForKey:levelName] == nil)
+	{
+		LevelLayout *levelLayout = [[LevelLoader sharedLoader] loadLevelLayoutWithHighestVersion:levelName];
+		if (levelLayout != nil)
+		{
+			[self addLevelLayout:levelLayout];
+		}
+	}
 	return [_levelLayoutsByName objectForKey:levelName];
 }
 

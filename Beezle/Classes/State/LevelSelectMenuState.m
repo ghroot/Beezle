@@ -12,7 +12,6 @@
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "LevelLayoutEntry.h"
-#import "LevelLoader.h"
 #import "LevelOrganizer.h"
 #import "LevelSelectMenuItem.h"
 #import "PlayerInformation.h"
@@ -113,14 +112,6 @@
 		[_menu addChild:levelMenuItem];
 		
 		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
-		if (levelLayout == nil)
-		{
-			levelLayout = [[LevelLoader sharedLoader] loadLevelLayoutWithHighestVersion:levelName];
-			if (levelLayout != nil)
-			{
-				[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:levelLayout];
-			}
-		}
 		if (levelLayout != nil)
 		{
 			BOOL hasGate = FALSE;
