@@ -241,7 +241,7 @@ typedef enum
     {
 		body = [ChipmunkBody bodyWithMass:bd->mass andMoment:bd->momentum];
     }
-	else if (bd->mass < 0.0f)
+	else
 	{
 		body = [ChipmunkBody bodyWithMass:INFINITY andMoment:INFINITY];
 	}
