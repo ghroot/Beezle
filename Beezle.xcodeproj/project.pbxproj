@@ -37,12 +37,14 @@
 		2C2C184014FEE92D007C2ADC /* Slinger.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C183F14FEE92D007C2ADC /* Slinger.m4a */; };
 		2C2C184214FEEB69007C2ADC /* Key-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C184114FEEB69007C2ADC /* Key-01.png */; };
 		2C2FB66B14FE800100D115AF /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		2C32988915156342009A5B83 /* BeeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C32988215156342009A5B83 /* BeeType.m */; };
+		2C32988A15156342009A5B83 /* CollisionGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C32988415156342009A5B83 /* CollisionGroup.m */; };
+		2C32988B15156342009A5B83 /* CollisionType.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C32988615156342009A5B83 /* CollisionType.m */; };
 		2C333E46150204800023303E /* LoadingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C333E45150204800023303E /* LoadingState.m */; };
 		2C3A6F931489809F002721E3 /* BeeExpiratonSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F921489809F002721E3 /* BeeExpiratonSystem.m */; };
 		2C3A6F96148980AF002721E3 /* BeeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F95148980AF002721E3 /* BeeComponent.m */; };
 		2C3B0E5414A91E4D008949B0 /* EmailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B0E5314A91E4D008949B0 /* EmailInfo.m */; };
 		2C3BA3DE14B1DBBA007B1660 /* LevelOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BA3DD14B1DBBA007B1660 /* LevelOrganizer.m */; };
-		2C3C990E14A2574400284A60 /* CollisionType.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3C990D14A2574300284A60 /* CollisionType.m */; };
 		2C4DFC7714FEF17F00D49CF9 /* HUDRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DFC7614FEF17F00D49CF9 /* HUDRenderingSystem.m */; };
 		2C53122415096C0600FDE482 /* CoverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C53122315096C0600FDE482 /* CoverLayer.m */; };
 		2C53122815096FB200FDE482 /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C53122715096FB200FDE482 /* Dialog.m */; };
@@ -405,7 +407,6 @@
 		2C88E2C514F5A36400496938 /* PlayerInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2C314F5A36400496938 /* PlayerInformation.m */; };
 		2C88E2C814F5A37900496938 /* LevelSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2C714F5A37900496938 /* LevelSession.m */; };
 		2C88E2CB14F6E23400496938 /* GateOpeningSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2CA14F6E23400496938 /* GateOpeningSystem.m */; };
-		2C8A4B7C1495184300C0C154 /* BeeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A4B7B1495184300C0C154 /* BeeType.m */; };
 		2C8C2F07150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C2F06150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m */; };
 		2C9253341512AE2600F3F7C1 /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C92524B1512AE2600F3F7C1 /* CCAction.m */; };
 		2C9253351512AE2600F3F7C1 /* CCActionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C92524D1512AE2600F3F7C1 /* CCActionCamera.m */; };
@@ -556,7 +557,6 @@
 		2CE1A33A1507C5AB00F17282 /* ShootingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3391507C5AB00F17282 /* ShootingMode.m */; };
 		2CE1A33D1507C83900F17282 /* LevelCompletedMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A33C1507C83900F17282 /* LevelCompletedMode.m */; };
 		2CE1A3401507C85700F17282 /* LevelFailedMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A33F1507C85700F17282 /* LevelFailedMode.m */; };
-		2CE348B314DDFD0100FEB492 /* BootStrap.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348B214DDFD0000FEB492 /* BootStrap.m */; };
 		2CE348BB14DF06FB00FEB492 /* EntityDescriptionSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348BA14DF06FB00FEB492 /* EntityDescriptionSerializer.m */; };
 		2CE348BE14DF070A00FEB492 /* EntityDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348BD14DF070A00FEB492 /* EntityDescription.m */; };
 		2CE348C114DF071800FEB492 /* EntityDescriptionLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348C014DF071800FEB492 /* EntityDescriptionLoader.m */; };
@@ -564,7 +564,6 @@
 		2CE348CA14DF0BF900FEB492 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348C914DF0BF800FEB492 /* Utils.m */; };
 		2CE508CF14B1E98300A9E8D8 /* LevelSelectMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */; };
 		2CE508D314B31D2B00A9E8D8 /* LevelSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508D214B31D2B00A9E8D8 /* LevelSender.m */; };
-		2CE8604314F8FA7A00579202 /* CollisionGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE8604214F8FA7A00579202 /* CollisionGroup.m */; };
 		2CE8604714F90C5600579202 /* DripSmall.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2CE8604414F90C5600579202 /* DripSmall.m4a */; };
 		2CE8604814F90C5600579202 /* DripSmall2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2CE8604514F90C5600579202 /* DripSmall2.m4a */; };
 		2CE8604914F90C5600579202 /* DripSmall3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2CE8604614F90C5600579202 /* DripSmall3.m4a */; };
@@ -638,7 +637,6 @@
 		2C1147E5148D4292002E4DBD /* SlingerComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlingerComponent.m; path = Classes/Component/SlingerComponent.m; sourceTree = "<group>"; };
 		2C114807148E9317002E4DBD /* IngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngameMenuState.h; sourceTree = "<group>"; };
 		2C114808148E9317002E4DBD /* IngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngameMenuState.m; sourceTree = "<group>"; };
-		2C157BEB148FE920003F9040 /* TouchTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchTypes.h; path = Classes/TouchTypes.h; sourceTree = "<group>"; };
 		2C157BEC148FEA8E003F9040 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		2C157BED148FEA8E003F9040 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		2C157BEE148FEA8E003F9040 /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
@@ -680,9 +678,17 @@
 		2C2C184114FEEB69007C2ADC /* Key-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key-01.png"; sourceTree = "<group>"; };
 		2C2FB66914FE800100D115AF /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAnalytics.h; sourceTree = "<group>"; };
 		2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryAnalytics.a; sourceTree = "<group>"; };
+		2C32988015156342009A5B83 /* ActionTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionTags.h; sourceTree = "<group>"; };
+		2C32988115156342009A5B83 /* BeeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeType.h; sourceTree = "<group>"; };
+		2C32988215156342009A5B83 /* BeeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeType.m; sourceTree = "<group>"; };
+		2C32988315156342009A5B83 /* CollisionGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionGroup.h; sourceTree = "<group>"; };
+		2C32988415156342009A5B83 /* CollisionGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionGroup.m; sourceTree = "<group>"; };
+		2C32988515156342009A5B83 /* CollisionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionType.h; sourceTree = "<group>"; };
+		2C32988615156342009A5B83 /* CollisionType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionType.m; sourceTree = "<group>"; };
+		2C32988715156342009A5B83 /* NotificationTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationTypes.h; sourceTree = "<group>"; };
+		2C32988815156342009A5B83 /* TouchTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchTypes.h; sourceTree = "<group>"; };
 		2C333E44150204800023303E /* LoadingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingState.h; sourceTree = "<group>"; };
 		2C333E45150204800023303E /* LoadingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingState.m; sourceTree = "<group>"; };
-		2C38A1EA1496D6440019244D /* CollisionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionType.h; path = Classes/CollisionType.h; sourceTree = "<group>"; };
 		2C3A6F911489809F002721E3 /* BeeExpiratonSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeExpiratonSystem.h; path = Classes/System/BeeExpiratonSystem.h; sourceTree = "<group>"; };
 		2C3A6F921489809F002721E3 /* BeeExpiratonSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeExpiratonSystem.m; path = Classes/System/BeeExpiratonSystem.m; sourceTree = "<group>"; };
 		2C3A6F94148980AF002721E3 /* BeeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeComponent.h; path = Classes/Component/BeeComponent.h; sourceTree = "<group>"; };
@@ -691,7 +697,6 @@
 		2C3B0E5314A91E4D008949B0 /* EmailInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmailInfo.m; path = Classes/EmailInfo.m; sourceTree = "<group>"; };
 		2C3BA3DC14B1DBB9007B1660 /* LevelOrganizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelOrganizer.h; sourceTree = "<group>"; };
 		2C3BA3DD14B1DBBA007B1660 /* LevelOrganizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelOrganizer.m; sourceTree = "<group>"; };
-		2C3C990D14A2574300284A60 /* CollisionType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionType.m; path = Classes/CollisionType.m; sourceTree = "<group>"; };
 		2C4DFC7514FEF17F00D49CF9 /* HUDRenderingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HUDRenderingSystem.h; path = Classes/System/HUDRenderingSystem.h; sourceTree = "<group>"; };
 		2C4DFC7614FEF17F00D49CF9 /* HUDRenderingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HUDRenderingSystem.m; path = Classes/System/HUDRenderingSystem.m; sourceTree = "<group>"; };
 		2C53122215096C0600FDE482 /* CoverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverLayer.h; sourceTree = "<group>"; };
@@ -953,8 +958,6 @@
 		2C531335150AC09B00FDE482 /* Level-A9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A9.jpg"; sourceTree = "<group>"; };
 		2C535FCB14992B0B00BC7DB6 /* BeeQueueRenderingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeQueueRenderingSystem.h; path = Classes/System/BeeQueueRenderingSystem.h; sourceTree = "<group>"; };
 		2C535FCC14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeQueueRenderingSystem.m; path = Classes/System/BeeQueueRenderingSystem.m; sourceTree = "<group>"; };
-		2C535FCE149ACE4100BC7DB6 /* NotificationTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationTypes.h; path = Classes/NotificationTypes.h; sourceTree = "<group>"; };
-		2C535FCF149ADEE800BC7DB6 /* ActionTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionTags.h; path = Classes/ActionTags.h; sourceTree = "<group>"; };
 		2C596D3914A13FDD00DFCC14 /* LevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLoader.h; sourceTree = "<group>"; };
 		2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLoader.m; sourceTree = "<group>"; };
 		2C5EFC2914E496A00071ED39 /* SpawnComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpawnComponent.h; path = Classes/Component/SpawnComponent.h; sourceTree = "<group>"; };
@@ -1115,8 +1118,6 @@
 		2C88E2C714F5A37900496938 /* LevelSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSession.m; sourceTree = "<group>"; };
 		2C88E2C914F6E23400496938 /* GateOpeningSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GateOpeningSystem.h; path = Classes/System/GateOpeningSystem.h; sourceTree = "<group>"; };
 		2C88E2CA14F6E23400496938 /* GateOpeningSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GateOpeningSystem.m; path = Classes/System/GateOpeningSystem.m; sourceTree = "<group>"; };
-		2C8A4B7A1495184300C0C154 /* BeeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeType.h; path = Classes/BeeType.h; sourceTree = "<group>"; };
-		2C8A4B7B1495184300C0C154 /* BeeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeType.m; path = Classes/BeeType.m; sourceTree = "<group>"; };
 		2C8C2F05150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugRenderShardPiecesSpawnAreaLayer.h; sourceTree = "<group>"; };
 		2C8C2F06150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugRenderShardPiecesSpawnAreaLayer.m; sourceTree = "<group>"; };
 		2C92524A1512AE2600F3F7C1 /* CCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAction.h; sourceTree = "<group>"; };
@@ -1425,8 +1426,6 @@
 		2CE1A33C1507C83900F17282 /* LevelCompletedMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCompletedMode.m; sourceTree = "<group>"; };
 		2CE1A33E1507C85700F17282 /* LevelFailedMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelFailedMode.h; sourceTree = "<group>"; };
 		2CE1A33F1507C85700F17282 /* LevelFailedMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelFailedMode.m; sourceTree = "<group>"; };
-		2CE348B114DDFD0000FEB492 /* BootStrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BootStrap.h; path = Classes/BootStrap.h; sourceTree = "<group>"; };
-		2CE348B214DDFD0000FEB492 /* BootStrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BootStrap.m; path = Classes/BootStrap.m; sourceTree = "<group>"; };
 		2CE348B914DF06FB00FEB492 /* EntityDescriptionSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityDescriptionSerializer.h; sourceTree = "<group>"; };
 		2CE348BA14DF06FB00FEB492 /* EntityDescriptionSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityDescriptionSerializer.m; sourceTree = "<group>"; };
 		2CE348BC14DF070A00FEB492 /* EntityDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityDescription.h; sourceTree = "<group>"; };
@@ -1441,8 +1440,6 @@
 		2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectMenuState.m; sourceTree = "<group>"; };
 		2CE508D114B31D2B00A9E8D8 /* LevelSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSender.h; sourceTree = "<group>"; };
 		2CE508D214B31D2B00A9E8D8 /* LevelSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSender.m; sourceTree = "<group>"; };
-		2CE8604114F8FA7A00579202 /* CollisionGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionGroup.h; path = Classes/CollisionGroup.h; sourceTree = "<group>"; };
-		2CE8604214F8FA7A00579202 /* CollisionGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionGroup.m; path = Classes/CollisionGroup.m; sourceTree = "<group>"; };
 		2CE8604414F90C5600579202 /* DripSmall.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = DripSmall.m4a; sourceTree = "<group>"; };
 		2CE8604514F90C5600579202 /* DripSmall2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = DripSmall2.m4a; sourceTree = "<group>"; };
 		2CE8604614F90C5600579202 /* DripSmall3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = DripSmall3.m4a; sourceTree = "<group>"; };
@@ -1602,6 +1599,23 @@
 			);
 			name = FlurryAnalytics;
 			path = libs/FlurryAnalytics;
+			sourceTree = "<group>";
+		};
+		2C32987F15156342009A5B83 /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				2C32988015156342009A5B83 /* ActionTags.h */,
+				2C32988115156342009A5B83 /* BeeType.h */,
+				2C32988215156342009A5B83 /* BeeType.m */,
+				2C32988315156342009A5B83 /* CollisionGroup.h */,
+				2C32988415156342009A5B83 /* CollisionGroup.m */,
+				2C32988515156342009A5B83 /* CollisionType.h */,
+				2C32988615156342009A5B83 /* CollisionType.m */,
+				2C32988715156342009A5B83 /* NotificationTypes.h */,
+				2C32988815156342009A5B83 /* TouchTypes.h */,
+			);
+			name = Type;
+			path = Classes/Type;
 			sourceTree = "<group>";
 		};
 		2C3A6F7414898085002721E3 /* Sprites */ = {
@@ -2907,29 +2921,19 @@
 		2CEA34CE146205BE000FF575 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2C24B3D414F06807002D1444 /* Data */,
-				2CE348B814DF06C900FEB492 /* Entity */,
-				2CD33ED5147D72AC000869C1 /* State */,
-				2CEA35281466B202000FF575 /* Component */,
-				2C7CE5F31469ACDE001F331F /* System */,
-				2C596D3214A13FDD00DFCC14 /* Level */,
 				2CEA3479145F66F9000FF575 /* AppDelegate.h */,
 				2CEA347A145F66F9000FF575 /* AppDelegate.m */,
-				2C8A4B7A1495184300C0C154 /* BeeType.h */,
-				2C8A4B7B1495184300C0C154 /* BeeType.m */,
-				2CE8604114F8FA7A00579202 /* CollisionGroup.h */,
-				2CE8604214F8FA7A00579202 /* CollisionGroup.m */,
-				2C38A1EA1496D6440019244D /* CollisionType.h */,
-				2C3C990D14A2574300284A60 /* CollisionType.m */,
-				2C535FCE149ACE4100BC7DB6 /* NotificationTypes.h */,
-				2C157BEB148FE920003F9040 /* TouchTypes.h */,
-				2C535FCF149ADEE800BC7DB6 /* ActionTags.h */,
+				2CEA35281466B202000FF575 /* Component */,
+				2C24B3D414F06807002D1444 /* Data */,
 				2C3B0E5214A91E4D008949B0 /* EmailInfo.h */,
 				2C3B0E5314A91E4D008949B0 /* EmailInfo.m */,
+				2CE348B814DF06C900FEB492 /* Entity */,
+				2C596D3214A13FDD00DFCC14 /* Level */,
 				2C853D6114B4D7C600C90C55 /* SoundManager.h */,
 				2C853D6214B4D7C600C90C55 /* SoundManager.m */,
-				2CE348B114DDFD0000FEB492 /* BootStrap.h */,
-				2CE348B214DDFD0000FEB492 /* BootStrap.m */,
+				2CD33ED5147D72AC000869C1 /* State */,
+				2C7CE5F31469ACDE001F331F /* System */,
+				2C32987F15156342009A5B83 /* Type */,
 				2CE348C814DF0BF800FEB492 /* Utils.h */,
 				2CE348C914DF0BF800FEB492 /* Utils.m */,
 			);
@@ -3506,12 +3510,10 @@
 				2C157BF1148FEA8E003F9040 /* GameState.m in Sources */,
 				2C157C1A14914F6A003F9040 /* TrajectoryComponent.m in Sources */,
 				2C157C1F149382D8003F9040 /* GameRulesSystem.m in Sources */,
-				2C8A4B7C1495184300C0C154 /* BeeType.m in Sources */,
 				2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */,
 				2C85B84014957285005D7BAB /* CollisionMediator.m in Sources */,
 				2C535FCD14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m in Sources */,
 				2C596D3E14A13FDD00DFCC14 /* LevelLoader.m in Sources */,
-				2C3C990E14A2574400284A60 /* CollisionType.m in Sources */,
 				2C3B0E5414A91E4D008949B0 /* EmailInfo.m in Sources */,
 				2C3BA3DE14B1DBBA007B1660 /* LevelOrganizer.m in Sources */,
 				2CE508CF14B1E98300A9E8D8 /* LevelSelectMenuState.m in Sources */,
@@ -3543,7 +3545,6 @@
 				2CC3EC0D14D608870025F5DA /* EditComponent.m in Sources */,
 				2CC3EC1314D608980025F5DA /* EditIngameMenuState.m in Sources */,
 				2CC3EC1414D608980025F5DA /* EditState.m in Sources */,
-				2CE348B314DDFD0100FEB492 /* BootStrap.m in Sources */,
 				2CE348BB14DF06FB00FEB492 /* EntityDescriptionSerializer.m in Sources */,
 				2CE348BE14DF070A00FEB492 /* EntityDescription.m in Sources */,
 				2CE348C114DF071800FEB492 /* EntityDescriptionLoader.m in Sources */,
@@ -3568,7 +3569,6 @@
 				2C88E2C814F5A37900496938 /* LevelSession.m in Sources */,
 				2C88E2CB14F6E23400496938 /* GateOpeningSystem.m in Sources */,
 				2CBCDDB314F7DCE700B11627 /* SoundComponent.m in Sources */,
-				2CE8604314F8FA7A00579202 /* CollisionGroup.m in Sources */,
 				2C4DFC7714FEF17F00D49CF9 /* HUDRenderingSystem.m in Sources */,
 				2C333E46150204800023303E /* LoadingState.m in Sources */,
 				2CEEC7C7150584C100EAC127 /* EntitySelectIngameMenuState.m in Sources */,
@@ -3681,6 +3681,9 @@
 				2C9253941512AE2600F3F7C1 /* vec2.c in Sources */,
 				2C9253951512AE2600F3F7C1 /* vec3.c in Sources */,
 				2C9253961512AE2600F3F7C1 /* vec4.c in Sources */,
+				2C32988915156342009A5B83 /* BeeType.m in Sources */,
+				2C32988A15156342009A5B83 /* CollisionGroup.m in Sources */,
+				2C32988B15156342009A5B83 /* CollisionType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

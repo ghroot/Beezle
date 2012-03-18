@@ -7,11 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "BootStrap.h"
 #import "EmailInfo.h"
 #import "FlurryAnalytics.h"
 #import "Game.h"
 #import "LevelLayoutCache.h"
+#import "MainMenuState.h"
+#import "SoundManager.h"
 
 @implementation AppDelegate
 
@@ -74,10 +75,22 @@ void uncaughtExceptionHandler(NSException *exception)
         [FlurryAnalytics startSession:@"2GF435EGU2HN2KIKLCGG"];
     }
 	
+	// Setup sound
+	[[SoundManager sharedManager] setup];
+	
 	// Boot
 	_game = [[Game alloc] init];
-	BootStrap *bootStrap = [[[BootStrap alloc] initWithGame:_game] autorelease];
-	[bootStrap start];
+	[_game startWithState:[MainMenuState state]];
+}
+
+-(void) dealloc
+{
+	[_window release];
+	[_navigationController release];
+	
+	[_game release];
+	
+	[super dealloc];
 }
 
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -156,19 +169,9 @@ void uncaughtExceptionHandler(NSException *exception)
     [picker release];
 }
 
-- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+-(void) mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 { 
 	[_director dismissModalViewControllerAnimated:YES];
-}
-
-- (void) dealloc
-{
-	[_window release];
-	[_navigationController release];
-	
-	[_game release];
-	
-	[super dealloc];
 }
 
 @end

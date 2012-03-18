@@ -19,7 +19,6 @@
 	UIWindow *_window;
 	UINavigationController *_navigationController;
 	CCDirectorIOS *_director;
-    
     Game *_game;
 }
 
