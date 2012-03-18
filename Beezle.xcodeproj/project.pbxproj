@@ -41,6 +41,11 @@
 		2C32988A15156342009A5B83 /* CollisionGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C32988415156342009A5B83 /* CollisionGroup.m */; };
 		2C32988B15156342009A5B83 /* CollisionType.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C32988615156342009A5B83 /* CollisionType.m */; };
 		2C32988D1516372A009A5B83 /* Bubble-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C32988C1516372A009A5B83 /* Bubble-hd.png */; };
+		2C32989115164527009A5B83 /* CCBReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C32989015164527009A5B83 /* CCBReader.m */; };
+		2C32989515164850009A5B83 /* Pollen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C32989415164850009A5B83 /* Pollen.png */; };
+		2C32989715164A05009A5B83 /* NextLevelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C32989615164A05009A5B83 /* NextLevelButton.png */; };
+		2C32989B15164C69009A5B83 /* LevelCompletedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2C32989915164C69009A5B83 /* LevelCompletedDialog.ccbi */; };
+		2C32989C15164C69009A5B83 /* LevelFailedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2C32989A15164C69009A5B83 /* LevelFailedDialog.ccbi */; };
 		2C333E46150204800023303E /* LoadingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C333E45150204800023303E /* LoadingState.m */; };
 		2C3A6F931489809F002721E3 /* BeeExpiratonSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F921489809F002721E3 /* BeeExpiratonSystem.m */; };
 		2C3A6F96148980AF002721E3 /* BeeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F95148980AF002721E3 /* BeeComponent.m */; };
@@ -689,6 +694,12 @@
 		2C32988715156342009A5B83 /* NotificationTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationTypes.h; sourceTree = "<group>"; };
 		2C32988815156342009A5B83 /* TouchTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchTypes.h; sourceTree = "<group>"; };
 		2C32988C1516372A009A5B83 /* Bubble-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bubble-hd.png"; sourceTree = "<group>"; };
+		2C32988F15164527009A5B83 /* CCBReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBReader.h; sourceTree = "<group>"; };
+		2C32989015164527009A5B83 /* CCBReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBReader.m; sourceTree = "<group>"; };
+		2C32989415164850009A5B83 /* Pollen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pollen.png; sourceTree = "<group>"; };
+		2C32989615164A05009A5B83 /* NextLevelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NextLevelButton.png; sourceTree = "<group>"; };
+		2C32989915164C69009A5B83 /* LevelCompletedDialog.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = LevelCompletedDialog.ccbi; sourceTree = "<group>"; };
+		2C32989A15164C69009A5B83 /* LevelFailedDialog.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = LevelFailedDialog.ccbi; sourceTree = "<group>"; };
 		2C333E44150204800023303E /* LoadingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingState.h; sourceTree = "<group>"; };
 		2C333E45150204800023303E /* LoadingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingState.m; sourceTree = "<group>"; };
 		2C3A6F911489809F002721E3 /* BeeExpiratonSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeExpiratonSystem.h; path = Classes/System/BeeExpiratonSystem.h; sourceTree = "<group>"; };
@@ -1543,7 +1554,9 @@
 				2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */,
 				2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */,
 				2CEEEDDC150231B10096DCA1 /* Loading.png */,
+				2C32989615164A05009A5B83 /* NextLevelButton.png */,
 				2C7C3B25150275B800640416 /* PauseArrow-01.png */,
+				2C32989415164850009A5B83 /* Pollen.png */,
 			);
 			name = Images;
 			path = Resources/Images;
@@ -1619,6 +1632,26 @@
 			);
 			name = Type;
 			path = Classes/Type;
+			sourceTree = "<group>";
+		};
+		2C32988E15164527009A5B83 /* CCBReader */ = {
+			isa = PBXGroup;
+			children = (
+				2C32988F15164527009A5B83 /* CCBReader.h */,
+				2C32989015164527009A5B83 /* CCBReader.m */,
+			);
+			name = CCBReader;
+			path = libs/CCBReader;
+			sourceTree = "<group>";
+		};
+		2C32989815164C69009A5B83 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				2C32989915164C69009A5B83 /* LevelCompletedDialog.ccbi */,
+				2C32989A15164C69009A5B83 /* LevelFailedDialog.ccbi */,
+			);
+			name = Interface;
+			path = Resources/Interface;
 			sourceTree = "<group>";
 		};
 		2C3A6F7414898085002721E3 /* Sprites */ = {
@@ -2874,12 +2907,8 @@
 		2CEA3288145F66F7000FF575 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2CE348B514DF003A00FEB492 /* Entities */,
-				2C00D85014FD798B00BE5B4C /* Images */,
-				2C64ACCF14B89D7E00ABD114 /* Level */,
-				2C764E9B148A917300820587 /* Sounds */,
-				2C3A6F7414898085002721E3 /* Sprites */,
 				2CEA3289145F66F7000FF575 /* Default.png */,
+				2CE348B514DF003A00FEB492 /* Entities */,
 				2CEA328D145F66F7000FF575 /* fps_images-hd.png */,
 				2CEA328B145F66F7000FF575 /* fps_images.png */,
 				2CEA328F145F66F7000FF575 /* Icon-72.png */,
@@ -2888,8 +2917,13 @@
 				2CEA3295145F66F7000FF575 /* Icon-Small@2x.png */,
 				2CEA3297145F66F7000FF575 /* Icon.png */,
 				2CEA3299145F66F7000FF575 /* Icon@2x.png */,
+				2C00D85014FD798B00BE5B4C /* Images */,
 				2CEA329B145F66F7000FF575 /* Info.plist */,
+				2C32989815164C69009A5B83 /* Interface */,
 				2CEA329C145F66F7000FF575 /* iTunesArtwork */,
+				2C64ACCF14B89D7E00ABD114 /* Level */,
+				2C764E9B148A917300820587 /* Sounds */,
+				2C3A6F7414898085002721E3 /* Sprites */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -2898,6 +2932,7 @@
 			isa = PBXGroup;
 			children = (
 				2C27E8E414D20577002165CD /* Artemis */,
+				2C32988E15164527009A5B83 /* CCBReader */,
 				2C9252491512AE2600F3F7C1 /* cocos2d */,
 				2C9253071512AE2600F3F7C1 /* CocosDenshion */,
 				2C2FB66814FE800100D115AF /* FlurryAnalytics */,
@@ -3453,6 +3488,10 @@
 				2C9253891512AE2600F3F7C1 /* ChangeLog in Resources */,
 				2C92538A1512AE2600F3F7C1 /* CMakeLists.txt in Resources */,
 				2C32988D1516372A009A5B83 /* Bubble-hd.png in Resources */,
+				2C32989515164850009A5B83 /* Pollen.png in Resources */,
+				2C32989715164A05009A5B83 /* NextLevelButton.png in Resources */,
+				2C32989B15164C69009A5B83 /* LevelCompletedDialog.ccbi in Resources */,
+				2C32989C15164C69009A5B83 /* LevelFailedDialog.ccbi in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3688,6 +3727,7 @@
 				2C32988915156342009A5B83 /* BeeType.m in Sources */,
 				2C32988A15156342009A5B83 /* CollisionGroup.m in Sources */,
 				2C32988B15156342009A5B83 /* CollisionType.m in Sources */,
+				2C32989115164527009A5B83 /* CCBReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

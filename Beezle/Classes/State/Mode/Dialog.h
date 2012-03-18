@@ -9,10 +9,5 @@
 #import "cocos2d.h"
 
 @interface Dialog : CCNode
-{
-	CCSprite *_imageSprite;
-}
-
--(id) initWithImage:(NSString *)imagePath;
 
 @end

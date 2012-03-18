@@ -7,14 +7,13 @@
 //
 
 #import "LevelFailedDialog.h"
+#import "CCBReader.h"
 #import "Game.h"
 #import "GameplayState.h"
 
-#define IMAGE_PATH @"Bubble.png"
-
 @interface LevelFailedDialog()
 
--(void) restartLevel:(id)sender;
+-(void) restartLevel;
 
 @end
 
@@ -22,26 +21,21 @@
 
 -(id) initWithGame:(Game *)game andLevelName:(NSString *)levelName
 {
-	if (self = [super initWithImage:IMAGE_PATH])
+	if (self = [super init])
 	{
 		_game = game;
 		_levelName = levelName;
 		
-		CGSize winSize = [[CCDirector sharedDirector] winSize];
+		CCNode *interface = [CCBReader nodeGraphFromFile:@"LevelFailedDialog.ccbi" owner:self];
+		[self addChild:interface];
 		
-		CCMenuItemFont *menuItemRestart = [CCMenuItemFont itemWithString:@"Try again" target:self selector:@selector(restartLevel:)];
-		[menuItemRestart setFontSize:24];
-		[menuItemRestart setColor:ccc3(0, 0, 0)];
-		[menuItemRestart setPosition:CGPointMake(winSize.width / 2, winSize.height / 2)];
-		[menuItemRestart setAnchorPoint:CGPointMake(0.5f, 0.5f)];
-		CCMenu *menu = [CCMenu menuWithItems:menuItemRestart, nil];
-		[menu setPosition:CGPointZero];
-		[_imageSprite addChild:menu];
+		[interface setScale:0.2f];
+		[interface runAction:[CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]]];
 	}
 	return self;
 }
 
--(void) restartLevel:(id)sender
+-(void) restartLevel
 {
 	[_game replaceState:[GameplayState stateWithLevelName:_levelName]];
 }
