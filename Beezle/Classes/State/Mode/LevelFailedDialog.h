@@ -8,8 +8,14 @@
 
 #import "Dialog.h"
 
-@interface LevelFailedDialog : Dialog
+@class Game;
 
--(id) initWithTarget:(id)target andSelector:(SEL)selector;
+@interface LevelFailedDialog : Dialog
+{
+	Game *_game;
+	NSString *_levelName;
+}
+
+-(id) initWithGame:(Game *)game andLevelName:(NSString *)levelName;
 
 @end

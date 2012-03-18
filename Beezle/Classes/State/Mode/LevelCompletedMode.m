@@ -21,7 +21,6 @@
 
 -(void) updateLevelSessionWithNumberOfUnusedBees;
 -(void) showLevelCompleteDialog;
--(void) loadNextLevel:(id)sender;
 
 @end
 
@@ -61,8 +60,8 @@
 			![[_gameplayState beeQueueRenderingSystem] isBusy])
 		{
 			[self updateLevelSessionWithNumberOfUnusedBees];
-			[[PlayerInformation sharedInformation] storeAndSave:_levelSession];
 			[self showLevelCompleteDialog];
+			[[PlayerInformation sharedInformation] storeAndSave:_levelSession];
 		}
 	}
 	else
@@ -83,23 +82,8 @@
 
 -(void) showLevelCompleteDialog
 {
-	_levelCompletedDialog = [[LevelCompletedDialog alloc] initWithTarget:self andSelector:@selector(loadNextLevel:)];
+	_levelCompletedDialog = [[LevelCompletedDialog alloc] initWithGame:[_gameplayState game] andLevelSession:_levelSession];
 	[_uiLayer addChild:_levelCompletedDialog];
-}
-
--(void) loadNextLevel:(id)sender
-{
-	[_uiLayer removeChild:_levelCompletedDialog cleanup:TRUE];
-	
-    NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:[_levelSession levelName]];
-    if (nextLevelName != nil)
-    {
-        [[_gameplayState game] replaceState:[GameplayState stateWithLevelName:nextLevelName]];
-    }
-    else
-    {
-		[[_gameplayState game] replaceState:[MainMenuState state]];
-    }
 }
 
 @end

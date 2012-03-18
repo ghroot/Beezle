@@ -15,7 +15,6 @@
 @interface LevelFailedMode()
 
 -(void) showLevelFailedDialog;
--(void) restartLevel:(id)sender;
 
 @end
 
@@ -57,15 +56,8 @@
 
 -(void) showLevelFailedDialog
 {	
-	_levelFailedDialog = [[LevelFailedDialog alloc] initWithTarget:self andSelector:@selector(restartLevel:)];
+	_levelFailedDialog = [[LevelFailedDialog alloc] initWithGame:[_gameplayState game] andLevelName:[_levelSession levelName]];
 	[_uiLayer addChild:_levelFailedDialog];
-}
-
--(void) restartLevel:(id)sender
-{
-	[_uiLayer removeChild:_levelFailedDialog cleanup:TRUE];
-	
-	[[_gameplayState game] replaceState:[GameplayState stateWithLevelName:[_levelSession levelName]]];
 }
 
 @end

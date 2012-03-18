@@ -7,18 +7,30 @@
 //
 
 #import "LevelFailedDialog.h"
+#import "Game.h"
+#import "GameplayState.h"
 
 #define IMAGE_PATH @"Bubble.png"
 
+@interface LevelFailedDialog()
+
+-(void) restartLevel:(id)sender;
+
+@end
+
 @implementation LevelFailedDialog
 
--(id) initWithTarget:(id)target andSelector:(SEL)selector
+-(id) initWithGame:(Game *)game andLevelName:(NSString *)levelName
 {
 	if (self = [super initWithImage:IMAGE_PATH])
 	{
+		_game = game;
+		_levelName = levelName;
+		
 		CGSize winSize = [[CCDirector sharedDirector] winSize];
 		
-		CCMenuItemFont *menuItemRestart = [CCMenuItemFont itemWithString:@"Try again" target:target selector:selector];
+		CCMenuItemFont *menuItemRestart = [CCMenuItemFont itemWithString:@"Try again" target:self selector:@selector(restartLevel:)];
+		[menuItemRestart setFontSize:24];
 		[menuItemRestart setColor:ccc3(0, 0, 0)];
 		[menuItemRestart setPosition:CGPointMake(winSize.width / 2, winSize.height / 2)];
 		[menuItemRestart setAnchorPoint:CGPointMake(0.5f, 0.5f)];
@@ -27,6 +39,11 @@
 		[_imageSprite addChild:menu];
 	}
 	return self;
+}
+
+-(void) restartLevel:(id)sender
+{
+	[_game replaceState:[GameplayState stateWithLevelName:_levelName]];
 }
 
 @end

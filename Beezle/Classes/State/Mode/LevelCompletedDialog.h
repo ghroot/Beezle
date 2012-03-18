@@ -8,8 +8,15 @@
 
 #import "Dialog.h"
 
-@interface LevelCompletedDialog : Dialog
+@class Game;
+@class LevelSession;
 
--(id) initWithTarget:(id)target andSelector:(SEL)selector;
+@interface LevelCompletedDialog : Dialog
+{
+	Game *_game;
+	LevelSession *_levelSession;
+}
+
+-(id) initWithGame:(Game *)game andLevelSession:(LevelSession *)levelSession;
 
 @end
