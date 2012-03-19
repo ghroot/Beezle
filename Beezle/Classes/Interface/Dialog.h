@@ -10,4 +10,6 @@
 
 @interface Dialog : CCNode
 
+-(id) initWithInterfaceFile:(NSString *)filePath;
+
 @end

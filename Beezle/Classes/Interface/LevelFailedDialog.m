@@ -7,7 +7,6 @@
 //
 
 #import "LevelFailedDialog.h"
-#import "CCBReader.h"
 #import "Game.h"
 #import "GameplayState.h"
 
@@ -21,16 +20,10 @@
 
 -(id) initWithGame:(Game *)game andLevelName:(NSString *)levelName
 {
-	if (self = [super init])
+	if (self = [super initWithInterfaceFile:@"LevelFailedDialog.ccbi"])
 	{
 		_game = game;
 		_levelName = levelName;
-		
-		CCNode *interface = [CCBReader nodeGraphFromFile:@"LevelFailedDialog.ccbi" owner:self];
-		[self addChild:interface];
-		
-		[interface setScale:0.2f];
-		[interface runAction:[CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]]];
 	}
 	return self;
 }

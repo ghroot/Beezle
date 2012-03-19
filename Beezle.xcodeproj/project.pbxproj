@@ -52,11 +52,7 @@
 		2C3B0E5414A91E4D008949B0 /* EmailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B0E5314A91E4D008949B0 /* EmailInfo.m */; };
 		2C3BA3DE14B1DBBA007B1660 /* LevelOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BA3DD14B1DBBA007B1660 /* LevelOrganizer.m */; };
 		2C4DFC7714FEF17F00D49CF9 /* HUDRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DFC7614FEF17F00D49CF9 /* HUDRenderingSystem.m */; };
-		2C53122415096C0600FDE482 /* CoverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C53122315096C0600FDE482 /* CoverLayer.m */; };
-		2C53122815096FB200FDE482 /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C53122715096FB200FDE482 /* Dialog.m */; };
-		2C53122B15097A8F00FDE482 /* LevelFailedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C53122A15097A8F00FDE482 /* LevelFailedDialog.m */; };
 		2C53122D15097DE400FDE482 /* Bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C53122C15097DE400FDE482 /* Bubble.png */; };
-		2C5312301509819000FDE482 /* LevelCompletedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C53122F1509818F00FDE482 /* LevelCompletedDialog.m */; };
 		2C531336150AC09B00FDE482 /* Level-A1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C531233150AC09B00FDE482 /* Level-A1-hd.jpg */; };
 		2C531337150AC09B00FDE482 /* Level-A1-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C531234150AC09B00FDE482 /* Level-A1-Layout.plist */; };
 		2C531338150AC09B00FDE482 /* Level-A1-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C531235150AC09B00FDE482 /* Level-A1-Shapes.plist */; };
@@ -409,6 +405,10 @@
 		2C853D6314B4D7C600C90C55 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C853D6214B4D7C600C90C55 /* SoundManager.m */; };
 		2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B83B149563ED005D7BAB /* DisposableComponent.m */; };
 		2C85B84014957285005D7BAB /* CollisionMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B83F14957285005D7BAB /* CollisionMediator.m */; };
+		2C85D7211517F9C6001F4933 /* CoverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85D71A1517F9C6001F4933 /* CoverLayer.m */; };
+		2C85D7221517F9C6001F4933 /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85D71C1517F9C6001F4933 /* Dialog.m */; };
+		2C85D7231517F9C6001F4933 /* LevelCompletedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85D71E1517F9C6001F4933 /* LevelCompletedDialog.m */; };
+		2C85D7241517F9C6001F4933 /* LevelFailedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85D7201517F9C6001F4933 /* LevelFailedDialog.m */; };
 		2C88B5D114A3DA8700B5B190 /* libObjectiveChipmunk-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C88B5CF14A3DA8700B5B190 /* libObjectiveChipmunk-iPhone.a */; };
 		2C88E2C514F5A36400496938 /* PlayerInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2C314F5A36400496938 /* PlayerInformation.m */; };
 		2C88E2C814F5A37900496938 /* LevelSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2C714F5A37900496938 /* LevelSession.m */; };
@@ -712,15 +712,7 @@
 		2C3BA3DD14B1DBBA007B1660 /* LevelOrganizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelOrganizer.m; sourceTree = "<group>"; };
 		2C4DFC7514FEF17F00D49CF9 /* HUDRenderingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HUDRenderingSystem.h; path = Classes/System/HUDRenderingSystem.h; sourceTree = "<group>"; };
 		2C4DFC7614FEF17F00D49CF9 /* HUDRenderingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HUDRenderingSystem.m; path = Classes/System/HUDRenderingSystem.m; sourceTree = "<group>"; };
-		2C53122215096C0600FDE482 /* CoverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverLayer.h; sourceTree = "<group>"; };
-		2C53122315096C0600FDE482 /* CoverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverLayer.m; sourceTree = "<group>"; };
-		2C53122615096FB200FDE482 /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
-		2C53122715096FB200FDE482 /* Dialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dialog.m; sourceTree = "<group>"; };
-		2C53122915097A8E00FDE482 /* LevelFailedDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelFailedDialog.h; sourceTree = "<group>"; };
-		2C53122A15097A8F00FDE482 /* LevelFailedDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelFailedDialog.m; sourceTree = "<group>"; };
 		2C53122C15097DE400FDE482 /* Bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bubble.png; sourceTree = "<group>"; };
-		2C53122E1509818F00FDE482 /* LevelCompletedDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelCompletedDialog.h; sourceTree = "<group>"; };
-		2C53122F1509818F00FDE482 /* LevelCompletedDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCompletedDialog.m; sourceTree = "<group>"; };
 		2C531233150AC09B00FDE482 /* Level-A1-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A1-hd.jpg"; sourceTree = "<group>"; };
 		2C531234150AC09B00FDE482 /* Level-A1-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A1-Layout.plist"; sourceTree = "<group>"; };
 		2C531235150AC09B00FDE482 /* Level-A1-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-A1-Shapes.plist"; sourceTree = "<group>"; };
@@ -1091,6 +1083,14 @@
 		2C85B83B149563ED005D7BAB /* DisposableComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DisposableComponent.m; path = Classes/Component/DisposableComponent.m; sourceTree = "<group>"; };
 		2C85B83E14957285005D7BAB /* CollisionMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionMediator.h; path = Classes/System/CollisionMediator.h; sourceTree = "<group>"; };
 		2C85B83F14957285005D7BAB /* CollisionMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionMediator.m; path = Classes/System/CollisionMediator.m; sourceTree = "<group>"; };
+		2C85D7191517F9C6001F4933 /* CoverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverLayer.h; sourceTree = "<group>"; };
+		2C85D71A1517F9C6001F4933 /* CoverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverLayer.m; sourceTree = "<group>"; };
+		2C85D71B1517F9C6001F4933 /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
+		2C85D71C1517F9C6001F4933 /* Dialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dialog.m; sourceTree = "<group>"; };
+		2C85D71D1517F9C6001F4933 /* LevelCompletedDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelCompletedDialog.h; sourceTree = "<group>"; };
+		2C85D71E1517F9C6001F4933 /* LevelCompletedDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCompletedDialog.m; sourceTree = "<group>"; };
+		2C85D71F1517F9C6001F4933 /* LevelFailedDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelFailedDialog.h; sourceTree = "<group>"; };
+		2C85D7201517F9C6001F4933 /* LevelFailedDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelFailedDialog.m; sourceTree = "<group>"; };
 		2C88B5AE14A3DA8700B5B190 /* chipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk.h; sourceTree = "<group>"; };
 		2C88B5AF14A3DA8700B5B190 /* chipmunk_ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_ffi.h; sourceTree = "<group>"; };
 		2C88B5B014A3DA8700B5B190 /* chipmunk_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_private.h; sourceTree = "<group>"; };
@@ -2242,6 +2242,22 @@
 			name = System;
 			sourceTree = "<group>";
 		};
+		2C85D7181517F9C6001F4933 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				2C85D7191517F9C6001F4933 /* CoverLayer.h */,
+				2C85D71A1517F9C6001F4933 /* CoverLayer.m */,
+				2C85D71B1517F9C6001F4933 /* Dialog.h */,
+				2C85D71C1517F9C6001F4933 /* Dialog.m */,
+				2C85D71D1517F9C6001F4933 /* LevelCompletedDialog.h */,
+				2C85D71E1517F9C6001F4933 /* LevelCompletedDialog.m */,
+				2C85D71F1517F9C6001F4933 /* LevelFailedDialog.h */,
+				2C85D7201517F9C6001F4933 /* LevelFailedDialog.m */,
+			);
+			name = Interface;
+			path = Classes/Interface;
+			sourceTree = "<group>";
+		};
 		2C88B5AC14A3DA8700B5B190 /* ObjectiveChipmunk-iPhone */ = {
 			isa = PBXGroup;
 			children = (
@@ -2791,18 +2807,10 @@
 			children = (
 				2CE1A3351507C11F00F17282 /* AimingMode.h */,
 				2CE1A3361507C11F00F17282 /* AimingMode.m */,
-				2C53122215096C0600FDE482 /* CoverLayer.h */,
-				2C53122315096C0600FDE482 /* CoverLayer.m */,
-				2C53122615096FB200FDE482 /* Dialog.h */,
-				2C53122715096FB200FDE482 /* Dialog.m */,
 				2CE1A3311507C10000F17282 /* GameMode.h */,
 				2CE1A3321507C10000F17282 /* GameMode.m */,
-				2C53122E1509818F00FDE482 /* LevelCompletedDialog.h */,
-				2C53122F1509818F00FDE482 /* LevelCompletedDialog.m */,
 				2CE1A33B1507C83900F17282 /* LevelCompletedMode.h */,
 				2CE1A33C1507C83900F17282 /* LevelCompletedMode.m */,
-				2C53122915097A8E00FDE482 /* LevelFailedDialog.h */,
-				2C53122A15097A8F00FDE482 /* LevelFailedDialog.m */,
 				2CE1A33E1507C85700F17282 /* LevelFailedMode.h */,
 				2CE1A33F1507C85700F17282 /* LevelFailedMode.m */,
 				2CE1A3381507C5AB00F17282 /* ShootingMode.h */,
@@ -2966,6 +2974,7 @@
 				2C3B0E5214A91E4D008949B0 /* EmailInfo.h */,
 				2C3B0E5314A91E4D008949B0 /* EmailInfo.m */,
 				2CE348B814DF06C900FEB492 /* Entity */,
+				2C85D7181517F9C6001F4933 /* Interface */,
 				2C596D3214A13FDD00DFCC14 /* Level */,
 				2C853D6114B4D7C600C90C55 /* SoundManager.h */,
 				2C853D6214B4D7C600C90C55 /* SoundManager.m */,
@@ -3620,10 +3629,6 @@
 				2CE1A33A1507C5AB00F17282 /* ShootingMode.m in Sources */,
 				2CE1A33D1507C83900F17282 /* LevelCompletedMode.m in Sources */,
 				2CE1A3401507C85700F17282 /* LevelFailedMode.m in Sources */,
-				2C53122415096C0600FDE482 /* CoverLayer.m in Sources */,
-				2C53122815096FB200FDE482 /* Dialog.m in Sources */,
-				2C53122B15097A8F00FDE482 /* LevelFailedDialog.m in Sources */,
-				2C5312301509819000FDE482 /* LevelCompletedDialog.m in Sources */,
 				2C7B1851150EC514002D86DE /* DebugRenderShardPiecesSpawnAreaSystem.m in Sources */,
 				2C8C2F07150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m in Sources */,
 				2CFA8AE515115591003871F8 /* LevelSelectMenuItem.m in Sources */,
@@ -3728,6 +3733,10 @@
 				2C32988A15156342009A5B83 /* CollisionGroup.m in Sources */,
 				2C32988B15156342009A5B83 /* CollisionType.m in Sources */,
 				2C32989115164527009A5B83 /* CCBReader.m in Sources */,
+				2C85D7211517F9C6001F4933 /* CoverLayer.m in Sources */,
+				2C85D7221517F9C6001F4933 /* Dialog.m in Sources */,
+				2C85D7231517F9C6001F4933 /* LevelCompletedDialog.m in Sources */,
+				2C85D7241517F9C6001F4933 /* LevelFailedDialog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

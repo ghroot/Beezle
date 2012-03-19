@@ -12,9 +12,10 @@
 
 -(id) init
 {
-    if (self = [super initWithColor:ccc4(0, 0, 0, 0) width:[CCDirector sharedDirector].winSize.width height:[CCDirector sharedDirector].winSize.height])
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+    if (self = [super initWithColor:ccc4(0, 0, 0, 0) width:winSize.width height:winSize.height])
 	{
-		[self setIsTouchEnabled:TRUE];
+//		[self setIsTouchEnabled:TRUE];
 		
 		[self runAction:[CCFadeTo actionWithDuration:0.3f opacity:50]];
     }

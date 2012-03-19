@@ -7,7 +7,6 @@
 //
 
 #import "LevelCompletedDialog.h"
-#import "CCBReader.h"
 #import "Game.h"
 #import "GameplayState.h"
 #import "LevelOrganizer.h"
@@ -25,16 +24,10 @@
 
 -(id) initWithGame:(Game *)game andLevelSession:(LevelSession *)levelSession
 {
-	if (self = [super init])
+	if (self = [super initWithInterfaceFile:@"LevelCompletedDialog.ccbi"])
 	{
 		_game = game;
 		_levelSession = levelSession;
-		
-		CCNode *interface = [CCBReader nodeGraphFromFile:@"LevelCompletedDialog.ccbi" owner:self];
-		[self addChild:interface];
-		
-		[interface setScale:0.2f];
-		[interface runAction:[CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]]];
 		
 		[_pollenCountLabel setString:[NSString stringWithFormat:@"%d", [levelSession totalNumberOfPollen]]];
 	}
