@@ -18,5 +18,6 @@
 +(cpVect) createVectorWithRandomAngleAndLengthBetween:(int)minLength and:(int)maxLength;
 +(float) unwindAngleDegrees:(float)angle;
 +(float) unwindAngleRadians:(float)angle;
++(CGPoint) getScreenCenterPosition;
 
 @end

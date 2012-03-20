@@ -9,6 +9,7 @@
 #import "Dialog.h"
 #import "CCBReader.h"
 #import "CoverLayer.h"
+#import "Utils.h"
 
 @implementation Dialog
 
@@ -18,7 +19,7 @@
 	{
 		CGSize winSize = [[CCDirector sharedDirector] winSize];
 		
-		[self setPosition:CGPointMake(winSize.width / 2, winSize.height / 2)];
+		[self setPosition:[Utils getScreenCenterPosition]];
 		
 		CoverLayer *coverLayer = [CoverLayer node];
 		[coverLayer setPosition:CGPointMake(-winSize.width / 2, -winSize.height / 2)];

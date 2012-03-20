@@ -82,4 +82,10 @@
 	return angle;
 }
 
++(CGPoint) getScreenCenterPosition
+{
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	return CGPointMake(winSize.width / 2, winSize.height / 2);
+}
+
 @end
