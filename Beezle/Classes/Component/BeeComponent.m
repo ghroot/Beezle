@@ -29,17 +29,13 @@
 		{
 			_type = [BeeType enumFromName:[dict objectForKey:@"type"]];
 		}
-		if ([dict objectForKey:@"beeaterHits"] != nil)
-		{
-			_beeaterHits = [[dict objectForKey:@"beeaterHits"] intValue];
-			_beeaterHitsLeft = _beeaterHits;
-		}
-		if ([dict objectForKey:@"autoDestroyDelay"] != nil)
-		{
-			_autoDestroyDelay = [[dict objectForKey:@"autoDestroyDelay"] intValue] * 1000;
-		}
 	}
 	return self;
+}
+
+-(void) resetBeeaterHitsLeft
+{
+	_beeaterHitsLeft = [_type beeaterHits];
 }
 
 -(void) decreaseBeeaterHitsLeft
@@ -54,7 +50,7 @@
 
 -(void) resetAutoDestroyCountdown
 {
-	_autoDestroyCountdown = _autoDestroyDelay;
+	_autoDestroyCountdown = [_type autoDestroyDelay];
 }
 
 -(void) decreaseAutoDestroyCountdown:(float)time

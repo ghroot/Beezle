@@ -210,6 +210,9 @@
 {
     Entity *beeEntity = [self createEntity:[beeType name] world:world];
 	
+	BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
+	[beeComponent resetBeeaterHitsLeft];
+	
 	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:beeEntity];
 	[[physicsComponent body] setVel:velocity];
     

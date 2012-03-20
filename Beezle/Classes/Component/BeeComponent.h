@@ -12,14 +12,13 @@
 @interface BeeComponent : Component
 {
 	BeeType *_type;
-	int _beeaterHits;
 	int _beeaterHitsLeft;
-	int _autoDestroyDelay;
 	int _autoDestroyCountdown;
 }
 
 @property (nonatomic, assign) BeeType *type;
 
+-(void) resetBeeaterHitsLeft;
 -(void) decreaseBeeaterHitsLeft;
 -(BOOL) isOutOfBeeaterKills;
 -(void) resetAutoDestroyCountdown;
