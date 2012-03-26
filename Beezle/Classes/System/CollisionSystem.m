@@ -238,7 +238,10 @@
 	{
         [EntityUtil setEntityDisposed:eggEntity];
 		[_levelSession consumedEntity:eggEntity];
-        [EntityUtil animateAndDeleteEntity:eggEntity];
+		[[PhysicsComponent getFrom:eggEntity] disable];
+		[eggEntity refresh];
+        [[RenderComponent getFrom:eggEntity] playDefaultDestroyAnimation];
+        [EntityUtil playDefaultDestroySound:eggEntity];
 		
         [EntityUtil setEntityDisposed:beeEntity];
         [EntityUtil animateAndDeleteEntity:beeEntity];
