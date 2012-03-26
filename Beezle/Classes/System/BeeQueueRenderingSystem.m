@@ -226,14 +226,14 @@
 		[beeQueueRenderSprite playAnimation:animationName];
 	}];
 	[actions addObject:animateLookDownAction];
-	CCEaseSineInOut *moveUpAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.7f position:positionAboveBeeater]];
+	CCEaseSineInOut *moveUpAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.4f position:positionAboveBeeater]];
 	[actions addObject:moveUpAction];
 	CCCallBlock *animateLookScreenAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookScreen", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimation:animationName];
 	}];
 	[actions addObject:animateLookScreenAction];
-	CCDelayTime *waitAction1 = [CCDelayTime actionWithDuration:0.5f];
+	CCDelayTime *waitAction1 = [CCDelayTime actionWithDuration:0.15f];
 	[actions addObject:waitAction1];
 	CCCallBlock *animateLookSideAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName1 = [NSString stringWithFormat:@"%@-Saved-Leap", [savedBeeType capitalizedString]];
@@ -241,7 +241,7 @@
 		[beeQueueRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:animationName1, animationName2, nil]];
 	}];
 	[actions addObject:animateLookSideAction];
-	CCDelayTime *waitAction2 = [CCDelayTime actionWithDuration:0.6f];
+	CCDelayTime *waitAction2 = [CCDelayTime actionWithDuration:0.3f];
 	[actions addObject:waitAction2];
 	CCCallBlock *spawnLeapAnimationAction = [CCCallBlock actionWithBlock:^(){
 		Entity *leapEntity = [EntityFactory createSimpleAnimatedEntity:_world];
@@ -250,7 +250,7 @@
 		[EntityUtil animateAndDeleteEntity:leapEntity animationName:animationName];
 	}];
 	[actions addObject:spawnLeapAnimationAction];
-	CCEaseSineOut *moveToQueueAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.7f position:nextPosition]];
+	CCEaseSineOut *moveToQueueAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.6f position:nextPosition]];
 	[actions addObject:moveToQueueAction];
 	if (needsToTurn)
 	{
