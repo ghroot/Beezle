@@ -95,6 +95,7 @@
 	[_beeaterOptionsMenu addChild:[self createMenuItem:@"Bombee" selector:@selector(doOptionSetBeeaterBeeType:) userData:@"BOMBEE"]];
 	[_beeaterOptionsMenu addChild:[self createMenuItem:@"Speedee" selector:@selector(doOptionSetBeeaterBeeType:) userData:@"SPEEDEE"]];
 	[_beeaterOptionsMenu addChild:[self createMenuItem:@"Sawee" selector:@selector(doOptionSetBeeaterBeeType:) userData:@"SAWEE"]];
+//	[_beeaterOptionsMenu addChild:[self createMenuItem:@"Bouncee" selector:@selector(doOptionSetBeeaterBeeType:) userData:@"BOUNCEE"]];
 	[_beeaterOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
 }
 
@@ -105,6 +106,7 @@
 	[_slingerOptionsMenu addChild:[self createMenuItem:@"Bombee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"BOMBEE"]];
 	[_slingerOptionsMenu addChild:[self createMenuItem:@"Speedee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"SPEEDEE"]];
 	[_slingerOptionsMenu addChild:[self createMenuItem:@"Sawee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"SAWEE"]];
+	[_slingerOptionsMenu addChild:[self createMenuItem:@"Bouncee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"BOUNCEE"]];
 	[_slingerOptionsMenu addChild:[self createMenuItem:@"Clear" selector:@selector(doOptionClearSlingerBees:) userData:nil]];	
 	[_slingerOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
 }

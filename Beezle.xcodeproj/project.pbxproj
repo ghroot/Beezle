@@ -599,6 +599,9 @@
 		2CEB9D6D14EDB99A00CAC505 /* Glass-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEB9D6C14EDB99A00CAC505 /* Glass-Animations.plist */; };
 		2CEB9D7814EDC0A600CAC505 /* ShardSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7714EDC0A600CAC505 /* ShardSystem.m */; };
 		2CEB9D7B14EDC1BB00CAC505 /* ShardComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7A14EDC1BA00CAC505 /* ShardComponent.m */; };
+		2CEE584F15211DC100953CE1 /* Bouncee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEE584E15211DC100953CE1 /* Bouncee.plist */; };
+		2CEE585215211EBE00953CE1 /* Bouncee-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEE585115211EBE00953CE1 /* Bouncee-Shapes.plist */; };
+		2CEE585415211EF000953CE1 /* Bouncee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEE585315211EF000953CE1 /* Bouncee-Animations.plist */; };
 		2CEEC7BA150577B500EAC127 /* Leaf-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7B9150577B500EAC127 /* Leaf-Animations.plist */; };
 		2CEEC7BE1505807900EAC127 /* Leave-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7BD1505807900EAC127 /* Leave-Shapes.plist */; };
 		2CEEC7C7150584C100EAC127 /* EntitySelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEEC7C6150584C100EAC127 /* EntitySelectIngameMenuState.m */; };
@@ -1491,6 +1494,9 @@
 		2CEB9D7714EDC0A600CAC505 /* ShardSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShardSystem.m; path = Classes/System/ShardSystem.m; sourceTree = "<group>"; };
 		2CEB9D7914EDC1BA00CAC505 /* ShardComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShardComponent.h; path = Classes/Component/ShardComponent.h; sourceTree = "<group>"; };
 		2CEB9D7A14EDC1BA00CAC505 /* ShardComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShardComponent.m; path = Classes/Component/ShardComponent.m; sourceTree = "<group>"; };
+		2CEE584E15211DC100953CE1 /* Bouncee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Bouncee.plist; sourceTree = "<group>"; };
+		2CEE585115211EBE00953CE1 /* Bouncee-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bouncee-Shapes.plist"; sourceTree = "<group>"; };
+		2CEE585315211EF000953CE1 /* Bouncee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bouncee-Animations.plist"; sourceTree = "<group>"; };
 		2CEEC7B9150577B500EAC127 /* Leaf-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Leaf-Animations.plist"; sourceTree = "<group>"; };
 		2CEEC7BD1505807900EAC127 /* Leave-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Leave-Shapes.plist"; sourceTree = "<group>"; };
 		2CEEC7C5150584C100EAC127 /* EntitySelectIngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntitySelectIngameMenuState.h; sourceTree = "<group>"; };
@@ -2081,6 +2087,7 @@
 				2CEEC7D315058AE800EAC127 /* A58-Glass-Shapes.plist */,
 				2CEEC7D415058AE800EAC127 /* A60-Glass-Shapes.plist */,
 				2C5EFC6D14E829390071ED39 /* Bee-Shapes.plist */,
+				2CEE585115211EBE00953CE1 /* Bouncee-Shapes.plist */,
 				2C5EFC4814E7DACF0071ED39 /* FloatingBlockA-Shapes.plist */,
 				2CEEC7BD1505807900EAC127 /* Leave-Shapes.plist */,
 				2CD2529D15095B9A00B9E300 /* Speedee-Shapes.plist */,
@@ -2132,6 +2139,7 @@
 			children = (
 				2C7B17F4150EB83A002D86DE /* Bee.plist */,
 				2C7B17F5150EB83A002D86DE /* Bombee.plist */,
+				2CEE584E15211DC100953CE1 /* Bouncee.plist */,
 				2C7B17F6150EB83A002D86DE /* Sawee.plist */,
 				2C7B17F7150EB83A002D86DE /* Speedee-Puff.plist */,
 				2C7B17F8150EB83A002D86DE /* Speedee.plist */,
@@ -2740,6 +2748,7 @@
 				2CC9E7811502E80900C094B0 /* Bee-Animations.plist */,
 				2CB360E115042985003687C1 /* Bees-Animations.plist */,
 				2CC9E7821502E80900C094B0 /* Bombee-Animations.plist */,
+				2CEE585315211EF000953CE1 /* Bouncee-Animations.plist */,
 				2CC9E7831502E80900C094B0 /* Sawee-Animations.plist */,
 				2CC9E7841502E80900C094B0 /* Speedee-Animations.plist */,
 			);
@@ -3501,6 +3510,9 @@
 				2C32989715164A05009A5B83 /* NextLevelButton.png in Resources */,
 				2C32989B15164C69009A5B83 /* LevelCompletedDialog.ccbi in Resources */,
 				2C32989C15164C69009A5B83 /* LevelFailedDialog.ccbi in Resources */,
+				2CEE584F15211DC100953CE1 /* Bouncee.plist in Resources */,
+				2CEE585215211EBE00953CE1 /* Bouncee-Shapes.plist in Resources */,
+				2CEE585415211EF000953CE1 /* Bouncee-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
