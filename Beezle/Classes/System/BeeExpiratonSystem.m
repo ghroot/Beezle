@@ -8,6 +8,7 @@
 
 #import "BeeExpiratonSystem.h"
 #import "BeeComponent.h"
+#import "BeeType.h"
 #import "DisposableComponent.h"
 #import "EntityUtil.h"
 #import "PhysicsComponent.h"
@@ -39,7 +40,8 @@
 		}
 		
 		PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
-		if ([[physicsComponent body] isSleeping])
+		if ([[beeComponent type] doesExpire] &&
+			[[physicsComponent body] isSleeping])
 		{
 			shouldExpire = TRUE;
 		}

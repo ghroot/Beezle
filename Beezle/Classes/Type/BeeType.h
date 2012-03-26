@@ -13,11 +13,13 @@
 	int _beeaterHits;
 	int _autoDestroyDelay;
 	float _slingerShootSpeedModifier;
+	BOOL _doesExpire;
 }
 
 @property (nonatomic) int beeaterHits;
 @property (nonatomic) int autoDestroyDelay;
 @property (nonatomic) float slingerShootSpeedModifier;
+@property (nonatomic) BOOL doesExpire;
 
 +(BeeType *) BEE;
 +(BeeType *) SAWEE;
