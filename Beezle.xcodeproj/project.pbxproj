@@ -412,6 +412,7 @@
 		2C88E2C514F5A36400496938 /* PlayerInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2C314F5A36400496938 /* PlayerInformation.m */; };
 		2C88E2C814F5A37900496938 /* LevelSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2C714F5A37900496938 /* LevelSession.m */; };
 		2C88E2CB14F6E23400496938 /* GateOpeningSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2CA14F6E23400496938 /* GateOpeningSystem.m */; };
+		2C8B181C153391FC003F3465 /* NSObject+PWObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B181B153391FC003F3465 /* NSObject+PWObject.m */; };
 		2C8C2F07150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C2F06150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m */; };
 		2C9253341512AE2600F3F7C1 /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C92524B1512AE2600F3F7C1 /* CCAction.m */; };
 		2C9253351512AE2600F3F7C1 /* CCActionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C92524D1512AE2600F3F7C1 /* CCActionCamera.m */; };
@@ -1136,6 +1137,8 @@
 		2C88E2C714F5A37900496938 /* LevelSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSession.m; sourceTree = "<group>"; };
 		2C88E2C914F6E23400496938 /* GateOpeningSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GateOpeningSystem.h; path = Classes/System/GateOpeningSystem.h; sourceTree = "<group>"; };
 		2C88E2CA14F6E23400496938 /* GateOpeningSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GateOpeningSystem.m; path = Classes/System/GateOpeningSystem.m; sourceTree = "<group>"; };
+		2C8B181A153391FC003F3465 /* NSObject+PWObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PWObject.h"; sourceTree = "<group>"; };
+		2C8B181B153391FC003F3465 /* NSObject+PWObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PWObject.m"; sourceTree = "<group>"; };
 		2C8C2F05150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugRenderShardPiecesSpawnAreaLayer.h; sourceTree = "<group>"; };
 		2C8C2F06150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugRenderShardPiecesSpawnAreaLayer.m; sourceTree = "<group>"; };
 		2C92524A1512AE2600F3F7C1 /* CCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAction.h; sourceTree = "<group>"; };
@@ -2351,6 +2354,16 @@
 			path = Transient;
 			sourceTree = "<group>";
 		};
+		2C8B1819153391FC003F3465 /* PWObject */ = {
+			isa = PBXGroup;
+			children = (
+				2C8B181A153391FC003F3465 /* NSObject+PWObject.h */,
+				2C8B181B153391FC003F3465 /* NSObject+PWObject.m */,
+			);
+			name = PWObject;
+			path = libs/PWObject;
+			sourceTree = "<group>";
+		};
 		2C9252491512AE2600F3F7C1 /* cocos2d */ = {
 			isa = PBXGroup;
 			children = (
@@ -2969,6 +2982,7 @@
 				2C114747148B9459002E4DBD /* LICENSE_CocosDenshion.txt */,
 				2C114748148B9459002E4DBD /* LICENSE_Kazmath.txt */,
 				2C88B5AC14A3DA8700B5B190 /* ObjectiveChipmunk-iPhone */,
+				2C8B1819153391FC003F3465 /* PWObject */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -3761,6 +3775,7 @@
 				2C85D7221517F9C6001F4933 /* Dialog.m in Sources */,
 				2C85D7231517F9C6001F4933 /* LevelCompletedDialog.m in Sources */,
 				2C85D7241517F9C6001F4933 /* LevelFailedDialog.m in Sources */,
+				2C8B181C153391FC003F3465 /* NSObject+PWObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

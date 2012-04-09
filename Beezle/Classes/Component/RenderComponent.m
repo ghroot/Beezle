@@ -13,6 +13,8 @@
 
 @implementation RenderComponent
 
+@synthesize renderSprites = _renderSprites;
+
 +(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite
 {
 	RenderComponent *renderComponent = [[[RenderComponent alloc] init] autorelease];
@@ -26,7 +28,8 @@
 	if (self = [super init])
 	{
 		_name = @"render";
-		_renderSpritesByName = [[NSMutableDictionary alloc] init];
+		_renderSprites = [NSMutableArray new];
+		_renderSpritesByName = [NSMutableDictionary new];
 	}
 	return self;
 }
@@ -66,7 +69,7 @@
 			[[renderSprite sprite] setAnchorPoint:anchorPoint];
             [renderSprite setDefaultIdleAnimationNames:defaultIdleAnimationNames];
             [renderSprite setDefaultDestroyAnimationNames:defaultDestroyAnimationNames];
-			[_renderSpritesByName setObject:renderSprite forKey:name];
+			[self addRenderSprite:renderSprite withName:name];
 			
             [renderSprite playDefaultIdleAnimation];
 		}
@@ -76,6 +79,7 @@
 
 -(void) dealloc
 {
+	[_renderSprites release];
     [_renderSpritesByName release];
     
     [super dealloc];
@@ -84,7 +88,7 @@
 -(id) copyWithZone:(NSZone *)zone
 {
 	RenderComponent *copiedRenderComponent = [super copyWithZone:zone];
-	for (NSString *name in [_renderSpritesByName allKeys])
+	for (NSString *name in _renderSprites)
 	{
 		RenderSprite *renderSprite = [_renderSpritesByName objectForKey:name];
 		RenderSprite *copiedRenderSprite = [renderSprite copy];
@@ -96,6 +100,7 @@
 
 -(void) addRenderSprite:(RenderSprite *)renderSprite withName:(NSString *)name
 {
+	[_renderSprites addObject:renderSprite];
 	[_renderSpritesByName setObject:renderSprite forKey:name];
 }
 
@@ -104,19 +109,14 @@
     return [_renderSpritesByName objectForKey:name];
 }
 
--(NSArray *) renderSprites
-{
-    return [_renderSpritesByName allValues];
-}
-
 -(RenderSprite *) firstRenderSprite
 {
-	return [[_renderSpritesByName allValues] objectAtIndex:0];
+	return [_renderSprites objectAtIndex:0];
 }
 
 -(void) setAlpha:(float)alpha
 {
-	for (RenderSprite *renderSprite in [_renderSpritesByName allValues])
+	for (RenderSprite *renderSprite in _renderSprites)
 	{
 		[[renderSprite sprite] setOpacity:(alpha * 256)];
 	}
@@ -124,7 +124,7 @@
 
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops
 {
-    for (RenderSprite *renderSprite in [_renderSpritesByName allValues])
+    for (RenderSprite *renderSprite in _renderSprites)
     {
         [renderSprite playAnimation:animationName withLoops:nLoops];
     }
@@ -140,10 +140,9 @@
 
 -(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector
 {
-    NSArray *renderSprites = [_renderSpritesByName allValues];
-    for (RenderSprite *renderSprite in renderSprites)
+    for (RenderSprite *renderSprite in _renderSprites)
     {
-        if (renderSprite == [renderSprites objectAtIndex:0])
+        if (renderSprite == [_renderSprites objectAtIndex:0])
         {
             // Callback invokation should only be done once, we use the first render sprite for that
             [renderSprite playAnimation:animationName withCallbackTarget:target andCallbackSelector:selector];
@@ -157,10 +156,9 @@
 
 -(void) playDefaultDestroyAnimationWithCallbackTarget:(id)target andCallbackSelector:(SEL)selector
 {
-    NSArray *renderSprites = [_renderSpritesByName allValues];
-    for (RenderSprite *renderSprite in renderSprites)
+    for (RenderSprite *renderSprite in _renderSprites)
     {
-        if (renderSprite == [renderSprites objectAtIndex:0])
+        if (renderSprite == [_renderSprites objectAtIndex:0])
         {
             // Callback invokation should only be done once, we use the first render sprite for that
             [renderSprite playAnimation:[renderSprite randomDefaultDestroyAnimationName] withCallbackTarget:target andCallbackSelector:selector];
@@ -174,7 +172,7 @@
 
 -(void) playAnimationsLoopLast:(NSArray *)animationNames
 {
-    for (RenderSprite *renderSprite in [_renderSpritesByName allValues])
+    for (RenderSprite *renderSprite in _renderSprites)
     {
         [renderSprite playAnimationsLoopLast:animationNames];
     }
@@ -182,7 +180,7 @@
 
 -(void) playAnimationsLoopAll:(NSArray *)animationNames
 {
-    for (RenderSprite *renderSprite in [_renderSpritesByName allValues])
+    for (RenderSprite *renderSprite in _renderSprites)
     {
         [renderSprite playAnimationsLoopAll:animationNames];
     }
@@ -190,7 +188,7 @@
 
 -(void) playDefaultIdleAnimation
 {
-    for (RenderSprite *renderSprite in [_renderSpritesByName allValues])
+    for (RenderSprite *renderSprite in _renderSprites)
     {
         [renderSprite playDefaultIdleAnimation];
     }
@@ -198,7 +196,7 @@
 
 -(void) playDefaultDestroyAnimation
 {
-    for (RenderSprite *renderSprite in [_renderSpritesByName allValues])
+    for (RenderSprite *renderSprite in _renderSprites)
     {
         [renderSprite playDefaultDestroyAnimation];
     }

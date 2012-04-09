@@ -16,6 +16,8 @@
 {
     Entity *_firstEntity;
     Entity *_secondEntity;
+	ChipmunkShape *_shape1;
+	ChipmunkShape *_shape2;
 	CollisionType *_type1;
 	CollisionType *_type2;
 	cpVect _impulse;
@@ -23,6 +25,8 @@
 
 @property (nonatomic, readonly) Entity *firstEntity;
 @property (nonatomic, readonly) Entity *secondEntity;
+@property (nonatomic, retain) ChipmunkShape *shape1;
+@property (nonatomic, retain) ChipmunkShape *shape2;
 @property (nonatomic, assign) CollisionType *type1;
 @property (nonatomic, assign) CollisionType *type2;
 @property (nonatomic) cpVect impulse;

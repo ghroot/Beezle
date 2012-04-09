@@ -22,10 +22,52 @@
 					<string>poly</string>
 					<key>vertices</key>
 					<array>
-						<string>{ -5, -90 }</string>
-						<string>{ -5, 90 }</string>
-						<string>{ 5, 90 }</string>
-						<string>{ 5, -90 }</string>
+						<string>{ -5, 40 }</string>
+						<string>{ -5, 120 }</string>
+						<string>{ 5, 120 }</string>
+						<string>{ 5, 40 }</string>
+					</array>
+					<key>elasticity</key>
+					<real>0.8</real>
+					<key>friction</key>
+					<real>0.5</real>
+					<key>collisionType</key>
+					<string>WOOD</string>
+					<key>layers</key>
+					<integer>7</integer>
+					<key>group</key>
+					<string>LEVEL</string>
+				</dict>
+				<dict>
+					<key>type</key>
+					<string>poly</string>
+					<key>vertices</key>
+					<array>
+						<string>{ -5, -40 }</string>
+						<string>{ -5, 40 }</string>
+						<string>{ 5, 40 }</string>
+						<string>{ 5, -40 }</string>
+					</array>
+					<key>elasticity</key>
+					<real>0.8</real>
+					<key>friction</key>
+					<real>0.5</real>
+					<key>collisionType</key>
+					<string>WOOD</string>
+					<key>layers</key>
+					<integer>7</integer>
+					<key>group</key>
+					<string>LEVEL</string>
+				</dict>
+				<dict>
+					<key>type</key>
+					<string>poly</string>
+					<key>vertices</key>
+					<array>
+						<string>{ -5, -120 }</string>
+						<string>{ -5, -40 }</string>
+						<string>{ 5, -40 }</string>
+						<string>{ 5, -120 }</string>
 					</array>
 					<key>elasticity</key>
 					<real>0.8</real>
@@ -46,7 +88,7 @@
 			<array>
 				<dict>
 					<key>name</key>
-					<string>top</string>
+					<string>bottom</string>
 					<key>spriteSheetName</key>
 					<string>Sprites</string>
 					<key>animationFile</key>
@@ -54,7 +96,7 @@
 					<key>z</key>
 					<integer>2</integer>
 					<key>anchorPoint</key>
-					<string>{ 0.5, 1.3 }</string>
+					<string>{ 0.5, -0.3 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>Wood-Idle</string>
                     <key>defaultDestroyAnimation</key>
@@ -78,7 +120,7 @@
 				</dict>
 				<dict>
 					<key>name</key>
-					<string>bottom</string>
+					<string>top</string>
 					<key>spriteSheetName</key>
 					<string>Sprites</string>
 					<key>animationFile</key>
@@ -86,7 +128,7 @@
 					<key>z</key>
 					<integer>2</integer>
 					<key>anchorPoint</key>
-					<string>{ 0.5, -0.3 }</string>
+					<string>{ 0.5, 1.3 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>Wood-Idle</string>
                     <key>defaultDestroyAnimation</key>

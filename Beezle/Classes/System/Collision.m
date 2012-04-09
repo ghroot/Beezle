@@ -14,6 +14,8 @@
 
 @synthesize firstEntity = _firstEntity;
 @synthesize secondEntity = _secondEntity;
+@synthesize shape1 = _shape1;
+@synthesize shape2 = _shape2;
 @synthesize type1 = _type1;
 @synthesize type2 = _type2;
 @synthesize impulse = _impulse;
@@ -35,6 +37,8 @@
 
 -(void) dealloc
 {
+	[_shape1 release];
+	[_shape2 release];
     [_firstEntity release];
     [_secondEntity release];
     
