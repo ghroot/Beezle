@@ -211,8 +211,6 @@
 			PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:woodEntity];
 			int shapeIndex = [[physicsComponent shapes] indexOfObject:[collision shape2]];
 			
-			NSLog(@"shapeIndex: %d", shapeIndex);
-			
 			float delayPerWoodPiece = 0.3f;
 			
 			RenderComponent *renderComponent = [RenderComponent getFrom:woodEntity];
@@ -266,15 +264,6 @@
 							[previousRenderSprite playDefaultDestroyAnimation];
 						} afterDelay:currentRenderSpriteIndexDelta * delayPerWoodPiece];
 					}
-				}
-				
-				if (nextRenderSprite != nil)
-				{
-					NSLog(@"nextRenderSprite at %f (%d)", (currentRenderSpriteIndexDelta * delayPerWoodPiece), currentRenderSpriteIndexDelta);
-				}
-				if (previousRenderSprite != nil)
-				{
-					NSLog(@"previousRenderSprite at %f (%d)", (currentRenderSpriteIndexDelta * delayPerWoodPiece), currentRenderSpriteIndexDelta);
 				}
 				
 				if (nextRenderSprite != nil ||
