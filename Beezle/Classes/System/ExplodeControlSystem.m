@@ -86,9 +86,9 @@
 	RenderSprite *renderSprite = [renderComponent firstRenderSprite];
 	[renderSprite playAnimation:[explodeComponent explodeStartAnimationName] withCallbackTarget:self andCallbackSelector:@selector(endExplode:) object:entity];
 	
-	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
-	[physicsComponent disable];
-	[entity refresh];
+	// Uncomment if rotation should stop
+//	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
+//	[[physicsComponent body] setAngVelLimit:0.0f];
 }
 
 -(void) endExplode:(Entity *)entity
