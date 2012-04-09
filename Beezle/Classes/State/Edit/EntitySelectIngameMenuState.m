@@ -67,6 +67,7 @@
 	[self addMenuItemForEntityType:@"WOOD"];
 	[self addMenuItemForEntityType:@"WOOD-2"];
 	[self addMenuItemForEntityType:@"WOOD-3"];
+	[self addMenuItemForEntityType:@"WOOD-4"];
 	[self addMenuItemForEntityType:@"WATERDROP-SPAWNER"];
 }
 
