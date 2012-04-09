@@ -233,7 +233,7 @@
 		[beeQueueRenderSprite playAnimation:animationName];
 	}];
 	[actions addObject:animateLookScreenAction];
-	CCDelayTime *waitAction1 = [CCDelayTime actionWithDuration:0.15f];
+	CCDelayTime *waitAction1 = [CCDelayTime actionWithDuration:0.1f];
 	[actions addObject:waitAction1];
 	CCCallBlock *animateLookSideAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName1 = [NSString stringWithFormat:@"%@-Saved-Leap", [savedBeeType capitalizedString]];
@@ -241,7 +241,7 @@
 		[beeQueueRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:animationName1, animationName2, nil]];
 	}];
 	[actions addObject:animateLookSideAction];
-	CCDelayTime *waitAction2 = [CCDelayTime actionWithDuration:0.3f];
+	CCDelayTime *waitAction2 = [CCDelayTime actionWithDuration:0.1f];
 	[actions addObject:waitAction2];
 	CCCallBlock *spawnLeapAnimationAction = [CCCallBlock actionWithBlock:^(){
 		Entity *leapEntity = [EntityFactory createSimpleAnimatedEntity:_world];
