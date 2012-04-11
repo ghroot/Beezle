@@ -91,18 +91,10 @@
 		
 		ChipmunkShape *firstChipmunkShape = (ChipmunkShape *)firstShape->data;
 		ChipmunkShape *secondChipmunkShape = (ChipmunkShape *)secondShape->data;
-		
-		Entity *firstEntity = (Entity *)[firstChipmunkShape data];
-		Entity *secondEntity = (Entity *)[secondChipmunkShape data];
         
         cpVect impulse = cpArbiterTotalImpulse(arbiter);
 		
-		Collision *collision = [Collision collisionWithFirstEntity:firstEntity andSecondEntity:secondEntity];
-		[collision setShape1:firstChipmunkShape];
-		[collision setShape2:secondChipmunkShape];
-		[collision setType1:[firstChipmunkShape collisionType]];
-		[collision setType2:[secondChipmunkShape collisionType]];
-		[collision setImpulse:impulse];
+		Collision *collision = [Collision collisionWithFirstShape:firstChipmunkShape andSecondShape:secondChipmunkShape impulse:impulse];
 		[_collisionSystem pushCollision:collision];
     }
 	

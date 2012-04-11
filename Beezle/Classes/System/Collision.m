@@ -12,37 +12,52 @@
 
 @implementation Collision
 
-@synthesize firstEntity = _firstEntity;
-@synthesize secondEntity = _secondEntity;
-@synthesize shape1 = _shape1;
-@synthesize shape2 = _shape2;
-@synthesize type1 = _type1;
-@synthesize type2 = _type2;
+@synthesize firstShape = _firstShape;
+@synthesize secondShape = _secondShape;
 @synthesize impulse = _impulse;
 
-+(id) collisionWithFirstEntity:(Entity *)firstEntity andSecondEntity:(Entity *)secondEntity
++(id) collisionWithFirstShape:(ChipmunkShape *)firstShape andSecondShape:(ChipmunkShape *)secondShape impulse:(cpVect)impulse
 {
-	return [[[self alloc] initWithFirstEntity:firstEntity andSecondEntity:secondEntity] autorelease];
+	return [[[self alloc] initWithFirstShape:firstShape andSecondShape:secondShape impulse:impulse] autorelease];
 }
 
--(id) initWithFirstEntity:(Entity *)firstEntity andSecondEntity:(Entity *)secondEntity
+-(id) initWithFirstShape:(ChipmunkShape *)firstShape andSecondShape:(ChipmunkShape *)secondShape impulse:(cpVect)impulse
 {
     if (self = [super init])
     {
-        _firstEntity = [firstEntity retain];
-        _secondEntity = [secondEntity retain];
+        _firstShape = [firstShape retain];
+        _secondShape = [secondShape retain];
+        _impulse = impulse;
     }
     return self;
 }
 
 -(void) dealloc
 {
-	[_shape1 release];
-	[_shape2 release];
-    [_firstEntity release];
-    [_secondEntity release];
+	[_firstShape release];
+	[_secondShape release];
     
     [super dealloc];
+}
+
+-(Entity *) firstEntity
+{
+    return [_firstShape data];
+}
+
+-(Entity *) secondEntity
+{
+    return [_secondShape data];
+}
+
+-(CollisionType *) firstCollisionType
+{
+    return [_firstShape collisionType];
+}
+
+-(CollisionType *) secondCollisionType
+{
+    return [_secondShape collisionType];
 }
 
 -(float) impulseLength

@@ -209,7 +209,7 @@
             [EntityUtil setEntityDisposed:woodEntity];
 			
 			PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:woodEntity];
-			int shapeIndex = [[physicsComponent shapes] indexOfObject:[collision shape2]];
+			int shapeIndex = [[physicsComponent shapes] indexOfObject:[collision secondShape]];
 			
 			float delayPerWoodPiece = 0.3f;
 			

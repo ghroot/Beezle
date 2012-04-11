@@ -14,27 +14,23 @@
 
 @interface Collision : NSObject
 {
-    Entity *_firstEntity;
-    Entity *_secondEntity;
-	ChipmunkShape *_shape1;
-	ChipmunkShape *_shape2;
-	CollisionType *_type1;
-	CollisionType *_type2;
+    ChipmunkShape *_firstShape;
+	ChipmunkShape *_secondShape;
 	cpVect _impulse;
 }
 
-@property (nonatomic, readonly) Entity *firstEntity;
-@property (nonatomic, readonly) Entity *secondEntity;
-@property (nonatomic, retain) ChipmunkShape *shape1;
-@property (nonatomic, retain) ChipmunkShape *shape2;
-@property (nonatomic, assign) CollisionType *type1;
-@property (nonatomic, assign) CollisionType *type2;
-@property (nonatomic) cpVect impulse;
+@property (nonatomic, readonly) ChipmunkShape *firstShape;
+@property (nonatomic, readonly) ChipmunkShape *secondShape;
+@property (nonatomic, readonly) cpVect impulse;
 
-+(id) collisionWithFirstEntity:(Entity *)firstEntity andSecondEntity:(Entity *)secondEntity;
++(id) collisionWithFirstShape:(ChipmunkShape *)firstShape andSecondShape:(ChipmunkShape *)secondShape impulse:(cpVect)impulse;
 
--(id) initWithFirstEntity:(Entity *)firstEntity andSecondEntity:(Entity *)secondEntity;
+-(id) initWithFirstShape:(ChipmunkShape *)firstShape andSecondShape:(ChipmunkShape *)secondShape impulse:(cpVect)impulse;
 
+-(Entity *) firstEntity;
+-(Entity *) secondEntity;
+-(CollisionType *) firstCollisionType;
+-(CollisionType *) secondCollisionType;
 -(float) impulseLength;
 
 @end

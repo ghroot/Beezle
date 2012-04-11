@@ -29,8 +29,8 @@
 
 -(BOOL) appliesForCollision:(Collision *)collision
 {
-    return _type1 == [collision type1] && 
-        _type2 == [collision type2];
+    return _type1 == [collision firstCollisionType] && 
+        _type2 == [collision secondCollisionType];
 }
 
 -(void) mediateCollision:(Collision *)collision
