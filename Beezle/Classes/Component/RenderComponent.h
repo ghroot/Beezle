@@ -14,14 +14,13 @@
 @interface RenderComponent : Component <NSCopying>
 {
 	NSMutableArray *_renderSprites;
-	NSMutableDictionary *_renderSpritesByName;
 }
 
 @property (nonatomic, readonly) NSArray *renderSprites;
 
 +(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite;
 
--(void) addRenderSprite:(RenderSprite *)renderSprite withName:(NSString *)name;
+-(void) addRenderSprite:(RenderSprite *)renderSprite;
 -(RenderSprite *) getRenderSprite:(NSString *)name;
 -(NSArray *) renderSprites;
 -(RenderSprite *) firstRenderSprite;

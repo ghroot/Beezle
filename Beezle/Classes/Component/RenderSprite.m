@@ -14,6 +14,7 @@
 @synthesize spriteSheet = _spriteSheet;
 @synthesize sprite = _sprite;
 @synthesize z = _z;
+@synthesize name = _name;
 @synthesize defaultIdleAnimationNames = _defaultIdleAnimationNames;
 @synthesize defaultDestroyAnimationNames = _defaultDestroyAnimationNames;
 
@@ -35,6 +36,7 @@
         _spriteSheet = spriteSheet;
         _sprite = [[CCSprite alloc] initWithTexture:[spriteSheet texture]];
 		_z = z;
+        _name = @"default";
     }
     return self;
 }
@@ -47,6 +49,7 @@
 -(void) dealloc
 {
     [_sprite release];
+    [_name release];
 	[_defaultIdleAnimationNames release];
 	[_defaultDestroyAnimationNames release];
     

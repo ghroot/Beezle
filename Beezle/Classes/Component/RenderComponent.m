@@ -18,7 +18,7 @@
 +(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite
 {
 	RenderComponent *renderComponent = [[[RenderComponent alloc] init] autorelease];
-	[renderComponent addRenderSprite:renderSprite withName:@"default"];
+	[renderComponent addRenderSprite:renderSprite];
 	return renderComponent;
 }
 
@@ -29,7 +29,6 @@
 	{
 		_name = @"render";
 		_renderSprites = [NSMutableArray new];
-		_renderSpritesByName = [NSMutableDictionary new];
 	}
 	return self;
 }
@@ -66,10 +65,11 @@
 			}
             
 			RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:spriteSheetName animationFile:animationFile z:z];
+            [renderSprite setName:name];
 			[[renderSprite sprite] setAnchorPoint:anchorPoint];
             [renderSprite setDefaultIdleAnimationNames:defaultIdleAnimationNames];
             [renderSprite setDefaultDestroyAnimationNames:defaultDestroyAnimationNames];
-			[self addRenderSprite:renderSprite withName:name];
+			[self addRenderSprite:renderSprite];
 			
             [renderSprite playDefaultIdleAnimation];
 		}
@@ -80,7 +80,6 @@
 -(void) dealloc
 {
 	[_renderSprites release];
-    [_renderSpritesByName release];
     
     [super dealloc];
 }
@@ -88,25 +87,30 @@
 -(id) copyWithZone:(NSZone *)zone
 {
 	RenderComponent *copiedRenderComponent = [super copyWithZone:zone];
-	for (NSString *name in _renderSprites)
+	for (RenderSprite *renderSprite in _renderSprites)
 	{
-		RenderSprite *renderSprite = [_renderSpritesByName objectForKey:name];
 		RenderSprite *copiedRenderSprite = [renderSprite copy];
-		[copiedRenderComponent addRenderSprite:copiedRenderSprite withName:name];
+		[copiedRenderComponent addRenderSprite:copiedRenderSprite];
 		[copiedRenderSprite release];
 	}
 	return copiedRenderComponent;
 }
 
--(void) addRenderSprite:(RenderSprite *)renderSprite withName:(NSString *)name
+-(void) addRenderSprite:(RenderSprite *)renderSprite
 {
 	[_renderSprites addObject:renderSprite];
-	[_renderSpritesByName setObject:renderSprite forKey:name];
 }
 
 -(RenderSprite *) getRenderSprite:(NSString *)name
 {
-    return [_renderSpritesByName objectForKey:name];
+    for (RenderSprite *renderSprite in _renderSprites)
+    {
+        if ([[renderSprite name] isEqualToString:name])
+        {
+            return renderSprite;
+        }
+    }
+    return nil;
 }
 
 -(RenderSprite *) firstRenderSprite
@@ -132,7 +136,7 @@
 
 -(void) playAnimation:(NSString *)animationName
 {
-    for (RenderSprite *renderSprite in [_renderSpritesByName allValues])
+    for (RenderSprite *renderSprite in _renderSprites)
     {
         [renderSprite playAnimation:animationName];
     }

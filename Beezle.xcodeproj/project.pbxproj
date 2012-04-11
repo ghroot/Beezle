@@ -403,7 +403,6 @@
 		2C827D3814840C4900517C8F /* RenderSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C827D3714840C4700517C8F /* RenderSprite.m */; };
 		2C853D6314B4D7C600C90C55 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C853D6214B4D7C600C90C55 /* SoundManager.m */; };
 		2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B83B149563ED005D7BAB /* DisposableComponent.m */; };
-		2C85B84014957285005D7BAB /* CollisionMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B83F14957285005D7BAB /* CollisionMediator.m */; };
 		2C85D7211517F9C6001F4933 /* CoverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85D71A1517F9C6001F4933 /* CoverLayer.m */; };
 		2C85D7221517F9C6001F4933 /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85D71C1517F9C6001F4933 /* Dialog.m */; };
 		2C85D7231517F9C6001F4933 /* LevelCompletedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85D71E1517F9C6001F4933 /* LevelCompletedDialog.m */; };
@@ -412,6 +411,9 @@
 		2C88E2C514F5A36400496938 /* PlayerInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2C314F5A36400496938 /* PlayerInformation.m */; };
 		2C88E2C814F5A37900496938 /* LevelSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2C714F5A37900496938 /* LevelSession.m */; };
 		2C88E2CB14F6E23400496938 /* GateOpeningSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2CA14F6E23400496938 /* GateOpeningSystem.m */; };
+		2C8957D21535AC6300DF4433 /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957CD1535AC6300DF4433 /* Collision.m */; };
+		2C8957D31535AC6300DF4433 /* CollisionMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957CF1535AC6300DF4433 /* CollisionMediator.m */; };
+		2C8957D41535AC6300DF4433 /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957D11535AC6300DF4433 /* CollisionSystem.m */; };
 		2C8B181C153391FC003F3465 /* NSObject+PWObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B181B153391FC003F3465 /* NSObject+PWObject.m */; };
 		2C8C2F07150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C2F06150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m */; };
 		2C9253341512AE2600F3F7C1 /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C92524B1512AE2600F3F7C1 /* CCAction.m */; };
@@ -521,8 +523,6 @@
 		2CAB50E014F2FC33006EF1A4 /* Cavegate-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAB50DF14F2FC33006EF1A4 /* Cavegate-Animations.plist */; };
 		2CAB50E614F30E4A006EF1A4 /* GateComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB50E514F30E4A006EF1A4 /* GateComponent.m */; };
 		2CADCC711471C76400302475 /* InputAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC701471C76400302475 /* InputAction.m */; };
-		2CADCC7714732ADC00302475 /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC7614732ADB00302475 /* CollisionSystem.m */; };
-		2CADCC7A1473314D00302475 /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC791473314C00302475 /* Collision.m */; };
 		2CADCC8514746BA100302475 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CADCC8414746BA100302475 /* SenTestingKit.framework */; };
 		2CADCC8614746BA100302475 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3281145F66F7000FF575 /* UIKit.framework */; };
 		2CADCC8714746BA100302475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3283145F66F7000FF575 /* Foundation.framework */; };
@@ -1087,8 +1087,6 @@
 		2C853D6214B4D7C600C90C55 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoundManager.m; path = Classes/SoundManager.m; sourceTree = "<group>"; };
 		2C85B83A149563ED005D7BAB /* DisposableComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DisposableComponent.h; path = Classes/Component/DisposableComponent.h; sourceTree = "<group>"; };
 		2C85B83B149563ED005D7BAB /* DisposableComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DisposableComponent.m; path = Classes/Component/DisposableComponent.m; sourceTree = "<group>"; };
-		2C85B83E14957285005D7BAB /* CollisionMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionMediator.h; path = Classes/System/CollisionMediator.h; sourceTree = "<group>"; };
-		2C85B83F14957285005D7BAB /* CollisionMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionMediator.m; path = Classes/System/CollisionMediator.m; sourceTree = "<group>"; };
 		2C85D7191517F9C6001F4933 /* CoverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverLayer.h; sourceTree = "<group>"; };
 		2C85D71A1517F9C6001F4933 /* CoverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverLayer.m; sourceTree = "<group>"; };
 		2C85D71B1517F9C6001F4933 /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
@@ -1137,6 +1135,12 @@
 		2C88E2C714F5A37900496938 /* LevelSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSession.m; sourceTree = "<group>"; };
 		2C88E2C914F6E23400496938 /* GateOpeningSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GateOpeningSystem.h; path = Classes/System/GateOpeningSystem.h; sourceTree = "<group>"; };
 		2C88E2CA14F6E23400496938 /* GateOpeningSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GateOpeningSystem.m; path = Classes/System/GateOpeningSystem.m; sourceTree = "<group>"; };
+		2C8957CC1535AC6300DF4433 /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collision.h; sourceTree = "<group>"; };
+		2C8957CD1535AC6300DF4433 /* Collision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collision.m; sourceTree = "<group>"; };
+		2C8957CE1535AC6300DF4433 /* CollisionMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionMediator.h; sourceTree = "<group>"; };
+		2C8957CF1535AC6300DF4433 /* CollisionMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionMediator.m; sourceTree = "<group>"; };
+		2C8957D01535AC6300DF4433 /* CollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionSystem.h; sourceTree = "<group>"; };
+		2C8957D11535AC6300DF4433 /* CollisionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionSystem.m; sourceTree = "<group>"; };
 		2C8B181A153391FC003F3465 /* NSObject+PWObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PWObject.h"; sourceTree = "<group>"; };
 		2C8B181B153391FC003F3465 /* NSObject+PWObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PWObject.m"; sourceTree = "<group>"; };
 		2C8C2F05150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugRenderShardPiecesSpawnAreaLayer.h; sourceTree = "<group>"; };
@@ -1379,10 +1383,6 @@
 		2CAB50E514F30E4A006EF1A4 /* GateComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GateComponent.m; path = Classes/Component/GateComponent.m; sourceTree = "<group>"; };
 		2CADCC6F1471C76400302475 /* InputAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputAction.h; path = Classes/System/InputAction.h; sourceTree = "<group>"; };
 		2CADCC701471C76400302475 /* InputAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputAction.m; path = Classes/System/InputAction.m; sourceTree = "<group>"; };
-		2CADCC7514732ADB00302475 /* CollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionSystem.h; path = Classes/System/CollisionSystem.h; sourceTree = "<group>"; };
-		2CADCC7614732ADB00302475 /* CollisionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionSystem.m; path = Classes/System/CollisionSystem.m; sourceTree = "<group>"; };
-		2CADCC781473314B00302475 /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collision.h; path = Classes/System/Collision.h; sourceTree = "<group>"; };
-		2CADCC791473314C00302475 /* Collision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Collision.m; path = Classes/System/Collision.m; sourceTree = "<group>"; };
 		2CADCC8314746BA100302475 /* ArtemisTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtemisTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CADCC8414746BA100302475 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2CADCC8A14746BA200302475 /* ArtemisTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ArtemisTests-Info.plist"; sourceTree = "<group>"; };
@@ -2224,12 +2224,7 @@
 				2C535FCC14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m */,
 				2C764DDB148A1FF100820587 /* BodyInfo.h */,
 				2C764DDC148A1FF100820587 /* BodyInfo.m */,
-				2CADCC781473314B00302475 /* Collision.h */,
-				2CADCC791473314C00302475 /* Collision.m */,
-				2C85B83E14957285005D7BAB /* CollisionMediator.h */,
-				2C85B83F14957285005D7BAB /* CollisionMediator.m */,
-				2CADCC7514732ADB00302475 /* CollisionSystem.h */,
-				2CADCC7614732ADB00302475 /* CollisionSystem.m */,
+				2C8957CB1535AC6300DF4433 /* Collision */,
 				2CD4A99414EC7BAC0065FA90 /* Debug */,
 				2CC3EC0314D6086F0025F5DA /* Edit */,
 				2C64AD1214BA4F0300ABD114 /* ExplodeControlSystem.h */,
@@ -2352,6 +2347,20 @@
 				2C88E2C714F5A37900496938 /* LevelSession.m */,
 			);
 			path = Transient;
+			sourceTree = "<group>";
+		};
+		2C8957CB1535AC6300DF4433 /* Collision */ = {
+			isa = PBXGroup;
+			children = (
+				2C8957CC1535AC6300DF4433 /* Collision.h */,
+				2C8957CD1535AC6300DF4433 /* Collision.m */,
+				2C8957CE1535AC6300DF4433 /* CollisionMediator.h */,
+				2C8957CF1535AC6300DF4433 /* CollisionMediator.m */,
+				2C8957D01535AC6300DF4433 /* CollisionSystem.h */,
+				2C8957D11535AC6300DF4433 /* CollisionSystem.m */,
+			);
+			name = Collision;
+			path = Classes/System/Collision;
 			sourceTree = "<group>";
 		};
 		2C8B1819153391FC003F3465 /* PWObject */ = {
@@ -3583,8 +3592,6 @@
 				2C7CE61C146C73FE001F331F /* InputSystem.m in Sources */,
 				2C7CE622146FD670001F331F /* SlingerControlSystem.m in Sources */,
 				2CADCC711471C76400302475 /* InputAction.m in Sources */,
-				2CADCC7714732ADC00302475 /* CollisionSystem.m in Sources */,
-				2CADCC7A1473314D00302475 /* Collision.m in Sources */,
 				2CD33ED8147D72AD000869C1 /* GameplayState.m in Sources */,
 				2CD33EEA147EE7AD000869C1 /* TestState.m in Sources */,
 				2CD33EF3147EFFA8000869C1 /* MainMenuState.m in Sources */,
@@ -3601,7 +3608,6 @@
 				2C157C1A14914F6A003F9040 /* TrajectoryComponent.m in Sources */,
 				2C157C1F149382D8003F9040 /* GameRulesSystem.m in Sources */,
 				2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */,
-				2C85B84014957285005D7BAB /* CollisionMediator.m in Sources */,
 				2C535FCD14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m in Sources */,
 				2C596D3E14A13FDD00DFCC14 /* LevelLoader.m in Sources */,
 				2C3B0E5414A91E4D008949B0 /* EmailInfo.m in Sources */,
@@ -3776,6 +3782,9 @@
 				2C85D7231517F9C6001F4933 /* LevelCompletedDialog.m in Sources */,
 				2C85D7241517F9C6001F4933 /* LevelFailedDialog.m in Sources */,
 				2C8B181C153391FC003F3465 /* NSObject+PWObject.m in Sources */,
+				2C8957D21535AC6300DF4433 /* Collision.m in Sources */,
+				2C8957D31535AC6300DF4433 /* CollisionMediator.m in Sources */,
+				2C8957D41535AC6300DF4433 /* CollisionSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

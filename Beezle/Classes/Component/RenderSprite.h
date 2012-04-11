@@ -13,6 +13,7 @@
     CCSpriteBatchNode *_spriteSheet;
     CCSprite *_sprite;
 	int _z;
+    NSString *_name;
 	NSArray *_defaultIdleAnimationNames;
     NSArray *_defaultDestroyAnimationNames;
 }
@@ -20,6 +21,7 @@
 @property (nonatomic, readonly, assign) CCSpriteBatchNode *spriteSheet;
 @property (nonatomic, readonly, retain) CCSprite *sprite;
 @property (nonatomic, readonly) int z;
+@property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSArray *defaultIdleAnimationNames;
 @property (nonatomic, copy) NSArray *defaultDestroyAnimationNames;
 
