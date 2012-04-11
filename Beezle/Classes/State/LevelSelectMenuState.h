@@ -19,7 +19,4 @@
 
 -(id) initWithTheme:(NSString *)theme;
 
--(void) startGame:(id)sender;
--(void) goBack:(id)sender;
-
 @end

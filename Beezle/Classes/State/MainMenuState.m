@@ -8,10 +8,19 @@
 
 #import "MainMenuState.h"
 #import "Game.h"
-#import "LevelSelectMenuState.h"
 #import "LevelSender.h"
+#import "LevelThemeSelectMenuState.h"
 #import "PlayerInformation.h"
 #import "TestState.h"
+
+@interface MainMenuState()
+
+-(void) selectTheme:(id)sender;
+-(void) sendEditedLevels:(id)sender;
+-(void) startTest:(id)sender;
+-(void) resetPlayerInformation:(id)sender;
+
+@end
 
 @implementation MainMenuState
 
@@ -21,7 +30,7 @@
 	
 	_menu = [CCMenu menuWithItems:nil];
 	
-	CCMenuItem *playMenuItem = [CCMenuItemFont itemWithString:@"Play" target:self selector:@selector(selectLevel:)];
+	CCMenuItem *playMenuItem = [CCMenuItemFont itemWithString:@"Play" target:self selector:@selector(selectTheme:)];
 	[_menu addChild:playMenuItem];
 	if (CONFIG_CAN_EDIT_LEVELS)
 	{
@@ -38,9 +47,9 @@
 	[self addChild:_menu];
 }
 
--(void) selectLevel:(id)sender
+-(void) selectTheme:(id)sender
 {
-	[_game pushState:[LevelSelectMenuState stateWithTheme:@"A"]];
+	[_game pushState:[LevelThemeSelectMenuState state]];
 }
 
 -(void) sendEditedLevels:(id)sender

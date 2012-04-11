@@ -20,6 +20,8 @@
 
 -(void) createLevelMenuItems;
 -(void) createLevelMenuItemsEdit;
+-(void) startGame:(id)sender;
+-(void) goBack:(id)sender;
 
 @end
 

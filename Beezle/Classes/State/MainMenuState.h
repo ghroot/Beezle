@@ -14,9 +14,4 @@
     CCMenu *_menu;
 }
 
--(void) selectLevel:(id)sender;
--(void) sendEditedLevels:(id)sender;
--(void) startTest:(id)sender;
--(void) resetPlayerInformation:(id)sender;
-
 @end
