@@ -16,6 +16,14 @@
 #import "RenderSprite.h"
 #import "SoundManager.h"
 
+#define DELAY_PER_WOOD_PIECE 0.3f
+
+@interface BeeWoodHandler()
+
+-(void) animateAndDestroyWoodPiece:(NSArray *)renderSprites atIndex:(int)index stepsFromStart:(int)stepsFromStart continueUp:(BOOL)continueUp continueDown:(BOOL)continueDown;
+
+@end
+
 @implementation BeeWoodHandler
 
 -(void) handleCollision:(Collision *)collision
@@ -31,80 +39,44 @@
             [EntityUtil setEntityDisposed:woodEntity];
 			
 			PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:woodEntity];
-			int shapeIndex = [[physicsComponent shapes] indexOfObject:[collision secondShape]];
+			int shapeIndexAtCollision = [[physicsComponent shapes] indexOfObject:[collision secondShape]];
+            
+            NSArray *woodRenderSprites = [[RenderComponent getFrom:woodEntity] renderSprites];
+            [self animateAndDestroyWoodPiece:woodRenderSprites atIndex:shapeIndexAtCollision stepsFromStart:0 continueUp:TRUE continueDown:TRUE];
 			
-			float delayPerWoodPiece = 0.3f;
-			
-			RenderComponent *renderComponent = [RenderComponent getFrom:woodEntity];
-			NSArray *woodRenderSprites = [renderComponent renderSprites];
-			RenderSprite *hitWoodRenderSprite = [woodRenderSprites objectAtIndex:shapeIndex];
-			[hitWoodRenderSprite playDefaultDestroyAnimation];
-			int startRenderSpriteIndex = shapeIndex;
-			int currentRenderSpriteIndexDelta = 1;
-			BOOL animationWithDestroyEntityCallbackHasBeenPlayed = FALSE;
-			while (true)
-			{
-				int nextRenderSpriteIndex = startRenderSpriteIndex + currentRenderSpriteIndexDelta;
-				RenderSprite *nextRenderSprite = nil;
-				if (nextRenderSpriteIndex < [woodRenderSprites count])
-				{
-					nextRenderSprite = [woodRenderSprites objectAtIndex:nextRenderSpriteIndex];
-					if (!animationWithDestroyEntityCallbackHasBeenPlayed &&
-						nextRenderSpriteIndex == [woodRenderSprites count] - 1)
-					{
-						[self performBlock:^(void){
-							[nextRenderSprite playAnimation:[nextRenderSprite randomDefaultDestroyAnimationName] withCallbackTarget:woodEntity andCallbackSelector:@selector(deleteEntity)];
-						} afterDelay:currentRenderSpriteIndexDelta * delayPerWoodPiece];
-						
-						animationWithDestroyEntityCallbackHasBeenPlayed = TRUE;
-					}
-					else
-					{
-						[self performBlock:^(void){
-							[nextRenderSprite playDefaultDestroyAnimation];
-						} afterDelay:currentRenderSpriteIndexDelta * delayPerWoodPiece];
-					}
-				}
-				
-				int previousRenderSpriteIndex = startRenderSpriteIndex - currentRenderSpriteIndexDelta;
-				RenderSprite *previousRenderSprite = nil;
-				if (previousRenderSpriteIndex >= 0)
-				{
-					previousRenderSprite = [woodRenderSprites objectAtIndex:previousRenderSpriteIndex];
-					if (!animationWithDestroyEntityCallbackHasBeenPlayed &&
-						previousRenderSpriteIndex == 0)
-					{
-						[self performBlock:^(void){
-							[previousRenderSprite playAnimation:[previousRenderSprite randomDefaultDestroyAnimationName] withCallbackTarget:woodEntity andCallbackSelector:@selector(deleteEntity)];
-						} afterDelay:currentRenderSpriteIndexDelta * delayPerWoodPiece];
-						
-						animationWithDestroyEntityCallbackHasBeenPlayed = TRUE;
-					}
-					else
-					{
-						[self performBlock:^(void){
-							[previousRenderSprite playDefaultDestroyAnimation];
-						} afterDelay:currentRenderSpriteIndexDelta * delayPerWoodPiece];
-					}
-				}
-				
-				if (nextRenderSprite != nil ||
-					previousRenderSprite != nil)
-				{
-					currentRenderSpriteIndexDelta++;
-				}
-				else
-				{
-					break;
-				}
-			}
-			
+            // TODO: Don't just disable physics, remove at end of last animation
+            PhysicsComponent *woodPhysicsComponent = [PhysicsComponent getFrom:woodEntity];
+            [woodPhysicsComponent disable];
+            [woodEntity refresh];
+            
             [EntityUtil setEntityDisposed:beeEntity];
 			[beeEntity deleteEntity];
 			
 			[[SoundManager sharedManager] playSound:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
 		}
 	}
+}
+
+-(void) animateAndDestroyWoodPiece:(NSArray *)renderSprites atIndex:(int)index stepsFromStart:(int)stepsFromStart continueUp:(BOOL)continueUp continueDown:(BOOL)continueDown
+{
+    if (index >= 0 &&
+        index < [renderSprites count])
+    {
+        RenderSprite *renderSprite = [renderSprites objectAtIndex:index];
+        
+        [self performBlock:^(void){
+            [renderSprite playDefaultDestroyAnimation];
+        } afterDelay:stepsFromStart * DELAY_PER_WOOD_PIECE];
+        
+        if (continueUp)
+        {
+            [self animateAndDestroyWoodPiece:renderSprites atIndex:index + 1 stepsFromStart:stepsFromStart + 1 continueUp:TRUE continueDown:FALSE];
+        }
+        if (continueDown)
+        {
+            [self animateAndDestroyWoodPiece:renderSprites atIndex:index - 1 stepsFromStart:stepsFromStart + 1 continueUp:FALSE continueDown:TRUE];
+        }
+    }
 }
 
 @end
