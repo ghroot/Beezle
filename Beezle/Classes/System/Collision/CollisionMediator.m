@@ -7,24 +7,33 @@
 //
 
 #import "CollisionMediator.h"
+#import "Collision.h"
+#import "CollisionHandler.h"
+#import "CollisionType.h"
 
 @implementation CollisionMediator
 
-+(CollisionMediator *) mediatorWithType1:(CollisionType *)type1 type2:(CollisionType *)type2 target:(id)target selector:(SEL)selector
++(CollisionMediator *) mediatorWithType1:(CollisionType *)type1 type2:(CollisionType *)type2 handler:(CollisionHandler *)handler
 {
-	return [[[self alloc] initWithType1:type1 type2:type2 target:target selector:selector] autorelease];
+	return [[[self alloc] initWithType1:type1 type2:type2 handler:handler] autorelease];
 }
 
--(id) initWithType1:(CollisionType *)type1 type2:(CollisionType *)type2 target:(id)target selector:(SEL)selector
+-(id) initWithType1:(CollisionType *)type1 type2:(CollisionType *)type2 handler:(CollisionHandler *)handler
 {
 	if (self = [super init])
 	{
 		_type1 = type1;
 		_type2 = type2;
-        _target = target;
-		_selector = selector;
+        _handler = [handler retain];
 	}
 	return self;
+}
+
+-(void) dealloc
+{
+    [_handler release];
+    
+    [super dealloc];
 }
 
 -(BOOL) appliesForCollision:(Collision *)collision
@@ -35,17 +44,7 @@
 
 -(void) mediateCollision:(Collision *)collision
 {
-    Entity *firstEntity = [collision firstEntity];
-    Entity *secondEntity = [collision secondEntity];
-    
-    NSMethodSignature *signature = [_target methodSignatureForSelector:_selector];
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
-    [invocation setTarget:_target];
-    [invocation setSelector:_selector];
-    [invocation setArgument:&firstEntity atIndex:2];
-    [invocation setArgument:&secondEntity atIndex:3];
-    [invocation setArgument:&collision atIndex:4];
-    [invocation invoke];
+    [_handler handleCollision:collision];
 }
 
 @end

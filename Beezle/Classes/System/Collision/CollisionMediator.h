@@ -8,20 +8,21 @@
 
 #import "ObjectiveChipmunk.h"
 #import "artemis.h"
-#import "Collision.h"
-#import "CollisionType.h"
+
+@class Collision;
+@class CollisionHandler;
+@class CollisionType;
 
 @interface CollisionMediator : NSObject
 {
 	CollisionType *_type1;
 	CollisionType *_type2;
-    id _target;
-	SEL _selector;
+    CollisionHandler *_handler;
 }
 
-+(CollisionMediator *) mediatorWithType1:(CollisionType *)type1 type2:(CollisionType *)type2 target:(id)target selector:(SEL)selector;
++(CollisionMediator *) mediatorWithType1:(CollisionType *)type1 type2:(CollisionType *)type2 handler:(CollisionHandler *)handler;
 
--(id) initWithType1:(CollisionType *)type1 type2:(CollisionType *)type2 target:(id)target selector:(SEL)selector;
+-(id) initWithType1:(CollisionType *)type1 type2:(CollisionType *)type2 handler:(CollisionHandler *)handler;
 
 -(BOOL) appliesForCollision:(Collision *)collision;
 -(void) mediateCollision:(Collision *)collision;

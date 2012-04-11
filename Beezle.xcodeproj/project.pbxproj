@@ -414,6 +414,21 @@
 		2C8957D21535AC6300DF4433 /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957CD1535AC6300DF4433 /* Collision.m */; };
 		2C8957D31535AC6300DF4433 /* CollisionMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957CF1535AC6300DF4433 /* CollisionMediator.m */; };
 		2C8957D41535AC6300DF4433 /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957D11535AC6300DF4433 /* CollisionSystem.m */; };
+		2C8957D71535AF9E00DF4433 /* CollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957D61535AF9E00DF4433 /* CollisionHandler.m */; };
+		2C8957DC1535B14D00DF4433 /* BeeWoodHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957DB1535B14D00DF4433 /* BeeWoodHandler.m */; };
+		2C8957DF1535B34A00DF4433 /* BeeEdgeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957DE1535B34A00DF4433 /* BeeEdgeHandler.m */; };
+		2C8957E21535B6E300DF4433 /* BeeBackgroundHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957E11535B6E300DF4433 /* BeeBackgroundHandler.m */; };
+		2C8957E81535B8AD00DF4433 /* BeeBeeaterHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957E71535B8AC00DF4433 /* BeeBeeaterHandler.m */; };
+		2C8957EB1535B9E700DF4433 /* BeePollenHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957EA1535B9E600DF4433 /* BeePollenHandler.m */; };
+		2C8957EE1535B9F800DF4433 /* BeeMushroomHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957ED1535B9F800DF4433 /* BeeMushroomHandler.m */; };
+		2C8957F11535BA0D00DF4433 /* BeeNutHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957F01535BA0D00DF4433 /* BeeNutHandler.m */; };
+		2C8957F41535BA1A00DF4433 /* BeeEggHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957F31535BA1A00DF4433 /* BeeEggHandler.m */; };
+		2C8957F71535BA2800DF4433 /* BeeGlassHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957F61535BA2700DF4433 /* BeeGlassHandler.m */; };
+		2C8957FA1535BA3500DF4433 /* BeeGateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957F91535BA3400DF4433 /* BeeGateHandler.m */; };
+		2C8957FD1535BA4300DF4433 /* BeeWaterHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957FC1535BA4200DF4433 /* BeeWaterHandler.m */; };
+		2C8958001535BA5A00DF4433 /* AimPollenEdgeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957FF1535BA5900DF4433 /* AimPollenEdgeHandler.m */; };
+		2C8958091535BA9000DF4433 /* WaterDropBackgroundHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8958081535BA8F00DF4433 /* WaterDropBackgroundHandler.m */; };
+		2C89580C1535BC8000DF4433 /* GlassPieceHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C89580B1535BC7E00DF4433 /* GlassPieceHandler.m */; };
 		2C8B181C153391FC003F3465 /* NSObject+PWObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B181B153391FC003F3465 /* NSObject+PWObject.m */; };
 		2C8C2F07150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C2F06150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m */; };
 		2C9253341512AE2600F3F7C1 /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C92524B1512AE2600F3F7C1 /* CCAction.m */; };
@@ -1141,6 +1156,36 @@
 		2C8957CF1535AC6300DF4433 /* CollisionMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionMediator.m; sourceTree = "<group>"; };
 		2C8957D01535AC6300DF4433 /* CollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionSystem.h; sourceTree = "<group>"; };
 		2C8957D11535AC6300DF4433 /* CollisionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionSystem.m; sourceTree = "<group>"; };
+		2C8957D51535AF9E00DF4433 /* CollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionHandler.h; sourceTree = "<group>"; };
+		2C8957D61535AF9E00DF4433 /* CollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionHandler.m; sourceTree = "<group>"; };
+		2C8957DA1535B14D00DF4433 /* BeeWoodHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeWoodHandler.h; sourceTree = "<group>"; };
+		2C8957DB1535B14D00DF4433 /* BeeWoodHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeWoodHandler.m; sourceTree = "<group>"; };
+		2C8957DD1535B34A00DF4433 /* BeeEdgeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeEdgeHandler.h; sourceTree = "<group>"; };
+		2C8957DE1535B34A00DF4433 /* BeeEdgeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeEdgeHandler.m; sourceTree = "<group>"; };
+		2C8957E01535B6E300DF4433 /* BeeBackgroundHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeBackgroundHandler.h; sourceTree = "<group>"; };
+		2C8957E11535B6E300DF4433 /* BeeBackgroundHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeBackgroundHandler.m; sourceTree = "<group>"; };
+		2C8957E61535B8AB00DF4433 /* BeeBeeaterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeBeeaterHandler.h; sourceTree = "<group>"; };
+		2C8957E71535B8AC00DF4433 /* BeeBeeaterHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeBeeaterHandler.m; sourceTree = "<group>"; };
+		2C8957E91535B9E600DF4433 /* BeePollenHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeePollenHandler.h; sourceTree = "<group>"; };
+		2C8957EA1535B9E600DF4433 /* BeePollenHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeePollenHandler.m; sourceTree = "<group>"; };
+		2C8957EC1535B9F800DF4433 /* BeeMushroomHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeMushroomHandler.h; sourceTree = "<group>"; };
+		2C8957ED1535B9F800DF4433 /* BeeMushroomHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeMushroomHandler.m; sourceTree = "<group>"; };
+		2C8957EF1535BA0C00DF4433 /* BeeNutHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeNutHandler.h; sourceTree = "<group>"; };
+		2C8957F01535BA0D00DF4433 /* BeeNutHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeNutHandler.m; sourceTree = "<group>"; };
+		2C8957F21535BA1900DF4433 /* BeeEggHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeEggHandler.h; sourceTree = "<group>"; };
+		2C8957F31535BA1A00DF4433 /* BeeEggHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeEggHandler.m; sourceTree = "<group>"; };
+		2C8957F51535BA2700DF4433 /* BeeGlassHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeGlassHandler.h; sourceTree = "<group>"; };
+		2C8957F61535BA2700DF4433 /* BeeGlassHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeGlassHandler.m; sourceTree = "<group>"; };
+		2C8957F81535BA3300DF4433 /* BeeGateHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeGateHandler.h; sourceTree = "<group>"; };
+		2C8957F91535BA3400DF4433 /* BeeGateHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeGateHandler.m; sourceTree = "<group>"; };
+		2C8957FB1535BA4100DF4433 /* BeeWaterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeWaterHandler.h; sourceTree = "<group>"; };
+		2C8957FC1535BA4200DF4433 /* BeeWaterHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeWaterHandler.m; sourceTree = "<group>"; };
+		2C8957FE1535BA5900DF4433 /* AimPollenEdgeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AimPollenEdgeHandler.h; sourceTree = "<group>"; };
+		2C8957FF1535BA5900DF4433 /* AimPollenEdgeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AimPollenEdgeHandler.m; sourceTree = "<group>"; };
+		2C8958071535BA8E00DF4433 /* WaterDropBackgroundHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterDropBackgroundHandler.h; sourceTree = "<group>"; };
+		2C8958081535BA8F00DF4433 /* WaterDropBackgroundHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterDropBackgroundHandler.m; sourceTree = "<group>"; };
+		2C89580A1535BC7C00DF4433 /* GlassPieceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlassPieceHandler.h; sourceTree = "<group>"; };
+		2C89580B1535BC7E00DF4433 /* GlassPieceHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlassPieceHandler.m; sourceTree = "<group>"; };
 		2C8B181A153391FC003F3465 /* NSObject+PWObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PWObject.h"; sourceTree = "<group>"; };
 		2C8B181B153391FC003F3465 /* NSObject+PWObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PWObject.m"; sourceTree = "<group>"; };
 		2C8C2F05150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugRenderShardPiecesSpawnAreaLayer.h; sourceTree = "<group>"; };
@@ -2354,13 +2399,51 @@
 			children = (
 				2C8957CC1535AC6300DF4433 /* Collision.h */,
 				2C8957CD1535AC6300DF4433 /* Collision.m */,
+				2C8957D51535AF9E00DF4433 /* CollisionHandler.h */,
+				2C8957D61535AF9E00DF4433 /* CollisionHandler.m */,
 				2C8957CE1535AC6300DF4433 /* CollisionMediator.h */,
 				2C8957CF1535AC6300DF4433 /* CollisionMediator.m */,
 				2C8957D01535AC6300DF4433 /* CollisionSystem.h */,
 				2C8957D11535AC6300DF4433 /* CollisionSystem.m */,
+				2C8957D91535B10F00DF4433 /* Handler */,
 			);
 			name = Collision;
 			path = Classes/System/Collision;
+			sourceTree = "<group>";
+		};
+		2C8957D91535B10F00DF4433 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				2C8957FE1535BA5900DF4433 /* AimPollenEdgeHandler.h */,
+				2C8957FF1535BA5900DF4433 /* AimPollenEdgeHandler.m */,
+				2C8957E01535B6E300DF4433 /* BeeBackgroundHandler.h */,
+				2C8957E11535B6E300DF4433 /* BeeBackgroundHandler.m */,
+				2C8957E61535B8AB00DF4433 /* BeeBeeaterHandler.h */,
+				2C8957E71535B8AC00DF4433 /* BeeBeeaterHandler.m */,
+				2C8957DD1535B34A00DF4433 /* BeeEdgeHandler.h */,
+				2C8957DE1535B34A00DF4433 /* BeeEdgeHandler.m */,
+				2C8957F21535BA1900DF4433 /* BeeEggHandler.h */,
+				2C8957F31535BA1A00DF4433 /* BeeEggHandler.m */,
+				2C8957F81535BA3300DF4433 /* BeeGateHandler.h */,
+				2C8957F91535BA3400DF4433 /* BeeGateHandler.m */,
+				2C8957F51535BA2700DF4433 /* BeeGlassHandler.h */,
+				2C8957F61535BA2700DF4433 /* BeeGlassHandler.m */,
+				2C8957EC1535B9F800DF4433 /* BeeMushroomHandler.h */,
+				2C8957ED1535B9F800DF4433 /* BeeMushroomHandler.m */,
+				2C8957EF1535BA0C00DF4433 /* BeeNutHandler.h */,
+				2C8957F01535BA0D00DF4433 /* BeeNutHandler.m */,
+				2C8957E91535B9E600DF4433 /* BeePollenHandler.h */,
+				2C8957EA1535B9E600DF4433 /* BeePollenHandler.m */,
+				2C8957FB1535BA4100DF4433 /* BeeWaterHandler.h */,
+				2C8957FC1535BA4200DF4433 /* BeeWaterHandler.m */,
+				2C8957DA1535B14D00DF4433 /* BeeWoodHandler.h */,
+				2C8957DB1535B14D00DF4433 /* BeeWoodHandler.m */,
+				2C89580A1535BC7C00DF4433 /* GlassPieceHandler.h */,
+				2C89580B1535BC7E00DF4433 /* GlassPieceHandler.m */,
+				2C8958071535BA8E00DF4433 /* WaterDropBackgroundHandler.h */,
+				2C8958081535BA8F00DF4433 /* WaterDropBackgroundHandler.m */,
+			);
+			path = Handler;
 			sourceTree = "<group>";
 		};
 		2C8B1819153391FC003F3465 /* PWObject */ = {
@@ -3785,6 +3868,21 @@
 				2C8957D21535AC6300DF4433 /* Collision.m in Sources */,
 				2C8957D31535AC6300DF4433 /* CollisionMediator.m in Sources */,
 				2C8957D41535AC6300DF4433 /* CollisionSystem.m in Sources */,
+				2C8957D71535AF9E00DF4433 /* CollisionHandler.m in Sources */,
+				2C8957DC1535B14D00DF4433 /* BeeWoodHandler.m in Sources */,
+				2C8957DF1535B34A00DF4433 /* BeeEdgeHandler.m in Sources */,
+				2C8957E21535B6E300DF4433 /* BeeBackgroundHandler.m in Sources */,
+				2C8957E81535B8AD00DF4433 /* BeeBeeaterHandler.m in Sources */,
+				2C8957EB1535B9E700DF4433 /* BeePollenHandler.m in Sources */,
+				2C8957EE1535B9F800DF4433 /* BeeMushroomHandler.m in Sources */,
+				2C8957F11535BA0D00DF4433 /* BeeNutHandler.m in Sources */,
+				2C8957F41535BA1A00DF4433 /* BeeEggHandler.m in Sources */,
+				2C8957F71535BA2800DF4433 /* BeeGlassHandler.m in Sources */,
+				2C8957FA1535BA3500DF4433 /* BeeGateHandler.m in Sources */,
+				2C8957FD1535BA4300DF4433 /* BeeWaterHandler.m in Sources */,
+				2C8958001535BA5A00DF4433 /* AimPollenEdgeHandler.m in Sources */,
+				2C8958091535BA9000DF4433 /* WaterDropBackgroundHandler.m in Sources */,
+				2C89580C1535BC8000DF4433 /* GlassPieceHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
