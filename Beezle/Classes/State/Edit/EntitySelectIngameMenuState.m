@@ -100,7 +100,17 @@
 	else if ([entityType isEqualToString:@"GLASS"])
 	{
 		NSString *levelSuffix = [[[editState levelName] componentsSeparatedByString:@"-"] objectAtIndex:1];
-		entityType = [NSString stringWithFormat:@"GLASS-%@", levelSuffix];
+		if ([levelSuffix isEqualToString:@"B40"])
+		{
+			[editState addEntityWithType:@"GLASS-B40-1"];
+			[editState addEntityWithType:@"GLASS-B40-2"];
+			[editState addEntityWithType:@"GLASS-B40-3"];
+			return;
+		}
+		else
+		{
+			entityType = [NSString stringWithFormat:@"GLASS-%@", levelSuffix];
+		}
 	}
 	
 	[editState addEntityWithType:entityType];

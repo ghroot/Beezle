@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>GLASS-A56</string>
+	<string>GLASS-A55</string>
 	<key>components</key>
 	<dict>
 		<key>crumble</key>
@@ -13,9 +13,9 @@
 		<key>physics</key>
 		<dict>
 			<key>file</key>
-			<string>A56-Glass-Shapes.plist</string>
+			<string>A55-Glass-Shapes.plist</string>
 			<key>bodyName</key>
-			<string>A56-Glass</string>
+			<string>A55-Glass</string>
 			<key>collisionType</key>
 			<string>GLASS</string>
 			<key>layers</key>
@@ -39,14 +39,14 @@
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.5 }</string>
 					<key>defaultIdleAnimation</key>
-					<string>Glass-A56-Idle</string>
+					<string>Glass-A55-Idle</string>
 				</dict>
 			</array>
 		</dict>
 		<key>shard</key>
 		<dict>
 			<key>piecesEntityType</key>
-			<string>GLASS-PC</string>
+			<string>GLASS-A-PC</string>
 			<key>piecesCount</key>
 			<integer>20</integer>
 			<key>piecesSpawnAreaOffset</key>

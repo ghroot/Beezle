@@ -54,6 +54,29 @@
 		2C4DFC7714FEF17F00D49CF9 /* HUDRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DFC7614FEF17F00D49CF9 /* HUDRenderingSystem.m */; };
 		2C53122D15097DE400FDE482 /* Bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C53122C15097DE400FDE482 /* Bubble.png */; };
 		2C535FCD14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C535FCC14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m */; };
+		2C5372CC15378F8800040EED /* Glass-A22.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372B615378F8800040EED /* Glass-A22.plist */; };
+		2C5372CD15378F8800040EED /* Glass-A27.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372B715378F8800040EED /* Glass-A27.plist */; };
+		2C5372CE15378F8800040EED /* Glass-A29.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372B815378F8800040EED /* Glass-A29.plist */; };
+		2C5372CF15378F8800040EED /* Glass-A33.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372B915378F8800040EED /* Glass-A33.plist */; };
+		2C5372D015378F8800040EED /* Glass-A34.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372BA15378F8800040EED /* Glass-A34.plist */; };
+		2C5372D115378F8800040EED /* Glass-A35.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372BB15378F8800040EED /* Glass-A35.plist */; };
+		2C5372D215378F8800040EED /* Glass-A37.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372BC15378F8800040EED /* Glass-A37.plist */; };
+		2C5372D315378F8800040EED /* Glass-A45.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372BD15378F8800040EED /* Glass-A45.plist */; };
+		2C5372D415378F8800040EED /* Glass-A46.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372BE15378F8800040EED /* Glass-A46.plist */; };
+		2C5372D515378F8800040EED /* Glass-A51.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372BF15378F8800040EED /* Glass-A51.plist */; };
+		2C5372D615378F8800040EED /* Glass-A53.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372C015378F8800040EED /* Glass-A53.plist */; };
+		2C5372D715378F8800040EED /* Glass-A55.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372C115378F8800040EED /* Glass-A55.plist */; };
+		2C5372D815378F8800040EED /* Glass-A56.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372C215378F8800040EED /* Glass-A56.plist */; };
+		2C5372D915378F8800040EED /* Glass-A58.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372C315378F8800040EED /* Glass-A58.plist */; };
+		2C5372DA15378F8800040EED /* Glass-A59.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372C415378F8800040EED /* Glass-A59.plist */; };
+		2C5372DD15378F8800040EED /* Glass-B1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372C815378F8800040EED /* Glass-B1.plist */; };
+		2C5372DE15378F8800040EED /* Glass-B40-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372C915378F8800040EED /* Glass-B40-1.plist */; };
+		2C5372DF15378F8800040EED /* Glass-B40-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372CA15378F8800040EED /* Glass-B40-2.plist */; };
+		2C5372E015378F8800040EED /* Glass-B40-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372CB15378F8800040EED /* Glass-B40-3.plist */; };
+		2C5372E315378FB000040EED /* Glass-A-Pc-Small.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372E115378FB000040EED /* Glass-A-Pc-Small.plist */; };
+		2C5372E415378FB000040EED /* Glass-A-Pc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372E215378FB000040EED /* Glass-A-Pc.plist */; };
+		2C5372EB1537918600040EED /* Glass-B-Pc-Small.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372E91537918600040EED /* Glass-B-Pc-Small.plist */; };
+		2C5372EC1537918600040EED /* Glass-B-Pc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5372EA1537918600040EED /* Glass-B-Pc.plist */; };
 		2C596D3E14A13FDD00DFCC14 /* LevelLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */; };
 		2C5EFC2B14E496A10071ED39 /* SpawnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */; };
 		2C5EFC3114E499C20071ED39 /* SpawnSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3014E499C20071ED39 /* SpawnSystem.m */; };
@@ -95,21 +118,6 @@
 		2C7B182E150EB83A002D86DE /* Cavegate.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B17FF150EB83A002D86DE /* Cavegate.plist */; };
 		2C7B182F150EB83A002D86DE /* Egg.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1800150EB83A002D86DE /* Egg.plist */; };
 		2C7B1830150EB83A002D86DE /* Floating-Block-A.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1801150EB83A002D86DE /* Floating-Block-A.plist */; };
-		2C7B1831150EB83A002D86DE /* Glass-A22.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1803150EB83A002D86DE /* Glass-A22.plist */; };
-		2C7B1832150EB83A002D86DE /* Glass-A27.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1804150EB83A002D86DE /* Glass-A27.plist */; };
-		2C7B1833150EB83A002D86DE /* Glass-A29.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1805150EB83A002D86DE /* Glass-A29.plist */; };
-		2C7B1834150EB83A002D86DE /* Glass-A33.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1806150EB83A002D86DE /* Glass-A33.plist */; };
-		2C7B1835150EB83A002D86DE /* Glass-A35.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1807150EB83A002D86DE /* Glass-A35.plist */; };
-		2C7B1836150EB83A002D86DE /* Glass-A37.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1808150EB83A002D86DE /* Glass-A37.plist */; };
-		2C7B1837150EB83A002D86DE /* Glass-A45.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1809150EB83A002D86DE /* Glass-A45.plist */; };
-		2C7B1838150EB83A002D86DE /* Glass-A46.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B180A150EB83A002D86DE /* Glass-A46.plist */; };
-		2C7B1839150EB83A002D86DE /* Glass-A51.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B180B150EB83A002D86DE /* Glass-A51.plist */; };
-		2C7B183A150EB83A002D86DE /* Glass-A53.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B180C150EB83A002D86DE /* Glass-A53.plist */; };
-		2C7B183B150EB83A002D86DE /* Glass-A55.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B180D150EB83A002D86DE /* Glass-A55.plist */; };
-		2C7B183C150EB83A002D86DE /* Glass-A56.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B180E150EB83A002D86DE /* Glass-A56.plist */; };
-		2C7B183D150EB83A002D86DE /* Glass-A58.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B180F150EB83A002D86DE /* Glass-A58.plist */; };
-		2C7B183F150EB83A002D86DE /* Glass-Pc-Small.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1811150EB83A002D86DE /* Glass-Pc-Small.plist */; };
-		2C7B1840150EB83A002D86DE /* Glass-Pc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1812150EB83A002D86DE /* Glass-Pc.plist */; };
 		2C7B1842150EB83A002D86DE /* Leaf.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1814150EB83A002D86DE /* Leaf.plist */; };
 		2C7B1843150EB83A002D86DE /* Mushroom.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1815150EB83A002D86DE /* Mushroom.plist */; };
 		2C7B1844150EB83A002D86DE /* Nut.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1816150EB83A002D86DE /* Nut.plist */; };
@@ -124,6 +132,8 @@
 		2C7B184D150EB83A002D86DE /* Wood-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1821150EB83A002D86DE /* Wood-3.plist */; };
 		2C7B184E150EB83A002D86DE /* Wood.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1822150EB83A002D86DE /* Wood.plist */; };
 		2C7B1851150EC514002D86DE /* DebugRenderShardPiecesSpawnAreaSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B1850150EC514002D86DE /* DebugRenderShardPiecesSpawnAreaSystem.m */; };
+		2C7BF61C1537821C008BE190 /* B1-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7BF61B1537821C008BE190 /* B1-Glass-Shapes.plist */; };
+		2C7BF62415378D7C008BE190 /* B40-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7BF62315378D7C008BE190 /* B40-Glass-Shapes.plist */; };
 		2C7C3B26150275B800640416 /* PauseArrow-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B25150275B800640416 /* PauseArrow-01.png */; };
 		2C7C3B29150276C300640416 /* Level Completed Bubble-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */; };
 		2C7C3B2A150276C300640416 /* Level Failed Bubble-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */; };
@@ -821,8 +831,6 @@
 		2CEE585415211EF000953CE1 /* Bouncee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEE585315211EF000953CE1 /* Bouncee-Animations.plist */; };
 		2CEE58561533607B00953CE1 /* A34-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEE58551533607B00953CE1 /* A34-Glass-Shapes.plist */; };
 		2CEE5858153360B500953CE1 /* A59-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEE5857153360B500953CE1 /* A59-Glass-Shapes.plist */; };
-		2CEE585A1533612F00953CE1 /* Glass-A59.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEE58591533612F00953CE1 /* Glass-A59.plist */; };
-		2CEE585C1533621700953CE1 /* Glass-A34.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEE585B1533621700953CE1 /* Glass-A34.plist */; };
 		2CEE585E153365D900953CE1 /* Wood-4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEE585D153365D900953CE1 /* Wood-4.plist */; };
 		2CEEC7BA150577B500EAC127 /* Leaf-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7B9150577B500EAC127 /* Leaf-Animations.plist */; };
 		2CEEC7BE1505807900EAC127 /* Leave-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7BD1505807900EAC127 /* Leave-Shapes.plist */; };
@@ -939,6 +947,29 @@
 		2C53122C15097DE400FDE482 /* Bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bubble.png; sourceTree = "<group>"; };
 		2C535FCB14992B0B00BC7DB6 /* BeeQueueRenderingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeQueueRenderingSystem.h; path = Classes/System/BeeQueueRenderingSystem.h; sourceTree = "<group>"; };
 		2C535FCC14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeQueueRenderingSystem.m; path = Classes/System/BeeQueueRenderingSystem.m; sourceTree = "<group>"; };
+		2C5372B615378F8800040EED /* Glass-A22.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A22.plist"; sourceTree = "<group>"; };
+		2C5372B715378F8800040EED /* Glass-A27.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A27.plist"; sourceTree = "<group>"; };
+		2C5372B815378F8800040EED /* Glass-A29.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A29.plist"; sourceTree = "<group>"; };
+		2C5372B915378F8800040EED /* Glass-A33.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A33.plist"; sourceTree = "<group>"; };
+		2C5372BA15378F8800040EED /* Glass-A34.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A34.plist"; sourceTree = "<group>"; };
+		2C5372BB15378F8800040EED /* Glass-A35.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A35.plist"; sourceTree = "<group>"; };
+		2C5372BC15378F8800040EED /* Glass-A37.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A37.plist"; sourceTree = "<group>"; };
+		2C5372BD15378F8800040EED /* Glass-A45.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A45.plist"; sourceTree = "<group>"; };
+		2C5372BE15378F8800040EED /* Glass-A46.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A46.plist"; sourceTree = "<group>"; };
+		2C5372BF15378F8800040EED /* Glass-A51.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A51.plist"; sourceTree = "<group>"; };
+		2C5372C015378F8800040EED /* Glass-A53.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A53.plist"; sourceTree = "<group>"; };
+		2C5372C115378F8800040EED /* Glass-A55.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A55.plist"; sourceTree = "<group>"; };
+		2C5372C215378F8800040EED /* Glass-A56.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A56.plist"; sourceTree = "<group>"; };
+		2C5372C315378F8800040EED /* Glass-A58.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A58.plist"; sourceTree = "<group>"; };
+		2C5372C415378F8800040EED /* Glass-A59.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A59.plist"; sourceTree = "<group>"; };
+		2C5372C815378F8800040EED /* Glass-B1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-B1.plist"; sourceTree = "<group>"; };
+		2C5372C915378F8800040EED /* Glass-B40-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-B40-1.plist"; sourceTree = "<group>"; };
+		2C5372CA15378F8800040EED /* Glass-B40-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-B40-2.plist"; sourceTree = "<group>"; };
+		2C5372CB15378F8800040EED /* Glass-B40-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-B40-3.plist"; sourceTree = "<group>"; };
+		2C5372E115378FB000040EED /* Glass-A-Pc-Small.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A-Pc-Small.plist"; sourceTree = "<group>"; };
+		2C5372E215378FB000040EED /* Glass-A-Pc.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A-Pc.plist"; sourceTree = "<group>"; };
+		2C5372E91537918600040EED /* Glass-B-Pc-Small.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-B-Pc-Small.plist"; sourceTree = "<group>"; };
+		2C5372EA1537918600040EED /* Glass-B-Pc.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-B-Pc.plist"; sourceTree = "<group>"; };
 		2C596D3914A13FDD00DFCC14 /* LevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLoader.h; sourceTree = "<group>"; };
 		2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLoader.m; sourceTree = "<group>"; };
 		2C5EFC2914E496A00071ED39 /* SpawnComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpawnComponent.h; path = Classes/Component/SpawnComponent.h; sourceTree = "<group>"; };
@@ -988,21 +1019,6 @@
 		2C7B17FF150EB83A002D86DE /* Cavegate.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Cavegate.plist; sourceTree = "<group>"; };
 		2C7B1800150EB83A002D86DE /* Egg.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Egg.plist; sourceTree = "<group>"; };
 		2C7B1801150EB83A002D86DE /* Floating-Block-A.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Floating-Block-A.plist"; sourceTree = "<group>"; };
-		2C7B1803150EB83A002D86DE /* Glass-A22.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A22.plist"; sourceTree = "<group>"; };
-		2C7B1804150EB83A002D86DE /* Glass-A27.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A27.plist"; sourceTree = "<group>"; };
-		2C7B1805150EB83A002D86DE /* Glass-A29.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A29.plist"; sourceTree = "<group>"; };
-		2C7B1806150EB83A002D86DE /* Glass-A33.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A33.plist"; sourceTree = "<group>"; };
-		2C7B1807150EB83A002D86DE /* Glass-A35.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A35.plist"; sourceTree = "<group>"; };
-		2C7B1808150EB83A002D86DE /* Glass-A37.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A37.plist"; sourceTree = "<group>"; };
-		2C7B1809150EB83A002D86DE /* Glass-A45.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A45.plist"; sourceTree = "<group>"; };
-		2C7B180A150EB83A002D86DE /* Glass-A46.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A46.plist"; sourceTree = "<group>"; };
-		2C7B180B150EB83A002D86DE /* Glass-A51.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A51.plist"; sourceTree = "<group>"; };
-		2C7B180C150EB83A002D86DE /* Glass-A53.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A53.plist"; sourceTree = "<group>"; };
-		2C7B180D150EB83A002D86DE /* Glass-A55.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A55.plist"; sourceTree = "<group>"; };
-		2C7B180E150EB83A002D86DE /* Glass-A56.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A56.plist"; sourceTree = "<group>"; };
-		2C7B180F150EB83A002D86DE /* Glass-A58.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A58.plist"; sourceTree = "<group>"; };
-		2C7B1811150EB83A002D86DE /* Glass-Pc-Small.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-Pc-Small.plist"; sourceTree = "<group>"; };
-		2C7B1812150EB83A002D86DE /* Glass-Pc.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-Pc.plist"; sourceTree = "<group>"; };
 		2C7B1814150EB83A002D86DE /* Leaf.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Leaf.plist; sourceTree = "<group>"; };
 		2C7B1815150EB83A002D86DE /* Mushroom.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Mushroom.plist; sourceTree = "<group>"; };
 		2C7B1816150EB83A002D86DE /* Nut.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Nut.plist; sourceTree = "<group>"; };
@@ -1018,6 +1034,8 @@
 		2C7B1822150EB83A002D86DE /* Wood.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Wood.plist; sourceTree = "<group>"; };
 		2C7B184F150EC513002D86DE /* DebugRenderShardPiecesSpawnAreaSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugRenderShardPiecesSpawnAreaSystem.h; sourceTree = "<group>"; };
 		2C7B1850150EC514002D86DE /* DebugRenderShardPiecesSpawnAreaSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugRenderShardPiecesSpawnAreaSystem.m; sourceTree = "<group>"; };
+		2C7BF61B1537821C008BE190 /* B1-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "B1-Glass-Shapes.plist"; sourceTree = "<group>"; };
+		2C7BF62315378D7C008BE190 /* B40-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "B40-Glass-Shapes.plist"; sourceTree = "<group>"; };
 		2C7C3B25150275B800640416 /* PauseArrow-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01.png"; sourceTree = "<group>"; };
 		2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level Completed Bubble-01.png"; sourceTree = "<group>"; };
 		2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level Failed Bubble-01.png"; sourceTree = "<group>"; };
@@ -1955,8 +1973,6 @@
 		2CEE585315211EF000953CE1 /* Bouncee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bouncee-Animations.plist"; sourceTree = "<group>"; };
 		2CEE58551533607B00953CE1 /* A34-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A34-Glass-Shapes.plist"; sourceTree = "<group>"; };
 		2CEE5857153360B500953CE1 /* A59-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A59-Glass-Shapes.plist"; sourceTree = "<group>"; };
-		2CEE58591533612F00953CE1 /* Glass-A59.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A59.plist"; sourceTree = "<group>"; };
-		2CEE585B1533621700953CE1 /* Glass-A34.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-A34.plist"; sourceTree = "<group>"; };
 		2CEE585D153365D900953CE1 /* Wood-4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Wood-4.plist"; sourceTree = "<group>"; };
 		2CEEC7B9150577B500EAC127 /* Leaf-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Leaf-Animations.plist"; sourceTree = "<group>"; };
 		2CEEC7BD1505807900EAC127 /* Leave-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Leave-Shapes.plist"; sourceTree = "<group>"; };
@@ -2131,6 +2147,43 @@
 			path = Resources/Sprites;
 			sourceTree = "<group>";
 		};
+		2C5372B515378F8800040EED /* A */ = {
+			isa = PBXGroup;
+			children = (
+				2C5372E115378FB000040EED /* Glass-A-Pc-Small.plist */,
+				2C5372E215378FB000040EED /* Glass-A-Pc.plist */,
+				2C5372B615378F8800040EED /* Glass-A22.plist */,
+				2C5372B715378F8800040EED /* Glass-A27.plist */,
+				2C5372B815378F8800040EED /* Glass-A29.plist */,
+				2C5372B915378F8800040EED /* Glass-A33.plist */,
+				2C5372BA15378F8800040EED /* Glass-A34.plist */,
+				2C5372BB15378F8800040EED /* Glass-A35.plist */,
+				2C5372BC15378F8800040EED /* Glass-A37.plist */,
+				2C5372BD15378F8800040EED /* Glass-A45.plist */,
+				2C5372BE15378F8800040EED /* Glass-A46.plist */,
+				2C5372BF15378F8800040EED /* Glass-A51.plist */,
+				2C5372C015378F8800040EED /* Glass-A53.plist */,
+				2C5372C115378F8800040EED /* Glass-A55.plist */,
+				2C5372C215378F8800040EED /* Glass-A56.plist */,
+				2C5372C315378F8800040EED /* Glass-A58.plist */,
+				2C5372C415378F8800040EED /* Glass-A59.plist */,
+			);
+			path = A;
+			sourceTree = "<group>";
+		};
+		2C5372C715378F8800040EED /* B */ = {
+			isa = PBXGroup;
+			children = (
+				2C5372E91537918600040EED /* Glass-B-Pc-Small.plist */,
+				2C5372EA1537918600040EED /* Glass-B-Pc.plist */,
+				2C5372C815378F8800040EED /* Glass-B1.plist */,
+				2C5372C915378F8800040EED /* Glass-B40-1.plist */,
+				2C5372CA15378F8800040EED /* Glass-B40-2.plist */,
+				2C5372CB15378F8800040EED /* Glass-B40-3.plist */,
+			);
+			path = B;
+			sourceTree = "<group>";
+		};
 		2C596D3214A13FDD00DFCC14 /* Level */ = {
 			isa = PBXGroup;
 			children = (
@@ -2190,6 +2243,8 @@
 				2CEEC7D215058AE800EAC127 /* A56-Glass-Shapes.plist */,
 				2CEEC7D315058AE800EAC127 /* A58-Glass-Shapes.plist */,
 				2CEE5857153360B500953CE1 /* A59-Glass-Shapes.plist */,
+				2C7BF61B1537821C008BE190 /* B1-Glass-Shapes.plist */,
+				2C7BF62315378D7C008BE190 /* B40-Glass-Shapes.plist */,
 				2C5EFC6D14E829390071ED39 /* Bee-Shapes.plist */,
 				2CEE585115211EBE00953CE1 /* Bouncee-Shapes.plist */,
 				2C5EFC4814E7DACF0071ED39 /* FloatingBlockA-Shapes.plist */,
@@ -2274,23 +2329,8 @@
 		2C7B1802150EB83A002D86DE /* Glass */ = {
 			isa = PBXGroup;
 			children = (
-				2C7B1803150EB83A002D86DE /* Glass-A22.plist */,
-				2C7B1804150EB83A002D86DE /* Glass-A27.plist */,
-				2C7B1805150EB83A002D86DE /* Glass-A29.plist */,
-				2C7B1806150EB83A002D86DE /* Glass-A33.plist */,
-				2CEE585B1533621700953CE1 /* Glass-A34.plist */,
-				2C7B1807150EB83A002D86DE /* Glass-A35.plist */,
-				2C7B1808150EB83A002D86DE /* Glass-A37.plist */,
-				2C7B1809150EB83A002D86DE /* Glass-A45.plist */,
-				2C7B180A150EB83A002D86DE /* Glass-A46.plist */,
-				2C7B180B150EB83A002D86DE /* Glass-A51.plist */,
-				2C7B180C150EB83A002D86DE /* Glass-A53.plist */,
-				2C7B180D150EB83A002D86DE /* Glass-A55.plist */,
-				2C7B180E150EB83A002D86DE /* Glass-A56.plist */,
-				2C7B180F150EB83A002D86DE /* Glass-A58.plist */,
-				2CEE58591533612F00953CE1 /* Glass-A59.plist */,
-				2C7B1811150EB83A002D86DE /* Glass-Pc-Small.plist */,
-				2C7B1812150EB83A002D86DE /* Glass-Pc.plist */,
+				2C5372B515378F8800040EED /* A */,
+				2C5372C715378F8800040EED /* B */,
 			);
 			path = Glass;
 			sourceTree = "<group>";
@@ -3861,21 +3901,6 @@
 				2C7B182E150EB83A002D86DE /* Cavegate.plist in Resources */,
 				2C7B182F150EB83A002D86DE /* Egg.plist in Resources */,
 				2C7B1830150EB83A002D86DE /* Floating-Block-A.plist in Resources */,
-				2C7B1831150EB83A002D86DE /* Glass-A22.plist in Resources */,
-				2C7B1832150EB83A002D86DE /* Glass-A27.plist in Resources */,
-				2C7B1833150EB83A002D86DE /* Glass-A29.plist in Resources */,
-				2C7B1834150EB83A002D86DE /* Glass-A33.plist in Resources */,
-				2C7B1835150EB83A002D86DE /* Glass-A35.plist in Resources */,
-				2C7B1836150EB83A002D86DE /* Glass-A37.plist in Resources */,
-				2C7B1837150EB83A002D86DE /* Glass-A45.plist in Resources */,
-				2C7B1838150EB83A002D86DE /* Glass-A46.plist in Resources */,
-				2C7B1839150EB83A002D86DE /* Glass-A51.plist in Resources */,
-				2C7B183A150EB83A002D86DE /* Glass-A53.plist in Resources */,
-				2C7B183B150EB83A002D86DE /* Glass-A55.plist in Resources */,
-				2C7B183C150EB83A002D86DE /* Glass-A56.plist in Resources */,
-				2C7B183D150EB83A002D86DE /* Glass-A58.plist in Resources */,
-				2C7B183F150EB83A002D86DE /* Glass-Pc-Small.plist in Resources */,
-				2C7B1840150EB83A002D86DE /* Glass-Pc.plist in Resources */,
 				2C7B1842150EB83A002D86DE /* Leaf.plist in Resources */,
 				2C7B1843150EB83A002D86DE /* Mushroom.plist in Resources */,
 				2C7B1844150EB83A002D86DE /* Nut.plist in Resources */,
@@ -3901,8 +3926,6 @@
 				2CEE585415211EF000953CE1 /* Bouncee-Animations.plist in Resources */,
 				2CEE58561533607B00953CE1 /* A34-Glass-Shapes.plist in Resources */,
 				2CEE5858153360B500953CE1 /* A59-Glass-Shapes.plist in Resources */,
-				2CEE585A1533612F00953CE1 /* Glass-A59.plist in Resources */,
-				2CEE585C1533621700953CE1 /* Glass-A34.plist in Resources */,
 				2CEE585E153365D900953CE1 /* Wood-4.plist in Resources */,
 				2CCD7AA61537003000730FA2 /* Level-A1-hd.jpg in Resources */,
 				2CCD7AA71537003000730FA2 /* Level-A1-Layout.plist in Resources */,
@@ -4361,6 +4384,31 @@
 				2C8B19A115377920003F3465 /* Sumee-Animations.plist in Resources */,
 				2C8B19A315377C69003F3465 /* Sumee-Shapes.plist in Resources */,
 				2C8B19A515377ED5003F3465 /* B-Level-Music2.m4a in Resources */,
+				2C7BF61C1537821C008BE190 /* B1-Glass-Shapes.plist in Resources */,
+				2C7BF62415378D7C008BE190 /* B40-Glass-Shapes.plist in Resources */,
+				2C5372CC15378F8800040EED /* Glass-A22.plist in Resources */,
+				2C5372CD15378F8800040EED /* Glass-A27.plist in Resources */,
+				2C5372CE15378F8800040EED /* Glass-A29.plist in Resources */,
+				2C5372CF15378F8800040EED /* Glass-A33.plist in Resources */,
+				2C5372D015378F8800040EED /* Glass-A34.plist in Resources */,
+				2C5372D115378F8800040EED /* Glass-A35.plist in Resources */,
+				2C5372D215378F8800040EED /* Glass-A37.plist in Resources */,
+				2C5372D315378F8800040EED /* Glass-A45.plist in Resources */,
+				2C5372D415378F8800040EED /* Glass-A46.plist in Resources */,
+				2C5372D515378F8800040EED /* Glass-A51.plist in Resources */,
+				2C5372D615378F8800040EED /* Glass-A53.plist in Resources */,
+				2C5372D715378F8800040EED /* Glass-A55.plist in Resources */,
+				2C5372D815378F8800040EED /* Glass-A56.plist in Resources */,
+				2C5372D915378F8800040EED /* Glass-A58.plist in Resources */,
+				2C5372DA15378F8800040EED /* Glass-A59.plist in Resources */,
+				2C5372DD15378F8800040EED /* Glass-B1.plist in Resources */,
+				2C5372DE15378F8800040EED /* Glass-B40-1.plist in Resources */,
+				2C5372DF15378F8800040EED /* Glass-B40-2.plist in Resources */,
+				2C5372E015378F8800040EED /* Glass-B40-3.plist in Resources */,
+				2C5372E315378FB000040EED /* Glass-A-Pc-Small.plist in Resources */,
+				2C5372E415378FB000040EED /* Glass-A-Pc.plist in Resources */,
+				2C5372EB1537918600040EED /* Glass-B-Pc-Small.plist in Resources */,
+				2C5372EC1537918600040EED /* Glass-B-Pc.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
