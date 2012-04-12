@@ -181,6 +181,9 @@
 		2C8B1999153771C9003F3465 /* Beeater-B-Pc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8B1997153771C9003F3465 /* Beeater-B-Pc.plist */; };
 		2C8B199C15377631003F3465 /* Hangnest-A.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8B199A15377630003F3465 /* Hangnest-A.plist */; };
 		2C8B199D15377631003F3465 /* Hangnest-B.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8B199B15377630003F3465 /* Hangnest-B.plist */; };
+		2C8B199F15377807003F3465 /* Sumee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8B199E15377807003F3465 /* Sumee.plist */; };
+		2C8B19A115377920003F3465 /* Sumee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8B19A015377920003F3465 /* Sumee-Animations.plist */; };
+		2C8B19A315377C69003F3465 /* Sumee-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8B19A215377C69003F3465 /* Sumee-Shapes.plist */; };
 		2C8C2F07150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C2F06150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m */; };
 		2C9253341512AE2600F3F7C1 /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C92524B1512AE2600F3F7C1 /* CCAction.m */; };
 		2C9253351512AE2600F3F7C1 /* CCActionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C92524D1512AE2600F3F7C1 /* CCActionCamera.m */; };
@@ -1139,6 +1142,9 @@
 		2C8B1997153771C9003F3465 /* Beeater-B-Pc.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-B-Pc.plist"; sourceTree = "<group>"; };
 		2C8B199A15377630003F3465 /* Hangnest-A.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Hangnest-A.plist"; sourceTree = "<group>"; };
 		2C8B199B15377630003F3465 /* Hangnest-B.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Hangnest-B.plist"; sourceTree = "<group>"; };
+		2C8B199E15377807003F3465 /* Sumee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sumee.plist; sourceTree = "<group>"; };
+		2C8B19A015377920003F3465 /* Sumee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sumee-Animations.plist"; sourceTree = "<group>"; };
+		2C8B19A215377C69003F3465 /* Sumee-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sumee-Shapes.plist"; sourceTree = "<group>"; };
 		2C8C2F05150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugRenderShardPiecesSpawnAreaLayer.h; sourceTree = "<group>"; };
 		2C8C2F06150EC56100227BA0 /* DebugRenderShardPiecesSpawnAreaLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugRenderShardPiecesSpawnAreaLayer.m; sourceTree = "<group>"; };
 		2C92524A1512AE2600F3F7C1 /* CCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAction.h; sourceTree = "<group>"; };
@@ -2187,6 +2193,7 @@
 				2C5EFC4814E7DACF0071ED39 /* FloatingBlockA-Shapes.plist */,
 				2CEEC7BD1505807900EAC127 /* Leave-Shapes.plist */,
 				2CD2529D15095B9A00B9E300 /* Speedee-Shapes.plist */,
+				2C8B19A215377C69003F3465 /* Sumee-Shapes.plist */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -2240,6 +2247,7 @@
 				2C7B17F6150EB83A002D86DE /* Sawee.plist */,
 				2C7B17F7150EB83A002D86DE /* Speedee-Puff.plist */,
 				2C7B17F8150EB83A002D86DE /* Speedee.plist */,
+				2C8B199E15377807003F3465 /* Sumee.plist */,
 			);
 			path = Bee;
 			sourceTree = "<group>";
@@ -2911,6 +2919,7 @@
 				2CEE585315211EF000953CE1 /* Bouncee-Animations.plist */,
 				2CC9E7831502E80900C094B0 /* Sawee-Animations.plist */,
 				2CC9E7841502E80900C094B0 /* Speedee-Animations.plist */,
+				2C8B19A015377920003F3465 /* Sumee-Animations.plist */,
 			);
 			path = Bee;
 			sourceTree = "<group>";
@@ -4345,6 +4354,9 @@
 				2C8B1999153771C9003F3465 /* Beeater-B-Pc.plist in Resources */,
 				2C8B199C15377631003F3465 /* Hangnest-A.plist in Resources */,
 				2C8B199D15377631003F3465 /* Hangnest-B.plist in Resources */,
+				2C8B199F15377807003F3465 /* Sumee.plist in Resources */,
+				2C8B19A115377920003F3465 /* Sumee-Animations.plist in Resources */,
+				2C8B19A315377C69003F3465 /* Sumee-Shapes.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

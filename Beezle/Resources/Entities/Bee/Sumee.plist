@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>SUMEE</string>
+	<key>groups</key>
+	<array>
+		<string>BEES</string>
+	</array>
+	<key>components</key>
+	<dict>
+		<key>bee</key>
+		<dict>
+			<key>type</key>
+			<string>SUMEE</string>
+		</dict>
+		<key>disposable</key>
+		<dict/>
+		<key>physics</key>
+		<dict>
+			<key>file</key>
+			<string>Sumee-Shapes.plist</string>
+			<key>bodyName</key>
+			<string>Sumee</string>
+			<key>collisionType</key>
+			<string>BEE</string>
+			<key>layers</key>
+			<real>1</real>
+			<key>group</key>
+			<string>OBJECT</string>
+		</dict>
+		<key>render</key>
+		<dict>
+			<key>sprites</key>
+			<array>
+				<dict>
+					<key>name</key>
+					<string>default</string>
+					<key>spriteSheetName</key>
+					<string>Shared</string>
+					<key>animationFile</key>
+					<string>Sumee-Animations.plist</string>
+					<key>z</key>
+					<integer>4</integer>
+					<key>anchorPoint</key>
+					<string>{ 0.5, 0.5 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Sumee-Idle</string>
+					<key>defaultDestroyAnimation</key>
+					<string>Sumee-Crash</string>
+				</dict>
+			</array>
+		</dict>
+		<key>transform</key>
+		<dict/>
+	</dict>
+</dict>
+</plist>
