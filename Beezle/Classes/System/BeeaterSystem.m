@@ -97,10 +97,10 @@
 	Entity *beeaterEntity = [beeaterComponent parentEntity];
 	RenderComponent *renderComponent = [RenderComponent getFrom:beeaterEntity];
 	RenderSprite *headRenderSprite = [renderComponent getRenderSprite:@"head"];
-	NSString *headAnimationName = [NSString stringWithFormat:@"Beeater-Head-Idle-%@", [[beeaterComponent containedBeeType] capitalizedString]];
-	NSArray *betweenAnimationNames = [NSArray arrayWithObjects:@"Beeater-Head-Idle-Between-Short", @"Beeater-Head-Idle-Between-Medium", @"Beeater-Head-Idle-Between-Long", nil];
-	NSString *firstBetweenAnimationName = [betweenAnimationNames objectAtIndex:(rand() % 3)];
-	NSString *secondBetweenAnimationName = [betweenAnimationNames objectAtIndex:(rand() % 3)];
+	NSString *headAnimationName = [NSString stringWithFormat:[beeaterComponent showBeeAnimationNameFormat], [[beeaterComponent containedBeeType] capitalizedString]];
+	NSArray *betweenAnimationNames = [beeaterComponent showBeeBetweenAnimationNames];
+	NSString *firstBetweenAnimationName = [betweenAnimationNames objectAtIndex:(rand() % [betweenAnimationNames count])];
+	NSString *secondBetweenAnimationName = [betweenAnimationNames objectAtIndex:(rand() % [betweenAnimationNames count])];
 	[headRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:firstBetweenAnimationName, headAnimationName, secondBetweenAnimationName, headAnimationName, nil]];
 }
 

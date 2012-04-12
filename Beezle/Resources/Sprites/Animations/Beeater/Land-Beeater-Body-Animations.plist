@@ -4,27 +4,27 @@
 	<dict>
 		<key>animations</key>
 		<dict>
-			<key>Land-Beeater-Body-Idle</key>
+			<key>Land-Beeater-A-Body-Idle</key>
 			<dict>
 				<key>frames</key>
 				<array>
-					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/Body-1.png</string>
-					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/Body-1.png</string>
-					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/Body-1.png</string>
-					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/Body-1.png</string>
-					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/Body-1.png</string>
-					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/Body-1.png</string>
-					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/Body-1.png</string>
-					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/Body-2.png</string>
-					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/Body-3.png</string>
-					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/Body-4.png</string>
-					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/Body-3.png</string>
-					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/Body-2.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-2.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-3.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-4.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-3.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-2.png</string>
 				</array>
 				<key>delay</key>
 				<real>0.1</real>
 			</dict>
-			<key>Land-Beeater-Body-Kill</key>
+			<key>Land-Beeater-A-Body-Kill</key>
 			<dict>
 				<key>frames</key>
 				<array>
@@ -47,6 +47,54 @@
 					<string>Obsticles/Beeater/Ending/A-LandBeeaterEnd/LandBeeaterEnd-17.png</string>
 					<string>Obsticles/Beeater/Ending/A-LandBeeaterEnd/LandBeeaterEnd-18.png</string>
 					<string>Obsticles/Beeater/Ending/A-LandBeeaterEnd/LandBeeaterEnd-19.png</string>
+				</array>
+				<key>delay</key>
+				<real>0.08</real>
+			</dict>
+            
+            <key>Land-Beeater-B-Body-Idle</key>
+			<dict>
+				<key>frames</key>
+				<array>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody B/LandBody-B-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-B-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-B-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-B-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-B-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-B-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-B-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-B-2.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-B-3.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-B-4.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-B-3.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/LandBody-B-2.png</string>
+				</array>
+				<key>delay</key>
+				<real>0.1</real>
+			</dict>
+			<key>Land-Beeater-B-Body-Kill</key>
+			<dict>
+				<key>frames</key>
+				<array>
+					<string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-1.png</string>
+					<string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-2.png</string>
+                    <string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-3.png</string>
+                    <string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-4.png</string>
+                    <string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-5.png</string>
+                    <string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-6.png</string>
+                    <string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-7.png</string>
+                    <string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-8.png</string>
+                    <string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-9.png</string>
+                    <string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-10.png</string>
+                    <string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-11.png</string>
+                    <string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-12.png</string>
+                    <string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-13.png</string>
+                    <string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-14.png</string>
+                    <string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-15.png</string>
+                    <string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-16.png</string>
+                    <string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-17.png</string>
+                    <string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-18.png</string>
+                    <string>Obsticles/Beeater/Ending/B-LandBeeaterEnd/B-LandBeeaterEnd-19.png</string>
 				</array>
 				<key>delay</key>
 				<real>0.08</real>

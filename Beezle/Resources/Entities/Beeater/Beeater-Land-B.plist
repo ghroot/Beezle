@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>BEEATER-LAND-B</string>
+	<key>groups</key>
+	<array>
+		<string>BEEATERS</string>
+	</array>
+	<key>components</key>
+	<dict>
+		<key>beeater</key>
+		<dict>
+			<key>defaultContainedBeeType</key>
+			<string>BEE</string>
+            <key>showBeeAnimationNameFormat</key>
+            <string>Beeater-B-Head-Idle-%@</string>
+            <key>showBeeBetweenAnimationNames</key>
+            <array>
+                <string>Beeater-B-Head-Idle-Between-Short</string>
+                <string>Beeater-B-Head-Idle-Between-Medium</string>
+                <string>Beeater-B-Head-Idle-Between-Long</string>
+            </array>
+		</dict>
+		<key>crumble</key>
+		<dict/>
+		<key>disposable</key>
+		<dict/>
+		<key>physics</key>
+		<dict>
+			<key>body</key>
+			<dict>
+				<key>mass</key>
+				<real>0</real>
+			</dict>
+			<key>shapes</key>
+			<array>
+				<dict>
+					<key>type</key>
+					<string>poly</string>
+					<key>vertices</key>
+					<array>
+						<string>{ -15, 0 }</string>
+						<string>{ -15, 40 }</string>
+						<string>{ 15, 40}</string>
+						<string>{ 15, 0 }</string>
+					</array>
+					<key>elasticity</key>
+					<real>0.8</real>
+					<key>friction</key>
+					<real>0.5</real>
+					<key>isSensor</key>
+					<true/>
+					<key>collisionType</key>
+					<string>BEEATER</string>
+					<key>layers</key>
+					<integer>3</integer>
+					<key>group</key>
+					<string>LEVEL</string>
+				</dict>
+			</array>
+		</dict>
+		<key>render</key>
+		<dict>
+			<key>sprites</key>
+			<array>
+				<dict>
+					<key>name</key>
+					<string>body</string>
+					<key>spriteSheetName</key>
+					<string>B-1</string>
+					<key>animationFile</key>
+					<string>Land-Beeater-Body-Animations.plist</string>
+					<key>z</key>
+					<integer>2</integer>
+					<key>anchorPoint</key>
+					<string>{ 0.6, 0.0 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Land-Beeater-B-Body-Idle</string>
+					<key>defaultDestroyAnimation</key>
+					<string>Land-Beeater-B-Body-Kill</string>
+				</dict>
+				<dict>
+					<key>name</key>
+					<string>head</string>
+					<key>spriteSheetName</key>
+					<string>B-1</string>
+					<key>animationFile</key>
+					<string>Beeater-Head-Animations.plist</string>
+					<key>z</key>
+					<integer>3</integer>
+					<key>anchorPoint</key>
+					<string>{ 0.8, -0.3 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Beeater-B-Head-Idle-NoBee</string>
+				</dict>
+			</array>
+		</dict>
+        <key>sound</key>
+        <dict>
+            <key>defaultDestroySound</key>
+            <string>BeeaterKill</string>
+        </dict>
+		<key>transform</key>
+		<dict/>
+	</dict>
+</dict>
+</plist>

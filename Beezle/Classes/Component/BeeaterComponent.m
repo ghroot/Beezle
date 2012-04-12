@@ -12,6 +12,8 @@
 @implementation BeeaterComponent
 
 @synthesize containedBeeType = _containedBeeType;
+@synthesize showBeeAnimationNameFormat = _showBeeAnimationNameFormat;
+@synthesize showBeeBetweenAnimationNames = _showBeeBetweenAnimationNames;
 
 -(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
 {
@@ -23,6 +25,14 @@
 			BeeType *defaultContainedBeeType = [BeeType enumFromName:defaultContainedBeeTypeAsString];
 			_containedBeeType = defaultContainedBeeType;
 		}
+        if ([dict objectForKey:@"showBeeAnimationNameFormat"] != nil)
+        {
+            _showBeeAnimationNameFormat = [[dict objectForKey:@"showBeeAnimationNameFormat"] copy];
+        }
+        if ([dict objectForKey:@"showBeeBetweenAnimationNames"] != nil)
+        {
+            _showBeeBetweenAnimationNames = [[dict objectForKey:@"showBeeBetweenAnimationNames"] retain];
+        }
 	}
 	return self;
 }
@@ -35,6 +45,14 @@
 		_containedBeeType = nil;
 	}
 	return self;
+}
+
+-(void) dealloc
+{
+    [_showBeeAnimationNameFormat release];
+    [_showBeeBetweenAnimationNames release];
+    
+    [super dealloc];
 }
 
 -(void) setContainedBeeType:(BeeType *)containedBeeType

@@ -277,7 +277,7 @@
     [entity addComponent:transformComponent];
 	
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Sprites" animationFile:animationFile z:3];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Shared" animationFile:animationFile z:3];
 	RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
 	[entity addComponent:renderComponent];
 	
