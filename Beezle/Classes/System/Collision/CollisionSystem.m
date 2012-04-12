@@ -25,7 +25,7 @@
 #import "CollisionType.h"
 #import "GlassPieceHandler.h"
 #import "PhysicsSystem.h"
-#import "WaterDropBackgroundHandler.h"
+#import "WaterDropHandler.h"
 
 @interface CollisionSystem()
 
@@ -87,7 +87,9 @@
     [self registerCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType EDGE] handler:glassPieceHandler];
     [self registerCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType EDGE] handler:glassPieceHandler];
     
-    [self registerCollisionBetween:[CollisionType WATER_DROP] and:[CollisionType EDGE] handler:[WaterDropBackgroundHandler handlerWithWorld:_world]];
+    WaterDropHandler *waterDropHandler = [WaterDropHandler handlerWithWorld:_world];
+    [self registerCollisionBetween:[CollisionType WATER_DROP] and:[CollisionType BACKGROUND] handler:waterDropHandler];
+    [self registerCollisionBetween:[CollisionType WATER_DROP] and:[CollisionType WATER] handler:waterDropHandler];
 }
 
 -(void) registerCollisionBetween:(CollisionType *)type1 and:(CollisionType *)type2 handler:(CollisionHandler *)handler

@@ -176,7 +176,7 @@
 		2C8957FA1535BA3500DF4433 /* BeeGateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957F91535BA3400DF4433 /* BeeGateHandler.m */; };
 		2C8957FD1535BA4300DF4433 /* BeeWaterHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957FC1535BA4200DF4433 /* BeeWaterHandler.m */; };
 		2C8958001535BA5A00DF4433 /* AimPollenEdgeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957FF1535BA5900DF4433 /* AimPollenEdgeHandler.m */; };
-		2C8958091535BA9000DF4433 /* WaterDropBackgroundHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8958081535BA8F00DF4433 /* WaterDropBackgroundHandler.m */; };
+		2C8958091535BA9000DF4433 /* WaterDropHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8958081535BA8F00DF4433 /* WaterDropHandler.m */; };
 		2C89580C1535BC8000DF4433 /* GlassPieceHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C89580B1535BC7E00DF4433 /* GlassPieceHandler.m */; };
 		2C8B181C153391FC003F3465 /* NSObject+PWObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B181B153391FC003F3465 /* NSObject+PWObject.m */; };
 		2C8B18D51536376E003F3465 /* Level-B1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8B18221536376D003F3465 /* Level-B1-hd.jpg */; };
@@ -1112,8 +1112,8 @@
 		2C8957FC1535BA4200DF4433 /* BeeWaterHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeWaterHandler.m; sourceTree = "<group>"; };
 		2C8957FE1535BA5900DF4433 /* AimPollenEdgeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AimPollenEdgeHandler.h; sourceTree = "<group>"; };
 		2C8957FF1535BA5900DF4433 /* AimPollenEdgeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AimPollenEdgeHandler.m; sourceTree = "<group>"; };
-		2C8958071535BA8E00DF4433 /* WaterDropBackgroundHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterDropBackgroundHandler.h; sourceTree = "<group>"; };
-		2C8958081535BA8F00DF4433 /* WaterDropBackgroundHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterDropBackgroundHandler.m; sourceTree = "<group>"; };
+		2C8958071535BA8E00DF4433 /* WaterDropHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; path = WaterDropHandler.h; sourceTree = "<group>"; };
+		2C8958081535BA8F00DF4433 /* WaterDropHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterDropHandler.m; sourceTree = "<group>"; };
 		2C89580A1535BC7C00DF4433 /* GlassPieceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlassPieceHandler.h; sourceTree = "<group>"; };
 		2C89580B1535BC7E00DF4433 /* GlassPieceHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlassPieceHandler.m; sourceTree = "<group>"; };
 		2C8B181A153391FC003F3465 /* NSObject+PWObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PWObject.h"; sourceTree = "<group>"; };
@@ -2451,8 +2451,8 @@
 				2C8957DB1535B14D00DF4433 /* BeeWoodHandler.m */,
 				2C89580A1535BC7C00DF4433 /* GlassPieceHandler.h */,
 				2C89580B1535BC7E00DF4433 /* GlassPieceHandler.m */,
-				2C8958071535BA8E00DF4433 /* WaterDropBackgroundHandler.h */,
-				2C8958081535BA8F00DF4433 /* WaterDropBackgroundHandler.m */,
+				2C8958071535BA8E00DF4433 /* WaterDropHandler.h */,
+				2C8958081535BA8F00DF4433 /* WaterDropHandler.m */,
 			);
 			path = Handler;
 			sourceTree = "<group>";
@@ -4519,7 +4519,7 @@
 				2C8957FA1535BA3500DF4433 /* BeeGateHandler.m in Sources */,
 				2C8957FD1535BA4300DF4433 /* BeeWaterHandler.m in Sources */,
 				2C8958001535BA5A00DF4433 /* AimPollenEdgeHandler.m in Sources */,
-				2C8958091535BA9000DF4433 /* WaterDropBackgroundHandler.m in Sources */,
+				2C8958091535BA9000DF4433 /* WaterDropHandler.m in Sources */,
 				2C89580C1535BC8000DF4433 /* GlassPieceHandler.m in Sources */,
 				2C8B198B15363878003F3465 /* LevelThemeSelectMenuState.m in Sources */,
 				2C8B198E153639C7003F3465 /* LevelThemeSelectMenuItem.m in Sources */,

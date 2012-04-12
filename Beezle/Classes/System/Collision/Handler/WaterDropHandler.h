@@ -1,5 +1,5 @@
 //
-//  WaterDropBackgroundHandler.h
+//  WaterDropHandler.h
 //  Beezle
 //
 //  Created by Marcus on 4/11/12.
@@ -8,7 +8,7 @@
 
 #import "CollisionHandler.h"
 
-@interface WaterDropBackgroundHandler : CollisionHandler
+@interface WaterDropHandler : CollisionHandler
 {
     World *_world;
 }

@@ -1,19 +1,19 @@
 //
-//  WaterDropBackgroundHandler.m
+//  WaterDropHandler.m
 //  Beezle
 //
 //  Created by Marcus on 4/11/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "WaterDropBackgroundHandler.h"
+#import "WaterDropHandler.h"
 #import "Collision.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
 #import "TransformComponent.h"
 #import "SoundManager.h"
 
-@implementation WaterDropBackgroundHandler
+@implementation WaterDropHandler
 
 +(id) handlerWithWorld:(World *)world
 {
