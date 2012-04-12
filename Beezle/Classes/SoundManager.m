@@ -141,14 +141,19 @@
 	}
 }
 
--(void) playMusic:(NSString *)name
+-(void) playMusic:(NSString *)name loop:(BOOL)loop
 {
 	if (_isFunctional &&
 		name != nil)
     {
 		NSString *musicFilePath = [_soundFilePathsByName objectForKey:name];
-		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:musicFilePath loop:TRUE];
+		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:musicFilePath loop:loop];
     }
+}
+
+-(void) playMusic:(NSString *)name
+{
+	[self playMusic:name loop:TRUE];
 }
 
 -(void) stopMusic

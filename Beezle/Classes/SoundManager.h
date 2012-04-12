@@ -22,6 +22,7 @@
 -(void) setup;
 -(void) playSound:(NSString *)name;
 -(void) stopSound:(NSString *)name;
+-(void) playMusic:(NSString *)name loop:(BOOL)loop;
 -(void) playMusic:(NSString *)name;
 -(void) stopMusic;
 

@@ -29,6 +29,7 @@
 #import "LevelCompletedMode.h"
 #import "LevelFailedMode.h"
 #import "LevelLoader.h"
+#import "LevelOrganizer.h"
 #import "LevelSession.h"
 #import "MovementSystem.h"
 #import "NotificationTypes.h"
@@ -295,7 +296,8 @@
     
     [_currentMode enter];
 	
-	[[SoundManager sharedManager] playMusic:@"MusicA"];
+	NSString *musicName = [NSString stringWithFormat:@"Music%@", [[LevelOrganizer sharedOrganizer] themeForLevel:_levelName]];
+	[[SoundManager sharedManager] playMusic:musicName loop:FALSE];
 }
 
 -(void) leave
