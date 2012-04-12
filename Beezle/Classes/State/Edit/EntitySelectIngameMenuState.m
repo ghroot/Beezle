@@ -51,6 +51,7 @@
     [self addMenuItemForEntityType:@"BEEATER-LAND-B"];
 	[self addMenuItemForEntityType:@"BEEATER-HANGING-A"];
 	[self addMenuItemForEntityType:@"BEEATER-BIRD-A"];
+    [self addMenuItemForEntityType:@"BEEATER-BIRD-B"];
 	[self addMenuItemForEntityType:@"BEEATER-FISH-A"];
 	[self addMenuItemForEntityType:@"CAVEGATE"];
 	[self addMenuItemForEntityType:@"EGG"];

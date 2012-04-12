@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>BEEATER-BIRD-A</string>
+	<string>BEEATER-BIRD-B</string>
 	<key>groups</key>
 	<array>
 		<string>BEEATERS</string>
@@ -15,12 +15,12 @@
 			<key>defaultContainedBeeType</key>
 			<string>BEE</string>
             <key>showBeeAnimationNameFormat</key>
-            <string>Beeater-A-Head-Idle-%@</string>
+            <string>Beeater-B-Head-Idle-%@</string>
             <key>showBeeBetweenAnimationNames</key>
             <array>
-                <string>Beeater-A-Head-Idle-Between-Short</string>
-                <string>Beeater-A-Head-Idle-Between-Medium</string>
-                <string>Beeater-A-Head-Idle-Between-Long</string>
+                <string>Beeater-B-Head-Idle-Between-Short</string>
+                <string>Beeater-B-Head-Idle-Between-Medium</string>
+                <string>Beeater-B-Head-Idle-Between-Long</string>
             </array>
 		</dict>
 		<key>crumble</key>
@@ -74,7 +74,7 @@
 					<key>name</key>
 					<string>body</string>
 					<key>spriteSheetName</key>
-					<string>A</string>
+					<string>B-1</string>
 					<key>animationFile</key>
 					<string>Bird-Beeater-Body-Animations.plist</string>
 					<key>z</key>
@@ -82,15 +82,15 @@
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.6 }</string>
 					<key>defaultIdleAnimation</key>
-					<string>Bird-Beeater-A-Body-Idle</string>
+					<string>Bird-Beeater-B-Body-Idle</string>
 					<key>defaultDestroyAnimation</key>
-					<string>Bird-Beeater-A-Body-Kill</string>
+					<string>Bird-Beeater-B-Body-Kill</string>
 				</dict>
 				<dict>
 					<key>name</key>
 					<string>head</string>
 					<key>spriteSheetName</key>
-					<string>A</string>
+					<string>B-1</string>
 					<key>animationFile</key>
 					<string>Beeater-Head-Animations.plist</string>
 					<key>z</key>
@@ -98,7 +98,7 @@
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.3 }</string>
 					<key>defaultIdleAnimation</key>
-					<string>Beeater-A-Head-Idle-NoBee</string>
+					<string>Beeater-B-Head-Idle-NoBee</string>
 				</dict>
 			</array>
 		</dict>

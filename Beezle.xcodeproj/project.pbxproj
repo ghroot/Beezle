@@ -72,6 +72,7 @@
 		2C5EFC6E14E829390071ED39 /* Bee-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC6D14E829390071ED39 /* Bee-Shapes.plist */; };
 		2C5EFCBF14EC60400071ED39 /* ExplodeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFCBE14EC603D0071ED39 /* ExplodeComponent.m */; };
 		2C5EFCC214EC60580071ED39 /* CrumbleComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFCC114EC60560071ED39 /* CrumbleComponent.m */; };
+		2C644376153730D700F14270 /* Beeater-Bird-B.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C644375153730D600F14270 /* Beeater-Bird-B.plist */; };
 		2C64AD0914B89D7E00ABD114 /* Levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C64ACEC14B89D7E00ABD114 /* Levels.plist */; };
 		2C64AD1414BA4F0400ABD114 /* ExplodeControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C64AD1314BA4F0300ABD114 /* ExplodeControlSystem.m */; };
 		2C764DDA148A1F4000820587 /* GCpShapeCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DD9148A1F4000820587 /* GCpShapeCache.m */; };
@@ -954,6 +955,7 @@
 		2C5EFCBE14EC603D0071ED39 /* ExplodeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExplodeComponent.m; path = Classes/Component/ExplodeComponent.m; sourceTree = "<group>"; };
 		2C5EFCC014EC60530071ED39 /* CrumbleComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CrumbleComponent.h; path = Classes/Component/CrumbleComponent.h; sourceTree = "<group>"; };
 		2C5EFCC114EC60560071ED39 /* CrumbleComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CrumbleComponent.m; path = Classes/Component/CrumbleComponent.m; sourceTree = "<group>"; };
+		2C644375153730D600F14270 /* Beeater-Bird-B.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Bird-B.plist"; sourceTree = "<group>"; };
 		2C64ACEC14B89D7E00ABD114 /* Levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Levels.plist; sourceTree = "<group>"; };
 		2C64AD1214BA4F0300ABD114 /* ExplodeControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExplodeControlSystem.h; path = Classes/System/ExplodeControlSystem.h; sourceTree = "<group>"; };
 		2C64AD1314BA4F0300ABD114 /* ExplodeControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExplodeControlSystem.m; path = Classes/System/ExplodeControlSystem.m; sourceTree = "<group>"; };
@@ -973,8 +975,8 @@
 		2C7B17F7150EB83A002D86DE /* Speedee-Puff.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Speedee-Puff.plist"; sourceTree = "<group>"; };
 		2C7B17F8150EB83A002D86DE /* Speedee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Speedee.plist; sourceTree = "<group>"; };
 		2C7B17FA150EB83A002D86DE /* Beeater-Bird-A.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Bird-A.plist"; sourceTree = "<group>"; };
-		2C7B17FB150EB83A002D86DE /* Beeater-Fish-A.plist */ = {isa = PBXFileReference; fileEncoding = 4; path = "Beeater-Fish-A.plist"; sourceTree = "<group>"; };
-		2C7B17FC150EB83A002D86DE /* Beeater-Hanging-A.plist */ = {isa = PBXFileReference; fileEncoding = 4; path = "Beeater-Hanging-A.plist"; sourceTree = "<group>"; };
+		2C7B17FB150EB83A002D86DE /* Beeater-Fish-A.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Fish-A.plist"; sourceTree = "<group>"; };
+		2C7B17FC150EB83A002D86DE /* Beeater-Hanging-A.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Hanging-A.plist"; sourceTree = "<group>"; };
 		2C7B17FD150EB83A002D86DE /* Beeater-Land-A.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Land-A.plist"; sourceTree = "<group>"; };
 		2C7B17FE150EB83A002D86DE /* Beeater-Pc.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Pc.plist"; sourceTree = "<group>"; };
 		2C7B17FF150EB83A002D86DE /* Cavegate.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Cavegate.plist; sourceTree = "<group>"; };
@@ -2240,6 +2242,7 @@
 			isa = PBXGroup;
 			children = (
 				2C7B17FA150EB83A002D86DE /* Beeater-Bird-A.plist */,
+				2C644375153730D600F14270 /* Beeater-Bird-B.plist */,
 				2C7B17FB150EB83A002D86DE /* Beeater-Fish-A.plist */,
 				2C7B17FC150EB83A002D86DE /* Beeater-Hanging-A.plist */,
 				2C7B17FD150EB83A002D86DE /* Beeater-Land-A.plist */,
@@ -4329,6 +4332,7 @@
 				2CCD7C931537121100730FA2 /* Shared.plist in Resources */,
 				2CCD7C941537121100730FA2 /* Shared.png in Resources */,
 				2CCD7C96153715F500730FA2 /* Beeater-Land-B.plist in Resources */,
+				2C644376153730D700F14270 /* Beeater-Bird-B.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
