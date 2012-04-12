@@ -91,7 +91,8 @@
 	if ([entityType isEqualToString:@"BEEATER-LAND"] ||
 		[entityType isEqualToString:@"BEEATER-HANGING"] ||
 		[entityType isEqualToString:@"BEEATER-BIRD"] ||
-		[entityType isEqualToString:@"BEEATER-FISH"])
+		[entityType isEqualToString:@"BEEATER-FISH"] ||
+		[entityType isEqualToString:@"HANGNEST"])
 	{
 		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:[editState levelName]];
 		entityType = [entityType stringByAppendingFormat:@"-%@", theme];
