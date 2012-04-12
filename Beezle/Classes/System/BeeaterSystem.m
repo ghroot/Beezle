@@ -142,12 +142,12 @@
 	[beeaterEntity refresh];
 	
 	// TEMP: Work into shard system
-	if ([[beeaterBodyRenderSprite randomDefaultDestroyAnimationName] isEqualToString:@"Bird-Beeater-Body-Kill"])
+	if ([beeaterComponent destroyPieceEntityType] != nil)
 	{
 		for (int i = 0; i < 8; i++)
 		{
 			// Create entity
-			Entity *particleEntity = [EntityFactory createEntity:@"BEEATER-PC" world:_world];
+			Entity *particleEntity = [EntityFactory createEntity:[beeaterComponent destroyPieceEntityType] world:_world];
 			
 			// Position
 			CGPoint topLeft = CGPointMake([beeaterTransformComponent position].x - 15,

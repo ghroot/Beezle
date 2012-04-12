@@ -14,11 +14,13 @@
 	BeeType *_containedBeeType;
     NSString *_showBeeAnimationNameFormat;
     NSArray *_showBeeBetweenAnimationNames;
+	NSString *_destroyPieceEntityType;
 }
 
 @property (nonatomic, assign) BeeType *containedBeeType;
 @property (nonatomic, copy) NSString *showBeeAnimationNameFormat;
 @property (nonatomic, retain) NSArray *showBeeBetweenAnimationNames;
+@property (nonatomic, copy) NSString *destroyPieceEntityType;
 
 -(BOOL) hasContainedBee;
 

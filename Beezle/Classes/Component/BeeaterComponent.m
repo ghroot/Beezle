@@ -14,6 +14,7 @@
 @synthesize containedBeeType = _containedBeeType;
 @synthesize showBeeAnimationNameFormat = _showBeeAnimationNameFormat;
 @synthesize showBeeBetweenAnimationNames = _showBeeBetweenAnimationNames;
+@synthesize destroyPieceEntityType = _destroyPieceEntityType;
 
 -(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
 {
@@ -33,6 +34,10 @@
         {
             _showBeeBetweenAnimationNames = [[dict objectForKey:@"showBeeBetweenAnimationNames"] retain];
         }
+		if ([dict objectForKey:@"destroyPieceEntityType"] != nil)
+        {
+            _destroyPieceEntityType = [[dict objectForKey:@"destroyPieceEntityType"] copy];
+        }
 	}
 	return self;
 }
@@ -51,6 +56,7 @@
 {
     [_showBeeAnimationNameFormat release];
     [_showBeeBetweenAnimationNames release];
+	[_destroyPieceEntityType release];
     
     [super dealloc];
 }
