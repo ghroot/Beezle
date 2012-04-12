@@ -9,6 +9,7 @@
 #import "EntitySelectIngameMenuState.h"
 #import "EditState.h"
 #import "Game.h"
+#import "LevelOrganizer.h"
 
 @interface EntitySelectIngameMenuState()
 
@@ -47,12 +48,10 @@
 
 -(void) createEntityMenuItems
 {
-	[self addMenuItemForEntityType:@"BEEATER-LAND-A"];
-    [self addMenuItemForEntityType:@"BEEATER-LAND-B"];
-	[self addMenuItemForEntityType:@"BEEATER-HANGING-A"];
-	[self addMenuItemForEntityType:@"BEEATER-BIRD-A"];
-    [self addMenuItemForEntityType:@"BEEATER-BIRD-B"];
-	[self addMenuItemForEntityType:@"BEEATER-FISH-A"];
+	[self addMenuItemForEntityType:@"BEEATER-LAND"];
+	[self addMenuItemForEntityType:@"BEEATER-HANGING"];
+	[self addMenuItemForEntityType:@"BEEATER-BIRD"];
+	[self addMenuItemForEntityType:@"BEEATER-FISH"];
 	[self addMenuItemForEntityType:@"CAVEGATE"];
 	[self addMenuItemForEntityType:@"EGG"];
 	[self addMenuItemForEntityType:@"FLOATING-BLOCK-A"];
@@ -89,7 +88,15 @@
 	[_game popState];
 	EditState *editState = (EditState *)[_game currentState];
 	
-	if ([entityType isEqualToString:@"GLASS"])
+	if ([entityType isEqualToString:@"BEEATER-LAND"] ||
+		[entityType isEqualToString:@"BEEATER-HANGING"] ||
+		[entityType isEqualToString:@"BEEATER-BIRD"] ||
+		[entityType isEqualToString:@"BEEATER-FISH"])
+	{
+		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:[editState levelName]];
+		entityType = [entityType stringByAppendingFormat:@"-%@", theme];
+	}
+	else if ([entityType isEqualToString:@"GLASS"])
 	{
 		NSString *levelSuffix = [[[editState levelName] componentsSeparatedByString:@"-"] objectAtIndex:1];
 		entityType = [NSString stringWithFormat:@"GLASS-%@", levelSuffix];

@@ -14,6 +14,14 @@
 		<dict>
 			<key>defaultContainedBeeType</key>
 			<string>BEE</string>
+			<key>showBeeAnimationNameFormat</key>
+            <string>Beeater-A-Head-Idle-%@</string>
+            <key>showBeeBetweenAnimationNames</key>
+            <array>
+                <string>Beeater-A-Head-Idle-Between-Short</string>
+                <string>Beeater-A-Head-Idle-Between-Medium</string>
+                <string>Beeater-A-Head-Idle-Between-Long</string>
+            </array>
 		</dict>
 		<key>crumble</key>
 		<dict/>
@@ -61,7 +69,7 @@
 					<key>name</key>
 					<string>body</string>
 					<key>spriteSheetName</key>
-					<string>Shared</string>
+					<string>A</string>
 					<key>animationFile</key>
 					<string>Hanging-Beeater-Body-Animations.plist</string>
 					<key>z</key>
@@ -69,15 +77,15 @@
 					<key>anchorPoint</key>
 					<string>{ 0.6, 1.0 }</string>
 					<key>defaultIdleAnimation</key>
-					<string>Hanging-Beeater-Body-Idle</string>
+					<string>Hanging-Beeater-A-Body-Idle</string>
 					<key>defaultDestroyAnimation</key>
-					<string>Hanging-Beeater-Body-Kill</string>
+					<string>Hanging-Beeater-A-Body-Kill</string>
 				</dict>
 				<dict>
 					<key>name</key>
 					<string>head</string>
 					<key>spriteSheetName</key>
-					<string>Shared</string>
+					<string>A</string>
 					<key>animationFile</key>
 					<string>Beeater-Head-Animations.plist</string>
 					<key>z</key>
@@ -85,7 +93,7 @@
 					<key>anchorPoint</key>
 					<string>{ 0.8, 1.2 }</string>
 					<key>defaultIdleAnimation</key>
-					<string>Beeater-Head-Idle-NoBee</string>
+					<string>Beeater-A-Head-Idle-NoBee</string>
 				</dict>
 			</array>
 		</dict>

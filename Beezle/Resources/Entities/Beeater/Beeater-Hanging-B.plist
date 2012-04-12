@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>BEEATER-FISH-A</string>
+	<string>BEEATER-HANGING-B</string>
 	<key>groups</key>
 	<array>
 		<string>BEEATERS</string>
@@ -15,29 +15,24 @@
 			<key>defaultContainedBeeType</key>
 			<string>BEE</string>
 			<key>showBeeAnimationNameFormat</key>
-            <string>Beeater-A-Head-Idle-%@</string>
+            <string>Beeater-B-Head-Idle-%@</string>
             <key>showBeeBetweenAnimationNames</key>
             <array>
-                <string>Beeater-A-Head-Idle-Between-Short</string>
-                <string>Beeater-A-Head-Idle-Between-Medium</string>
-                <string>Beeater-A-Head-Idle-Between-Long</string>
+                <string>Beeater-B-Head-Idle-Between-Short</string>
+                <string>Beeater-B-Head-Idle-Between-Medium</string>
+                <string>Beeater-B-Head-Idle-Between-Long</string>
             </array>
 		</dict>
 		<key>crumble</key>
 		<dict/>
 		<key>disposable</key>
 		<dict/>
-		<key>movement</key>
-		<dict>
-			<key>alwaysFaceForward</key>
-			<true/>
-		</dict>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
 			<dict>
 				<key>mass</key>
-				<real>-1</real>
+				<real>0</real>
 			</dict>
 			<key>shapes</key>
 			<array>
@@ -46,10 +41,10 @@
 					<string>poly</string>
 					<key>vertices</key>
 					<array>
-						<string>{ -15, -20 }</string>
-						<string>{ -15, 20 }</string>
-						<string>{ 15, 20 }</string>
-						<string>{ 15, -20 }</string>
+						<string>{ -15, 0 }</string>
+						<string>{ 15, 0 }</string>
+						<string>{ 15, -50}</string>
+						<string>{ -15, -50 }</string>
 					</array>
 					<key>elasticity</key>
 					<real>0.8</real>
@@ -74,39 +69,39 @@
 					<key>name</key>
 					<string>body</string>
 					<key>spriteSheetName</key>
-					<string>A</string>
+					<string>B-1</string>
 					<key>animationFile</key>
-					<string>Fish-Beeater-Body-Animations.plist</string>
+					<string>Hanging-Beeater-Body-Animations.plist</string>
 					<key>z</key>
-					<integer>3</integer>
+					<integer>2</integer>
 					<key>anchorPoint</key>
-					<string>{ 0.5, 0.5 }</string>
+					<string>{ 0.6, 1.0 }</string>
 					<key>defaultIdleAnimation</key>
-					<string>Fish-Beeater-A-Body-Idle</string>
+					<string>Hanging-Beeater-B-Body-Idle</string>
 					<key>defaultDestroyAnimation</key>
-					<string>Fish-Beeater-A-Body-Kill</string>
+					<string>Hanging-Beeater-B-Body-Kill</string>
 				</dict>
 				<dict>
 					<key>name</key>
 					<string>head</string>
 					<key>spriteSheetName</key>
-					<string>A</string>
+					<string>B-1</string>
 					<key>animationFile</key>
 					<string>Beeater-Head-Animations.plist</string>
 					<key>z</key>
-					<integer>2</integer>
+					<integer>3</integer>
 					<key>anchorPoint</key>
-					<string>{ 0.6, 0.4 }</string>
+					<string>{ 0.8, 1.2 }</string>
 					<key>defaultIdleAnimation</key>
-					<string>Beeater-A-Head-Idle-NoBee</string>
+					<string>Beeater-B-Head-Idle-NoBee</string>
 				</dict>
 			</array>
 		</dict>
-		<key>sound</key>
-		<dict>
-			<key>defaultDestroySound</key>
-			<string>BeeaterKill</string>
-		</dict>
+        <key>sound</key>
+        <dict>
+            <key>defaultDestroySound</key>
+            <string>BeeaterKill</string>
+        </dict>
 		<key>transform</key>
 		<dict/>
 	</dict>

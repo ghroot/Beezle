@@ -4,27 +4,27 @@
 	<dict>
 		<key>animations</key>
 		<dict>
-			<key>Hanging-Beeater-Body-Idle</key>
+			<key>Hanging-Beeater-A-Body-Idle</key>
 			<dict>
 				<key>frames</key>
 				<array>
-					<string>Obsticles/Beeater/Hanging/HangBody-1.png</string>
-					<string>Obsticles/Beeater/Hanging/HangBody-1.png</string>
-					<string>Obsticles/Beeater/Hanging/HangBody-1.png</string>
-					<string>Obsticles/Beeater/Hanging/HangBody-1.png</string>
-					<string>Obsticles/Beeater/Hanging/HangBody-1.png</string>
-					<string>Obsticles/Beeater/Hanging/HangBody-1.png</string>
-					<string>Obsticles/Beeater/Hanging/HangBody-1.png</string>
-					<string>Obsticles/Beeater/Hanging/HangBody-2.png</string>
-					<string>Obsticles/Beeater/Hanging/HangBody-3.png</string>
-					<string>Obsticles/Beeater/Hanging/HangBody-4.png</string>
-					<string>Obsticles/Beeater/Hanging/HangBody-3.png</string>
-					<string>Obsticles/Beeater/Hanging/HangBody-2.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/HangBody_1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/HangBody_1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/HangBody_1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/HangBody_1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/HangBody_1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/HangBody_1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/HangBody_1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/HangBody-2.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/HangBody-3.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/HangBody-4.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/HangBody-3.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody A/HangBody-2.png</string>
 				</array>
 				<key>delay</key>
 				<real>0.1</real>
 			</dict>
-			<key>Hanging-Beeater-Body-Kill</key>
+			<key>Hanging-Beeater-A-Body-Kill</key>
 			<dict>
 				<key>frames</key>
 				<array>
@@ -41,6 +41,47 @@
 					<string>Obsticles/Beeater/Ending/A-AirBeeaterEnd/BeeaterAirEnd-11.png</string>
 					<string>Obsticles/Beeater/Ending/A-AirBeeaterEnd/BeeaterAirEnd-12.png</string>
 					<string>Obsticles/Beeater/Ending/A-AirBeeaterEnd/BeeaterAirEnd-13.png</string>
+				</array>
+				<key>delay</key>
+				<real>0.08</real>
+			</dict>
+			
+			<key>Hanging-Beeater-B-Body-Idle</key>
+			<dict>
+				<key>frames</key>
+				<array>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody B/HangBody-B-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody B/HangBody-B-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody B/HangBody-B-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody B/HangBody-B-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody B/HangBody-B-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody B/HangBody-B-1.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody B/HangBody-B-2.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody B/HangBody-B-3.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody B/HangBody-B-4.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody B/HangBody-B-3.png</string>
+					<string>Obsticles/Beeater/BeeaterBody/BeeaterBody B/HangBody-B-2.png</string>
+				</array>
+				<key>delay</key>
+				<real>0.1</real>
+			</dict>
+			<key>Hanging-Beeater-B-Body-Kill</key>
+			<dict>
+				<key>frames</key>
+				<array>
+					<string>Obsticles/Beeater/Ending/B-AirBeeaterEnd/B-BeeaterAirEnd-1.png</string>
+					<string>Obsticles/Beeater/Ending/B-AirBeeaterEnd/B-BeeaterAirEnd-2.png</string>
+					<string>Obsticles/Beeater/Ending/B-AirBeeaterEnd/B-BeeaterAirEnd-3.png</string>
+					<string>Obsticles/Beeater/Ending/B-AirBeeaterEnd/B-BeeaterAirEnd-4.png</string>
+					<string>Obsticles/Beeater/Ending/B-AirBeeaterEnd/B-BeeaterAirEnd-5.png</string>
+					<string>Obsticles/Beeater/Ending/B-AirBeeaterEnd/B-BeeaterAirEnd-6.png</string>
+					<string>Obsticles/Beeater/Ending/B-AirBeeaterEnd/B-BeeaterAirEnd-7.png</string>
+					<string>Obsticles/Beeater/Ending/B-AirBeeaterEnd/B-BeeaterAirEnd-8.png</string>
+					<string>Obsticles/Beeater/Ending/B-AirBeeaterEnd/B-BeeaterAirEnd-9.png</string>
+					<string>Obsticles/Beeater/Ending/B-AirBeeaterEnd/B-BeeaterAirEnd-10.png</string>
+					<string>Obsticles/Beeater/Ending/B-AirBeeaterEnd/B-BeeaterAirEnd-11.png</string>
+					<string>Obsticles/Beeater/Ending/B-AirBeeaterEnd/B-BeeaterAirEnd-12.png</string>
+					<string>Obsticles/Beeater/Ending/B-AirBeeaterEnd/B-BeeaterAirEnd-13.png</string>
 				</array>
 				<key>delay</key>
 				<real>0.08</real>
