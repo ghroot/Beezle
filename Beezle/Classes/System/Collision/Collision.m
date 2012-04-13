@@ -14,20 +14,18 @@
 
 @synthesize firstShape = _firstShape;
 @synthesize secondShape = _secondShape;
-@synthesize impulse = _impulse;
 
-+(id) collisionWithFirstShape:(ChipmunkShape *)firstShape andSecondShape:(ChipmunkShape *)secondShape impulse:(cpVect)impulse
++(id) collisionWithFirstShape:(ChipmunkShape *)firstShape andSecondShape:(ChipmunkShape *)secondShape
 {
-	return [[[self alloc] initWithFirstShape:firstShape andSecondShape:secondShape impulse:impulse] autorelease];
+	return [[[self alloc] initWithFirstShape:firstShape andSecondShape:secondShape] autorelease];
 }
 
--(id) initWithFirstShape:(ChipmunkShape *)firstShape andSecondShape:(ChipmunkShape *)secondShape impulse:(cpVect)impulse
+-(id) initWithFirstShape:(ChipmunkShape *)firstShape andSecondShape:(ChipmunkShape *)secondShape
 {
     if (self = [super init])
     {
         _firstShape = [firstShape retain];
         _secondShape = [secondShape retain];
-        _impulse = impulse;
     }
     return self;
 }
@@ -60,10 +58,12 @@
     return [_secondShape collisionType];
 }
 
--(float) impulseLength
+-(float) firstEntityVelocityTimesMass
 {
-    return cpvlength(_impulse);
+    PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:[self firstEntity]];
+    ChipmunkBody *body = [physicsComponent body];
+    float velocityTimesMass = cpvlength([body vel]) * [body mass];
+    return velocityTimesMass;
 }
-
 
 @end

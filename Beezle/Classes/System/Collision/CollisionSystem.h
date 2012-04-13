@@ -18,11 +18,10 @@
 	LevelSession *_levelSession;
 	
 	NSMutableArray *_collisionMediators;
-    NSMutableArray *_collisions;
 }
 
 -(id) initWithLevelSession:(LevelSession *)levelSession;
 
--(void) pushCollision:(Collision *)collision;
+-(BOOL) handleCollision:(Collision *)collision;
 
 @end

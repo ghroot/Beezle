@@ -10,14 +10,18 @@
 #import "Collision.h"
 #import "SoundManager.h"
 
+#define VELOCITY_TIMES_MASS_FOR_SOUND 80.0f
+
 @implementation BeeBackgroundHandler
 
--(void) handleCollision:(Collision *)collision
+-(BOOL) handleCollision:(Collision *)collision
 {
-    if ([collision impulseLength] >= 50)
+    if ([collision firstEntityVelocityTimesMass] >= VELOCITY_TIMES_MASS_FOR_SOUND)
 	{
 		[[SoundManager sharedManager] playSound:@"BeeHitWall"];
 	}
+    
+    return TRUE;
 }
 
 @end

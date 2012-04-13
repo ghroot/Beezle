@@ -15,8 +15,9 @@
     return [[self new] autorelease];
 }
 
--(void) handleCollision:(Collision *)collision
+-(BOOL) handleCollision:(Collision *)collision
 {
+    return TRUE;
 }
 
 @end

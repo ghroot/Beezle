@@ -20,11 +20,12 @@
     CollisionHandler *_handler;
 }
 
+
 +(CollisionMediator *) mediatorWithType1:(CollisionType *)type1 type2:(CollisionType *)type2 handler:(CollisionHandler *)handler;
 
 -(id) initWithType1:(CollisionType *)type1 type2:(CollisionType *)type2 handler:(CollisionHandler *)handler;
 
 -(BOOL) appliesForCollision:(Collision *)collision;
--(void) mediateCollision:(Collision *)collision;
+-(BOOL) mediateCollision:(Collision *)collision;
 
 @end

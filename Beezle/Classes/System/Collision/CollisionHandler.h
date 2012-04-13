@@ -15,6 +15,6 @@
 
 +(id) handler;
 
--(void) handleCollision:(Collision *)collision;
+-(BOOL) handleCollision:(Collision *)collision;
 
 @end

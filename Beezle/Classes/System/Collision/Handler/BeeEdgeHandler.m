@@ -12,12 +12,14 @@
 
 @implementation BeeEdgeHandler
 
--(void) handleCollision:(Collision *)collision
+-(BOOL) handleCollision:(Collision *)collision
 {
     Entity *beeEntity = [collision firstEntity];
     
     [EntityUtil setEntityDisposed:beeEntity];
 	[beeEntity deleteEntity];
+    
+    return TRUE;
 }
 
 @end

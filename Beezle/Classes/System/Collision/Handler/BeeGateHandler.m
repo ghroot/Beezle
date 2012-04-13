@@ -31,7 +31,7 @@
     return self;
 }
 
--(void) handleCollision:(Collision *)collision
+-(BOOL) handleCollision:(Collision *)collision
 {
     Entity *beeEntity = [collision firstEntity];
     Entity *gateEntity = [collision secondEntity];
@@ -47,6 +47,8 @@
 		// Game notification
 		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_GATE_ENTERED object:self userInfo:nil];
 	}
+    
+    return TRUE;
 }
 
 @end

@@ -42,9 +42,9 @@
         _type2 == [collision secondCollisionType];
 }
 
--(void) mediateCollision:(Collision *)collision
+-(BOOL) mediateCollision:(Collision *)collision
 {
-    [_handler handleCollision:collision];
+    return [_handler handleCollision:collision];
 }
 
 @end

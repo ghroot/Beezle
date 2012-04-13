@@ -29,7 +29,7 @@
     return self;
 }
 
--(void) handleCollision:(Collision *)collision
+-(BOOL) handleCollision:(Collision *)collision
 {
     Entity *waterdropEntity = [collision firstEntity];
     
@@ -46,6 +46,8 @@
 		NSString *soundName = [NSString stringWithFormat:@"DripSmall%d", (1 + (rand() % 2))];
 		[[SoundManager sharedManager] playSound:soundName];
 	}
+    
+    return TRUE;
 }
 
 @end

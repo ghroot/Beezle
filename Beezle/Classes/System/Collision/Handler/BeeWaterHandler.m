@@ -28,7 +28,7 @@
     return self;
 }
 
--(void) handleCollision:(Collision *)collision
+-(BOOL) handleCollision:(Collision *)collision
 {
     Entity *beeEntity = [collision firstEntity];
     
@@ -38,6 +38,8 @@
 	[EntityUtil animateAndDeleteEntity:splashEntity animationName:@"Bee-Splash"];
 	
 	[beeEntity deleteEntity];
+    
+    return TRUE;
 }
 
 @end

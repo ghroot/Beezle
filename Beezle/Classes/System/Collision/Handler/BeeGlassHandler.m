@@ -7,14 +7,35 @@
 //
 
 #import "BeeGlassHandler.h"
+#import "BeeComponent.h"
+#import "BeeType.h"
 #import "Collision.h"
+#import "NotificationTypes.h"
 #import "SoundManager.h"
 
 @implementation BeeGlassHandler
 
--(void) handleCollision:(Collision *)collision
+-(BOOL) handleCollision:(Collision *)collision
 {
-	[[SoundManager sharedManager] playSound:@"BeeHitGlass"];
+    Entity *beeEntity = [collision firstEntity];
+    Entity *glassEntity = [collision secondEntity];
+    
+    [[SoundManager sharedManager] playSound:@"BeeHitGlass"];
+    
+    // TODO: This should be generic to the "crumble" component
+    BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
+    if ([beeComponent type] == [BeeType SUMEE] &&
+        [collision firstEntityVelocityTimesMass] >= 150)
+    {
+        NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:glassEntity forKey:@"entity"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_CRUMBLED object:self userInfo:notificationUserInfo];
+        
+        return FALSE;
+    }
+    else
+    {
+        return TRUE;
+    }
 }
 
 @end

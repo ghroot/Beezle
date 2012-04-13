@@ -26,7 +26,7 @@
 
 @implementation BeeWoodHandler
 
--(void) handleCollision:(Collision *)collision
+-(BOOL) handleCollision:(Collision *)collision
 {
     Entity *beeEntity = [collision firstEntity];
     Entity *woodEntity = [collision secondEntity];
@@ -55,6 +55,8 @@
 			[[SoundManager sharedManager] playSound:@"18339__jppi-stu__sw-paper-crumple-1.aiff"];
 		}
 	}
+    
+    return TRUE;
 }
 
 -(void) animateAndDestroyWoodPiece:(NSArray *)renderSprites atIndex:(int)index stepsFromStart:(int)stepsFromStart continueUp:(BOOL)continueUp continueDown:(BOOL)continueDown

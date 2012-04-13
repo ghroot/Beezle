@@ -14,7 +14,7 @@
 
 @implementation BeeBeeaterHandler
 
--(void) handleCollision:(Collision *)collision
+-(BOOL) handleCollision:(Collision *)collision
 {
     Entity *beeEntity = [collision firstEntity];
     Entity *beeaterEntity = [collision secondEntity];
@@ -34,6 +34,8 @@
             [EntityUtil animateAndDeleteEntity:beeEntity disablePhysics:TRUE];
 		}
     }
+    
+    return TRUE;
 }
 
 @end

@@ -31,7 +31,7 @@
     return self;
 }
 
--(void) handleCollision:(Collision *)collision
+-(BOOL) handleCollision:(Collision *)collision
 {
     Entity *glassPieceEntity = [collision firstEntity];
     
@@ -62,6 +62,8 @@
 	[glassPieceEntity deleteEntity];
 	
     [EntityUtil playDefaultDestroySound:glassPieceEntity];
+    
+    return TRUE;
 }
 
 @end

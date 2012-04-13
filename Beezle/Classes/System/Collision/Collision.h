@@ -16,21 +16,19 @@
 {
     ChipmunkShape *_firstShape;
 	ChipmunkShape *_secondShape;
-	cpVect _impulse;
 }
 
 @property (nonatomic, readonly) ChipmunkShape *firstShape;
 @property (nonatomic, readonly) ChipmunkShape *secondShape;
-@property (nonatomic, readonly) cpVect impulse;
 
-+(id) collisionWithFirstShape:(ChipmunkShape *)firstShape andSecondShape:(ChipmunkShape *)secondShape impulse:(cpVect)impulse;
++(id) collisionWithFirstShape:(ChipmunkShape *)firstShape andSecondShape:(ChipmunkShape *)secondShape;
 
--(id) initWithFirstShape:(ChipmunkShape *)firstShape andSecondShape:(ChipmunkShape *)secondShape impulse:(cpVect)impulse;
+-(id) initWithFirstShape:(ChipmunkShape *)firstShape andSecondShape:(ChipmunkShape *)secondShapee;
 
 -(Entity *) firstEntity;
 -(Entity *) secondEntity;
 -(CollisionType *) firstCollisionType;
 -(CollisionType *) secondCollisionType;
--(float) impulseLength;
+-(float) firstEntityVelocityTimesMass;
 
 @end

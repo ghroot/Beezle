@@ -29,7 +29,7 @@
     return self;
 }
 
--(void) handleCollision:(Collision *)collision
+-(BOOL) handleCollision:(Collision *)collision
 {
     Entity *beeEntity = [collision firstEntity];
     Entity *nutEntity = [collision secondEntity];
@@ -46,6 +46,8 @@
         [EntityUtil setEntityDisposed:beeEntity];
         [EntityUtil animateAndDeleteEntity:beeEntity];
 	}
+    
+    return TRUE;
 }
 
 @end

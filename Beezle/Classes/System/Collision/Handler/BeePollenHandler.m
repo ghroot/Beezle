@@ -27,7 +27,7 @@
     return self;
 }
 
--(void) handleCollision:(Collision *)collision
+-(BOOL) handleCollision:(Collision *)collision
 {
     Entity *pollenEntity = [collision secondEntity];
     
@@ -37,6 +37,8 @@
 		[_levelSession consumedEntity:pollenEntity];
         [EntityUtil animateAndDeleteEntity:pollenEntity];
     }
+    
+    return TRUE;
 }
 
 @end

@@ -14,7 +14,7 @@
 
 @implementation BeeMushroomHandler
 
--(void) handleCollision:(Collision *)collision
+-(BOOL) handleCollision:(Collision *)collision
 {
     Entity *mushroomEntity = [collision secondEntity];
     
@@ -32,6 +32,8 @@
 		[[RenderComponent getFrom:mushroomEntity] playAnimationsLoopLast:[NSArray arrayWithObjects:@"Mushroom-Bounce", @"Mushroom-Idle", nil]];
 		[[SoundManager sharedManager] playSound:@"11097__a43__a43-blipp.aif"];
 	}
+    
+    return TRUE;
 }
 
 @end

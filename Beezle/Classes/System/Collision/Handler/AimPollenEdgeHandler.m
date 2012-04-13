@@ -12,7 +12,7 @@
 
 @implementation AimPollenEdgeHandler
 
--(void) handleCollision:(Collision *)collision
+-(BOOL) handleCollision:(Collision *)collision
 {
     Entity *aimPollenEntity = [collision firstEntity];
     
@@ -21,6 +21,8 @@
         [EntityUtil setEntityDisposed:aimPollenEntity];
         [aimPollenEntity deleteEntity];
     }
+    
+    return TRUE;
 }
 
 @end

@@ -31,7 +31,6 @@
 
 -(void) registerCollisionBetween:(CollisionType *)type1 and:(CollisionType *)type2 handler:(CollisionHandler *)handler;
 -(CollisionMediator *) findMediatorForCollision:(Collision *)collision;
--(void) handleCollisions;
 
 @end
 
@@ -41,9 +40,8 @@
 {
 	if (self = [super init])
 	{
-		_collisionMediators = [[NSMutableArray alloc] init];
-        _collisions = [[NSMutableArray alloc] init];
 		_levelSession = levelSession;
+		_collisionMediators = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -57,14 +55,8 @@
 -(void) dealloc
 {
 	[_collisionMediators release];
-    [_collisions release];
     
     [super dealloc];
-}
-
--(void) pushCollision:(Collision *)collision
-{
-    [_collisions addObject:collision];
 }
 
 -(void) initialise
@@ -101,6 +93,13 @@
 	[_collisionMediators addObject:mediator];
 }
 
+-(BOOL) handleCollision:(Collision *)collision
+{
+    CollisionMediator *mediator = [self findMediatorForCollision:collision];
+    NSAssert(mediator != nil, @"Collision mediator should always exist.");
+    return [mediator mediateCollision:collision];
+}
+
 -(CollisionMediator *) findMediatorForCollision:(Collision *)collision
 {
 	for (CollisionMediator *mediator in _collisionMediators)
@@ -111,22 +110,6 @@
         }
 	}	
 	return nil;
-}
-
--(void) begin
-{
-    [self handleCollisions];
-}
-
--(void) handleCollisions
-{
-    for (Collision *collision in _collisions)
-    {
-		CollisionMediator *mediator = [self findMediatorForCollision:collision];
-        NSAssert(mediator != nil, @"Collision mediator should always exist.");
-        [mediator mediateCollision:collision];
-    }
-    [_collisions removeAllObjects];    
 }
 
 @end
