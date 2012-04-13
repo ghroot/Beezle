@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>GLASS-B17</string>
+	<key>components</key>
+	<dict>
+		<key>crumble</key>
+		<dict/>
+		<key>disposable</key>
+		<dict/>
+		<key>physics</key>
+		<dict>
+			<key>file</key>
+			<string>B-Glass-Shapes.plist</string>
+			<key>bodyName</key>
+			<string>B17-Glass</string>
+			<key>collisionType</key>
+			<string>GLASS</string>
+			<key>layers</key>
+			<integer>3</integer>
+			<key>group</key>
+			<string>LEVEL</string>
+		</dict>
+		<key>render</key>
+		<dict>
+			<key>sprites</key>
+			<array>
+				<dict>
+					<key>name</key>
+					<string>default</string>
+					<key>textureFile</key>
+					<string>B17-Glass.png</string>
+					<key>z</key>
+					<integer>2</integer>
+					<key>anchorPoint</key>
+					<string>{ 0.5, 0.5 }</string>
+				</dict>
+			</array>
+		</dict>
+		<key>shard</key>
+		<dict>
+			<key>piecesEntityType</key>
+			<string>GLASS-B-PC</string>
+			<key>piecesCount</key>
+			<integer>20</integer>
+			<key>piecesSpawnAreaOffset</key>
+			<string>{ 0, 0 }</string>
+			<key>piecesSpawnAreaSize</key>
+			<string>{ 120, 120 }</string>
+		</dict>
+		<key>sound</key>
+        <dict>
+            <key>defaultDestroySound</key>
+            <string>GlassLarge</string>
+        </dict>
+		<key>transform</key>
+		<dict/>
+	</dict>
+</dict>
+</plist>

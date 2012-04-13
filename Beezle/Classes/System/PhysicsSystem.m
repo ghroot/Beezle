@@ -82,6 +82,13 @@
 
 -(BOOL) beginCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space
 {
+	// Print collision types
+//	cpShape *firstShape1;
+//	cpShape *secondShape1;
+//	cpArbiterGetShapes(arbiter, &firstShape1, &secondShape1);
+//	BOOL isFirstContact1 = cpArbiterIsFirstContact(arbiter);
+//	NSLog(@"%@ -> %@ (%@)", cpShapeGetCollisionType(firstShape1), cpShapeGetCollisionType(secondShape1), (isFirstContact1 ? @"true" : @"false"));
+	
 	BOOL isFirstContact = cpArbiterIsFirstContact(arbiter);
 	if (isFirstContact)
 	{

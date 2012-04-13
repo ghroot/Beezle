@@ -68,28 +68,15 @@
         
 		// Create frames from file
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:spriteSheetFileName];
-        
-        if (animationsFileName != nil)
-        {
-            // Always add animations after new frames have been added
-            [[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:animationsFileName];
-            [_loadedAnimationsFileNames addObject:animationsFileName];
-        }
     }
-    
-    if (animationsFileName != nil &&
+
+	if (animationsFileName != nil &&
 		![_loadedAnimationsFileNames containsObject:animationsFileName])
 	{
-        // Create animations from file
-        [[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:animationsFileName];
+		// Add animations if not already loaded
+		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:animationsFileName];
 		[_loadedAnimationsFileNames addObject:animationsFileName];
-    }
-    
-    // TEMP: Always load animations for now
-    if (animationsFileName != nil)
-    {
-        [[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:animationsFileName];
-    }
+	}
     
 	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet z:z];
 }

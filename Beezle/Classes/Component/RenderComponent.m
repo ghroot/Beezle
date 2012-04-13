@@ -42,6 +42,7 @@
 		{
 			NSString *name = [spriteDict objectForKey:@"name"];
 			NSString *spriteSheetName = [spriteDict objectForKey:@"spriteSheetName"];
+			NSString *textureFile = [spriteDict objectForKey:@"textureFile"];
 			NSString *animationFile = [spriteDict objectForKey:@"animationFile"];
 			int z = [[spriteDict objectForKey:@"z"] intValue];
 			CGPoint anchorPoint = [Utils stringToPoint:[spriteDict objectForKey:@"anchorPoint"]];
@@ -64,11 +65,19 @@
 				defaultDestroyAnimationNames = [NSArray arrayWithObject:[spriteDict objectForKey:@"defaultDestroyAnimation"]];
 			}
             
-			RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:spriteSheetName animationFile:animationFile z:z];
+			RenderSprite *renderSprite = nil;
+			if (spriteSheetName != nil)
+			{
+				renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:spriteSheetName animationFile:animationFile z:z];
+				[renderSprite setDefaultIdleAnimationNames:defaultIdleAnimationNames];
+				[renderSprite setDefaultDestroyAnimationNames:defaultDestroyAnimationNames];
+			}
+			else if (textureFile != nil)
+			{
+				renderSprite = [renderSystem createRenderSpriteWithFile:[CCFileUtils fullPathFromRelativePath:textureFile] z:z];
+			}
             [renderSprite setName:name];
 			[[renderSprite sprite] setAnchorPoint:anchorPoint];
-            [renderSprite setDefaultIdleAnimationNames:defaultIdleAnimationNames];
-            [renderSprite setDefaultDestroyAnimationNames:defaultDestroyAnimationNames];
 			[self addRenderSprite:renderSprite];
 			
             [renderSprite playDefaultIdleAnimation];

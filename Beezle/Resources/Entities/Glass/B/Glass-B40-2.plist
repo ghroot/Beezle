@@ -15,7 +15,7 @@
 			<key>file</key>
 			<string>B40-Glass-Shapes.plist</string>
 			<key>bodyName</key>
-			<string>B40-2-Glass</string>
+			<string>B40b-Glass</string>
 			<key>collisionType</key>
 			<string>GLASS</string>
 			<key>layers</key>
@@ -30,23 +30,19 @@
 				<dict>
 					<key>name</key>
 					<string>default</string>
-					<key>spriteSheetName</key>
-					<string>B-2</string>
-					<key>animationFile</key>
-					<string>Glass-Animations.plist</string>
+					<key>textureFile</key>
+					<string>B40b-Glass.png</string>
 					<key>z</key>
 					<integer>2</integer>
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.5 }</string>
-					<key>defaultIdleAnimation</key>
-					<string>Glass-B40-2-Idle</string>
 				</dict>
 			</array>
 		</dict>
 		<key>shard</key>
 		<dict>
 			<key>piecesEntityType</key>
-			<string>GLASS-PC</string>
+			<string>GLASS-B-PC</string>
 			<key>piecesCount</key>
 			<integer>20</integer>
 			<key>piecesSpawnAreaOffset</key>
