@@ -6,11 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "artemis.h"
+#import "NotificationEntitySystem.h"
 
-@interface BeeaterSystem : EntitySystem
-{
-	NSMutableArray *_notifications;
-}
+@interface BeeaterSystem : NotificationEntitySystem
 
 @end

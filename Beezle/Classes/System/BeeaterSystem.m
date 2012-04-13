@@ -21,9 +21,6 @@
 
 @interface BeeaterSystem()
 
--(void) addNotificationObservers;
--(void) queueNotification:(NSNotification *)notification;
--(void) handleNotification:(NSNotification *)notification;
 -(void) handleBeeaterBeeChanged:(NSNotification *)notification;
 -(void) handleEntityDisposed:(NSNotification *)notification;
 -(void) animateBeeaterAndSaveContainedBee:(Entity *)beeaterEntity;
@@ -36,53 +33,10 @@
 {
 	if (self = [super init])
 	{
-		_notifications = [[NSMutableArray alloc] init];
-		[self addNotificationObservers];
+		[self addNotificationObserver:GAME_NOTIFICATION_BEEATER_CONTAINED_BEE_CHANGED selector:@selector(handleBeeaterBeeChanged:)];
+        [self addNotificationObserver:GAME_NOTIFICATION_ENTITY_DISPOSED selector:@selector(handleEntityDisposed:)];
 	}
 	return self;
-}
-
--(void) dealloc
-{
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	
-	[_notifications release];
-	
-	[super dealloc];
-}
-
--(void) addNotificationObservers
-{
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEEATER_CONTAINED_BEE_CHANGED object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_ENTITY_DISPOSED object:nil];
-}
-
--(void) queueNotification:(NSNotification *)notification
-{
-	[_notifications addObject:notification];
-}
-
--(void) begin
-{
-	while ([_notifications count] > 0)
-	{
-		NSNotification *nextNotification = [[_notifications objectAtIndex:0] retain];
-		[_notifications removeObjectAtIndex:0];
-		[self handleNotification:nextNotification];
-		[nextNotification release];
-	}
-}
-
--(void) handleNotification:(NSNotification *)notification
-{
-	if ([[notification name] isEqualToString:GAME_NOTIFICATION_BEEATER_CONTAINED_BEE_CHANGED])
-	{
-		[self handleBeeaterBeeChanged:notification];
-	}
-	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_ENTITY_DISPOSED])
-	{
-		[self handleEntityDisposed:notification];
-	}
 }
 
 -(void) handleBeeaterBeeChanged:(NSNotification *)notification
