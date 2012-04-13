@@ -18,6 +18,7 @@
 #import "BeeMushroomHandler.h"
 #import "BeeNutHandler.h"
 #import "BeePollenHandler.h"
+#import "BeeLavaHandler.h"
 #import "BeeWaterHandler.h"
 #import "BeeWoodHandler.h"
 #import "Collision.h"
@@ -77,6 +78,7 @@
     [self registerCollisionBetween:[CollisionType BEE] and:[CollisionType GLASS] handler:[BeeGlassHandler handler]];
     [self registerCollisionBetween:[CollisionType BEE] and:[CollisionType GATE] handler:[BeeGateHandler handlerWithLevelSession:_levelSession]];
     [self registerCollisionBetween:[CollisionType BEE] and:[CollisionType WATER] handler:[BeeWaterHandler handlerWithWorld:_world]];
+	[self registerCollisionBetween:[CollisionType BEE] and:[CollisionType LAVA] handler:[BeeLavaHandler handlerWithWorld:_world]];
     [self registerCollisionBetween:[CollisionType BEE] and:[CollisionType WOOD] handler:[BeeWoodHandler handler]];
     
     [self registerCollisionBetween:[CollisionType AIM_POLLEN] and:[CollisionType EDGE] handler:[AimPollenEdgeHandler handler]];

@@ -224,6 +224,7 @@
 		2C5374121538DA2900040EED /* Glass-B56.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5373F11538DA2600040EED /* Glass-B56.plist */; };
 		2C5374131538DA2900040EED /* Glass-B57.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5373F21538DA2700040EED /* Glass-B57.plist */; };
 		2C5374141538DA2900040EED /* Glass-B59.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5373F31538DA2900040EED /* Glass-B59.plist */; };
+		2C5374171538E45200040EED /* BeeLavaHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5374161538E45200040EED /* BeeLavaHandler.m */; };
 		2C596D3E14A13FDD00DFCC14 /* LevelLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */; };
 		2C5EFC2B14E496A10071ED39 /* SpawnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */; };
 		2C5EFC3114E499C20071ED39 /* SpawnSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3014E499C20071ED39 /* SpawnSystem.m */; };
@@ -1238,6 +1239,8 @@
 		2C5373F11538DA2600040EED /* Glass-B56.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-B56.plist"; sourceTree = "<group>"; };
 		2C5373F21538DA2700040EED /* Glass-B57.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-B57.plist"; sourceTree = "<group>"; };
 		2C5373F31538DA2900040EED /* Glass-B59.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-B59.plist"; sourceTree = "<group>"; };
+		2C5374151538E45100040EED /* BeeLavaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeLavaHandler.h; sourceTree = "<group>"; };
+		2C5374161538E45200040EED /* BeeLavaHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeLavaHandler.m; sourceTree = "<group>"; };
 		2C596D3914A13FDD00DFCC14 /* LevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLoader.h; sourceTree = "<group>"; };
 		2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLoader.m; sourceTree = "<group>"; };
 		2C5EFC2914E496A00071ED39 /* SpawnComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpawnComponent.h; path = Classes/Component/SpawnComponent.h; sourceTree = "<group>"; };
@@ -2902,6 +2905,8 @@
 				2C8957F61535BA2700DF4433 /* BeeGlassHandler.m */,
 				2C29D7A4153843F5005EFE8E /* BeeHandler.h */,
 				2C29D7A5153843F6005EFE8E /* BeeHandler.m */,
+				2C5374151538E45100040EED /* BeeLavaHandler.h */,
+				2C5374161538E45200040EED /* BeeLavaHandler.m */,
 				2C8957EC1535B9F800DF4433 /* BeeMushroomHandler.h */,
 				2C8957ED1535B9F800DF4433 /* BeeMushroomHandler.m */,
 				2C8957EF1535BA0C00DF4433 /* BeeNutHandler.h */,
@@ -5147,6 +5152,7 @@
 				2C29D7AD15385D86005EFE8E /* DozerComponent.m in Sources */,
 				2C29D7B0153864C3005EFE8E /* NotificationEntitySystem.m in Sources */,
 				2C29D7B315386560005EFE8E /* CrumbleSystem.m in Sources */,
+				2C5374171538E45200040EED /* BeeLavaHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

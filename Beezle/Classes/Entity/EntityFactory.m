@@ -18,6 +18,7 @@
 #import "EntityDescriptionLoader.h"
 #import "EntityUtil.h"
 #import "LevelLayoutEntry.h"
+#import "LevelOrganizer.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
 #import "RenderComponent.h"
@@ -110,7 +111,15 @@
 			cpv(winSize.width / 2, -winSize.height / 2)
 		};
 		ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:[bodyInfo body] count:numWaterVerts verts:waterVerts offset:CGPointZero];
-		[shape setCollisionType:[CollisionType WATER]];
+		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:name];
+		if ([theme isEqualToString:@"A"])
+		{
+			[shape setCollisionType:[CollisionType WATER]];
+		}
+		else if ([theme isEqualToString:@"B"])
+		{
+			[shape setCollisionType:[CollisionType LAVA]];
+		}
 		[shape setLayers:WATER_LAYERS];
 		[shape setGroup:[CollisionGroup LEVEL]];
 		[shapes addObject:shape];

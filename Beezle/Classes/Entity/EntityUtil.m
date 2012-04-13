@@ -95,7 +95,8 @@
 	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
 	for (ChipmunkShape *shape in [physicsComponent shapes])
 	{
-		if ([shape collisionType] == [CollisionType WATER])
+		if ([shape collisionType] == [CollisionType WATER] ||
+			[shape collisionType] == [CollisionType LAVA])
 		{
 			return TRUE;
 		}

@@ -17,6 +17,7 @@
 #import "EntitySelectIngameMenuState.h"
 #import "EntityUtil.h"
 #import "Game.h"
+#import "LevelOrganizer.h"
 #import "MovementComponent.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
@@ -73,7 +74,17 @@
 {
 	_generalOptionsMenu = [[CCMenu menuWithItems:nil] retain];
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Add entity" selector:@selector(doOptionOpenEntityMenu:) userData:nil]];
-	[_generalOptionsMenu addChild:[self createMenuItem:@"Toggle water" selector:@selector(doOptionToggleWater:) userData:nil]];
+	
+	NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:[_editState levelName]];
+	if ([theme isEqualToString:@"A"])
+	{
+		[_generalOptionsMenu addChild:[self createMenuItem:@"Toggle water" selector:@selector(doOptionToggleWater:) userData:nil]];
+	}
+	else if ([theme isEqualToString:@"B"])
+	{
+		[_generalOptionsMenu addChild:[self createMenuItem:@"Toggle lava" selector:@selector(doOptionToggleWater:) userData:nil]];
+	}
+	
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Toggle lines" selector:@selector(doOptionToggleLines:) userData:nil]];
 	[_generalOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
 }
