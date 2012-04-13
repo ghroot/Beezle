@@ -63,6 +63,7 @@
 -(void) initialise
 {
     BeeHandler *beeHandler = [BeeHandler handler];
+    [self registerCollisionBetween:[CollisionType BEE] and:[CollisionType BEEATER] handler:beeHandler];
     [self registerCollisionBetween:[CollisionType BEE] and:[CollisionType GLASS] handler:beeHandler];
     [self registerCollisionBetween:[CollisionType BEE] and:[CollisionType RAMP] handler:beeHandler];
     

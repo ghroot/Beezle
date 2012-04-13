@@ -107,15 +107,6 @@
 				if (![EntityUtil isEntityDisposed:otherEntity])
 				{
 					[EntityUtil setEntityDisposed:otherEntity];
-					
-					CrumbleComponent *otherCrumbleComponent = [CrumbleComponent getFrom:otherEntity];
-					if ([otherCrumbleComponent crumbleAnimationName] != nil)
-					{
-						[EntityUtil animateAndDeleteEntity:otherEntity animationName:[otherCrumbleComponent crumbleAnimationName]];
-					}
-					
-					NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:otherEntity forKey:@"entity"];
-					[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_CRUMBLED object:self userInfo:notificationUserInfo];
 				}
 			}
 		}

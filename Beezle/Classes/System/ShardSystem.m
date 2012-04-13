@@ -1,5 +1,5 @@
 //
-//  GlassAnimationSystem.m
+//  ShardSystem.m
 //  Beezle
 //
 //  Created by KM Lagerstrom on 16/02/2012.
@@ -26,7 +26,7 @@
 -(void) addNotificationObservers;
 -(void) queueNotification:(NSNotification *)notification;
 -(void) handleNotification:(NSNotification *)notification;
--(void) handleEntityCrumbled:(NSNotification *)notification;
+-(void) handleEntityDisposed:(NSNotification *)notification;
 
 @end
 
@@ -53,7 +53,7 @@
 
 -(void) addNotificationObservers
 {
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_ENTITY_CRUMBLED object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_ENTITY_DISPOSED object:nil];
 }
 
 -(void) queueNotification:(NSNotification *)notification
@@ -74,13 +74,13 @@
 
 -(void) handleNotification:(NSNotification *)notification
 {
-	if ([[notification name] isEqualToString:GAME_NOTIFICATION_ENTITY_CRUMBLED])
+	if ([[notification name] isEqualToString:GAME_NOTIFICATION_ENTITY_DISPOSED])
 	{
-		[self handleEntityCrumbled:notification];
+		[self handleEntityDisposed:notification];
 	}
 }
 
--(void) handleEntityCrumbled:(NSNotification *)notification
+-(void) handleEntityDisposed:(NSNotification *)notification
 {
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
 	if ([entity hasComponent:[ShardComponent class]])

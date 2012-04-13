@@ -18,6 +18,7 @@
 
 @property (nonatomic, assign) BeeType *type;
 
+-(BOOL) killsBeeaters;
 -(void) resetBeeaterHitsLeft;
 -(void) decreaseBeeaterHitsLeft;
 -(BOOL) isOutOfBeeaterKills;

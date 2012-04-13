@@ -19,23 +19,27 @@
     Entity *beeEntity = [collision firstEntity];
     Entity *beeaterEntity = [collision secondEntity];
     
-    if (![EntityUtil isEntityDisposed:beeaterEntity])
+    BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
+    if ([beeComponent killsBeeaters])
     {
-        [EntityUtil setEntityDisposed:beeaterEntity];
-		
-		NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:beeaterEntity forKey:@"beeaterEntity"];
-		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEEATER_HIT object:self userInfo:notificationUserInfo];
+        if (![EntityUtil isEntityDisposed:beeaterEntity])
+        {
+            [EntityUtil setEntityDisposed:beeaterEntity];
+            
+            [beeComponent decreaseBeeaterHitsLeft];
+            if ([beeComponent isOutOfBeeaterKills])
+            {
+                [EntityUtil setEntityDisposed:beeEntity];
+                [EntityUtil animateAndDeleteEntity:beeEntity disablePhysics:TRUE];
+            }
+        }
         
-		BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
-		[beeComponent decreaseBeeaterHitsLeft];
-		if ([beeComponent isOutOfBeeaterKills])
-		{
-            [EntityUtil setEntityDisposed:beeEntity];
-            [EntityUtil animateAndDeleteEntity:beeEntity disablePhysics:TRUE];
-		}
+        return TRUE;
     }
-    
-    return TRUE;
+    else
+    {
+        return FALSE;
+    }
 }
 
 @end

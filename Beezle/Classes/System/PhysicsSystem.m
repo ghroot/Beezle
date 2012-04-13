@@ -81,7 +81,7 @@
 }
 
 -(BOOL) beginCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space
-{	
+{
 	BOOL isFirstContact = cpArbiterIsFirstContact(arbiter);
 	if (isFirstContact)
 	{
@@ -91,14 +91,14 @@
 		
 		ChipmunkShape *firstChipmunkShape = (ChipmunkShape *)firstShape->data;
 		ChipmunkShape *secondChipmunkShape = (ChipmunkShape *)secondShape->data;
-        
-        cpVect impulse = cpArbiterTotalImpulse(arbiter);
 		
-		Collision *collision = [Collision collisionWithFirstShape:firstChipmunkShape andSecondShape:secondChipmunkShape impulse:impulse];
-		[_collisionSystem pushCollision:collision];
+		Collision *collision = [Collision collisionWithFirstShape:firstChipmunkShape andSecondShape:secondChipmunkShape];
+        return [_collisionSystem handleCollision:collision];
     }
-	
-    return TRUE;
+	else
+    {
+        return TRUE;
+    }
 }
 
 -(void) entityAdded:(Entity *)entity

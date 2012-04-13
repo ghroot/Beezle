@@ -16,17 +16,18 @@
 @class ExplodeControlSystem;
 @class BeeQueueRenderingSystem;
 @class CollisionSystem;
+@class CrumbleSystem;
 @class DebugNotificationTrackerSystem;
 @class DebugRenderPhysicsSystem;
 @class GameRulesSystem;
 @class GateOpeningSystem;
-@class ShardSystem;
 @class HUDRenderingSystem;
 @class InputSystem;
 @class LevelSession;
 @class MovementSystem;
 @class PhysicsSystem;
 @class RenderSystem;
+@class ShardSystem;
 @class SlingerControlSystem;
 @class SpawnSystem;
 
@@ -57,6 +58,7 @@
     PhysicsSystem *_physicsSystem;
     RenderSystem *_renderSystem;
 	ShardSystem *_shardSystem;
+    CrumbleSystem *_crumbleSystem;
     SlingerControlSystem *_slingerControlSystem;
 	SpawnSystem *_spawnSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
@@ -72,6 +74,7 @@
 @property (nonatomic, readonly) BeeExpiratonSystem *beeExpirationSystem;
 @property (nonatomic, readonly) BeeQueueRenderingSystem *beeQueueRenderingSystem;
 @property (nonatomic, readonly) CollisionSystem *collisionSystem;
+@property (nonatomic, readonly) CrumbleSystem *crumbleSystem;
 @property (nonatomic, readonly) ExplodeControlSystem *explodeControlSystem;
 @property (nonatomic, readonly) GameRulesSystem *gameRulesSystem;
 @property (nonatomic, readonly) GateOpeningSystem *gateOpeningSystem;

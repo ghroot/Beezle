@@ -6,9 +6,10 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "EntityUtil.h"
 #import "CollisionType.h"
 #import "DisposableComponent.h"
+#import "EntityUtil.h"
+#import "NotificationTypes.h"
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
 #import "SoundComponent.h"
@@ -68,6 +69,9 @@
 +(void) setEntityDisposed:(Entity *)entity
 {
     [[DisposableComponent getFrom:entity] setIsDisposed:TRUE];
+    
+    NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_DISPOSED object:self userInfo:notificationUserInfo];
 }
 
 +(BOOL) isEntityBackground:(Entity *)entity

@@ -25,8 +25,7 @@
 -(void) queueNotification:(NSNotification *)notification;
 -(void) handleNotification:(NSNotification *)notification;
 -(void) handleBeeaterBeeChanged:(NSNotification *)notification;
--(void) handleBeeaterHit:(NSNotification *)notification;
--(void) handleEntityCrumbled:(NSNotification *)notification;
+-(void) handleEntityDisposed:(NSNotification *)notification;
 -(void) animateBeeaterAndSaveContainedBee:(Entity *)beeaterEntity;
 
 @end
@@ -55,8 +54,7 @@
 -(void) addNotificationObservers
 {
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEEATER_CONTAINED_BEE_CHANGED object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEEATER_HIT object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_ENTITY_CRUMBLED object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_ENTITY_DISPOSED object:nil];
 }
 
 -(void) queueNotification:(NSNotification *)notification
@@ -81,13 +79,9 @@
 	{
 		[self handleBeeaterBeeChanged:notification];
 	}
-	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_BEEATER_HIT])
+	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_ENTITY_DISPOSED])
 	{
-		[self handleBeeaterHit:notification];
-	}
-	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_ENTITY_CRUMBLED])
-	{
-		[self handleEntityCrumbled:notification];
+		[self handleEntityDisposed:notification];
 	}
 }
 
@@ -104,13 +98,7 @@
 	[headRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:firstBetweenAnimationName, headAnimationName, secondBetweenAnimationName, headAnimationName, nil]];
 }
 
--(void) handleBeeaterHit:(NSNotification *)notification
-{
-	Entity *beeaterEntity = [[notification userInfo] objectForKey:@"beeaterEntity"];
-	[self animateBeeaterAndSaveContainedBee:beeaterEntity];
-}
-
--(void) handleEntityCrumbled:(NSNotification *)notification
+-(void) handleEntityDisposed:(NSNotification *)notification
 {
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
 	if ([entity hasComponent:[BeeaterComponent class]])
@@ -140,34 +128,6 @@
 	PhysicsComponent *beeaterPhysicsComponent = [PhysicsComponent getFrom:beeaterEntity];
 	[beeaterPhysicsComponent disable];
 	[beeaterEntity refresh];
-	
-	// TEMP: Work into shard system
-	if ([beeaterComponent destroyPieceEntityType] != nil)
-	{
-		for (int i = 0; i < 8; i++)
-		{
-			// Create entity
-			Entity *particleEntity = [EntityFactory createEntity:[beeaterComponent destroyPieceEntityType] world:_world];
-			
-			// Position
-			CGPoint topLeft = CGPointMake([beeaterTransformComponent position].x - 15,
-										  [beeaterTransformComponent position].y + 5);
-			CGPoint randomPosition = CGPointMake(topLeft.x + (rand() % 30),
-												 topLeft.y + (rand() % 30));
-			[EntityUtil setEntityPosition:particleEntity position:randomPosition];
-			
-			// Velocity
-			PhysicsComponent *particlePhysicsComponent = [PhysicsComponent getFrom:particleEntity];
-			cpVect randomVelocity = [Utils createVectorWithRandomAngleAndLengthBetween:40 and:80];
-			[[particlePhysicsComponent body] setVel:randomVelocity];
-			
-			// Reduce gravity
-			[[particlePhysicsComponent body] setForce:cpv(0, 30.0f)];
-			
-			// Animation
-			[EntityUtil animateAndDeleteEntity:particleEntity disablePhysics:FALSE];
-		}
-	}
 	
 	// Game notification
 	NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];

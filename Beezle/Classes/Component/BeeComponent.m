@@ -33,6 +33,11 @@
 	return self;
 }
 
+-(BOOL) killsBeeaters
+{
+    return [_type beeaterHits] > 0;
+}
+
 -(void) resetBeeaterHitsLeft
 {
 	_beeaterHitsLeft = [_type beeaterHits];

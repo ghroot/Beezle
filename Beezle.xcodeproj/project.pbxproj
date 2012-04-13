@@ -35,6 +35,9 @@
 		2C27E90B14D20577002165CD /* TagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FD14D20577002165CD /* TagManager.m */; };
 		2C27E90C14D20577002165CD /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FF14D20577002165CD /* World.m */; };
 		2C29D7A6153843F7005EFE8E /* BeeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C29D7A5153843F6005EFE8E /* BeeHandler.m */; };
+		2C29D7AD15385D86005EFE8E /* DozerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C29D7AC15385D86005EFE8E /* DozerComponent.m */; };
+		2C29D7B0153864C3005EFE8E /* NotificationEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C29D7AF153864BD005EFE8E /* NotificationEntitySystem.m */; };
+		2C29D7B315386560005EFE8E /* CrumbleSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C29D7B21538655A005EFE8E /* CrumbleSystem.m */; };
 		2C2C184014FEE92D007C2ADC /* Slinger.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C183F14FEE92D007C2ADC /* Slinger.m4a */; };
 		2C2C184214FEEB69007C2ADC /* Key-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C184114FEEB69007C2ADC /* Key-01.png */; };
 		2C2FB66B14FE800100D115AF /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -915,6 +918,12 @@
 		2C27E8FF14D20577002165CD /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
 		2C29D7A4153843F5005EFE8E /* BeeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeHandler.h; sourceTree = "<group>"; };
 		2C29D7A5153843F6005EFE8E /* BeeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeHandler.m; sourceTree = "<group>"; };
+		2C29D7AB15385D86005EFE8E /* DozerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DozerComponent.h; path = Classes/Component/DozerComponent.h; sourceTree = "<group>"; };
+		2C29D7AC15385D86005EFE8E /* DozerComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DozerComponent.m; path = Classes/Component/DozerComponent.m; sourceTree = "<group>"; };
+		2C29D7AE153864B9005EFE8E /* NotificationEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationEntitySystem.h; path = Classes/System/NotificationEntitySystem.h; sourceTree = "<group>"; };
+		2C29D7AF153864BD005EFE8E /* NotificationEntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationEntitySystem.m; path = Classes/System/NotificationEntitySystem.m; sourceTree = "<group>"; };
+		2C29D7B115386556005EFE8E /* CrumbleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CrumbleSystem.h; path = Classes/System/CrumbleSystem.h; sourceTree = "<group>"; };
+		2C29D7B21538655A005EFE8E /* CrumbleSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CrumbleSystem.m; path = Classes/System/CrumbleSystem.m; sourceTree = "<group>"; };
 		2C2C183F14FEE92D007C2ADC /* Slinger.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Slinger.m4a; sourceTree = "<group>"; };
 		2C2C184114FEEB69007C2ADC /* Key-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key-01.png"; sourceTree = "<group>"; };
 		2C2FB66914FE800100D115AF /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAnalytics.h; sourceTree = "<group>"; };
@@ -2370,6 +2379,8 @@
 				2C764DDB148A1FF100820587 /* BodyInfo.h */,
 				2C764DDC148A1FF100820587 /* BodyInfo.m */,
 				2C8957CB1535AC6300DF4433 /* Collision */,
+				2C29D7B115386556005EFE8E /* CrumbleSystem.h */,
+				2C29D7B21538655A005EFE8E /* CrumbleSystem.m */,
 				2CD4A99414EC7BAC0065FA90 /* Debug */,
 				2CC3EC0314D6086F0025F5DA /* Edit */,
 				2C64AD1214BA4F0300ABD114 /* ExplodeControlSystem.h */,
@@ -2388,6 +2399,8 @@
 				2C7CE61B146C73FE001F331F /* InputSystem.m */,
 				2CC3EBFE14D466700025F5DA /* MovementSystem.h */,
 				2CC3EBFF14D466700025F5DA /* MovementSystem.m */,
+				2C29D7AE153864B9005EFE8E /* NotificationEntitySystem.h */,
+				2C29D7AF153864BD005EFE8E /* NotificationEntitySystem.m */,
 				2C7CE5F81469D092001F331F /* PhysicsSystem.h */,
 				2C7CE5F91469D092001F331F /* PhysicsSystem.m */,
 				2C7CE5F51469AD06001F331F /* RenderSystem.h */,
@@ -3697,13 +3710,13 @@
 				2C5EFCC114EC60560071ED39 /* CrumbleComponent.m */,
 				2C85B83A149563ED005D7BAB /* DisposableComponent.h */,
 				2C85B83B149563ED005D7BAB /* DisposableComponent.m */,
+				2C29D7AB15385D86005EFE8E /* DozerComponent.h */,
+				2C29D7AC15385D86005EFE8E /* DozerComponent.m */,
 				2CC3EC0A14D608870025F5DA /* Edit */,
 				2C5EFCBD14EC60390071ED39 /* ExplodeComponent.h */,
 				2C5EFCBE14EC603D0071ED39 /* ExplodeComponent.m */,
 				2CAB50E414F30E4A006EF1A4 /* GateComponent.h */,
 				2CAB50E514F30E4A006EF1A4 /* GateComponent.m */,
-				2CEB9D7914EDC1BA00CAC505 /* ShardComponent.h */,
-				2CEB9D7A14EDC1BA00CAC505 /* ShardComponent.m */,
 				2CAB50DA14F2F8D3006EF1A4 /* KeyComponent.h */,
 				2CAB50DB14F2F8D3006EF1A4 /* KeyComponent.m */,
 				2CC3EBFB14D466460025F5DA /* MovementComponent.h */,
@@ -3716,6 +3729,8 @@
 				2CEA352D1466B2B5000FF575 /* RenderComponent.m */,
 				2C827D3614840C4600517C8F /* RenderSprite.h */,
 				2C827D3714840C4700517C8F /* RenderSprite.m */,
+				2CEB9D7914EDC1BA00CAC505 /* ShardComponent.h */,
+				2CEB9D7A14EDC1BA00CAC505 /* ShardComponent.m */,
 				2C1147E4148D4291002E4DBD /* SlingerComponent.h */,
 				2C1147E5148D4292002E4DBD /* SlingerComponent.m */,
 				2CBCDDB114F7DCE600B11627 /* SoundComponent.h */,
@@ -4669,6 +4684,9 @@
 				2C8B198B15363878003F3465 /* LevelThemeSelectMenuState.m in Sources */,
 				2C8B198E153639C7003F3465 /* LevelThemeSelectMenuItem.m in Sources */,
 				2C29D7A6153843F7005EFE8E /* BeeHandler.m in Sources */,
+				2C29D7AD15385D86005EFE8E /* DozerComponent.m in Sources */,
+				2C29D7B0153864C3005EFE8E /* NotificationEntitySystem.m in Sources */,
+				2C29D7B315386560005EFE8E /* CrumbleSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

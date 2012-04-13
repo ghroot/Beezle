@@ -13,6 +13,7 @@
 #import "BeeQueueRenderingSystem.h"
 #import "BeeExpiratonSystem.h"
 #import "CollisionSystem.h"
+#import "CrumbleSystem.h"
 #import "DebugNotificationTrackerSystem.h"
 #import "DebugRenderPhysicsSystem.h"
 #import "DisposableComponent.h"
@@ -69,6 +70,7 @@
 @synthesize beeExpirationSystem = _beeExpirationSystem;
 @synthesize beeQueueRenderingSystem = _beeQueueRenderingSystem;
 @synthesize collisionSystem = _collisionSystem;
+@synthesize crumbleSystem = _crumbleSystem;
 @synthesize explodeControlSystem = _explodeControlSystem;
 @synthesize gameRulesSystem = _gameRulesSystem;
 @synthesize gateOpeningSystem = _gateOpeningSystem;
@@ -182,6 +184,8 @@
 	[systemManager setSystem:_gateOpeningSystem];
 	_shardSystem = [[[ShardSystem alloc] init] autorelease];
 	[systemManager setSystem:_shardSystem];
+    _crumbleSystem = [[CrumbleSystem new] autorelease];
+    [systemManager setSystem:_crumbleSystem];
 	_spawnSystem = [[[SpawnSystem alloc] init] autorelease];
 	[systemManager setSystem:_spawnSystem];
 	if (_debug)

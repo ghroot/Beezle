@@ -11,6 +11,7 @@
 #import "BeeComponent.h"
 #import "CrumbleComponent.h"
 #import "DisposableComponent.h"
+#import "DozerComponent.h"
 #import "ExplodeComponent.h"
 #import "GateComponent.h"
 #import "ShardComponent.h"
@@ -55,6 +56,10 @@
 		else if ([componentType isEqualToString:@"disposable"])
 		{
 			component = [DisposableComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+        else if ([componentType isEqualToString:@"dozer"])
+		{
+			component = [DozerComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"explode"])
 		{
