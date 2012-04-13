@@ -14,6 +14,7 @@
 #import "BeeEggHandler.h"
 #import "BeeGateHandler.h"
 #import "BeeGlassHandler.h"
+#import "BeeHandler.h"
 #import "BeeMushroomHandler.h"
 #import "BeeNutHandler.h"
 #import "BeePollenHandler.h"
@@ -30,7 +31,7 @@
 @interface CollisionSystem()
 
 -(void) registerCollisionBetween:(CollisionType *)type1 and:(CollisionType *)type2 handler:(CollisionHandler *)handler;
--(CollisionMediator *) findMediatorForCollision:(Collision *)collision;
+-(NSArray *) findMediatorsForCollision:(Collision *)collision;
 
 @end
 
@@ -61,6 +62,10 @@
 
 -(void) initialise
 {
+    BeeHandler *beeHandler = [BeeHandler handler];
+    [self registerCollisionBetween:[CollisionType BEE] and:[CollisionType GLASS] handler:beeHandler];
+    [self registerCollisionBetween:[CollisionType BEE] and:[CollisionType RAMP] handler:beeHandler];
+    
     [self registerCollisionBetween:[CollisionType BEE] and:[CollisionType EDGE] handler:[BeeEdgeHandler handler]];
     [self registerCollisionBetween:[CollisionType BEE] and:[CollisionType BACKGROUND] handler:[BeeBackgroundHandler handler]];
     [self registerCollisionBetween:[CollisionType BEE] and:[CollisionType BEEATER] handler:[BeeBeeaterHandler handler]];
@@ -95,21 +100,39 @@
 
 -(BOOL) handleCollision:(Collision *)collision
 {
-    CollisionMediator *mediator = [self findMediatorForCollision:collision];
-    NSAssert(mediator != nil, @"Collision mediator should always exist.");
-    return [mediator mediateCollision:collision];
+    BOOL atLeastOneMediatorReturnedFalse = FALSE;
+    
+    NSArray *mediators = [self findMediatorsForCollision:collision];
+    NSAssert([mediators count] > 0, @"At least one collision mediator should always exist.");
+    for (CollisionMediator *mediator in mediators)
+    {
+        if (![mediator mediateCollision:collision])
+        {
+            atLeastOneMediatorReturnedFalse = TRUE;
+        }
+    }
+    
+    if (atLeastOneMediatorReturnedFalse)
+    {
+        return FALSE;
+    }
+    else
+    {
+        return TRUE;
+    }
 }
 
--(CollisionMediator *) findMediatorForCollision:(Collision *)collision
+-(NSArray *) findMediatorsForCollision:(Collision *)collision
 {
+    NSMutableArray *matchingMediators = [NSMutableArray array];
 	for (CollisionMediator *mediator in _collisionMediators)
 	{
         if ([mediator appliesForCollision:collision])
         {
-            return mediator;
+            [matchingMediators addObject:mediator];
         }
 	}	
-	return nil;
+	return matchingMediators;
 }
 
 @end

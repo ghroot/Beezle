@@ -13,29 +13,18 @@
 #import "NotificationTypes.h"
 #import "SoundManager.h"
 
+#define VELOCITY_TIMES_MASS_FOR_SOUND 80.0f
+
 @implementation BeeGlassHandler
 
 -(BOOL) handleCollision:(Collision *)collision
 {
-    Entity *beeEntity = [collision firstEntity];
-    Entity *glassEntity = [collision secondEntity];
-    
-    [[SoundManager sharedManager] playSound:@"BeeHitGlass"];
-    
-    // TODO: This should be generic to the "crumble" component
-    BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
-    if ([beeComponent type] == [BeeType SUMEE] &&
-        [collision firstEntityVelocityTimesMass] >= 150)
+    if ([collision firstEntityVelocityTimesMass] >= VELOCITY_TIMES_MASS_FOR_SOUND)
     {
-        NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:glassEntity forKey:@"entity"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_CRUMBLED object:self userInfo:notificationUserInfo];
-        
-        return FALSE;
+        [[SoundManager sharedManager] playSound:@"BeeHitGlass"];
     }
-    else
-    {
-        return TRUE;
-    }
+    
+    return TRUE;
 }
 
 @end

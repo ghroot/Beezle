@@ -34,6 +34,7 @@
 		2C27E90A14D20577002165CD /* TagEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FB14D20577002165CD /* TagEntitySystem.m */; };
 		2C27E90B14D20577002165CD /* TagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FD14D20577002165CD /* TagManager.m */; };
 		2C27E90C14D20577002165CD /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FF14D20577002165CD /* World.m */; };
+		2C29D7A6153843F7005EFE8E /* BeeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C29D7A5153843F6005EFE8E /* BeeHandler.m */; };
 		2C2C184014FEE92D007C2ADC /* Slinger.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C183F14FEE92D007C2ADC /* Slinger.m4a */; };
 		2C2C184214FEEB69007C2ADC /* Key-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C184114FEEB69007C2ADC /* Key-01.png */; };
 		2C2FB66B14FE800100D115AF /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -912,6 +913,8 @@
 		2C27E8FD14D20577002165CD /* TagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagManager.m; sourceTree = "<group>"; };
 		2C27E8FE14D20577002165CD /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		2C27E8FF14D20577002165CD /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
+		2C29D7A4153843F5005EFE8E /* BeeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeHandler.h; sourceTree = "<group>"; };
+		2C29D7A5153843F6005EFE8E /* BeeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeHandler.m; sourceTree = "<group>"; };
 		2C2C183F14FEE92D007C2ADC /* Slinger.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Slinger.m4a; sourceTree = "<group>"; };
 		2C2C184114FEEB69007C2ADC /* Key-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key-01.png"; sourceTree = "<group>"; };
 		2C2FB66914FE800100D115AF /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAnalytics.h; sourceTree = "<group>"; };
@@ -2525,6 +2528,8 @@
 				2C8957F91535BA3400DF4433 /* BeeGateHandler.m */,
 				2C8957F51535BA2700DF4433 /* BeeGlassHandler.h */,
 				2C8957F61535BA2700DF4433 /* BeeGlassHandler.m */,
+				2C29D7A4153843F5005EFE8E /* BeeHandler.h */,
+				2C29D7A5153843F6005EFE8E /* BeeHandler.m */,
 				2C8957EC1535B9F800DF4433 /* BeeMushroomHandler.h */,
 				2C8957ED1535B9F800DF4433 /* BeeMushroomHandler.m */,
 				2C8957EF1535BA0C00DF4433 /* BeeNutHandler.h */,
@@ -4663,6 +4668,7 @@
 				2C89580C1535BC8000DF4433 /* GlassPieceHandler.m in Sources */,
 				2C8B198B15363878003F3465 /* LevelThemeSelectMenuState.m in Sources */,
 				2C8B198E153639C7003F3465 /* LevelThemeSelectMenuItem.m in Sources */,
+				2C29D7A6153843F7005EFE8E /* BeeHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
