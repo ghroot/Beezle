@@ -6,6 +6,8 @@
 	<string>GLASS-B-PC</string>
 	<key>components</key>
 	<dict>
+		<key>disposable</key>
+		<dict/>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
@@ -68,6 +70,17 @@
 					</array>
 				</dict>
 			</array>
+		</dict>
+		<key>shard</key>
+		<dict>
+			<key>piecesEntityType</key>
+			<string>GLASS-B-PC-SMALL</string>
+			<key>piecesCount</key>
+			<integer>3</integer>
+			<key>piecesSpawnAreaOffset</key>
+			<string>{ 0, 0 }</string>
+			<key>piecesSpawnAreaSize</key>
+			<string>{ 0, 0 }</string>
 		</dict>
         <key>sound</key>
         <dict>

@@ -28,6 +28,7 @@
 		[_systems addObject:[gameplayState slingerControlSystem]];
 		[_systems addObject:[gameplayState beeaterSystem]];
 		[_systems addObject:[gameplayState beeQueueRenderingSystem]];
+		[_systems addObject:[gameplayState shardSystem]];
 		[_systems addObject:[gameplayState spawnSystem]];
 		[_systems addObject:[gameplayState gameRulesSystem]];
 	}

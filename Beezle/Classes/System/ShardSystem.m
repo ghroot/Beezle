@@ -101,9 +101,15 @@
 			Entity *shardPieceEntity = [EntityFactory createEntity:[shardComponent piecesEntityType] world:_world];
 			
 			// Position
-			CGPoint randomPosition = CGPointMake(
-						topLeft.x + (rand() % (int)[shardComponent piecesSpawnAreaSize].width),
-						topLeft.y + (rand() % (int)[shardComponent piecesSpawnAreaSize].height));
+			CGPoint randomPosition = centerPoint;
+			if ([shardComponent piecesSpawnAreaSize].width > 0)
+			{
+				randomPosition.x = topLeft.x + (rand() % (int)[shardComponent piecesSpawnAreaSize].width);
+			}
+			if ([shardComponent piecesSpawnAreaSize].height > 0)
+			{
+				randomPosition.y = topLeft.y + (rand() % (int)[shardComponent piecesSpawnAreaSize].height);
+			}
 			[EntityUtil setEntityPosition:shardPieceEntity position:randomPosition];
 			
 			// Velocity

@@ -84,7 +84,7 @@
     [self registerCollisionBetween:[CollisionType AIM_POLLEN] and:[CollisionType EDGE] handler:[AimPollenEdgeHandler handler]];
     
     GlassPieceHandler *glassPieceHandler = [GlassPieceHandler handlerWithWorld:_world];
-    [self registerCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType EDGE] handler:glassPieceHandler];
+    [self registerCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType BACKGROUND] handler:glassPieceHandler];
     [self registerCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType EDGE] handler:glassPieceHandler];
     
     WaterDropHandler *waterDropHandler = [WaterDropHandler handlerWithWorld:_world];
