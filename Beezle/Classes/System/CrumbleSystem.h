@@ -6,8 +6,13 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "NotificationEntitySystem.h"
+#import "artemis.h"
 
-@interface CrumbleSystem : NotificationEntitySystem
+@class NotificationProcessor;
+
+@interface CrumbleSystem : EntitySystem
+{
+	NotificationProcessor *_notificationProcessor;
+}
 
 @end

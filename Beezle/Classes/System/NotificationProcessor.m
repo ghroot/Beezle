@@ -1,29 +1,37 @@
 //
-//  NotificationEntitySystem.m
+//  NotificationProcessor.m
 //  Beezle
 //
-//  Created by Marcus on 4/13/12.
+//  Created by KM Lagerstrom on 14/04/2012.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "NotificationEntitySystem.h"
+#import "NotificationProcessor.h"
 
-@interface NotificationEntitySystem()
+@interface NotificationProcessor()
 
 -(void) queueNotification:(NSNotification *)notification;
--(void) handleNotification:(NSNotification *)notification;
+-(void) processNotification:(NSNotification *)notification;
 
 @end
 
-@implementation NotificationEntitySystem
+@implementation NotificationProcessor
 
--(id) init
+// Designated initializer
+-(id) initWithTarget:(id)target
 {
 	if (self = [super init])
 	{
+		_target = target;
 		_notifications = [NSMutableArray new];
         _selectorsByNotificationNames = [NSMutableDictionary new];
 	}
+	return self;
+}
+
+-(id) init
+{
+	self = [self initWithTarget:nil];
 	return self;
 }
 
@@ -37,9 +45,9 @@
 	[super dealloc];
 }
 
--(void) addNotificationObserver:(NSString *)name selector:(SEL)selector
+-(void) registerNotification:(NSString *)name withSelector:(SEL)selector
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:name object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:name object:nil];
     [_selectorsByNotificationNames setObject:NSStringFromSelector(selector) forKey:name];
 }
 
@@ -48,21 +56,21 @@
 	[_notifications addObject:notification];
 }
 
--(void) begin
+-(void) processNotifications
 {
 	while ([_notifications count] > 0)
 	{
 		NSNotification *nextNotification = [[_notifications objectAtIndex:0] retain];
 		[_notifications removeObjectAtIndex:0];
-		[self handleNotification:nextNotification];
+		[self processNotification:nextNotification];
 		[nextNotification release];
 	}
 }
 
--(void) handleNotification:(NSNotification *)notification
+-(void) processNotification:(NSNotification *)notification
 {
     SEL selector = NSSelectorFromString([_selectorsByNotificationNames objectForKey:[notification name]]);
-    [self performSelector:selector withObject:notification];
+    [_target performSelector:selector withObject:notification];
 }
 
 @end

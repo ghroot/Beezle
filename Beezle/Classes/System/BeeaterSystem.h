@@ -6,8 +6,13 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "NotificationEntitySystem.h"
+#import "artemis.h"
 
-@interface BeeaterSystem : NotificationEntitySystem
+@class NotificationProcessor;
+
+@interface BeeaterSystem : EntitySystem
+{
+	NotificationProcessor *_notificationProcessor;
+}
 
 @end

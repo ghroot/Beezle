@@ -36,7 +36,6 @@
 		2C27E90C14D20577002165CD /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FF14D20577002165CD /* World.m */; };
 		2C29D7A6153843F7005EFE8E /* BeeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C29D7A5153843F6005EFE8E /* BeeHandler.m */; };
 		2C29D7AD15385D86005EFE8E /* DozerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C29D7AC15385D86005EFE8E /* DozerComponent.m */; };
-		2C29D7B0153864C3005EFE8E /* NotificationEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C29D7AF153864BD005EFE8E /* NotificationEntitySystem.m */; };
 		2C29D7B315386560005EFE8E /* CrumbleSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C29D7B21538655A005EFE8E /* CrumbleSystem.m */; };
 		2C2C184014FEE92D007C2ADC /* Slinger.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C183F14FEE92D007C2ADC /* Slinger.m4a */; };
 		2C2C184214FEEB69007C2ADC /* Key-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C184114FEEB69007C2ADC /* Key-01.png */; };
@@ -225,6 +224,7 @@
 		2C5374131538DA2900040EED /* Glass-B57.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5373F21538DA2700040EED /* Glass-B57.plist */; };
 		2C5374141538DA2900040EED /* Glass-B59.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5373F31538DA2900040EED /* Glass-B59.plist */; };
 		2C5374171538E45200040EED /* BeeLavaHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5374161538E45200040EED /* BeeLavaHandler.m */; };
+		2C53741A1538F38A00040EED /* NotificationProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5374191538F38600040EED /* NotificationProcessor.m */; };
 		2C596D3E14A13FDD00DFCC14 /* LevelLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */; };
 		2C5EFC2B14E496A10071ED39 /* SpawnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */; };
 		2C5EFC3114E499C20071ED39 /* SpawnSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3014E499C20071ED39 /* SpawnSystem.m */; };
@@ -1034,8 +1034,6 @@
 		2C29D7A5153843F6005EFE8E /* BeeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeHandler.m; sourceTree = "<group>"; };
 		2C29D7AB15385D86005EFE8E /* DozerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DozerComponent.h; path = Classes/Component/DozerComponent.h; sourceTree = "<group>"; };
 		2C29D7AC15385D86005EFE8E /* DozerComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DozerComponent.m; path = Classes/Component/DozerComponent.m; sourceTree = "<group>"; };
-		2C29D7AE153864B9005EFE8E /* NotificationEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationEntitySystem.h; path = Classes/System/NotificationEntitySystem.h; sourceTree = "<group>"; };
-		2C29D7AF153864BD005EFE8E /* NotificationEntitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationEntitySystem.m; path = Classes/System/NotificationEntitySystem.m; sourceTree = "<group>"; };
 		2C29D7B115386556005EFE8E /* CrumbleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CrumbleSystem.h; path = Classes/System/CrumbleSystem.h; sourceTree = "<group>"; };
 		2C29D7B21538655A005EFE8E /* CrumbleSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CrumbleSystem.m; path = Classes/System/CrumbleSystem.m; sourceTree = "<group>"; };
 		2C2C183F14FEE92D007C2ADC /* Slinger.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Slinger.m4a; sourceTree = "<group>"; };
@@ -1241,6 +1239,8 @@
 		2C5373F31538DA2900040EED /* Glass-B59.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-B59.plist"; sourceTree = "<group>"; };
 		2C5374151538E45100040EED /* BeeLavaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeLavaHandler.h; sourceTree = "<group>"; };
 		2C5374161538E45200040EED /* BeeLavaHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeLavaHandler.m; sourceTree = "<group>"; };
+		2C5374181538F38200040EED /* NotificationProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationProcessor.h; path = Classes/System/NotificationProcessor.h; sourceTree = "<group>"; };
+		2C5374191538F38600040EED /* NotificationProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationProcessor.m; path = Classes/System/NotificationProcessor.m; sourceTree = "<group>"; };
 		2C596D3914A13FDD00DFCC14 /* LevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLoader.h; sourceTree = "<group>"; };
 		2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLoader.m; sourceTree = "<group>"; };
 		2C5EFC2914E496A00071ED39 /* SpawnComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpawnComponent.h; path = Classes/Component/SpawnComponent.h; sourceTree = "<group>"; };
@@ -2761,8 +2761,8 @@
 				2C7CE61B146C73FE001F331F /* InputSystem.m */,
 				2CC3EBFE14D466700025F5DA /* MovementSystem.h */,
 				2CC3EBFF14D466700025F5DA /* MovementSystem.m */,
-				2C29D7AE153864B9005EFE8E /* NotificationEntitySystem.h */,
-				2C29D7AF153864BD005EFE8E /* NotificationEntitySystem.m */,
+				2C5374181538F38200040EED /* NotificationProcessor.h */,
+				2C5374191538F38600040EED /* NotificationProcessor.m */,
 				2C7CE5F81469D092001F331F /* PhysicsSystem.h */,
 				2C7CE5F91469D092001F331F /* PhysicsSystem.m */,
 				2C7CE5F51469AD06001F331F /* RenderSystem.h */,
@@ -5150,9 +5150,9 @@
 				2C8B198E153639C7003F3465 /* LevelThemeSelectMenuItem.m in Sources */,
 				2C29D7A6153843F7005EFE8E /* BeeHandler.m in Sources */,
 				2C29D7AD15385D86005EFE8E /* DozerComponent.m in Sources */,
-				2C29D7B0153864C3005EFE8E /* NotificationEntitySystem.m in Sources */,
 				2C29D7B315386560005EFE8E /* CrumbleSystem.m in Sources */,
 				2C5374171538E45200040EED /* BeeLavaHandler.m in Sources */,
+				2C53741A1538F38A00040EED /* NotificationProcessor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

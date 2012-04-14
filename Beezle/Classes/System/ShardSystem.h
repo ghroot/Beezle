@@ -9,9 +9,11 @@
 #import "artemis.h"
 #import "cocos2d.h"
 
+@class NotificationProcessor;
+
 @interface ShardSystem : EntitySystem
 {
-	NSMutableArray *_notifications;
+	NotificationProcessor *_notificationProcessor;
 }
 
 @end

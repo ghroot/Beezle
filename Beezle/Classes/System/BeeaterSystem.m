@@ -10,6 +10,7 @@
 #import "BeeaterComponent.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
+#import "NotificationProcessor.h"
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
@@ -33,10 +34,23 @@
 {
 	if (self = [super init])
 	{
-		[self addNotificationObserver:GAME_NOTIFICATION_BEEATER_CONTAINED_BEE_CHANGED selector:@selector(handleBeeaterBeeChanged:)];
-        [self addNotificationObserver:GAME_NOTIFICATION_ENTITY_DISPOSED selector:@selector(handleEntityDisposed:)];
+		_notificationProcessor = [[NotificationProcessor alloc] initWithTarget:self];
+		[_notificationProcessor registerNotification:GAME_NOTIFICATION_BEEATER_CONTAINED_BEE_CHANGED withSelector:@selector(handleBeeaterBeeChanged:)];
+		[_notificationProcessor registerNotification:GAME_NOTIFICATION_ENTITY_DISPOSED withSelector:@selector(handleEntityDisposed:)];
 	}
 	return self;
+}
+
+-(void) dealloc
+{
+	[_notificationProcessor release];
+	
+	[super dealloc];
+}
+
+-(void) begin
+{
+	[_notificationProcessor processNotifications];
 }
 
 -(void) handleBeeaterBeeChanged:(NSNotification *)notification

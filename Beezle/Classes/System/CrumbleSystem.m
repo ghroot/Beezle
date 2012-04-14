@@ -9,6 +9,7 @@
 #import "CrumbleSystem.h"
 #import "CrumbleComponent.h"
 #import "EntityUtil.h"
+#import "NotificationProcessor.h"
 #import "NotificationTypes.h"
 
 @interface CrumbleSystem()
@@ -23,9 +24,22 @@
 {
     if (self = [super init])
     {
-        [self addNotificationObserver:GAME_NOTIFICATION_ENTITY_DISPOSED selector:@selector(handleEntityDisposed:)];
+		_notificationProcessor = [[NotificationProcessor alloc] initWithTarget:self];
+		[_notificationProcessor registerNotification:GAME_NOTIFICATION_ENTITY_DISPOSED withSelector:@selector(handleEntityDisposed:)];
     }
     return self;
+}
+
+-(void) dealloc
+{
+	[_notificationProcessor release];
+	
+	[super dealloc];
+}
+
+-(void) begin
+{
+	[_notificationProcessor processNotifications];
 }
 
 -(void) handleEntityDisposed:(NSNotification *)notification

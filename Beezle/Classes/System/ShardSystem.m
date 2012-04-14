@@ -11,10 +11,9 @@
 #import "EntityFactory.h"
 #import "EntityUtil.h"
 #import "ShardComponent.h"
+#import "NotificationProcessor.h"
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
-#import "SoundComponent.h"
-#import "SoundManager.h"
 #import "TransformComponent.h"
 #import "Utils.h"
 
@@ -23,9 +22,6 @@
 
 @interface ShardSystem()
 
--(void) addNotificationObservers;
--(void) queueNotification:(NSNotification *)notification;
--(void) handleNotification:(NSNotification *)notification;
 -(void) handleEntityDisposed:(NSNotification *)notification;
 
 @end
@@ -36,48 +32,22 @@
 {
 	if (self = [super init])
 	{
-		_notifications = [[NSMutableArray alloc] init];
-		[self addNotificationObservers];
+		_notificationProcessor = [[NotificationProcessor alloc] initWithTarget:self];
+		[_notificationProcessor registerNotification:GAME_NOTIFICATION_ENTITY_DISPOSED withSelector:@selector(handleEntityDisposed:)];
 	}
 	return self;
 }
 
 -(void) dealloc
 {
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	
-	[_notifications release];
+	[_notificationProcessor release];
 	
 	[super dealloc];
 }
 
--(void) addNotificationObservers
-{
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_ENTITY_DISPOSED object:nil];
-}
-
--(void) queueNotification:(NSNotification *)notification
-{
-	[_notifications addObject:notification];
-}
-
 -(void) begin
 {
-	while ([_notifications count] > 0)
-	{
-		NSNotification *nextNotification = [[_notifications objectAtIndex:0] retain];
-		[_notifications removeObjectAtIndex:0];
-		[self handleNotification:nextNotification];
-		[nextNotification release];
-	}
-}
-
--(void) handleNotification:(NSNotification *)notification
-{
-	if ([[notification name] isEqualToString:GAME_NOTIFICATION_ENTITY_DISPOSED])
-	{
-		[self handleEntityDisposed:notification];
-	}
+	[_notificationProcessor processNotifications];
 }
 
 -(void) handleEntityDisposed:(NSNotification *)notification
@@ -125,10 +95,8 @@
 			[EntityUtil fadeOutAndDeleteEntity:shardPieceEntity duration:7.0f];
 		}
 		
-		[[DisposableComponent getFrom:entity] setIsDisposed:TRUE];
+		// TODO: Is this needed? Who is responsible for deleting entities?
 		[entity deleteEntity];
-		
-		[[SoundManager sharedManager] playSound:[[SoundComponent getFrom:entity] defaultDestroySoundName]];
 	}
 }
 
