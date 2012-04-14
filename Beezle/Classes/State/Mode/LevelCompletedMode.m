@@ -39,6 +39,7 @@
 		[_systems addObject:[gameplayState hudRenderingSystem]];
 		[_systems addObject:[gameplayState beeQueueRenderingSystem]];
 		[_systems addObject:[gameplayState spawnSystem]];
+		[_systems addObject:[gameplayState cullingSystem]];
 	}
 	return self;
 }

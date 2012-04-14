@@ -14,6 +14,7 @@
 #import "BeeExpiratonSystem.h"
 #import "CollisionSystem.h"
 #import "CrumbleSystem.h"
+#import "CullingSystem.h"
 #import "DebugNotificationTrackerSystem.h"
 #import "DebugRenderPhysicsSystem.h"
 #import "DisposableComponent.h"
@@ -82,6 +83,7 @@
 @synthesize shardSystem = _shardSystem;
 @synthesize slingerControlSystem = _slingerControlSystem;
 @synthesize spawnSystem = _spawnSystem;
+@synthesize cullingSystem = _cullingSystem;
 
 +(id) stateWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession
 {
@@ -188,6 +190,8 @@
     [systemManager setSystem:_crumbleSystem];
 	_spawnSystem = [[[SpawnSystem alloc] init] autorelease];
 	[systemManager setSystem:_spawnSystem];
+	_cullingSystem = [[CullingSystem new] autorelease];
+	[systemManager setSystem:_cullingSystem];
 	if (_debug)
 	{
 		_debugRenderPhysicsSystem = [[[DebugRenderPhysicsSystem alloc] initWithScene:self] autorelease];

@@ -34,9 +34,6 @@
 	if (![EntityUtil isEntityDisposed:glassPieceEntity])
 	{
 		[EntityUtil setEntityDisposed:glassPieceEntity];
-		
-		[glassPieceEntity deleteEntity];
-		
 		[EntityUtil playDefaultDestroySound:glassPieceEntity];
 	}
     

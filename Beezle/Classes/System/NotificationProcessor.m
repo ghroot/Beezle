@@ -69,6 +69,8 @@
 
 -(void) processNotification:(NSNotification *)notification
 {
+//	NSLog(@"Processing notification %@ in %@", [notification name], _target);
+	
     SEL selector = NSSelectorFromString([_selectorsByNotificationNames objectForKey:[notification name]]);
     [_target performSelector:selector withObject:notification];
 }

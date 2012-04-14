@@ -94,9 +94,6 @@
 			// Fade out
 			[EntityUtil fadeOutAndDeleteEntity:shardPieceEntity duration:7.0f];
 		}
-		
-		// TODO: Is this needed? Who is responsible for deleting entities?
-		[entity deleteEntity];
 	}
 }
 

@@ -30,6 +30,7 @@
 		[_systems addObject:[gameplayState beeQueueRenderingSystem]];
 		[_systems addObject:[gameplayState shardSystem]];
 		[_systems addObject:[gameplayState spawnSystem]];
+		[_systems addObject:[gameplayState cullingSystem]];
 		[_systems addObject:[gameplayState gameRulesSystem]];
 	}
 	return self;
