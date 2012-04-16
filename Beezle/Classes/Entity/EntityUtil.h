@@ -15,14 +15,15 @@
 +(void) setEntityMirrored:(Entity *)entity mirrored:(BOOL)mirrored;
 +(BOOL) isEntityDisposable:(Entity *)entity;
 +(BOOL) isEntityDisposed:(Entity *)entity;
++(void) setEntityDisposed:(Entity *)entity deleteEntity:(BOOL)deleteEntity;
 +(void) setEntityDisposed:(Entity *)entity;
-+(BOOL) isEntityBackground:(Entity *)entity;
-+(BOOL) hasBackgroundEntityWater:(Entity *)entity;
++(Entity *) getWaterEntity:(World *)world;
 +(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName disablePhysics:(BOOL)disablePhysics;
 +(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName;
 +(void) animateAndDeleteEntity:(Entity *)entity disablePhysics:(BOOL)disablePhysics;
 +(void) animateAndDeleteEntity:(Entity *)entity;
 +(void) fadeOutAndDeleteEntity:(Entity *)entity duration:(float)duration;
++(void) playDefaultCollisionSound:(Entity *)entity;
 +(void) playDefaultDestroySound:(Entity *)entity;
 
 @end

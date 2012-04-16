@@ -6,6 +6,13 @@
 	<string>NUT</string>
 	<key>components</key>
 	<dict>
+		<key>collision</key>
+		<dict>
+			<key>disposeAnimateAndDeleteEntityOnCollision</key>
+			<true/>
+			<key>disposeAnimateAndDeleteBeeOnCollision</key>
+			<true/>
+		</dict>
 		<key>disposable</key>
 		<dict>
 			<key>consumable</key>

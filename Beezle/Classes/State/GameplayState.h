@@ -17,7 +17,6 @@
 @class BeeQueueRenderingSystem;
 @class CollisionSystem;
 @class CrumbleSystem;
-@class CullingSystem;
 @class DebugNotificationTrackerSystem;
 @class DebugRenderPhysicsSystem;
 @class GameRulesSystem;
@@ -31,6 +30,7 @@
 @class ShardSystem;
 @class SlingerControlSystem;
 @class SpawnSystem;
+@class WoodSystem;
 
 @interface GameplayState : GameState
 {
@@ -62,7 +62,7 @@
     CrumbleSystem *_crumbleSystem;
     SlingerControlSystem *_slingerControlSystem;
 	SpawnSystem *_spawnSystem;
-	CullingSystem *_cullingSystem;
+	WoodSystem *_woodSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
 	DebugNotificationTrackerSystem *_debugNotificationTrackerSystem;
     
@@ -88,7 +88,7 @@
 @property (nonatomic, readonly) ShardSystem *shardSystem;
 @property (nonatomic, readonly) SlingerControlSystem *slingerControlSystem;
 @property (nonatomic, readonly) SpawnSystem *spawnSystem;
-@property (nonatomic, readonly) CullingSystem *cullingSystem;
+@property (nonatomic, readonly) WoodSystem *woodSystem;
 
 +(id) stateWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession;
 +(id) stateWithLevelName:(NSString *)levelName;

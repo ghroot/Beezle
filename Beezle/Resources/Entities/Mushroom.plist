@@ -6,6 +6,11 @@
 	<string>MUSHROOM</string>
 	<key>components</key>
 	<dict>
+		<key>collision</key>
+		<dict>
+			<key>collisionAnimation</key>
+			<string>Mushroom-Bounce</string>
+		</dict>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
@@ -54,6 +59,11 @@
 					<string>Mushroom-Idle</string>
 				</dict>
 			</array>
+		</dict>
+		<key>sound</key>
+		<dict>
+			<key>defaultCollisionSound</key>
+			<string>MushroomBounce</string>
 		</dict>
 		<key>transform</key>
 		<dict/>

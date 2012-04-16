@@ -10,6 +10,7 @@
 #import "BeeaterComponent.h"
 #import "BeeQueueRenderingSystem.h"
 #import "BeeType.h"
+#import "CollisionType.h"
 #import "EditComponent.h"
 #import "EditControlSystem.h"
 #import "EditState.h"
@@ -223,21 +224,23 @@
 	 
 -(void) doOptionToggleWater:(id)sender
 {
-	Entity *backgroundEntity = nil;
-	for (Entity *entity in [[_world entityManager] entities])
+	Entity *waterEntity = [EntityUtil getWaterEntity:_world];
+	if (waterEntity != nil)
 	{
-		if ([EntityUtil isEntityBackground:entity])
+		[waterEntity deleteEntity];
+	}
+	else
+	{
+		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:[_editState levelName]];
+		if ([theme isEqualToString:@"A"])
 		{
-			backgroundEntity = entity;
-			break;
+			[EntityFactory createEntity:@"WATER" world:_world];
+		}
+		else if ([theme isEqualToString:@"B"])
+		{
+			[EntityFactory createEntity:@"LAVA" world:_world];
 		}
 	}
-	
-	BOOL hasWater = [EntityUtil hasBackgroundEntityWater:backgroundEntity];
-	
-	[backgroundEntity deleteEntity];
-	
-	[EntityFactory createBackground:_world withLevelName:[_editState levelName] hasWater:!hasWater];
 }
 
 -(void) doOptionToggleLines:(id)sender

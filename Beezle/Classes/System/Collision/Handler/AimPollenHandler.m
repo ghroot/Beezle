@@ -1,28 +1,24 @@
 //
-//  AimPollenEdgeHandler.m
+//  AimPollenHandler.m
 //  Beezle
 //
 //  Created by Marcus on 4/11/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "AimPollenEdgeHandler.h"
+#import "AimPollenHandler.h"
 #import "Collision.h"
 #import "EntityUtil.h"
 
-@implementation AimPollenEdgeHandler
+@implementation AimPollenHandler
 
 -(BOOL) handleCollision:(Collision *)collision
 {
     Entity *aimPollenEntity = [collision firstEntity];
     
-    if (![EntityUtil isEntityDisposed:aimPollenEntity])
-    {
-        [EntityUtil setEntityDisposed:aimPollenEntity];
-        [aimPollenEntity deleteEntity];
-    }
+	[EntityUtil setEntityDisposed:aimPollenEntity];
     
-    return TRUE;
+    return FALSE;
 }
 
 @end

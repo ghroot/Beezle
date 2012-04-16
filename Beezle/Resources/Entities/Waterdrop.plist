@@ -7,7 +7,10 @@
 	<key>components</key>
 	<dict>
 		<key>disposable</key>
-		<dict/>
+		<dict>
+			<key>deleteEntityWhenDisposed</key>
+			<true/>
+		</dict>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
@@ -30,7 +33,7 @@
 					<real>0.5</real>
 					<key>collisionType</key>
 					<string>WATER_DROP</string>
-                    <key>layers</key>
+					<key>layers</key>
 					<integer>2</integer>
 					<key>group</key>
 					<string>OBJECT</string>

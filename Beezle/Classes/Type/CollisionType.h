@@ -27,6 +27,5 @@
 +(CollisionType *) WATER_DROP;
 +(CollisionType *) WATER;
 +(CollisionType *) RAMP;
-+(CollisionType *) LAVA;
 
 @end

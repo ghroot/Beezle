@@ -16,7 +16,6 @@
 	int _format;
 	int _version;
     NSMutableArray *_entries;
-	BOOL _hasWater;
 	BOOL _isEdited;
 }
 
@@ -24,7 +23,6 @@
 @property (nonatomic) int format;
 @property (nonatomic) int version;
 @property (nonatomic, readonly) NSArray *entries;
-@property (nonatomic) BOOL hasWater;
 @property (nonatomic) BOOL isEdited;
 
 +(LevelLayout *) layout;

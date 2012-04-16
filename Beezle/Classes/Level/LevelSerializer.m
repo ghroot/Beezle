@@ -74,9 +74,6 @@
 		[levelLayout addLevelLayoutEntry:levelLayoutEntry];
 	}
 	
-	BOOL hasWater = [[dict objectForKey:@"hasWater"] boolValue];
-	[levelLayout setHasWater:hasWater];
-	
 	return levelLayout;
 }
  
@@ -98,8 +95,6 @@
 	}
 	[dict setObject:entities forKey:@"entities"];
 	
-	[dict setObject:[NSNumber numberWithBool:[layout hasWater]] forKey:@"hasWater"];
-	
 	return dict;
 }
 
@@ -111,7 +106,6 @@
 	[levelLayout setVersion:version];
     [levelLayout setFormat:LEVEL_LAYOUT_FORMAT];
 	
-	BOOL hasWater = FALSE;
 	for (Entity *entity in [[world entityManager] entities])
 	{
 		if ([self isLevelLayoutEntity:entity])
@@ -135,12 +129,7 @@
 						
 			[levelLayout addLevelLayoutEntry:levelLayoutEntry];
 		}
-		else if ([EntityUtil isEntityBackground:entity])
-		{
-			hasWater = [EntityUtil hasBackgroundEntityWater:entity];
-		}
 	}
-	[levelLayout setHasWater:hasWater];
 	
 	return levelLayout;
 }

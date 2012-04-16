@@ -10,6 +10,7 @@
 #import "BeeComponent.h"
 #import "BeeType.h"
 #import "BodyInfo.h"
+#import "CollisionComponent.h"
 #import "CollisionGroup.h"
 #import "CollisionType.h"
 #import "EditComponent.h"
@@ -24,6 +25,7 @@
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "RenderSystem.h"
+#import "SoundComponent.h"
 #import "SpawnComponent.h"
 #import "TransformComponent.h"
 
@@ -33,8 +35,6 @@
 #define EDGE_FRICTION 0.5f
 #define EDGE_ELASTICITY 0.0f
 #define EDGE_LAYERS 3
-#define WATER_HEIGHT 5.0f
-#define WATER_LAYERS 3
 #define AIM_POLLEN_LAYERS 2
 
 @interface EntityFactory()
@@ -45,9 +45,57 @@
 
 @implementation EntityFactory
 
-+(Entity *) createBackground:(World *)world withLevelName:(NSString *)name hasWater:(BOOL)hasWater
++(Entity *) createEdge:(World *)world
+{
+	Entity *edgeEntity = [world createEntity];
+	
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	
+	// Transform
+    TransformComponent *transformComponent = [TransformComponent component];
+    [edgeEntity addComponent:transformComponent];
+	
+	// Physics
+	ChipmunkBody *body = [ChipmunkBody staticBody];
+	NSMutableArray *shapes = [NSMutableArray array];
+	int numEdgeVerts = 4;
+    CGPoint edgeVerts[] = {
+        cpv(-winSize.width / 2, -winSize.height / 2),
+        cpv(winSize.width / 2, -winSize.height / 2),
+        cpv(winSize.width / 2, winSize.height / 2),
+        cpv(-winSize.width / 2, winSize.height / 2)
+    };
+    for (int i = 0; i < numEdgeVerts; i++)
+    {
+        int nextI = i == numEdgeVerts - 1 ? 0 : i + 1;
+		ChipmunkShape *shape = [ChipmunkSegmentShape segmentWithBody:body from:edgeVerts[i] to:edgeVerts[nextI] radius:0];
+		[shape setFriction:EDGE_FRICTION];
+		[shape setElasticity:EDGE_ELASTICITY];
+		[shape setLayers:EDGE_LAYERS];
+		[shape setCollisionType:[CollisionType EDGE]];
+		[shape setGroup:[CollisionGroup LEVEL]];
+        [shapes addObject:shape];
+    }
+	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShapes:shapes];
+    [edgeEntity addComponent:physicsComponent];
+	
+	// Collision
+	CollisionComponent *collisionComponent = [CollisionComponent component];
+	[collisionComponent setDisposeAndDeleteBeeOnCollision:TRUE];
+	[edgeEntity addComponent:collisionComponent];
+	
+	[edgeEntity refresh];
+	
+	[EntityUtil setEntityPosition:edgeEntity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
+	
+	return edgeEntity;
+}
+
++(Entity *) createBackground:(World *)world withLevelName:(NSString *)name
 {
     Entity *backgroundEntity = [world createEntity];
+	
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	
     // Transform
     TransformComponent *transformComponent = [TransformComponent component];
@@ -79,55 +127,14 @@
 	}
 	[shapes addObjectsFromArray:[bodyInfo shapes]];
 	
-	// Edge
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	int numEdgeVerts = 4;
-    CGPoint edgeVerts[] = {
-        cpv(-winSize.width / 2, -winSize.height / 2),
-        cpv(winSize.width / 2, -winSize.height / 2),
-        cpv(winSize.width / 2, winSize.height / 2),
-        cpv(-winSize.width / 2, winSize.height / 2)
-    };
-    for (int i = 0; i < numEdgeVerts; i++)
-    {
-        int nextI = i == numEdgeVerts - 1 ? 0 : i + 1;
-		ChipmunkShape *shape = [ChipmunkSegmentShape segmentWithBody:[bodyInfo body] from:edgeVerts[i] to:edgeVerts[nextI] radius:0];
-		[shape setFriction:EDGE_FRICTION];
-		[shape setElasticity:EDGE_ELASTICITY];
-		[shape setLayers:EDGE_LAYERS];
-		[shape setCollisionType:[CollisionType EDGE]];
-		[shape setGroup:[CollisionGroup LEVEL]];
-        [shapes addObject:shape];
-    }
-	
-	// Water
-	if (hasWater)
-	{
-		int numWaterVerts = 4;
-		CGPoint waterVerts[] = {
-			cpv(-winSize.width / 2, -winSize.height / 2),
-			cpv(-winSize.width / 2, -(winSize.height / 2) + WATER_HEIGHT),
-			cpv(winSize.width / 2, -(winSize.height / 2) + WATER_HEIGHT),
-			cpv(winSize.width / 2, -winSize.height / 2)
-		};
-		ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:[bodyInfo body] count:numWaterVerts verts:waterVerts offset:CGPointZero];
-		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:name];
-		if ([theme isEqualToString:@"A"])
-		{
-			[shape setCollisionType:[CollisionType WATER]];
-		}
-		else if ([theme isEqualToString:@"B"])
-		{
-			[shape setCollisionType:[CollisionType LAVA]];
-		}
-		[shape setLayers:WATER_LAYERS];
-		[shape setGroup:[CollisionGroup LEVEL]];
-		[shapes addObject:shape];
-	}
-	
 	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:[bodyInfo body] andShapes:shapes];
     [backgroundEntity addComponent:physicsComponent];
-    
+	
+	// Sound
+    SoundComponent *soundComponent = [SoundComponent component];
+	[soundComponent setDefaultCollisionSoundName:@"BeeHitWall"];
+	[backgroundEntity addComponent:soundComponent];
+	
     [backgroundEntity refresh];
 	
 	[EntityUtil setEntityPosition:backgroundEntity position:CGPointMake(winSize.width / 2, winSize.height / 2)];

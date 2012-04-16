@@ -6,6 +6,11 @@
 	<string>SMOKE-MUSHROOM</string>
 	<key>components</key>
 	<dict>
+		<key>collision</key>
+		<dict>
+			<key>destroyOnCollision</key>
+			<true/>
+		</dict>
 		<key>disposable</key>
 		<dict/>
 		<key>physics</key>

@@ -12,9 +12,11 @@
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
 #import "RenderComponent.h"
+#import "RenderSprite.h"
 #import "SoundComponent.h"
 #import "SoundManager.h"
 #import "TransformComponent.h"
+#import "WaterComponent.h"
 
 @implementation EntityUtil
 
@@ -66,42 +68,40 @@
     return [[DisposableComponent getFrom:entity] isDisposed];
 }
 
-+(void) setEntityDisposed:(Entity *)entity
++(void) setEntityDisposed:(Entity *)entity deleteEntity:(BOOL)deleteEntity
 {
-    [[DisposableComponent getFrom:entity] setIsDisposed:TRUE];
+	DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
+	if ([disposableComponent isDisposed])
+	{
+		NSLog(@"WARNING: Marking already disposed component as disposed again");
+	}
+	[disposableComponent setIsDisposed:TRUE];
     
     NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
     [[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_DISPOSED object:self userInfo:notificationUserInfo];
+	
+	if ([disposableComponent deleteEntityWhenDisposed])
+	{
+		[entity deleteEntity];
+	}
 }
 
-+(BOOL) isEntityBackground:(Entity *)entity
++(void) setEntityDisposed:(Entity *)entity
 {
-	if ([entity hasComponent:[PhysicsComponent class]])
-	{
-		PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
-		for (ChipmunkShape *shape in [physicsComponent shapes])
-		{
-			if ([shape collisionType] == [CollisionType BACKGROUND])
-			{
-				return TRUE;
-			}
-		}
-	}
-	return FALSE;
+	DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
+	[self setEntityDisposed:entity deleteEntity:[disposableComponent deleteEntityWhenDisposed]];
 }
 
-+(BOOL) hasBackgroundEntityWater:(Entity *)entity
++(Entity *) getWaterEntity:(World *)world
 {
-	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
-	for (ChipmunkShape *shape in [physicsComponent shapes])
+	for (Entity *entity in [[world entityManager] entities])
 	{
-		if ([shape collisionType] == [CollisionType WATER] ||
-			[shape collisionType] == [CollisionType LAVA])
+		if ([entity hasComponent:[WaterComponent class]])
 		{
-			return TRUE;
+			return entity;
 		}
 	}
-	return FALSE;
+	return nil;
 }
 
 +(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName disablePhysics:(BOOL)disablePhysics
@@ -150,9 +150,22 @@
 	}
 }
 
++(void) playDefaultCollisionSound:(Entity *)entity
+{
+	SoundComponent *soundComponent = [SoundComponent getFrom:entity];
+	if ([soundComponent defaultCollisionSoundName])
+	{
+		[[SoundManager sharedManager] playSound:[[SoundComponent getFrom:entity] defaultCollisionSoundName]];
+	}
+}
+
 +(void) playDefaultDestroySound:(Entity *)entity
 {
-    [[SoundManager sharedManager] playSound:[[SoundComponent getFrom:entity] defaultDestroySoundName]];
+	SoundComponent *soundComponent = [SoundComponent getFrom:entity];
+	if ([soundComponent defaultCollisionSoundName])
+	{
+		[[SoundManager sharedManager] playSound:[[SoundComponent getFrom:entity] defaultDestroySoundName]];
+	}
 }
 
 @end

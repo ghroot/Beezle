@@ -6,6 +6,11 @@
 	<string>POLLEN</string>
 	<key>components</key>
 	<dict>
+		<key>collision</key>
+		<dict>
+			<key>disposeAnimateAndDeleteEntityOnCollision</key>
+			<true/>
+		</dict>
 		<key>disposable</key>
 		<dict/>
 		<key>physics</key>

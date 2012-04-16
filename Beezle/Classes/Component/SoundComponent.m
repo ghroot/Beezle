@@ -10,12 +10,17 @@
 
 @implementation SoundComponent
 
+@synthesize defaultCollisionSoundName = _defaultCollisionSoundName;
 @synthesize defaultDestroySoundName = _defaultDestroySoundName;
 
 -(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
 {
 	if (self = [self init])
 	{
+		if ([dict objectForKey:@"defaultCollisionSound"] != nil)
+		{
+			_defaultCollisionSoundName = [[dict objectForKey:@"defaultCollisionSound"] retain];
+		}
 		if ([dict objectForKey:@"defaultDestroySound"] != nil)
 		{
 			_defaultDestroySoundName = [[dict objectForKey:@"defaultDestroySound"] retain];
@@ -35,6 +40,7 @@
 
 -(void) dealloc
 {
+	[_defaultCollisionSoundName release];
     [_defaultDestroySoundName release];
     
     [super dealloc];

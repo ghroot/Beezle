@@ -98,7 +98,8 @@
 	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
 	if (levelLayout != nil)
 	{
-		[EntityFactory createBackground:world withLevelName:levelName hasWater:[levelLayout hasWater]];
+		[EntityFactory createEdge:world];
+		[EntityFactory createBackground:world withLevelName:levelName];
 		for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
 		{
 			Entity *entity = [EntityFactory createEntity:[levelLayoutEntry type] world:world edit:edit];
@@ -147,7 +148,7 @@
 	}
 	else
 	{
-		[EntityFactory createBackground:world withLevelName:levelName hasWater:FALSE];
+		[EntityFactory createBackground:world withLevelName:levelName];
 	}
 }
 

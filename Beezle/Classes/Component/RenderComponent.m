@@ -199,12 +199,36 @@
     }
 }
 
+-(BOOL) hasDefaultIdleAnimation
+{
+	for (RenderSprite *renderSprite in _renderSprites)
+    {
+        if ([[renderSprite defaultIdleAnimationNames] count] > 0)
+		{
+			return TRUE;
+		}
+    }
+	return FALSE;
+}
+
 -(void) playDefaultIdleAnimation
 {
     for (RenderSprite *renderSprite in _renderSprites)
     {
         [renderSprite playDefaultIdleAnimation];
     }
+}
+
+-(BOOL) hasDefaultDestroyAnimation
+{
+	for (RenderSprite *renderSprite in _renderSprites)
+    {
+        if ([[renderSprite defaultDestroyAnimationNames] count] > 0)
+		{
+			return TRUE;
+		}
+    }
+	return FALSE;
 }
 
 -(void) playDefaultDestroyAnimation

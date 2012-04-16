@@ -33,21 +33,17 @@
 {
     Entity *waterdropEntity = [collision firstEntity];
     
-	if (![EntityUtil isEntityDisposed:waterdropEntity])
-	{
-		[EntityUtil setEntityDisposed:waterdropEntity];
-		[waterdropEntity deleteEntity];
-		
-		Entity *splashEntity = [EntityFactory createSimpleAnimatedEntity:_world];
-		TransformComponent *transforComponent = [TransformComponent getFrom:waterdropEntity];
-		[EntityUtil setEntityPosition:splashEntity position:[transforComponent position]];
-		[EntityUtil animateAndDeleteEntity:splashEntity animationName:@"Waterdrop-Splash"];
-		
-		NSString *soundName = [NSString stringWithFormat:@"DripSmall%d", (1 + (rand() % 2))];
-		[[SoundManager sharedManager] playSound:soundName];
-	}
+	[EntityUtil setEntityDisposed:waterdropEntity];
+	
+	Entity *splashEntity = [EntityFactory createSimpleAnimatedEntity:_world];
+	TransformComponent *transforComponent = [TransformComponent getFrom:waterdropEntity];
+	[EntityUtil setEntityPosition:splashEntity position:[transforComponent position]];
+	[EntityUtil animateAndDeleteEntity:splashEntity animationName:@"Waterdrop-Splash"];
+	
+	NSString *soundName = [NSString stringWithFormat:@"DripSmall%d", (1 + (rand() % 2))];
+	[[SoundManager sharedManager] playSound:soundName];
     
-    return TRUE;
+    return FALSE;
 }
 
 @end

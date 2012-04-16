@@ -9,11 +9,13 @@
 #import "artemis.h"
 #import "cocos2d.h"
 
+@class CollisionType;
 @class BeeType;
 
 @interface EntityFactory : NSObject
 
-+(Entity *) createBackground:(World *)world withLevelName:(NSString *)name hasWater:(BOOL)hasWater;
++(Entity *) createEdge:(World *)world;
++(Entity *) createBackground:(World *)world withLevelName:(NSString *)name;
 
 +(Entity *) createEntity:(NSString *)type world:(World *)world edit:(BOOL)edit;
 +(Entity *) createEntity:(NSString *)type world:(World *)world;

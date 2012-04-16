@@ -223,9 +223,10 @@
 		2C5374121538DA2900040EED /* Glass-B56.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5373F11538DA2600040EED /* Glass-B56.plist */; };
 		2C5374131538DA2900040EED /* Glass-B57.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5373F21538DA2700040EED /* Glass-B57.plist */; };
 		2C5374141538DA2900040EED /* Glass-B59.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5373F31538DA2900040EED /* Glass-B59.plist */; };
-		2C5374171538E45200040EED /* BeeLavaHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5374161538E45200040EED /* BeeLavaHandler.m */; };
 		2C53741A1538F38A00040EED /* NotificationProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5374191538F38600040EED /* NotificationProcessor.m */; };
-		2C53741D1539B22D00040EED /* CullingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C53741C1539B22200040EED /* CullingSystem.m */; };
+		2C537423153B230500040EED /* CollisionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C537422153B230100040EED /* CollisionComponent.m */; };
+		2C537426153B304F00040EED /* WoodSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C537425153B303A00040EED /* WoodSystem.m */; };
+		2C537429153B318400040EED /* WoodComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C537428153B318100040EED /* WoodComponent.m */; };
 		2C596D3E14A13FDD00DFCC14 /* LevelLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */; };
 		2C5EFC2B14E496A10071ED39 /* SpawnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */; };
 		2C5EFC3114E499C20071ED39 /* SpawnSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3014E499C20071ED39 /* SpawnSystem.m */; };
@@ -316,18 +317,7 @@
 		2C8957D31535AC6300DF4433 /* CollisionMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957CF1535AC6300DF4433 /* CollisionMediator.m */; };
 		2C8957D41535AC6300DF4433 /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957D11535AC6300DF4433 /* CollisionSystem.m */; };
 		2C8957D71535AF9E00DF4433 /* CollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957D61535AF9E00DF4433 /* CollisionHandler.m */; };
-		2C8957DC1535B14D00DF4433 /* BeeWoodHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957DB1535B14D00DF4433 /* BeeWoodHandler.m */; };
-		2C8957DF1535B34A00DF4433 /* BeeEdgeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957DE1535B34A00DF4433 /* BeeEdgeHandler.m */; };
-		2C8957E21535B6E300DF4433 /* BeeBackgroundHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957E11535B6E300DF4433 /* BeeBackgroundHandler.m */; };
-		2C8957E81535B8AD00DF4433 /* BeeBeeaterHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957E71535B8AC00DF4433 /* BeeBeeaterHandler.m */; };
-		2C8957EB1535B9E700DF4433 /* BeePollenHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957EA1535B9E600DF4433 /* BeePollenHandler.m */; };
-		2C8957EE1535B9F800DF4433 /* BeeMushroomHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957ED1535B9F800DF4433 /* BeeMushroomHandler.m */; };
-		2C8957F11535BA0D00DF4433 /* BeeNutHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957F01535BA0D00DF4433 /* BeeNutHandler.m */; };
-		2C8957F41535BA1A00DF4433 /* BeeEggHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957F31535BA1A00DF4433 /* BeeEggHandler.m */; };
-		2C8957F71535BA2800DF4433 /* BeeGlassHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957F61535BA2700DF4433 /* BeeGlassHandler.m */; };
-		2C8957FA1535BA3500DF4433 /* BeeGateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957F91535BA3400DF4433 /* BeeGateHandler.m */; };
-		2C8957FD1535BA4300DF4433 /* BeeWaterHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957FC1535BA4200DF4433 /* BeeWaterHandler.m */; };
-		2C8958001535BA5A00DF4433 /* AimPollenEdgeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957FF1535BA5900DF4433 /* AimPollenEdgeHandler.m */; };
+		2C8958001535BA5A00DF4433 /* AimPollenHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957FF1535BA5900DF4433 /* AimPollenHandler.m */; };
 		2C8958091535BA9000DF4433 /* WaterDropHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8958081535BA8F00DF4433 /* WaterDropHandler.m */; };
 		2C89580C1535BC8000DF4433 /* GlassPieceHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C89580B1535BC7E00DF4433 /* GlassPieceHandler.m */; };
 		2C8B181C153391FC003F3465 /* NSObject+PWObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B181B153391FC003F3465 /* NSObject+PWObject.m */; };
@@ -929,6 +919,9 @@
 		2CE348C114DF071800FEB492 /* EntityDescriptionLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348C014DF071800FEB492 /* EntityDescriptionLoader.m */; };
 		2CE348C414DF072700FEB492 /* EntityDescriptionCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348C314DF072700FEB492 /* EntityDescriptionCache.m */; };
 		2CE348CA14DF0BF900FEB492 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348C914DF0BF800FEB492 /* Utils.m */; };
+		2CE4F509153B83860023B5C6 /* WaterComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4F508153B83850023B5C6 /* WaterComponent.m */; };
+		2CE4F50C153B8EC00023B5C6 /* Water.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F50B153B8EC00023B5C6 /* Water.plist */; };
+		2CE4F50E153B912B0023B5C6 /* Lava.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F50D153B912B0023B5C6 /* Lava.plist */; };
 		2CE508CF14B1E98300A9E8D8 /* LevelSelectMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */; };
 		2CE508D314B31D2B00A9E8D8 /* LevelSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508D214B31D2B00A9E8D8 /* LevelSender.m */; };
 		2CE8604714F90C5600579202 /* DripSmall.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2CE8604414F90C5600579202 /* DripSmall.m4a */; };
@@ -1238,12 +1231,14 @@
 		2C5373F11538DA2600040EED /* Glass-B56.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-B56.plist"; sourceTree = "<group>"; };
 		2C5373F21538DA2700040EED /* Glass-B57.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-B57.plist"; sourceTree = "<group>"; };
 		2C5373F31538DA2900040EED /* Glass-B59.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-B59.plist"; sourceTree = "<group>"; };
-		2C5374151538E45100040EED /* BeeLavaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeLavaHandler.h; sourceTree = "<group>"; };
-		2C5374161538E45200040EED /* BeeLavaHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeLavaHandler.m; sourceTree = "<group>"; };
 		2C5374181538F38200040EED /* NotificationProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationProcessor.h; path = Classes/System/NotificationProcessor.h; sourceTree = "<group>"; };
 		2C5374191538F38600040EED /* NotificationProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationProcessor.m; path = Classes/System/NotificationProcessor.m; sourceTree = "<group>"; };
-		2C53741B1539B21C00040EED /* CullingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CullingSystem.h; path = Classes/System/CullingSystem.h; sourceTree = "<group>"; };
-		2C53741C1539B22200040EED /* CullingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CullingSystem.m; path = Classes/System/CullingSystem.m; sourceTree = "<group>"; };
+		2C537421153B22FE00040EED /* CollisionComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionComponent.h; path = Classes/Component/CollisionComponent.h; sourceTree = "<group>"; };
+		2C537422153B230100040EED /* CollisionComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionComponent.m; path = Classes/Component/CollisionComponent.m; sourceTree = "<group>"; };
+		2C537424153B302E00040EED /* WoodSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WoodSystem.h; path = Classes/System/WoodSystem.h; sourceTree = "<group>"; };
+		2C537425153B303A00040EED /* WoodSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WoodSystem.m; path = Classes/System/WoodSystem.m; sourceTree = "<group>"; };
+		2C537427153B317D00040EED /* WoodComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WoodComponent.h; path = Classes/Component/WoodComponent.h; sourceTree = "<group>"; };
+		2C537428153B318100040EED /* WoodComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WoodComponent.m; path = Classes/Component/WoodComponent.m; sourceTree = "<group>"; };
 		2C596D3914A13FDD00DFCC14 /* LevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLoader.h; sourceTree = "<group>"; };
 		2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLoader.m; sourceTree = "<group>"; };
 		2C5EFC2914E496A00071ED39 /* SpawnComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpawnComponent.h; path = Classes/Component/SpawnComponent.h; sourceTree = "<group>"; };
@@ -1394,30 +1389,8 @@
 		2C8957D11535AC6300DF4433 /* CollisionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionSystem.m; sourceTree = "<group>"; };
 		2C8957D51535AF9E00DF4433 /* CollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionHandler.h; sourceTree = "<group>"; };
 		2C8957D61535AF9E00DF4433 /* CollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionHandler.m; sourceTree = "<group>"; };
-		2C8957DA1535B14D00DF4433 /* BeeWoodHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeWoodHandler.h; sourceTree = "<group>"; };
-		2C8957DB1535B14D00DF4433 /* BeeWoodHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeWoodHandler.m; sourceTree = "<group>"; };
-		2C8957DD1535B34A00DF4433 /* BeeEdgeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeEdgeHandler.h; sourceTree = "<group>"; };
-		2C8957DE1535B34A00DF4433 /* BeeEdgeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeEdgeHandler.m; sourceTree = "<group>"; };
-		2C8957E01535B6E300DF4433 /* BeeBackgroundHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeBackgroundHandler.h; sourceTree = "<group>"; };
-		2C8957E11535B6E300DF4433 /* BeeBackgroundHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeBackgroundHandler.m; sourceTree = "<group>"; };
-		2C8957E61535B8AB00DF4433 /* BeeBeeaterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeBeeaterHandler.h; sourceTree = "<group>"; };
-		2C8957E71535B8AC00DF4433 /* BeeBeeaterHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeBeeaterHandler.m; sourceTree = "<group>"; };
-		2C8957E91535B9E600DF4433 /* BeePollenHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeePollenHandler.h; sourceTree = "<group>"; };
-		2C8957EA1535B9E600DF4433 /* BeePollenHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeePollenHandler.m; sourceTree = "<group>"; };
-		2C8957EC1535B9F800DF4433 /* BeeMushroomHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeMushroomHandler.h; sourceTree = "<group>"; };
-		2C8957ED1535B9F800DF4433 /* BeeMushroomHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeMushroomHandler.m; sourceTree = "<group>"; };
-		2C8957EF1535BA0C00DF4433 /* BeeNutHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeNutHandler.h; sourceTree = "<group>"; };
-		2C8957F01535BA0D00DF4433 /* BeeNutHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeNutHandler.m; sourceTree = "<group>"; };
-		2C8957F21535BA1900DF4433 /* BeeEggHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeEggHandler.h; sourceTree = "<group>"; };
-		2C8957F31535BA1A00DF4433 /* BeeEggHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeEggHandler.m; sourceTree = "<group>"; };
-		2C8957F51535BA2700DF4433 /* BeeGlassHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeGlassHandler.h; sourceTree = "<group>"; };
-		2C8957F61535BA2700DF4433 /* BeeGlassHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeGlassHandler.m; sourceTree = "<group>"; };
-		2C8957F81535BA3300DF4433 /* BeeGateHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeGateHandler.h; sourceTree = "<group>"; };
-		2C8957F91535BA3400DF4433 /* BeeGateHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeGateHandler.m; sourceTree = "<group>"; };
-		2C8957FB1535BA4100DF4433 /* BeeWaterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeWaterHandler.h; sourceTree = "<group>"; };
-		2C8957FC1535BA4200DF4433 /* BeeWaterHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeWaterHandler.m; sourceTree = "<group>"; };
-		2C8957FE1535BA5900DF4433 /* AimPollenEdgeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AimPollenEdgeHandler.h; sourceTree = "<group>"; };
-		2C8957FF1535BA5900DF4433 /* AimPollenEdgeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AimPollenEdgeHandler.m; sourceTree = "<group>"; };
+		2C8957FE1535BA5900DF4433 /* AimPollenHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AimPollenHandler.h; sourceTree = "<group>"; };
+		2C8957FF1535BA5900DF4433 /* AimPollenHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AimPollenHandler.m; sourceTree = "<group>"; };
 		2C8958071535BA8E00DF4433 /* WaterDropHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterDropHandler.h; sourceTree = "<group>"; };
 		2C8958081535BA8F00DF4433 /* WaterDropHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterDropHandler.m; sourceTree = "<group>"; };
 		2C89580A1535BC7C00DF4433 /* GlassPieceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlassPieceHandler.h; sourceTree = "<group>"; };
@@ -2185,6 +2158,10 @@
 		2CE348C314DF072700FEB492 /* EntityDescriptionCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityDescriptionCache.m; sourceTree = "<group>"; };
 		2CE348C814DF0BF800FEB492 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = Classes/Utils.h; sourceTree = "<group>"; };
 		2CE348C914DF0BF800FEB492 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = Classes/Utils.m; sourceTree = "<group>"; };
+		2CE4F507153B83850023B5C6 /* WaterComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaterComponent.h; path = Classes/Component/WaterComponent.h; sourceTree = "<group>"; };
+		2CE4F508153B83850023B5C6 /* WaterComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaterComponent.m; path = Classes/Component/WaterComponent.m; sourceTree = "<group>"; };
+		2CE4F50B153B8EC00023B5C6 /* Water.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Water.plist; sourceTree = "<group>"; };
+		2CE4F50D153B912B0023B5C6 /* Lava.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Lava.plist; sourceTree = "<group>"; };
 		2CE508CD14B1E98300A9E8D8 /* LevelSelectMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectMenuState.h; sourceTree = "<group>"; };
 		2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectMenuState.m; sourceTree = "<group>"; };
 		2CE508D114B31D2B00A9E8D8 /* LevelSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSender.h; sourceTree = "<group>"; };
@@ -2746,8 +2723,6 @@
 				2C8957CB1535AC6300DF4433 /* Collision */,
 				2C29D7B115386556005EFE8E /* CrumbleSystem.h */,
 				2C29D7B21538655A005EFE8E /* CrumbleSystem.m */,
-				2C53741B1539B21C00040EED /* CullingSystem.h */,
-				2C53741C1539B22200040EED /* CullingSystem.m */,
 				2CD4A99414EC7BAC0065FA90 /* Debug */,
 				2CC3EC0314D6086F0025F5DA /* Edit */,
 				2C64AD1214BA4F0300ABD114 /* ExplodeControlSystem.h */,
@@ -2778,6 +2753,8 @@
 				2C7CE621146FD66F001F331F /* SlingerControlSystem.m */,
 				2C5EFC2F14E499C20071ED39 /* SpawnSystem.h */,
 				2C5EFC3014E499C20071ED39 /* SpawnSystem.m */,
+				2C537424153B302E00040EED /* WoodSystem.h */,
+				2C537425153B303A00040EED /* WoodSystem.m */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -2894,34 +2871,10 @@
 		2C8957D91535B10F00DF4433 /* Handler */ = {
 			isa = PBXGroup;
 			children = (
-				2C8957FE1535BA5900DF4433 /* AimPollenEdgeHandler.h */,
-				2C8957FF1535BA5900DF4433 /* AimPollenEdgeHandler.m */,
-				2C8957E01535B6E300DF4433 /* BeeBackgroundHandler.h */,
-				2C8957E11535B6E300DF4433 /* BeeBackgroundHandler.m */,
-				2C8957E61535B8AB00DF4433 /* BeeBeeaterHandler.h */,
-				2C8957E71535B8AC00DF4433 /* BeeBeeaterHandler.m */,
-				2C8957DD1535B34A00DF4433 /* BeeEdgeHandler.h */,
-				2C8957DE1535B34A00DF4433 /* BeeEdgeHandler.m */,
-				2C8957F21535BA1900DF4433 /* BeeEggHandler.h */,
-				2C8957F31535BA1A00DF4433 /* BeeEggHandler.m */,
-				2C8957F81535BA3300DF4433 /* BeeGateHandler.h */,
-				2C8957F91535BA3400DF4433 /* BeeGateHandler.m */,
-				2C8957F51535BA2700DF4433 /* BeeGlassHandler.h */,
-				2C8957F61535BA2700DF4433 /* BeeGlassHandler.m */,
+				2C8957FE1535BA5900DF4433 /* AimPollenHandler.h */,
+				2C8957FF1535BA5900DF4433 /* AimPollenHandler.m */,
 				2C29D7A4153843F5005EFE8E /* BeeHandler.h */,
 				2C29D7A5153843F6005EFE8E /* BeeHandler.m */,
-				2C5374151538E45100040EED /* BeeLavaHandler.h */,
-				2C5374161538E45200040EED /* BeeLavaHandler.m */,
-				2C8957EC1535B9F800DF4433 /* BeeMushroomHandler.h */,
-				2C8957ED1535B9F800DF4433 /* BeeMushroomHandler.m */,
-				2C8957EF1535BA0C00DF4433 /* BeeNutHandler.h */,
-				2C8957F01535BA0D00DF4433 /* BeeNutHandler.m */,
-				2C8957E91535B9E600DF4433 /* BeePollenHandler.h */,
-				2C8957EA1535B9E600DF4433 /* BeePollenHandler.m */,
-				2C8957FB1535BA4100DF4433 /* BeeWaterHandler.h */,
-				2C8957FC1535BA4200DF4433 /* BeeWaterHandler.m */,
-				2C8957DA1535B14D00DF4433 /* BeeWoodHandler.h */,
-				2C8957DB1535B14D00DF4433 /* BeeWoodHandler.m */,
 				2C89580A1535BC7C00DF4433 /* GlassPieceHandler.h */,
 				2C89580B1535BC7E00DF4433 /* GlassPieceHandler.m */,
 				2C8958071535BA8E00DF4433 /* WaterDropHandler.h */,
@@ -3905,6 +3858,7 @@
 				2C7B181A150EB83A002D86DE /* Ramp.plist */,
 				2C7B181B150EB83A002D86DE /* Slinger.plist */,
 				2C7B181C150EB83A002D86DE /* Smoke-Mushroom.plist */,
+				2CE4F50A153B8EBF0023B5C6 /* Water */,
 				2C7B181D150EB83A002D86DE /* Waterdrop-Spawner.plist */,
 				2C7B181E150EB83A002D86DE /* Waterdrop.plist */,
 				2C7B181F150EB83A002D86DE /* Wood */,
@@ -3931,6 +3885,15 @@
 			);
 			name = Entity;
 			path = Classes/Entity;
+			sourceTree = "<group>";
+		};
+		2CE4F50A153B8EBF0023B5C6 /* Water */ = {
+			isa = PBXGroup;
+			children = (
+				2CE4F50D153B912B0023B5C6 /* Lava.plist */,
+				2CE4F50B153B8EC00023B5C6 /* Water.plist */,
+			);
+			path = Water;
 			sourceTree = "<group>";
 		};
 		2CEA3268145F66F7000FF575 = {
@@ -4063,6 +4026,8 @@
 				2C1147E3148D4291002E4DBD /* BeeaterComponent.m */,
 				2C3A6F94148980AF002721E3 /* BeeComponent.h */,
 				2C3A6F95148980AF002721E3 /* BeeComponent.m */,
+				2C537421153B22FE00040EED /* CollisionComponent.h */,
+				2C537422153B230100040EED /* CollisionComponent.m */,
 				2C5EFCC014EC60530071ED39 /* CrumbleComponent.h */,
 				2C5EFCC114EC60560071ED39 /* CrumbleComponent.m */,
 				2C85B83A149563ED005D7BAB /* DisposableComponent.h */,
@@ -4098,6 +4063,10 @@
 				2C157C1914914F6A003F9040 /* TrajectoryComponent.m */,
 				2C068A32146858B9003E200D /* TransformComponent.h */,
 				2C068A33146858B9003E200D /* TransformComponent.m */,
+				2CE4F507153B83850023B5C6 /* WaterComponent.h */,
+				2CE4F508153B83850023B5C6 /* WaterComponent.m */,
+				2C537427153B317D00040EED /* WoodComponent.h */,
+				2C537428153B318100040EED /* WoodComponent.m */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -4899,6 +4868,8 @@
 				2C5374121538DA2900040EED /* Glass-B56.plist in Resources */,
 				2C5374131538DA2900040EED /* Glass-B57.plist in Resources */,
 				2C5374141538DA2900040EED /* Glass-B59.plist in Resources */,
+				2CE4F50C153B8EC00023B5C6 /* Water.plist in Resources */,
+				2CE4F50E153B912B0023B5C6 /* Lava.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5137,18 +5108,7 @@
 				2C8957D31535AC6300DF4433 /* CollisionMediator.m in Sources */,
 				2C8957D41535AC6300DF4433 /* CollisionSystem.m in Sources */,
 				2C8957D71535AF9E00DF4433 /* CollisionHandler.m in Sources */,
-				2C8957DC1535B14D00DF4433 /* BeeWoodHandler.m in Sources */,
-				2C8957DF1535B34A00DF4433 /* BeeEdgeHandler.m in Sources */,
-				2C8957E21535B6E300DF4433 /* BeeBackgroundHandler.m in Sources */,
-				2C8957E81535B8AD00DF4433 /* BeeBeeaterHandler.m in Sources */,
-				2C8957EB1535B9E700DF4433 /* BeePollenHandler.m in Sources */,
-				2C8957EE1535B9F800DF4433 /* BeeMushroomHandler.m in Sources */,
-				2C8957F11535BA0D00DF4433 /* BeeNutHandler.m in Sources */,
-				2C8957F41535BA1A00DF4433 /* BeeEggHandler.m in Sources */,
-				2C8957F71535BA2800DF4433 /* BeeGlassHandler.m in Sources */,
-				2C8957FA1535BA3500DF4433 /* BeeGateHandler.m in Sources */,
-				2C8957FD1535BA4300DF4433 /* BeeWaterHandler.m in Sources */,
-				2C8958001535BA5A00DF4433 /* AimPollenEdgeHandler.m in Sources */,
+				2C8958001535BA5A00DF4433 /* AimPollenHandler.m in Sources */,
 				2C8958091535BA9000DF4433 /* WaterDropHandler.m in Sources */,
 				2C89580C1535BC8000DF4433 /* GlassPieceHandler.m in Sources */,
 				2C8B198B15363878003F3465 /* LevelThemeSelectMenuState.m in Sources */,
@@ -5156,9 +5116,11 @@
 				2C29D7A6153843F7005EFE8E /* BeeHandler.m in Sources */,
 				2C29D7AD15385D86005EFE8E /* DozerComponent.m in Sources */,
 				2C29D7B315386560005EFE8E /* CrumbleSystem.m in Sources */,
-				2C5374171538E45200040EED /* BeeLavaHandler.m in Sources */,
 				2C53741A1538F38A00040EED /* NotificationProcessor.m in Sources */,
-				2C53741D1539B22D00040EED /* CullingSystem.m in Sources */,
+				2C537423153B230500040EED /* CollisionComponent.m in Sources */,
+				2C537426153B304F00040EED /* WoodSystem.m in Sources */,
+				2C537429153B318400040EED /* WoodComponent.m in Sources */,
+				2CE4F509153B83860023B5C6 /* WaterComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

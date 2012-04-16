@@ -31,7 +31,9 @@
 -(void) playDefaultDestroyAnimationWithCallbackTarget:(id)target andCallbackSelector:(SEL)selector;
 -(void) playAnimationsLoopLast:(NSArray *)animationNames;
 -(void) playAnimationsLoopAll:(NSArray *)animationNames;
+-(BOOL) hasDefaultIdleAnimation;
 -(void) playDefaultIdleAnimation;
+-(BOOL) hasDefaultDestroyAnimation;
 -(void) playDefaultDestroyAnimation;
 
 @end

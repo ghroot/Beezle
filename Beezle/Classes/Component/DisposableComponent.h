@@ -10,11 +10,11 @@
 
 @interface DisposableComponent : Component
 {
-	BOOL _destroyEntityWhenDisposed;
+	BOOL _deleteEntityWhenDisposed;
     BOOL _isDisposed;
 }
 
-@property (nonatomic) BOOL destroyEntityWhenDisposed;
+@property (nonatomic) BOOL deleteEntityWhenDisposed;
 @property (nonatomic) BOOL isDisposed;
 
 @end

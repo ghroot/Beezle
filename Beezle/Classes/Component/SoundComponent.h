@@ -10,9 +10,11 @@
 
 @interface SoundComponent : Component
 {
+	NSString *_defaultCollisionSoundName;
     NSString *_defaultDestroySoundName;
 }
 
-@property (nonatomic, readonly) NSString *defaultDestroySoundName;
+@property (nonatomic, copy) NSString *defaultCollisionSoundName;
+@property (nonatomic, copy) NSString *defaultDestroySoundName;
 
 @end

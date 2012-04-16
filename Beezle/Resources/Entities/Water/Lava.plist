@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>LAVA</string>
+	<key>components</key>
+	<dict>
+		<key>collision</key>
+		<dict>
+			<key>disposeAndDeleteBeeOnCollision</key>
+			<true/>
+		</dict>
+		<key>physics</key>
+		<dict>
+			<key>body</key>
+			<dict>
+				<key>mass</key>
+				<real>0</real>
+			</dict>
+			<key>shapes</key>
+			<array>
+				<dict>
+					<key>type</key>
+					<string>poly</string>
+					<key>vertices</key>
+					<array>
+						<string>{ 0, 0 }</string>
+						<string>{ 0, 5 }</string>
+						<string>{ 480, 5 }</string>
+						<string>{ 480, 0 }</string>
+					</array>
+					<key>elasticity</key>
+					<real>1</real>
+					<key>friction</key>
+					<real>1</real>
+					<key>collisionType</key>
+					<string>WATER</string>
+                    <key>layers</key>
+					<integer>3</integer>
+					<key>group</key>
+					<string>LEVEL</string>
+				</dict>
+			</array>
+		</dict>
+		<key>transform</key>
+		<dict/>
+		<key>water</key>
+		<dict>
+			<key>splashAnimation</key>
+			<string>Bee-Splash-Lava</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

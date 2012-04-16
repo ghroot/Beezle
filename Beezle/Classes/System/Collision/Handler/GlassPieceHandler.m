@@ -31,11 +31,8 @@
 {
     Entity *glassPieceEntity = [collision firstEntity];
 	
-	if (![EntityUtil isEntityDisposed:glassPieceEntity])
-	{
-		[EntityUtil setEntityDisposed:glassPieceEntity];
-		[EntityUtil playDefaultDestroySound:glassPieceEntity];
-	}
+	[EntityUtil setEntityDisposed:glassPieceEntity];
+	[EntityUtil playDefaultDestroySound:glassPieceEntity];
     
     return TRUE;
 }

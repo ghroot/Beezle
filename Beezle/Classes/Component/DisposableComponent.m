@@ -10,7 +10,7 @@
 
 @implementation DisposableComponent
 
-@synthesize destroyEntityWhenDisposed = _destroyEntityWhenDisposed;
+@synthesize deleteEntityWhenDisposed = _deleteEntityWhenDisposed;
 @synthesize isDisposed = _isDisposed;
 
 -(id) init
@@ -18,7 +18,7 @@
     if (self = [super init])
     {
 		_name = @"disposable";
-		_destroyEntityWhenDisposed = FALSE;
+		_deleteEntityWhenDisposed = FALSE;
     }
     return self;
 }
@@ -27,9 +27,9 @@
 {
 	if (self = [self init])
 	{
-		if ([dict objectForKey:@"destroyEntityWhenDisposed"] != nil)
+		if ([dict objectForKey:@"deleteEntityWhenDisposed"] != nil)
 		{
-			_destroyEntityWhenDisposed = [[dict objectForKey:@"destroyEntityWhenDisposed"] boolValue];
+			_deleteEntityWhenDisposed = [[dict objectForKey:@"deleteEntityWhenDisposed"] boolValue];
 		}
 	}
 	return self;

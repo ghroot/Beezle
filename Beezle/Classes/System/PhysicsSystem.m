@@ -11,6 +11,7 @@
 #import "CollisionSystem.h"
 #import "Collision.h"
 #import "CollisionType.h"
+#import "EntityUtil.h"
 #import "GCpShapeCache.h"
 #import "PhysicsComponent.h"
 #import "TransformComponent.h"
@@ -99,8 +100,21 @@
 		ChipmunkShape *firstChipmunkShape = (ChipmunkShape *)firstShape->data;
 		ChipmunkShape *secondChipmunkShape = (ChipmunkShape *)secondShape->data;
 		
-		Collision *collision = [Collision collisionWithFirstShape:firstChipmunkShape andSecondShape:secondChipmunkShape];
-        return [_collisionSystem handleCollision:collision];
+		Entity *firstEntity = (Entity *)[firstChipmunkShape data];
+		Entity *secondEntity = (Entity *)[secondChipmunkShape data];
+		
+		if ((![EntityUtil isEntityDisposable:firstEntity] ||
+			![EntityUtil isEntityDisposed:firstEntity]) &&
+			(![EntityUtil isEntityDisposable:secondEntity] ||
+			 ![EntityUtil isEntityDisposed:secondEntity]))
+		{
+			Collision *collision = [Collision collisionWithFirstShape:firstChipmunkShape andSecondShape:secondChipmunkShape];
+			return [_collisionSystem handleCollision:collision];
+		}
+		else
+		{
+			return TRUE;
+		}
     }
 	else
     {
