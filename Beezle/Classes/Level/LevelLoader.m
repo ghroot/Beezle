@@ -145,6 +145,10 @@
 				[[TransformComponent getFrom:entity] populateWithContentsOfDictionary:transformDict world:world];
 			}
 		}
+		if ([levelLayout hasWater])
+		{
+			[EntityFactory createWater:world withLevelName:levelName];
+		}
 	}
 	else
 	{

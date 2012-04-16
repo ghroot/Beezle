@@ -104,6 +104,11 @@
 	return nil;
 }
 
++(BOOL) hasWaterEntity:(World *)world
+{
+	return [self getWaterEntity:world] != nil;
+}
+
 +(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName disablePhysics:(BOOL)disablePhysics
 {
 	[[RenderComponent getFrom:entity] playAnimation:animationName withCallbackTarget:entity andCallbackSelector:@selector(deleteEntity)];

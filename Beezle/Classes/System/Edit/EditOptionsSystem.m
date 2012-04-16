@@ -231,15 +231,7 @@
 	}
 	else
 	{
-		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:[_editState levelName]];
-		if ([theme isEqualToString:@"A"])
-		{
-			[EntityFactory createEntity:@"WATER" world:_world];
-		}
-		else if ([theme isEqualToString:@"B"])
-		{
-			[EntityFactory createEntity:@"LAVA" world:_world];
-		}
+		[EntityFactory createWater:_world withLevelName:[_editState levelName]];
 	}
 }
 

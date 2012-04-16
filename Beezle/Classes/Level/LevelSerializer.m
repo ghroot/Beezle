@@ -60,6 +60,8 @@
 	int version = [[dict objectForKey:@"version"] intValue];
 	[levelLayout setVersion:version];
 	
+	[levelLayout setHasWater:[[dict objectForKey:@"hasWater"] boolValue]];
+	
 	NSArray *entities = [dict objectForKey:@"entities"];
 	for (NSDictionary *entity in entities) 
 	{
@@ -85,6 +87,8 @@
 	[dict setObject:[NSNumber numberWithInt:[layout version]] forKey:@"version"];
 	[dict setObject:[NSNumber numberWithInt:[layout format]] forKey:@"format"];
 	
+	[dict setObject:[NSNumber numberWithBool:[layout hasWater]] forKey:@"hasWater"];
+	
 	NSMutableArray *entities = [NSMutableArray array];
 	for (LevelLayoutEntry *levelLayoutEntry in [layout entries])
 	{
@@ -105,6 +109,8 @@
 	[levelLayout setLevelName:levelName];
 	[levelLayout setVersion:version];
     [levelLayout setFormat:LEVEL_LAYOUT_FORMAT];
+	
+	[levelLayout setHasWater:[EntityUtil hasWaterEntity:world]];
 	
 	for (Entity *entity in [[world entityManager] entities])
 	{

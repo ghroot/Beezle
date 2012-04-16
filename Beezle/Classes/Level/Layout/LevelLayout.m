@@ -15,6 +15,7 @@
 @synthesize levelName = _levelName;
 @synthesize format = _format;
 @synthesize version = _version;
+@synthesize hasWater = _hasWater;
 @synthesize entries = _entries;
 @synthesize isEdited = _isEdited;
 
@@ -46,6 +47,7 @@
 		_levelName = [levelName retain];
 		_format = 0;
 		_version = 0;
+		_hasWater = FALSE;
         _entries = [[NSMutableArray alloc] init];
 		_isEdited = FALSE;
     }

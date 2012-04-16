@@ -18,6 +18,7 @@
 +(void) setEntityDisposed:(Entity *)entity deleteEntity:(BOOL)deleteEntity;
 +(void) setEntityDisposed:(Entity *)entity;
 +(Entity *) getWaterEntity:(World *)world;
++(BOOL) hasWaterEntity:(World *)world;
 +(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName disablePhysics:(BOOL)disablePhysics;
 +(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName;
 +(void) animateAndDeleteEntity:(Entity *)entity disablePhysics:(BOOL)disablePhysics;

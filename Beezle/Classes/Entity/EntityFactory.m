@@ -142,6 +142,23 @@
     return backgroundEntity;    
 }
 
++(Entity *) createWater:(World *)world withLevelName:(NSString *)levelName
+{
+	NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:levelName];
+	if ([theme isEqualToString:@"A"])
+	{
+		return [self createEntity:@"WATER" world:world];
+	}
+	else if ([theme isEqualToString:@"B"])
+	{
+		return [self createEntity:@"LAVA" world:world];
+	}
+	else
+	{
+		return nil;
+	}
+}
+
 +(Entity *) createEntity:(NSString *)type world:(World *)world edit:(BOOL)edit
 {
 	EntityDescription *entityDescription = [self getEntityDescription:type];
