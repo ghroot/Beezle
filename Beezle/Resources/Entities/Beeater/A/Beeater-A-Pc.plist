@@ -4,60 +4,14 @@
 <dict>
 	<key>type</key>
 	<string>BEEATER-A-PC</string>
-	<key>components</key>
-	<dict>
-		<key>physics</key>
-		<dict>
-			<key>body</key>
-			<dict>
-				<key>mass</key>
-				<real>1</real>
-				<key>moment</key>
-				<real>1</real>
-			</dict>
-			<key>shapes</key>
-			<array>
-				<dict>
-					<key>type</key>
-					<string>circle</string>
-					<key>radius</key>
-					<real>1</real>
-					<key>elasticity</key>
-					<real>0.7</real>
-					<key>friction</key>
-					<real>0.7</real>
-					<key>layers</key>
-					<integer>2</integer>
-					<key>group</key>
-					<string>OBJECT</string>
-				</dict>
-			</array>
-		</dict>
-		<key>render</key>
-		<dict>
-			<key>sprites</key>
-			<array>
-				<dict>
-					<key>name</key>
-					<string>default</string>
-					<key>spriteSheetName</key>
-					<string>Shared</string>
-					<key>animationFile</key>
-					<string>Beeater-Pc-Animations.plist</string>
-					<key>z</key>
-					<integer>2</integer>
-					<key>anchorPoint</key>
-					<string>{ 0.5, 0.5 }</string>
-					<key>defaultIdleAnimations</key>
-					<array>
-						<string>Beeater-A-Pc-1-Idle</string>
-						<string>Beeater-A-Pc-2-Idle</string>
-					</array>
-				</dict>
-			</array>
-		</dict>
-		<key>transform</key>
-		<dict/>
-	</dict>
+	<key>template</key>
+    <string>Beeater-Pc-Template.plist</string>
+    <key>templateSubstitutions</key>
+    <dict>
+		<key>renderDefaultIdleAnimation1</key>
+        <string>Beeater-A-Pc-1-Idle</string>
+		<key>renderDefaultIdleAnimation2</key>
+        <string>Beeater-A-Pc-2-Idle</string>
+    </dict>
 </dict>
 </plist>
