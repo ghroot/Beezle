@@ -248,6 +248,7 @@
 		2C644376153730D700F14270 /* Beeater-Bird-B.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C644375153730D600F14270 /* Beeater-Bird-B.plist */; };
 		2C64AD0914B89D7E00ABD114 /* Levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C64ACEC14B89D7E00ABD114 /* Levels.plist */; };
 		2C64AD1414BA4F0400ABD114 /* ExplodeControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C64AD1314BA4F0300ABD114 /* ExplodeControlSystem.m */; };
+		2C6B2BC9153C6E0E008E624C /* Glass-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C6B2BC8153C6E0E008E624C /* Glass-Template.plist */; };
 		2C764DDA148A1F4000820587 /* GCpShapeCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DD9148A1F4000820587 /* GCpShapeCache.m */; };
 		2C764DDD148A1FF100820587 /* BodyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DDC148A1FF100820587 /* BodyInfo.m */; };
 		2C764E9D148A917300820587 /* 11097__a43__a43-blipp.aif in Resources */ = {isa = PBXBuildFile; fileRef = 2C764E9C148A917300820587 /* 11097__a43__a43-blipp.aif */; };
@@ -1265,6 +1266,7 @@
 		2C64ACEC14B89D7E00ABD114 /* Levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Levels.plist; sourceTree = "<group>"; };
 		2C64AD1214BA4F0300ABD114 /* ExplodeControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExplodeControlSystem.h; path = Classes/System/ExplodeControlSystem.h; sourceTree = "<group>"; };
 		2C64AD1314BA4F0300ABD114 /* ExplodeControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExplodeControlSystem.m; path = Classes/System/ExplodeControlSystem.m; sourceTree = "<group>"; };
+		2C6B2BC8153C6E0E008E624C /* Glass-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-Template.plist"; sourceTree = "<group>"; };
 		2C764DD8148A1F4000820587 /* GCpShapeCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCpShapeCache.h; path = Classes/System/GCpShapeCache.h; sourceTree = "<group>"; };
 		2C764DD9148A1F4000820587 /* GCpShapeCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCpShapeCache.m; path = Classes/System/GCpShapeCache.m; sourceTree = "<group>"; };
 		2C764DDB148A1FF100820587 /* BodyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BodyInfo.h; path = Classes/System/BodyInfo.h; sourceTree = "<group>"; };
@@ -2682,6 +2684,7 @@
 			children = (
 				2C5372B515378F8800040EED /* A */,
 				2C5372C715378F8800040EED /* B */,
+				2C6B2BC8153C6E0E008E624C /* Glass-Template.plist */,
 			);
 			path = Glass;
 			sourceTree = "<group>";
@@ -4865,6 +4868,7 @@
 				2C5374141538DA2900040EED /* Glass-B59.plist in Resources */,
 				2CE4F50C153B8EC00023B5C6 /* Water.plist in Resources */,
 				2CE4F50E153B912B0023B5C6 /* Lava.plist in Resources */,
+				2C6B2BC9153C6E0E008E624C /* Glass-Template.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

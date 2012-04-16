@@ -12,6 +12,7 @@
 
 @interface EntityDescriptionLoader()
 
+-(NSDictionary *) createDictionaryFromTemplate:(NSDictionary *)dict;
 -(NSString *) convertTypeToFileName:(NSString *)type;
 
 @end
@@ -33,7 +34,45 @@
 	NSString *fileName = [self convertTypeToFileName:type];
 	NSString *filePath = [CCFileUtils fullPathFromRelativePath:fileName];
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
-	return [[EntityDescriptionSerializer sharedSerializer] entityDescriptionFromDictionary:dict];
+    
+    if ([dict objectForKey:@"template"] != nil)
+    {
+        dict = [self createDictionaryFromTemplate:dict];
+    }
+
+    return [[EntityDescriptionSerializer sharedSerializer] entityDescriptionFromDictionary:dict];
+}
+
+-(NSDictionary *) createDictionaryFromTemplate:(NSDictionary *)dict
+{
+    NSString *templateFileName = [dict objectForKey:@"template"];
+    NSString *templateFilePath = [CCFileUtils fullPathFromRelativePath:templateFileName];
+    NSDictionary *templateSubstitutions = [dict objectForKey:@"templateSubstitutions"];
+    
+    NSString *error;
+    NSDictionary *templateDict = [NSDictionary dictionaryWithContentsOfFile:templateFilePath];
+    NSData *templateData = [NSPropertyListSerialization dataFromPropertyList:templateDict format:NSPropertyListXMLFormat_v1_0 errorDescription:&error];
+    NSString *templateFileAsString = [[NSString alloc] initWithData:templateData encoding:NSUTF8StringEncoding];
+
+    // TODO: This should work, but doesn't... Possibly due to plist file not being correct encoding (UTF-8)
+//    NSError *error;
+//    NSStringEncoding encoding;
+//    NSString *templateFileAsString = [NSString stringWithContentsOfFile:templateFilePath usedEncoding:&encoding error:&error];
+    
+    NSString *templateFileAsStringWithReplacements = templateFileAsString;
+    for (NSString *tokenToReplace in templateSubstitutions)
+    {
+        NSString *stringToReplace = [NSString stringWithFormat:@"%%%@%%", tokenToReplace];
+        NSString *stringToReplaceWith = [templateSubstitutions objectForKey:tokenToReplace];
+        
+        templateFileAsStringWithReplacements = [templateFileAsStringWithReplacements stringByReplacingOccurrencesOfString:stringToReplace withString:stringToReplaceWith];
+    }
+    
+    NSData *plistData = [templateFileAsStringWithReplacements dataUsingEncoding:NSUTF8StringEncoding];
+    NSPropertyListFormat format;
+    NSDictionary *templateDictWithReplacements = [NSPropertyListSerialization propertyListFromData:plistData mutabilityOption:NSPropertyListImmutable format:&format errorDescription:&error];
+    
+    return templateDictWithReplacements;
 }
 
 -(NSString *) convertTypeToFileName:(NSString *)type
