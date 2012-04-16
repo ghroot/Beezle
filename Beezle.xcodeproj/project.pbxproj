@@ -923,6 +923,8 @@
 		2CE4F527153CB5C60023B5C6 /* Beeater-Hanging-B.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F51D153CB5C60023B5C6 /* Beeater-Hanging-B.plist */; };
 		2CE4F528153CB5C60023B5C6 /* Beeater-Land-B.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F51E153CB5C60023B5C6 /* Beeater-Land-B.plist */; };
 		2CE4F529153CB5C60023B5C6 /* Beeater-Land-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F51F153CB5C60023B5C6 /* Beeater-Land-Template.plist */; };
+		2CE4F52C153CBC020023B5C6 /* Glass-Pc-Small-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F52A153CBBF20023B5C6 /* Glass-Pc-Small-Template.plist */; };
+		2CE4F52D153CBC020023B5C6 /* Glass-Pc-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F52B153CBBF90023B5C6 /* Glass-Pc-Template.plist */; };
 		2CE508CF14B1E98300A9E8D8 /* LevelSelectMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */; };
 		2CE508D314B31D2B00A9E8D8 /* LevelSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508D214B31D2B00A9E8D8 /* LevelSender.m */; };
 		2CE8604714F90C5600579202 /* DripSmall.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2CE8604414F90C5600579202 /* DripSmall.m4a */; };
@@ -2163,6 +2165,8 @@
 		2CE4F51D153CB5C60023B5C6 /* Beeater-Hanging-B.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Hanging-B.plist"; sourceTree = "<group>"; };
 		2CE4F51E153CB5C60023B5C6 /* Beeater-Land-B.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Land-B.plist"; sourceTree = "<group>"; };
 		2CE4F51F153CB5C60023B5C6 /* Beeater-Land-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Land-Template.plist"; sourceTree = "<group>"; };
+		2CE4F52A153CBBF20023B5C6 /* Glass-Pc-Small-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-Pc-Small-Template.plist"; sourceTree = "<group>"; };
+		2CE4F52B153CBBF90023B5C6 /* Glass-Pc-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-Pc-Template.plist"; sourceTree = "<group>"; };
 		2CE508CD14B1E98300A9E8D8 /* LevelSelectMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectMenuState.h; sourceTree = "<group>"; };
 		2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectMenuState.m; sourceTree = "<group>"; };
 		2CE508D114B31D2B00A9E8D8 /* LevelSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSender.h; sourceTree = "<group>"; };
@@ -2680,6 +2684,8 @@
 			children = (
 				2C5372B515378F8800040EED /* A */,
 				2C5372C715378F8800040EED /* B */,
+				2CE4F52A153CBBF20023B5C6 /* Glass-Pc-Small-Template.plist */,
+				2CE4F52B153CBBF90023B5C6 /* Glass-Pc-Template.plist */,
 				2C6B2BC8153C6E0E008E624C /* Glass-Template.plist */,
 			);
 			path = Glass;
@@ -4889,6 +4895,8 @@
 				2CE4F527153CB5C60023B5C6 /* Beeater-Hanging-B.plist in Resources */,
 				2CE4F528153CB5C60023B5C6 /* Beeater-Land-B.plist in Resources */,
 				2CE4F529153CB5C60023B5C6 /* Beeater-Land-Template.plist in Resources */,
+				2CE4F52C153CBC020023B5C6 /* Glass-Pc-Small-Template.plist in Resources */,
+				2CE4F52D153CBC020023B5C6 /* Glass-Pc-Template.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

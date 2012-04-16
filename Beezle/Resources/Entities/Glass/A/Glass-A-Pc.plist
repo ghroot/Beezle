@@ -4,94 +4,28 @@
 <dict>
 	<key>type</key>
 	<string>GLASS-A-PC</string>
-	<key>components</key>
-	<dict>
-		<key>disposable</key>
-		<dict>
-			<key>destroyEntityWhenDisposed</key>
-			<true/>
-		</dict>
-		<key>physics</key>
-		<dict>
-			<key>body</key>
-			<dict>
-				<key>mass</key>
-				<real>1</real>
-				<key>moment</key>
-				<real>1</real>
-			</dict>
-			<key>shapes</key>
-			<array>
-				<dict>
-					<key>type</key>
-					<string>poly</string>
-					<key>vertices</key>
-					<array>
-						<string>{ -8, -3 }</string>
-						<string>{ -8, 3 }</string>
-						<string>{ 8, 3 }</string>
-						<string>{ 8, -3 }</string>
-					</array>
-					<key>elasticity</key>
-					<real>0.5</real>
-					<key>friction</key>
-					<real>0.3</real>
-					<key>collisionType</key>
-					<string>GLASS_PIECE</string>
-					<key>layers</key>
-					<integer>2</integer>
-					<key>group</key>
-					<string>OBJECT</string>
-				</dict>
-			</array>
-		</dict>
-		<key>render</key>
-		<dict>
-			<key>sprites</key>
-			<array>
-				<dict>
-					<key>name</key>
-					<string>default</string>
-					<key>spriteSheetName</key>
-					<string>Shared</string>
-					<key>animationFile</key>
-					<string>Glass-Piece-Animations.plist</string>
-					<key>z</key>
-					<integer>2</integer>
-					<key>anchorPoint</key>
-					<string>{ 0.5, 0.5 }</string>
-					<key>defaultIdleAnimations</key>
-					<array>
-						<string>Glass-A-Pc1-Idle</string>
-						<string>Glass-A-Pc2-Idle</string>
-						<string>Glass-A-Pc3-Idle</string>
-						<string>Glass-A-Pc4-Idle</string>
-						<string>Glass-A-Pc5-Idle</string>
-						<string>Glass-A-Pc6-Idle</string>
-						<string>Glass-A-Pc7-Idle</string>
-						<string>Glass-A-Pc8-Idle</string>
-					</array>
-				</dict>
-			</array>
-		</dict>
-		<key>shard</key>
-		<dict>
-			<key>piecesEntityType</key>
-			<string>GLASS-A-PC-SMALL</string>
-			<key>piecesCount</key>
-			<integer>3</integer>
-			<key>piecesSpawnAreaOffset</key>
-			<string>{ 0, 0 }</string>
-			<key>piecesSpawnAreaSize</key>
-			<string>{ 0, 0 }</string>
-		</dict>
-        <key>sound</key>
-        <dict>
-            <key>defaultDestroySound</key>
-            <string>GlassSmall</string>
-        </dict>
-		<key>transform</key>
-		<dict/>
-	</dict>
+	<key>template</key>
+    <string>Glass-Pc-Template.plist</string>
+    <key>templateSubstitutions</key>
+    <dict>
+        <key>renderDefaultIdleAnimation1</key>
+        <string>Glass-A-Pc1-Idle</string>
+		<key>renderDefaultIdleAnimation2</key>
+        <string>Glass-A-Pc2-Idle</string>
+		<key>renderDefaultIdleAnimation3</key>
+        <string>Glass-A-Pc3-Idle</string>
+		<key>renderDefaultIdleAnimation4</key>
+        <string>Glass-A-Pc4-Idle</string>
+		<key>renderDefaultIdleAnimation5</key>
+        <string>Glass-A-Pc5-Idle</string>
+		<key>renderDefaultIdleAnimation6</key>
+        <string>Glass-A-Pc6-Idle</string>
+		<key>renderDefaultIdleAnimation7</key>
+        <string>Glass-A-Pc7-Idle</string>
+		<key>renderDefaultIdleAnimation8</key>
+        <string>Glass-A-Pc8-Idle</string>
+		<key>shardPiecesEntityType</key>
+		<string>GLASS-A-PC-SMALL</string>
+    </dict>
 </dict>
 </plist>
