@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>type</key>
-	<string>HANGNEST-B</string>
 	<key>components</key>
 	<dict>
 		<key>movement</key>
@@ -70,7 +68,7 @@
 					<key>anchorPoint</key>
 					<string>{ 0.8, -0.3 }</string>
 					<key>defaultIdleAnimation</key>
-					<string>HangNestLian-B-Idle</string>
+					<string>%renderLianDefaultIdleAnimation%</string>
 				</dict>
 			</array>
 		</dict>
