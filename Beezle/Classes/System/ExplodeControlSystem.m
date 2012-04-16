@@ -24,6 +24,7 @@
 
 -(BOOL) doesExplodedEntity:(Entity *)explodedEntity intersectCrumbleEntity:(Entity *)crumbleEntity;
 -(void) startExplode:(Entity *)entity;
+-(void) markAsReadyToExplode:(Entity *)entity;
 -(void) endExplode:(Entity *)entity;
 
 @end
@@ -43,19 +44,24 @@
 
 -(void) processEntity:(Entity *)entity
 {
+    ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
+    
     while ([_inputSystem hasInputActions])
     {
         InputAction *nextInputAction = [_inputSystem popInputAction];
-		if ([nextInputAction touchType] == TOUCH_BEGAN)
-		{
-			ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
-			if (![explodeComponent hasExploded])
-			{
-				[explodeComponent setHasExploded:TRUE];
-				[self startExplode:entity];
-			}
-		}
-	}
+        if ([nextInputAction touchType] == TOUCH_BEGAN)
+        {
+            if ([explodeComponent explosionState] == NOT_EXPLODED)
+            {
+                [self startExplode:entity];
+            }
+        }
+    }
+    
+    if ([explodeComponent explosionState] == WAITING_FOR_EXPLOSION)
+    {
+        [self endExplode:entity];
+    }
 }
 
 -(BOOL) doesExplodedEntity:(Entity *)explodedEntity intersectCrumbleEntity:(Entity *)crumbleEntity
@@ -81,38 +87,42 @@
 
 -(void) startExplode:(Entity *)entity
 {
-	ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
+    ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
+    [explodeComponent setExplosionState:ANIMATING_START_EXPLOSION];
+    
 	RenderComponent *renderComponent = [RenderComponent getFrom:entity];
 	RenderSprite *renderSprite = [renderComponent firstRenderSprite];
-	[renderSprite playAnimation:[explodeComponent explodeStartAnimationName] withCallbackTarget:self andCallbackSelector:@selector(endExplode:) object:entity];
-	
-	// Uncomment if rotation should stop
-//	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
-//	[[physicsComponent body] setAngVelLimit:0.0f];
+	[renderSprite playAnimation:[explodeComponent explodeStartAnimationName] withCallbackTarget:self andCallbackSelector:@selector(markAsReadyToExplode:) object:entity];
+}
+
+-(void) markAsReadyToExplode:(Entity *)entity
+{
+    ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
+    [explodeComponent setExplosionState:WAITING_FOR_EXPLOSION];
 }
 
 -(void) endExplode:(Entity *)entity
 {
-	[EntityUtil setEntityDisposed:entity];
-	
-	ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
-	[EntityUtil animateAndDeleteEntity:entity animationName:[explodeComponent explodeEndAnimationName]];
-	
-	for (Entity *otherEntity in [[_world entityManager] entities])
-	{
-		if ([otherEntity hasComponent:[CrumbleComponent class]])
-		{
-			if ([self doesExplodedEntity:entity intersectCrumbleEntity:otherEntity])
-			{
-				if (![EntityUtil isEntityDisposed:otherEntity])
-				{
-					[EntityUtil setEntityDisposed:otherEntity];
-				}
-			}
-		}
-	}
-	
-	[[SoundManager sharedManager] playSound:@"BombeeBoom"];
+    ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
+    [explodeComponent setExplosionState:EXPLODED];
+    
+    [EntityUtil setEntityDisposed:entity];
+    [EntityUtil animateAndDeleteEntity:entity animationName:[explodeComponent explodeEndAnimationName]];
+    [[SoundManager sharedManager] playSound:@"BombeeBoom"];
+    
+    for (Entity *otherEntity in [[_world entityManager] entities])
+    {
+        if ([otherEntity hasComponent:[CrumbleComponent class]])
+        {
+            if ([self doesExplodedEntity:entity intersectCrumbleEntity:otherEntity])
+            {
+                if (![EntityUtil isEntityDisposed:otherEntity])
+                {
+                    [EntityUtil setEntityDisposed:otherEntity];
+                }
+            }
+        }
+    }
 }
 
 @end

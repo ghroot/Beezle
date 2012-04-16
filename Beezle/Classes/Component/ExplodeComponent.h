@@ -8,17 +8,25 @@
 
 #import "Component.h"
 
+typedef enum
+{
+    NOT_EXPLODED,
+    ANIMATING_START_EXPLOSION,
+    WAITING_FOR_EXPLOSION,
+    EXPLODED
+} ExplosionState;
+
 @interface ExplodeComponent : Component
 {
 	int _radius;
 	NSString *_explodeStartAnimationName;
 	NSString *_explodeEndAnimationName;
-	BOOL _hasExploded;
+    ExplosionState _explosionState;
 }
 
 @property (nonatomic) int radius;
 @property (nonatomic, retain) NSString *explodeStartAnimationName;
 @property (nonatomic, retain) NSString *explodeEndAnimationName;
-@property (nonatomic) BOOL hasExploded;
+@property (nonatomic) ExplosionState explosionState;
 
 @end

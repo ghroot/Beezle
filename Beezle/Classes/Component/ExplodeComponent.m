@@ -13,13 +13,14 @@
 @synthesize radius = _radius;
 @synthesize explodeStartAnimationName = _explodeStartAnimationName;
 @synthesize explodeEndAnimationName = _explodeEndAnimationName;
-@synthesize hasExploded = _hasExploded;
+@synthesize explosionState = _explosionState;
 
 -(id) init
 {
 	if (self = [super init])
 	{
 		_name = @"explode";
+        _explosionState = NOT_EXPLODED;
 	}
 	return self;
 }
