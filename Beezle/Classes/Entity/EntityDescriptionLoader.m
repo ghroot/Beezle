@@ -12,7 +12,7 @@
 
 @interface EntityDescriptionLoader()
 
--(NSDictionary *) createDictionaryFromTemplate:(NSDictionary *)dict;
+-(NSDictionary *) createDictionaryFromTemplate:(NSDictionary *)dict entityType:(NSString *)type;
 -(NSString *) convertTypeToFileName:(NSString *)type;
 
 @end
@@ -37,13 +37,13 @@
     
     if ([dict objectForKey:@"template"] != nil)
     {
-        dict = [self createDictionaryFromTemplate:dict];
+        dict = [self createDictionaryFromTemplate:dict entityType:type];
     }
 
     return [[EntityDescriptionSerializer sharedSerializer] entityDescriptionFromDictionary:dict];
 }
 
--(NSDictionary *) createDictionaryFromTemplate:(NSDictionary *)dict
+-(NSDictionary *) createDictionaryFromTemplate:(NSDictionary *)dict entityType:(NSString *)type
 {
     NSString *templateFileName = [dict objectForKey:@"template"];
     NSString *templateFilePath = [CCFileUtils fullPathFromRelativePath:templateFileName];
@@ -70,7 +70,9 @@
     
     NSData *plistData = [templateFileAsStringWithReplacements dataUsingEncoding:NSUTF8StringEncoding];
     NSPropertyListFormat format;
-    NSDictionary *templateDictWithReplacements = [NSPropertyListSerialization propertyListFromData:plistData mutabilityOption:NSPropertyListImmutable format:&format errorDescription:&error];
+    NSMutableDictionary *templateDictWithReplacements = [NSPropertyListSerialization propertyListFromData:plistData mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:&error];
+	
+	[templateDictWithReplacements setObject:type forKey:@"type"];
     
     return templateDictWithReplacements;
 }

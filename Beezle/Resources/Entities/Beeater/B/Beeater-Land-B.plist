@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>BEEATER-LAND-B</string>
+	<key>template</key>
+    <string>Beeater-Land-Template.plist</string>
+    <key>templateSubstitutions</key>
+    <dict>
+        <key>beeaterShowBeeAnimationNameFormat</key>
+        <string>Beeater-B-Head-Idle-%@</string>
+		<key>beeaterShowBeeBetweenAnimationName1</key>
+        <string>Beeater-B-Head-Idle-Between-Short</string>
+		<key>beeaterShowBeeBetweenAnimationName2</key>
+        <string>Beeater-B-Head-Idle-Between-Medium</string>
+		<key>beeaterShowBeeBetweenAnimationName3</key>
+        <string>Beeater-B-Head-Idle-Between-Long</string>
+		<key>renderBodyDefaultIdleAnimation</key>
+		<string>Land-Beeater-B-Body-Idle</string>
+		<key>renderBodyDefaultDestroyAnimation</key>
+		<string>Land-Beeater-B-Body-Kill</string>
+		<key>renderHeadDefaultIdleAnimation</key>
+		<string>Beeater-B-Head-Idle-NoBee</string>
+    </dict>
+</dict>
+</plist>
