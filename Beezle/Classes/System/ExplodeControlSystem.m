@@ -119,6 +119,7 @@
                 if (![EntityUtil isEntityDisposed:otherEntity])
                 {
                     [EntityUtil setEntityDisposed:otherEntity];
+                    [EntityUtil playDefaultDestroySound:otherEntity];
                 }
             }
         }

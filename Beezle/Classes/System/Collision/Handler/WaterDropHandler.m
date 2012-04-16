@@ -8,6 +8,7 @@
 
 #import "WaterDropHandler.h"
 #import "Collision.h"
+#import "CollisionType.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
 #import "TransformComponent.h"
@@ -15,16 +16,13 @@
 
 @implementation WaterDropHandler
 
-+(id) handlerWithWorld:(World *)world
+-(id) initWithWorld:(World *)world andLevelSession:(LevelSession *)levelSession
 {
-    return [[[self alloc] initWithWorld:world] autorelease];
-}
-
--(id) initWithWorld:(World *)world
-{
-    if (self = [super init])
+	if (self = [super initWithWorld:world andLevelSession:levelSession])
     {
-        _world = world;
+        _firstCollisionType = [CollisionType WATER_DROP];
+        [_secondCollisionTypes addObject:[CollisionType BACKGROUND]];
+        [_secondCollisionTypes addObject:[CollisionType WATER]];
     }
     return self;
 }

@@ -7,18 +7,7 @@
 //
 
 #import "CollisionHandler.h"
-#import "artemis.h"
-
-@class LevelSession;
 
 @interface BeeHandler : CollisionHandler
-{
-	World *_world;
-    LevelSession *_levelSession;
-}
-
-+(id) handlerWithWorld:(World *)world andLevelSession:(LevelSession *)levelSession;
-
--(id) initWithWorld:(World *)world andLevelSession:(LevelSession *)levelSession;
 
 @end

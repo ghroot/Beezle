@@ -8,21 +8,18 @@
 
 #import "GlassPieceHandler.h"
 #import "Collision.h"
+#import "CollisionType.h"
 #import "EntityUtil.h"
-#import "Utils.h"
 
 @implementation GlassPieceHandler
 
-+(id) handlerWithWorld:(World *)world
+-(id) initWithWorld:(World *)world andLevelSession:(LevelSession *)levelSession
 {
-    return [[[self alloc] initWithWorld:world] autorelease];
-}
-
--(id) initWithWorld:(World *)world
-{
-    if (self = [super init])
+	if (self = [super initWithWorld:world andLevelSession:levelSession])
     {
-        _world = world;
+        _firstCollisionType = [CollisionType GLASS_PIECE];
+        [_secondCollisionTypes addObject:[CollisionType BACKGROUND]];
+		[_secondCollisionTypes addObject:[CollisionType EDGE]];
     }
     return self;
 }

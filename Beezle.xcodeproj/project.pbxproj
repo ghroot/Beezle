@@ -314,7 +314,6 @@
 		2C88E2C814F5A37900496938 /* LevelSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2C714F5A37900496938 /* LevelSession.m */; };
 		2C88E2CB14F6E23400496938 /* GateOpeningSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2CA14F6E23400496938 /* GateOpeningSystem.m */; };
 		2C8957D21535AC6300DF4433 /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957CD1535AC6300DF4433 /* Collision.m */; };
-		2C8957D31535AC6300DF4433 /* CollisionMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957CF1535AC6300DF4433 /* CollisionMediator.m */; };
 		2C8957D41535AC6300DF4433 /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957D11535AC6300DF4433 /* CollisionSystem.m */; };
 		2C8957D71535AF9E00DF4433 /* CollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957D61535AF9E00DF4433 /* CollisionHandler.m */; };
 		2C8958001535BA5A00DF4433 /* AimPollenHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957FF1535BA5900DF4433 /* AimPollenHandler.m */; };
@@ -1383,8 +1382,6 @@
 		2C88E2CA14F6E23400496938 /* GateOpeningSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GateOpeningSystem.m; path = Classes/System/GateOpeningSystem.m; sourceTree = "<group>"; };
 		2C8957CC1535AC6300DF4433 /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collision.h; sourceTree = "<group>"; };
 		2C8957CD1535AC6300DF4433 /* Collision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collision.m; sourceTree = "<group>"; };
-		2C8957CE1535AC6300DF4433 /* CollisionMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionMediator.h; sourceTree = "<group>"; };
-		2C8957CF1535AC6300DF4433 /* CollisionMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionMediator.m; sourceTree = "<group>"; };
 		2C8957D01535AC6300DF4433 /* CollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionSystem.h; sourceTree = "<group>"; };
 		2C8957D11535AC6300DF4433 /* CollisionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionSystem.m; sourceTree = "<group>"; };
 		2C8957D51535AF9E00DF4433 /* CollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionHandler.h; sourceTree = "<group>"; };
@@ -2858,8 +2855,6 @@
 				2C8957CD1535AC6300DF4433 /* Collision.m */,
 				2C8957D51535AF9E00DF4433 /* CollisionHandler.h */,
 				2C8957D61535AF9E00DF4433 /* CollisionHandler.m */,
-				2C8957CE1535AC6300DF4433 /* CollisionMediator.h */,
-				2C8957CF1535AC6300DF4433 /* CollisionMediator.m */,
 				2C8957D01535AC6300DF4433 /* CollisionSystem.h */,
 				2C8957D11535AC6300DF4433 /* CollisionSystem.m */,
 				2C8957D91535B10F00DF4433 /* Handler */,
@@ -5105,7 +5100,6 @@
 				2C85D7241517F9C6001F4933 /* LevelFailedDialog.m in Sources */,
 				2C8B181C153391FC003F3465 /* NSObject+PWObject.m in Sources */,
 				2C8957D21535AC6300DF4433 /* Collision.m in Sources */,
-				2C8957D31535AC6300DF4433 /* CollisionMediator.m in Sources */,
 				2C8957D41535AC6300DF4433 /* CollisionSystem.m in Sources */,
 				2C8957D71535AF9E00DF4433 /* CollisionHandler.m in Sources */,
 				2C8958001535BA5A00DF4433 /* AimPollenHandler.m in Sources */,

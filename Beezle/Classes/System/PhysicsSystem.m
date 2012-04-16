@@ -103,17 +103,20 @@
 		Entity *firstEntity = (Entity *)[firstChipmunkShape data];
 		Entity *secondEntity = (Entity *)[secondChipmunkShape data];
 		
-		if ((![EntityUtil isEntityDisposable:firstEntity] ||
-			![EntityUtil isEntityDisposed:firstEntity]) &&
-			(![EntityUtil isEntityDisposable:secondEntity] ||
-			 ![EntityUtil isEntityDisposed:secondEntity]))
+        if ([EntityUtil isEntityDisposable:firstEntity] &&
+             [EntityUtil isEntityDisposed:firstEntity])
+        {
+            return FALSE;
+        }
+        else if ([EntityUtil isEntityDisposable:secondEntity] &&
+                 [EntityUtil isEntityDisposed:secondEntity])
+        {
+            return FALSE;
+        }
+		else
 		{
 			Collision *collision = [Collision collisionWithFirstShape:firstChipmunkShape andSecondShape:secondChipmunkShape];
 			return [_collisionSystem handleCollision:collision];
-		}
-		else
-		{
-			return TRUE;
 		}
     }
 	else

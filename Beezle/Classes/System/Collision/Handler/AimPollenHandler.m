@@ -8,9 +8,20 @@
 
 #import "AimPollenHandler.h"
 #import "Collision.h"
+#import "CollisionType.h"
 #import "EntityUtil.h"
 
 @implementation AimPollenHandler
+
+-(id) initWithWorld:(World *)world andLevelSession:(LevelSession *)levelSession
+{
+	if (self = [super initWithWorld:world andLevelSession:levelSession])
+    {
+        _firstCollisionType = [CollisionType AIM_POLLEN];
+		[_secondCollisionTypes addObject:[CollisionType EDGE]];
+    }
+    return self;
+}
 
 -(BOOL) handleCollision:(Collision *)collision
 {

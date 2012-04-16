@@ -11,7 +11,6 @@
 #import "BeeHandler.h"
 #import "Collision.h"
 #import "CollisionHandler.h"
-#import "CollisionMediator.h"
 #import "CollisionType.h"
 #import "GlassPieceHandler.h"
 #import "PhysicsSystem.h"
@@ -19,8 +18,7 @@
 
 @interface CollisionSystem()
 
--(void) registerCollisionBetween:(CollisionType *)type1 and:(CollisionType *)type2 handler:(CollisionHandler *)handler;
--(NSArray *) findMediatorsForCollision:(Collision *)collision;
+-(void) registerCollisionHandler:(CollisionHandler *)handler;
 
 @end
 
@@ -31,7 +29,7 @@
 	if (self = [super init])
 	{
 		_levelSession = levelSession;
-		_collisionMediators = [[NSMutableArray alloc] init];
+        _collisionHandlers = [NSMutableArray new];
 	}
 	return self;
 }
@@ -44,61 +42,52 @@
 
 -(void) dealloc
 {
-	[_collisionMediators release];
+    [_collisionHandlers release];
     
     [super dealloc];
 }
 
 -(void) initialise
 {
-    BeeHandler *beeHandler = [BeeHandler handlerWithWorld:_world andLevelSession:_levelSession];
-    [self registerCollisionBetween:[CollisionType BEE] and:[CollisionType BEEATER] handler:beeHandler];
-	[self registerCollisionBetween:[CollisionType BEE] and:[CollisionType EDGE] handler:beeHandler];
-	[self registerCollisionBetween:[CollisionType BEE] and:[CollisionType EGG] handler:beeHandler];
-    [self registerCollisionBetween:[CollisionType BEE] and:[CollisionType GLASS] handler:beeHandler];
-	[self registerCollisionBetween:[CollisionType BEE] and:[CollisionType MUSHROOM] handler:beeHandler];
-	[self registerCollisionBetween:[CollisionType BEE] and:[CollisionType NUT] handler:beeHandler];
-	[self registerCollisionBetween:[CollisionType BEE] and:[CollisionType POLLEN] handler:beeHandler];
-    [self registerCollisionBetween:[CollisionType BEE] and:[CollisionType RAMP] handler:beeHandler];
-	[self registerCollisionBetween:[CollisionType BEE] and:[CollisionType WOOD] handler:beeHandler];
-	[self registerCollisionBetween:[CollisionType BEE] and:[CollisionType WATER] handler:beeHandler];
-    
-	AimPollenHandler *aimPollenHandler = [AimPollenHandler handler];
-    [self registerCollisionBetween:[CollisionType AIM_POLLEN] and:[CollisionType EDGE] handler:aimPollenHandler];
-    
-    GlassPieceHandler *glassPieceHandler = [GlassPieceHandler handlerWithWorld:_world];
-    [self registerCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType BACKGROUND] handler:glassPieceHandler];
-    [self registerCollisionBetween:[CollisionType GLASS_PIECE] and:[CollisionType EDGE] handler:glassPieceHandler];
-    
-    WaterDropHandler *waterDropHandler = [WaterDropHandler handlerWithWorld:_world];
-    [self registerCollisionBetween:[CollisionType WATER_DROP] and:[CollisionType BACKGROUND] handler:waterDropHandler];
-    [self registerCollisionBetween:[CollisionType WATER_DROP] and:[CollisionType WATER] handler:waterDropHandler];
+    [self registerCollisionHandler:[BeeHandler handlerWithWorld:_world andLevelSession:_levelSession]];
+    [self registerCollisionHandler:[AimPollenHandler handlerWithWorld:_world andLevelSession:_levelSession]];
+    [self registerCollisionHandler:[GlassPieceHandler handlerWithWorld:_world andLevelSession:_levelSession]];
+    [self registerCollisionHandler:[WaterDropHandler handlerWithWorld:_world andLevelSession:_levelSession]];
 }
 
--(void) registerCollisionBetween:(CollisionType *)type1 and:(CollisionType *)type2 handler:(CollisionHandler *)handler
+-(void) registerCollisionHandler:(CollisionHandler *)handler
 {
-	PhysicsSystem *physicsSystem = (PhysicsSystem *)[[_world systemManager] getSystem:[PhysicsSystem class]];
-	[physicsSystem detectCollisionsBetween:type1 and:type2];
-	
-	CollisionMediator *mediator = [CollisionMediator mediatorWithType1:type1 type2:type2 handler:handler];
-	[_collisionMediators addObject:mediator];
+    [_collisionHandlers addObject:handler];
+    
+    PhysicsSystem *physicsSystem = (PhysicsSystem *)[[_world systemManager] getSystem:[PhysicsSystem class]];
+    for (CollisionType *secondCollisionType in [handler secondCollisionTypes])
+    {   
+        [physicsSystem detectCollisionsBetween:[handler firstCollisionType] and:secondCollisionType];
+    }
 }
 
 -(BOOL) handleCollision:(Collision *)collision
 {
-    BOOL atLeastOneMediatorReturnedFalse = FALSE;
+    BOOL atLeastOneCollisionHandlerReturnedFalse = FALSE;
     
-    NSArray *mediators = [self findMediatorsForCollision:collision];
-    NSAssert([mediators count] > 0, @"At least one collision mediator should always exist.");
-    for (CollisionMediator *mediator in mediators)
+    for (CollisionHandler *handler in _collisionHandlers)
     {
-        if (![mediator mediateCollision:collision])
+        if ([handler firstCollisionType] == [collision firstCollisionType])
         {
-            atLeastOneMediatorReturnedFalse = TRUE;
+            for (CollisionType *secondCollisionType in [handler secondCollisionTypes])
+            {
+                if (secondCollisionType == [collision secondCollisionType])
+                {
+                    if (![handler handleCollision:collision])
+                    {
+                        atLeastOneCollisionHandlerReturnedFalse = TRUE;
+                    }
+                }
+            }
         }
     }
     
-    if (atLeastOneMediatorReturnedFalse)
+    if (atLeastOneCollisionHandlerReturnedFalse)
     {
         return FALSE;
     }
@@ -106,19 +95,6 @@
     {
         return TRUE;
     }
-}
-
--(NSArray *) findMediatorsForCollision:(Collision *)collision
-{
-    NSMutableArray *matchingMediators = [NSMutableArray array];
-	for (CollisionMediator *mediator in _collisionMediators)
-	{
-        if ([mediator appliesForCollision:collision])
-        {
-            [matchingMediators addObject:mediator];
-        }
-	}	
-	return matchingMediators;
 }
 
 @end

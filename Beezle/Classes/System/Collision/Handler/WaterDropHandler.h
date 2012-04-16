@@ -9,12 +9,5 @@
 #import "CollisionHandler.h"
 
 @interface WaterDropHandler : CollisionHandler
-{
-    World *_world;
-}
-
-+(id) handlerWithWorld:(World *)world;
-
--(id) initWithWorld:(World *)world;
 
 @end

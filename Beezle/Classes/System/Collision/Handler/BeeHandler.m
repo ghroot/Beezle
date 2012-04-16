@@ -35,17 +35,22 @@
 
 @implementation BeeHandler
 
-+(id) handlerWithWorld:(World *)world andLevelSession:(LevelSession *)levelSession
-{
-	return [[[self alloc] initWithWorld:world andLevelSession:levelSession] autorelease];
-}
-
 -(id) initWithWorld:(World *)world andLevelSession:(LevelSession *)levelSession
 {
-	if (self = [super init])
+	if (self = [super initWithWorld:world andLevelSession:levelSession])
     {
-		_world = world;
-        _levelSession = levelSession;
+        _firstCollisionType = [CollisionType BEE];
+        [_secondCollisionTypes addObject:[CollisionType BACKGROUND]];
+		[_secondCollisionTypes addObject:[CollisionType BEEATER]];
+        [_secondCollisionTypes addObject:[CollisionType EDGE]];
+        [_secondCollisionTypes addObject:[CollisionType EGG]];
+        [_secondCollisionTypes addObject:[CollisionType GLASS]];
+        [_secondCollisionTypes addObject:[CollisionType MUSHROOM]];
+        [_secondCollisionTypes addObject:[CollisionType NUT]];
+        [_secondCollisionTypes addObject:[CollisionType POLLEN]];
+        [_secondCollisionTypes addObject:[CollisionType RAMP]];
+        [_secondCollisionTypes addObject:[CollisionType WOOD]];
+        [_secondCollisionTypes addObject:[CollisionType WATER]];
     }
     return self;
 }
@@ -57,6 +62,7 @@
 	
 	BOOL continueProcessingCollision = TRUE;
 	
+    // Collision
 	CollisionComponent *collisionComponent = [CollisionComponent getFrom:otherEntity];
 	if ([collisionComponent disposeEntityOnCollision])
 	{
@@ -84,19 +90,23 @@
 		[renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:[collisionComponent collisionAnimationName], idleAnimationName, nil]];
 	}
 	
+    // Dozer / Crumble
 	if ([beeEntity hasComponent:[DozerComponent class]] &&
 		[otherEntity hasComponent:[CrumbleComponent class]])
 	{
 		[EntityUtil setEntityDisposed:otherEntity];
+        [EntityUtil playDefaultDestroySound:otherEntity];
 		continueProcessingCollision = FALSE;
 	}
 	
+    // Pollen / Key
 	if ([otherEntity hasComponent:[PollenComponent class]] ||
 		[otherEntity hasComponent:[KeyComponent class]])
 	{
 		[_levelSession consumedEntity:otherEntity];
 	}
 	
+    // Sound
 	if ([otherEntity hasComponent:[SoundComponent class]])
 	{
 		if ([collision firstEntityVelocityTimesMass] >= VELOCITY_TIMES_MASS_FOR_SOUND)
@@ -105,6 +115,7 @@
 		}
 	}
 	
+    // Gate
 	if ([otherEntity hasComponent:[GateComponent class]])
 	{
 		GateComponent *gateComponent = [GateComponent getFrom:otherEntity];
@@ -117,6 +128,7 @@
 		}
 	}
 	
+    // Beeater
 	if ([otherEntity hasComponent:[BeeaterComponent class]])
 	{
 		BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
@@ -132,6 +144,7 @@
 		}
 	}
 	
+    // Wood
 	if ([otherEntity hasComponent:[WoodComponent class]])
 	{
 		WoodComponent *woodComponent = [WoodComponent getFrom:otherEntity];
@@ -147,6 +160,7 @@
 		}
 	}
 	
+    // Water
 	if ([otherEntity hasComponent:[WaterComponent class]])
 	{
 		WaterComponent *waterComponent = [WaterComponent getFrom:otherEntity];
