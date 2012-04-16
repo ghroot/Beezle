@@ -45,6 +45,7 @@
         [_secondCollisionTypes addObject:[CollisionType EDGE]];
         [_secondCollisionTypes addObject:[CollisionType EGG]];
         [_secondCollisionTypes addObject:[CollisionType GLASS]];
+		[_secondCollisionTypes addObject:[CollisionType GATE]];
         [_secondCollisionTypes addObject:[CollisionType MUSHROOM]];
         [_secondCollisionTypes addObject:[CollisionType NUT]];
         [_secondCollisionTypes addObject:[CollisionType POLLEN]];
