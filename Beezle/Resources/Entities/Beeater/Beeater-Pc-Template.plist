@@ -17,9 +17,14 @@
 			<array>
 				<dict>
 					<key>type</key>
-					<string>circle</string>
-					<key>radius</key>
-					<real>1</real>
+					<string>poly</string>
+					<key>vertices</key>
+					<array>
+						<string>{ -5, -5 }</string>
+						<string>{ -5, 5 }</string>
+						<string>{ 5, 5 }</string>
+						<string>{ 5, -5 }</string>
+					</array>
 					<key>elasticity</key>
 					<real>0.7</real>
 					<key>friction</key>
