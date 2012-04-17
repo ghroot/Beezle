@@ -10,6 +10,8 @@
 		<dict>
 			<key>disposeAndDeleteBeeOnCollision</key>
 			<true/>
+			<key>collisionSpawnEntityType</key>
+			<string>LAVA-SPLASH</string>
 		</dict>
 		<key>physics</key>
 		<dict>
@@ -45,11 +47,6 @@
 		</dict>
 		<key>transform</key>
 		<dict/>
-		<key>water</key>
-		<dict>
-			<key>splashAnimation</key>
-			<string>Bee-Splash-Lava</string>
-		</dict>
 	</dict>
 </dict>
 </plist>

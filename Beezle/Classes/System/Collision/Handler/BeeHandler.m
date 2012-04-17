@@ -28,7 +28,6 @@
 #import "SoundComponent.h"
 #import "SoundManager.h"
 #import "TransformComponent.h"
-#import "WaterComponent.h"
 #import "WoodComponent.h"
 
 #define VELOCITY_TIMES_MASS_FOR_SOUND 80.0f
@@ -89,6 +88,13 @@
 		RenderComponent *renderComponent = [RenderComponent getFrom:otherEntity];
 		NSString *idleAnimationName = [[renderComponent firstRenderSprite] randomDefaultIdleAnimationName];
 		[renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:[collisionComponent collisionAnimationName], idleAnimationName, nil]];
+	}
+	if ([collisionComponent collisionSpawnEntityType] != nil)
+	{
+		Entity *splashEntity = [EntityFactory createEntity:[collisionComponent collisionSpawnEntityType] world:_world];
+		TransformComponent *transformComponent = [TransformComponent getFrom:beeEntity];
+		[EntityUtil setEntityPosition:splashEntity position:[transformComponent position]];
+		[EntityUtil animateAndDeleteEntity:splashEntity];
 	}
 	
     // Dozer / Crumble
@@ -159,18 +165,6 @@
 			[woodComponent setShapeIndexAtCollision:shapeIndexAtCollision];
 			[EntityUtil setEntityDisposed:otherEntity];
 		}
-	}
-	
-    // Water
-	if ([otherEntity hasComponent:[WaterComponent class]])
-	{
-		WaterComponent *waterComponent = [WaterComponent getFrom:otherEntity];
-		
-		Entity *splashEntity = [EntityFactory createSimpleAnimatedEntity:_world animationFile:@"Bees-Animations.plist"];
-		TransformComponent *beeTransformComponent = [TransformComponent getFrom:beeEntity];
-		[EntityUtil setEntityPosition:splashEntity position:[beeTransformComponent position]];
-		[EntityUtil animateAndDeleteEntity:splashEntity animationName:[waterComponent splashAnimationName]];	
-
 	}
 	
 	return continueProcessingCollision;

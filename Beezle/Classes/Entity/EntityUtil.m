@@ -16,7 +16,6 @@
 #import "SoundComponent.h"
 #import "SoundManager.h"
 #import "TransformComponent.h"
-#import "WaterComponent.h"
 
 @implementation EntityUtil
 
@@ -94,14 +93,8 @@
 
 +(Entity *) getWaterEntity:(World *)world
 {
-	for (Entity *entity in [[world entityManager] entities])
-	{
-		if ([entity hasComponent:[WaterComponent class]])
-		{
-			return entity;
-		}
-	}
-	return nil;
+	TagManager *tagManager = (TagManager *)[world getManager:[TagManager class]];
+	return [tagManager getEntity:@"WATER"];
 }
 
 +(BOOL) hasWaterEntity:(World *)world

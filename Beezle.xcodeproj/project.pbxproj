@@ -827,7 +827,6 @@
 		2CE348C114DF071800FEB492 /* EntityDescriptionLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348C014DF071800FEB492 /* EntityDescriptionLoader.m */; };
 		2CE348C414DF072700FEB492 /* EntityDescriptionCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348C314DF072700FEB492 /* EntityDescriptionCache.m */; };
 		2CE348CA14DF0BF900FEB492 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348C914DF0BF800FEB492 /* Utils.m */; };
-		2CE4F509153B83860023B5C6 /* WaterComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4F508153B83850023B5C6 /* WaterComponent.m */; };
 		2CE4F5A9153CC8A80023B5C6 /* Aim-Pollen.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F536153CC8A80023B5C6 /* Aim-Pollen.plist */; };
 		2CE4F5AA153CC8A80023B5C6 /* Bee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F538153CC8A80023B5C6 /* Bee.plist */; };
 		2CE4F5AB153CC8A80023B5C6 /* Bombee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F539153CC8A80023B5C6 /* Bombee.plist */; };
@@ -932,6 +931,8 @@
 		2CE4F615153CC8D90023B5C6 /* Hangnest-A.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F611153CC8D90023B5C6 /* Hangnest-A.plist */; };
 		2CE4F616153CC8D90023B5C6 /* Hangnest-B.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F613153CC8D90023B5C6 /* Hangnest-B.plist */; };
 		2CE4F617153CC8D90023B5C6 /* Hangnest-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F614153CC8D90023B5C6 /* Hangnest-Template.plist */; };
+		2CE4F61A153E0DE30023B5C6 /* Lava-Splash.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F618153E0DE20023B5C6 /* Lava-Splash.plist */; };
+		2CE4F61B153E0DE30023B5C6 /* Water-Splash.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F619153E0DE30023B5C6 /* Water-Splash.plist */; };
 		2CE508CF14B1E98300A9E8D8 /* LevelSelectMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */; };
 		2CE508D314B31D2B00A9E8D8 /* LevelSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508D214B31D2B00A9E8D8 /* LevelSender.m */; };
 		2CE8604714F90C5600579202 /* DripSmall.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2CE8604414F90C5600579202 /* DripSmall.m4a */; };
@@ -2073,8 +2074,6 @@
 		2CE348C314DF072700FEB492 /* EntityDescriptionCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityDescriptionCache.m; sourceTree = "<group>"; };
 		2CE348C814DF0BF800FEB492 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = Classes/Utils.h; sourceTree = "<group>"; };
 		2CE348C914DF0BF800FEB492 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = Classes/Utils.m; sourceTree = "<group>"; };
-		2CE4F507153B83850023B5C6 /* WaterComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaterComponent.h; path = Classes/Component/WaterComponent.h; sourceTree = "<group>"; };
-		2CE4F508153B83850023B5C6 /* WaterComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaterComponent.m; path = Classes/Component/WaterComponent.m; sourceTree = "<group>"; };
 		2CE4F536153CC8A80023B5C6 /* Aim-Pollen.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Aim-Pollen.plist"; sourceTree = "<group>"; };
 		2CE4F538153CC8A80023B5C6 /* Bee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Bee.plist; sourceTree = "<group>"; };
 		2CE4F539153CC8A80023B5C6 /* Bombee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Bombee.plist; sourceTree = "<group>"; };
@@ -2179,6 +2178,8 @@
 		2CE4F611153CC8D90023B5C6 /* Hangnest-A.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Hangnest-A.plist"; sourceTree = "<group>"; };
 		2CE4F613153CC8D90023B5C6 /* Hangnest-B.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Hangnest-B.plist"; sourceTree = "<group>"; };
 		2CE4F614153CC8D90023B5C6 /* Hangnest-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Hangnest-Template.plist"; sourceTree = "<group>"; };
+		2CE4F618153E0DE20023B5C6 /* Lava-Splash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Lava-Splash.plist"; sourceTree = "<group>"; };
+		2CE4F619153E0DE30023B5C6 /* Water-Splash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Water-Splash.plist"; sourceTree = "<group>"; };
 		2CE508CD14B1E98300A9E8D8 /* LevelSelectMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectMenuState.h; sourceTree = "<group>"; };
 		2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectMenuState.m; sourceTree = "<group>"; };
 		2CE508D114B31D2B00A9E8D8 /* LevelSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSender.h; sourceTree = "<group>"; };
@@ -3933,7 +3934,9 @@
 		2CE4F59F153CC8A80023B5C6 /* Water */ = {
 			isa = PBXGroup;
 			children = (
+				2CE4F618153E0DE20023B5C6 /* Lava-Splash.plist */,
 				2CE4F5A0153CC8A80023B5C6 /* Lava.plist */,
+				2CE4F619153E0DE30023B5C6 /* Water-Splash.plist */,
 				2CE4F5A1153CC8A80023B5C6 /* Water.plist */,
 			);
 			path = Water;
@@ -4133,8 +4136,6 @@
 				2C157C1914914F6A003F9040 /* TrajectoryComponent.m */,
 				2C068A32146858B9003E200D /* TransformComponent.h */,
 				2C068A33146858B9003E200D /* TransformComponent.m */,
-				2CE4F507153B83850023B5C6 /* WaterComponent.h */,
-				2CE4F508153B83850023B5C6 /* WaterComponent.m */,
 				2C537427153B317D00040EED /* WoodComponent.h */,
 				2C537428153B318100040EED /* WoodComponent.m */,
 			);
@@ -4949,6 +4950,8 @@
 				2CE4F615153CC8D90023B5C6 /* Hangnest-A.plist in Resources */,
 				2CE4F616153CC8D90023B5C6 /* Hangnest-B.plist in Resources */,
 				2CE4F617153CC8D90023B5C6 /* Hangnest-Template.plist in Resources */,
+				2CE4F61A153E0DE30023B5C6 /* Lava-Splash.plist in Resources */,
+				2CE4F61B153E0DE30023B5C6 /* Water-Splash.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5198,7 +5201,6 @@
 				2C537423153B230500040EED /* CollisionComponent.m in Sources */,
 				2C537426153B304F00040EED /* WoodSystem.m in Sources */,
 				2C537429153B318400040EED /* WoodComponent.m in Sources */,
-				2CE4F509153B83860023B5C6 /* WaterComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,7 @@
 @synthesize disposeAndDeleteBeeOnCollision = _disposeAndDeleteBeeOnCollision;
 @synthesize disposeAnimateAndDeleteBeeOnCollision = _disposeAnimateAndDeleteBeeOnCollision;
 @synthesize collisionAnimationName = _collisionAnimationName;
+@synthesize collisionSpawnEntityType = _collisionSpawnEntityType;
 
 -(id) init
 {
@@ -53,6 +54,10 @@
 		{
 			_collisionAnimationName = [[dict objectForKey:@"collisionAnimation"] copy];
 		}
+		if ([dict objectForKey:@"collisionSpawnEntityType"] != nil)
+		{
+			_collisionSpawnEntityType = [[dict objectForKey:@"collisionSpawnEntityType"] copy];
+		}
 	}
 	return self;
 }
@@ -60,6 +65,7 @@
 -(void) dealloc
 {
 	[_collisionAnimationName release];
+	[_collisionSpawnEntityType release];
 	
 	[super dealloc];
 }

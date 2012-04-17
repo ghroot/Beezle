@@ -145,18 +145,21 @@
 +(Entity *) createWater:(World *)world withLevelName:(NSString *)levelName
 {
 	NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:levelName];
+	Entity *waterEntity = nil;
 	if ([theme isEqualToString:@"A"])
 	{
-		return [self createEntity:@"WATER" world:world];
+		waterEntity = [self createEntity:@"WATER" world:world];
 	}
 	else if ([theme isEqualToString:@"B"])
 	{
-		return [self createEntity:@"LAVA" world:world];
+		waterEntity = [self createEntity:@"LAVA" world:world];
 	}
-	else
+	if (waterEntity != nil)
 	{
-		return nil;
+		TagManager *tagManager = (TagManager *)[world getManager:[TagManager class]];
+		[tagManager registerEntity:waterEntity withTag:@"WATER"];
 	}
+	return waterEntity;
 }
 
 +(Entity *) createEntity:(NSString *)type world:(World *)world edit:(BOOL)edit
