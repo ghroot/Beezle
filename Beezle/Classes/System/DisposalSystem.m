@@ -1,24 +1,25 @@
 //
-//  CrumbleSystem.m
+//  DisposalSystem.m
 //  Beezle
 //
-//  Created by Marcus on 4/13/12.
+//  Created by KM Lagerstrom on 17/04/2012.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "CrumbleSystem.h"
-#import "CrumbleComponent.h"
+#import "DisposalSystem.h"
+#import "DisposableComponent.h"
 #import "EntityUtil.h"
 #import "NotificationProcessor.h"
 #import "NotificationTypes.h"
+#import "RenderComponent.h"
 
-@interface CrumbleSystem()
+@interface DisposalSystem()
 
 -(void) handleEntityDisposed:(NSNotification *)notification;
 
 @end
 
-@implementation CrumbleSystem
+@implementation DisposalSystem
 
 -(id) init
 {
@@ -45,13 +46,20 @@
 -(void) handleEntityDisposed:(NSNotification *)notification
 {
     Entity *entity = [[notification userInfo] objectForKey:@"entity"];
-	if ([entity hasComponent:[CrumbleComponent class]])
+	if ([entity hasComponent:[DisposableComponent class]])
 	{
-        CrumbleComponent *crumbleComponent = [CrumbleComponent getFrom:entity];
-        if ([crumbleComponent crumbleAnimationName] != nil)
-        {
-            [EntityUtil animateAndDeleteEntity:entity animationName:[crumbleComponent crumbleAnimationName]];
-        }
+		DisposableComponent *disposalComponent = [DisposableComponent getFrom:entity];
+		if ([disposalComponent deleteEntityWhenDisposed])
+		{
+			if ([[RenderComponent getFrom:entity] hasDefaultDestroyAnimation])
+			{
+				[EntityUtil animateAndDeleteEntity:entity];
+			}
+			else
+			{
+				[entity deleteEntity];
+			}
+		}
 	}
 }
 

@@ -6,10 +6,12 @@
 	<string>WATERDROP</string>
 	<key>components</key>
 	<dict>
-		<key>disposable</key>
+		<key>collision</key>
 		<dict>
-			<key>deleteEntityWhenDisposed</key>
+			<key>destroyEntityOnCollision</key>
 			<true/>
+			<key>collisionSpawnEntityType</key>
+			<string>WATER-SPLASH</string>
 		</dict>
 		<key>physics</key>
 		<dict>
@@ -58,6 +60,15 @@
 					<key>defaultIdleAnimation</key>
 					<string>Waterdrop-Idle</string>
 				</dict>
+			</array>
+		</dict>
+		<key>sound</key>
+		<dict>
+			<key>defaultDestroySounds</key>
+			<array>
+				<string>DripSmall1</string>
+				<string>DripSmall2</string>
+				<string>DripSmall3</string>
 			</array>
 		</dict>
 		<key>transform</key>

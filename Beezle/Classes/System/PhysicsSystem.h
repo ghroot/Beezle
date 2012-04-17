@@ -29,6 +29,5 @@
 @property (nonatomic, readonly) ChipmunkSpace *space;
 
 -(BodyInfo *) createBodyInfoFromFile:(NSString *)fileName bodyName:(NSString *)bodyName collisionType:(CollisionType *)collisionType;
--(void) detectCollisionsBetween:(CollisionType *)type1 and:(CollisionType *)type2;
 
 @end

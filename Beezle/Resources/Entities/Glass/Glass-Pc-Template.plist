@@ -4,6 +4,11 @@
 <dict>
 	<key>components</key>
 	<dict>
+		<key>collision</key>
+		<dict>
+			<key>destroyEntityOnCollision</key>
+			<true/>
+		</dict>
 		<key>disposable</key>
 		<dict>
 			<key>deleteEntityWhenDisposed</key>

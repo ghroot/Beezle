@@ -6,13 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "Component.h"
+#import "artemis.h"
 
 @interface CrumbleComponent : Component
-{
-	NSString *_crumbleAnimationName;
-}
-
-@property (nonatomic, retain) NSString *crumbleAnimationName;
 
 @end

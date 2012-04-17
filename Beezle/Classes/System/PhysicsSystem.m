@@ -53,6 +53,8 @@
 	[_space setSleepTimeThreshold:1.0f];
 	[_space setData:self];
 	[_space setGravity:CGPointMake(0.0f, GRAVITY)];
+	
+	[_space setDefaultCollisionHandler:self begin:@selector(beginCollision:space:) preSolve:nil postSolve:nil separate:nil];
 }
 
 -(BodyInfo *) createBodyInfoFromFile:(NSString *)fileName bodyName:(NSString *)bodyName collisionType:(CollisionType *)collisionType
@@ -74,11 +76,6 @@
 	}
     
     return bodyInfo;
-}
-
--(void) detectCollisionsBetween:(CollisionType *)type1 and:(CollisionType *)type2
-{
-	[_space addCollisionHandler:self typeA:type1 typeB:type2 begin:@selector(beginCollision:space:) preSolve:nil postSolve:nil separate:nil];
 }
 
 -(BOOL) beginCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space

@@ -16,9 +16,9 @@
 @class ExplodeControlSystem;
 @class BeeQueueRenderingSystem;
 @class CollisionSystem;
-@class CrumbleSystem;
 @class DebugNotificationTrackerSystem;
 @class DebugRenderPhysicsSystem;
+@class DisposalSystem;
 @class GameRulesSystem;
 @class GateOpeningSystem;
 @class HUDRenderingSystem;
@@ -59,10 +59,10 @@
     PhysicsSystem *_physicsSystem;
     RenderSystem *_renderSystem;
 	ShardSystem *_shardSystem;
-    CrumbleSystem *_crumbleSystem;
     SlingerControlSystem *_slingerControlSystem;
 	SpawnSystem *_spawnSystem;
 	WoodSystem *_woodSystem;
+	DisposalSystem *_disposalSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
 	DebugNotificationTrackerSystem *_debugNotificationTrackerSystem;
     
@@ -76,7 +76,6 @@
 @property (nonatomic, readonly) BeeExpiratonSystem *beeExpirationSystem;
 @property (nonatomic, readonly) BeeQueueRenderingSystem *beeQueueRenderingSystem;
 @property (nonatomic, readonly) CollisionSystem *collisionSystem;
-@property (nonatomic, readonly) CrumbleSystem *crumbleSystem;
 @property (nonatomic, readonly) ExplodeControlSystem *explodeControlSystem;
 @property (nonatomic, readonly) GameRulesSystem *gameRulesSystem;
 @property (nonatomic, readonly) GateOpeningSystem *gateOpeningSystem;
@@ -89,6 +88,7 @@
 @property (nonatomic, readonly) SlingerControlSystem *slingerControlSystem;
 @property (nonatomic, readonly) SpawnSystem *spawnSystem;
 @property (nonatomic, readonly) WoodSystem *woodSystem;
+@property (nonatomic, readonly) DisposalSystem *disposalSystem;
 
 +(id) stateWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession;
 +(id) stateWithLevelName:(NSString *)levelName;

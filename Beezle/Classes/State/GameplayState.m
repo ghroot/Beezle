@@ -13,10 +13,10 @@
 #import "BeeQueueRenderingSystem.h"
 #import "BeeExpiratonSystem.h"
 #import "CollisionSystem.h"
-#import "CrumbleSystem.h"
 #import "DebugNotificationTrackerSystem.h"
 #import "DebugRenderPhysicsSystem.h"
 #import "DisposableComponent.h"
+#import "DisposalSystem.h"
 #import "EntityUtil.h"
 #import "Game.h"
 #import "GameRulesSystem.h"
@@ -71,7 +71,6 @@
 @synthesize beeExpirationSystem = _beeExpirationSystem;
 @synthesize beeQueueRenderingSystem = _beeQueueRenderingSystem;
 @synthesize collisionSystem = _collisionSystem;
-@synthesize crumbleSystem = _crumbleSystem;
 @synthesize explodeControlSystem = _explodeControlSystem;
 @synthesize gameRulesSystem = _gameRulesSystem;
 @synthesize gateOpeningSystem = _gateOpeningSystem;
@@ -84,6 +83,7 @@
 @synthesize slingerControlSystem = _slingerControlSystem;
 @synthesize spawnSystem = _spawnSystem;
 @synthesize woodSystem = _woodSystem;
+@synthesize disposalSystem = _disposalSystem;
 
 +(id) stateWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession
 {
@@ -186,12 +186,12 @@
 	[systemManager setSystem:_gateOpeningSystem];
 	_shardSystem = [[[ShardSystem alloc] init] autorelease];
 	[systemManager setSystem:_shardSystem];
-    _crumbleSystem = [[CrumbleSystem new] autorelease];
-    [systemManager setSystem:_crumbleSystem];
 	_spawnSystem = [[[SpawnSystem alloc] init] autorelease];
 	[systemManager setSystem:_spawnSystem];
 	_woodSystem = [[WoodSystem new] autorelease];
 	[systemManager setSystem:_woodSystem];
+	_disposalSystem = [[DisposalSystem new] autorelease];
+	[systemManager setSystem:_disposalSystem];
 	if (_debug)
 	{
 		_debugRenderPhysicsSystem = [[[DebugRenderPhysicsSystem alloc] initWithScene:self] autorelease];

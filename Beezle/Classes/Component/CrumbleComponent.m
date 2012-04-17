@@ -10,35 +10,13 @@
 
 @implementation CrumbleComponent
 
-@synthesize crumbleAnimationName = _crumbleAnimationName;
-
 -(id) init
 {
 	if (self = [super init])
 	{
 		_name = @"crumble";
-		_crumbleAnimationName = nil;
 	}
 	return self;
-}
-
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
-{
-	if (self = [self init])
-	{
-		if ([dict objectForKey:@"crumbleAnimation"] != nil)
-		{
-			_crumbleAnimationName = [[dict objectForKey:@"crumbleAnimation"] retain];
-		}
-	}
-	return self;
-}
-
--(void) dealloc
-{
-	[_crumbleAnimationName release];
-	
-	[super dealloc];
 }
 
 @end

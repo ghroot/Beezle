@@ -10,14 +10,12 @@
 #import "artemis.h"
 
 @class Collision;
-@class CollisionHandler;
 @class CollisionType;
 @class LevelSession;
 
 @interface CollisionSystem : EntitySystem
 {
 	LevelSession *_levelSession;
-    NSMutableArray *_collisionHandlers;
 }
 
 -(id) initWithLevelSession:(LevelSession *)levelSession;

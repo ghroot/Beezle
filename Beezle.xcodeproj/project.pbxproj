@@ -34,9 +34,7 @@
 		2C27E90A14D20577002165CD /* TagEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FB14D20577002165CD /* TagEntitySystem.m */; };
 		2C27E90B14D20577002165CD /* TagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FD14D20577002165CD /* TagManager.m */; };
 		2C27E90C14D20577002165CD /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FF14D20577002165CD /* World.m */; };
-		2C29D7A6153843F7005EFE8E /* BeeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C29D7A5153843F6005EFE8E /* BeeHandler.m */; };
 		2C29D7AD15385D86005EFE8E /* DozerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C29D7AC15385D86005EFE8E /* DozerComponent.m */; };
-		2C29D7B315386560005EFE8E /* CrumbleSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C29D7B21538655A005EFE8E /* CrumbleSystem.m */; };
 		2C2C184014FEE92D007C2ADC /* Slinger.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C183F14FEE92D007C2ADC /* Slinger.m4a */; };
 		2C2C184214FEEB69007C2ADC /* Key-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C184114FEEB69007C2ADC /* Key-01.png */; };
 		2C2FB66B14FE800100D115AF /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -231,10 +229,6 @@
 		2C88E2CB14F6E23400496938 /* GateOpeningSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E2CA14F6E23400496938 /* GateOpeningSystem.m */; };
 		2C8957D21535AC6300DF4433 /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957CD1535AC6300DF4433 /* Collision.m */; };
 		2C8957D41535AC6300DF4433 /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957D11535AC6300DF4433 /* CollisionSystem.m */; };
-		2C8957D71535AF9E00DF4433 /* CollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957D61535AF9E00DF4433 /* CollisionHandler.m */; };
-		2C8958001535BA5A00DF4433 /* AimPollenHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8957FF1535BA5900DF4433 /* AimPollenHandler.m */; };
-		2C8958091535BA9000DF4433 /* WaterDropHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8958081535BA8F00DF4433 /* WaterDropHandler.m */; };
-		2C89580C1535BC8000DF4433 /* GlassPieceHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C89580B1535BC7E00DF4433 /* GlassPieceHandler.m */; };
 		2C8B181C153391FC003F3465 /* NSObject+PWObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B181B153391FC003F3465 /* NSObject+PWObject.m */; };
 		2C8B198B15363878003F3465 /* LevelThemeSelectMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B198A15363878003F3465 /* LevelThemeSelectMenuState.m */; };
 		2C8B198E153639C7003F3465 /* LevelThemeSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B198D153639C7003F3465 /* LevelThemeSelectMenuItem.m */; };
@@ -922,8 +916,6 @@
 		2CE4F607153CC8A80023B5C6 /* Slinger.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F59E153CC8A80023B5C6 /* Slinger.plist */; };
 		2CE4F608153CC8A80023B5C6 /* Lava.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F5A0153CC8A80023B5C6 /* Lava.plist */; };
 		2CE4F609153CC8A80023B5C6 /* Water.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F5A1153CC8A80023B5C6 /* Water.plist */; };
-		2CE4F60A153CC8A80023B5C6 /* Waterdrop-Spawner.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F5A2153CC8A80023B5C6 /* Waterdrop-Spawner.plist */; };
-		2CE4F60B153CC8A80023B5C6 /* Waterdrop.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F5A3153CC8A80023B5C6 /* Waterdrop.plist */; };
 		2CE4F60C153CC8A80023B5C6 /* Wood-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F5A5153CC8A80023B5C6 /* Wood-2.plist */; };
 		2CE4F60D153CC8A80023B5C6 /* Wood-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F5A6153CC8A80023B5C6 /* Wood-3.plist */; };
 		2CE4F60E153CC8A80023B5C6 /* Wood-4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F5A7153CC8A80023B5C6 /* Wood-4.plist */; };
@@ -933,6 +925,9 @@
 		2CE4F617153CC8D90023B5C6 /* Hangnest-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F614153CC8D90023B5C6 /* Hangnest-Template.plist */; };
 		2CE4F61A153E0DE30023B5C6 /* Lava-Splash.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F618153E0DE20023B5C6 /* Lava-Splash.plist */; };
 		2CE4F61B153E0DE30023B5C6 /* Water-Splash.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F619153E0DE30023B5C6 /* Water-Splash.plist */; };
+		2CE4F61E153E1C1C0023B5C6 /* DisposalSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4F61D153E1C190023B5C6 /* DisposalSystem.m */; };
+		2CE4F621153E249B0023B5C6 /* Waterdrop-Spawner.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F61F153E249A0023B5C6 /* Waterdrop-Spawner.plist */; };
+		2CE4F622153E249B0023B5C6 /* Waterdrop.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F620153E249A0023B5C6 /* Waterdrop.plist */; };
 		2CE508CF14B1E98300A9E8D8 /* LevelSelectMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */; };
 		2CE508D314B31D2B00A9E8D8 /* LevelSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE508D214B31D2B00A9E8D8 /* LevelSender.m */; };
 		2CE8604714F90C5600579202 /* DripSmall.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2CE8604414F90C5600579202 /* DripSmall.m4a */; };
@@ -1033,12 +1028,8 @@
 		2C27E8FD14D20577002165CD /* TagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagManager.m; sourceTree = "<group>"; };
 		2C27E8FE14D20577002165CD /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		2C27E8FF14D20577002165CD /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
-		2C29D7A4153843F5005EFE8E /* BeeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeHandler.h; sourceTree = "<group>"; };
-		2C29D7A5153843F6005EFE8E /* BeeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeHandler.m; sourceTree = "<group>"; };
 		2C29D7AB15385D86005EFE8E /* DozerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DozerComponent.h; path = Classes/Component/DozerComponent.h; sourceTree = "<group>"; };
 		2C29D7AC15385D86005EFE8E /* DozerComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DozerComponent.m; path = Classes/Component/DozerComponent.m; sourceTree = "<group>"; };
-		2C29D7B115386556005EFE8E /* CrumbleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CrumbleSystem.h; path = Classes/System/CrumbleSystem.h; sourceTree = "<group>"; };
-		2C29D7B21538655A005EFE8E /* CrumbleSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CrumbleSystem.m; path = Classes/System/CrumbleSystem.m; sourceTree = "<group>"; };
 		2C2C183F14FEE92D007C2ADC /* Slinger.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Slinger.m4a; sourceTree = "<group>"; };
 		2C2C184114FEEB69007C2ADC /* Key-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key-01.png"; sourceTree = "<group>"; };
 		2C2FB66914FE800100D115AF /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAnalytics.h; sourceTree = "<group>"; };
@@ -1310,14 +1301,6 @@
 		2C8957CD1535AC6300DF4433 /* Collision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collision.m; sourceTree = "<group>"; };
 		2C8957D01535AC6300DF4433 /* CollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionSystem.h; sourceTree = "<group>"; };
 		2C8957D11535AC6300DF4433 /* CollisionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionSystem.m; sourceTree = "<group>"; };
-		2C8957D51535AF9E00DF4433 /* CollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionHandler.h; sourceTree = "<group>"; };
-		2C8957D61535AF9E00DF4433 /* CollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionHandler.m; sourceTree = "<group>"; };
-		2C8957FE1535BA5900DF4433 /* AimPollenHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AimPollenHandler.h; sourceTree = "<group>"; };
-		2C8957FF1535BA5900DF4433 /* AimPollenHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AimPollenHandler.m; sourceTree = "<group>"; };
-		2C8958071535BA8E00DF4433 /* WaterDropHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterDropHandler.h; sourceTree = "<group>"; };
-		2C8958081535BA8F00DF4433 /* WaterDropHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterDropHandler.m; sourceTree = "<group>"; };
-		2C89580A1535BC7C00DF4433 /* GlassPieceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlassPieceHandler.h; sourceTree = "<group>"; };
-		2C89580B1535BC7E00DF4433 /* GlassPieceHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlassPieceHandler.m; sourceTree = "<group>"; };
 		2C8B181A153391FC003F3465 /* NSObject+PWObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PWObject.h"; sourceTree = "<group>"; };
 		2C8B181B153391FC003F3465 /* NSObject+PWObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PWObject.m"; sourceTree = "<group>"; };
 		2C8B198915363878003F3465 /* LevelThemeSelectMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelThemeSelectMenuState.h; sourceTree = "<group>"; };
@@ -2169,8 +2152,6 @@
 		2CE4F59E153CC8A80023B5C6 /* Slinger.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Slinger.plist; sourceTree = "<group>"; };
 		2CE4F5A0153CC8A80023B5C6 /* Lava.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Lava.plist; sourceTree = "<group>"; };
 		2CE4F5A1153CC8A80023B5C6 /* Water.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Water.plist; sourceTree = "<group>"; };
-		2CE4F5A2153CC8A80023B5C6 /* Waterdrop-Spawner.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Waterdrop-Spawner.plist"; sourceTree = "<group>"; };
-		2CE4F5A3153CC8A80023B5C6 /* Waterdrop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Waterdrop.plist; sourceTree = "<group>"; };
 		2CE4F5A5153CC8A80023B5C6 /* Wood-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Wood-2.plist"; sourceTree = "<group>"; };
 		2CE4F5A6153CC8A80023B5C6 /* Wood-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Wood-3.plist"; sourceTree = "<group>"; };
 		2CE4F5A7153CC8A80023B5C6 /* Wood-4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Wood-4.plist"; sourceTree = "<group>"; };
@@ -2180,6 +2161,10 @@
 		2CE4F614153CC8D90023B5C6 /* Hangnest-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Hangnest-Template.plist"; sourceTree = "<group>"; };
 		2CE4F618153E0DE20023B5C6 /* Lava-Splash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Lava-Splash.plist"; sourceTree = "<group>"; };
 		2CE4F619153E0DE30023B5C6 /* Water-Splash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Water-Splash.plist"; sourceTree = "<group>"; };
+		2CE4F61C153E1C150023B5C6 /* DisposalSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DisposalSystem.h; path = Classes/System/DisposalSystem.h; sourceTree = "<group>"; };
+		2CE4F61D153E1C190023B5C6 /* DisposalSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DisposalSystem.m; path = Classes/System/DisposalSystem.m; sourceTree = "<group>"; };
+		2CE4F61F153E249A0023B5C6 /* Waterdrop-Spawner.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Waterdrop-Spawner.plist"; sourceTree = "<group>"; };
+		2CE4F620153E249A0023B5C6 /* Waterdrop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Waterdrop.plist; sourceTree = "<group>"; };
 		2CE508CD14B1E98300A9E8D8 /* LevelSelectMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectMenuState.h; sourceTree = "<group>"; };
 		2CE508CE14B1E98300A9E8D8 /* LevelSelectMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectMenuState.m; sourceTree = "<group>"; };
 		2CE508D114B31D2B00A9E8D8 /* LevelSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSender.h; sourceTree = "<group>"; };
@@ -2607,9 +2592,9 @@
 				2C764DDB148A1FF100820587 /* BodyInfo.h */,
 				2C764DDC148A1FF100820587 /* BodyInfo.m */,
 				2C8957CB1535AC6300DF4433 /* Collision */,
-				2C29D7B115386556005EFE8E /* CrumbleSystem.h */,
-				2C29D7B21538655A005EFE8E /* CrumbleSystem.m */,
 				2CD4A99414EC7BAC0065FA90 /* Debug */,
+				2CE4F61C153E1C150023B5C6 /* DisposalSystem.h */,
+				2CE4F61D153E1C190023B5C6 /* DisposalSystem.m */,
 				2CC3EC0314D6086F0025F5DA /* Edit */,
 				2C64AD1214BA4F0300ABD114 /* ExplodeControlSystem.h */,
 				2C64AD1314BA4F0300ABD114 /* ExplodeControlSystem.m */,
@@ -2742,29 +2727,11 @@
 			children = (
 				2C8957CC1535AC6300DF4433 /* Collision.h */,
 				2C8957CD1535AC6300DF4433 /* Collision.m */,
-				2C8957D51535AF9E00DF4433 /* CollisionHandler.h */,
-				2C8957D61535AF9E00DF4433 /* CollisionHandler.m */,
 				2C8957D01535AC6300DF4433 /* CollisionSystem.h */,
 				2C8957D11535AC6300DF4433 /* CollisionSystem.m */,
-				2C8957D91535B10F00DF4433 /* Handler */,
 			);
 			name = Collision;
 			path = Classes/System/Collision;
-			sourceTree = "<group>";
-		};
-		2C8957D91535B10F00DF4433 /* Handler */ = {
-			isa = PBXGroup;
-			children = (
-				2C8957FE1535BA5900DF4433 /* AimPollenHandler.h */,
-				2C8957FF1535BA5900DF4433 /* AimPollenHandler.m */,
-				2C29D7A4153843F5005EFE8E /* BeeHandler.h */,
-				2C29D7A5153843F6005EFE8E /* BeeHandler.m */,
-				2C89580A1535BC7C00DF4433 /* GlassPieceHandler.h */,
-				2C89580B1535BC7E00DF4433 /* GlassPieceHandler.m */,
-				2C8958071535BA8E00DF4433 /* WaterDropHandler.h */,
-				2C8958081535BA8F00DF4433 /* WaterDropHandler.m */,
-			);
-			path = Handler;
 			sourceTree = "<group>";
 		};
 		2C8B1819153391FC003F3465 /* PWObject */ = {
@@ -3741,8 +3708,6 @@
 				2CE4F59D153CC8A80023B5C6 /* Ramp.plist */,
 				2CE4F59E153CC8A80023B5C6 /* Slinger.plist */,
 				2CE4F59F153CC8A80023B5C6 /* Water */,
-				2CE4F5A2153CC8A80023B5C6 /* Waterdrop-Spawner.plist */,
-				2CE4F5A3153CC8A80023B5C6 /* Waterdrop.plist */,
 				2CE4F5A4153CC8A80023B5C6 /* Wood */,
 			);
 			name = Entities;
@@ -3938,6 +3903,8 @@
 				2CE4F5A0153CC8A80023B5C6 /* Lava.plist */,
 				2CE4F619153E0DE30023B5C6 /* Water-Splash.plist */,
 				2CE4F5A1153CC8A80023B5C6 /* Water.plist */,
+				2CE4F61F153E249A0023B5C6 /* Waterdrop-Spawner.plist */,
+				2CE4F620153E249A0023B5C6 /* Waterdrop.plist */,
 			);
 			path = Water;
 			sourceTree = "<group>";
@@ -4941,8 +4908,6 @@
 				2CE4F607153CC8A80023B5C6 /* Slinger.plist in Resources */,
 				2CE4F608153CC8A80023B5C6 /* Lava.plist in Resources */,
 				2CE4F609153CC8A80023B5C6 /* Water.plist in Resources */,
-				2CE4F60A153CC8A80023B5C6 /* Waterdrop-Spawner.plist in Resources */,
-				2CE4F60B153CC8A80023B5C6 /* Waterdrop.plist in Resources */,
 				2CE4F60C153CC8A80023B5C6 /* Wood-2.plist in Resources */,
 				2CE4F60D153CC8A80023B5C6 /* Wood-3.plist in Resources */,
 				2CE4F60E153CC8A80023B5C6 /* Wood-4.plist in Resources */,
@@ -4952,6 +4917,8 @@
 				2CE4F617153CC8D90023B5C6 /* Hangnest-Template.plist in Resources */,
 				2CE4F61A153E0DE30023B5C6 /* Lava-Splash.plist in Resources */,
 				2CE4F61B153E0DE30023B5C6 /* Water-Splash.plist in Resources */,
+				2CE4F621153E249B0023B5C6 /* Waterdrop-Spawner.plist in Resources */,
+				2CE4F622153E249B0023B5C6 /* Waterdrop.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5188,19 +5155,14 @@
 				2C8B181C153391FC003F3465 /* NSObject+PWObject.m in Sources */,
 				2C8957D21535AC6300DF4433 /* Collision.m in Sources */,
 				2C8957D41535AC6300DF4433 /* CollisionSystem.m in Sources */,
-				2C8957D71535AF9E00DF4433 /* CollisionHandler.m in Sources */,
-				2C8958001535BA5A00DF4433 /* AimPollenHandler.m in Sources */,
-				2C8958091535BA9000DF4433 /* WaterDropHandler.m in Sources */,
-				2C89580C1535BC8000DF4433 /* GlassPieceHandler.m in Sources */,
 				2C8B198B15363878003F3465 /* LevelThemeSelectMenuState.m in Sources */,
 				2C8B198E153639C7003F3465 /* LevelThemeSelectMenuItem.m in Sources */,
-				2C29D7A6153843F7005EFE8E /* BeeHandler.m in Sources */,
 				2C29D7AD15385D86005EFE8E /* DozerComponent.m in Sources */,
-				2C29D7B315386560005EFE8E /* CrumbleSystem.m in Sources */,
 				2C53741A1538F38A00040EED /* NotificationProcessor.m in Sources */,
 				2C537423153B230500040EED /* CollisionComponent.m in Sources */,
 				2C537426153B304F00040EED /* WoodSystem.m in Sources */,
 				2C537429153B318400040EED /* WoodComponent.m in Sources */,
+				2CE4F61E153E1C1C0023B5C6 /* DisposalSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,11 +10,18 @@
 
 @interface SoundComponent : Component
 {
-	NSString *_defaultCollisionSoundName;
-    NSString *_defaultDestroySoundName;
+	NSMutableArray *_defaultCollisionSoundNames;
+    NSMutableArray *_defaultDestroySoundNames;
 }
 
-@property (nonatomic, copy) NSString *defaultCollisionSoundName;
-@property (nonatomic, copy) NSString *defaultDestroySoundName;
+@property (nonatomic, retain) NSArray *defaultCollisionSoundNames;
+@property (nonatomic, retain) NSArray *defaultDestroySoundNames;
+
+-(BOOL) hasDefaultCollisionSoundName;
+-(void) setDefaultCollisionSoundName:(NSString *)defaultCollisionSoundName;
+-(NSString *) randomDefaultCollisionSoundName;
+-(void) setDefaultDestroySoundName:(NSString *)defaultDestroySoundName;
+-(BOOL) hasDefaultDestroySoundName;
+-(NSString *) randomDefaultDestroySoundName;
 
 @end

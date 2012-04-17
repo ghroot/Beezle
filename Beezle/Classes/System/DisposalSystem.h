@@ -1,8 +1,8 @@
 //
-//  CrumbleSystem.h
+//  DisposalSystem.h
 //  Beezle
 //
-//  Created by Marcus on 4/13/12.
+//  Created by KM Lagerstrom on 17/04/2012.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 @class NotificationProcessor;
 
-@interface CrumbleSystem : EntitySystem
+@interface DisposalSystem : EntitySystem
 {
 	NotificationProcessor *_notificationProcessor;
 }

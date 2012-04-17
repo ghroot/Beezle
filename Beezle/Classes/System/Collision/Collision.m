@@ -66,4 +66,12 @@
     return velocityTimesMass;
 }
 
+-(float) secondEntityVelocityTimesMass
+{
+    PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:[self secondEntity]];
+    ChipmunkBody *body = [physicsComponent body];
+    float velocityTimesMass = cpvlength([body vel]) * [body mass];
+    return velocityTimesMass;
+}
+
 @end

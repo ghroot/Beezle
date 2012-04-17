@@ -15,8 +15,9 @@
 +(void) setEntityMirrored:(Entity *)entity mirrored:(BOOL)mirrored;
 +(BOOL) isEntityDisposable:(Entity *)entity;
 +(BOOL) isEntityDisposed:(Entity *)entity;
-+(void) setEntityDisposed:(Entity *)entity deleteEntity:(BOOL)deleteEntity;
 +(void) setEntityDisposed:(Entity *)entity;
++(void) destroyEntity:(Entity *)entity instant:(BOOL)instant;
++(void) destroyEntity:(Entity *)entity;
 +(Entity *) getWaterEntity:(World *)world;
 +(BOOL) hasWaterEntity:(World *)world;
 +(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName disablePhysics:(BOOL)disablePhysics;

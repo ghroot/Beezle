@@ -11,12 +11,12 @@
 	<key>components</key>
 	<dict>
 		<key>crumble</key>
-		<dict>
-			<key>crumbleAnimation</key>
-			<string>Ramp-Crash</string>
-		</dict>
-		<key>disposable</key>
 		<dict/>
+		<key>disposable</key>
+		<dict>
+			<key>deleteEntityWhenDisposed</key>
+			<true/>
+		</dict>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
@@ -66,6 +66,8 @@
 					<string>{ 0.5, 0.5 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>Ramp-Idle</string>
+					<key>defaultDestroyAnimation</key>
+					<string>Ramp-Crash</string>
 				</dict>
 			</array>
 		</dict>

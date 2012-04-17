@@ -67,7 +67,7 @@
     return [[DisposableComponent getFrom:entity] isDisposed];
 }
 
-+(void) setEntityDisposed:(Entity *)entity deleteEntity:(BOOL)deleteEntity
++(void) setEntityDisposed:(Entity *)entity
 {
 	DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
 	if ([disposableComponent isDisposed])
@@ -78,17 +78,33 @@
     
     NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
     [[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_DISPOSED object:self userInfo:notificationUserInfo];
-	
-	if ([disposableComponent deleteEntityWhenDisposed])
+}
+
++(void) destroyEntity:(Entity *)entity instant:(BOOL)instant
+{
+	if ([self isEntityDisposable:entity])
+	{
+		[self setEntityDisposed:entity];
+	}
+	else if (!instant &&
+			 [[RenderComponent getFrom:entity] hasDefaultDestroyAnimation])
+	{
+		[self animateAndDeleteEntity:entity];
+	}
+	else
 	{
 		[entity deleteEntity];
 	}
+	
+	if (!instant)
+	{
+		[self playDefaultDestroySound:entity];
+	}
 }
 
-+(void) setEntityDisposed:(Entity *)entity
++(void) destroyEntity:(Entity *)entity
 {
-	DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
-	[self setEntityDisposed:entity deleteEntity:[disposableComponent deleteEntityWhenDisposed]];
+	[self destroyEntity:entity instant:FALSE];
 }
 
 +(Entity *) getWaterEntity:(World *)world
@@ -151,18 +167,18 @@
 +(void) playDefaultCollisionSound:(Entity *)entity
 {
 	SoundComponent *soundComponent = [SoundComponent getFrom:entity];
-	if ([soundComponent defaultCollisionSoundName])
+	if ([soundComponent hasDefaultCollisionSoundName])
 	{
-		[[SoundManager sharedManager] playSound:[[SoundComponent getFrom:entity] defaultCollisionSoundName]];
+		[[SoundManager sharedManager] playSound:[[SoundComponent getFrom:entity] randomDefaultCollisionSoundName]];
 	}
 }
 
 +(void) playDefaultDestroySound:(Entity *)entity
 {
 	SoundComponent *soundComponent = [SoundComponent getFrom:entity];
-	if ([soundComponent defaultCollisionSoundName])
+	if ([soundComponent hasDefaultDestroySoundName])
 	{
-		[[SoundManager sharedManager] playSound:[[SoundComponent getFrom:entity] defaultDestroySoundName]];
+		[[SoundManager sharedManager] playSound:[[SoundComponent getFrom:entity] randomDefaultDestroySoundName]];
 	}
 }
 

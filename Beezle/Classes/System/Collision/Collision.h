@@ -30,5 +30,6 @@
 -(CollisionType *) firstCollisionType;
 -(CollisionType *) secondCollisionType;
 -(float) firstEntityVelocityTimesMass;
+-(float) secondEntityVelocityTimesMass;
 
 @end

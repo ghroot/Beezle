@@ -10,10 +10,7 @@
 
 @implementation CollisionComponent
 
-@synthesize disposeEntityOnCollision = _disposeEntityOnCollision;
-@synthesize disposeAnimateAndDeleteEntityOnCollision = _disposeAnimateAndDeleteEntityOnCollision;
-@synthesize disposeAndDeleteBeeOnCollision = _disposeAndDeleteBeeOnCollision;
-@synthesize disposeAnimateAndDeleteBeeOnCollision = _disposeAnimateAndDeleteBeeOnCollision;
+@synthesize destroyEntityOnCollision = _destroyEntityOnCollision;
 @synthesize collisionAnimationName = _collisionAnimationName;
 @synthesize collisionSpawnEntityType = _collisionSpawnEntityType;
 
@@ -22,10 +19,7 @@
 	if (self = [super init])
 	{
 		_name = @"collision";
-		_disposeEntityOnCollision = FALSE;
-		_disposeAnimateAndDeleteEntityOnCollision = FALSE;
-		_disposeAndDeleteBeeOnCollision = FALSE;
-		_disposeAnimateAndDeleteBeeOnCollision = FALSE;
+		_destroyEntityOnCollision = FALSE;
 	}
 	return self;
 }
@@ -34,21 +28,9 @@
 {
 	if (self = [self init])
 	{
-		if ([dict objectForKey:@"disposeEntityOnCollision"] != nil)
+		if ([dict objectForKey:@"destroyEntityOnCollision"] != nil)
 		{
-			_disposeEntityOnCollision = [[dict objectForKey:@"disposeEntityOnCollision"] boolValue];
-		}
-		if ([dict objectForKey:@"disposeAnimateAndDeleteEntityOnCollision"] != nil)
-		{
-			_disposeAnimateAndDeleteEntityOnCollision = [[dict objectForKey:@"disposeAnimateAndDeleteEntityOnCollision"] boolValue];
-		}
-		if ([dict objectForKey:@"disposeAndDeleteBeeOnCollision"] != nil)
-		{
-			_disposeAndDeleteBeeOnCollision = [[dict objectForKey:@"disposeAndDeleteBeeOnCollision"] boolValue];
-		}
-		if ([dict objectForKey:@"disposeAnimateAndDeleteBeeOnCollision"] != nil)
-		{
-			_disposeAnimateAndDeleteBeeOnCollision = [[dict objectForKey:@"disposeAnimateAndDeleteBeeOnCollision"] boolValue];
+			_destroyEntityOnCollision = [[dict objectForKey:@"destroyEntityOnCollision"] boolValue];
 		}
 		if ([dict objectForKey:@"collisionAnimation"] != nil)
 		{
