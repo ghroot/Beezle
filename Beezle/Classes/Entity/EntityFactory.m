@@ -81,7 +81,7 @@
 	
 	// Collision
 	CollisionComponent *collisionComponent = [CollisionComponent component];
-//	[collisionComponent setDisposeAndDeleteBeeOnCollision:TRUE];
+	[collisionComponent setDestroyCollidingEntityOnCollision:TRUE];
 	[edgeEntity addComponent:collisionComponent];
 	
 	[edgeEntity refresh];

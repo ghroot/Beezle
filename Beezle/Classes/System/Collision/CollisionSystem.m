@@ -63,6 +63,10 @@
 		{
 			[EntityUtil destroyEntity:firstEntity];
 		}
+		if ([collisionComponent destroyCollidingEntityOnCollision])
+		{
+			[EntityUtil destroyEntity:secondEntity];
+		}
 		if ([collisionComponent collisionSpawnEntityType] != nil)
 		{
 			Entity *spawnedEntity = [EntityFactory createEntity:[collisionComponent collisionSpawnEntityType] world:_world];
@@ -77,6 +81,10 @@
 		if ([collisionComponent destroyEntityOnCollision])
 		{
 			[EntityUtil destroyEntity:secondEntity];
+		}
+		if ([collisionComponent destroyCollidingEntityOnCollision])
+		{
+			[EntityUtil destroyEntity:firstEntity];
 		}
 		if ([collisionComponent collisionSpawnEntityType] != nil)
 		{
