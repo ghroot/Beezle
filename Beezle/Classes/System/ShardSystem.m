@@ -19,6 +19,7 @@
 
 #define PIECES_MIN_VELOCITY 50
 #define PIECES_MAX_VELOCITY 100
+#define PIECES_FADEOUT_DURATION 7.0f
 
 @interface ShardSystem()
 
@@ -91,8 +92,16 @@
 			cpFloat randomAngularVelocity = -8.0f + ((rand() % 160) / 10.0f);
 			[[shardPiecePhysicsComponent body] setAngVel:randomAngularVelocity];
 			
-			// Fade out
-			[EntityUtil fadeOutAndDeleteEntity:shardPieceEntity duration:7.0f];
+            if ([shardComponent piecesSpawnType] == SHARD_PIECES_SPAWN_FADEOUT)
+            {
+                // Fade out
+                [EntityUtil fadeOutAndDeleteEntity:shardPieceEntity duration:PIECES_FADEOUT_DURATION];
+            }
+            else if ([shardComponent piecesSpawnType] == SHARD_PIECES_SPAWN_ANIMATE_AND_DELETE)
+            {
+                // Animate and delete
+                [EntityUtil animateAndDeleteEntity:shardPieceEntity disablePhysics:FALSE];
+            }
 		}
 	}
 }

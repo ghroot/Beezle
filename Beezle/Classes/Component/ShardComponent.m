@@ -13,6 +13,7 @@
 
 @synthesize piecesEntityType = _piecesEntityType;
 @synthesize piecesCount = _piecesCount;
+@synthesize piecesSpawnType = _piecesSpawnType;
 @synthesize piecesSpawnAreaOffset = _piecesSpawnAreaOffset;
 @synthesize piecesSpawnAreaSize = _piecesSpawnAreaSize;
 
@@ -36,6 +37,18 @@
 		if ([dict objectForKey:@"piecesCount"] != nil)
 		{
 			_piecesCount = [[dict objectForKey:@"piecesCount"] intValue];
+		}
+        if ([dict objectForKey:@"piecesSpawnType"] != nil)
+		{
+            NSString *piecesSpawnTypeAsString = [dict objectForKey:@"piecesSpawnType"];
+            if ([piecesSpawnTypeAsString isEqualToString:@"SHARD_PIECES_SPAWN_FADEOUT"])
+            {
+                _piecesSpawnType = SHARD_PIECES_SPAWN_FADEOUT;
+            }
+            else if ([piecesSpawnTypeAsString isEqualToString:@"SHARD_PIECES_SPAWN_ANIMATE_AND_DELETE"])
+            {
+                _piecesSpawnType = SHARD_PIECES_SPAWN_ANIMATE_AND_DELETE;
+            }
 		}
 		if ([dict objectForKey:@"piecesSpawnAreaOffset"] != nil)
 		{
