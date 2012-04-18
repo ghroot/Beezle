@@ -13,6 +13,7 @@
 #import "CollisionComponent.h"
 #import "CollisionGroup.h"
 #import "CollisionType.h"
+#import "EdgeComponent.h"
 #import "EditComponent.h"
 #import "EntityDescription.h"
 #import "EntityDescriptionCache.h"
@@ -79,10 +80,8 @@
 	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShapes:shapes];
     [edgeEntity addComponent:physicsComponent];
 	
-	// Collision
-	CollisionComponent *collisionComponent = [CollisionComponent component];
-	[collisionComponent setDestroyCollidingEntityOnCollision:TRUE];
-	[edgeEntity addComponent:collisionComponent];
+    // Edge
+    [edgeEntity addComponent:[EdgeComponent component]];
 	
 	[edgeEntity refresh];
 	
@@ -145,21 +144,18 @@
 +(Entity *) createWater:(World *)world withLevelName:(NSString *)levelName
 {
 	NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:levelName];
-	Entity *waterEntity = nil;
 	if ([theme isEqualToString:@"A"])
 	{
-		waterEntity = [self createEntity:@"WATER" world:world];
+		return [self createEntity:@"WATER" world:world];
 	}
 	else if ([theme isEqualToString:@"B"])
 	{
-		waterEntity = [self createEntity:@"LAVA" world:world];
+		return [self createEntity:@"LAVA" world:world];
 	}
-	if (waterEntity != nil)
-	{
-		TagManager *tagManager = (TagManager *)[world getManager:[TagManager class]];
-		[tagManager registerEntity:waterEntity withTag:@"WATER"];
-	}
-	return waterEntity;
+	else
+    {
+        return nil;
+    }
 }
 
 +(Entity *) createEntity:(NSString *)type world:(World *)world edit:(BOOL)edit

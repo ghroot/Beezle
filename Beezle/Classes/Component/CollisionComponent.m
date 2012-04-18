@@ -11,9 +11,7 @@
 @implementation CollisionComponent
 
 @synthesize destroyEntityOnCollision = _destroyEntityOnCollision;
-@synthesize destroyCollidingEntityOnCollision = _destroyCollidingEntityOnCollision;
 @synthesize collisionAnimationName = _collisionAnimationName;
-@synthesize collisionSpawnEntityType = _collisionSpawnEntityType;
 
 -(id) init
 {
@@ -21,7 +19,6 @@
 	{
 		_name = @"collision";
 		_destroyEntityOnCollision = FALSE;
-		_destroyCollidingEntityOnCollision = FALSE;
 	}
 	return self;
 }
@@ -34,17 +31,9 @@
 		{
 			_destroyEntityOnCollision = [[dict objectForKey:@"destroyEntityOnCollision"] boolValue];
 		}
-		if ([dict objectForKey:@"destroyCollidingEntityOnCollision"] != nil)
-		{
-			_destroyCollidingEntityOnCollision = [[dict objectForKey:@"destroyCollidingEntityOnCollision"] boolValue];
-		}
 		if ([dict objectForKey:@"collisionAnimation"] != nil)
 		{
 			_collisionAnimationName = [[dict objectForKey:@"collisionAnimation"] copy];
-		}
-		if ([dict objectForKey:@"collisionSpawnEntityType"] != nil)
-		{
-			_collisionSpawnEntityType = [[dict objectForKey:@"collisionSpawnEntityType"] copy];
 		}
 	}
 	return self;
@@ -53,7 +42,6 @@
 -(void) dealloc
 {
 	[_collisionAnimationName release];
-	[_collisionSpawnEntityType release];
 	
 	[super dealloc];
 }

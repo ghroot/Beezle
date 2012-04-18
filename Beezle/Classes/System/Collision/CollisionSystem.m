@@ -14,6 +14,7 @@
 #import "CollisionType.h"
 #import "CrumbleComponent.h"
 #import "DozerComponent.h"
+#import "EdgeComponent.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
 #import "GateComponent.h"
@@ -27,6 +28,7 @@
 #import "RenderSprite.h"
 #import "SoundComponent.h"
 #import "TransformComponent.h"
+#import "WaterComponent.h"
 #import "WoodComponent.h"
 
 #define VELOCITY_TIMES_MASS_FOR_SOUND 80.0f
@@ -63,17 +65,6 @@
 		{
 			[EntityUtil destroyEntity:firstEntity];
 		}
-		if ([collisionComponent destroyCollidingEntityOnCollision])
-		{
-			[EntityUtil destroyEntity:secondEntity];
-		}
-		if ([collisionComponent collisionSpawnEntityType] != nil)
-		{
-			Entity *spawnedEntity = [EntityFactory createEntity:[collisionComponent collisionSpawnEntityType] world:_world];
-			TransformComponent *transformComponent = [TransformComponent getFrom:firstEntity];
-			[EntityUtil setEntityPosition:spawnedEntity position:[transformComponent position]];
-			[EntityUtil destroyEntity:spawnedEntity];
-		}
 	}
 	if ([secondEntity hasComponent:[CollisionComponent class]])
 	{
@@ -82,18 +73,17 @@
 		{
 			[EntityUtil destroyEntity:secondEntity];
 		}
-		if ([collisionComponent destroyCollidingEntityOnCollision])
-		{
-			[EntityUtil destroyEntity:firstEntity];
-		}
-		if ([collisionComponent collisionSpawnEntityType] != nil)
-		{
-			Entity *spawnedEntity = [EntityFactory createEntity:[collisionComponent collisionSpawnEntityType] world:_world];
-			TransformComponent *transformComponent = [TransformComponent getFrom:secondEntity];
-			[EntityUtil setEntityPosition:spawnedEntity position:[transformComponent position]];
-			[EntityUtil destroyEntity:spawnedEntity];
-		}
 	}
+    
+    // Edge
+    if ([secondEntity hasComponent:[EdgeComponent class]])
+    {
+        [EntityUtil destroyEntity:firstEntity instant:TRUE];
+    }
+    if ([firstEntity hasComponent:[EdgeComponent class]])
+    {
+        [EntityUtil destroyEntity:secondEntity instant:TRUE];
+    }
 	
     // Dozer / Crumble
 	if ([firstEntity hasComponent:[DozerComponent class]] &&
@@ -222,6 +212,28 @@
 			[EntityUtil destroyEntity:firstEntity];
 		}
 	}
+    
+    // Water
+    if ([secondEntity hasComponent:[WaterComponent class]])
+    {
+        [EntityUtil destroyEntity:firstEntity instant:TRUE];
+        
+        WaterComponent *waterComponent = [WaterComponent getFrom:secondEntity];
+        Entity *splashEntity = [EntityFactory createEntity:[waterComponent splashEntityType] world:_world];
+        TransformComponent *transformComponent = [TransformComponent getFrom:firstEntity];
+        [EntityUtil setEntityPosition:splashEntity position:[transformComponent position]];
+        [EntityUtil destroyEntity:splashEntity];
+    }
+    if ([firstEntity hasComponent:[WaterComponent class]])
+    {
+        [EntityUtil destroyEntity:secondEntity instant:TRUE];
+        
+        WaterComponent *waterComponent = [WaterComponent getFrom:firstEntity];
+        Entity *splashEntity = [EntityFactory createEntity:[waterComponent splashEntityType] world:_world];
+        TransformComponent *transformComponent = [TransformComponent getFrom:secondEntity];
+        [EntityUtil setEntityPosition:splashEntity position:[transformComponent position]];
+        [EntityUtil destroyEntity:splashEntity];
+    }
 	
 	return continueProcessingCollision;
 }

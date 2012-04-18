@@ -965,6 +965,8 @@
 		2CEEC7C7150584C100EAC127 /* EntitySelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEEC7C6150584C100EAC127 /* EntitySelectIngameMenuState.m */; };
 		2CEEEDDD150231B10096DCA1 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEEDDC150231B10096DCA1 /* Loading.png */; };
 		2CFA8AE515115591003871F8 /* LevelSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA8AE415115591003871F8 /* LevelSelectMenuItem.m */; };
+		2CFD4811153EDC0500203291 /* WaterComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD4810153EDC0500203291 /* WaterComponent.m */; };
+		2CFD4815153EDFE800203291 /* EdgeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD4814153EDFE800203291 /* EdgeComponent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2215,6 +2217,10 @@
 		2CEEEDDC150231B10096DCA1 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
 		2CFA8AE315115591003871F8 /* LevelSelectMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectMenuItem.h; sourceTree = "<group>"; };
 		2CFA8AE415115591003871F8 /* LevelSelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectMenuItem.m; sourceTree = "<group>"; };
+		2CFD480F153EDC0500203291 /* WaterComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaterComponent.h; path = Classes/Component/WaterComponent.h; sourceTree = "<group>"; };
+		2CFD4810153EDC0500203291 /* WaterComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaterComponent.m; path = Classes/Component/WaterComponent.m; sourceTree = "<group>"; };
+		2CFD4813153EDFE800203291 /* EdgeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EdgeComponent.h; path = Classes/Component/EdgeComponent.h; sourceTree = "<group>"; };
+		2CFD4814153EDFE800203291 /* EdgeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EdgeComponent.m; path = Classes/Component/EdgeComponent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4074,6 +4080,8 @@
 				2C85B83B149563ED005D7BAB /* DisposableComponent.m */,
 				2C29D7AB15385D86005EFE8E /* DozerComponent.h */,
 				2C29D7AC15385D86005EFE8E /* DozerComponent.m */,
+				2CFD4813153EDFE800203291 /* EdgeComponent.h */,
+				2CFD4814153EDFE800203291 /* EdgeComponent.m */,
 				2CC3EC0A14D608870025F5DA /* Edit */,
 				2C5EFCBD14EC60390071ED39 /* ExplodeComponent.h */,
 				2C5EFCBE14EC603D0071ED39 /* ExplodeComponent.m */,
@@ -4103,6 +4111,8 @@
 				2C157C1914914F6A003F9040 /* TrajectoryComponent.m */,
 				2C068A32146858B9003E200D /* TransformComponent.h */,
 				2C068A33146858B9003E200D /* TransformComponent.m */,
+				2CFD480F153EDC0500203291 /* WaterComponent.h */,
+				2CFD4810153EDC0500203291 /* WaterComponent.m */,
 				2C537427153B317D00040EED /* WoodComponent.h */,
 				2C537428153B318100040EED /* WoodComponent.m */,
 			);
@@ -5163,6 +5173,8 @@
 				2C537426153B304F00040EED /* WoodSystem.m in Sources */,
 				2C537429153B318400040EED /* WoodComponent.m in Sources */,
 				2CE4F61E153E1C1C0023B5C6 /* DisposalSystem.m in Sources */,
+				2CFD4811153EDC0500203291 /* WaterComponent.m in Sources */,
+				2CFD4815153EDFE800203291 /* EdgeComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

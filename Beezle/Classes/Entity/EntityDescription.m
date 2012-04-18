@@ -13,6 +13,7 @@
 #import "CrumbleComponent.h"
 #import "DisposableComponent.h"
 #import "DozerComponent.h"
+#import "EdgeComponent.h"
 #import "ExplodeComponent.h"
 #import "GateComponent.h"
 #import "ShardComponent.h"
@@ -26,6 +27,7 @@
 #import "SpawnComponent.h"
 #import "TransformComponent.h"
 #import "TrajectoryComponent.h"
+#import "WaterComponent.h"
 #import "WoodComponent.h"
 
 @implementation EntityDescription
@@ -66,6 +68,10 @@
         else if ([componentType isEqualToString:@"dozer"])
 		{
 			component = [DozerComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+        else if ([componentType isEqualToString:@"edge"])
+		{
+			component = [EdgeComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"explode"])
 		{
@@ -118,6 +124,10 @@
 		else if ([componentType isEqualToString:@"transform"])
 		{
 			component = [TransformComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+        else if ([componentType isEqualToString:@"water"])
+		{
+			component = [WaterComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"wood"])
 		{

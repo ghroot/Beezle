@@ -11,14 +11,10 @@
 @interface CollisionComponent : Component
 {
 	BOOL _destroyEntityOnCollision;
-	BOOL _destroyCollidingEntityOnCollision;
 	NSString *_collisionAnimationName;
-	NSString *_collisionSpawnEntityType;
 }
 
 @property (nonatomic) BOOL destroyEntityOnCollision;
-@property (nonatomic) BOOL destroyCollidingEntityOnCollision;
 @property (nonatomic, copy) NSString *collisionAnimationName;
-@property (nonatomic, copy) NSString *collisionSpawnEntityType;
 
 @end

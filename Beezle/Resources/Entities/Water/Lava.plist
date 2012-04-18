@@ -7,12 +7,7 @@
 	<key>components</key>
 	<dict>
 		<key>collision</key>
-		<dict>
-			<key>destroyCollidingEntityOnCollision</key>
-			<true/>
-			<key>collisionSpawnEntityType</key>
-			<string>LAVA-SPLASH</string>
-		</dict>
+		<dict/>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
@@ -47,6 +42,11 @@
 		</dict>
 		<key>transform</key>
 		<dict/>
+        <key>water</key>
+		<dict>
+			<key>splashEntityType</key>
+			<string>LAVA-SPLASH</string>
+		</dict>
 	</dict>
 </dict>
 </plist>
