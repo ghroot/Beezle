@@ -100,10 +100,6 @@
 
 -(void) deleteEntity:(Entity *)entity
 {
-	if ([_deleted containsObject:entity])
-	{
-		NSLog(@"WARNING: Deleting the same entity more than once");
-	}
     if (![_deleted containsObject:entity])
     {
         [_deleted addObject:entity];

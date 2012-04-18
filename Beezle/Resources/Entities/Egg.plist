@@ -8,13 +8,16 @@
 	<dict>
 		<key>collision</key>
 		<dict>
-			<key>disposeAnimateAndDeleteEntityOnCollision</key>
+			<key>destroyEntityOnCollision</key>
 			<true/>
-			<key>disposeAnimateAndDeleteBeeOnCollision</key>
+			<key>destroyCollidingEntityOnCollision</key>
 			<true/>
 		</dict>
 		<key>disposable</key>
-		<dict/>
+		<dict>
+			<key>deleteEntityWhenDisposed</key>
+			<true/>
+		</dict>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
@@ -32,13 +35,13 @@
 					<key>offset</key>
 					<string>{ 0, 20 }</string>
 					<key>elasticity</key>
-					<real>1.5</real>
+					<real>0</real>
 					<key>friction</key>
-					<real>0.5</real>
+					<real>0</real>
 					<key>collisionType</key>
 					<string>EGG</string>
 					<key>layers</key>
-					<integer>3</integer>
+					<integer>1</integer>
 					<key>group</key>
 					<string>LEVEL</string>
 				</dict>

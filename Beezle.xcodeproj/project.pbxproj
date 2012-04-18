@@ -188,6 +188,7 @@
 		2C5EFCC214EC60580071ED39 /* CrumbleComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFCC114EC60560071ED39 /* CrumbleComponent.m */; };
 		2C64AD0914B89D7E00ABD114 /* Levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C64ACEC14B89D7E00ABD114 /* Levels.plist */; };
 		2C64AD1414BA4F0400ABD114 /* ExplodeControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C64AD1314BA4F0300ABD114 /* ExplodeControlSystem.m */; };
+		2C6A7078153F6F9C0042F5A1 /* EdgeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A7077153F6F9C0042F5A1 /* EdgeComponent.m */; };
 		2C764DDA148A1F4000820587 /* GCpShapeCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DD9148A1F4000820587 /* GCpShapeCache.m */; };
 		2C764DDD148A1FF100820587 /* BodyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DDC148A1FF100820587 /* BodyInfo.m */; };
 		2C764E9D148A917300820587 /* 11097__a43__a43-blipp.aif in Resources */ = {isa = PBXBuildFile; fileRef = 2C764E9C148A917300820587 /* 11097__a43__a43-blipp.aif */; };
@@ -966,7 +967,6 @@
 		2CEEEDDD150231B10096DCA1 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEEDDC150231B10096DCA1 /* Loading.png */; };
 		2CFA8AE515115591003871F8 /* LevelSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA8AE415115591003871F8 /* LevelSelectMenuItem.m */; };
 		2CFD4811153EDC0500203291 /* WaterComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD4810153EDC0500203291 /* WaterComponent.m */; };
-		2CFD4815153EDFE800203291 /* EdgeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD4814153EDFE800203291 /* EdgeComponent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1210,6 +1210,8 @@
 		2C64ACEC14B89D7E00ABD114 /* Levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Levels.plist; sourceTree = "<group>"; };
 		2C64AD1214BA4F0300ABD114 /* ExplodeControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExplodeControlSystem.h; path = Classes/System/ExplodeControlSystem.h; sourceTree = "<group>"; };
 		2C64AD1314BA4F0300ABD114 /* ExplodeControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExplodeControlSystem.m; path = Classes/System/ExplodeControlSystem.m; sourceTree = "<group>"; };
+		2C6A7076153F6F9C0042F5A1 /* EdgeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EdgeComponent.h; path = Classes/Component/EdgeComponent.h; sourceTree = "<group>"; };
+		2C6A7077153F6F9C0042F5A1 /* EdgeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EdgeComponent.m; path = Classes/Component/EdgeComponent.m; sourceTree = "<group>"; };
 		2C764DD8148A1F4000820587 /* GCpShapeCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCpShapeCache.h; path = Classes/System/GCpShapeCache.h; sourceTree = "<group>"; };
 		2C764DD9148A1F4000820587 /* GCpShapeCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCpShapeCache.m; path = Classes/System/GCpShapeCache.m; sourceTree = "<group>"; };
 		2C764DDB148A1FF100820587 /* BodyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BodyInfo.h; path = Classes/System/BodyInfo.h; sourceTree = "<group>"; };
@@ -2219,8 +2221,6 @@
 		2CFA8AE415115591003871F8 /* LevelSelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectMenuItem.m; sourceTree = "<group>"; };
 		2CFD480F153EDC0500203291 /* WaterComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaterComponent.h; path = Classes/Component/WaterComponent.h; sourceTree = "<group>"; };
 		2CFD4810153EDC0500203291 /* WaterComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaterComponent.m; path = Classes/Component/WaterComponent.m; sourceTree = "<group>"; };
-		2CFD4813153EDFE800203291 /* EdgeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EdgeComponent.h; path = Classes/Component/EdgeComponent.h; sourceTree = "<group>"; };
-		2CFD4814153EDFE800203291 /* EdgeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EdgeComponent.m; path = Classes/Component/EdgeComponent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4080,8 +4080,8 @@
 				2C85B83B149563ED005D7BAB /* DisposableComponent.m */,
 				2C29D7AB15385D86005EFE8E /* DozerComponent.h */,
 				2C29D7AC15385D86005EFE8E /* DozerComponent.m */,
-				2CFD4813153EDFE800203291 /* EdgeComponent.h */,
-				2CFD4814153EDFE800203291 /* EdgeComponent.m */,
+				2C6A7076153F6F9C0042F5A1 /* EdgeComponent.h */,
+				2C6A7077153F6F9C0042F5A1 /* EdgeComponent.m */,
 				2CC3EC0A14D608870025F5DA /* Edit */,
 				2C5EFCBD14EC60390071ED39 /* ExplodeComponent.h */,
 				2C5EFCBE14EC603D0071ED39 /* ExplodeComponent.m */,
@@ -5174,7 +5174,7 @@
 				2C537429153B318400040EED /* WoodComponent.m in Sources */,
 				2CE4F61E153E1C1C0023B5C6 /* DisposalSystem.m in Sources */,
 				2CFD4811153EDC0500203291 /* WaterComponent.m in Sources */,
-				2CFD4815153EDFE800203291 /* EdgeComponent.m in Sources */,
+				2C6A7078153F6F9C0042F5A1 /* EdgeComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

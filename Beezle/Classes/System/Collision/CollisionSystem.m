@@ -65,6 +65,10 @@
 		{
 			[EntityUtil destroyEntity:firstEntity];
 		}
+		if ([collisionComponent destroyCollidingEntityOnCollision])
+		{
+			[EntityUtil destroyEntity:secondEntity];
+		}
 	}
 	if ([secondEntity hasComponent:[CollisionComponent class]])
 	{
@@ -72,6 +76,10 @@
 		if ([collisionComponent destroyEntityOnCollision])
 		{
 			[EntityUtil destroyEntity:secondEntity];
+		}
+		if ([collisionComponent destroyCollidingEntityOnCollision])
+		{
+			[EntityUtil destroyEntity:firstEntity];
 		}
 	}
     
@@ -106,7 +114,7 @@
 		[_levelSession consumedEntity:firstEntity];
 	}
 	if ([secondEntity hasComponent:[PollenComponent class]] ||
-			 [secondEntity hasComponent:[KeyComponent class]])
+		[secondEntity hasComponent:[KeyComponent class]])
 	{
 		[_levelSession consumedEntity:secondEntity];
 	}

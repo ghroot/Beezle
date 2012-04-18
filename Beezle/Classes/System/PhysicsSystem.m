@@ -101,7 +101,7 @@
 		Entity *secondEntity = (Entity *)[secondChipmunkShape data];
 		
         if ([EntityUtil isEntityDisposable:firstEntity] &&
-             [EntityUtil isEntityDisposed:firstEntity])
+			[EntityUtil isEntityDisposed:firstEntity])
         {
             return FALSE;
         }

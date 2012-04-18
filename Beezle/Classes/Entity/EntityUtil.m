@@ -80,17 +80,16 @@
     {
         NSLog(@"WARNING: Trying to dispose an entity that is not disposable");
     }
-	if ([disposableComponent isDisposed])
+	if (![disposableComponent isDisposed])
 	{
-		NSLog(@"WARNING: Marking already disposed component as disposed again");
-	}
-	[disposableComponent setIsDisposed:TRUE];
+		[disposableComponent setIsDisposed:TRUE];
     
-    if (sendNotification)
-    {
-        NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_DISPOSED object:self userInfo:notificationUserInfo];
-    }
+		if (sendNotification)
+		{
+			NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
+			[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_DISPOSED object:self userInfo:notificationUserInfo];
+		}
+	}
 }
 
 +(void) setEntityDisposed:(Entity *)entity

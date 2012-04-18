@@ -8,14 +8,14 @@
 	<dict>
 		<key>collision</key>
 		<dict>
-			<key>disposeAnimateAndDeleteEntityOnCollision</key>
+			<key>destroyEntityOnCollision</key>
 			<true/>
-			<key>disposeAnimateAndDeleteBeeOnCollision</key>
+			<key>destroyCollidingEntityOnCollision</key>
 			<true/>
 		</dict>
 		<key>disposable</key>
 		<dict>
-			<key>consumable</key>
+			<key>deleteEntityWhenDisposed</key>
 			<true/>
 		</dict>
 		<key>key</key>
@@ -43,7 +43,7 @@
 					<key>collisionType</key>
 					<string>NUT</string>
 					<key>layers</key>
-					<integer>3</integer>
+					<integer>1</integer>
 					<key>group</key>
 					<string>LEVEL</string>
 				</dict>
