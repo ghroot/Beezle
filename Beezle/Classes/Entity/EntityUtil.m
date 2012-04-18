@@ -65,10 +65,15 @@
 
 +(BOOL) isEntityDisposed:(Entity *)entity
 {
-    return [[DisposableComponent getFrom:entity] isDisposed];
+    DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
+    if (disposableComponent == nil)
+    {
+        NSLog(@"WARNING: Trying to query disposal status on an entity that is not disposable");
+    }
+    return [disposableComponent isDisposed];
 }
 
-+(void) setEntityDisposed:(Entity *)entity
++(void) setEntityDisposed:(Entity *)entity sendNotification:(BOOL)sendNotification
 {
 	DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
     if (disposableComponent == nil)
@@ -81,15 +86,32 @@
 	}
 	[disposableComponent setIsDisposed:TRUE];
     
-    NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_DISPOSED object:self userInfo:notificationUserInfo];
+    if (sendNotification)
+    {
+        NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_DISPOSED object:self userInfo:notificationUserInfo];
+    }
+}
+
++(void) setEntityDisposed:(Entity *)entity
+{
+    [self setEntityDisposed:entity sendNotification:TRUE];
 }
 
 +(void) destroyEntity:(Entity *)entity instant:(BOOL)instant
 {
 	if ([self isEntityDisposable:entity])
 	{
-		[self setEntityDisposed:entity];
+        if (instant)
+        {
+            [self setEntityDisposed:entity sendNotification:FALSE];
+            [entity deleteEntity];
+        }
+        else
+        {
+            [self setEntityDisposed:entity];
+        }
+		
 	}
 	else if (!instant &&
 			 [[RenderComponent getFrom:entity] hasDefaultDestroyAnimation])

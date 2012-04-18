@@ -93,7 +93,7 @@
 		continueProcessingCollision = FALSE;
 	}
 	if ([secondEntity hasComponent:[DozerComponent class]] &&
-			 [firstEntity hasComponent:[CrumbleComponent class]])
+        [firstEntity hasComponent:[CrumbleComponent class]])
 	{
 		[EntityUtil destroyEntity:firstEntity];
 		continueProcessingCollision = FALSE;

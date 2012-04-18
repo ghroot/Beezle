@@ -106,8 +106,7 @@
     ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
     [explodeComponent setExplosionState:EXPLODED];
     
-    [EntityUtil setEntityDisposed:entity];
-    [EntityUtil animateAndDeleteEntity:entity animationName:[explodeComponent explodeEndAnimationName]];
+    [EntityUtil destroyEntity:entity];
     [[SoundManager sharedManager] playSound:@"BombeeBoom"];
     
     for (Entity *otherEntity in [[_world entityManager] entities])
@@ -118,8 +117,7 @@
             {
                 if (![EntityUtil isEntityDisposed:otherEntity])
                 {
-                    [EntityUtil setEntityDisposed:otherEntity];
-                    [EntityUtil playDefaultDestroySound:otherEntity];
+                    [EntityUtil destroyEntity:otherEntity];
                 }
             }
         }

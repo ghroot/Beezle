@@ -8,6 +8,7 @@
 
 #import "GameRulesSystem.h"
 #import "DisposableComponent.h"
+#import "EntityUtil.h"
 #import "GateComponent.h"
 #import "LevelSession.h"
 #import "PlayerInformation.h"
@@ -86,7 +87,8 @@
 	int count = 0;
 	for (Entity *entity in entities)
 	{
-		if (![[DisposableComponent getFrom:entity] isDisposed])
+        if (![EntityUtil isEntityDisposable:entity] ||
+            ![EntityUtil isEntityDisposed:entity])
 		{
 			count++;
 		}
