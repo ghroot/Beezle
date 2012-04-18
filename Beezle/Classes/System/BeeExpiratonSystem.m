@@ -9,7 +9,6 @@
 #import "BeeExpiratonSystem.h"
 #import "BeeComponent.h"
 #import "BeeType.h"
-#import "DisposableComponent.h"
 #import "EntityUtil.h"
 #import "PhysicsComponent.h"
 
@@ -17,7 +16,7 @@
 
 -(id) init
 {
-    self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[BeeComponent class], [PhysicsComponent class], [DisposableComponent class], nil]];
+    self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[BeeComponent class], [PhysicsComponent class], nil]];
     return self;
 }
 
@@ -48,8 +47,7 @@
 		
 		if (shouldExpire)
 		{
-			[EntityUtil setEntityDisposed:entity];
-			[EntityUtil animateAndDeleteEntity:entity];
+            [EntityUtil destroyEntity:entity];
 		}
 	}
 }

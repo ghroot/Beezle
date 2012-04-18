@@ -71,6 +71,10 @@
 +(void) setEntityDisposed:(Entity *)entity
 {
 	DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
+    if (disposableComponent == nil)
+    {
+        NSLog(@"WARNING: Trying to dispose an entity that is not disposable");
+    }
 	if ([disposableComponent isDisposed])
 	{
 		NSLog(@"WARNING: Marking already disposed component as disposed again");
