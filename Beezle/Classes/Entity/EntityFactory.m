@@ -12,7 +12,6 @@
 #import "BodyInfo.h"
 #import "CollisionComponent.h"
 #import "CollisionGroup.h"
-#import "CollisionType.h"
 #import "EdgeComponent.h"
 #import "EditComponent.h"
 #import "EntityDescription.h"
@@ -73,7 +72,6 @@
 		[shape setFriction:EDGE_FRICTION];
 		[shape setElasticity:EDGE_ELASTICITY];
 		[shape setLayers:EDGE_LAYERS];
-		[shape setCollisionType:[CollisionType EDGE]];
 		[shape setGroup:[CollisionGroup LEVEL]];
         [shapes addObject:shape];
     }
@@ -116,7 +114,7 @@
 	
 	// Background
     NSString *shapesFileName = [NSString stringWithFormat:@"%@-Shapes.plist", name];
-	BodyInfo *bodyInfo = [physicsSystem createBodyInfoFromFile:shapesFileName bodyName:name collisionType:[CollisionType BACKGROUND]];
+	BodyInfo *bodyInfo = [physicsSystem createBodyInfoFromFile:shapesFileName bodyName:name];
 	for (ChipmunkShape *shape in [bodyInfo shapes])
 	{
 		[shape setFriction:BACKGROUND_FRICTION];
@@ -259,7 +257,6 @@
 	EntityDescription *beeEntityDescription = [self getEntityDescription:[beeType capitalizedString]];
 	NSDictionary *beePhysicsDict = [[beeEntityDescription componentsDict] objectForKey:@"physics"];
 	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithContentsOfDictionary:beePhysicsDict world:world];
-	[[physicsComponent firstPhysicsShape] setCollisionType:[CollisionType AIM_POLLEN]];
 	[[physicsComponent firstPhysicsShape] setLayers:AIM_POLLEN_LAYERS];
 	[[physicsComponent body] setVel:velocity];
 	[aimPollenEntity addComponent:physicsComponent];

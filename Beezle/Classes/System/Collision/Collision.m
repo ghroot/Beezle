@@ -7,7 +7,6 @@
 //
 
 #import "Collision.h"
-#import "CollisionType.h"
 #import "PhysicsComponent.h"
 
 @implementation Collision
@@ -46,16 +45,6 @@
 -(Entity *) secondEntity
 {
     return [_secondShape data];
-}
-
--(CollisionType *) firstCollisionType
-{
-    return [_firstShape collisionType];
-}
-
--(CollisionType *) secondCollisionType
-{
-    return [_secondShape collisionType];
 }
 
 -(float) firstEntityVelocityTimesMass

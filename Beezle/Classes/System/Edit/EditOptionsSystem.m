@@ -10,7 +10,6 @@
 #import "BeeaterComponent.h"
 #import "BeeQueueRenderingSystem.h"
 #import "BeeType.h"
-#import "CollisionType.h"
 #import "EditComponent.h"
 #import "EditControlSystem.h"
 #import "EditState.h"

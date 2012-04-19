@@ -13,7 +13,6 @@
 #import "ObjectiveChipmunk.h"
 
 @class BodyInfo;
-@class CollisionType;
 @class PhysicsComponent;
 
 #define FIXED_TIMESTEP (1.0f / 45.0f)
@@ -28,6 +27,6 @@
 
 @property (nonatomic, readonly) ChipmunkSpace *space;
 
--(BodyInfo *) createBodyInfoFromFile:(NSString *)fileName bodyName:(NSString *)bodyName collisionType:(CollisionType *)collisionType;
+-(BodyInfo *) createBodyInfoFromFile:(NSString *)fileName bodyName:(NSString *)bodyName;
 
 @end

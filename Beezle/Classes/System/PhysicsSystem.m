@@ -10,7 +10,6 @@
 #import "BodyInfo.h"
 #import "CollisionSystem.h"
 #import "Collision.h"
-#import "CollisionType.h"
 #import "EntityUtil.h"
 #import "GCpShapeCache.h"
 #import "PhysicsComponent.h"
@@ -57,7 +56,7 @@
 	[_space setDefaultCollisionHandler:self begin:@selector(beginCollision:space:) preSolve:nil postSolve:nil separate:nil];
 }
 
--(BodyInfo *) createBodyInfoFromFile:(NSString *)fileName bodyName:(NSString *)bodyName collisionType:(CollisionType *)collisionType
+-(BodyInfo *) createBodyInfoFromFile:(NSString *)fileName bodyName:(NSString *)bodyName
 {
 	if (![_loadedShapeFileNames containsObject:fileName])
     {
@@ -65,28 +64,11 @@
         [_loadedShapeFileNames addObject:fileName];
     }
     
-    BodyInfo *bodyInfo = [[GCpShapeCache sharedShapeCache] createBodyWithName:bodyName];
-    
-	if (collisionType != nil)
-	{
-		for (ChipmunkShape *shape in [bodyInfo shapes])
-		{
-			[shape setCollisionType:collisionType];
-		}
-	}
-    
-    return bodyInfo;
+    return [[GCpShapeCache sharedShapeCache] createBodyWithName:bodyName];
 }
 
 -(BOOL) beginCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space
 {
-	// Print collision types
-//	cpShape *firstShape1;
-//	cpShape *secondShape1;
-//	cpArbiterGetShapes(arbiter, &firstShape1, &secondShape1);
-//	BOOL isFirstContact1 = cpArbiterIsFirstContact(arbiter);
-//	NSLog(@"%@ -> %@ (%@)", cpShapeGetCollisionType(firstShape1), cpShapeGetCollisionType(secondShape1), (isFirstContact1 ? @"true" : @"false"));
-	
 	BOOL isFirstContact = cpArbiterIsFirstContact(arbiter);
 	if (isFirstContact)
 	{

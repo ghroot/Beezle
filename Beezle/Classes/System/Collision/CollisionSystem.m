@@ -11,7 +11,6 @@
 #import "BeeComponent.h"
 #import "Collision.h"
 #import "CollisionComponent.h"
-#import "CollisionType.h"
 #import "CrumbleComponent.h"
 #import "DozerComponent.h"
 #import "EdgeComponent.h"

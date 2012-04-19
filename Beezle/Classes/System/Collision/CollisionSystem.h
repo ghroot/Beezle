@@ -10,7 +10,6 @@
 #import "artemis.h"
 
 @class Collision;
-@class CollisionType;
 @class LevelSession;
 
 @interface CollisionSystem : EntitySystem

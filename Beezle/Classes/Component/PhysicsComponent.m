@@ -9,7 +9,6 @@
 #import "PhysicsComponent.h"
 #import "BodyInfo.h"
 #import "CollisionGroup.h"
-#import "CollisionType.h"
 #import "PhysicsSystem.h"
 #import "Utils.h"
 
@@ -38,15 +37,8 @@
 			NSString *filePath = [dict objectForKey:@"file"];
 			NSString *bodyName = [dict objectForKey:@"bodyName"];
 			
-			CollisionType *collisionType = nil;
-			if ([dict objectForKey:@"collisionType"] != nil)
-			{
-				collisionType = [CollisionType enumFromName:[dict objectForKey:@"collisionType"]];
-				NSAssert(collisionType != nil, @"Unknown collisionType");
-			}
-			
 			PhysicsSystem *physicsSystem = (PhysicsSystem *)[[world systemManager] getSystem:[PhysicsSystem class]];
-			BodyInfo *bodyInfo = [physicsSystem createBodyInfoFromFile:filePath bodyName:bodyName collisionType:collisionType];
+			BodyInfo *bodyInfo = [physicsSystem createBodyInfoFromFile:filePath bodyName:bodyName];
 			
 			[self setBody:[bodyInfo body]];
 			for (ChipmunkShape *shape in [bodyInfo shapes])
@@ -95,7 +87,6 @@
                 {
                     isSensor = [[shapeDict objectForKey:@"isSensor"] boolValue];
                 }
-				CollisionType *collisionType = [CollisionType enumFromName:[shapeDict objectForKey:@"collisionType"]];
 				CGPoint offset;
 				if ([shapeDict objectForKey:@"offset"] != nil)
 				{
@@ -126,7 +117,6 @@
 				[shape setElasticity:elasticity];
 				[shape setFriction:friction];
                 [shape setSensor:isSensor];
-				[shape setCollisionType:collisionType];
 				if ([shapeDict objectForKey:@"layers"] != nil)
 				{
 					[shape setLayers:[[shapeDict objectForKey:@"layers"] intValue]];

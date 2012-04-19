@@ -6,7 +6,6 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "CollisionType.h"
 #import "DisposableComponent.h"
 #import "EntityUtil.h"
 #import "NotificationTypes.h"

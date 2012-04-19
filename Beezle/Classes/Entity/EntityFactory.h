@@ -9,7 +9,6 @@
 #import "artemis.h"
 #import "cocos2d.h"
 
-@class CollisionType;
 @class BeeType;
 
 @interface EntityFactory : NSObject

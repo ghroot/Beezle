@@ -40,7 +40,6 @@
 		2C2FB66B14FE800100D115AF /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		2C32988915156342009A5B83 /* BeeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C32988215156342009A5B83 /* BeeType.m */; };
 		2C32988A15156342009A5B83 /* CollisionGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C32988415156342009A5B83 /* CollisionGroup.m */; };
-		2C32988B15156342009A5B83 /* CollisionType.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C32988615156342009A5B83 /* CollisionType.m */; };
 		2C32988D1516372A009A5B83 /* Bubble-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C32988C1516372A009A5B83 /* Bubble-hd.png */; };
 		2C32989115164527009A5B83 /* CCBReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C32989015164527009A5B83 /* CCBReader.m */; };
 		2C32989515164850009A5B83 /* Pollen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C32989415164850009A5B83 /* Pollen.png */; };
@@ -1041,8 +1040,6 @@
 		2C32988215156342009A5B83 /* BeeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeType.m; sourceTree = "<group>"; };
 		2C32988315156342009A5B83 /* CollisionGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionGroup.h; sourceTree = "<group>"; };
 		2C32988415156342009A5B83 /* CollisionGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionGroup.m; sourceTree = "<group>"; };
-		2C32988515156342009A5B83 /* CollisionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionType.h; sourceTree = "<group>"; };
-		2C32988615156342009A5B83 /* CollisionType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionType.m; sourceTree = "<group>"; };
 		2C32988715156342009A5B83 /* NotificationTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationTypes.h; sourceTree = "<group>"; };
 		2C32988815156342009A5B83 /* TouchTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchTypes.h; sourceTree = "<group>"; };
 		2C32988C1516372A009A5B83 /* Bubble-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bubble-hd.png"; sourceTree = "<group>"; };
@@ -2335,8 +2332,6 @@
 				2C32988215156342009A5B83 /* BeeType.m */,
 				2C32988315156342009A5B83 /* CollisionGroup.h */,
 				2C32988415156342009A5B83 /* CollisionGroup.m */,
-				2C32988515156342009A5B83 /* CollisionType.h */,
-				2C32988615156342009A5B83 /* CollisionType.m */,
 				2C32988715156342009A5B83 /* NotificationTypes.h */,
 				2C32988815156342009A5B83 /* TouchTypes.h */,
 			);
@@ -5156,7 +5151,6 @@
 				2C9253961512AE2600F3F7C1 /* vec4.c in Sources */,
 				2C32988915156342009A5B83 /* BeeType.m in Sources */,
 				2C32988A15156342009A5B83 /* CollisionGroup.m in Sources */,
-				2C32988B15156342009A5B83 /* CollisionType.m in Sources */,
 				2C32989115164527009A5B83 /* CCBReader.m in Sources */,
 				2C85D7211517F9C6001F4933 /* CoverLayer.m in Sources */,
 				2C85D7221517F9C6001F4933 /* Dialog.m in Sources */,

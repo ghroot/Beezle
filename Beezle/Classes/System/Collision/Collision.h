@@ -8,7 +8,6 @@
 
 #import "artemis.h"
 #import "ObjectiveChipmunk.h"
-#import "CollisionType.h"
 
 @class Entity;
 
@@ -27,8 +26,6 @@
 
 -(Entity *) firstEntity;
 -(Entity *) secondEntity;
--(CollisionType *) firstCollisionType;
--(CollisionType *) secondCollisionType;
 -(float) firstEntityVelocityTimesMass;
 -(float) secondEntityVelocityTimesMass;
 
