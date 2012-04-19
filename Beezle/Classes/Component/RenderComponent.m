@@ -9,6 +9,7 @@
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "RenderSystem.h"
+#import "StringList.h"
 #import "Utils.h"
 
 @implementation RenderComponent
@@ -42,39 +43,17 @@
 		RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
 		for (NSDictionary *spriteDict in [dict objectForKey:@"sprites"])
 		{
-			NSString *spriteSheetName = [spriteDict objectForKey:@"spriteSheetName"];
-			NSString *textureFile = [spriteDict objectForKey:@"textureFile"];
-			NSString *animationFile = [spriteDict objectForKey:@"animationFile"];
-			int z = [[spriteDict objectForKey:@"z"] intValue];
-			NSArray *defaultIdleAnimationNames = nil;
-			if ([spriteDict objectForKey:@"defaultIdleAnimations"] != nil)
-			{
-				defaultIdleAnimationNames = [spriteDict objectForKey:@"defaultIdleAnimations"];
-			}
-			else if ([spriteDict objectForKey:@"defaultIdleAnimation"] != nil)
-			{
-				defaultIdleAnimationNames = [NSArray arrayWithObject:[spriteDict objectForKey:@"defaultIdleAnimation"]];
-			}
-			NSArray *defaultDestroyAnimationNames = nil;
-			if ([spriteDict objectForKey:@"defaultDestroyAnimations"] != nil)
-			{
-				defaultDestroyAnimationNames = [spriteDict objectForKey:@"defaultDestroyAnimations"];
-			}
-			else if ([spriteDict objectForKey:@"defaultDestroyAnimation"] != nil)
-			{
-				defaultDestroyAnimationNames = [NSArray arrayWithObject:[spriteDict objectForKey:@"defaultDestroyAnimation"]];
-			}
-            
 			RenderSprite *renderSprite = nil;
-			if (spriteSheetName != nil)
+			int z = [[spriteDict objectForKey:@"z"] intValue];
+			if ([spriteDict objectForKey:@"spriteSheetName"] != nil)
 			{
-				renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:spriteSheetName animationFile:animationFile z:z];
-				[renderSprite setDefaultIdleAnimationNames:defaultIdleAnimationNames];
-				[renderSprite setDefaultDestroyAnimationNames:defaultDestroyAnimationNames];
+				renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:[spriteDict objectForKey:@"spriteSheetName"] animationFile:[spriteDict objectForKey:@"animationFile"] z:z];
+				[[renderSprite defaultIdleAnimationNames] addStringsFromDictionary:spriteDict baseName:@"defaultIdleAnimation"];
+				[[renderSprite defaultDestroyAnimationNames] addStringsFromDictionary:spriteDict baseName:@"defaultDestroyAnimation"];
 			}
-			else if (textureFile != nil)
+			else if ([spriteDict objectForKey:@"textureFile"] != nil)
 			{
-				renderSprite = [renderSystem createRenderSpriteWithFile:[CCFileUtils fullPathFromRelativePath:textureFile] z:z];
+				renderSprite = [renderSystem createRenderSpriteWithFile:[CCFileUtils fullPathFromRelativePath:[spriteDict objectForKey:@"textureFile"]] z:z];
 			}
             
             if ([spriteDict objectForKey:@"name"] != nil)
@@ -240,7 +219,7 @@
 {
 	for (RenderSprite *renderSprite in _renderSprites)
     {
-        if ([[renderSprite defaultIdleAnimationNames] count] > 0)
+		if ([[renderSprite defaultIdleAnimationNames] hasStrings])
 		{
 			return TRUE;
 		}
@@ -260,7 +239,7 @@
 {
 	for (RenderSprite *renderSprite in _renderSprites)
     {
-        if ([[renderSprite defaultDestroyAnimationNames] count] > 0)
+		if ([[renderSprite defaultDestroyAnimationNames] hasStrings])
 		{
 			return TRUE;
 		}

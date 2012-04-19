@@ -8,22 +8,22 @@
 
 #import "cocos2d.h"
 
+@class StringList;
+
 @interface RenderSprite : NSObject <NSCopying>
 {
     CCSpriteBatchNode *_spriteSheet;
     CCSprite *_sprite;
 	int _z;
     NSString *_name;
-	NSArray *_defaultIdleAnimationNames;
-    NSArray *_defaultDestroyAnimationNames;
+	StringList *_defaultIdleAnimationNames;
+    StringList *_defaultDestroyAnimationNames;
 }
 
-@property (nonatomic, readonly, assign) CCSpriteBatchNode *spriteSheet;
 @property (nonatomic, readonly, retain) CCSprite *sprite;
-@property (nonatomic, readonly) int z;
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSArray *defaultIdleAnimationNames;
-@property (nonatomic, copy) NSArray *defaultDestroyAnimationNames;
+@property (nonatomic, readonly) StringList *defaultIdleAnimationNames;
+@property (nonatomic, readonly) StringList *defaultDestroyAnimationNames;
 
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z;
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;

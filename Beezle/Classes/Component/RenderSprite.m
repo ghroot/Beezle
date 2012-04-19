@@ -8,12 +8,11 @@
 
 #import "RenderSprite.h"
 #import "ActionTags.h"
+#import "StringList.h"
 
 @implementation RenderSprite
 
-@synthesize spriteSheet = _spriteSheet;
 @synthesize sprite = _sprite;
-@synthesize z = _z;
 @synthesize name = _name;
 @synthesize defaultIdleAnimationNames = _defaultIdleAnimationNames;
 @synthesize defaultDestroyAnimationNames = _defaultDestroyAnimationNames;
@@ -37,6 +36,8 @@
         _sprite = [[CCSprite alloc] initWithTexture:[spriteSheet texture]];
 		_z = z;
         _name = @"default";
+		_defaultIdleAnimationNames = [StringList new];
+		_defaultDestroyAnimationNames = [StringList new];
     }
     return self;
 }
@@ -75,15 +76,13 @@
 }
 
 /**
-* Applies settings that increase performance on large static textures
-*/
+ * Applies settings that increase performance on large static textures
+ */
 -(void) markAsBackground
 {
 	[_sprite setBlendFunc:(ccBlendFunc){GL_ONE, GL_ZERO}];
 	[_spriteSheet setBlendFunc:(ccBlendFunc){GL_ONE, GL_ZERO}];
 	
-//	ccTexParams params = {GL_NEAREST, GL_REPEAT, GL_REPEAT};
-//	[_spriteSheet.texture setTexParameters: &params];
 }
 
 -(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops
@@ -193,8 +192,7 @@
 
 -(NSString *) randomDefaultIdleAnimationName
 {
-	int animationIndex = rand() % [_defaultIdleAnimationNames count];
-	return [_defaultIdleAnimationNames objectAtIndex:animationIndex];
+	return [_defaultIdleAnimationNames randomString];
 }
 
 -(void) playDefaultDestroyAnimation
@@ -207,8 +205,7 @@
 
 -(NSString *) randomDefaultDestroyAnimationName
 {
-	int animationIndex = rand() % [_defaultDestroyAnimationNames count];
-	return [_defaultDestroyAnimationNames objectAtIndex:animationIndex];
+	return [_defaultDestroyAnimationNames randomString];
 }
 
 -(void) hide
