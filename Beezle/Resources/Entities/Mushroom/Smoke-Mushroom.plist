@@ -8,11 +8,14 @@
 	<dict>
 		<key>collision</key>
 		<dict>
-			<key>disposeAnimateAndDeleteEntityOnCollision</key>
+			<key>destroyEntityOnCollision</key>
 			<true/>
 		</dict>
 		<key>disposable</key>
-		<dict/>
+		<dict>
+            <key>deleteEntityWhenDisposed</key>
+            <true/>
+        </dict>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
