@@ -17,6 +17,7 @@
 #import "RenderSprite.h"
 #import "SlingerComponent.h"
 #import "SoundManager.h"
+#import "StringList.h"
 #import "TransformComponent.h"
 #import "Utils.h"
 
@@ -60,9 +61,9 @@
 	RenderComponent *renderComponent = [RenderComponent getFrom:beeaterEntity];
 	RenderSprite *headRenderSprite = [renderComponent getRenderSprite:@"head"];
 	NSString *headAnimationName = [NSString stringWithFormat:[beeaterComponent showBeeAnimationNameFormat], [[beeaterComponent containedBeeType] capitalizedString]];
-	NSArray *betweenAnimationNames = [beeaterComponent showBeeBetweenAnimationNames];
-	NSString *firstBetweenAnimationName = [betweenAnimationNames objectAtIndex:(rand() % [betweenAnimationNames count])];
-	NSString *secondBetweenAnimationName = [betweenAnimationNames objectAtIndex:(rand() % [betweenAnimationNames count])];
+	StringList *betweenAnimationNames = [beeaterComponent showBeeBetweenAnimationNames];
+	NSString *firstBetweenAnimationName = [betweenAnimationNames randomString];
+	NSString *secondBetweenAnimationName = [betweenAnimationNames randomString];
 	[headRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:firstBetweenAnimationName, headAnimationName, secondBetweenAnimationName, headAnimationName, nil]];
 }
 

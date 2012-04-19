@@ -8,6 +8,7 @@
 
 #import "BeeaterComponent.h"
 #import "NotificationTypes.h"
+#import "StringList.h"
 
 @implementation BeeaterComponent
 
@@ -25,14 +26,11 @@
 			BeeType *defaultContainedBeeType = [BeeType enumFromName:defaultContainedBeeTypeAsString];
 			_containedBeeType = defaultContainedBeeType;
 		}
-        if ([dict objectForKey:@"showBeeAnimationNameFormat"] != nil)
+        if ([dict objectForKey:@"showBeeAnimationFormat"] != nil)
         {
-            _showBeeAnimationNameFormat = [[dict objectForKey:@"showBeeAnimationNameFormat"] copy];
+            _showBeeAnimationNameFormat = [[dict objectForKey:@"showBeeAnimationFormat"] copy];
         }
-        if ([dict objectForKey:@"showBeeBetweenAnimationNames"] != nil)
-        {
-            _showBeeBetweenAnimationNames = [[dict objectForKey:@"showBeeBetweenAnimationNames"] retain];
-        }
+		[_showBeeBetweenAnimationNames addStringsFromDictionary:dict baseName:@"showBeeBetweenAnimation"];
 	}
 	return self;
 }
@@ -43,6 +41,7 @@
 	{
 		_name = @"beeater";
 		_containedBeeType = nil;
+		_showBeeBetweenAnimationNames = [StringList new];
 	}
 	return self;
 }

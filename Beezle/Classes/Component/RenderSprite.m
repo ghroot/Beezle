@@ -184,7 +184,7 @@
 
 -(void) playDefaultIdleAnimation
 {
-	if (_defaultIdleAnimationNames != nil)
+	if ([_defaultIdleAnimationNames hasStrings])
 	{
 		[self playAnimation:[self randomDefaultIdleAnimationName]];
 	}
@@ -197,7 +197,7 @@
 
 -(void) playDefaultDestroyAnimation
 {
-	if (_defaultDestroyAnimationNames != nil)
+	if ([_defaultDestroyAnimationNames hasStrings])
     {
         [self playAnimation:[self randomDefaultDestroyAnimationName] withLoops:1];
     }

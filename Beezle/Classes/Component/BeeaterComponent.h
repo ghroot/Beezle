@@ -9,16 +9,18 @@
 #import "artemis.h"
 #import "BeeType.h"
 
+@class StringList;
+
 @interface BeeaterComponent : Component
 {
 	BeeType *_containedBeeType;
     NSString *_showBeeAnimationNameFormat;
-    NSArray *_showBeeBetweenAnimationNames;
+    StringList *_showBeeBetweenAnimationNames;
 }
 
 @property (nonatomic, assign) BeeType *containedBeeType;
 @property (nonatomic, copy) NSString *showBeeAnimationNameFormat;
-@property (nonatomic, retain) NSArray *showBeeBetweenAnimationNames;
+@property (nonatomic, readonly) StringList *showBeeBetweenAnimationNames;
 
 -(BOOL) hasContainedBee;
 
