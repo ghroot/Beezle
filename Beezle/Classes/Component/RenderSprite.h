@@ -34,16 +34,19 @@
 -(void) addSpriteToSpriteSheet;
 -(void) removeSpriteFromSpriteSheet;
 -(void) markAsBackground;
--(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops;
--(void) playAnimation:(NSString *)animationName;
--(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector;
--(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector object:(id)object;
--(void) playAnimationsLoopLast:(NSArray *)animationNames;
+-(void) playAnimationOnce:(NSString *)animationName;
+-(void) playAnimationOnce:(NSString *)animationName andCallBlockAtEnd:(void(^)())block;
+-(void) playAnimationLoop:(NSString *)animationName;
 -(void) playAnimationsLoopAll:(NSArray *)animationNames;
--(void) playDefaultIdleAnimation;
+-(void) playAnimationsLoopLast:(NSArray *)animationNames;
+-(BOOL) hasDefaultIdleAnimation;
 -(NSString *) randomDefaultIdleAnimationName;
--(void) playDefaultDestroyAnimation;
+-(void) playDefaultIdleAnimation;
+-(BOOL) hasDefaultDestroyAnimation;
 -(NSString *) randomDefaultDestroyAnimationName;
+-(void) playDefaultDestroyAnimation;
+-(void) playDefaultDestroyAnimationAndCallBlockAtEnd:(void(^)())block;
+
 -(void) hide;
 -(void) show;
 

@@ -41,16 +41,9 @@
 		spawnPosition.y += [spawnComponent offset].y;
 		[EntityUtil setEntityPosition:spawnedEntity position:spawnPosition];
 		
-		if ([spawnComponent animationName] != nil)
+		if ([spawnComponent autoDestroy])
 		{
-			if ([spawnComponent autoDestroy])
-			{
-				[EntityUtil animateAndDeleteEntity:spawnedEntity animationName:[spawnComponent animationName]];
-			}
-			else
-			{
-				[[RenderComponent getFrom:spawnedEntity] playAnimation:[spawnComponent animationName]];
-			}
+			[EntityUtil animateAndDeleteEntity:spawnedEntity];
 		}
 		
 		[spawnComponent resetCountdown];

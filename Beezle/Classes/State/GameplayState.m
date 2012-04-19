@@ -38,6 +38,7 @@
 #import "PhysicsSystem.h"
 #import "PlayerInformation.h"
 #import "RenderComponent.h"
+#import "RenderSprite.h"
 #import "RenderSystem.h"
 #import "ShootingMode.h"
 #import "SlingerComponent.h"
@@ -241,14 +242,15 @@
 			[entity hasComponent:[GateComponent class]])
 		{
 			[[GateComponent getFrom:entity] setIsOpened:TRUE];
-			[[RenderComponent getFrom:entity] playAnimation:@"Cavegate-Open-Idle"];
+			RenderSprite *defaultRenderSprite = [[RenderComponent getFrom:entity] defaultRenderSprite];
+			[defaultRenderSprite playAnimationOnce:@"Cavegate-Open-Idle"];
 		}
 		if ([[PlayerInformation sharedInformation] hasCollectedKeyInLevel:[_levelSession levelName]] &&
 			[entity hasComponent:[KeyComponent class]])
 		{
 			[[DisposableComponent getFrom:entity] setIsDisposed:TRUE];
 			[[PhysicsComponent getFrom:entity] disable];
-			[[RenderComponent getFrom:entity] playAnimation:@"Nut-Open-Idle"];
+			[[RenderComponent getFrom:entity] playAnimationOnce:@"Nut-Open-Idle"];
 		}
 	}
 }

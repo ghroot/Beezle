@@ -151,7 +151,11 @@
 
 +(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName disablePhysics:(BOOL)disablePhysics
 {
-	[[RenderComponent getFrom:entity] playAnimation:animationName withCallbackTarget:entity andCallbackSelector:@selector(deleteEntity)];
+	RenderComponent *renderComponent = [RenderComponent getFrom:entity];
+	RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];
+	[defaultRenderSprite playAnimationOnce:animationName andCallBlockAtEnd:^{
+		[entity deleteEntity];
+	}];
 	if (disablePhysics)
 	{
 		[[PhysicsComponent getFrom:entity] disable];
@@ -166,7 +170,10 @@
 
 +(void) animateAndDeleteEntity:(Entity *)entity disablePhysics:(BOOL)disablePhysics
 {
-    [[RenderComponent getFrom:entity] playDefaultDestroyAnimationWithCallbackTarget:entity andCallbackSelector:@selector(deleteEntity)];
+	RenderComponent *renderComponent = [RenderComponent getFrom:entity];
+	[renderComponent playDefaultDestroyAnimationAndCallBlockAtEnd:^{
+		[entity deleteEntity];
+	}];
 	if (disablePhysics)
 	{
 		[[PhysicsComponent getFrom:entity] disable];

@@ -91,8 +91,10 @@
     [explodeComponent setExplosionState:ANIMATING_START_EXPLOSION];
     
 	RenderComponent *renderComponent = [RenderComponent getFrom:entity];
-	RenderSprite *renderSprite = [renderComponent firstRenderSprite];
-	[renderSprite playAnimation:[explodeComponent explodeStartAnimationName] withCallbackTarget:self andCallbackSelector:@selector(markAsReadyToExplode:) object:entity];
+	RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];
+	[defaultRenderSprite playAnimationOnce:[explodeComponent explodeStartAnimationName] andCallBlockAtEnd:^{
+		[self markAsReadyToExplode:entity];
+	}];
 }
 
 -(void) markAsReadyToExplode:(Entity *)entity

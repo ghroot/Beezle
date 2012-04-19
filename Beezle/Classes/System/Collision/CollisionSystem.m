@@ -63,8 +63,8 @@
         if ([collisionComponent collisionAnimationName] != nil)
         {
             RenderComponent *renderComponent = [RenderComponent getFrom:firstEntity];
-            NSString *idleAnimationName = [[renderComponent firstRenderSprite] randomDefaultIdleAnimationName];
-            [renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:[collisionComponent collisionAnimationName], idleAnimationName, nil]];
+			RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];
+			[defaultRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:[collisionComponent collisionAnimationName], [defaultRenderSprite randomDefaultIdleAnimationName], nil]];
         }
 		if ([collisionComponent destroyEntityOnCollision])
 		{
@@ -81,8 +81,8 @@
         if ([collisionComponent collisionAnimationName] != nil)
         {
             RenderComponent *renderComponent = [RenderComponent getFrom:secondEntity];
-            NSString *idleAnimationName = [[renderComponent firstRenderSprite] randomDefaultIdleAnimationName];
-            [renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:[collisionComponent collisionAnimationName], idleAnimationName, nil]];
+			RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];
+			[defaultRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:[collisionComponent collisionAnimationName], [defaultRenderSprite randomDefaultIdleAnimationName], nil]];
         }
 		if ([collisionComponent destroyEntityOnCollision])
 		{

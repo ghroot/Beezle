@@ -59,7 +59,7 @@
 	BeeaterComponent *beeaterComponent = [notification object];
 	Entity *beeaterEntity = [beeaterComponent parentEntity];
 	RenderComponent *renderComponent = [RenderComponent getFrom:beeaterEntity];
-	RenderSprite *headRenderSprite = [renderComponent getRenderSprite:@"head"];
+	RenderSprite *headRenderSprite = [renderComponent renderSpriteWithName:@"head"];
 	NSString *headAnimationName = [NSString stringWithFormat:[beeaterComponent showBeeAnimationNameFormat], [[beeaterComponent containedBeeType] capitalizedString]];
 	StringList *betweenAnimationNames = [beeaterComponent showBeeBetweenAnimationNames];
 	NSString *firstBetweenAnimationName = [betweenAnimationNames randomString];
@@ -88,10 +88,12 @@
 	// Destroy beeater
 	TransformComponent *beeaterTransformComponent = (TransformComponent *)[beeaterEntity getComponent:[TransformComponent class]];
 	RenderComponent *beeaterRenderComponent = (RenderComponent *)[beeaterEntity getComponent:[RenderComponent class]];
-	RenderSprite *beeaterBodyRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"body"];
-	RenderSprite *beeaterHeadRenderSprite = (RenderSprite *)[beeaterRenderComponent getRenderSprite:@"head"];
+	RenderSprite *beeaterBodyRenderSprite = (RenderSprite *)[beeaterRenderComponent renderSpriteWithName:@"body"];
+	RenderSprite *beeaterHeadRenderSprite = (RenderSprite *)[beeaterRenderComponent renderSpriteWithName:@"head"];
 	[beeaterHeadRenderSprite hide];
-	[beeaterBodyRenderSprite playAnimation:[beeaterBodyRenderSprite randomDefaultDestroyAnimationName] withCallbackTarget:beeaterEntity andCallbackSelector:@selector(deleteEntity)];
+	[beeaterBodyRenderSprite playDefaultDestroyAnimationAndCallBlockAtEnd:^{
+		[beeaterEntity deleteEntity];
+	}];
 	
 	// Disable physics
 	PhysicsComponent *beeaterPhysicsComponent = [PhysicsComponent getFrom:beeaterEntity];

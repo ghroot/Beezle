@@ -82,112 +82,85 @@
 {
 	[_sprite setBlendFunc:(ccBlendFunc){GL_ONE, GL_ZERO}];
 	[_spriteSheet setBlendFunc:(ccBlendFunc){GL_ONE, GL_ZERO}];
-	
 }
 
--(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops
+-(void) playAnimationOnce:(NSString *)animationName
 {
-    [_sprite stopActionByTag:ACTION_TAG_ANIMATION];
-    
+	[_sprite stopActionByTag:ACTION_TAG_ANIMATION];
     CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:animationName];
-    CCAction *action;
-    if (nLoops == -1)
-    {
-        action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation]];
-    }
-    else
-    {
-        action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation] times:nLoops];
-    }
-    [action setTag:ACTION_TAG_ANIMATION];
-    
-    // This instantly sets the frame instead of waiting for the first update
+    CCAnimate *animationAction = [CCAnimate actionWithAnimation:animation];
+    [animationAction setTag:ACTION_TAG_ANIMATION];
 	[_sprite setDisplayFrameWithAnimationName:animationName index:0];
-    
-    [_sprite runAction:action];
+    [_sprite runAction:animationAction];
 }
 
--(void) playAnimation:(NSString *)animationName
+-(void) playAnimationOnce:(NSString *)animationName andCallBlockAtEnd:(void(^)())block
 {
-	[self playAnimation:animationName withLoops:-1];
-}
-
--(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector object:(id)object
-{
-    [_sprite stopActionByTag:ACTION_TAG_ANIMATION];
-    
+	[_sprite stopActionByTag:ACTION_TAG_ANIMATION];
     CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:animationName];
-    CCRepeat *action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation] times:1];
-	CCAction *callbackAction = nil;
-	if (object != nil)
-	{
-		callbackAction = [CCCallFuncO actionWithTarget:target selector:selector object:object];
-	}
-	else
-	{
-		callbackAction = [CCCallFunc actionWithTarget:target selector:selector];
-	}
-    
-    // This instantly sets the frame instead of waiting for the first update
+    CCAnimate *animationAction = [CCAnimate actionWithAnimation:animation];
+	CCCallBlock *callbackAction = [CCCallBlock actionWithBlock:block];
+	CCSequence *sequenceAction = [CCSequence actions:animationAction, callbackAction, nil];
+    [sequenceAction setTag:ACTION_TAG_ANIMATION];
 	[_sprite setDisplayFrameWithAnimationName:animationName index:0];
-    
-    CCSequence *sequence = [CCSequence actions:action, callbackAction, nil];
-    [sequence setTag:ACTION_TAG_ANIMATION];
-    [_sprite runAction:sequence];
+    [_sprite runAction:sequenceAction];
 }
 
--(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector
+-(void) playAnimationLoop:(NSString *)animationName
 {
-	[self playAnimation:animationName withCallbackTarget:target andCallbackSelector:selector object:nil];
-}
-
--(void) playAnimationsLoopLast:(NSArray *)animationNames
-{
-    [_sprite stopActionByTag:ACTION_TAG_ANIMATION];
-    
-    NSMutableArray *actions = [NSMutableArray array];
-    for (NSString *animationName in animationNames)
-    {
-        CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:animationName];
-        int nLoops = animationName == [animationNames lastObject] ? -1 : 1;
-        CCRepeat *action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation] times:nLoops];
-        [actions addObject:action];
-    }
-    
-    // This instantly sets the frame instead of waiting for the first update
-	[_sprite setDisplayFrameWithAnimationName:[animationNames objectAtIndex:0] index:0];
-    
-    CCSequence *sequence = [CCSequence actionsWithArray:actions];
-    [sequence setTag:ACTION_TAG_ANIMATION];
-    [_sprite runAction:sequence];
+	[_sprite stopActionByTag:ACTION_TAG_ANIMATION];
+	CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:animationName];
+	CCAnimate *animationAction = [CCAnimate actionWithAnimation:animation];
+	CCRepeatForever *repeatForeverAction = [CCRepeatForever actionWithAction:animationAction];
+	[repeatForeverAction setTag:ACTION_TAG_ANIMATION];
+	[_sprite setDisplayFrameWithAnimationName:animationName index:0];
+	[_sprite runAction:repeatForeverAction];
 }
 
 -(void) playAnimationsLoopAll:(NSArray *)animationNames
 {
-    [_sprite stopActionByTag:ACTION_TAG_ANIMATION];
-    
-    NSMutableArray *actions = [NSMutableArray array];
+	[_sprite stopActionByTag:ACTION_TAG_ANIMATION];
+    NSMutableArray *animationActions = [NSMutableArray array];
     for (NSString *animationName in animationNames)
     {
         CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:animationName];
-        CCRepeat *action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:animation] times:1];
-        [actions addObject:action];
+		CCAnimate *animationAction = [CCAnimate actionWithAnimation:animation];
+        [animationActions addObject:animationAction];
     }
-	
-	// This instantly sets the frame instead of waiting for the first update
 	[_sprite setDisplayFrameWithAnimationName:[animationNames objectAtIndex:0] index:0];
-    
-    CCRepeatForever *repeat = [CCRepeatForever actionWithAction:[CCSequence actionsWithArray:actions]];
-    [repeat setTag:ACTION_TAG_ANIMATION];
-    [_sprite runAction:repeat];
+    CCSequence *sequenceAction = [CCSequence actionsWithArray:animationActions];
+    CCRepeatForever *repeatForeverAction = [CCRepeatForever actionWithAction:sequenceAction];
+    [repeatForeverAction setTag:ACTION_TAG_ANIMATION];
+    [_sprite runAction:repeatForeverAction];
 }
 
--(void) playDefaultIdleAnimation
+-(void) playAnimationsLoopLast:(NSArray *)animationNames
 {
-	if ([_defaultIdleAnimationNames hasStrings])
-	{
-		[self playAnimation:[self randomDefaultIdleAnimationName]];
-	}
+	[_sprite stopActionByTag:ACTION_TAG_ANIMATION];
+    NSMutableArray *animationActions = [NSMutableArray array];
+    for (NSString *animationName in animationNames)
+    {
+        CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:animationName];
+		CCAnimate *animationAction = [CCAnimate actionWithAnimation:animation];
+		if (animationName == [animationNames lastObject])
+		{
+			CCRepeat *repeatAction = [CCRepeat actionWithAction:animationAction times:UINT32_MAX];
+			[animationActions addObject:repeatAction];
+		}
+		else
+		{
+			[animationActions addObject:animationAction];
+		}
+    }
+	[_sprite setDisplayFrameWithAnimationName:[animationNames objectAtIndex:0] index:0];
+    CCSequence *sequenceAction = [CCSequence actionsWithArray:animationActions];
+    [sequenceAction setTag:ACTION_TAG_ANIMATION];
+    [_sprite runAction:sequenceAction];
+}
+
+-(BOOL) hasDefaultIdleAnimation
+{
+	return [_defaultIdleAnimationNames hasStrings];
 }
 
 -(NSString *) randomDefaultIdleAnimationName
@@ -195,17 +168,29 @@
 	return [_defaultIdleAnimationNames randomString];
 }
 
--(void) playDefaultDestroyAnimation
+-(void) playDefaultIdleAnimation
 {
-	if ([_defaultDestroyAnimationNames hasStrings])
-    {
-        [self playAnimation:[self randomDefaultDestroyAnimationName] withLoops:1];
-    }
+	[self playAnimationLoop:[self randomDefaultIdleAnimationName]];
+}
+
+-(BOOL) hasDefaultDestroyAnimation
+{
+	return [_defaultDestroyAnimationNames hasStrings];
 }
 
 -(NSString *) randomDefaultDestroyAnimationName
 {
 	return [_defaultDestroyAnimationNames randomString];
+}
+
+-(void) playDefaultDestroyAnimation
+{
+	[self playAnimationOnce:[self randomDefaultDestroyAnimationName]];
+}
+
+-(void) playDefaultDestroyAnimationAndCallBlockAtEnd:(void(^)())block
+{
+	[self playAnimationOnce:[self randomDefaultDestroyAnimationName] andCallBlockAtEnd:block];
 }
 
 -(void) hide

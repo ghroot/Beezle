@@ -194,7 +194,7 @@
 		[[_beeLoadedRenderSprite sprite] setRotation:[slingerTransformComponent rotation] + 90];
         
         RenderComponent *slingerRenderComponent = [RenderComponent getFrom:slingerEntity];
-        RenderSprite *slingerAddonRenderSprite = [slingerRenderComponent getRenderSprite:@"addon"];
+        RenderSprite *slingerAddonRenderSprite = [slingerRenderComponent renderSpriteWithName:@"addon"];
         CCSprite *slingerAddonSprite = [slingerAddonRenderSprite sprite];
         float angle = CC_DEGREES_TO_RADIANS(360 - [slingerTransformComponent rotation] + 270);
         CGPoint newPosition = CGPointMake([slingerTransformComponent position].x - 15.0f * [slingerAddonSprite scaleY] * cosf(angle),
@@ -238,14 +238,14 @@
 	NSMutableArray *actions = [NSMutableArray array];
 	CCCallBlock *animateLookDownAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookDown", [savedBeeType capitalizedString]];
-		[beeQueueRenderSprite playAnimation:animationName];
+		[beeQueueRenderSprite playAnimationOnce:animationName];
 	}];
 	[actions addObject:animateLookDownAction];
 	CCEaseSineInOut *moveUpAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.4f position:positionAboveBeeater]];
 	[actions addObject:moveUpAction];
 	CCCallBlock *animateLookScreenAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookScreen", [savedBeeType capitalizedString]];
-		[beeQueueRenderSprite playAnimation:animationName];
+		[beeQueueRenderSprite playAnimationOnce:animationName];
 	}];
 	[actions addObject:animateLookScreenAction];
 	CCDelayTime *waitAction1 = [CCDelayTime actionWithDuration:0.1f];
@@ -271,7 +271,7 @@
 	{
 		CCCallBlock *animateLookAwayAction = [CCCallBlock actionWithBlock:^(){
 			NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookAway", [savedBeeType capitalizedString]];
-			[beeQueueRenderSprite playAnimation:animationName];
+			[beeQueueRenderSprite playAnimationOnce:animationName];
 		}];
 		[actions addObject:animateLookAwayAction];
 		CCDelayTime *waitAction3 = [CCDelayTime actionWithDuration:0.1f];
@@ -284,7 +284,7 @@
 	}
 	CCCallBlock *animateIdleAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName = [NSString stringWithFormat:@"%@-Idle", [savedBeeType capitalizedString]];
-		[beeQueueRenderSprite playAnimation:animationName];
+		[beeQueueRenderSprite playAnimationOnce:animationName];
 	}];
 	[actions addObject:animateIdleAction];
 	CCCallFunc *decreaseMovingBeesCountAction = [CCCallFunc actionWithTarget:self selector:@selector(decreaseMovingBeesCount)];
@@ -339,7 +339,7 @@
 	
 	// Idle animation
 	NSString *animationName = [NSString stringWithFormat:@"%@-Idle", [beeType capitalizedString]];
-	[beeQueueRenderSprite playAnimation:animationName];
+	[beeQueueRenderSprite playAnimationOnce:animationName];
 	
 	return beeQueueRenderSprite;
 }
@@ -386,7 +386,9 @@
         CCDelayTime *waitAction = [CCDelayTime actionWithDuration:(i * 0.8f)];
         CCCallBlock *animateAction = [CCCallBlock actionWithBlock:^(){
             [[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Bees-Animations.plist"];
-            [beeQueueRenderSprite playAnimation:@"Bee-Turn-Into-Pollen" withCallbackTarget:self andCallbackSelector:@selector(decreaseMovingBeesCount)];
+			[beeQueueRenderSprite playAnimationOnce:@"Bee-Turn-Into-Pollen" andCallBlockAtEnd:^{
+				[self decreaseMovingBeesCount];
+			}];
         }];
 		[[beeQueueRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
         CCAction *action = [CCSequence actions:waitAction, animateAction, nil];

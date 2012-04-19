@@ -12,7 +12,6 @@
 @interface SpawnComponent : Component
 {
 	NSString *_entityType;
-	NSString *_animationName;
 	CGPoint _offset;
 	BOOL _autoDestroy;
 	float _interval;
@@ -21,7 +20,6 @@
 }
 
 @property (nonatomic, readonly) NSString *entityType;
-@property (nonatomic, readonly) NSString *animationName;
 @property (nonatomic, readonly) CGPoint offset;
 @property (nonatomic, readonly) BOOL autoDestroy;
 @property (nonatomic, readonly) float interval;

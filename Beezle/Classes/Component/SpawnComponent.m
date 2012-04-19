@@ -12,7 +12,6 @@
 @implementation SpawnComponent
 
 @synthesize entityType = _entityType;
-@synthesize animationName = _animationName;
 @synthesize offset = _offset;
 @synthesize autoDestroy = _autoDestroy;
 @synthesize interval = _interval;
@@ -26,10 +25,6 @@
 		if ([dict objectForKey:@"entityType"] != nil)
 		{
 			_entityType = [[dict objectForKey:@"entityType"] retain];
-		}
-		if ([dict objectForKey:@"animationName"] != nil)
-		{
-			_animationName = [[dict objectForKey:@"animationName"] retain];
 		}
 		if ([dict objectForKey:@"offset"] != nil)
 		{
@@ -67,7 +62,6 @@
 -(void) dealloc
 {
 	[_entityType release];
-	[_animationName release];
 	
 	[super dealloc];
 }

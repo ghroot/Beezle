@@ -12,6 +12,7 @@
 #import "LevelSession.h"
 #import "PlayerInformation.h"
 #import "RenderComponent.h"
+#import "RenderSprite.h"
 #import "SoundManager.h"
 
 @implementation GateOpeningSystem
@@ -53,7 +54,8 @@
 			[gateComponent setIsOpened:TRUE];
 			
 			RenderComponent *gateRenderComponent = [RenderComponent getFrom:entity];
-			[gateRenderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Cavegate-Opening", @"Cavegate-Open-Idle", nil]];
+			RenderSprite *gateDefaultRenderSprite = [gateRenderComponent defaultRenderSprite];
+			[gateDefaultRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:@"Cavegate-Opening", @"Cavegate-Open-Idle", nil]];
 			
 			[[SoundManager sharedManager] playSound:@"CaveDoorOpens"];
 		}

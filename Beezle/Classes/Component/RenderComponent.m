@@ -12,6 +12,13 @@
 #import "StringList.h"
 #import "Utils.h"
 
+@interface RenderComponent()
+
+-(void) playAnimationOnce:(NSString *)animationName andCallBlockAtEnd:(void(^)())block;
+-(void) playAnimationOnce:(NSString *)animationName;
+
+@end
+
 @implementation RenderComponent
 
 @synthesize renderSprites = _renderSprites;
@@ -81,9 +88,8 @@
             }
             
 			[self addRenderSprite:renderSprite atOffset:offset];
-			
-            [renderSprite playDefaultIdleAnimation];
 		}
+		[self playDefaultIdleAnimation];
 	}
 	return self;
 }
@@ -121,7 +127,7 @@
     [self addRenderSprite:renderSprite atOffset:CGPointZero];
 }
 
--(RenderSprite *) getRenderSprite:(NSString *)name
+-(RenderSprite *) renderSpriteWithName:(NSString *)name
 {
     for (RenderSprite *renderSprite in _renderSprites)
     {
@@ -133,9 +139,9 @@
     return nil;
 }
 
--(RenderSprite *) firstRenderSprite
+-(RenderSprite *) defaultRenderSprite
 {
-	return [_renderSprites objectAtIndex:0];
+	return [self renderSpriteWithName:@"default"];
 }
 
 -(CGPoint) getOffsetForRenderSprite:(RenderSprite *)renderSprite
@@ -151,108 +157,82 @@
 	}
 }
 
--(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops
+-(void) playAnimationOnce:(NSString *)animationName andCallBlockAtEnd:(void(^)())block
 {
-    for (RenderSprite *renderSprite in _renderSprites)
-    {
-        [renderSprite playAnimation:animationName withLoops:nLoops];
-    }
+	for (RenderSprite *renderSprite in _renderSprites)
+	{
+		if (renderSprite == [_renderSprites lastObject])
+		{
+			[renderSprite playAnimationOnce:animationName andCallBlockAtEnd:block];
+		}
+		else
+		{
+			[renderSprite playAnimationOnce:animationName];
+		}
+	}
 }
 
--(void) playAnimation:(NSString *)animationName
+-(void) playAnimationOnce:(NSString *)animationName
 {
-    for (RenderSprite *renderSprite in _renderSprites)
-    {
-        [renderSprite playAnimation:animationName];
-    }
-}
-
--(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector
-{
-    for (RenderSprite *renderSprite in _renderSprites)
-    {
-        if (renderSprite == [_renderSprites objectAtIndex:0])
-        {
-            // Callback invokation should only be done once, we use the first render sprite for that
-            [renderSprite playAnimation:animationName withCallbackTarget:target andCallbackSelector:selector];
-        }
-        else
-        {
-            [renderSprite playAnimation:animationName withLoops:1];
-        }
-    }
-}
-
--(void) playDefaultDestroyAnimationWithCallbackTarget:(id)target andCallbackSelector:(SEL)selector
-{
-    for (RenderSprite *renderSprite in _renderSprites)
-    {
-        if (renderSprite == [_renderSprites objectAtIndex:0])
-        {
-            // Callback invokation should only be done once, we use the first render sprite for that
-            [renderSprite playAnimation:[renderSprite randomDefaultDestroyAnimationName] withCallbackTarget:target andCallbackSelector:selector];
-        }
-        else
-        {
-            [renderSprite playDefaultDestroyAnimation];
-        }
-    }
-}
-
--(void) playAnimationsLoopLast:(NSArray *)animationNames
-{
-    for (RenderSprite *renderSprite in _renderSprites)
-    {
-        [renderSprite playAnimationsLoopLast:animationNames];
-    }
-}
-
--(void) playAnimationsLoopAll:(NSArray *)animationNames
-{
-    for (RenderSprite *renderSprite in _renderSprites)
-    {
-        [renderSprite playAnimationsLoopAll:animationNames];
-    }
+	for (RenderSprite *renderSprite in _renderSprites)
+	{
+		[renderSprite playAnimationOnce:animationName];
+	}
 }
 
 -(BOOL) hasDefaultIdleAnimation
 {
 	for (RenderSprite *renderSprite in _renderSprites)
-    {
-		if ([[renderSprite defaultIdleAnimationNames] hasStrings])
+	{
+		if (![renderSprite hasDefaultIdleAnimation])
 		{
-			return TRUE;
+			return FALSE;
 		}
-    }
-	return FALSE;
+	}
+	return TRUE;
 }
 
 -(void) playDefaultIdleAnimation
 {
-    for (RenderSprite *renderSprite in _renderSprites)
-    {
-        [renderSprite playDefaultIdleAnimation];
-    }
+	for (RenderSprite *renderSprite in _renderSprites)
+	{
+		[renderSprite playDefaultIdleAnimation];
+	}
 }
 
 -(BOOL) hasDefaultDestroyAnimation
 {
 	for (RenderSprite *renderSprite in _renderSprites)
-    {
-		if ([[renderSprite defaultDestroyAnimationNames] hasStrings])
+	{
+		if (![renderSprite hasDefaultDestroyAnimation])
 		{
-			return TRUE;
+			return FALSE;
 		}
-    }
-	return FALSE;
+	}
+	return TRUE;
+}
+
+-(void) playDefaultDestroyAnimationAndCallBlockAtEnd:(void(^)())block
+{
+	for (RenderSprite *renderSprite in _renderSprites)
+	{
+		if (renderSprite == [_renderSprites lastObject])
+		{
+			[renderSprite playDefaultDestroyAnimationAndCallBlockAtEnd:block];
+		}
+		else
+		{
+			[renderSprite playDefaultDestroyAnimation];
+		}
+	}
 }
 
 -(void) playDefaultDestroyAnimation
 {
-    for (RenderSprite *renderSprite in _renderSprites)
-    {
-        [renderSprite playDefaultDestroyAnimation];
-    }
+	for (RenderSprite *renderSprite in _renderSprites)
+	{
+		[renderSprite playDefaultDestroyAnimation];
+	}
 }
 
 @end

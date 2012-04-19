@@ -24,20 +24,15 @@
 
 -(void) addRenderSprite:(RenderSprite *)renderSprite atOffset:(CGPoint)offset;
 -(void) addRenderSprite:(RenderSprite *)renderSprite;
--(RenderSprite *) getRenderSprite:(NSString *)name;
+-(RenderSprite *) renderSpriteWithName:(NSString *)name;
 -(NSArray *) renderSprites;
--(RenderSprite *) firstRenderSprite;
+-(RenderSprite *) defaultRenderSprite;
 -(CGPoint) getOffsetForRenderSprite:(RenderSprite *)renderSprite;
 -(void) setAlpha:(float)alpha;
--(void) playAnimation:(NSString *)animationName withLoops:(int)nLoops;
--(void) playAnimation:(NSString *)animationName;
--(void) playAnimation:(NSString *)animationName withCallbackTarget:(id)target andCallbackSelector:(SEL)selector;
--(void) playDefaultDestroyAnimationWithCallbackTarget:(id)target andCallbackSelector:(SEL)selector;
--(void) playAnimationsLoopLast:(NSArray *)animationNames;
--(void) playAnimationsLoopAll:(NSArray *)animationNames;
 -(BOOL) hasDefaultIdleAnimation;
 -(void) playDefaultIdleAnimation;
 -(BOOL) hasDefaultDestroyAnimation;
+-(void) playDefaultDestroyAnimationAndCallBlockAtEnd:(void(^)())block;
 -(void) playDefaultDestroyAnimation;
 
 @end
