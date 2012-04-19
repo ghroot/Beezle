@@ -117,7 +117,10 @@
 					// Strech scale
 					float percent = (power - SLINGER_MIN_POWER) / (SLINGER_MAX_POWER - SLINGER_MIN_POWER);
 					float scale = SCALE_AT_MIN_POWER + percent * (SCALE_AT_MAX_POWER - SCALE_AT_MIN_POWER);
-					[transformComponent setScale:CGPointMake(1.0f, scale)];
+                    RenderSprite *mainRenderSprite = [renderComponent getRenderSprite:@"main"];
+                    [[mainRenderSprite sprite] setScaleY:scale];
+                    RenderSprite *addonRenderSprite = [renderComponent getRenderSprite:@"addon"];
+                    [[addonRenderSprite sprite] setScaleY:2 * (1.0f - scale)];
 					
 					if (!_stretchSoundPlayed &&
 						scale <= SLINGER_STRETCH_SOUND_SCALE)
@@ -139,10 +142,12 @@
 						[EntityUtil setEntityPosition:beeEntity position:[trajectoryComponent startPoint]];
 						[EntityUtil setEntityRotation:beeEntity rotation:[transformComponent rotation] + 90];
 						
-						[transformComponent setScale:CGPointMake(1.0f, 1.0f)];
-						
-						[renderComponent playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];
-						
+                        RenderSprite *mainRenderSprite = [renderComponent getRenderSprite:@"main"];
+                        [[mainRenderSprite sprite] setScaleY:1.0f];
+                        [mainRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];
+                        RenderSprite *addonRenderSprite = [renderComponent getRenderSprite:@"addon"];
+						[[addonRenderSprite sprite] setScaleY:0.1f];
+                        
 						[[SoundManager sharedManager] stopSound:@"SlingerStretch"];
 						[[SoundManager sharedManager] playSound:@"33369__herbertboland__mouthpop.wav"];
 						if ([slingerComponent loadedBeeType] == [BeeType SPEEDEE])
@@ -176,7 +181,11 @@
             {
                 if ([slingerComponent hasLoadedBee])
                 {
-                    [transformComponent setScale:CGPointMake(1.0f, 1.0f)];
+                    RenderSprite *mainRenderSprite = [renderComponent getRenderSprite:@"main"];
+                    [[mainRenderSprite sprite] setScaleY:1.0f];
+                    RenderSprite *addonRenderSprite = [renderComponent getRenderSprite:@"addon"];
+                    [[addonRenderSprite sprite] setScaleY:0.1f];
+                    
                     [transformComponent setRotation:_startAngle];
                     
                     [[SoundManager sharedManager] stopSound:@"SlingerStretch"];

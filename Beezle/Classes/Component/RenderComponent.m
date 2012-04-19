@@ -14,6 +14,7 @@
 @implementation RenderComponent
 
 @synthesize renderSprites = _renderSprites;
+@synthesize renderSpriteOffsets = _renderSpriteOffsets;
 
 +(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite
 {
@@ -29,6 +30,7 @@
 	{
 		_name = @"render";
 		_renderSprites = [NSMutableArray new];
+        _renderSpriteOffsets = [NSMutableDictionary new];
 	}
 	return self;
 }
@@ -40,12 +42,10 @@
 		RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
 		for (NSDictionary *spriteDict in [dict objectForKey:@"sprites"])
 		{
-			NSString *name = [spriteDict objectForKey:@"name"];
 			NSString *spriteSheetName = [spriteDict objectForKey:@"spriteSheetName"];
 			NSString *textureFile = [spriteDict objectForKey:@"textureFile"];
 			NSString *animationFile = [spriteDict objectForKey:@"animationFile"];
 			int z = [[spriteDict objectForKey:@"z"] intValue];
-			CGPoint anchorPoint = [Utils stringToPoint:[spriteDict objectForKey:@"anchorPoint"]];
 			NSArray *defaultIdleAnimationNames = nil;
 			if ([spriteDict objectForKey:@"defaultIdleAnimations"] != nil)
 			{
@@ -76,9 +76,32 @@
 			{
 				renderSprite = [renderSystem createRenderSpriteWithFile:[CCFileUtils fullPathFromRelativePath:textureFile] z:z];
 			}
-            [renderSprite setName:name];
-			[[renderSprite sprite] setAnchorPoint:anchorPoint];
-			[self addRenderSprite:renderSprite];
+            
+            if ([spriteDict objectForKey:@"name"] != nil)
+            {
+                [renderSprite setName:[spriteDict objectForKey:@"name"]];
+            }
+            
+            CGPoint offset = CGPointZero;
+            if ([spriteDict objectForKey:@"offset"] != nil)
+            {
+                offset = [Utils stringToPoint:[spriteDict objectForKey:@"offset"]];
+            }
+            
+            if ([spriteDict objectForKey:@"anchorPoint"] != nil)
+            {
+                CGPoint anchorPoint = [Utils stringToPoint:[spriteDict objectForKey:@"anchorPoint"]];
+                [[renderSprite sprite] setAnchorPoint:anchorPoint];
+            }
+            
+            if ([spriteDict objectForKey:@"scale"] != nil)
+            {
+                CGPoint scale = [Utils stringToPoint:[spriteDict objectForKey:@"scale"]];
+                [[renderSprite sprite] setScaleX:scale.x];
+                [[renderSprite sprite] setScaleY:scale.y];
+            }
+            
+			[self addRenderSprite:renderSprite atOffset:offset];
 			
             [renderSprite playDefaultIdleAnimation];
 		}
@@ -89,6 +112,7 @@
 -(void) dealloc
 {
 	[_renderSprites release];
+    [_renderSpriteOffsets release];
     
     [super dealloc];
 }
@@ -102,12 +126,20 @@
 		[copiedRenderComponent addRenderSprite:copiedRenderSprite];
 		[copiedRenderSprite release];
 	}
+    NSDictionary *copiedRenderSpriteOffsets = [_renderSpriteOffsets copy];
+    [copiedRenderComponent setRenderSpriteOffsets:copiedRenderSpriteOffsets];
 	return copiedRenderComponent;
+}
+
+-(void) addRenderSprite:(RenderSprite *)renderSprite atOffset:(CGPoint)offset
+{
+	[_renderSprites addObject:renderSprite];
+    [_renderSpriteOffsets setObject:[NSValue valueWithCGPoint:offset] forKey:renderSprite];
 }
 
 -(void) addRenderSprite:(RenderSprite *)renderSprite
 {
-	[_renderSprites addObject:renderSprite];
+    [self addRenderSprite:renderSprite atOffset:CGPointZero];
 }
 
 -(RenderSprite *) getRenderSprite:(NSString *)name
@@ -125,6 +157,11 @@
 -(RenderSprite *) firstRenderSprite
 {
 	return [_renderSprites objectAtIndex:0];
+}
+
+-(CGPoint) getOffsetForRenderSprite:(RenderSprite *)renderSprite
+{
+    return [[_renderSpriteOffsets objectForKey:renderSprite] CGPointValue];
 }
 
 -(void) setAlpha:(float)alpha

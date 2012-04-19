@@ -110,10 +110,18 @@
 	
     for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
-		[[renderSprite sprite] setPosition:[transformComponent position]];
+        CGPoint offset = [renderComponent getOffsetForRenderSprite:renderSprite];
+        CGPoint positionIncludingOffset = ccpAdd([transformComponent position], offset);
+		[[renderSprite sprite] setPosition:positionIncludingOffset];
 		[[renderSprite sprite] setRotation:[transformComponent rotation]];
-		[[renderSprite sprite] setScaleX:[transformComponent scale].x];
-		[[renderSprite sprite] setScaleY:[transformComponent scale].y];
+        
+        // TODO: This should scale some kind of container sprite, not each render sprite individually
+        if ([transformComponent scale].x != 1.0f ||
+            [transformComponent scale].y != 1.0f)
+        {
+            [[renderSprite sprite] setScaleX:[transformComponent scale].x];
+            [[renderSprite sprite] setScaleY:[transformComponent scale].y];
+        }
 	}
 }
 

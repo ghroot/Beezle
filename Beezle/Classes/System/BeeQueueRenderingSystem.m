@@ -12,6 +12,7 @@
 #import "EntityFactory.h"
 #import "EntityUtil.h"
 #import "NotificationTypes.h"
+#import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "RenderSystem.h"
 #import "SlingerComponent.h"
@@ -150,13 +151,19 @@
 -(void) handleBeeLoadedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity
 {
 	// Load next bee sprite
-	_beeLoadedRenderSprite = [[_beeQueueRenderSprites objectAtIndex:0] retain];
+//	_beeLoadedRenderSprite = [[_beeQueueRenderSprites objectAtIndex:0] retain];
+//	[_beeQueueRenderSprites removeObjectAtIndex:0];
+//	TransformComponent *slingerTransformComponent = (TransformComponent *)[slingerEntity getComponent:[TransformComponent class]];
+//	[[_beeLoadedRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
+//	CCAction *moveAction = [CCMoveTo actionWithDuration:0.5f position:[slingerTransformComponent position]];
+//	[moveAction setTag:ACTION_TAG_BEE_QUEUE];
+//	[[_beeLoadedRenderSprite sprite] runAction:moveAction];
+    
+    // Load next bee sprite (instant version)
+    _beeLoadedRenderSprite = [[_beeQueueRenderSprites objectAtIndex:0] retain];
 	[_beeQueueRenderSprites removeObjectAtIndex:0];
 	TransformComponent *slingerTransformComponent = (TransformComponent *)[slingerEntity getComponent:[TransformComponent class]];
-	[[_beeLoadedRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
-	CCAction *moveAction = [CCMoveTo actionWithDuration:0.5f position:[slingerTransformComponent position]];
-	[moveAction setTag:ACTION_TAG_BEE_QUEUE];
-	[[_beeLoadedRenderSprite sprite] runAction:moveAction];
+    [[_beeLoadedRenderSprite sprite] setPosition:[slingerTransformComponent position]];
 	
 	// Move queued sprites right
 	for (int i = 0; i < [_beeQueueRenderSprites count]; i++)
@@ -185,7 +192,15 @@
 	{
 		TransformComponent *slingerTransformComponent = [TransformComponent getFrom:slingerEntity];
 		[[_beeLoadedRenderSprite sprite] setRotation:[slingerTransformComponent rotation] + 90];
-	}
+        
+        RenderComponent *slingerRenderComponent = [RenderComponent getFrom:slingerEntity];
+        RenderSprite *slingerAddonRenderSprite = [slingerRenderComponent getRenderSprite:@"addon"];
+        CCSprite *slingerAddonSprite = [slingerAddonRenderSprite sprite];
+        float angle = CC_DEGREES_TO_RADIANS(360 - [slingerTransformComponent rotation] + 270);
+        CGPoint newPosition = CGPointMake([slingerTransformComponent position].x - 15.0f * [slingerAddonSprite scaleY] * cosf(angle),
+                                          [slingerTransformComponent position].y - 15.0f * [slingerAddonSprite scaleY] * sinf(angle));
+        [[_beeLoadedRenderSprite sprite] setPosition:newPosition];
+    }
 }
 
 -(void) handleBeeFiredNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity
