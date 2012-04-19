@@ -187,6 +187,7 @@
 		2C5EFCC214EC60580071ED39 /* CrumbleComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFCC114EC60560071ED39 /* CrumbleComponent.m */; };
 		2C64AD0914B89D7E00ABD114 /* Levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C64ACEC14B89D7E00ABD114 /* Levels.plist */; };
 		2C64AD1414BA4F0400ABD114 /* ExplodeControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C64AD1314BA4F0300ABD114 /* ExplodeControlSystem.m */; };
+		2C67F825154066BB00981FA3 /* StringList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C67F824154066BB00981FA3 /* StringList.m */; };
 		2C6A7078153F6F9C0042F5A1 /* EdgeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A7077153F6F9C0042F5A1 /* EdgeComponent.m */; };
 		2C764DDA148A1F4000820587 /* GCpShapeCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DD9148A1F4000820587 /* GCpShapeCache.m */; };
 		2C764DDD148A1FF100820587 /* BodyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DDC148A1FF100820587 /* BodyInfo.m */; };
@@ -1207,6 +1208,8 @@
 		2C64ACEC14B89D7E00ABD114 /* Levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Levels.plist; sourceTree = "<group>"; };
 		2C64AD1214BA4F0300ABD114 /* ExplodeControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExplodeControlSystem.h; path = Classes/System/ExplodeControlSystem.h; sourceTree = "<group>"; };
 		2C64AD1314BA4F0300ABD114 /* ExplodeControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExplodeControlSystem.m; path = Classes/System/ExplodeControlSystem.m; sourceTree = "<group>"; };
+		2C67F823154066BB00981FA3 /* StringList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StringList.h; path = Classes/Component/StringList.h; sourceTree = "<group>"; };
+		2C67F824154066BB00981FA3 /* StringList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StringList.m; path = Classes/Component/StringList.m; sourceTree = "<group>"; };
 		2C6A7076153F6F9C0042F5A1 /* EdgeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EdgeComponent.h; path = Classes/Component/EdgeComponent.h; sourceTree = "<group>"; };
 		2C6A7077153F6F9C0042F5A1 /* EdgeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EdgeComponent.m; path = Classes/Component/EdgeComponent.m; sourceTree = "<group>"; };
 		2C764DD8148A1F4000820587 /* GCpShapeCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCpShapeCache.h; path = Classes/System/GCpShapeCache.h; sourceTree = "<group>"; };
@@ -4102,6 +4105,8 @@
 				2CBCDDB214F7DCE700B11627 /* SoundComponent.m */,
 				2C5EFC2914E496A00071ED39 /* SpawnComponent.h */,
 				2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */,
+				2C67F823154066BB00981FA3 /* StringList.h */,
+				2C67F824154066BB00981FA3 /* StringList.m */,
 				2C157C1814914F6A003F9040 /* TrajectoryComponent.h */,
 				2C157C1914914F6A003F9040 /* TrajectoryComponent.m */,
 				2C068A32146858B9003E200D /* TransformComponent.h */,
@@ -5169,6 +5174,7 @@
 				2CE4F61E153E1C1C0023B5C6 /* DisposalSystem.m in Sources */,
 				2CFD4811153EDC0500203291 /* WaterComponent.m in Sources */,
 				2C6A7078153F6F9C0042F5A1 /* EdgeComponent.m in Sources */,
+				2C67F825154066BB00981FA3 /* StringList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

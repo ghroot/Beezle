@@ -8,14 +8,13 @@
 
 #import "artemis.h"
 
+@class StringList;
+
 @interface SoundComponent : Component
 {
-	NSMutableArray *_defaultCollisionSoundNames;
-    NSMutableArray *_defaultDestroySoundNames;
+	StringList *_defaultCollisionSoundNames;
+    StringList *_defaultDestroySoundNames;
 }
-
-@property (nonatomic, retain) NSArray *defaultCollisionSoundNames;
-@property (nonatomic, retain) NSArray *defaultDestroySoundNames;
 
 -(BOOL) hasDefaultCollisionSoundName;
 -(void) setDefaultCollisionSoundName:(NSString *)defaultCollisionSoundName;

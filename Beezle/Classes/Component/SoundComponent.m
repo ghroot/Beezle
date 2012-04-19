@@ -7,32 +7,16 @@
 //
 
 #import "SoundComponent.h"
+#import "StringList.h"
 
 @implementation SoundComponent
-
-@synthesize defaultCollisionSoundNames = _defaultCollisionSoundNames;
-@synthesize defaultDestroySoundNames = _defaultDestroySoundNames;
 
 -(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
 {
 	if (self = [self init])
 	{
-		if ([dict objectForKey:@"defaultCollisionSound"] != nil)
-		{
-			[_defaultCollisionSoundNames addObject:[dict objectForKey:@"defaultCollisionSound"]];
-		}
-		else if ([dict objectForKey:@"defaultCollisionSounds"])
-		{
-			[_defaultCollisionSoundNames addObjectsFromArray:[dict objectForKey:@"defaultCollisionSounds"]];
-		}
-		if ([dict objectForKey:@"defaultDestroySound"] != nil)
-		{
-			[_defaultDestroySoundNames addObject:[dict objectForKey:@"defaultDestroySound"]];
-		}
-		else if ([dict objectForKey:@"defaultDestroySounds"])
-		{
-			[_defaultDestroySoundNames addObjectsFromArray:[dict objectForKey:@"defaultDestroySounds"]];
-		}
+        [_defaultCollisionSoundNames addStringsFromDictionary:dict baseName:@"defaultCollisionSound"];
+        [_defaultDestroySoundNames addStringsFromDictionary:dict baseName:@"defaultDestroySound"];
 	}
 	return self;
 }
@@ -42,8 +26,8 @@
     if (self = [super init])
     {
 		_name = @"sound";
-		_defaultCollisionSoundNames = [NSMutableArray new];
-		_defaultDestroySoundNames = [NSMutableArray new];
+        _defaultCollisionSoundNames = [StringList new];
+        _defaultDestroySoundNames = [StringList new];
     }
     return self;
 }
@@ -58,34 +42,32 @@
 
 -(BOOL) hasDefaultCollisionSoundName
 {
-	return [_defaultCollisionSoundNames count] > 0;
+	return [_defaultCollisionSoundNames hasStrings];
 }
 
 -(void) setDefaultCollisionSoundName:(NSString *)defaultCollisionSoundName
 {
-	[_defaultCollisionSoundNames addObject:defaultCollisionSoundName];
+    [_defaultCollisionSoundNames addString:defaultCollisionSoundName];
 }
 
 -(NSString *) randomDefaultCollisionSoundName
 {
-	int index = rand() % [_defaultCollisionSoundNames count];
-	return [_defaultCollisionSoundNames objectAtIndex:index];
+    return [_defaultCollisionSoundNames randomString];
 }
 
 -(BOOL) hasDefaultDestroySoundName
 {
-	return [_defaultDestroySoundNames count] > 0;
+    return [_defaultDestroySoundNames hasStrings];
 }
 
 -(void) setDefaultDestroySoundName:(NSString *)defaultDestroySoundName
 {
-	[_defaultDestroySoundNames addObject:defaultDestroySoundName];
+    [_defaultDestroySoundNames addString:defaultDestroySoundName];
 }
 
 -(NSString *) randomDefaultDestroySoundName
 {
-	int index = rand() % [_defaultDestroySoundNames count];
-	return [_defaultDestroySoundNames objectAtIndex:index];
+    return [_defaultDestroySoundNames randomString];
 }
 
 @end

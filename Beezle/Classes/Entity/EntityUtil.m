@@ -200,7 +200,7 @@
 	SoundComponent *soundComponent = [SoundComponent getFrom:entity];
 	if ([soundComponent hasDefaultCollisionSoundName])
 	{
-		[[SoundManager sharedManager] playSound:[[SoundComponent getFrom:entity] randomDefaultCollisionSoundName]];
+		[[SoundManager sharedManager] playSound:[soundComponent randomDefaultCollisionSoundName]];
 	}
 }
 
@@ -209,7 +209,7 @@
 	SoundComponent *soundComponent = [SoundComponent getFrom:entity];
 	if ([soundComponent hasDefaultDestroySoundName])
 	{
-		[[SoundManager sharedManager] playSound:[[SoundComponent getFrom:entity] randomDefaultDestroySoundName]];
+		[[SoundManager sharedManager] playSound:[soundComponent randomDefaultDestroySoundName]];
 	}
 }
 
