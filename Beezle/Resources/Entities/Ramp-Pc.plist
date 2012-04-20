@@ -3,26 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>RAMP</string>
-	<key>labels</key>
-	<array>
-		<string>RAMP</string>
-	</array>
+	<string>RAMP-PC</string>
 	<key>components</key>
 	<dict>
-		<key>crumble</key>
-		<dict/>
-		<key>disposable</key>
-		<dict>
-			<key>deleteEntityWhenDisposed</key>
-			<true/>
-		</dict>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
 			<dict>
 				<key>mass</key>
-				<real>0</real>
+				<real>1</real>
+				<key>moment</key>
+				<real>1</real>
 			</dict>
 			<key>shapes</key>
 			<array>
@@ -31,19 +22,19 @@
 					<string>poly</string>
 					<key>vertices</key>
 					<array>
-						<string>{ -30, -3 }</string>
-						<string>{ -30, 3 }</string>
-						<string>{ 30, 3 }</string>
-						<string>{ 30, -3 }</string>
+						<string>{ -5, -5 }</string>
+						<string>{ -5, 5 }</string>
+						<string>{ 5, 5 }</string>
+						<string>{ 5, -5 }</string>
 					</array>
 					<key>elasticity</key>
-					<real>0.8</real>
+					<real>0.3</real>
 					<key>friction</key>
-					<real>0.5</real>
+					<real>0.8</real>
 					<key>layers</key>
-					<integer>3</integer>
+					<integer>2</integer>
 					<key>group</key>
-					<string>LEVEL</string>
+					<string>OBJECT</string>
 				</dict>
 			</array>
 		</dict>
@@ -63,20 +54,9 @@
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.5 }</string>
 					<key>defaultIdleAnimation</key>
-					<string>Ramp-Idle</string>
-					<key>defaultDestroyAnimation</key>
-					<string>Ramp-Crash</string>
+					<string>Ramp-Pc-Idle</string>
 				</dict>
 			</array>
-		</dict>
-		<key>shard</key>
-		<dict>
-			<key>piecesEntityType</key>
-			<string>RAMP-PC</string>
-			<key>piecesCount</key>
-			<integer>10</integer>
-            <key>piecesSpawnType</key>
-            <string>SHARD_PIECES_SPAWN_FADEOUT</string>
 		</dict>
 		<key>transform</key>
 		<dict/>

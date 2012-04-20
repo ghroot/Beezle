@@ -195,6 +195,7 @@
 		2C64AD1414BA4F0400ABD114 /* ExplodeControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C64AD1314BA4F0300ABD114 /* ExplodeControlSystem.m */; };
 		2C67F825154066BB00981FA3 /* StringList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C67F824154066BB00981FA3 /* StringList.m */; };
 		2C6A7078153F6F9C0042F5A1 /* EdgeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A7077153F6F9C0042F5A1 /* EdgeComponent.m */; };
+		2C6A7083154219550042F5A1 /* Ramp-Pc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C6A7082154219540042F5A1 /* Ramp-Pc.plist */; };
 		2C764DDA148A1F4000820587 /* GCpShapeCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DD9148A1F4000820587 /* GCpShapeCache.m */; };
 		2C764DDD148A1FF100820587 /* BodyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DDC148A1FF100820587 /* BodyInfo.m */; };
 		2C764E9D148A917300820587 /* 11097__a43__a43-blipp.aif in Resources */ = {isa = PBXBuildFile; fileRef = 2C764E9C148A917300820587 /* 11097__a43__a43-blipp.aif */; };
@@ -1222,6 +1223,7 @@
 		2C67F824154066BB00981FA3 /* StringList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StringList.m; path = Classes/Component/StringList.m; sourceTree = "<group>"; };
 		2C6A7076153F6F9C0042F5A1 /* EdgeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EdgeComponent.h; path = Classes/Component/EdgeComponent.h; sourceTree = "<group>"; };
 		2C6A7077153F6F9C0042F5A1 /* EdgeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EdgeComponent.m; path = Classes/Component/EdgeComponent.m; sourceTree = "<group>"; };
+		2C6A7082154219540042F5A1 /* Ramp-Pc.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ramp-Pc.plist"; sourceTree = "<group>"; };
 		2C764DD8148A1F4000820587 /* GCpShapeCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCpShapeCache.h; path = Classes/System/GCpShapeCache.h; sourceTree = "<group>"; };
 		2C764DD9148A1F4000820587 /* GCpShapeCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCpShapeCache.m; path = Classes/System/GCpShapeCache.m; sourceTree = "<group>"; };
 		2C764DDB148A1FF100820587 /* BodyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BodyInfo.h; path = Classes/System/BodyInfo.h; sourceTree = "<group>"; };
@@ -3716,6 +3718,7 @@
 				2CE4F596153CC8A80023B5C6 /* Mushroom */,
 				2CE4F599153CC8A80023B5C6 /* Nut.plist */,
 				2CE4F59A153CC8A80023B5C6 /* Pollen */,
+				2C6A7082154219540042F5A1 /* Ramp-Pc.plist */,
 				2CE4F59D153CC8A80023B5C6 /* Ramp.plist */,
 				2CE4F59E153CC8A80023B5C6 /* Slinger.plist */,
 				2CE4F59F153CC8A80023B5C6 /* Water */,
@@ -4943,6 +4946,7 @@
 				2C462BE315419F93000DA559 /* Boss-hd.png in Resources */,
 				2C462BE415419F93000DA559 /* Boss.plist in Resources */,
 				2C462BE515419F93000DA559 /* Boss.png in Resources */,
+				2C6A7083154219550042F5A1 /* Ramp-Pc.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
