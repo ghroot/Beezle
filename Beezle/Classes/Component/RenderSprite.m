@@ -172,7 +172,10 @@
 
 -(void) playDefaultIdleAnimation
 {
-	[self playAnimationLoop:[self randomDefaultIdleAnimationName]];
+	if ([self hasDefaultIdleAnimation])
+	{
+		[self playAnimationLoop:[self randomDefaultIdleAnimationName]];
+	}
 }
 
 -(BOOL) hasDefaultDestroyAnimation
@@ -187,7 +190,10 @@
 
 -(void) playDefaultDestroyAnimation
 {
-	[self playAnimationOnce:[self randomDefaultDestroyAnimationName]];
+	if ([self hasDefaultDestroyAnimation])
+	{
+		[self playAnimationOnce:[self randomDefaultDestroyAnimationName]];
+	}
 }
 
 -(void) playDefaultDestroyAnimationAndCallBlockAtEnd:(void(^)())block
