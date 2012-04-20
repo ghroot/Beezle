@@ -51,6 +51,12 @@
 		2C3A6F96148980AF002721E3 /* BeeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F95148980AF002721E3 /* BeeComponent.m */; };
 		2C3B0E5414A91E4D008949B0 /* EmailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B0E5314A91E4D008949B0 /* EmailInfo.m */; };
 		2C3BA3DE14B1DBBA007B1660 /* LevelOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BA3DD14B1DBBA007B1660 /* LevelOrganizer.m */; };
+		2C462BD215419632000DA559 /* Super-Beeater.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C462BD115419632000DA559 /* Super-Beeater.plist */; };
+		2C462BD515419796000DA559 /* Super-Beeater-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C462BD415419796000DA559 /* Super-Beeater-Animations.plist */; };
+		2C462BE215419F93000DA559 /* Boss-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C462BDE15419F93000DA559 /* Boss-hd.plist */; };
+		2C462BE315419F93000DA559 /* Boss-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C462BDF15419F93000DA559 /* Boss-hd.png */; };
+		2C462BE415419F93000DA559 /* Boss.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C462BE015419F93000DA559 /* Boss.plist */; };
+		2C462BE515419F93000DA559 /* Boss.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C462BE115419F93000DA559 /* Boss.png */; };
 		2C4DFC7714FEF17F00D49CF9 /* HUDRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DFC7614FEF17F00D49CF9 /* HUDRenderingSystem.m */; };
 		2C53122D15097DE400FDE482 /* Bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C53122C15097DE400FDE482 /* Bubble.png */; };
 		2C535FCD14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C535FCC14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m */; };
@@ -1060,6 +1066,12 @@
 		2C3B0E5314A91E4D008949B0 /* EmailInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmailInfo.m; path = Classes/EmailInfo.m; sourceTree = "<group>"; };
 		2C3BA3DC14B1DBB9007B1660 /* LevelOrganizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelOrganizer.h; sourceTree = "<group>"; };
 		2C3BA3DD14B1DBBA007B1660 /* LevelOrganizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelOrganizer.m; sourceTree = "<group>"; };
+		2C462BD115419632000DA559 /* Super-Beeater.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Super-Beeater.plist"; sourceTree = "<group>"; };
+		2C462BD415419796000DA559 /* Super-Beeater-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Super-Beeater-Animations.plist"; sourceTree = "<group>"; };
+		2C462BDE15419F93000DA559 /* Boss-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Boss-hd.plist"; sourceTree = "<group>"; };
+		2C462BDF15419F93000DA559 /* Boss-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boss-hd.png"; sourceTree = "<group>"; };
+		2C462BE015419F93000DA559 /* Boss.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Boss.plist; sourceTree = "<group>"; };
+		2C462BE115419F93000DA559 /* Boss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Boss.png; sourceTree = "<group>"; };
 		2C4DFC7514FEF17F00D49CF9 /* HUDRenderingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HUDRenderingSystem.h; path = Classes/System/HUDRenderingSystem.h; sourceTree = "<group>"; };
 		2C4DFC7614FEF17F00D49CF9 /* HUDRenderingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HUDRenderingSystem.m; path = Classes/System/HUDRenderingSystem.m; sourceTree = "<group>"; };
 		2C53122C15097DE400FDE482 /* Bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bubble.png; sourceTree = "<group>"; };
@@ -3144,6 +3156,7 @@
 				2CC9E77C1502E41700C094B0 /* Fish-Beeater-Body-Animations.plist */,
 				2CB3623F15056629003687C1 /* Hanging-Beeater-Body-Animations.plist */,
 				2CC9E7761502DBB400C094B0 /* Land-Beeater-Body-Animations.plist */,
+				2C462BD415419796000DA559 /* Super-Beeater-Animations.plist */,
 			);
 			path = Beeater;
 			sourceTree = "<group>";
@@ -3609,6 +3622,10 @@
 		2CCD7C741537121100730FA2 /* Sheets */ = {
 			isa = PBXGroup;
 			children = (
+				2C462BDE15419F93000DA559 /* Boss-hd.plist */,
+				2C462BDF15419F93000DA559 /* Boss-hd.png */,
+				2C462BE015419F93000DA559 /* Boss.plist */,
+				2C462BE115419F93000DA559 /* Boss.png */,
 				2CCD7C811537121100730FA2 /* Shared-hd.plist */,
 				2CCD7C821537121100730FA2 /* Shared-hd.png */,
 				2CCD7C831537121100730FA2 /* Shared.plist */,
@@ -3762,6 +3779,7 @@
 				2CE4F54D153CC8A80023B5C6 /* Beeater-Hanging-Template.plist */,
 				2CE4F54E153CC8A80023B5C6 /* Beeater-Land-Template.plist */,
 				2CE4F54F153CC8A80023B5C6 /* Beeater-Pc-Template.plist */,
+				2C462BD115419632000DA559 /* Super-Beeater.plist */,
 			);
 			path = Beeater;
 			sourceTree = "<group>";
@@ -4929,6 +4947,12 @@
 				2CE4F61B153E0DE30023B5C6 /* Water-Splash.plist in Resources */,
 				2CE4F621153E249B0023B5C6 /* Waterdrop-Spawner.plist in Resources */,
 				2CE4F622153E249B0023B5C6 /* Waterdrop.plist in Resources */,
+				2C462BD215419632000DA559 /* Super-Beeater.plist in Resources */,
+				2C462BD515419796000DA559 /* Super-Beeater-Animations.plist in Resources */,
+				2C462BE215419F93000DA559 /* Boss-hd.plist in Resources */,
+				2C462BE315419F93000DA559 /* Boss-hd.png in Resources */,
+				2C462BE415419F93000DA559 /* Boss.plist in Resources */,
+				2C462BE515419F93000DA559 /* Boss.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

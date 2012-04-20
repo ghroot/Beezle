@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>type</key>
+    <string>SUPER-BEEATER</string>
+	<key>groups</key>
+	<array>
+		<string>BEEATERS</string>
+	</array>
+	<key>components</key>
+	<dict>
+		<key>crumble</key>
+		<dict/>
+		<key>disposable</key>
+		<dict/>
+		<key>movement</key>
+		<dict/>
+		<key>physics</key>
+		<dict>
+			<key>body</key>
+			<dict>
+				<key>mass</key>
+				<real>-1</real>
+			</dict>
+			<key>shapes</key>
+			<array>
+				<dict>
+					<key>type</key>
+					<string>poly</string>
+					<key>vertices</key>
+					<array>
+						<string>{ -15, -15 }</string>
+						<string>{ -15, 15 }</string>
+						<string>{ 15, 15 }</string>
+						<string>{ 15, -15 }</string>
+					</array>
+					<key>elasticity</key>
+					<real>0.8</real>
+					<key>friction</key>
+					<real>0.5</real>
+					<key>isSensor</key>
+					<true/>
+					<key>layers</key>
+					<integer>3</integer>
+					<key>group</key>
+					<string>LEVEL</string>
+				</dict>
+			</array>
+		</dict>
+		<key>render</key>
+		<dict>
+			<key>sprites</key>
+			<array>
+                <dict>
+					<key>name</key>
+					<string>tail</string>
+					<key>spriteSheetName</key>
+					<string>Boss</string>
+					<key>animationFile</key>
+					<string>Super-Beeater-Animations.plist</string>
+					<key>z</key>
+					<integer>3</integer>
+					<key>anchorPoint</key>
+					<string>{ 0.2, 0.75 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Super-Beeater-Tail-Idle</string>
+				</dict>
+                <dict>
+					<key>name</key>
+					<string>back</string>
+					<key>spriteSheetName</key>
+					<string>Boss</string>
+					<key>animationFile</key>
+					<string>Super-Beeater-Animations.plist</string>
+					<key>z</key>
+					<integer>3</integer>
+					<key>anchorPoint</key>
+					<string>{ 0.5, 0.5 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Super-Beeater-Back-Idle</string>
+				</dict>
+				<dict>
+					<key>name</key>
+					<string>front</string>
+					<key>spriteSheetName</key>
+					<string>Boss</string>
+					<key>animationFile</key>
+					<string>Super-Beeater-Animations.plist</string>
+					<key>z</key>
+					<integer>3</integer>
+					<key>anchorPoint</key>
+					<string>{ 0.5, 0.5 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Super-Beeater-Front-Idle</string>
+				</dict>
+                <dict>
+					<key>name</key>
+					<string>wing</string>
+					<key>spriteSheetName</key>
+					<string>Boss</string>
+					<key>animationFile</key>
+					<string>Super-Beeater-Animations.plist</string>
+					<key>z</key>
+					<integer>3</integer>
+					<key>anchorPoint</key>
+					<string>{ 0.5, 0.5 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Super-Beeater-Wing-Idle</string>
+				</dict>
+
+			</array>
+		</dict>
+		<key>sound</key>
+		<dict>
+			<key>defaultDestroySound</key>
+			<string>BeeaterKill</string>
+		</dict>
+		<key>transform</key>
+		<dict/>
+	</dict>
+</dict>
+</plist>

@@ -52,6 +52,7 @@
 	[self addMenuItemForEntityType:@"BEEATER-HANGING"];
 	[self addMenuItemForEntityType:@"BEEATER-BIRD"];
 	[self addMenuItemForEntityType:@"BEEATER-FISH"];
+    [self addMenuItemForEntityType:@"SUPER-BEEATER"];
 	[self addMenuItemForEntityType:@"CAVEGATE"];
 	[self addMenuItemForEntityType:@"EGG"];
 	[self addMenuItemForEntityType:@"FLOATING-BLOCK-A"];
