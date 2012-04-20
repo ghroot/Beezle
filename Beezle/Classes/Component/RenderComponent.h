@@ -14,20 +14,16 @@
 @interface RenderComponent : Component <NSCopying>
 {
 	NSMutableArray *_renderSprites;
-    NSMutableDictionary *_renderSpriteOffsets;
 }
 
 @property (nonatomic, readonly) NSArray *renderSprites;
-@property (nonatomic, retain) NSDictionary *renderSpriteOffsets;
 
 +(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite;
 
--(void) addRenderSprite:(RenderSprite *)renderSprite atOffset:(CGPoint)offset;
 -(void) addRenderSprite:(RenderSprite *)renderSprite;
 -(RenderSprite *) renderSpriteWithName:(NSString *)name;
 -(NSArray *) renderSprites;
 -(RenderSprite *) defaultRenderSprite;
--(CGPoint) getOffsetForRenderSprite:(RenderSprite *)renderSprite;
 -(void) setAlpha:(float)alpha;
 -(BOOL) hasDefaultIdleAnimation;
 -(void) playDefaultIdleAnimation;

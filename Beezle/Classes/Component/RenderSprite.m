@@ -14,6 +14,7 @@
 
 @synthesize sprite = _sprite;
 @synthesize name = _name;
+@synthesize scale = _scale;
 @synthesize defaultIdleAnimationNames = _defaultIdleAnimationNames;
 @synthesize defaultDestroyAnimationNames = _defaultDestroyAnimationNames;
 
@@ -36,6 +37,7 @@
         _sprite = [[CCSprite alloc] initWithTexture:[spriteSheet texture]];
 		_z = z;
         _name = @"default";
+        _scale = CGPointMake(1.0f, 1.0f);
 		_defaultIdleAnimationNames = [StringList new];
 		_defaultDestroyAnimationNames = [StringList new];
     }
