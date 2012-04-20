@@ -56,15 +56,14 @@
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
 	if ([entity hasComponent:[ShardComponent class]])
 	{
-		TransformComponent *transformComponent = [TransformComponent getFrom:entity];
 		ShardComponent *shardComponent = [ShardComponent getFrom:entity];
+		PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];	
 		
-		CGPoint centerPoint = CGPointMake(
-										  [transformComponent position].x + [shardComponent piecesSpawnAreaOffset].x,
-										  [transformComponent position].y + [shardComponent piecesSpawnAreaOffset].y);
-		CGPoint topLeft = CGPointMake(
-									  centerPoint.x - [shardComponent piecesSpawnAreaSize].width / 2,
-									  centerPoint.y - [shardComponent piecesSpawnAreaSize].height / 2);
+		cpBB boundingBox = [[physicsComponent firstPhysicsShape] bb];
+		for (ChipmunkShape *shape in [physicsComponent shapes])
+		{
+			boundingBox = cpBBMerge(boundingBox, [shape bb]);
+		}
 		
 		for (int i = 0; i < [shardComponent piecesCount]; i++)
 		{
@@ -72,14 +71,18 @@
 			Entity *shardPieceEntity = [EntityFactory createEntity:[shardComponent piecesEntityType] world:_world];
 			
 			// Position
-			CGPoint randomPosition = centerPoint;
-			if ([shardComponent piecesSpawnAreaSize].width > 0)
+			CGPoint randomPosition;
+			BOOL validPoint = FALSE;
+			while (!validPoint)
 			{
-				randomPosition.x = topLeft.x + (rand() % (int)[shardComponent piecesSpawnAreaSize].width);
-			}
-			if ([shardComponent piecesSpawnAreaSize].height > 0)
-			{
-				randomPosition.y = topLeft.y + (rand() % (int)[shardComponent piecesSpawnAreaSize].height);
+				randomPosition = CGPointMake(boundingBox.l + rand() % (int)(boundingBox.r - boundingBox.l), boundingBox.b + rand() % (int)(boundingBox.t - boundingBox.b));
+				for (ChipmunkShape *shape in [physicsComponent shapes])
+				{
+					if ([shape pointQuery:randomPosition])
+					{
+						validPoint = TRUE;
+					}
+				}
 			}
 			[EntityUtil setEntityPosition:shardPieceEntity position:randomPosition];
 			

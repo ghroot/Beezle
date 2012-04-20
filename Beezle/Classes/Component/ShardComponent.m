@@ -14,8 +14,6 @@
 @synthesize piecesEntityType = _piecesEntityType;
 @synthesize piecesCount = _piecesCount;
 @synthesize piecesSpawnType = _piecesSpawnType;
-@synthesize piecesSpawnAreaOffset = _piecesSpawnAreaOffset;
-@synthesize piecesSpawnAreaSize = _piecesSpawnAreaSize;
 
 -(id) init
 {
@@ -49,14 +47,6 @@
             {
                 _piecesSpawnType = SHARD_PIECES_SPAWN_ANIMATE_AND_DELETE;
             }
-		}
-		if ([dict objectForKey:@"piecesSpawnAreaOffset"] != nil)
-		{
-			_piecesSpawnAreaOffset = [Utils stringToPoint:[dict objectForKey:@"piecesSpawnAreaOffset"]];
-		}
-		if ([dict objectForKey:@"piecesSpawnAreaSize"] != nil)
-		{
-			_piecesSpawnAreaSize = [Utils stringToSize:[dict objectForKey:@"piecesSpawnAreaSize"]];
 		}
 	}
 	return self;

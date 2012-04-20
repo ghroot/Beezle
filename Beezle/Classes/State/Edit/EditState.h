@@ -12,7 +12,6 @@
 @class BeeaterSystem;
 @class BeeQueueRenderingSystem;
 @class DebugRenderPhysicsSystem;
-@class DebugRenderShardPiecesSpawnAreaSystem;
 @class EditControlSystem;
 @class EditOptionsSystem;
 @class InputSystem;
@@ -36,7 +35,6 @@
 	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
 	BeeaterSystem *_beeaterAnimationSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
-	DebugRenderShardPiecesSpawnAreaSystem *_debugRenderShardPiecesSpawnAreaSystem;
 }
 
 @property (nonatomic, readonly) NSString *levelName;

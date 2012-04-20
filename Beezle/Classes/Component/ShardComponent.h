@@ -19,14 +19,10 @@ typedef enum
 	NSString *_piecesEntityType;
 	int _piecesCount;
     ShardPiecesSpawnType _piecesSpawnType;
-	CGPoint _piecesSpawnAreaOffset;
-	CGSize _piecesSpawnAreaSize;
 }
 
 @property (nonatomic, readonly) NSString *piecesEntityType;
 @property (nonatomic, readonly) int piecesCount;
 @property (nonatomic, readonly) ShardPiecesSpawnType piecesSpawnType;
-@property (nonatomic, readonly) CGPoint piecesSpawnAreaOffset;
-@property (nonatomic, readonly) CGSize piecesSpawnAreaSize;
 
 @end
