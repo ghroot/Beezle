@@ -162,10 +162,16 @@
     // Load next bee sprite (instant version)
     _beeLoadedRenderSprite = [[_beeQueueRenderSprites objectAtIndex:0] retain];
 	[_beeQueueRenderSprites removeObjectAtIndex:0];
+	
+	// Remove and add so it ends up on top
 	[_beeLoadedRenderSprite removeSpriteFromSpriteSheet];
 	[_beeLoadedRenderSprite addSpriteToSpriteSheet];
-	TransformComponent *slingerTransformComponent = (TransformComponent *)[slingerEntity getComponent:[TransformComponent class]];
-    [[_beeLoadedRenderSprite sprite] setPosition:[slingerTransformComponent position]];
+	
+	// Idle animation
+	SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
+	BeeType *beeType = [slingerComponent loadedBeeType];
+	NSString *animationName = [NSString stringWithFormat:@"%@-Idle", [beeType capitalizedString]];
+	[_beeLoadedRenderSprite playAnimationLoop:animationName];
 	
 	// Move queued sprites right
 	for (int i = 0; i < [_beeQueueRenderSprites count]; i++)
