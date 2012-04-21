@@ -46,18 +46,21 @@
 -(void) handleEntityDisposed:(NSNotification *)notification
 {
     Entity *entity = [[notification userInfo] objectForKey:@"entity"];
-    DisposableComponent *disposalComponent = [DisposableComponent getFrom:entity];
-    if ([disposalComponent deleteEntityWhenDisposed])
-    {
-        if ([[RenderComponent getFrom:entity] hasDefaultDestroyAnimation])
-        {
-            [EntityUtil animateAndDeleteEntity:entity];
-        }
-        else
-        {
-            [entity deleteEntity];
-        }
-    }
+	if ([EntityUtil isEntityDisposed:entity])
+	{
+		DisposableComponent *disposalComponent = [DisposableComponent getFrom:entity];
+		if ([disposalComponent deleteEntityWhenDisposed])
+		{
+			if ([[RenderComponent getFrom:entity] hasDefaultDestroyAnimation])
+			{
+				[EntityUtil animateAndDeleteEntity:entity];
+			}
+			else
+			{
+				[entity deleteEntity];
+			}
+		}
+	}
 }
 
 @end

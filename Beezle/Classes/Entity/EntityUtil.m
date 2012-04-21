@@ -96,6 +96,19 @@
     [self setEntityDisposed:entity sendNotification:TRUE];
 }
 
++(void) setEntityUndisposed:(Entity *)entity
+{
+	DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
+    if (disposableComponent == nil)
+    {
+        NSLog(@"WARNING: Trying to undispose an entity that is not disposable");
+    }
+	if ([disposableComponent isDisposed])
+	{
+		[disposableComponent setIsDisposed:FALSE];
+	}
+}
+
 +(void) destroyEntity:(Entity *)entity instant:(BOOL)instant
 {
 	if ([self isEntityDisposable:entity])

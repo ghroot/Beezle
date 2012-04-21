@@ -23,6 +23,7 @@
 #import "GateComponent.h"
 #import "GateOpeningSystem.h"
 #import "ShardSystem.h"
+#import "HealthSystem.h"
 #import "HUDRenderingSystem.h"
 #import "IngameMenuState.h"
 #import "InputSystem.h"
@@ -86,6 +87,7 @@
 @synthesize slingerControlSystem = _slingerControlSystem;
 @synthesize spawnSystem = _spawnSystem;
 @synthesize woodSystem = _woodSystem;
+@synthesize healthSystem = _healthSystem;
 @synthesize disposalSystem = _disposalSystem;
 
 +(id) stateWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession
@@ -195,6 +197,8 @@
 	[systemManager setSystem:_woodSystem];
 	_shakeSystem = [[ShakeSystem new] autorelease];
 	[systemManager setSystem:_shakeSystem];
+	_healthSystem = [[HealthSystem new] autorelease];
+	[systemManager setSystem:_healthSystem];
 	_disposalSystem = [[DisposalSystem new] autorelease];
 	[systemManager setSystem:_disposalSystem];
 	if (_debug)

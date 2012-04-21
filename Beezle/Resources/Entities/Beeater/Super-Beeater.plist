@@ -17,6 +17,11 @@
 			<key>deleteEntityWhenDisposed</key>
 			<true/>
 		</dict>
+		<key>health</key>
+		<dict>
+			<key>totalHealthPoints</key>
+			<integer>2</integer>
+		</dict>
 		<key>movement</key>
 		<dict/>
 		<key>physics</key>
@@ -123,6 +128,15 @@
 		</dict>
 		<key>shake</key>
 		<dict/>
+		<key>shard</key>
+		<dict>
+			<key>piecesEntityType</key>
+			<string>BEEATER-A-PC</string>
+			<key>piecesCount</key>
+			<integer>20</integer>
+            <key>piecesSpawnType</key>
+            <string>SHARD_PIECES_SPAWN_ANIMATE_AND_DELETE</string>
+		</dict>
 		<key>sound</key>
 		<dict>
 			<key>defaultDestroySound</key>

@@ -16,13 +16,14 @@
 #import "EdgeComponent.h"
 #import "ExplodeComponent.h"
 #import "GateComponent.h"
-#import "ShardComponent.h"
+#import "HealthComponent.h"
 #import "KeyComponent.h"
 #import "MovementComponent.h"
 #import "PhysicsComponent.h"
 #import "PollenComponent.h"
 #import "RenderComponent.h"
 #import "ShakeComponent.h"
+#import "ShardComponent.h"
 #import "SlingerComponent.h"
 #import "SoundComponent.h"
 #import "SpawnComponent.h"
@@ -81,6 +82,10 @@
 		else if ([componentType isEqualToString:@"gate"])
 		{
 			component = [GateComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+		else if ([componentType isEqualToString:@"health"])
+		{
+			component = [HealthComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"key"])
 		{

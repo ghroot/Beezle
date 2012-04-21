@@ -21,6 +21,7 @@
 @class DisposalSystem;
 @class GameRulesSystem;
 @class GateOpeningSystem;
+@class HealthSystem;
 @class HUDRenderingSystem;
 @class InputSystem;
 @class LevelSession;
@@ -64,6 +65,7 @@
 	SpawnSystem *_spawnSystem;
 	WoodSystem *_woodSystem;
 	ShakeSystem *_shakeSystem;
+	HealthSystem *_healthSystem;
 	DisposalSystem *_disposalSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
 	DebugNotificationTrackerSystem *_debugNotificationTrackerSystem;
@@ -91,6 +93,7 @@
 @property (nonatomic, readonly) SpawnSystem *spawnSystem;
 @property (nonatomic, readonly) WoodSystem *woodSystem;
 @property (nonatomic, readonly) ShakeSystem *shakeSystem;
+@property (nonatomic, readonly) HealthSystem *healthSystem;
 @property (nonatomic, readonly) DisposalSystem *disposalSystem;
 
 +(id) stateWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession;

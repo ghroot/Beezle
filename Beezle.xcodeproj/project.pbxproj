@@ -198,6 +198,8 @@
 		2C6A7083154219550042F5A1 /* Ramp-Pc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C6A7082154219540042F5A1 /* Ramp-Pc.plist */; };
 		2C6A70861542BA8E0042F5A1 /* ShakeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A70851542BA8E0042F5A1 /* ShakeComponent.m */; };
 		2C6A70891542BB0D0042F5A1 /* ShakeSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A70881542BB0C0042F5A1 /* ShakeSystem.m */; };
+		2C6A708C1542C5D90042F5A1 /* HealthComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A708B1542C5D80042F5A1 /* HealthComponent.m */; };
+		2C6A708F1542C7EE0042F5A1 /* HealthSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A708E1542C7ED0042F5A1 /* HealthSystem.m */; };
 		2C764DDA148A1F4000820587 /* GCpShapeCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DD9148A1F4000820587 /* GCpShapeCache.m */; };
 		2C764DDD148A1FF100820587 /* BodyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DDC148A1FF100820587 /* BodyInfo.m */; };
 		2C764E9D148A917300820587 /* 11097__a43__a43-blipp.aif in Resources */ = {isa = PBXBuildFile; fileRef = 2C764E9C148A917300820587 /* 11097__a43__a43-blipp.aif */; };
@@ -1230,6 +1232,10 @@
 		2C6A70851542BA8E0042F5A1 /* ShakeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShakeComponent.m; path = Classes/Component/ShakeComponent.m; sourceTree = "<group>"; };
 		2C6A70871542BB0C0042F5A1 /* ShakeSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShakeSystem.h; path = Classes/System/ShakeSystem.h; sourceTree = "<group>"; };
 		2C6A70881542BB0C0042F5A1 /* ShakeSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShakeSystem.m; path = Classes/System/ShakeSystem.m; sourceTree = "<group>"; };
+		2C6A708A1542C5D70042F5A1 /* HealthComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HealthComponent.h; path = Classes/Component/HealthComponent.h; sourceTree = "<group>"; };
+		2C6A708B1542C5D80042F5A1 /* HealthComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HealthComponent.m; path = Classes/Component/HealthComponent.m; sourceTree = "<group>"; };
+		2C6A708D1542C7EB0042F5A1 /* HealthSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HealthSystem.h; path = Classes/System/HealthSystem.h; sourceTree = "<group>"; };
+		2C6A708E1542C7ED0042F5A1 /* HealthSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HealthSystem.m; path = Classes/System/HealthSystem.m; sourceTree = "<group>"; };
 		2C764DD8148A1F4000820587 /* GCpShapeCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCpShapeCache.h; path = Classes/System/GCpShapeCache.h; sourceTree = "<group>"; };
 		2C764DD9148A1F4000820587 /* GCpShapeCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCpShapeCache.m; path = Classes/System/GCpShapeCache.m; sourceTree = "<group>"; };
 		2C764DDB148A1FF100820587 /* BodyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BodyInfo.h; path = Classes/System/BodyInfo.h; sourceTree = "<group>"; };
@@ -2622,6 +2628,8 @@
 				2C88E2CA14F6E23400496938 /* GateOpeningSystem.m */,
 				2C764DD8148A1F4000820587 /* GCpShapeCache.h */,
 				2C764DD9148A1F4000820587 /* GCpShapeCache.m */,
+				2C6A708D1542C7EB0042F5A1 /* HealthSystem.h */,
+				2C6A708E1542C7ED0042F5A1 /* HealthSystem.m */,
 				2C4DFC7514FEF17F00D49CF9 /* HUDRenderingSystem.h */,
 				2C4DFC7614FEF17F00D49CF9 /* HUDRenderingSystem.m */,
 				2CADCC6F1471C76400302475 /* InputAction.h */,
@@ -4104,6 +4112,8 @@
 				2C5EFCBE14EC603D0071ED39 /* ExplodeComponent.m */,
 				2CAB50E414F30E4A006EF1A4 /* GateComponent.h */,
 				2CAB50E514F30E4A006EF1A4 /* GateComponent.m */,
+				2C6A708A1542C5D70042F5A1 /* HealthComponent.h */,
+				2C6A708B1542C5D80042F5A1 /* HealthComponent.m */,
 				2CAB50DA14F2F8D3006EF1A4 /* KeyComponent.h */,
 				2CAB50DB14F2F8D3006EF1A4 /* KeyComponent.m */,
 				2CC3EBFB14D466460025F5DA /* MovementComponent.h */,
@@ -5203,6 +5213,8 @@
 				2C67F825154066BB00981FA3 /* StringList.m in Sources */,
 				2C6A70861542BA8E0042F5A1 /* ShakeComponent.m in Sources */,
 				2C6A70891542BB0D0042F5A1 /* ShakeSystem.m in Sources */,
+				2C6A708C1542C5D90042F5A1 /* HealthComponent.m in Sources */,
+				2C6A708F1542C7EE0042F5A1 /* HealthSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
