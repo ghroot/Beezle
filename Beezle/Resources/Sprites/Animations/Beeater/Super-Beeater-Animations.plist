@@ -4,6 +4,7 @@
 	<dict>
 		<key>animations</key>
 		<dict>
+			<!-- Idle -->
 			<key>Super-Beeater-Front-Idle</key>
 			<dict>
 				<key>frames</key>
@@ -74,6 +75,74 @@
 				<real>0.08</real>
 			</dict>
 			
+			<!-- Hit -->
+			<key>Super-Beeater-Front-Hit</key>
+			<dict>
+				<key>frames</key>
+				<array>
+					<string>Obsticles/Super Beeater/A-SB-Head-Front-Blue-1.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Head-Front-Blue-2.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Head-Front-Blue-3.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Head-Front-Blue-4.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Head-Front-Blue-5.png</string>
+				</array>
+				<key>delay</key>
+				<real>0.1</real>
+			</dict>
+			<key>Super-Beeater-Back-Hit</key>
+			<dict>
+				<key>frames</key>
+				<array>
+                    <string>Obsticles/Super Beeater/A-SB-Head-Back-1.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Head-Back-2.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Head-Back-3.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Head-Back-4.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Head-Back-5.png</string>
+				</array>
+				<key>delay</key>
+				<real>0.1</real>
+			</dict>
+			<key>Super-Beeater-Wing-Hit</key>
+			<dict>
+				<key>frames</key>
+				<array>
+                    <string>Obsticles/Super Beeater/A-SB-Wing-1.png</string>
+				</array>
+				<key>delay</key>
+				<real>0.5</real>
+			</dict>
+			<key>Super-Beeater-Tail-Hit</key>
+			<dict>
+				<key>frames</key>
+				<array>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-1.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-2.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-3.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-4.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-5.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-6.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-7.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-8.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-9.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-10.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-11.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-12.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-11.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-10.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-9.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-8.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-7.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-6.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-5.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-4.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-3.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-2.png</string>
+				</array>
+				<key>delay</key>
+				<real>0.04</real>
+			</dict>
+			
+			<!-- Destroy -->
 			<key>Super-Beeater-Front-Destroy</key>
 			<dict>
 				<key>frames</key>
@@ -84,7 +153,6 @@
                     <string>Obsticles/Super Beeater/A-SB-Head-Front-Blue-4.png</string>
 					<string>Obsticles/Super Beeater/A-SB-Head-Front-Blue-4.png</string>
                     <string>Obsticles/Super Beeater/A-SB-Head-Front-Blue-5.png</string>
-					<string>Obsticles/Super Beeater/A-SB-Head-Front-Blue-5.png</string>
 					<string>Obsticles/Super Beeater/A-SB-Head-Front-Blue-5.png</string>
 				</array>
 				<key>delay</key>
@@ -101,7 +169,6 @@
 					<string>Obsticles/Super Beeater/A-SB-Head-Back-4.png</string>
                     <string>Obsticles/Super Beeater/A-SB-Head-Back-5.png</string>
 					<string>Obsticles/Super Beeater/A-SB-Head-Back-5.png</string>
-					<string>Obsticles/Super Beeater/A-SB-Head-Back-5.png</string>
 				</array>
 				<key>delay</key>
 				<real>0.2</real>
@@ -113,16 +180,16 @@
                     <string>Obsticles/Super Beeater/A-SB-Wing-1.png</string>
 				</array>
 				<key>delay</key>
-				<real>1.6</real>
+				<real>1.4</real>
 			</dict>
 			<key>Super-Beeater-Tail-Destroy</key>
 			<dict>
 				<key>frames</key>
 				<array>
-                    <string>Obsticles/Super Beeater/A-SB-Tale-8.png</string>
+                    <string>Obsticles/Super Beeater/A-SB-Tale-1.png</string>
 				</array>
 				<key>delay</key>
-				<real>1.6</real>
+				<real>1.4</real>
 			</dict>
 		</dict>
 	</dict>

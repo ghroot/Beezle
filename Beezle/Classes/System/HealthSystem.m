@@ -12,6 +12,7 @@
 #import "EntityUtil.h"
 #import "NotificationProcessor.h"
 #import "NotificationTypes.h"
+#import "RenderComponent.h"
 
 @interface HealthSystem()
 
@@ -60,6 +61,9 @@
 		if ([healthComponent hasHealthPointsLeft])
 		{
 			[EntityUtil setEntityUndisposed:entity];
+			
+			// TODO: Change this to dispatch a notification and a system handles the animation instead
+			[[RenderComponent getFrom:entity] playDefaultHitAnimation];
 		}
 	}
 }

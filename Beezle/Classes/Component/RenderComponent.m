@@ -55,6 +55,7 @@
 			{
 				renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:[spriteDict objectForKey:@"spriteSheetName"] animationFile:[spriteDict objectForKey:@"animationFile"] z:z];
 				[[renderSprite defaultIdleAnimationNames] addStringsFromDictionary:spriteDict baseName:@"defaultIdleAnimation"];
+				[[renderSprite defaultHitAnimationNames] addStringsFromDictionary:spriteDict baseName:@"defaultHitAnimation"];
 				[[renderSprite defaultDestroyAnimationNames] addStringsFromDictionary:spriteDict baseName:@"defaultDestroyAnimation"];
 			}
 			else if ([spriteDict objectForKey:@"textureFile"] != nil)
@@ -212,6 +213,26 @@
 	for (RenderSprite *renderSprite in _renderSprites)
 	{
 		[renderSprite playDefaultDestroyAnimation];
+	}
+}
+
+-(BOOL) hasDefaultHitAnimation
+{
+	for (RenderSprite *renderSprite in _renderSprites)
+	{
+		if (![renderSprite hasDefaultHitAnimation])
+		{
+			return FALSE;
+		}
+	}
+	return TRUE;
+}
+
+-(void) playDefaultHitAnimation
+{
+	for (RenderSprite *renderSprite in _renderSprites)
+	{
+		[renderSprite playDefaultHitAnimation];
 	}
 }
 

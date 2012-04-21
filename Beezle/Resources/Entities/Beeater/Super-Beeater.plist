@@ -20,7 +20,7 @@
 		<key>health</key>
 		<dict>
 			<key>totalHealthPoints</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<key>movement</key>
 		<dict/>
@@ -73,6 +73,8 @@
 					<string>{ 0.2, 0.75 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>Super-Beeater-Tail-Idle</string>
+					<key>defaultHitAnimation</key>
+					<string>Super-Beeater-Tail-Hit</string>
 					<key>defaultDestroyAnimation</key>
 					<string>Super-Beeater-Tail-Destroy</string>
 				</dict>
@@ -89,6 +91,8 @@
 					<string>{ 0.5, 0.5 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>Super-Beeater-Back-Idle</string>
+					<key>defaultHitAnimation</key>
+					<string>Super-Beeater-Back-Hit</string>
 					<key>defaultDestroyAnimation</key>
 					<string>Super-Beeater-Back-Destroy</string>
 				</dict>
@@ -105,6 +109,8 @@
 					<string>{ 0.5, 0.5 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>Super-Beeater-Front-Idle</string>
+					<key>defaultHitAnimation</key>
+					<string>Super-Beeater-Front-Hit</string>
 					<key>defaultDestroyAnimation</key>
 					<string>Super-Beeater-Front-Destroy</string>
 				</dict>
@@ -121,6 +127,8 @@
 					<string>{ 0.5, 0.5 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>Super-Beeater-Wing-Idle</string>
+					<key>defaultHitAnimation</key>
+					<string>Super-Beeater-Wing-Hit</string>
 					<key>defaultDestroyAnimation</key>
 					<string>Super-Beeater-Wing-Destroy</string>
 				</dict>
@@ -133,7 +141,7 @@
 			<key>piecesEntityType</key>
 			<string>BEEATER-A-PC</string>
 			<key>piecesCount</key>
-			<integer>20</integer>
+			<integer>15</integer>
             <key>piecesSpawnType</key>
             <string>SHARD_PIECES_SPAWN_ANIMATE_AND_DELETE</string>
 		</dict>

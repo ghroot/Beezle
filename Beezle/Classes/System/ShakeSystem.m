@@ -13,8 +13,8 @@
 #import "RenderSprite.h"
 #import "ShakeComponent.h"
 
-#define NUMBER_OF_SHAKES 26
-#define SHAKE_MAX_DISTANCE 10
+#define NUMBER_OF_SHAKES 15
+#define SHAKE_MAX_DISTANCE 8
 #define DELAY_BETWEEN_SHAKES 0.05f
 
 @interface ShakeSystem()

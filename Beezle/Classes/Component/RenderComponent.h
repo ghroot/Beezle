@@ -30,5 +30,7 @@
 -(BOOL) hasDefaultDestroyAnimation;
 -(void) playDefaultDestroyAnimationAndCallBlockAtEnd:(void(^)())block;
 -(void) playDefaultDestroyAnimation;
+-(BOOL) hasDefaultHitAnimation;
+-(void) playDefaultHitAnimation;
 
 @end

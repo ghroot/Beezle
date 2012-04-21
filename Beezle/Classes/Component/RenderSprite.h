@@ -19,6 +19,7 @@
     CGPoint _scale;
 	CGPoint _offset;
 	StringList *_defaultIdleAnimationNames;
+	StringList *_defaultHitAnimationNames;
     StringList *_defaultDestroyAnimationNames;
 }
 
@@ -27,6 +28,7 @@
 @property (nonatomic) CGPoint scale;
 @property (nonatomic) CGPoint offset;
 @property (nonatomic, readonly) StringList *defaultIdleAnimationNames;
+@property (nonatomic, readonly) StringList *defaultHitAnimationNames;
 @property (nonatomic, readonly) StringList *defaultDestroyAnimationNames;
 
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z;
@@ -50,6 +52,9 @@
 -(NSString *) randomDefaultDestroyAnimationName;
 -(void) playDefaultDestroyAnimation;
 -(void) playDefaultDestroyAnimationAndCallBlockAtEnd:(void(^)())block;
+-(BOOL) hasDefaultHitAnimation;
+-(NSString *) randomDefaultHitAnimationName;
+-(void) playDefaultHitAnimation;
 
 -(void) hide;
 -(void) show;
