@@ -20,6 +20,7 @@
 +(void) setEntityUndisposed:(Entity *)entity;
 +(void) destroyEntity:(Entity *)entity instant:(BOOL)instant;
 +(void) destroyEntity:(Entity *)entity;
++(void) disablePhysics:(Entity *)entity;
 +(Entity *) getWaterEntity:(World *)world;
 +(BOOL) hasWaterEntity:(World *)world;
 +(void) animateAndDeleteEntity:(Entity *)entity animationName:(NSString *)animationName disablePhysics:(BOOL)disablePhysics;

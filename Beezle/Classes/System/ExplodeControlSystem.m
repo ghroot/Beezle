@@ -24,7 +24,6 @@
 
 -(BOOL) doesExplodedEntity:(Entity *)explodedEntity intersectCrumbleEntity:(Entity *)crumbleEntity;
 -(void) startExplode:(Entity *)entity;
--(void) markAsReadyToExplode:(Entity *)entity;
 -(void) endExplode:(Entity *)entity;
 
 @end
@@ -88,22 +87,24 @@
 	RenderComponent *renderComponent = [RenderComponent getFrom:entity];
 	RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];
 	[defaultRenderSprite playAnimationOnce:[explodeComponent explodeStartAnimationName] andCallBlockAtEnd:^{
-		[self markAsReadyToExplode:entity];
+		[explodeComponent setExplosionState:WAITING_FOR_EXPLOSION];
 	}];
-}
-
--(void) markAsReadyToExplode:(Entity *)entity
-{
-    ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
-    [explodeComponent setExplosionState:WAITING_FOR_EXPLOSION];
 }
 
 -(void) endExplode:(Entity *)entity
 {
-    ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
-    [explodeComponent setExplosionState:EXPLODED];
-    
-    [EntityUtil destroyEntity:entity];
+	ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
+    [explodeComponent setExplosionState:ANIMATING_END_EXPLOSION];
+	
+	RenderComponent *renderComponent = [RenderComponent getFrom:entity];
+	RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];
+	[defaultRenderSprite playAnimationOnce:[explodeComponent explodeEndAnimationName] andCallBlockAtEnd:^{
+		[EntityUtil destroyEntity:entity instant:TRUE];
+		[explodeComponent setExplosionState:EXPLODED];
+	}];
+	
+	[EntityUtil disablePhysics:entity];
+	
     [[SoundManager sharedManager] playSound:@"BombeeBoom"];
     
     for (Entity *otherEntity in [[_world entityManager] entities])

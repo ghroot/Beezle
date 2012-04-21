@@ -145,6 +145,12 @@
 	[self destroyEntity:entity instant:FALSE];
 }
 
++(void) disablePhysics:(Entity *)entity
+{
+	[[PhysicsComponent getFrom:entity] disable];
+	[entity refresh];
+}
+
 +(Entity *) getWaterEntity:(World *)world
 {
     for (Entity *entity in [[world entityManager] entities])
@@ -171,8 +177,7 @@
 	}];
 	if (disablePhysics)
 	{
-		[[PhysicsComponent getFrom:entity] disable];
-		[entity refresh];
+		[self disablePhysics:entity];
 	}
 }
 
@@ -189,8 +194,7 @@
 	}];
 	if (disablePhysics)
 	{
-		[[PhysicsComponent getFrom:entity] disable];
-		[entity refresh];
+		[self disablePhysics:entity];
 	}
 }
 
