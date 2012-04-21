@@ -12,6 +12,7 @@
 
 @synthesize deleteEntityWhenDisposed = _deleteEntityWhenDisposed;
 @synthesize isDisposed = _isDisposed;
+@synthesize isAboutToBeDeleted = _isAboutToBeDeleted;
 
 -(id) init
 {

@@ -12,9 +12,11 @@
 {
 	BOOL _deleteEntityWhenDisposed;
     BOOL _isDisposed;
+	BOOL _isAboutToBeDeleted;
 }
 
 @property (nonatomic) BOOL deleteEntityWhenDisposed;
 @property (nonatomic) BOOL isDisposed;
+@property (nonatomic) BOOL isAboutToBeDeleted;
 
 @end

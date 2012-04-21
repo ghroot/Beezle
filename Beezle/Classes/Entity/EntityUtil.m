@@ -175,6 +175,10 @@
 	[defaultRenderSprite playAnimationOnce:animationName andCallBlockAtEnd:^{
 		[entity deleteEntity];
 	}];
+	if ([self isEntityDisposable:entity])
+	{
+		[[DisposableComponent getFrom:entity] setIsAboutToBeDeleted:TRUE];
+	}
 	if (disablePhysics)
 	{
 		[self disablePhysics:entity];
@@ -192,6 +196,10 @@
 	[renderComponent playDefaultDestroyAnimationAndCallBlockAtEnd:^{
 		[entity deleteEntity];
 	}];
+	if ([self isEntityDisposable:entity])
+	{
+		[[DisposableComponent getFrom:entity] setIsAboutToBeDeleted:TRUE];
+	}
 	if (disablePhysics)
 	{
 		[self disablePhysics:entity];
@@ -208,14 +216,24 @@
 	RenderComponent *renderComponent = [RenderComponent getFrom:entity];
 	for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
-		NSMutableArray *actions = [[NSMutableArray alloc] initWithObjects:[CCFadeOut actionWithDuration:duration], nil];
-		if (renderSprite == [[renderComponent renderSprites] objectAtIndex:0])
+		NSMutableArray *actions = [NSMutableArray array];
+		
+		CCFadeOut *fadeOutAction = [CCFadeOut actionWithDuration:duration];
+		[actions addObject:fadeOutAction];
+		
+		if (renderSprite == [[renderComponent renderSprites] lastObject])
 		{
-			// Let the first render sprite take care of the entity deletion at the end of the fadeout
-			[actions addObject:[CCCallFunc actionWithTarget:entity selector:@selector(deleteEntity)]];
+			CCCallBlock *callBlockAction = [CCCallBlock actionWithBlock:^{
+				[entity deleteEntity];
+			}];
+			[actions addObject:callBlockAction];
 		}
+		
 		[[renderSprite sprite] runAction:[CCSequence actionsWithArray:actions]];
-		[actions release];
+	}
+	if ([self isEntityDisposable:entity])
+	{
+		[[DisposableComponent getFrom:entity] setIsAboutToBeDeleted:TRUE];
 	}
 }
 
