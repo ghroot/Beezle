@@ -56,6 +56,23 @@
 	
 	BOOL continueProcessingCollision = TRUE;
 	
+	// Edge
+    if ([secondEntity hasComponent:[EdgeComponent class]])
+    {
+        [EntityUtil destroyEntity:firstEntity instant:TRUE];
+    }
+    if ([firstEntity hasComponent:[EdgeComponent class]])
+    {
+        [EntityUtil destroyEntity:secondEntity instant:TRUE];
+    }
+	
+	// TEMP: Return here if not collision with bee.
+	if (![firstEntity hasComponent:[BeeComponent class]] &&
+		![secondEntity hasComponent:[BeeComponent class]])
+	{
+		return continueProcessingCollision;
+	}
+	
 	// Collision
 	if ([firstEntity hasComponent:[CollisionComponent class]])
 	{
@@ -93,16 +110,6 @@
 			[EntityUtil destroyEntity:firstEntity];
 		}
 	}
-    
-    // Edge
-    if ([secondEntity hasComponent:[EdgeComponent class]])
-    {
-        [EntityUtil destroyEntity:firstEntity instant:TRUE];
-    }
-    if ([firstEntity hasComponent:[EdgeComponent class]])
-    {
-        [EntityUtil destroyEntity:secondEntity instant:TRUE];
-    }
 	
     // Dozer / Crumble
 	if ([firstEntity hasComponent:[DozerComponent class]] &&
