@@ -32,8 +32,9 @@
 -(id) initWithBody:(ChipmunkBody *)body andShape:(ChipmunkShape *)shape;
 -(BOOL) isRougeBody;
 -(void) addShape:(ChipmunkShape *)shape;
--(ChipmunkShape *) firstPhysicsShape;
+-(void) setLayers:(cpLayers)layers;
 -(void) setPositionManually:(CGPoint)position;
 -(void) setRotationManually:(float)rotation;
+-(cpBB) boundingBox;
 
 @end

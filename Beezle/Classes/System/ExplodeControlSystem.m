@@ -75,14 +75,9 @@
 	cpBB explosionBB = cpBBNew(left, bottom, right, top);
 	
 	PhysicsComponent *crumblePhysicsComponent = [PhysicsComponent getFrom:crumbleEntity];	
-	cpBB otherBB = [[crumblePhysicsComponent firstPhysicsShape] bb];
-	for (int i = 1; i < [[crumblePhysicsComponent shapes] count]; i++)
-	{
-		cpBB shapeBB = [[[crumblePhysicsComponent shapes] objectAtIndex:i] bb];
-		otherBB = cpBBMerge(otherBB, shapeBB);
-	}
+	cpBB crumbleBB = [crumblePhysicsComponent boundingBox];
 	
-	return cpBBIntersects(explosionBB, otherBB);
+	return cpBBIntersects(explosionBB, crumbleBB);
 }
 
 -(void) startExplode:(Entity *)entity

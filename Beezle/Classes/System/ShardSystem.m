@@ -24,6 +24,7 @@
 @interface ShardSystem()
 
 -(void) handleEntityDisposed:(NSNotification *)notification;
+-(CGPoint) getRandomPositionWithinShapes:(NSArray *)shapes boundingBox:(cpBB)boundingBox;
 
 @end
 
@@ -59,11 +60,7 @@
 		ShardComponent *shardComponent = [ShardComponent getFrom:entity];
 		PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];	
 		
-		cpBB boundingBox = [[physicsComponent firstPhysicsShape] bb];
-		for (ChipmunkShape *shape in [physicsComponent shapes])
-		{
-			boundingBox = cpBBMerge(boundingBox, [shape bb]);
-		}
+		cpBB boundingBox = [physicsComponent boundingBox];
 		
 		for (int i = 0; i < [shardComponent piecesCount]; i++)
 		{
@@ -71,19 +68,7 @@
 			Entity *shardPieceEntity = [EntityFactory createEntity:[shardComponent piecesEntityType] world:_world];
 			
 			// Position
-			CGPoint randomPosition;
-			BOOL validPoint = FALSE;
-			while (!validPoint)
-			{
-				randomPosition = CGPointMake(boundingBox.l + rand() % (int)(boundingBox.r - boundingBox.l), boundingBox.b + rand() % (int)(boundingBox.t - boundingBox.b));
-				for (ChipmunkShape *shape in [physicsComponent shapes])
-				{
-					if ([shape pointQuery:randomPosition])
-					{
-						validPoint = TRUE;
-					}
-				}
-			}
+			CGPoint randomPosition = [self getRandomPositionWithinShapes:[physicsComponent shapes] boundingBox:boundingBox];
 			[EntityUtil setEntityPosition:shardPieceEntity position:randomPosition];
 			
 			// Velocity
@@ -107,6 +92,24 @@
             }
 		}
 	}
+}
+
+-(CGPoint) getRandomPositionWithinShapes:(NSArray *)shapes boundingBox:(cpBB)boundingBox
+{
+	CGPoint randomPosition;
+	BOOL validPoint = FALSE;
+	while (!validPoint)
+	{
+		randomPosition = CGPointMake(boundingBox.l + rand() % (int)(boundingBox.r - boundingBox.l), boundingBox.b + rand() % (int)(boundingBox.t - boundingBox.b));
+		for (ChipmunkShape *shape in shapes)
+		{
+			if ([shape pointQuery:randomPosition])
+			{
+				validPoint = TRUE;
+			}
+		}
+	}
+	return randomPosition;
 }
 
 @end

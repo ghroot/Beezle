@@ -257,7 +257,7 @@
 	EntityDescription *beeEntityDescription = [self getEntityDescription:[beeType capitalizedString]];
 	NSDictionary *beePhysicsDict = [[beeEntityDescription componentsDict] objectForKey:@"physics"];
 	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithContentsOfDictionary:beePhysicsDict world:world];
-	[[physicsComponent firstPhysicsShape] setLayers:AIM_POLLEN_LAYERS];
+	[physicsComponent setLayers:AIM_POLLEN_LAYERS];
 	[[physicsComponent body] setVel:velocity];
 	[aimPollenEntity addComponent:physicsComponent];
 	

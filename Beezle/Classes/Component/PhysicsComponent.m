@@ -201,9 +201,12 @@
 	[_shapes addObject:shape];
 }
 
--(ChipmunkShape *) firstPhysicsShape
+-(void) setLayers:(cpLayers)layers
 {
-    return [_shapes objectAtIndex:0];
+	for (ChipmunkShape *shape in _shapes)
+	{
+		[shape setLayers:layers];
+	}
 }
 
 -(void) setPositionManually:(CGPoint)position
@@ -215,6 +218,16 @@
 -(void) setRotationManually:(float)rotation
 {
 	[_body setAngle:CC_DEGREES_TO_RADIANS(-rotation)];
+}
+
+-(cpBB) boundingBox
+{
+	cpBB boundingBox = [[_shapes objectAtIndex:0] bb];
+	for (ChipmunkShape *shape in _shapes)
+	{
+		boundingBox = cpBBMerge(boundingBox, [shape bb]);
+	}
+	return boundingBox;
 }
 
 @end
