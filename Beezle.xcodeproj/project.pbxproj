@@ -196,6 +196,8 @@
 		2C67F825154066BB00981FA3 /* StringList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C67F824154066BB00981FA3 /* StringList.m */; };
 		2C6A7078153F6F9C0042F5A1 /* EdgeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A7077153F6F9C0042F5A1 /* EdgeComponent.m */; };
 		2C6A7083154219550042F5A1 /* Ramp-Pc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C6A7082154219540042F5A1 /* Ramp-Pc.plist */; };
+		2C6A70861542BA8E0042F5A1 /* ShakeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A70851542BA8E0042F5A1 /* ShakeComponent.m */; };
+		2C6A70891542BB0D0042F5A1 /* ShakeSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A70881542BB0C0042F5A1 /* ShakeSystem.m */; };
 		2C764DDA148A1F4000820587 /* GCpShapeCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DD9148A1F4000820587 /* GCpShapeCache.m */; };
 		2C764DDD148A1FF100820587 /* BodyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C764DDC148A1FF100820587 /* BodyInfo.m */; };
 		2C764E9D148A917300820587 /* 11097__a43__a43-blipp.aif in Resources */ = {isa = PBXBuildFile; fileRef = 2C764E9C148A917300820587 /* 11097__a43__a43-blipp.aif */; };
@@ -1224,6 +1226,10 @@
 		2C6A7076153F6F9C0042F5A1 /* EdgeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EdgeComponent.h; path = Classes/Component/EdgeComponent.h; sourceTree = "<group>"; };
 		2C6A7077153F6F9C0042F5A1 /* EdgeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EdgeComponent.m; path = Classes/Component/EdgeComponent.m; sourceTree = "<group>"; };
 		2C6A7082154219540042F5A1 /* Ramp-Pc.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ramp-Pc.plist"; sourceTree = "<group>"; };
+		2C6A70841542BA8D0042F5A1 /* ShakeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShakeComponent.h; path = Classes/Component/ShakeComponent.h; sourceTree = "<group>"; };
+		2C6A70851542BA8E0042F5A1 /* ShakeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShakeComponent.m; path = Classes/Component/ShakeComponent.m; sourceTree = "<group>"; };
+		2C6A70871542BB0C0042F5A1 /* ShakeSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShakeSystem.h; path = Classes/System/ShakeSystem.h; sourceTree = "<group>"; };
+		2C6A70881542BB0C0042F5A1 /* ShakeSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShakeSystem.m; path = Classes/System/ShakeSystem.m; sourceTree = "<group>"; };
 		2C764DD8148A1F4000820587 /* GCpShapeCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCpShapeCache.h; path = Classes/System/GCpShapeCache.h; sourceTree = "<group>"; };
 		2C764DD9148A1F4000820587 /* GCpShapeCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCpShapeCache.m; path = Classes/System/GCpShapeCache.m; sourceTree = "<group>"; };
 		2C764DDB148A1FF100820587 /* BodyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BodyInfo.h; path = Classes/System/BodyInfo.h; sourceTree = "<group>"; };
@@ -2630,6 +2636,8 @@
 				2C7CE5F91469D092001F331F /* PhysicsSystem.m */,
 				2C7CE5F51469AD06001F331F /* RenderSystem.h */,
 				2C7CE5F61469AD06001F331F /* RenderSystem.m */,
+				2C6A70871542BB0C0042F5A1 /* ShakeSystem.h */,
+				2C6A70881542BB0C0042F5A1 /* ShakeSystem.m */,
 				2CEB9D7614EDC0A600CAC505 /* ShardSystem.h */,
 				2CEB9D7714EDC0A600CAC505 /* ShardSystem.m */,
 				2C7CE620146FD66F001F331F /* SlingerControlSystem.h */,
@@ -4108,6 +4116,8 @@
 				2CEA352D1466B2B5000FF575 /* RenderComponent.m */,
 				2C827D3614840C4600517C8F /* RenderSprite.h */,
 				2C827D3714840C4700517C8F /* RenderSprite.m */,
+				2C6A70841542BA8D0042F5A1 /* ShakeComponent.h */,
+				2C6A70851542BA8E0042F5A1 /* ShakeComponent.m */,
 				2CEB9D7914EDC1BA00CAC505 /* ShardComponent.h */,
 				2CEB9D7A14EDC1BA00CAC505 /* ShardComponent.m */,
 				2C1147E4148D4291002E4DBD /* SlingerComponent.h */,
@@ -5191,6 +5201,8 @@
 				2CFD4811153EDC0500203291 /* WaterComponent.m in Sources */,
 				2C6A7078153F6F9C0042F5A1 /* EdgeComponent.m in Sources */,
 				2C67F825154066BB00981FA3 /* StringList.m in Sources */,
+				2C6A70861542BA8E0042F5A1 /* ShakeComponent.m in Sources */,
+				2C6A70891542BB0D0042F5A1 /* ShakeSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

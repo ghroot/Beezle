@@ -17,6 +17,7 @@
 	int _z;
     NSString *_name;
     CGPoint _scale;
+	CGPoint _offset;
 	StringList *_defaultIdleAnimationNames;
     StringList *_defaultDestroyAnimationNames;
 }
@@ -24,6 +25,7 @@
 @property (nonatomic, readonly, retain) CCSprite *sprite;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic) CGPoint scale;
+@property (nonatomic) CGPoint offset;
 @property (nonatomic, readonly) StringList *defaultIdleAnimationNames;
 @property (nonatomic, readonly) StringList *defaultDestroyAnimationNames;
 

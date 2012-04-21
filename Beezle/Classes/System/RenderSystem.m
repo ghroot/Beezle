@@ -110,7 +110,10 @@
 	
     for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
-		[[renderSprite sprite] setPosition:[transformComponent position]];
+		CGPoint newPosition;
+		newPosition.x = [transformComponent position].x + [renderSprite offset].x;
+		newPosition.y = [transformComponent position].y + [renderSprite offset].y;
+		[[renderSprite sprite] setPosition:newPosition];
 		[[renderSprite sprite] setRotation:[transformComponent rotation]];
         [[renderSprite sprite] setScaleX:([transformComponent scale].x * [renderSprite scale].x)];
         [[renderSprite sprite] setScaleY:([transformComponent scale].y * [renderSprite scale].y)];

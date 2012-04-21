@@ -40,6 +40,7 @@
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "RenderSystem.h"
+#import "ShakeSystem.h"
 #import "ShootingMode.h"
 #import "SlingerComponent.h"
 #import "SlingerControlSystem.h"
@@ -80,6 +81,7 @@
 @synthesize physicsSystem = _physicsSystem;
 @synthesize movementSystem = _movementSystem;
 @synthesize renderSystem = _renderSystem;
+@synthesize shakeSystem = _shakeSystem;
 @synthesize shardSystem = _shardSystem;
 @synthesize slingerControlSystem = _slingerControlSystem;
 @synthesize spawnSystem = _spawnSystem;
@@ -191,6 +193,8 @@
 	[systemManager setSystem:_spawnSystem];
 	_woodSystem = [[WoodSystem new] autorelease];
 	[systemManager setSystem:_woodSystem];
+	_shakeSystem = [[ShakeSystem new] autorelease];
+	[systemManager setSystem:_shakeSystem];
 	_disposalSystem = [[DisposalSystem new] autorelease];
 	[systemManager setSystem:_disposalSystem];
 	if (_debug)

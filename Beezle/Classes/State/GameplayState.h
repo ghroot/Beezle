@@ -27,6 +27,7 @@
 @class MovementSystem;
 @class PhysicsSystem;
 @class RenderSystem;
+@class ShakeSystem;
 @class ShardSystem;
 @class SlingerControlSystem;
 @class SpawnSystem;
@@ -62,6 +63,7 @@
     SlingerControlSystem *_slingerControlSystem;
 	SpawnSystem *_spawnSystem;
 	WoodSystem *_woodSystem;
+	ShakeSystem *_shakeSystem;
 	DisposalSystem *_disposalSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
 	DebugNotificationTrackerSystem *_debugNotificationTrackerSystem;
@@ -88,6 +90,7 @@
 @property (nonatomic, readonly) SlingerControlSystem *slingerControlSystem;
 @property (nonatomic, readonly) SpawnSystem *spawnSystem;
 @property (nonatomic, readonly) WoodSystem *woodSystem;
+@property (nonatomic, readonly) ShakeSystem *shakeSystem;
 @property (nonatomic, readonly) DisposalSystem *disposalSystem;
 
 +(id) stateWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession;

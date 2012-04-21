@@ -31,6 +31,7 @@
 		[_systems addObject:[gameplayState shardSystem]];
 		[_systems addObject:[gameplayState woodSystem]];
 		[_systems addObject:[gameplayState spawnSystem]];
+		[_systems addObject:[gameplayState shakeSystem]];
 		[_systems addObject:[gameplayState disposalSystem]];
 		[_systems addObject:[gameplayState gameRulesSystem]];
 	}

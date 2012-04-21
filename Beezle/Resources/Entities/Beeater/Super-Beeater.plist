@@ -13,7 +13,10 @@
 		<key>crumble</key>
 		<dict/>
 		<key>disposable</key>
-		<dict/>
+		<dict>
+			<key>deleteEntityWhenDisposed</key>
+			<true/>
+		</dict>
 		<key>movement</key>
 		<dict/>
 		<key>physics</key>
@@ -30,10 +33,10 @@
 					<string>poly</string>
 					<key>vertices</key>
 					<array>
-						<string>{ -15, -15 }</string>
-						<string>{ -15, 15 }</string>
-						<string>{ 15, 15 }</string>
-						<string>{ 15, -15 }</string>
+						<string>{ -80, -40 }</string>
+						<string>{ -80, 40 }</string>
+						<string>{ 20, 40 }</string>
+						<string>{ 20, -40 }</string>
 					</array>
 					<key>elasticity</key>
 					<real>0.8</real>
@@ -60,11 +63,13 @@
 					<key>animationFile</key>
 					<string>Super-Beeater-Animations.plist</string>
 					<key>z</key>
-					<integer>3</integer>
+					<integer>1</integer>
 					<key>anchorPoint</key>
 					<string>{ 0.2, 0.75 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>Super-Beeater-Tail-Idle</string>
+					<key>defaultDestroyAnimation</key>
+					<string>Super-Beeater-Tail-Destroy</string>
 				</dict>
                 <dict>
 					<key>name</key>
@@ -74,11 +79,13 @@
 					<key>animationFile</key>
 					<string>Super-Beeater-Animations.plist</string>
 					<key>z</key>
-					<integer>3</integer>
+					<integer>1</integer>
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.5 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>Super-Beeater-Back-Idle</string>
+					<key>defaultDestroyAnimation</key>
+					<string>Super-Beeater-Back-Destroy</string>
 				</dict>
 				<dict>
 					<key>name</key>
@@ -88,11 +95,13 @@
 					<key>animationFile</key>
 					<string>Super-Beeater-Animations.plist</string>
 					<key>z</key>
-					<integer>3</integer>
+					<integer>1</integer>
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.5 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>Super-Beeater-Front-Idle</string>
+					<key>defaultDestroyAnimation</key>
+					<string>Super-Beeater-Front-Destroy</string>
 				</dict>
                 <dict>
 					<key>name</key>
@@ -102,15 +111,18 @@
 					<key>animationFile</key>
 					<string>Super-Beeater-Animations.plist</string>
 					<key>z</key>
-					<integer>3</integer>
+					<integer>1</integer>
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.5 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>Super-Beeater-Wing-Idle</string>
+					<key>defaultDestroyAnimation</key>
+					<string>Super-Beeater-Wing-Destroy</string>
 				</dict>
-
 			</array>
 		</dict>
+		<key>shake</key>
+		<dict/>
 		<key>sound</key>
 		<dict>
 			<key>defaultDestroySound</key>

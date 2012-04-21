@@ -15,6 +15,7 @@
 @synthesize sprite = _sprite;
 @synthesize name = _name;
 @synthesize scale = _scale;
+@synthesize offset = _offset;
 @synthesize defaultIdleAnimationNames = _defaultIdleAnimationNames;
 @synthesize defaultDestroyAnimationNames = _defaultDestroyAnimationNames;
 
@@ -38,6 +39,7 @@
 		_z = z;
         _name = @"default";
         _scale = CGPointMake(1.0f, 1.0f);
+		_offset = CGPointZero;
 		_defaultIdleAnimationNames = [StringList new];
 		_defaultDestroyAnimationNames = [StringList new];
     }

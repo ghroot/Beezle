@@ -22,6 +22,7 @@
 #import "PhysicsComponent.h"
 #import "PollenComponent.h"
 #import "RenderComponent.h"
+#import "ShakeComponent.h"
 #import "SlingerComponent.h"
 #import "SoundComponent.h"
 #import "SpawnComponent.h"
@@ -100,6 +101,10 @@
 		else if ([componentType isEqualToString:@"render"])
 		{
 			component = [RenderComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+		else if ([componentType isEqualToString:@"shake"])
+		{
+			component = [ShakeComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"shard"])
 		{
