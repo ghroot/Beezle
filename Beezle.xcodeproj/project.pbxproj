@@ -49,7 +49,6 @@
 		2C333E46150204800023303E /* LoadingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C333E45150204800023303E /* LoadingState.m */; };
 		2C3A6F931489809F002721E3 /* BeeExpiratonSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F921489809F002721E3 /* BeeExpiratonSystem.m */; };
 		2C3A6F96148980AF002721E3 /* BeeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A6F95148980AF002721E3 /* BeeComponent.m */; };
-		2C3B0E5414A91E4D008949B0 /* EmailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B0E5314A91E4D008949B0 /* EmailInfo.m */; };
 		2C3BA3DE14B1DBBA007B1660 /* LevelOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BA3DD14B1DBBA007B1660 /* LevelOrganizer.m */; };
 		2C462BD215419632000DA559 /* Super-Beeater.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C462BD115419632000DA559 /* Super-Beeater.plist */; };
 		2C462BD515419796000DA559 /* Super-Beeater-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C462BD415419796000DA559 /* Super-Beeater-Animations.plist */; };
@@ -228,7 +227,6 @@
 		2C7DAC5914F450C5006CE0BA /* A-Level-Music1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC5814F450C5006CE0BA /* A-Level-Music1.m4a */; };
 		2C7DAC5B14F455D5006CE0BA /* CaveDoorOpens.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC5A14F455D5006CE0BA /* CaveDoorOpens.m4a */; };
 		2C827D3814840C4900517C8F /* RenderSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C827D3714840C4700517C8F /* RenderSprite.m */; };
-		2C853D6314B4D7C600C90C55 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C853D6214B4D7C600C90C55 /* SoundManager.m */; };
 		2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B83B149563ED005D7BAB /* DisposableComponent.m */; };
 		2C85D7211517F9C6001F4933 /* CoverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85D71A1517F9C6001F4933 /* CoverLayer.m */; };
 		2C85D7221517F9C6001F4933 /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85D71C1517F9C6001F4933 /* Dialog.m */; };
@@ -830,7 +828,6 @@
 		2CE348BE14DF070A00FEB492 /* EntityDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348BD14DF070A00FEB492 /* EntityDescription.m */; };
 		2CE348C114DF071800FEB492 /* EntityDescriptionLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348C014DF071800FEB492 /* EntityDescriptionLoader.m */; };
 		2CE348C414DF072700FEB492 /* EntityDescriptionCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348C314DF072700FEB492 /* EntityDescriptionCache.m */; };
-		2CE348CA14DF0BF900FEB492 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE348C914DF0BF800FEB492 /* Utils.m */; };
 		2CE4F5A9153CC8A80023B5C6 /* Aim-Pollen.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F536153CC8A80023B5C6 /* Aim-Pollen.plist */; };
 		2CE4F5AA153CC8A80023B5C6 /* Bee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F538153CC8A80023B5C6 /* Bee.plist */; };
 		2CE4F5AB153CC8A80023B5C6 /* Bombee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F539153CC8A80023B5C6 /* Bombee.plist */; };
@@ -976,6 +973,9 @@
 		2CEEEDDD150231B10096DCA1 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEEDDC150231B10096DCA1 /* Loading.png */; };
 		2CFA8AE515115591003871F8 /* LevelSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA8AE415115591003871F8 /* LevelSelectMenuItem.m */; };
 		2CFD4811153EDC0500203291 /* WaterComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD4810153EDC0500203291 /* WaterComponent.m */; };
+		2CFFFC00154349A1001D9307 /* EmailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFFFBFB154349A1001D9307 /* EmailInfo.m */; };
+		2CFFFC01154349A1001D9307 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFFFBFD154349A1001D9307 /* SoundManager.m */; };
+		2CFFFC02154349A1001D9307 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFFFBFF154349A1001D9307 /* Utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1065,8 +1065,6 @@
 		2C3A6F921489809F002721E3 /* BeeExpiratonSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeExpiratonSystem.m; path = Classes/System/BeeExpiratonSystem.m; sourceTree = "<group>"; };
 		2C3A6F94148980AF002721E3 /* BeeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeComponent.h; path = Classes/Component/BeeComponent.h; sourceTree = "<group>"; };
 		2C3A6F95148980AF002721E3 /* BeeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeeComponent.m; path = Classes/Component/BeeComponent.m; sourceTree = "<group>"; };
-		2C3B0E5214A91E4D008949B0 /* EmailInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmailInfo.h; path = Classes/EmailInfo.h; sourceTree = "<group>"; };
-		2C3B0E5314A91E4D008949B0 /* EmailInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmailInfo.m; path = Classes/EmailInfo.m; sourceTree = "<group>"; };
 		2C3BA3DC14B1DBB9007B1660 /* LevelOrganizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelOrganizer.h; sourceTree = "<group>"; };
 		2C3BA3DD14B1DBBA007B1660 /* LevelOrganizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelOrganizer.m; sourceTree = "<group>"; };
 		2C462BD115419632000DA559 /* Super-Beeater.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Super-Beeater.plist"; sourceTree = "<group>"; };
@@ -1271,8 +1269,6 @@
 		2C7DAC5A14F455D5006CE0BA /* CaveDoorOpens.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaveDoorOpens.m4a; sourceTree = "<group>"; };
 		2C827D3614840C4600517C8F /* RenderSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderSprite.h; path = Classes/Component/RenderSprite.h; sourceTree = "<group>"; };
 		2C827D3714840C4700517C8F /* RenderSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSprite.m; path = Classes/Component/RenderSprite.m; sourceTree = "<group>"; };
-		2C853D6114B4D7C600C90C55 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundManager.h; path = Classes/SoundManager.h; sourceTree = "<group>"; };
-		2C853D6214B4D7C600C90C55 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoundManager.m; path = Classes/SoundManager.m; sourceTree = "<group>"; };
 		2C85B83A149563ED005D7BAB /* DisposableComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DisposableComponent.h; path = Classes/Component/DisposableComponent.h; sourceTree = "<group>"; };
 		2C85B83B149563ED005D7BAB /* DisposableComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DisposableComponent.m; path = Classes/Component/DisposableComponent.m; sourceTree = "<group>"; };
 		2C85D7191517F9C6001F4933 /* CoverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverLayer.h; sourceTree = "<group>"; };
@@ -2079,8 +2075,6 @@
 		2CE348C014DF071800FEB492 /* EntityDescriptionLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityDescriptionLoader.m; sourceTree = "<group>"; };
 		2CE348C214DF072700FEB492 /* EntityDescriptionCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityDescriptionCache.h; sourceTree = "<group>"; };
 		2CE348C314DF072700FEB492 /* EntityDescriptionCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityDescriptionCache.m; sourceTree = "<group>"; };
-		2CE348C814DF0BF800FEB492 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = Classes/Utils.h; sourceTree = "<group>"; };
-		2CE348C914DF0BF800FEB492 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = Classes/Utils.m; sourceTree = "<group>"; };
 		2CE4F536153CC8A80023B5C6 /* Aim-Pollen.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Aim-Pollen.plist"; sourceTree = "<group>"; };
 		2CE4F538153CC8A80023B5C6 /* Bee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Bee.plist; sourceTree = "<group>"; };
 		2CE4F539153CC8A80023B5C6 /* Bombee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Bombee.plist; sourceTree = "<group>"; };
@@ -2241,6 +2235,12 @@
 		2CFA8AE415115591003871F8 /* LevelSelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectMenuItem.m; sourceTree = "<group>"; };
 		2CFD480F153EDC0500203291 /* WaterComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaterComponent.h; path = Classes/Component/WaterComponent.h; sourceTree = "<group>"; };
 		2CFD4810153EDC0500203291 /* WaterComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaterComponent.m; path = Classes/Component/WaterComponent.m; sourceTree = "<group>"; };
+		2CFFFBFA154349A1001D9307 /* EmailInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailInfo.h; sourceTree = "<group>"; };
+		2CFFFBFB154349A1001D9307 /* EmailInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailInfo.m; sourceTree = "<group>"; };
+		2CFFFBFC154349A1001D9307 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
+		2CFFFBFD154349A1001D9307 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
+		2CFFFBFE154349A1001D9307 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		2CFFFBFF154349A1001D9307 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4074,18 +4074,13 @@
 				2CEA347A145F66F9000FF575 /* AppDelegate.m */,
 				2CEA35281466B202000FF575 /* Component */,
 				2C24B3D414F06807002D1444 /* Data */,
-				2C3B0E5214A91E4D008949B0 /* EmailInfo.h */,
-				2C3B0E5314A91E4D008949B0 /* EmailInfo.m */,
 				2CE348B814DF06C900FEB492 /* Entity */,
 				2C85D7181517F9C6001F4933 /* Interface */,
 				2C596D3214A13FDD00DFCC14 /* Level */,
-				2C853D6114B4D7C600C90C55 /* SoundManager.h */,
-				2C853D6214B4D7C600C90C55 /* SoundManager.m */,
 				2CD33ED5147D72AC000869C1 /* State */,
 				2C7CE5F31469ACDE001F331F /* System */,
 				2C32987F15156342009A5B83 /* Type */,
-				2CE348C814DF0BF800FEB492 /* Utils.h */,
-				2CE348C914DF0BF800FEB492 /* Utils.m */,
+				2CFFFBF9154349A0001D9307 /* Util */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -4148,6 +4143,20 @@
 				2C537428153B318100040EED /* WoodComponent.m */,
 			);
 			name = Component;
+			sourceTree = "<group>";
+		};
+		2CFFFBF9154349A0001D9307 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				2CFFFBFA154349A1001D9307 /* EmailInfo.h */,
+				2CFFFBFB154349A1001D9307 /* EmailInfo.m */,
+				2CFFFBFC154349A1001D9307 /* SoundManager.h */,
+				2CFFFBFD154349A1001D9307 /* SoundManager.m */,
+				2CFFFBFE154349A1001D9307 /* Utils.h */,
+				2CFFFBFF154349A1001D9307 /* Utils.m */,
+			);
+			name = Util;
+			path = Classes/Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -5029,11 +5038,9 @@
 				2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */,
 				2C535FCD14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m in Sources */,
 				2C596D3E14A13FDD00DFCC14 /* LevelLoader.m in Sources */,
-				2C3B0E5414A91E4D008949B0 /* EmailInfo.m in Sources */,
 				2C3BA3DE14B1DBBA007B1660 /* LevelOrganizer.m in Sources */,
 				2CE508CF14B1E98300A9E8D8 /* LevelSelectMenuState.m in Sources */,
 				2CE508D314B31D2B00A9E8D8 /* LevelSender.m in Sources */,
-				2C853D6314B4D7C600C90C55 /* SoundManager.m in Sources */,
 				2C9EF99014B4E8DF00F9EE34 /* LevelSerializer.m in Sources */,
 				2C9EF99914B4E91800F9EE34 /* LevelLayout.m in Sources */,
 				2C9EF99A14B4E91800F9EE34 /* LevelLayoutCache.m in Sources */,
@@ -5064,7 +5071,6 @@
 				2CE348BE14DF070A00FEB492 /* EntityDescription.m in Sources */,
 				2CE348C114DF071800FEB492 /* EntityDescriptionLoader.m in Sources */,
 				2CE348C414DF072700FEB492 /* EntityDescriptionCache.m in Sources */,
-				2CE348CA14DF0BF900FEB492 /* Utils.m in Sources */,
 				2CC7183614E1D15F00059B66 /* EntityFactory.m in Sources */,
 				2CC7183714E1D15F00059B66 /* EntityUtil.m in Sources */,
 				2CC26A6114E46913004702DA /* BeeaterSystem.m in Sources */,
@@ -5215,6 +5221,9 @@
 				2C6A70891542BB0D0042F5A1 /* ShakeSystem.m in Sources */,
 				2C6A708C1542C5D90042F5A1 /* HealthComponent.m in Sources */,
 				2C6A708F1542C7EE0042F5A1 /* HealthSystem.m in Sources */,
+				2CFFFC00154349A1001D9307 /* EmailInfo.m in Sources */,
+				2CFFFC01154349A1001D9307 /* SoundManager.m in Sources */,
+				2CFFFC02154349A1001D9307 /* Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
