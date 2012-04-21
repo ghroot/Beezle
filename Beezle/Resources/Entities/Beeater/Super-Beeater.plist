@@ -10,6 +10,11 @@
 	</array>
 	<key>components</key>
 	<dict>
+		<key>collision</key>
+		<dict>
+			<key>destroyCollidingEntityOnCollision</key>
+			<true/>
+		</dict>
 		<key>crumble</key>
 		<dict/>
 		<key>disposable</key>
@@ -50,7 +55,7 @@
 					<key>isSensor</key>
 					<true/>
 					<key>layers</key>
-					<integer>3</integer>
+					<integer>1</integer>
 					<key>group</key>
 					<string>LEVEL</string>
 				</dict>

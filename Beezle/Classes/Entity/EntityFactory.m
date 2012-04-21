@@ -31,10 +31,10 @@
 
 #define BACKGROUND_FRICTION 0.7f
 #define BACKGROUND_ELASTICITY 0.7f
-#define BACKGROUND_LAYERS 3
+#define BACKGROUND_LAYERS 7
 #define EDGE_FRICTION 0.5f
 #define EDGE_ELASTICITY 0.0f
-#define EDGE_LAYERS 3
+#define EDGE_LAYERS 7
 #define AIM_POLLEN_LAYERS 2
 
 @interface EntityFactory()
