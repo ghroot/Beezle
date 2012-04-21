@@ -162,6 +162,8 @@
     // Load next bee sprite (instant version)
     _beeLoadedRenderSprite = [[_beeQueueRenderSprites objectAtIndex:0] retain];
 	[_beeQueueRenderSprites removeObjectAtIndex:0];
+	[_beeLoadedRenderSprite removeSpriteFromSpriteSheet];
+	[_beeLoadedRenderSprite addSpriteToSpriteSheet];
 	TransformComponent *slingerTransformComponent = (TransformComponent *)[slingerEntity getComponent:[TransformComponent class]];
     [[_beeLoadedRenderSprite sprite] setPosition:[slingerTransformComponent position]];
 	
@@ -339,7 +341,7 @@
 	
 	// Idle animation
 	NSString *animationName = [NSString stringWithFormat:@"%@-Idle", [beeType capitalizedString]];
-	[beeQueueRenderSprite playAnimationOnce:animationName];
+	[beeQueueRenderSprite playAnimationLoop:animationName];
 	
 	return beeQueueRenderSprite;
 }
