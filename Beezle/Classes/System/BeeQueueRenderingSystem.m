@@ -292,7 +292,7 @@
 	}
 	CCCallBlock *animateIdleAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName = [NSString stringWithFormat:@"%@-Idle", [savedBeeType capitalizedString]];
-		[beeQueueRenderSprite playAnimationOnce:animationName];
+		[beeQueueRenderSprite playAnimationLoop:animationName];
 	}];
 	[actions addObject:animateIdleAction];
 	CCCallFunc *decreaseMovingBeesCountAction = [CCCallFunc actionWithTarget:self selector:@selector(decreaseMovingBeesCount)];

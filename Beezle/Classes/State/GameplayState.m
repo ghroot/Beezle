@@ -251,14 +251,14 @@
 		{
 			[[GateComponent getFrom:entity] setIsOpened:TRUE];
 			RenderSprite *defaultRenderSprite = [[RenderComponent getFrom:entity] defaultRenderSprite];
-			[defaultRenderSprite playAnimationOnce:@"Cavegate-Open-Idle"];
+			[defaultRenderSprite playAnimationLoop:@"Cavegate-Open-Idle"];
 		}
 		if ([[PlayerInformation sharedInformation] hasCollectedKeyInLevel:[_levelSession levelName]] &&
 			[entity hasComponent:[KeyComponent class]])
 		{
 			[[DisposableComponent getFrom:entity] setIsDisposed:TRUE];
 			[[PhysicsComponent getFrom:entity] disable];
-			[[RenderComponent getFrom:entity] playAnimationOnce:@"Nut-Open-Idle"];
+			[[RenderComponent getFrom:entity] playAnimationLoop:@"Nut-Open-Idle"];
 		}
 	}
 }
