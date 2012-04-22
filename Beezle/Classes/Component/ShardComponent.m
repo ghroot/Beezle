@@ -20,6 +20,7 @@
 	if (self = [super init])
 	{
 		_name = @"shard";
+		_piecesSpawnType = SHARD_PIECES_SPAWN_NORMAL;
 	}
 	return self;
 }

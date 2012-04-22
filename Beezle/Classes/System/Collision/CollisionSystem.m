@@ -8,6 +8,7 @@
 
 #import "CollisionSystem.h"
 #import "AnythingWithVoidCollisionHandler.h"
+#import "AnythingWithVolatileCollisionHandler.h"
 #import "BeeWithBeeaterCollisionHandler.h"
 #import "BeeWithGateCollisionHandler.h"
 #import "Collision.h"
@@ -18,7 +19,7 @@
 #import "LevelSession.h"
 #import "SawWithWoodCollisionHandler.h"
 #import "SolidWithSoundCollisionHandler.h"
-#import "SolidWithVolatileCollisionHandler.h"
+#import "SolidWithBreakableCollisionHandler.h"
 #import "SolidWithWaterCollisionHandler.h"
 #import "SolidWithWobbleCollisionHandler.h"
 
@@ -59,6 +60,7 @@
 -(void) registerCollisionHandlers
 {
 	[self registerCollisionHandler:[AnythingWithVoidCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[self registerCollisionHandler:[AnythingWithVolatileCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[BeeWithBeeaterCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[BeeWithGateCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[ConsumerWithKeyCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
@@ -66,7 +68,7 @@
 	[self registerCollisionHandler:[DozerWithCrumbleCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[SawWithWoodCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[SolidWithSoundCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[self registerCollisionHandler:[SolidWithVolatileCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[self registerCollisionHandler:[SolidWithBreakableCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[SolidWithWaterCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[SolidWithWobbleCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 }

@@ -134,9 +134,6 @@
 	[soundComponent setDefaultCollisionSoundName:@"BeeHitWall"];
 	[backgroundEntity addComponent:soundComponent];
 	
-	// Solid
-	[backgroundEntity addComponent:[SolidComponent component]];
-	
     [backgroundEntity refresh];
 	
 	[EntityUtil setEntityPosition:backgroundEntity position:CGPointMake(winSize.width / 2, winSize.height / 2)];

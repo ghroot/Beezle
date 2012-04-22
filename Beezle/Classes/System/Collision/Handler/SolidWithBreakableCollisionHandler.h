@@ -1,5 +1,5 @@
 //
-//  SolidWithVolatileCollisionHandler.h
+//  SolidWithBreakableCollisionHandler.h
 //  Beezle
 //
 //  Created by KM Lagerstrom on 22/04/2012.
@@ -8,6 +8,6 @@
 
 #import "CollisionHandler.h"
 
-@interface SolidWithVolatileCollisionHandler : CollisionHandler
+@interface SolidWithBreakableCollisionHandler : CollisionHandler
 
 @end

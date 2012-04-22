@@ -56,6 +56,8 @@
 		2C462BE315419F93000DA559 /* Boss-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C462BDF15419F93000DA559 /* Boss-hd.png */; };
 		2C462BE415419F93000DA559 /* Boss.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C462BE015419F93000DA559 /* Boss.plist */; };
 		2C462BE515419F93000DA559 /* Boss.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C462BE115419F93000DA559 /* Boss.png */; };
+		2C465EFC1544B24A00318F1E /* BreakableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C465EFB1544B24A00318F1E /* BreakableComponent.m */; };
+		2C465F001544B2C600318F1E /* AnythingWithVolatileCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C465EFF1544B2C600318F1E /* AnythingWithVolatileCollisionHandler.m */; };
 		2C4DFC7714FEF17F00D49CF9 /* HUDRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DFC7614FEF17F00D49CF9 /* HUDRenderingSystem.m */; };
 		2C53122D15097DE400FDE482 /* Bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C53122C15097DE400FDE482 /* Bubble.png */; };
 		2C535FCD14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C535FCC14992B0B00BC7DB6 /* BeeQueueRenderingSystem.m */; };
@@ -185,7 +187,7 @@
 		2C5AB63D15448EE000744B88 /* SawWithWoodCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AB63C15448EDF00744B88 /* SawWithWoodCollisionHandler.m */; };
 		2C5AB64015448FD400744B88 /* SolidWithWaterCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AB63F15448FD200744B88 /* SolidWithWaterCollisionHandler.m */; };
 		2C5AB6461544921C00744B88 /* SolidWithSoundCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AB6451544921B00744B88 /* SolidWithSoundCollisionHandler.m */; };
-		2C5AB64C1544931400744B88 /* SolidWithVolatileCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AB64B1544930100744B88 /* SolidWithVolatileCollisionHandler.m */; };
+		2C5AB64C1544931400744B88 /* SolidWithBreakableCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AB64B1544930100744B88 /* SolidWithBreakableCollisionHandler.m */; };
 		2C5AB64F154493E000744B88 /* SolidWithWobbleCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AB64E154493DF00744B88 /* SolidWithWobbleCollisionHandler.m */; };
 		2C5EFC2B14E496A10071ED39 /* SpawnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */; };
 		2C5EFC3114E499C20071ED39 /* SpawnSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3014E499C20071ED39 /* SpawnSystem.m */; };
@@ -1089,6 +1091,10 @@
 		2C462BDF15419F93000DA559 /* Boss-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boss-hd.png"; sourceTree = "<group>"; };
 		2C462BE015419F93000DA559 /* Boss.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Boss.plist; sourceTree = "<group>"; };
 		2C462BE115419F93000DA559 /* Boss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Boss.png; sourceTree = "<group>"; };
+		2C465EFA1544B24A00318F1E /* BreakableComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BreakableComponent.h; path = Classes/Component/BreakableComponent.h; sourceTree = "<group>"; };
+		2C465EFB1544B24A00318F1E /* BreakableComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BreakableComponent.m; path = Classes/Component/BreakableComponent.m; sourceTree = "<group>"; };
+		2C465EFE1544B2C600318F1E /* AnythingWithVolatileCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnythingWithVolatileCollisionHandler.h; sourceTree = "<group>"; };
+		2C465EFF1544B2C600318F1E /* AnythingWithVolatileCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnythingWithVolatileCollisionHandler.m; sourceTree = "<group>"; };
 		2C4DFC7514FEF17F00D49CF9 /* HUDRenderingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HUDRenderingSystem.h; path = Classes/System/HUDRenderingSystem.h; sourceTree = "<group>"; };
 		2C4DFC7614FEF17F00D49CF9 /* HUDRenderingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HUDRenderingSystem.m; path = Classes/System/HUDRenderingSystem.m; sourceTree = "<group>"; };
 		2C53122C15097DE400FDE482 /* Bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bubble.png; sourceTree = "<group>"; };
@@ -1221,7 +1227,7 @@
 		2C5AB627154430AC00744B88 /* CollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionHandler.m; sourceTree = "<group>"; };
 		2C5AB6291544325300744B88 /* DozerWithCrumbleCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DozerWithCrumbleCollisionHandler.h; sourceTree = "<group>"; };
 		2C5AB62A1544325300744B88 /* DozerWithCrumbleCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DozerWithCrumbleCollisionHandler.m; sourceTree = "<group>"; };
-		2C5AB62C15443CCC00744B88 /* AnythingWithVoidCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; path = AnythingWithVoidCollisionHandler.h; sourceTree = "<group>"; };
+		2C5AB62C15443CCC00744B88 /* AnythingWithVoidCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnythingWithVoidCollisionHandler.h; sourceTree = "<group>"; };
 		2C5AB62D15443CCC00744B88 /* AnythingWithVoidCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnythingWithVoidCollisionHandler.m; sourceTree = "<group>"; };
 		2C5AB62F1544402E00744B88 /* ConsumerWithKeyCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsumerWithKeyCollisionHandler.h; sourceTree = "<group>"; };
 		2C5AB6301544402E00744B88 /* ConsumerWithKeyCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsumerWithKeyCollisionHandler.m; sourceTree = "<group>"; };
@@ -1237,8 +1243,8 @@
 		2C5AB63F15448FD200744B88 /* SolidWithWaterCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SolidWithWaterCollisionHandler.m; sourceTree = "<group>"; };
 		2C5AB6441544921A00744B88 /* SolidWithSoundCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SolidWithSoundCollisionHandler.h; sourceTree = "<group>"; };
 		2C5AB6451544921B00744B88 /* SolidWithSoundCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SolidWithSoundCollisionHandler.m; sourceTree = "<group>"; };
-		2C5AB64A154492F900744B88 /* SolidWithVolatileCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SolidWithVolatileCollisionHandler.h; sourceTree = "<group>"; };
-		2C5AB64B1544930100744B88 /* SolidWithVolatileCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SolidWithVolatileCollisionHandler.m; sourceTree = "<group>"; };
+		2C5AB64A154492F900744B88 /* SolidWithBreakableCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; path = SolidWithBreakableCollisionHandler.h; sourceTree = "<group>"; };
+		2C5AB64B1544930100744B88 /* SolidWithBreakableCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SolidWithBreakableCollisionHandler.m; sourceTree = "<group>"; };
 		2C5AB64D154493DE00744B88 /* SolidWithWobbleCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SolidWithWobbleCollisionHandler.h; sourceTree = "<group>"; };
 		2C5AB64E154493DF00744B88 /* SolidWithWobbleCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SolidWithWobbleCollisionHandler.m; sourceTree = "<group>"; };
 		2C5EFC2914E496A00071ED39 /* SpawnComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpawnComponent.h; path = Classes/Component/SpawnComponent.h; sourceTree = "<group>"; };
@@ -2577,6 +2583,8 @@
 			children = (
 				2C5AB62C15443CCC00744B88 /* AnythingWithVoidCollisionHandler.h */,
 				2C5AB62D15443CCC00744B88 /* AnythingWithVoidCollisionHandler.m */,
+				2C465EFE1544B2C600318F1E /* AnythingWithVolatileCollisionHandler.h */,
+				2C465EFF1544B2C600318F1E /* AnythingWithVolatileCollisionHandler.m */,
 				2C5AB63815448E5F00744B88 /* BeeWithBeeaterCollisionHandler.h */,
 				2C5AB63915448E6000744B88 /* BeeWithBeeaterCollisionHandler.m */,
 				2C5AB635154441CC00744B88 /* BeeWithGateCollisionHandler.h */,
@@ -2593,8 +2601,8 @@
 				2C5AB63C15448EDF00744B88 /* SawWithWoodCollisionHandler.m */,
 				2C5AB6441544921A00744B88 /* SolidWithSoundCollisionHandler.h */,
 				2C5AB6451544921B00744B88 /* SolidWithSoundCollisionHandler.m */,
-				2C5AB64A154492F900744B88 /* SolidWithVolatileCollisionHandler.h */,
-				2C5AB64B1544930100744B88 /* SolidWithVolatileCollisionHandler.m */,
+				2C5AB64A154492F900744B88 /* SolidWithBreakableCollisionHandler.h */,
+				2C5AB64B1544930100744B88 /* SolidWithBreakableCollisionHandler.m */,
 				2C5AB63E15448FD200744B88 /* SolidWithWaterCollisionHandler.h */,
 				2C5AB63F15448FD200744B88 /* SolidWithWaterCollisionHandler.m */,
 				2C5AB64D154493DE00744B88 /* SolidWithWobbleCollisionHandler.h */,
@@ -4172,6 +4180,8 @@
 				2C1147E3148D4291002E4DBD /* BeeaterComponent.m */,
 				2C3A6F94148980AF002721E3 /* BeeComponent.h */,
 				2C3A6F95148980AF002721E3 /* BeeComponent.m */,
+				2C465EFA1544B24A00318F1E /* BreakableComponent.h */,
+				2C465EFB1544B24A00318F1E /* BreakableComponent.m */,
 				2CFFFC0315437623001D9307 /* ConsumerComponent.h */,
 				2CFFFC0415437624001D9307 /* ConsumerComponent.m */,
 				2C5EFCC014EC60530071ED39 /* CrumbleComponent.h */,
@@ -5326,8 +5336,10 @@
 				2C5AB63D15448EE000744B88 /* SawWithWoodCollisionHandler.m in Sources */,
 				2C5AB64015448FD400744B88 /* SolidWithWaterCollisionHandler.m in Sources */,
 				2C5AB6461544921C00744B88 /* SolidWithSoundCollisionHandler.m in Sources */,
-				2C5AB64C1544931400744B88 /* SolidWithVolatileCollisionHandler.m in Sources */,
+				2C5AB64C1544931400744B88 /* SolidWithBreakableCollisionHandler.m in Sources */,
 				2C5AB64F154493E000744B88 /* SolidWithWobbleCollisionHandler.m in Sources */,
+				2C465EFC1544B24A00318F1E /* BreakableComponent.m in Sources */,
+				2C465F001544B2C600318F1E /* AnythingWithVolatileCollisionHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

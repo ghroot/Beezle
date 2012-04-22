@@ -1,32 +1,32 @@
 //
-//  SolidWithVolatileCollisionHandler.m
+//  SolidWithBreakableCollisionHandler.m
 //  Beezle
 //
 //  Created by KM Lagerstrom on 22/04/2012.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "SolidWithVolatileCollisionHandler.h"
+#import "SolidWithBreakableCollisionHandler.h"
 #import "EntityUtil.h"
 #import "SolidComponent.h"
-#import "VolatileComponent.h"
+#import "BreakableComponent.h"
 
-@implementation SolidWithVolatileCollisionHandler
+@implementation SolidWithBreakableCollisionHandler
 
 -(id) initWithWorld:(World *)world levelSession:(LevelSession *)levelSession
 {
 	if (self = [super initWithWorld:world levelSession:levelSession])
 	{
 		[_firstComponentClasses addObject:[SolidComponent class]];
-		[_secondComponentClasses addObject:[VolatileComponent class]];
+		[_secondComponentClasses addObject:[BreakableComponent class]];
 	}
 	return self;
 }
 
 -(BOOL) handleCollisionBetween:(Entity *)firstEntity and:(Entity *)secondEntity collision:(Collision *)collision
 {
-	Entity *volatileEntity = secondEntity;
-	[EntityUtil destroyEntity:volatileEntity];
+	Entity *breakableEntity = secondEntity;
+	[EntityUtil destroyEntity:breakableEntity];
 	return TRUE;
 }
 
