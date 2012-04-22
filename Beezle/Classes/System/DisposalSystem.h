@@ -8,6 +8,11 @@
 
 #import "artemis.h"
 
-@interface DisposalSystem : EntityComponentSystem
+@class NotificationProcessor;
+
+@interface DisposalSystem : EntitySystem
+{
+	NotificationProcessor *_notificationProcessor;
+}
 
 @end

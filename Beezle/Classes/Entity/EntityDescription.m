@@ -9,7 +9,6 @@
 #import "EntityDescription.h"
 #import "BeeaterComponent.h"
 #import "BeeComponent.h"
-#import "CollisionComponent.h"
 #import "ConsumerComponent.h"
 #import "CrumbleComponent.h"
 #import "DisposableComponent.h"
@@ -27,11 +26,14 @@
 #import "ShakeComponent.h"
 #import "ShardComponent.h"
 #import "SlingerComponent.h"
+#import "SolidComponent.h"
 #import "SoundComponent.h"
 #import "SpawnComponent.h"
 #import "TransformComponent.h"
 #import "TrajectoryComponent.h"
+#import "VolatileComponent.h"
 #import "WaterComponent.h"
+#import "WobbleComponent.h"
 #import "WoodComponent.h"
 
 @implementation EntityDescription
@@ -56,10 +58,6 @@
 		else if ([componentType isEqualToString:@"beeater"])
 		{
 			component = [BeeaterComponent componentWithContentsOfDictionary:componentDict world:world];
-		}
-		else if ([componentType isEqualToString:@"collision"])
-		{
-			component = [CollisionComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"consumer"])
 		{
@@ -129,6 +127,10 @@
 		{
 			component = [SlingerComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
+		else if ([componentType isEqualToString:@"solid"])
+		{
+			component = [SolidComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
         else if ([componentType isEqualToString:@"sound"])
 		{
 			component = [SoundComponent componentWithContentsOfDictionary:componentDict world:world];
@@ -145,9 +147,17 @@
 		{
 			component = [TransformComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
+		else if ([componentType isEqualToString:@"volatile"])
+		{
+			component = [VolatileComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
         else if ([componentType isEqualToString:@"water"])
 		{
 			component = [WaterComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+		else if ([componentType isEqualToString:@"wobble"])
+		{
+			component = [WobbleComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"wood"])
 		{

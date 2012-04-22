@@ -10,7 +10,6 @@
 #import "BeeaterComponent.h"
 #import "BeeComponent.h"
 #import "Collision.h"
-#import "CollisionComponent.h"
 #import "ConsumerComponent.h"
 #import "CrumbleComponent.h"
 #import "DozerComponent.h"
@@ -27,9 +26,12 @@
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "SawComponent.h"
+#import "SolidComponent.h"
 #import "SoundComponent.h"
 #import "TransformComponent.h"
+#import "VolatileComponent.h"
 #import "WaterComponent.h"
+#import "WobbleComponent.h"
 #import "WoodComponent.h"
 
 #define VELOCITY_TIMES_MASS_FOR_SOUND 80.0f
@@ -176,8 +178,9 @@
 		[EntityUtil destroyEntity:firstEntity];
 	}
 	
-	// Anything -> Water
-    if ([secondEntity hasComponent:[WaterComponent class]])
+	// Solid -> Water
+    if ([firstEntity hasComponent:[SolidComponent class]] &&
+		[secondEntity hasComponent:[WaterComponent class]])
     {
         [EntityUtil destroyEntity:firstEntity instant:TRUE];
         
@@ -187,7 +190,8 @@
         [EntityUtil setEntityPosition:splashEntity position:[transformComponent position]];
         [EntityUtil destroyEntity:splashEntity];
     }
-    if ([firstEntity hasComponent:[WaterComponent class]])
+    if ([secondEntity hasComponent:[SolidComponent class]] &&
+		[firstEntity hasComponent:[WaterComponent class]])
     {
         [EntityUtil destroyEntity:secondEntity instant:TRUE];
         
@@ -198,8 +202,8 @@
         [EntityUtil destroyEntity:splashEntity];
     }
 	
-	// Bee -> Sound
-	if ([firstEntity hasComponent:[BeeComponent class]] &&
+	// Solid -> Sound
+	if ([firstEntity hasComponent:[SolidComponent class]] &&
 		[secondEntity hasComponent:[SoundComponent class]])
 	{
 		if ([collision firstEntityVelocityTimesMass] >= VELOCITY_TIMES_MASS_FOR_SOUND)
@@ -207,7 +211,7 @@
 			[EntityUtil playDefaultCollisionSound:secondEntity];
 		}
 	}
-	if ([secondEntity hasComponent:[BeeComponent class]] &&
+	if ([secondEntity hasComponent:[SolidComponent class]] &&
 		[firstEntity hasComponent:[SoundComponent class]])
 	{
 		if ([collision secondEntityVelocityTimesMass] >= VELOCITY_TIMES_MASS_FOR_SOUND)
@@ -216,42 +220,34 @@
 		}
 	}
 	
-	// Collision
-	if ([firstEntity hasComponent:[CollisionComponent class]])
+	// Solid -> Volatile
+	if ([firstEntity hasComponent:[SolidComponent class]] &&
+		[secondEntity hasComponent:[VolatileComponent class]])
 	{
-		CollisionComponent *collisionComponent = [CollisionComponent getFrom:firstEntity];
-        if ([collisionComponent collisionAnimationName] != nil)
-        {
-            RenderComponent *renderComponent = [RenderComponent getFrom:firstEntity];
-			RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];
-			[defaultRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:[collisionComponent collisionAnimationName], [defaultRenderSprite randomDefaultIdleAnimationName], nil]];
-        }
-		if ([collisionComponent destroyEntityOnCollision])
-		{
-			[EntityUtil destroyEntity:firstEntity];
-		}
-		if ([collisionComponent destroyCollidingEntityOnCollision])
-		{
-			[EntityUtil destroyEntity:secondEntity];
-		}
+		[EntityUtil destroyEntity:secondEntity];
 	}
-	if ([secondEntity hasComponent:[CollisionComponent class]])
+	if ([secondEntity hasComponent:[SolidComponent class]] &&
+		[firstEntity hasComponent:[VolatileComponent class]])
 	{
-		CollisionComponent *collisionComponent = [CollisionComponent getFrom:secondEntity];
-        if ([collisionComponent collisionAnimationName] != nil)
-        {
-            RenderComponent *renderComponent = [RenderComponent getFrom:secondEntity];
-			RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];
-			[defaultRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:[collisionComponent collisionAnimationName], [defaultRenderSprite randomDefaultIdleAnimationName], nil]];
-        }
-		if ([collisionComponent destroyEntityOnCollision])
-		{
-			[EntityUtil destroyEntity:secondEntity];
-		}
-		if ([collisionComponent destroyCollidingEntityOnCollision])
-		{
-			[EntityUtil destroyEntity:firstEntity];
-		}
+		[EntityUtil destroyEntity:firstEntity];
+	}
+	
+	// Solid -> Wobble
+	if ([firstEntity hasComponent:[SolidComponent class]] &&
+		[secondEntity hasComponent:[WobbleComponent class]])
+	{
+		WobbleComponent *wobbleComponent = [WobbleComponent getFrom:secondEntity];
+		RenderComponent *renderComponent = [RenderComponent getFrom:secondEntity];
+		RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];
+		[defaultRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:[wobbleComponent randomWobbleAnimationName], [defaultRenderSprite randomDefaultIdleAnimationName], nil]];
+	}
+	if ([secondEntity hasComponent:[SolidComponent class]] &&
+		[firstEntity hasComponent:[WobbleComponent class]])
+	{
+		WobbleComponent *wobbleComponent = [WobbleComponent getFrom:firstEntity];
+		RenderComponent *renderComponent = [RenderComponent getFrom:firstEntity];
+		RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];
+		[defaultRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:[wobbleComponent randomWobbleAnimationName], [defaultRenderSprite randomDefaultIdleAnimationName], nil]];
 	}
 	
 	return continueProcessingCollision;

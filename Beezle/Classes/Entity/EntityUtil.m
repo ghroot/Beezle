@@ -122,7 +122,6 @@
         {
             [self setEntityDisposed:entity];
         }
-		
 	}
 	else if (!instant &&
 			 [[RenderComponent getFrom:entity] hasDefaultDestroyAnimation])

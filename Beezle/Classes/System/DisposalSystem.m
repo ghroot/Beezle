@@ -9,18 +9,43 @@
 #import "DisposalSystem.h"
 #import "DisposableComponent.h"
 #import "EntityUtil.h"
+#import "NotificationProcessor.h"
+#import "NotificationTypes.h"
 #import "RenderComponent.h"
+
+@interface DisposalSystem()
+
+-(void) handleEntityDisposed:(NSNotification *)notification;
+
+@end
 
 @implementation DisposalSystem
 
 -(id) init
 {
-    self = [super initWithUsedComponentClasses:[NSArray arrayWithObject:[DisposableComponent class]]];
-    return self;
+	if (self = [super init])
+	{
+		_notificationProcessor = [[NotificationProcessor alloc] initWithTarget:self];
+		[_notificationProcessor registerNotification:GAME_NOTIFICATION_ENTITY_DISPOSED withSelector:@selector(handleEntityDisposed:)];
+	}
+	return self;
 }
 
--(void) processEntity:(Entity *)entity
+-(void) dealloc
 {
+	[_notificationProcessor release];
+	
+	[super dealloc];
+}
+
+-(void) begin
+{
+	[_notificationProcessor processNotifications];
+}
+
+-(void) handleEntityDisposed:(NSNotification *)notification
+{
+	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
 	if ([EntityUtil isEntityDisposed:entity])
 	{
 		DisposableComponent *disposalComponent = [DisposableComponent getFrom:entity];

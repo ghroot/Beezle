@@ -169,10 +169,12 @@
 		2C5373CE1538D05A00040EED /* A-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5373CD1538D05A00040EED /* A-Glass-Shapes.plist */; };
 		2C5373D01538D3A300040EED /* B-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5373CF1538D3A300040EED /* B-Glass-Shapes.plist */; };
 		2C53741A1538F38A00040EED /* NotificationProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5374191538F38600040EED /* NotificationProcessor.m */; };
-		2C537423153B230500040EED /* CollisionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C537422153B230100040EED /* CollisionComponent.m */; };
 		2C537426153B304F00040EED /* WoodSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C537425153B303A00040EED /* WoodSystem.m */; };
 		2C537429153B318400040EED /* WoodComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C537428153B318100040EED /* WoodComponent.m */; };
 		2C596D3E14A13FDD00DFCC14 /* LevelLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */; };
+		2C5AB61A1543FEA100744B88 /* VolatileComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AB6191543FEA100744B88 /* VolatileComponent.m */; };
+		2C5AB61E1544017600744B88 /* SolidComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AB61D1544017600744B88 /* SolidComponent.m */; };
+		2C5AB6211544034200744B88 /* WobbleComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AB6201544034200744B88 /* WobbleComponent.m */; };
 		2C5EFC2B14E496A10071ED39 /* SpawnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */; };
 		2C5EFC3114E499C20071ED39 /* SpawnSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3014E499C20071ED39 /* SpawnSystem.m */; };
 		2C5EFC5114E7DACF0071ED39 /* Egg-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3A14E7DACF0071ED39 /* Egg-Animations.plist */; };
@@ -1191,14 +1193,18 @@
 		2C5373CF1538D3A300040EED /* B-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "B-Glass-Shapes.plist"; sourceTree = "<group>"; };
 		2C5374181538F38200040EED /* NotificationProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationProcessor.h; path = Classes/System/NotificationProcessor.h; sourceTree = "<group>"; };
 		2C5374191538F38600040EED /* NotificationProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationProcessor.m; path = Classes/System/NotificationProcessor.m; sourceTree = "<group>"; };
-		2C537421153B22FE00040EED /* CollisionComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionComponent.h; path = Classes/Component/CollisionComponent.h; sourceTree = "<group>"; };
-		2C537422153B230100040EED /* CollisionComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionComponent.m; path = Classes/Component/CollisionComponent.m; sourceTree = "<group>"; };
 		2C537424153B302E00040EED /* WoodSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WoodSystem.h; path = Classes/System/WoodSystem.h; sourceTree = "<group>"; };
 		2C537425153B303A00040EED /* WoodSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WoodSystem.m; path = Classes/System/WoodSystem.m; sourceTree = "<group>"; };
 		2C537427153B317D00040EED /* WoodComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WoodComponent.h; path = Classes/Component/WoodComponent.h; sourceTree = "<group>"; };
 		2C537428153B318100040EED /* WoodComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WoodComponent.m; path = Classes/Component/WoodComponent.m; sourceTree = "<group>"; };
 		2C596D3914A13FDD00DFCC14 /* LevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLoader.h; sourceTree = "<group>"; };
 		2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLoader.m; sourceTree = "<group>"; };
+		2C5AB6181543FEA100744B88 /* VolatileComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VolatileComponent.h; path = Classes/Component/VolatileComponent.h; sourceTree = "<group>"; };
+		2C5AB6191543FEA100744B88 /* VolatileComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VolatileComponent.m; path = Classes/Component/VolatileComponent.m; sourceTree = "<group>"; };
+		2C5AB61C1544017600744B88 /* SolidComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SolidComponent.h; path = Classes/Component/SolidComponent.h; sourceTree = "<group>"; };
+		2C5AB61D1544017600744B88 /* SolidComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SolidComponent.m; path = Classes/Component/SolidComponent.m; sourceTree = "<group>"; };
+		2C5AB61F1544034200744B88 /* WobbleComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WobbleComponent.h; path = Classes/Component/WobbleComponent.h; sourceTree = "<group>"; };
+		2C5AB6201544034200744B88 /* WobbleComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WobbleComponent.m; path = Classes/Component/WobbleComponent.m; sourceTree = "<group>"; };
 		2C5EFC2914E496A00071ED39 /* SpawnComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpawnComponent.h; path = Classes/Component/SpawnComponent.h; sourceTree = "<group>"; };
 		2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpawnComponent.m; path = Classes/Component/SpawnComponent.m; sourceTree = "<group>"; };
 		2C5EFC2F14E499C20071ED39 /* SpawnSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpawnSystem.h; path = Classes/System/SpawnSystem.h; sourceTree = "<group>"; };
@@ -4098,8 +4104,6 @@
 				2C1147E3148D4291002E4DBD /* BeeaterComponent.m */,
 				2C3A6F94148980AF002721E3 /* BeeComponent.h */,
 				2C3A6F95148980AF002721E3 /* BeeComponent.m */,
-				2C537421153B22FE00040EED /* CollisionComponent.h */,
-				2C537422153B230100040EED /* CollisionComponent.m */,
 				2CFFFC0315437623001D9307 /* ConsumerComponent.h */,
 				2CFFFC0415437624001D9307 /* ConsumerComponent.m */,
 				2C5EFCC014EC60530071ED39 /* CrumbleComponent.h */,
@@ -4137,6 +4141,8 @@
 				2CEB9D7A14EDC1BA00CAC505 /* ShardComponent.m */,
 				2C1147E4148D4291002E4DBD /* SlingerComponent.h */,
 				2C1147E5148D4292002E4DBD /* SlingerComponent.m */,
+				2C5AB61C1544017600744B88 /* SolidComponent.h */,
+				2C5AB61D1544017600744B88 /* SolidComponent.m */,
 				2CBCDDB114F7DCE600B11627 /* SoundComponent.h */,
 				2CBCDDB214F7DCE700B11627 /* SoundComponent.m */,
 				2C5EFC2914E496A00071ED39 /* SpawnComponent.h */,
@@ -4147,8 +4153,12 @@
 				2C157C1914914F6A003F9040 /* TrajectoryComponent.m */,
 				2C068A32146858B9003E200D /* TransformComponent.h */,
 				2C068A33146858B9003E200D /* TransformComponent.m */,
+				2C5AB6181543FEA100744B88 /* VolatileComponent.h */,
+				2C5AB6191543FEA100744B88 /* VolatileComponent.m */,
 				2CFD480F153EDC0500203291 /* WaterComponent.h */,
 				2CFD4810153EDC0500203291 /* WaterComponent.m */,
+				2C5AB61F1544034200744B88 /* WobbleComponent.h */,
+				2C5AB6201544034200744B88 /* WobbleComponent.m */,
 				2C537427153B317D00040EED /* WoodComponent.h */,
 				2C537428153B318100040EED /* WoodComponent.m */,
 			);
@@ -5220,7 +5230,6 @@
 				2C8B198E153639C7003F3465 /* LevelThemeSelectMenuItem.m in Sources */,
 				2C29D7AD15385D86005EFE8E /* DozerComponent.m in Sources */,
 				2C53741A1538F38A00040EED /* NotificationProcessor.m in Sources */,
-				2C537423153B230500040EED /* CollisionComponent.m in Sources */,
 				2C537426153B304F00040EED /* WoodSystem.m in Sources */,
 				2C537429153B318400040EED /* WoodComponent.m in Sources */,
 				2CE4F61E153E1C1C0023B5C6 /* DisposalSystem.m in Sources */,
@@ -5236,6 +5245,9 @@
 				2CFFFC02154349A1001D9307 /* Utils.m in Sources */,
 				2CFFFC0515437625001D9307 /* ConsumerComponent.m in Sources */,
 				2CFFFC081543785B001D9307 /* SawComponent.m in Sources */,
+				2C5AB61A1543FEA100744B88 /* VolatileComponent.m in Sources */,
+				2C5AB61E1544017600744B88 /* SolidComponent.m in Sources */,
+				2C5AB6211544034200744B88 /* WobbleComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

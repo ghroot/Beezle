@@ -10,7 +10,6 @@
 #import "BeeComponent.h"
 #import "BeeType.h"
 #import "BodyInfo.h"
-#import "CollisionComponent.h"
 #import "CollisionGroup.h"
 #import "EdgeComponent.h"
 #import "EditComponent.h"
@@ -25,6 +24,7 @@
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "RenderSystem.h"
+#import "SolidComponent.h"
 #import "SoundComponent.h"
 #import "SpawnComponent.h"
 #import "TransformComponent.h"
@@ -131,6 +131,9 @@
     SoundComponent *soundComponent = [SoundComponent component];
 	[soundComponent setDefaultCollisionSoundName:@"BeeHitWall"];
 	[backgroundEntity addComponent:soundComponent];
+	
+	// Solid
+	[backgroundEntity addComponent:[SolidComponent component]];
 	
     [backgroundEntity refresh];
 	
