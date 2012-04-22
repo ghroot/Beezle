@@ -1,5 +1,5 @@
 //
-//  EdgeComponent.h
+//  VoidComponent.h
 //  Beezle
 //
 //  Created by Marcus on 4/18/12.
@@ -8,6 +8,11 @@
 
 #import "artemis.h"
 
-@interface EdgeComponent : Component
+@interface VoidComponent : Component
+{
+	BOOL _instant;
+}
+
+@property (nonatomic) BOOL instant;
 
 @end

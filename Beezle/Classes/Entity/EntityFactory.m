@@ -11,7 +11,6 @@
 #import "BeeType.h"
 #import "BodyInfo.h"
 #import "CollisionGroup.h"
-#import "EdgeComponent.h"
 #import "EditComponent.h"
 #import "EntityDescription.h"
 #import "EntityDescriptionCache.h"
@@ -28,6 +27,7 @@
 #import "SoundComponent.h"
 #import "SpawnComponent.h"
 #import "TransformComponent.h"
+#import "VoidComponent.h"
 
 #define BACKGROUND_FRICTION 0.7f
 #define BACKGROUND_ELASTICITY 0.7f
@@ -78,8 +78,10 @@
 	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShapes:shapes];
     [edgeEntity addComponent:physicsComponent];
 	
-    // Edge
-    [edgeEntity addComponent:[EdgeComponent component]];
+    // Void
+	VoidComponent *voidComponent = [VoidComponent component];
+	[voidComponent setInstant:TRUE];
+    [edgeEntity addComponent:voidComponent];
 	
 	[edgeEntity refresh];
 	

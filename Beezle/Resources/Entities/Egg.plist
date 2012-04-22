@@ -6,13 +6,6 @@
 	<string>EGG</string>
 	<key>components</key>
 	<dict>
-		<key>collision</key>
-		<dict>
-			<key>destroyEntityOnCollision</key>
-			<true/>
-			<key>destroyCollidingEntityOnCollision</key>
-			<true/>
-		</dict>
 		<key>disposable</key>
 		<dict>
 			<key>deleteEntityWhenDisposed</key>
@@ -73,6 +66,13 @@
 			</array>
 		</dict>
 		<key>transform</key>
+		<dict/>
+		<key>void</key>
+		<dict>
+			<key>instant</key>
+			<false/>
+		</dict>
+		<key>volatile</key>
 		<dict/>
 	</dict>
 </dict>

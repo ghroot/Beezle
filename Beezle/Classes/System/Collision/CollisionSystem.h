@@ -15,6 +15,7 @@
 @interface CollisionSystem : EntitySystem
 {
 	LevelSession *_levelSession;
+	NSMutableArray *_handlers;
 }
 
 -(id) initWithLevelSession:(LevelSession *)levelSession;

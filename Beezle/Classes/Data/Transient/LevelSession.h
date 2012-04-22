@@ -25,7 +25,8 @@
 
 -(id) initWithLevelName:(NSString *)levelName;
 
--(void) consumedEntity:(Entity *)entity;
+-(void) consumedPollenEntity:(Entity *)pollenEntity;
+-(void) consumedKeyEntity:(Entity *)keyEntity;
 -(int) totalNumberOfPollen;
 
 @end

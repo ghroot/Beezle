@@ -36,16 +36,14 @@
 	[super dealloc];
 }
 
--(void) consumedEntity:(Entity *)entity
-{	
-	if ([entity hasComponent:[PollenComponent class]])
-	{
-		_numberOfCollectedPollen += [[PollenComponent getFrom:entity] pollenCount];
-	}
-	if ([entity hasComponent:[KeyComponent class]])
-	{
-		_didCollectKey = TRUE;
-	}
+-(void) consumedPollenEntity:(Entity *)pollenEntity
+{
+	_numberOfCollectedPollen += [[PollenComponent getFrom:pollenEntity] pollenCount];
+}
+
+-(void) consumedKeyEntity:(Entity *)keyEntity
+{
+	_didCollectKey = TRUE;
 }
 
 -(int) totalNumberOfPollen
