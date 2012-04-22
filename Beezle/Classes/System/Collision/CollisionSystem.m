@@ -11,6 +11,7 @@
 #import "BeeComponent.h"
 #import "Collision.h"
 #import "CollisionComponent.h"
+#import "ConsumerComponent.h"
 #import "CrumbleComponent.h"
 #import "DozerComponent.h"
 #import "EdgeComponent.h"
@@ -25,6 +26,7 @@
 #import "PollenComponent.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
+#import "SawComponent.h"
 #import "SoundComponent.h"
 #import "TransformComponent.h"
 #import "WaterComponent.h"
@@ -56,7 +58,7 @@
 	
 	BOOL continueProcessingCollision = TRUE;
 	
-	// Edge
+	// Anything -> Edge
     if ([secondEntity hasComponent:[EdgeComponent class]])
     {
         [EntityUtil destroyEntity:firstEntity instant:TRUE];
@@ -66,11 +68,152 @@
         [EntityUtil destroyEntity:secondEntity instant:TRUE];
     }
 	
-	// TEMP: Return here if not collision with bee.
-	if (![firstEntity hasComponent:[BeeComponent class]] &&
-		![secondEntity hasComponent:[BeeComponent class]])
+	// Dozer -> Crumble
+	if ([firstEntity hasComponent:[DozerComponent class]] &&
+		[secondEntity hasComponent:[CrumbleComponent class]])
 	{
-		return continueProcessingCollision;
+		[EntityUtil destroyEntity:secondEntity];
+		continueProcessingCollision = FALSE;
+	}
+	if ([secondEntity hasComponent:[DozerComponent class]] &&
+        [firstEntity hasComponent:[CrumbleComponent class]])
+	{
+		[EntityUtil destroyEntity:firstEntity];
+		continueProcessingCollision = FALSE;
+	}
+	
+	// Consumer -> Pollen / Key
+	if ([firstEntity hasComponent:[ConsumerComponent class]] &&
+		([secondEntity hasComponent:[PollenComponent class]] ||
+		 [secondEntity hasComponent:[KeyComponent class]]))
+	{
+		[_levelSession consumedEntity:secondEntity];
+	}
+	if ([secondEntity hasComponent:[ConsumerComponent class]] &&
+		([firstEntity hasComponent:[PollenComponent class]] ||
+		 [firstEntity hasComponent:[KeyComponent class]]))
+	{
+		[_levelSession consumedEntity:firstEntity];
+	}
+	
+	// Bee -> Gate
+	if ([firstEntity hasComponent:[BeeComponent class]] &&
+		[secondEntity hasComponent:[GateComponent class]])
+	{
+		GateComponent *gateComponent = [GateComponent getFrom:secondEntity];
+		if ([gateComponent isOpened])
+		{
+			[_levelSession setDidUseKey:TRUE];
+			
+			// Game notification
+			[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_GATE_ENTERED object:self userInfo:nil];
+		}
+	}
+	if ([secondEntity hasComponent:[BeeComponent class]] &&
+		[firstEntity hasComponent:[GateComponent class]])
+	{
+		GateComponent *gateComponent = [GateComponent getFrom:firstEntity];
+		if ([gateComponent isOpened])
+		{
+			[_levelSession setDidUseKey:TRUE];
+			
+			// Game notification
+			[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_GATE_ENTERED object:self userInfo:nil];
+		}
+	}
+	
+    // Bee -> Beeater
+	if ([firstEntity hasComponent:[BeeComponent class]] &&
+		[secondEntity hasComponent:[BeeaterComponent class]])
+	{
+		BeeComponent *beeComponent = [BeeComponent getFrom:firstEntity];
+		if ([beeComponent killsBeeaters])
+		{
+			[beeComponent decreaseBeeaterHitsLeft];
+			if ([beeComponent isOutOfBeeaterKills])
+			{
+				[EntityUtil destroyEntity:firstEntity];
+			}
+			[EntityUtil destroyEntity:secondEntity];
+		}
+	}
+	if ([secondEntity hasComponent:[BeeComponent class]] &&
+		[firstEntity hasComponent:[BeeaterComponent class]])
+	{
+		BeeComponent *beeComponent = [BeeComponent getFrom:secondEntity];
+		if ([beeComponent killsBeeaters])
+		{
+			[beeComponent decreaseBeeaterHitsLeft];
+			if ([beeComponent isOutOfBeeaterKills])
+			{
+				[EntityUtil destroyEntity:secondEntity];
+			}
+			[EntityUtil destroyEntity:firstEntity];
+		}
+	}
+	
+	// Saw -> Wood
+	if ([firstEntity hasComponent:[SawComponent class]] &&
+		[secondEntity hasComponent:[WoodComponent class]])
+	{
+		[EntityUtil destroyEntity:firstEntity instant:TRUE];
+		
+		WoodComponent *woodComponent = [WoodComponent getFrom:secondEntity];
+		PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:secondEntity];
+		int shapeIndexAtCollision = [[physicsComponent shapes] indexOfObject:[collision secondShape]];
+		[woodComponent setShapeIndexAtCollision:shapeIndexAtCollision];
+		[EntityUtil destroyEntity:secondEntity];
+	}
+	if ([secondEntity hasComponent:[SawComponent class]] &&
+		[firstEntity hasComponent:[WoodComponent class]])
+	{
+		[EntityUtil destroyEntity:secondEntity instant:TRUE];
+		
+		WoodComponent *woodComponent = [WoodComponent getFrom:firstEntity];
+		PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:firstEntity];
+		int shapeIndexAtCollision = [[physicsComponent shapes] indexOfObject:[collision firstShape]];
+		[woodComponent setShapeIndexAtCollision:shapeIndexAtCollision];
+		[EntityUtil destroyEntity:firstEntity];
+	}
+	
+	// Anything -> Water
+    if ([secondEntity hasComponent:[WaterComponent class]])
+    {
+        [EntityUtil destroyEntity:firstEntity instant:TRUE];
+        
+        WaterComponent *waterComponent = [WaterComponent getFrom:secondEntity];
+        Entity *splashEntity = [EntityFactory createEntity:[waterComponent splashEntityType] world:_world];
+        TransformComponent *transformComponent = [TransformComponent getFrom:firstEntity];
+        [EntityUtil setEntityPosition:splashEntity position:[transformComponent position]];
+        [EntityUtil destroyEntity:splashEntity];
+    }
+    if ([firstEntity hasComponent:[WaterComponent class]])
+    {
+        [EntityUtil destroyEntity:secondEntity instant:TRUE];
+        
+        WaterComponent *waterComponent = [WaterComponent getFrom:firstEntity];
+        Entity *splashEntity = [EntityFactory createEntity:[waterComponent splashEntityType] world:_world];
+        TransformComponent *transformComponent = [TransformComponent getFrom:secondEntity];
+        [EntityUtil setEntityPosition:splashEntity position:[transformComponent position]];
+        [EntityUtil destroyEntity:splashEntity];
+    }
+	
+	// Bee -> Sound
+	if ([firstEntity hasComponent:[BeeComponent class]] &&
+		[secondEntity hasComponent:[SoundComponent class]])
+	{
+		if ([collision firstEntityVelocityTimesMass] >= VELOCITY_TIMES_MASS_FOR_SOUND)
+		{
+			[EntityUtil playDefaultCollisionSound:secondEntity];
+		}
+	}
+	if ([secondEntity hasComponent:[BeeComponent class]] &&
+		[firstEntity hasComponent:[SoundComponent class]])
+	{
+		if ([collision secondEntityVelocityTimesMass] >= VELOCITY_TIMES_MASS_FOR_SOUND)
+		{
+			[EntityUtil playDefaultCollisionSound:firstEntity];
+		}
 	}
 	
 	// Collision
@@ -110,156 +253,6 @@
 			[EntityUtil destroyEntity:firstEntity];
 		}
 	}
-	
-    // Dozer / Crumble
-	if ([firstEntity hasComponent:[DozerComponent class]] &&
-		[secondEntity hasComponent:[CrumbleComponent class]])
-	{
-		[EntityUtil destroyEntity:secondEntity];
-		continueProcessingCollision = FALSE;
-	}
-	if ([secondEntity hasComponent:[DozerComponent class]] &&
-        [firstEntity hasComponent:[CrumbleComponent class]])
-	{
-		[EntityUtil destroyEntity:firstEntity];
-		continueProcessingCollision = FALSE;
-	}
-	
-    // Pollen / Key
-	if ([firstEntity hasComponent:[PollenComponent class]] ||
-		[firstEntity hasComponent:[KeyComponent class]])
-	{
-		[_levelSession consumedEntity:firstEntity];
-	}
-	if ([secondEntity hasComponent:[PollenComponent class]] ||
-		[secondEntity hasComponent:[KeyComponent class]])
-	{
-		[_levelSession consumedEntity:secondEntity];
-	}
-	
-    // Sound
-	if ([firstEntity hasComponent:[SoundComponent class]])
-	{
-		if ([collision firstEntityVelocityTimesMass] >= VELOCITY_TIMES_MASS_FOR_SOUND)
-		{
-			[EntityUtil playDefaultCollisionSound:firstEntity];
-		}
-	}
-	if ([secondEntity hasComponent:[SoundComponent class]])
-	{
-		if ([collision secondEntityVelocityTimesMass] >= VELOCITY_TIMES_MASS_FOR_SOUND)
-		{
-			[EntityUtil playDefaultCollisionSound:secondEntity];
-		}
-	}
-	
-    // Gate
-	if ([firstEntity hasComponent:[GateComponent class]])
-	{
-		GateComponent *gateComponent = [GateComponent getFrom:firstEntity];
-		if ([gateComponent isOpened])
-		{
-			[_levelSession setDidUseKey:TRUE];
-			
-			// Game notification
-			[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_GATE_ENTERED object:self userInfo:nil];
-		}
-	}
-	if ([secondEntity hasComponent:[GateComponent class]])
-	{
-		GateComponent *gateComponent = [GateComponent getFrom:secondEntity];
-		if ([gateComponent isOpened])
-		{
-			[_levelSession setDidUseKey:TRUE];
-			
-			// Game notification
-			[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_GATE_ENTERED object:self userInfo:nil];
-		}
-	}
-	
-    // Beeater
-	if ([firstEntity hasComponent:[BeeComponent class]] &&
-		[secondEntity hasComponent:[BeeaterComponent class]])
-	{
-		BeeComponent *beeComponent = [BeeComponent getFrom:firstEntity];
-		if ([beeComponent killsBeeaters])
-		{
-			[beeComponent decreaseBeeaterHitsLeft];
-			if ([beeComponent isOutOfBeeaterKills])
-			{
-				[EntityUtil destroyEntity:firstEntity];
-			}
-			[EntityUtil destroyEntity:secondEntity];
-		}
-	}
-	if ([secondEntity hasComponent:[BeeComponent class]] &&
-		[firstEntity hasComponent:[BeeaterComponent class]])
-	{
-		BeeComponent *beeComponent = [BeeComponent getFrom:secondEntity];
-		if ([beeComponent killsBeeaters])
-		{
-			[beeComponent decreaseBeeaterHitsLeft];
-			if ([beeComponent isOutOfBeeaterKills])
-			{
-				[EntityUtil destroyEntity:secondEntity];
-			}
-			[EntityUtil destroyEntity:firstEntity];
-		}
-	}
-	
-    // Wood
-	if ([firstEntity hasComponent:[BeeComponent class]] &&
-		[secondEntity hasComponent:[WoodComponent class]])
-	{
-		BeeComponent *beeComponent = [BeeComponent getFrom:firstEntity];
-		WoodComponent *woodComponent = [WoodComponent getFrom:secondEntity];
-		if ([beeComponent type] == [BeeType SAWEE])
-		{
-			[EntityUtil destroyEntity:firstEntity instant:TRUE];
-			
-			PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:secondEntity];
-			int shapeIndexAtCollision = [[physicsComponent shapes] indexOfObject:[collision secondShape]];
-			[woodComponent setShapeIndexAtCollision:shapeIndexAtCollision];
-			[EntityUtil destroyEntity:secondEntity];
-		}
-	}
-	if ([secondEntity hasComponent:[BeeComponent class]] &&
-		[firstEntity hasComponent:[WoodComponent class]])
-	{
-		BeeComponent *beeComponent = [BeeComponent getFrom:secondEntity];
-		WoodComponent *woodComponent = [WoodComponent getFrom:firstEntity];
-		if ([beeComponent type] == [BeeType SAWEE])
-		{
-			[EntityUtil destroyEntity:secondEntity instant:TRUE];
-			
-			PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:firstEntity];
-			int shapeIndexAtCollision = [[physicsComponent shapes] indexOfObject:[collision firstShape]];
-			[woodComponent setShapeIndexAtCollision:shapeIndexAtCollision];
-			[EntityUtil destroyEntity:firstEntity];
-		}
-	}
-    
-    // Water
-    if ([secondEntity hasComponent:[WaterComponent class]])
-    {
-        [EntityUtil destroyEntity:firstEntity instant:TRUE];
-        
-        WaterComponent *waterComponent = [WaterComponent getFrom:secondEntity];
-        Entity *splashEntity = [EntityFactory createEntity:[waterComponent splashEntityType] world:_world];
-        TransformComponent *transformComponent = [TransformComponent getFrom:firstEntity];
-        [EntityUtil setEntityPosition:splashEntity position:[transformComponent position]];
-        [EntityUtil destroyEntity:splashEntity];
-    }
-    if ([firstEntity hasComponent:[WaterComponent class]])
-    {
-        [EntityUtil destroyEntity:secondEntity instant:TRUE];
-        
-        WaterComponent *waterComponent = [WaterComponent getFrom:firstEntity];
-        Entity *splashEntity = [EntityFactory createEntity:[waterComponent splashEntityType] world:_world];
-        TransformComponent *transformComponent = [TransformComponent getFrom:secondEntity];
-        [EntityUtil setEntityPosition:splashEntity position:[transformComponent position]];
-        [EntityUtil destroyEntity:splashEntity];
-    }
 	
 	return continueProcessingCollision;
 }

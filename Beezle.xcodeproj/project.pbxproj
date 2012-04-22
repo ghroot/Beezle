@@ -976,6 +976,8 @@
 		2CFFFC00154349A1001D9307 /* EmailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFFFBFB154349A1001D9307 /* EmailInfo.m */; };
 		2CFFFC01154349A1001D9307 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFFFBFD154349A1001D9307 /* SoundManager.m */; };
 		2CFFFC02154349A1001D9307 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFFFBFF154349A1001D9307 /* Utils.m */; };
+		2CFFFC0515437625001D9307 /* ConsumerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFFFC0415437624001D9307 /* ConsumerComponent.m */; };
+		2CFFFC081543785B001D9307 /* SawComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFFFC071543785B001D9307 /* SawComponent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2241,6 +2243,10 @@
 		2CFFFBFD154349A1001D9307 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
 		2CFFFBFE154349A1001D9307 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		2CFFFBFF154349A1001D9307 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		2CFFFC0315437623001D9307 /* ConsumerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConsumerComponent.h; path = Classes/Component/ConsumerComponent.h; sourceTree = "<group>"; };
+		2CFFFC0415437624001D9307 /* ConsumerComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConsumerComponent.m; path = Classes/Component/ConsumerComponent.m; sourceTree = "<group>"; };
+		2CFFFC061543785A001D9307 /* SawComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SawComponent.h; path = Classes/Component/SawComponent.h; sourceTree = "<group>"; };
+		2CFFFC071543785B001D9307 /* SawComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SawComponent.m; path = Classes/Component/SawComponent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4094,6 +4100,8 @@
 				2C3A6F95148980AF002721E3 /* BeeComponent.m */,
 				2C537421153B22FE00040EED /* CollisionComponent.h */,
 				2C537422153B230100040EED /* CollisionComponent.m */,
+				2CFFFC0315437623001D9307 /* ConsumerComponent.h */,
+				2CFFFC0415437624001D9307 /* ConsumerComponent.m */,
 				2C5EFCC014EC60530071ED39 /* CrumbleComponent.h */,
 				2C5EFCC114EC60560071ED39 /* CrumbleComponent.m */,
 				2C85B83A149563ED005D7BAB /* DisposableComponent.h */,
@@ -4121,6 +4129,8 @@
 				2CEA352D1466B2B5000FF575 /* RenderComponent.m */,
 				2C827D3614840C4600517C8F /* RenderSprite.h */,
 				2C827D3714840C4700517C8F /* RenderSprite.m */,
+				2CFFFC061543785A001D9307 /* SawComponent.h */,
+				2CFFFC071543785B001D9307 /* SawComponent.m */,
 				2C6A70841542BA8D0042F5A1 /* ShakeComponent.h */,
 				2C6A70851542BA8E0042F5A1 /* ShakeComponent.m */,
 				2CEB9D7914EDC1BA00CAC505 /* ShardComponent.h */,
@@ -5224,6 +5234,8 @@
 				2CFFFC00154349A1001D9307 /* EmailInfo.m in Sources */,
 				2CFFFC01154349A1001D9307 /* SoundManager.m in Sources */,
 				2CFFFC02154349A1001D9307 /* Utils.m in Sources */,
+				2CFFFC0515437625001D9307 /* ConsumerComponent.m in Sources */,
+				2CFFFC081543785B001D9307 /* SawComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

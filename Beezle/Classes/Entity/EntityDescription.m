@@ -10,6 +10,7 @@
 #import "BeeaterComponent.h"
 #import "BeeComponent.h"
 #import "CollisionComponent.h"
+#import "ConsumerComponent.h"
 #import "CrumbleComponent.h"
 #import "DisposableComponent.h"
 #import "DozerComponent.h"
@@ -22,6 +23,7 @@
 #import "PhysicsComponent.h"
 #import "PollenComponent.h"
 #import "RenderComponent.h"
+#import "SawComponent.h"
 #import "ShakeComponent.h"
 #import "ShardComponent.h"
 #import "SlingerComponent.h"
@@ -58,6 +60,10 @@
 		else if ([componentType isEqualToString:@"collision"])
 		{
 			component = [CollisionComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+		else if ([componentType isEqualToString:@"consumer"])
+		{
+			component = [ConsumerComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"crumble"])
 		{
@@ -106,6 +112,10 @@
 		else if ([componentType isEqualToString:@"render"])
 		{
 			component = [RenderComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+		else if ([componentType isEqualToString:@"saw"])
+		{
+			component = [SawComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"shake"])
 		{
