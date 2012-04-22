@@ -256,9 +256,10 @@
 		if ([[PlayerInformation sharedInformation] hasCollectedKeyInLevel:[_levelSession levelName]] &&
 			[entity hasComponent:[KeyComponent class]])
 		{
-			[[DisposableComponent getFrom:entity] setIsDisposed:TRUE];
-			[[PhysicsComponent getFrom:entity] disable];
-			[[RenderComponent getFrom:entity] playAnimationLoop:@"Nut-Open-Idle"];
+			[EntityUtil setEntityDisposed:entity sendNotification:FALSE];
+			[EntityUtil disablePhysics:entity];
+			RenderSprite *defaultRenderSprite = [[RenderComponent getFrom:entity] defaultRenderSprite];
+			[defaultRenderSprite playAnimationLoop:@"Nut-Open-Idle"];
 		}
 	}
 }
