@@ -10,6 +10,7 @@
 #import "BeeComponent.h"
 #import "BeeType.h"
 #import "EntityUtil.h"
+#import "GateComponent.h"
 #import "PhysicsComponent.h"
 
 @interface BeeExpiratonSystem()
@@ -65,6 +66,7 @@
 -(BOOL) shouldExpireDueToNoBeeatersLeft:(Entity *)entity
 {
     GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
+	
     NSArray *beeaterEntities = [groupManager getEntitiesInGroup:@"BEEATERS"];
     BOOL worldHasBeeatersLeft = FALSE;
     for (Entity *beeaterEntity in beeaterEntities)
@@ -76,7 +78,20 @@
             break;
         }
     }
-    return !worldHasBeeatersLeft;
+	
+	NSArray *gateEntities = [groupManager getEntitiesInGroup:@"GATES"];
+	BOOL worldHasOpenGate = FALSE;
+	for (Entity *gateEntity in gateEntities)
+	{
+		if ([[GateComponent getFrom:gateEntity] isOpened])
+		{
+			worldHasOpenGate = TRUE;
+			break;
+		}
+	}
+	
+    return !worldHasBeeatersLeft &&
+		!worldHasOpenGate;
 }
 
 @end
