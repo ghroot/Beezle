@@ -8,6 +8,7 @@
 
 #import "GateOpeningSystem.h"
 #import "DisposableComponent.h"
+#import "EntityUtil.h"
 #import "GateComponent.h"
 #import "LevelSession.h"
 #import "PlayerInformation.h"
@@ -39,7 +40,7 @@
 	BOOL undisposedBeeatersLeft = 0;
 	for (Entity *beeaterEntity in beeaterEntities)
 	{
-		if (![[DisposableComponent getFrom:beeaterEntity] isDisposed])
+		if (![EntityUtil isEntityDisposed:beeaterEntity])
 		{
 			undisposedBeeatersLeft = TRUE;
 			break;
