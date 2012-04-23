@@ -22,6 +22,8 @@
 #define QUEUE_START_OFFSET_Y 0
 #define QUEUE_SPACING_X 30
 #define QUEUE_SWAY_Y 4
+#define LOADED_BEE_MIN_ANIMATION_DURATION 0.4f
+#define LOADED_BEE_MAX_ANIMATION_DURATION 1.0f
 
 @interface BeeQueueRenderingSystem()
 
@@ -34,7 +36,7 @@
 -(void) handleBeeFiredNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) handleBeeSavedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
 -(void) decreaseMovingBeesCount;
--(void) updateLoadedBeeRotation:(Entity *)slingerEntity;
+-(void) updateLoadedBee:(Entity *)slingerEntity;
 -(RenderSprite *) createBeeQueueRenderSpriteWithBeeType:(BeeType *)beeType position:(CGPoint)position;
 -(CGPoint) calculatePositionForBeeQueueRenderSpriteAtIndex:(int)index slingerEntity:(Entity *)slingerEntity;
 -(CGPoint) calculatePositionForNextBeeQueueRenderSprite:(Entity *)slingerEntity;
@@ -105,7 +107,7 @@
 		[nextNotification release];
 	}
 	
-	[self updateLoadedBeeRotation:entity];
+	[self updateLoadedBee:entity];
 }
 
 -(void) queueNotification:(NSNotification *)notification
@@ -194,13 +196,15 @@
     [self refreshSprites:slingerEntity];
 }
 
--(void) updateLoadedBeeRotation:(Entity *)slingerEntity
+-(void) updateLoadedBee:(Entity *)slingerEntity
 {
 	if (_beeLoadedRenderSprite != nil)
 	{
+		// Rotation
 		TransformComponent *slingerTransformComponent = [TransformComponent getFrom:slingerEntity];
 		[[_beeLoadedRenderSprite sprite] setRotation:[slingerTransformComponent rotation] + 90];
         
+		// Position
         RenderComponent *slingerRenderComponent = [RenderComponent getFrom:slingerEntity];
         RenderSprite *slingerAddonRenderSprite = [slingerRenderComponent renderSpriteWithName:@"addon"];
         CCSprite *slingerAddonSprite = [slingerAddonRenderSprite sprite];
@@ -208,6 +212,10 @@
         CGPoint newPosition = CGPointMake([slingerTransformComponent position].x - 15.0f * [slingerAddonSprite scaleY] * cosf(angle),
                                           [slingerTransformComponent position].y - 15.0f * [slingerAddonSprite scaleY] * sinf(angle));
         [[_beeLoadedRenderSprite sprite] setPosition:newPosition];
+		
+		// Animation speed
+		float animationSpeed = LOADED_BEE_MIN_ANIMATION_DURATION + (1.0f - [slingerAddonSprite scaleY]) * (LOADED_BEE_MAX_ANIMATION_DURATION - LOADED_BEE_MIN_ANIMATION_DURATION);
+		[_beeLoadedRenderSprite setAnimationSpeed:animationSpeed];
     }
 }
 

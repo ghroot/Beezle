@@ -55,7 +55,7 @@
 -(BOOL) hasDefaultHitAnimation;
 -(NSString *) randomDefaultHitAnimationName;
 -(void) playDefaultHitAnimation;
-
+-(void) setAnimationSpeed:(float)speed;
 -(void) hide;
 -(void) show;
 

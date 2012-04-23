@@ -10,6 +10,12 @@
 #import "ActionTags.h"
 #import "StringList.h"
 
+@interface RenderSprite()
+
+-(void) setAnimationSpeedOnAction:(CCAction *)action speed:(float)speed;
+
+@end
+
 @implementation RenderSprite
 
 @synthesize sprite = _sprite;
@@ -221,6 +227,33 @@
 	if ([self hasDefaultHitAnimation])
 	{
 		[self playAnimationsLoopLast:[NSArray arrayWithObjects:[self randomDefaultHitAnimationName], [self randomDefaultIdleAnimationName], nil]];
+	}
+}
+
+-(void) setAnimationSpeed:(float)speed
+{
+	CCAction *action = [_sprite getActionByTag:ACTION_TAG_ANIMATION];
+	if (action != nil)
+	{
+		[self setAnimationSpeedOnAction:action speed:speed];
+	}
+}
+
+-(void) setAnimationSpeedOnAction:(CCAction *)action speed:(float)speed
+{
+	if ([action isKindOfClass:[CCAnimate class]])
+	{
+		CCAnimate *animationAction = (CCAnimate *)action;
+		[animationAction setDuration:speed];
+	}
+	else if ([action isKindOfClass:[CCRepeatForever class]])
+	{
+		CCRepeatForever *repeatAction = (CCRepeatForever *)action;
+		[self setAnimationSpeedOnAction:[repeatAction innerAction] speed:speed];
+	}
+	else if ([action isKindOfClass:[CCSequence class]])
+	{
+		// TODO: No way to get actions from CCSequence :(
 	}
 }
 
