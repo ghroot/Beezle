@@ -22,7 +22,7 @@
 -(id) initWithLevelName:(NSString *)levelName target:(id)target selector:(SEL)selector
 {
 	NSString *shortLevelName = [levelName stringByReplacingOccurrencesOfString:@"Level-" withString:@""];
-#ifdef CONFIG_CAN_EDIT_LEVELS
+#ifdef DEBUG
     LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
     if (levelLayout != nil &&
         [levelLayout isEdited])

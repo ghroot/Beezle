@@ -32,7 +32,7 @@
 	
 	CCMenuItem *playMenuItem = [CCMenuItemFont itemWithString:@"Play" target:self selector:@selector(selectTheme:)];
 	[_menu addChild:playMenuItem];
-#ifdef CONFIG_CAN_EDIT_LEVELS
+#ifdef DEBUG
 	CCMenuItem *sendMenuItem = [CCMenuItemFont itemWithString:@"Send Edited Levels" target:self selector:@selector(sendEditedLevels:)];
 	[_menu addChild:sendMenuItem];
 #endif

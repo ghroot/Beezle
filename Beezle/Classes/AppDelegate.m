@@ -16,12 +16,10 @@
 
 @implementation AppDelegate
 
-#ifdef CONFIG_USE_TRACKING
 void uncaughtExceptionHandler(NSException *exception)
 {
     [FlurryAnalytics logError:@"Uncaught" message:@"Crash!" exception:exception];
 }
-#endif
 
 -(void) applicationDidFinishLaunching:(UIApplication *)application
 {
@@ -70,11 +68,9 @@ void uncaughtExceptionHandler(NSException *exception)
 	// Show
 	[_window makeKeyAndVisible];
     
-#ifdef CONFIG_USE_TRACKING
     // Tracking
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     [FlurryAnalytics startSession:@"2GF435EGU2HN2KIKLCGG"];
-#endif
 	
 	// Setup sound
 	[[SoundManager sharedManager] setup];

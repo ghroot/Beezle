@@ -92,7 +92,7 @@
 	{
 		LevelSelectMenuItem *levelMenuItem = [LevelSelectMenuItem itemWithLevelName:levelName target:self selector:@selector(startGame:)];
         
-#ifdef CONFIG_CAN_EDIT_LEVELS
+#ifdef DEBUG
 		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
 		if (levelLayout != nil)
 		{
