@@ -38,8 +38,6 @@
 	{
 		_levelSession = levelSession;
 		_handlers = [NSMutableArray new];
-		
-		[self registerCollisionHandlers];
 	}
 	return self;
 }
@@ -55,6 +53,11 @@
 	[_handlers release];
 	
 	[super dealloc];
+}
+
+-(void) initialise
+{
+	[self registerCollisionHandlers];
 }
 
 -(void) registerCollisionHandlers
