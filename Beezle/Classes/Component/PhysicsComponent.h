@@ -18,12 +18,12 @@
 {
     ChipmunkBody *_body;
     NSMutableArray *_shapes;
-	BOOL _positionUpdatedManually;
+	BOOL _positionOrRotationUpdatedManually;
 }
 
 @property (nonatomic, retain) ChipmunkBody *body;
 @property (nonatomic, readonly) NSArray *shapes;
-@property (nonatomic) BOOL positionUpdatedManually;
+@property (nonatomic) BOOL positionOrRotationUpdatedManually;
 
 +(id) componentWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes;
 +(id) componentWithBody:(ChipmunkBody *)body andShape:(ChipmunkShape *)shape;

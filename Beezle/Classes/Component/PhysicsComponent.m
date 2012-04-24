@@ -16,7 +16,7 @@
 
 @synthesize body = _body;
 @synthesize shapes = _shapes;
-@synthesize positionUpdatedManually = _positionUpdatedManually;
+@synthesize positionOrRotationUpdatedManually = _positionOrRotationUpdatedManually;
 
 +(id) componentWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes
 {
@@ -144,7 +144,6 @@
 			_body = [body retain];
 		}
 		_shapes = [[NSMutableArray alloc] initWithArray:shapes];
-		_positionUpdatedManually = FALSE;
     }
     return self;
 }
@@ -212,12 +211,13 @@
 -(void) setPositionManually:(CGPoint)position
 {
 	[_body setPos:position];
-	_positionUpdatedManually = TRUE;
+	_positionOrRotationUpdatedManually = TRUE;
 }
 
 -(void) setRotationManually:(float)rotation
 {
 	[_body setAngle:CC_DEGREES_TO_RADIANS(-rotation)];
+	_positionOrRotationUpdatedManually = TRUE;
 }
 
 -(cpBB) boundingBox

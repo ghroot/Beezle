@@ -167,9 +167,9 @@
     TransformComponent *transformComponent = [TransformComponent getFrom:entity];
     PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
 	
-	if ([physicsComponent positionUpdatedManually])
+	if ([physicsComponent positionOrRotationUpdatedManually])
 	{
-		// Moving a static body requires re-adding to the space
+		// Moving or rotating a static body requires re-adding to the space
 		if ([[physicsComponent body] isStatic])
 		{
 			for (ChipmunkShape *shape in [physicsComponent shapes])
@@ -178,7 +178,7 @@
 				[_space addStaticShape:shape];
 			}
 		}
-		[physicsComponent setPositionUpdatedManually:FALSE];
+		[physicsComponent setPositionOrRotationUpdatedManually:FALSE];
 	}
 	
     [transformComponent setPosition:[[physicsComponent body] pos]];
