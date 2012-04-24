@@ -57,10 +57,6 @@
 
 -(void) entityAdded:(Entity *)entity
 {
-    RenderComponent *renderComponent = [RenderComponent getFrom:entity];
-    RenderSprite *addonRenderSprite = [renderComponent renderSpriteWithName:@"addon"];
-    [addonRenderSprite setScale:CGPointMake(1.0f, 0.1f)];
-    
 	[[SlingerComponent getFrom:entity] setState:SLINGER_STATE_IDLE];
 }
 
