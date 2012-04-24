@@ -60,7 +60,7 @@
 {
 	// Load from bundle
 	NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
-	NSString *filePath = [CCFileUtils fullPathFromRelativePath:levelFileName];
+	NSString *filePath = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:levelFileName];
 	return [self loadLevelLayoutFromFile:filePath isEdited:FALSE];
 }
 

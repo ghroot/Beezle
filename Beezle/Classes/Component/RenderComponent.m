@@ -60,7 +60,7 @@
 			}
 			else if ([spriteDict objectForKey:@"textureFile"] != nil)
 			{
-                NSString *textureFile = [CCFileUtils fullPathFromRelativePath:[spriteDict objectForKey:@"textureFile"]];
+                NSString *textureFile = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:[spriteDict objectForKey:@"textureFile"]];
 				renderSprite = [renderSystem createRenderSpriteWithFile:textureFile z:z];
 			}
             

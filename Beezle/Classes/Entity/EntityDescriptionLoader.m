@@ -32,7 +32,7 @@
 -(EntityDescription *) loadEntityDescription:(NSString *)type
 {
 	NSString *fileName = [self convertTypeToFileName:type];
-	NSString *filePath = [CCFileUtils fullPathFromRelativePath:fileName];
+	NSString *filePath = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:fileName];
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
     
     if ([dict objectForKey:@"template"] != nil)
@@ -46,7 +46,7 @@
 -(NSDictionary *) createDictionaryFromTemplate:(NSDictionary *)dict entityType:(NSString *)type
 {
     NSString *templateFileName = [dict objectForKey:@"template"];
-    NSString *templateFilePath = [CCFileUtils fullPathFromRelativePath:templateFileName];
+    NSString *templateFilePath = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:templateFileName];
     NSDictionary *templateSubstitutions = [dict objectForKey:@"templateSubstitutions"];
     
     NSString *error;

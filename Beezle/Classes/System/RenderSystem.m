@@ -58,7 +58,7 @@
     {
         // Create sprite batch node
         NSString *spriteSheetFileName = [NSString stringWithFormat:@"%@.plist", name];
-        NSString *spriteSheetFilePath = [CCFileUtils fullPathFromRelativePath:spriteSheetFileName];
+        NSString *spriteSheetFilePath = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:spriteSheetFileName];
         NSDictionary *spriteSheetDict = [NSDictionary dictionaryWithContentsOfFile:spriteSheetFilePath];
         NSDictionary *metadataDict = [spriteSheetDict objectForKey:@"metadata"];
         NSString *texturePath = [metadataDict objectForKey:@"textureFileName"];

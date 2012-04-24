@@ -50,7 +50,7 @@
 
 -(void) addLevelNamesWithFile:(NSString *)fileName
 {
-    NSString *path = [CCFileUtils fullPathFromRelativePath:fileName];
+    NSString *path = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:fileName];
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
     
 	[self addLevelNamesWithDictionary:dict];

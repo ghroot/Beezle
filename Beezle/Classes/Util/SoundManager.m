@@ -88,7 +88,7 @@
 -(void) loadSoundMappings
 {
 	NSString *fileName = @"Sounds.plist";
-	NSString *filePath = [CCFileUtils fullPathFromRelativePath:fileName];
+	NSString *filePath = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:fileName];
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
 	_soundFilePathsByName = [[NSDictionary dictionaryWithDictionary:[dict objectForKey:@"sounds"]] retain];
 }
