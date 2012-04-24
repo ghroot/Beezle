@@ -60,7 +60,6 @@
 	
 	NSMutableArray *positionsAsStrings = [NSMutableArray array];
 	
-#ifdef CONFIG_CAN_EDIT_LEVELS
     if ([_parentEntity hasComponent:[EditComponent class]])
     {
         Entity *currentMovementIndicatorEntity = [[EditComponent getFrom:_parentEntity] nextMovementIndicatorEntity];
@@ -81,12 +80,6 @@
 			[positionsAsStrings addObject:[Utils pointToString:[positionAsValue CGPointValue]]];
 		}
     }
-#else
-    for (NSValue *positionAsValue in _positions)
-    {
-        [positionsAsStrings addObject:[Utils pointToString:[positionAsValue CGPointValue]]];
-    }
-#endif
 	
 	[dict setObject:positionsAsStrings forKey:@"positions"];
 	
@@ -111,7 +104,6 @@
 		}
 		[self setPositions:positions];
 		
-#ifdef CONFIG_CAN_EDIT_LEVELS
 		if (edit)
 		{
 			// Create movement indicator entities to allow for editing
@@ -126,7 +118,6 @@
 			}
 			[currentEditComponent setMainMoveEntity:_parentEntity];
 		}
-#endif
 	}
 }
 
