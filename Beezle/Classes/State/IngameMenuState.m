@@ -35,13 +35,12 @@
 	[_menu addChild:resumeMenuItem];
 	CCMenuItem *restartMenuItem = [CCMenuItemFont itemWithString:@"Restart" target:self selector:@selector(restartGame:)];
 	[_menu addChild:restartMenuItem];
-	if (CONFIG_CAN_EDIT_LEVELS)
-	{
-		CCMenuItem *editMenuItem = [CCMenuItemFont itemWithString:@"Edit" target:self selector:@selector(editGame:)];
-		[_menu addChild:editMenuItem];
-		CCMenuItem *nextLevelMenuItem = [CCMenuItemFont itemWithString:@"Next level" target:self selector:@selector(nextLevel:)];
-		[_menu addChild:nextLevelMenuItem];
-	}
+#ifdef CONFIG_CAN_EDIT_LEVELS
+    CCMenuItem *editMenuItem = [CCMenuItemFont itemWithString:@"Edit" target:self selector:@selector(editGame:)];
+    [_menu addChild:editMenuItem];
+    CCMenuItem *nextLevelMenuItem = [CCMenuItemFont itemWithString:@"Next level" target:self selector:@selector(nextLevel:)];
+    [_menu addChild:nextLevelMenuItem];
+#endif
 	CCMenuItem *quitMenuItem = [CCMenuItemFont itemWithString:@"Quit" target:self selector:@selector(gotoMainMenu:)];
 	[_menu addChild:quitMenuItem];
 	

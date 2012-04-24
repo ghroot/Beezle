@@ -32,11 +32,10 @@
 	
 	CCMenuItem *playMenuItem = [CCMenuItemFont itemWithString:@"Play" target:self selector:@selector(selectTheme:)];
 	[_menu addChild:playMenuItem];
-	if (CONFIG_CAN_EDIT_LEVELS)
-	{
-		CCMenuItem *sendMenuItem = [CCMenuItemFont itemWithString:@"Send Edited Levels" target:self selector:@selector(sendEditedLevels:)];
-		[_menu addChild:sendMenuItem];
-	}
+#ifdef CONFIG_CAN_EDIT_LEVELS
+	CCMenuItem *sendMenuItem = [CCMenuItemFont itemWithString:@"Send Edited Levels" target:self selector:@selector(sendEditedLevels:)];
+	[_menu addChild:sendMenuItem];
+#endif
 	CCMenuItem *testMenuItem = [CCMenuItemFont itemWithString:@"Test" target:self selector:@selector(startTest:)];
 	[_menu addChild:testMenuItem];
 	CCMenuItem *resetMenuItem = [CCMenuItemFont itemWithString:@"Reset player information" target:self selector:@selector(resetPlayerInformation:)];

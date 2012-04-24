@@ -19,7 +19,6 @@
 @interface LevelSelectMenuState()
 
 -(void) createLevelMenuItems;
--(void) createLevelMenuItemsEdit;
 -(void) startGame:(id)sender;
 -(void) goBack:(id)sender;
 
@@ -53,14 +52,7 @@
 	
 	_menu = [CCMenu menuWithItems:nil];
 	
-	if (CONFIG_CAN_EDIT_LEVELS)
-	{
-		[self createLevelMenuItemsEdit];
-	}
-	else
-	{
-		[self createLevelMenuItems];
-	}
+    [self createLevelMenuItems];
 	
 	CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
 	[backMenuItem setFontSize:24];
@@ -99,18 +91,8 @@
 	for (NSString *levelName in levelNames)
 	{
 		LevelSelectMenuItem *levelMenuItem = [LevelSelectMenuItem itemWithLevelName:levelName target:self selector:@selector(startGame:)];
-		[_menu addChild:levelMenuItem];
-	}
-}
-
--(void) createLevelMenuItemsEdit
-{
-	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesInTheme:_theme];
-	for (NSString *levelName in levelNames)
-	{
-		LevelSelectMenuItem *levelMenuItem = [LevelSelectMenuItem itemWithLevelName:levelName target:self selector:@selector(startGame:)];
-		[_menu addChild:levelMenuItem];
-		
+        
+#ifdef CONFIG_CAN_EDIT_LEVELS
 		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
 		if (levelLayout != nil)
 		{
@@ -130,6 +112,11 @@
 				[_menu addChild:caveLevelMenuItem];
 			}
 		}
+#else
+        [levelMenuItem setIsEnabled:[[PlayerInformation sharedInformation] canPlayLevel:levelName]];
+#endif
+        
+		[_menu addChild:levelMenuItem];
 	}
 }
 

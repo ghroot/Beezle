@@ -13,7 +13,8 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-#define CONFIG_CAN_EDIT_LEVELS TRUE
-#define CONFIG_USE_TRACKING TRUE
+#ifdef DEBUG
+#define CONFIG_CAN_EDIT_LEVELS
+#endif
 
 #endif

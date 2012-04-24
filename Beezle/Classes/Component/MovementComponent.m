@@ -60,10 +60,10 @@
 	
 	NSMutableArray *positionsAsStrings = [NSMutableArray array];
 	
-	if (CONFIG_CAN_EDIT_LEVELS &&
-		[_parentEntity hasComponent:[EditComponent class]])
-	{
-		Entity *currentMovementIndicatorEntity = [[EditComponent getFrom:_parentEntity] nextMovementIndicatorEntity];
+#ifdef CONFIG_CAN_EDIT_LEVELS
+    if ([_parentEntity hasComponent:[EditComponent class]])
+    {
+        Entity *currentMovementIndicatorEntity = [[EditComponent getFrom:_parentEntity] nextMovementIndicatorEntity];
 		while (currentMovementIndicatorEntity != nil)
 		{
 			TransformComponent *currentTransformComponent = [TransformComponent getFrom:currentMovementIndicatorEntity];
@@ -73,14 +73,20 @@
 			
 			currentMovementIndicatorEntity = [currentEditComponent nextMovementIndicatorEntity];
 		}
-	}
-	else
-	{
-		for (NSValue *positionAsValue in _positions)
+    }
+    else
+    {
+        for (NSValue *positionAsValue in _positions)
 		{
 			[positionsAsStrings addObject:[Utils pointToString:[positionAsValue CGPointValue]]];
 		}
-	}
+    }
+#else
+    for (NSValue *positionAsValue in _positions)
+    {
+        [positionsAsStrings addObject:[Utils pointToString:[positionAsValue CGPointValue]]];
+    }
+#endif
 	
 	[dict setObject:positionsAsStrings forKey:@"positions"];
 	
@@ -105,7 +111,8 @@
 		}
 		[self setPositions:positions];
 		
-		if (CONFIG_CAN_EDIT_LEVELS && edit)
+#ifdef CONFIG_CAN_EDIT_LEVELS
+		if (edit)
 		{
 			// Create movement indicator entities to allow for editing
 			EditComponent *currentEditComponent = [EditComponent getFrom:_parentEntity];
@@ -119,6 +126,7 @@
 			}
 			[currentEditComponent setMainMoveEntity:_parentEntity];
 		}
+#endif
 	}
 }
 
