@@ -44,6 +44,14 @@
 	[_menu alignItemsVerticallyWithPadding:20.0f];
 	
 	[self addChild:_menu];
+	
+	NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+	NSString* appName = [infoDict objectForKey:@"CFBundleDisplayName"];
+	NSString* version = [infoDict objectForKey:@"CFBundleShortVersionString"];
+	NSString *labelString = [NSString stringWithFormat:@"%@ %@", appName, version];
+	CCLabelTTF *versionLabel = [CCLabelTTF labelWithString:labelString fontName:@"Helvetica" fontSize:14.0f];
+	[versionLabel setAnchorPoint:CGPointZero];
+	[self addChild:versionLabel];
 }
 
 -(void) selectTheme:(id)sender
