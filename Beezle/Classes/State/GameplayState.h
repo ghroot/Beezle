@@ -32,6 +32,7 @@
 @class ShardSystem;
 @class SlingerControlSystem;
 @class SpawnSystem;
+@class Waves1DNode;
 @class WoodSystem;
 
 @interface GameplayState : GameState
@@ -69,6 +70,9 @@
 	DisposalSystem *_disposalSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
 	DebugNotificationTrackerSystem *_debugNotificationTrackerSystem;
+    
+    Waves1DNode *_wave1;
+    Waves1DNode *_wave2;
     
     NSMutableArray *_modes;
     GameMode *_currentMode;

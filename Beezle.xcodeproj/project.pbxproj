@@ -573,6 +573,7 @@
 		2CADCC9014746BA200302475 /* ArtemisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC8F14746BA200302475 /* ArtemisTests.m */; };
 		2CB360E215042985003687C1 /* Bees-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB360E115042985003687C1 /* Bees-Animations.plist */; };
 		2CB3624015056629003687C1 /* Hanging-Beeater-Body-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB3623F15056629003687C1 /* Hanging-Beeater-Body-Animations.plist */; };
+		2CBA326E154842AD00A85642 /* Waves1DNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA326D154842AD00A85642 /* Waves1DNode.m */; };
 		2CBCDDB314F7DCE700B11627 /* SoundComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCDDB214F7DCE700B11627 /* SoundComponent.m */; };
 		2CC26A6114E46913004702DA /* BeeaterSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC26A6014E46912004702DA /* BeeaterSystem.m */; };
 		2CC3EBFD14D466460025F5DA /* MovementComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EBFC14D466460025F5DA /* MovementComponent.m */; };
@@ -1839,6 +1840,8 @@
 		2CADCC9114746BA200302475 /* ArtemisTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ArtemisTests-Prefix.pch"; sourceTree = "<group>"; };
 		2CB360E115042985003687C1 /* Bees-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bees-Animations.plist"; sourceTree = "<group>"; };
 		2CB3623F15056629003687C1 /* Hanging-Beeater-Body-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Hanging-Beeater-Body-Animations.plist"; sourceTree = "<group>"; };
+		2CBA326C154842AD00A85642 /* Waves1DNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Waves1DNode.h; sourceTree = "<group>"; };
+		2CBA326D154842AD00A85642 /* Waves1DNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Waves1DNode.m; sourceTree = "<group>"; };
 		2CBCDDB114F7DCE600B11627 /* SoundComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundComponent.h; path = Classes/Component/SoundComponent.h; sourceTree = "<group>"; };
 		2CBCDDB214F7DCE700B11627 /* SoundComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoundComponent.m; path = Classes/Component/SoundComponent.m; sourceTree = "<group>"; };
 		2CC26A5F14E46912004702DA /* BeeaterSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeeaterSystem.h; path = Classes/System/BeeaterSystem.h; sourceTree = "<group>"; };
@@ -3447,6 +3450,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2CBA326B154842AD00A85642 /* Waves1DNode */ = {
+			isa = PBXGroup;
+			children = (
+				2CBA326C154842AD00A85642 /* Waves1DNode.h */,
+				2CBA326D154842AD00A85642 /* Waves1DNode.m */,
+			);
+			name = Waves1DNode;
+			path = libs/Waves1DNode;
+			sourceTree = "<group>";
+		};
 		2CC3EC0314D6086F0025F5DA /* Edit */ = {
 			isa = PBXGroup;
 			children = (
@@ -4183,6 +4196,7 @@
 				2C114748148B9459002E4DBD /* LICENSE_Kazmath.txt */,
 				2C88B5AC14A3DA8700B5B190 /* ObjectiveChipmunk-iPhone */,
 				2C8B1819153391FC003F3465 /* PWObject */,
+				2CBA326B154842AD00A85642 /* Waves1DNode */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -5391,6 +5405,7 @@
 				2C229D1F154763CF007921C6 /* vec2.c in Sources */,
 				2C229D20154763CF007921C6 /* vec3.c in Sources */,
 				2C229D21154763CF007921C6 /* vec4.c in Sources */,
+				2CBA326E154842AD00A85642 /* Waves1DNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

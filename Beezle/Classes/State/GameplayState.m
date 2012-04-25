@@ -47,6 +47,7 @@
 #import "SlingerControlSystem.h"
 #import "SoundManager.h"
 #import "SpawnSystem.h"
+#import "Waves1DNode.h"
 #import "WoodSystem.h"
 
 @interface GameplayState()
@@ -141,6 +142,16 @@
 	[self createWorldAndSystems];
 	[self createModes];
 	[self loadLevel];
+    
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    CGRect bounds1 = CGRectMake(0.0, 0.0, winSize.width, 10.0);
+    _wave1 = [[Waves1DNode alloc] initWithBounds:bounds1 count:48 damping:0.99 diffusion:0.99];
+    [_wave1 setColorR:209 g:229 b:243 a:0.9];
+    [self addChild:_wave1];
+    CGRect bounds2 = CGRectMake(0.0, 0.0, winSize.width, 6.0);
+    _wave2 = [[Waves1DNode alloc] initWithBounds:bounds2 count:48 damping:0.99 diffusion:0.99];
+    [_wave2 setColorR:209 g:229 b:243 a:0.4];
+    [self addChild:_wave2];
 }
 
 -(void) createUI
