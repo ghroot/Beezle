@@ -86,7 +86,14 @@
     RenderComponent *renderComponent = [RenderComponent getFrom:entity];
 	for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
-		[renderSprite addSpriteToSpriteSheet];
+		if ([renderSprite spriteSheet] != nil)
+		{
+			[renderSprite addSpriteToSpriteSheet];
+		}
+		else if ([renderSprite sprite] != nil)
+		{
+			[_layer addChild:[renderSprite sprite] z:[renderSprite z]];
+		}
 	}
     
     [super entityAdded:entity];
@@ -97,7 +104,14 @@
     RenderComponent *renderComponent = [RenderComponent getFrom:entity];
 	for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
-		[renderSprite removeSpriteFromSpriteSheet];
+		if ([renderSprite spriteSheet] != nil)
+		{
+			[renderSprite removeSpriteFromSpriteSheet];
+		}
+		else if ([renderSprite sprite] != nil)
+		{
+			[_layer removeChild:[renderSprite sprite] cleanup:TRUE];
+		}
 	}
     
     [super entityRemoved:entity];

@@ -23,7 +23,9 @@
     StringList *_defaultDestroyAnimationNames;
 }
 
-@property (nonatomic, readonly, retain) CCSprite *sprite;
+@property (nonatomic, readonly) CCSprite *sprite;
+@property (nonatomic, readonly) CCSpriteBatchNode *spriteSheet;
+@property (nonatomic, readonly) int z;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic) CGPoint scale;
 @property (nonatomic) CGPoint offset;
@@ -33,9 +35,13 @@
 
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z;
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
++(RenderSprite *) renderSpriteWithSprite:(CCSprite *)sprite z:(int)z;
++(RenderSprite *) renderSpriteWithSprite:(CCSprite *)sprite;
 
 -(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z;
 -(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
+-(id) initWithSprite:(CCSprite *)sprite z:(int)z;
+-(id) initWithSprite:(CCSprite *)sprite;
 
 -(void) addSpriteToSpriteSheet;
 -(void) removeSpriteFromSpriteSheet;

@@ -19,6 +19,8 @@
 @implementation RenderSprite
 
 @synthesize sprite = _sprite;
+@synthesize spriteSheet = _spriteSheet;
+@synthesize z = _z;
 @synthesize name = _name;
 @synthesize scale = _scale;
 @synthesize offset = _offset;
@@ -36,20 +38,37 @@
 	return [[[RenderSprite alloc] initWithSpriteSheet:spriteSheet] autorelease];
 }
 
-// Designated initialiser
--(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z
++(RenderSprite *) renderSpriteWithSprite:(CCSprite *)sprite z:(int)z
 {
-    if (self = [super init])
-    {
-        _spriteSheet = spriteSheet;
-        _sprite = [[CCSprite alloc] initWithTexture:[spriteSheet texture]];
-		_z = z;
+	return [[[RenderSprite alloc] initWithSprite:sprite z:z] autorelease];
+}
+
++(RenderSprite *) renderSpriteWithSprite:(CCSprite *)sprite
+{
+	return [[[RenderSprite alloc] initWithSprite:sprite] autorelease];
+}
+
+-(id) init
+{
+	if (self = [super init])
+	{
         _name = @"default";
         _scale = CGPointMake(1.0f, 1.0f);
 		_offset = CGPointZero;
 		_defaultIdleAnimationNames = [StringList new];
 		_defaultHitAnimationNames = [StringList new];
 		_defaultDestroyAnimationNames = [StringList new];
+	}
+	return self;
+}
+
+-(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z
+{
+    if (self = [self init])
+    {
+        _spriteSheet = spriteSheet;
+        _sprite = [[CCSprite alloc] initWithTexture:[spriteSheet texture]];
+		_z = z;
     }
     return self;
 }
@@ -57,6 +76,21 @@
 -(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet
 {
 	return [self initWithSpriteSheet:spriteSheet z:0];
+}
+
+-(id) initWithSprite:(CCSprite *)sprite z:(int)z
+{
+	if (self = [self init])
+    {
+        _sprite = [sprite retain];
+        _z = z;
+    }
+    return self;
+}
+
+-(id) initWithSprite:(CCSprite *)sprite
+{
+	return [self initWithSprite:sprite z:0];
 }
 
 -(void) dealloc

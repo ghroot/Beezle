@@ -32,7 +32,7 @@
 @class ShardSystem;
 @class SlingerControlSystem;
 @class SpawnSystem;
-@class Waves1DNode;
+@class WaterWaveSystem;
 @class WoodSystem;
 
 @interface GameplayState : GameState
@@ -52,6 +52,7 @@
 	BeeaterSystem *_beeaterSystem;
     BeeExpiratonSystem *_beeExpirationSystem;
 	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
+	WaterWaveSystem *_waterWaveSystem;
     CollisionSystem *_collisionSystem;
 	ExplodeControlSystem *_explodeControlSystem;
     GameRulesSystem *_gameRulesSystem;
@@ -71,9 +72,6 @@
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
 	DebugNotificationTrackerSystem *_debugNotificationTrackerSystem;
     
-    Waves1DNode *_wave1;
-    Waves1DNode *_wave2;
-    
     NSMutableArray *_modes;
     GameMode *_currentMode;
 }
@@ -84,6 +82,7 @@
 @property (nonatomic, readonly) BeeExpiratonSystem *beeExpirationSystem;
 @property (nonatomic, readonly) BeeQueueRenderingSystem *beeQueueRenderingSystem;
 @property (nonatomic, readonly) CollisionSystem *collisionSystem;
+@property (nonatomic, readonly) WaterWaveSystem *waterWaveSystem;
 @property (nonatomic, readonly) ExplodeControlSystem *explodeControlSystem;
 @property (nonatomic, readonly) GameRulesSystem *gameRulesSystem;
 @property (nonatomic, readonly) GateOpeningSystem *gateOpeningSystem;

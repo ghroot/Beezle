@@ -22,6 +22,7 @@
 		[_systems addObject:[gameplayState movementSystem]];
 		[_systems addObject:[gameplayState physicsSystem]];
 		[_systems addObject:[gameplayState collisionSystem]];
+		[_systems addObject:[gameplayState waterWaveSystem]];
 		[_systems addObject:[gameplayState renderSystem]];
 		[_systems addObject:[gameplayState hudRenderingSystem]];
 		[_systems addObject:[gameplayState inputSystem]];

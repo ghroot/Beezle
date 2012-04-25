@@ -11,6 +11,8 @@
 
 @implementation Waves1DNode
 
+@synthesize color = _color;
+
 -(id)initWithBounds:(CGRect)bounds count:(int)count damping:(float)damping diffusion:(float)diffusion;
 {
 	if((self = [super init])){
@@ -93,36 +95,30 @@ diffuse(float diff, float damp, float prev, float curr, float next){
 		verts[2*i + 0] = (struct Vertex){x, 0};
 		verts[2*i + 1] = (struct Vertex){x, top + _h2[i]};
 	}
-    
-    GLfloat r = 105.0f/255.0f;
-	GLfloat g = 193.0f/255.0f;
-	GLfloat b = 212.0f/255.0f;
-	GLfloat a = 0.3f;
-    ccColor4F color = ccc4f(r, g, b, a);
 	
     [shader_ use];
     [shader_ setUniformForModelViewProjectionMatrix];
-    [shader_ setUniformLocation:colorLocation_ with4fv:(GLfloat*) &color.r count:1];
+    [shader_ setUniformLocation:colorLocation_ with4fv:(GLfloat*) &_color.r count:1];
+	
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
     
     glVertexAttribPointer(kCCVertexAttrib_Position, 2, GL_FLOAT, GL_FALSE, 0, verts);
     glDrawArrays(GL_TRIANGLE_STRIP, 0, (GLsizei) _count*2);
+	
+	[[CCDirector sharedDirector] setGLDefaultValues];
 }
 
--(void) setColorR:(float)r g:(float)g b:(float)b a:(float)a
-{
-    _color = ccc4f(r, g, b, a);
-}
-
--(void)makeSplashAt:(float)x;
+-(void) makeSplashAt:(float)x amount:(float)amount
 {
 	// Changing the values of heightfield in h2 will make the waves move.
 	// Here I only change one column, but you get the idea.
 	// Change a bunch of the heights using a nice smoothing function for a better effect.
 	
 	int index = MAX(0, MIN((int)(x/[self dx]), _count - 1));
-	_h2[index] += CCRANDOM_MINUS1_1()*10.0;
+	_h2[index] += amount;
 }
 
 @end

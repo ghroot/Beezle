@@ -28,6 +28,8 @@
 #import "SpawnComponent.h"
 #import "TransformComponent.h"
 #import "VoidComponent.h"
+#import "WaterComponent.h"
+#import "Waves1DNode.h"
 
 #define BACKGROUND_FRICTION 0.7f
 #define BACKGROUND_ELASTICITY 0.7f
@@ -113,8 +115,6 @@
     // Physics
     PhysicsSystem *physicsSystem = (PhysicsSystem *)[[world systemManager] getSystem:[PhysicsSystem class]];
 	NSMutableArray *shapes = [NSMutableArray array];
-	
-	// Background
     NSString *shapesFileName = [NSString stringWithFormat:@"%@-Shapes.plist", name];
 	BodyInfo *bodyInfo = [physicsSystem createBodyInfoFromFile:shapesFileName bodyName:name];
 	for (ChipmunkShape *shape in [bodyInfo shapes])
@@ -125,7 +125,6 @@
         [shape setGroup:[CollisionGroup LEVEL]];
 	}
 	[shapes addObjectsFromArray:[bodyInfo shapes]];
-	
 	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:[bodyInfo body] andShapes:shapes];
     [backgroundEntity addComponent:physicsComponent];
 	
@@ -144,18 +143,96 @@
 +(Entity *) createWater:(World *)world withLevelName:(NSString *)levelName
 {
 	NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:levelName];
+	
+//	if ([theme isEqualToString:@"A"])
+//	{
+//		return [self createEntity:@"WATER" world:world];
+//	}
+//	else if ([theme isEqualToString:@"B"])
+//	{
+//		return [self createEntity:@"LAVA" world:world];
+//	}
+//	else
+//	{
+//		return nil;
+//	}
+	
+	Entity *waterEntity = [world createEntity];
+	
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	
+	// Transform
+	[waterEntity addComponent:[TransformComponent component]];
+	
+	// Render
+	float r1, g1, b1;
+	float r2, g2, b2;
+	float diffusion;
 	if ([theme isEqualToString:@"A"])
 	{
-		return [self createEntity:@"WATER" world:world];
+		r1 = r2 = 24.0f / 255.0f;
+		g1 = g2 = 98.0f / 255.0f;
+		b1 = b2 = 185.0f / 255.0f;
+		diffusion = 0.98f;
 	}
 	else if ([theme isEqualToString:@"B"])
 	{
-		return [self createEntity:@"LAVA" world:world];
+		r1 = 205.0f / 255.0f;
+		g1 = 130.0f / 255.0f;
+		b1 = 3.0f / 255.0f;
+		r2 = 88.0 / 255.0f;
+		g2 = 30.0f / 255.0f;
+		b2 = 18.0f / 255.0f;
+		diffusion = 0.96f;
 	}
-	else
+	CCSprite *sprite = [CCSprite node];
+    CGRect bounds1 = CGRectMake(0.0f, 0.0f, winSize.width, 10.0f);
+    Waves1DNode *wave1 = [[Waves1DNode alloc] initWithBounds:bounds1 count:48 damping:0.99f diffusion:diffusion];
+	[wave1 setColor:ccc4f(r1, g1, b1, 0.5f)];
+    [sprite addChild:wave1];
+    CGRect bounds2 = CGRectMake(0.0f, 0.0f, winSize.width, 7.0f);
+    Waves1DNode *wave2 = [[Waves1DNode alloc] initWithBounds:bounds2 count:48 damping:0.99f diffusion:diffusion];
+	[wave2 setColor:ccc4f(r2, g2, b2, 0.7f)];
+    [sprite addChild:wave2];
+	RenderSprite *renderSprite = [RenderSprite renderSpriteWithSprite:sprite z:1];
+	RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
+	[waterEntity addComponent:renderComponent];
+	
+	// Physics
+	ChipmunkBody *body = [ChipmunkBody staticBody];
+	NSMutableArray *shapes = [NSMutableArray array];
+	int numEdgeVerts = 4;
+    CGPoint edgeVerts[] = {
+        cpv(0.0f, 0.0f),
+        cpv(0.0f, 5.0f),
+        cpv(winSize.width, 5.0f),
+        cpv(winSize.width, 0.0f)
+    };
+    for (int i = 0; i < numEdgeVerts; i++)
     {
-        return nil;
+        int nextI = i == numEdgeVerts - 1 ? 0 : i + 1;
+		ChipmunkShape *shape = [ChipmunkSegmentShape segmentWithBody:body from:edgeVerts[i] to:edgeVerts[nextI] radius:0];
+		[shape setGroup:[CollisionGroup LEVEL]];
+        [shapes addObject:shape];
     }
+	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShapes:shapes];
+    [waterEntity addComponent:physicsComponent];
+	
+	// Water
+	WaterComponent *waterComponent = [WaterComponent component];
+	if ([theme isEqualToString:@"A"])
+	{
+		[waterComponent setSplashEntityType:@"WATER-SPLASH"];
+	}
+	else if ([theme isEqualToString:@"B"])
+	{
+		[waterComponent setSplashEntityType:@"LAVA-SPLASH"];
+	}
+	[waterEntity addComponent:waterComponent];
+	
+	[waterEntity refresh];
+	
+	return waterEntity;
 }
 
 +(Entity *) createEntity:(NSString *)type world:(World *)world edit:(BOOL)edit

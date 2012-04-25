@@ -20,6 +20,7 @@
 		2C157BF1148FEA8E003F9040 /* GameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157BEF148FEA8E003F9040 /* GameState.m */; };
 		2C157C1A14914F6A003F9040 /* TrajectoryComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1914914F6A003F9040 /* TrajectoryComponent.m */; };
 		2C157C1F149382D8003F9040 /* GameRulesSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C157C1E149382D6003F9040 /* GameRulesSystem.m */; };
+		2C1FBC6D1548969A00B4D6D9 /* WaterWaveSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1FBC6C1548969A00B4D6D9 /* WaterWaveSystem.m */; };
 		2C229CBE154763CF007921C6 /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C229BD3154763CF007921C6 /* CCAction.m */; };
 		2C229CBF154763CF007921C6 /* CCActionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C229BD5154763CF007921C6 /* CCActionCamera.m */; };
 		2C229CC0154763CF007921C6 /* CCActionCatmullRom.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C229BD7154763CF007921C6 /* CCActionCatmullRom.m */; };
@@ -1039,6 +1040,8 @@
 		2C157C1914914F6A003F9040 /* TrajectoryComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrajectoryComponent.m; path = Classes/Component/TrajectoryComponent.m; sourceTree = "<group>"; };
 		2C157C1D149382D6003F9040 /* GameRulesSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameRulesSystem.h; path = Classes/System/GameRulesSystem.h; sourceTree = "<group>"; };
 		2C157C1E149382D6003F9040 /* GameRulesSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameRulesSystem.m; path = Classes/System/GameRulesSystem.m; sourceTree = "<group>"; };
+		2C1FBC6B1548969A00B4D6D9 /* WaterWaveSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaterWaveSystem.h; path = Classes/System/WaterWaveSystem.h; sourceTree = "<group>"; };
+		2C1FBC6C1548969A00B4D6D9 /* WaterWaveSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaterWaveSystem.m; path = Classes/System/WaterWaveSystem.m; sourceTree = "<group>"; };
 		2C229BD2154763CF007921C6 /* CCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAction.h; sourceTree = "<group>"; };
 		2C229BD3154763CF007921C6 /* CCAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAction.m; sourceTree = "<group>"; };
 		2C229BD4154763CF007921C6 /* CCActionCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCActionCamera.h; sourceTree = "<group>"; };
@@ -3296,6 +3299,8 @@
 				2C7CE621146FD66F001F331F /* SlingerControlSystem.m */,
 				2C5EFC2F14E499C20071ED39 /* SpawnSystem.h */,
 				2C5EFC3014E499C20071ED39 /* SpawnSystem.m */,
+				2C1FBC6B1548969A00B4D6D9 /* WaterWaveSystem.h */,
+				2C1FBC6C1548969A00B4D6D9 /* WaterWaveSystem.m */,
 				2C537424153B302E00040EED /* WoodSystem.h */,
 				2C537425153B303A00040EED /* WoodSystem.m */,
 			);
@@ -5406,6 +5411,7 @@
 				2C229D20154763CF007921C6 /* vec3.c in Sources */,
 				2C229D21154763CF007921C6 /* vec4.c in Sources */,
 				2CBA326E154842AD00A85642 /* Waves1DNode.m in Sources */,
+				2C1FBC6D1548969A00B4D6D9 /* WaterWaveSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

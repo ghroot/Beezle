@@ -47,7 +47,7 @@
 #import "SlingerControlSystem.h"
 #import "SoundManager.h"
 #import "SpawnSystem.h"
-#import "Waves1DNode.h"
+#import "WaterWaveSystem.h"
 #import "WoodSystem.h"
 
 @interface GameplayState()
@@ -75,6 +75,7 @@
 @synthesize beeExpirationSystem = _beeExpirationSystem;
 @synthesize beeQueueRenderingSystem = _beeQueueRenderingSystem;
 @synthesize collisionSystem = _collisionSystem;
+@synthesize waterWaveSystem = _waterWaveSystem;
 @synthesize explodeControlSystem = _explodeControlSystem;
 @synthesize gameRulesSystem = _gameRulesSystem;
 @synthesize gateOpeningSystem = _gateOpeningSystem;
@@ -142,16 +143,6 @@
 	[self createWorldAndSystems];
 	[self createModes];
 	[self loadLevel];
-    
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    CGRect bounds1 = CGRectMake(0.0, 0.0, winSize.width, 10.0);
-    _wave1 = [[Waves1DNode alloc] initWithBounds:bounds1 count:48 damping:0.99 diffusion:0.99];
-    [_wave1 setColorR:209 g:229 b:243 a:0.9];
-    [self addChild:_wave1];
-    CGRect bounds2 = CGRectMake(0.0, 0.0, winSize.width, 6.0);
-    _wave2 = [[Waves1DNode alloc] initWithBounds:bounds2 count:48 damping:0.99 diffusion:0.99];
-    [_wave2 setColorR:209 g:229 b:243 a:0.4];
-    [self addChild:_wave2];
 }
 
 -(void) createUI
@@ -182,6 +173,8 @@
 	[systemManager setSystem:_movementSystem];
 	_collisionSystem = [[[CollisionSystem alloc] initWithLevelSession:_levelSession] autorelease];
 	[systemManager setSystem:_collisionSystem];
+	_waterWaveSystem = [[WaterWaveSystem new] autorelease];
+	[systemManager setSystem:_waterWaveSystem];
 	_renderSystem = [[[RenderSystem alloc] initWithLayer:_gameLayer] autorelease];
 	[systemManager setSystem:_renderSystem];
 	_hudRenderingSystem = [[[HUDRenderingSystem alloc] initWithLayer:_uiLayer] autorelease];
