@@ -36,5 +36,6 @@
 }
 
 -(id) initWithUsedComponentClasses:(NSArray *)usedComponentClasses;
+-(id) initWithUsedComponentClass:(Class)usedComponentClass;
 
 @end

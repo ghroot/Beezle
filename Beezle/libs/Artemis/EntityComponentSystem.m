@@ -43,6 +43,11 @@
     return self;
 }
 
+-(id) initWithUsedComponentClass:(Class)usedComponentClass
+{
+	return [self initWithUsedComponentClasses:[NSArray arrayWithObject:usedComponentClass]];
+}
+
 -(id) init
 {
     return [self initWithUsedComponentClasses:[NSArray array]];
