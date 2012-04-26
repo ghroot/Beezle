@@ -541,6 +541,7 @@
 		2C7DAC5114F44BE3006CE0BA /* SmokeMushroom.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC4E14F44BE3006CE0BA /* SmokeMushroom.mp3 */; };
 		2C7DAC5914F450C5006CE0BA /* A-Level-Music1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC5814F450C5006CE0BA /* A-Level-Music1.m4a */; };
 		2C7DAC5B14F455D5006CE0BA /* CaveDoorOpens.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DAC5A14F455D5006CE0BA /* CaveDoorOpens.m4a */; };
+		2C7DF3E51549E79B001A194C /* AimPollenShooterSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7DF3E41549E79B001A194C /* AimPollenShooterSystem.m */; };
 		2C827D3814840C4900517C8F /* RenderSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C827D3714840C4700517C8F /* RenderSprite.m */; };
 		2C85B83C149563ED005D7BAB /* DisposableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B83B149563ED005D7BAB /* DisposableComponent.m */; };
 		2C85D7211517F9C6001F4933 /* CoverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85D71A1517F9C6001F4933 /* CoverLayer.m */; };
@@ -1754,6 +1755,8 @@
 		2C7DAC4E14F44BE3006CE0BA /* SmokeMushroom.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SmokeMushroom.mp3; sourceTree = "<group>"; };
 		2C7DAC5814F450C5006CE0BA /* A-Level-Music1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "A-Level-Music1.m4a"; sourceTree = "<group>"; };
 		2C7DAC5A14F455D5006CE0BA /* CaveDoorOpens.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaveDoorOpens.m4a; sourceTree = "<group>"; };
+		2C7DF3E31549E79B001A194C /* AimPollenShooterSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AimPollenShooterSystem.h; path = Classes/System/AimPollenShooterSystem.h; sourceTree = "<group>"; };
+		2C7DF3E41549E79B001A194C /* AimPollenShooterSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AimPollenShooterSystem.m; path = Classes/System/AimPollenShooterSystem.m; sourceTree = "<group>"; };
 		2C827D3614840C4600517C8F /* RenderSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderSprite.h; path = Classes/Component/RenderSprite.h; sourceTree = "<group>"; };
 		2C827D3714840C4700517C8F /* RenderSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSprite.m; path = Classes/Component/RenderSprite.m; sourceTree = "<group>"; };
 		2C85B83A149563ED005D7BAB /* DisposableComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DisposableComponent.h; path = Classes/Component/DisposableComponent.h; sourceTree = "<group>"; };
@@ -3254,6 +3257,8 @@
 		2C7CE5F31469ACDE001F331F /* System */ = {
 			isa = PBXGroup;
 			children = (
+				2C7DF3E31549E79B001A194C /* AimPollenShooterSystem.h */,
+				2C7DF3E41549E79B001A194C /* AimPollenShooterSystem.m */,
 				2CC26A5F14E46912004702DA /* BeeaterSystem.h */,
 				2CC26A6014E46912004702DA /* BeeaterSystem.m */,
 				2C3A6F911489809F002721E3 /* BeeExpiratonSystem.h */,
@@ -5412,6 +5417,7 @@
 				2C229D21154763CF007921C6 /* vec4.c in Sources */,
 				2CBA326E154842AD00A85642 /* Waves1DNode.m in Sources */,
 				2C1FBC6D1548969A00B4D6D9 /* WaterWaveSystem.m in Sources */,
+				2C7DF3E51549E79B001A194C /* AimPollenShooterSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,8 @@
 
 #import "SlingerComponent.h"
 
+static const int AIM_POLLEN_INTERVAL = 16;
+
 @implementation SlingerComponent
 
 @synthesize state = _state;
@@ -111,6 +113,21 @@
 -(BOOL) hasLoadedBee
 {
 	return _loadedBeeType != nil;
+}
+
+-(void) resetAimPollenCountdown
+{
+	_aimPollenCountdown = AIM_POLLEN_INTERVAL;
+}
+
+-(void) decreaseAimPollenCountdown
+{
+	_aimPollenCountdown--;
+}
+
+-(BOOL) hasAimPollenCountdownReachedZero
+{
+	return _aimPollenCountdown == 0;
 }
 
 @end

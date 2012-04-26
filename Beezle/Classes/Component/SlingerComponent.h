@@ -20,6 +20,7 @@ typedef enum
 	SlingerState _state;
 	NSMutableArray *_queuedBeeTypes;
 	BeeType *_loadedBeeType;
+	int _aimPollenCountdown;
 }
 
 @property (nonatomic) SlingerState state;
@@ -35,5 +36,8 @@ typedef enum
 -(void) clearLoadedBee;
 -(void) revertLoadedBee;
 -(BOOL) hasLoadedBee;
+-(void) resetAimPollenCountdown;
+-(void) decreaseAimPollenCountdown;
+-(BOOL) hasAimPollenCountdownReachedZero;
 
 @end

@@ -19,8 +19,6 @@
     float _startAngle;
 	float _currentAngle;
     
-    BOOL _isShootingAimPollens;
-    int _aimPollenCountdown;
 	BOOL _stretchSoundPlayed;
 }
 

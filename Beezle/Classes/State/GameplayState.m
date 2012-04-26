@@ -8,6 +8,7 @@
 
 #import "GameplayState.h"
 #import "AimingMode.h"
+#import "AimPollenShooterSystem.h"
 #import "BeeaterSystem.h"
 #import "ExplodeControlSystem.h"
 #import "BeeQueueRenderingSystem.h"
@@ -71,26 +72,27 @@
 
 @synthesize levelName = _levelName;
 @synthesize world = _world;
+@synthesize aimPollenShooterSystem = _aimPollenShooterSystem;
 @synthesize beeaterSystem = _beeaterSystem;
 @synthesize beeExpirationSystem = _beeExpirationSystem;
 @synthesize beeQueueRenderingSystem = _beeQueueRenderingSystem;
 @synthesize collisionSystem = _collisionSystem;
-@synthesize waterWaveSystem = _waterWaveSystem;
+@synthesize disposalSystem = _disposalSystem;
 @synthesize explodeControlSystem = _explodeControlSystem;
 @synthesize gameRulesSystem = _gameRulesSystem;
 @synthesize gateOpeningSystem = _gateOpeningSystem;
+@synthesize healthSystem = _healthSystem;
 @synthesize hudRenderingSystem = _hudRenderingSystem;
 @synthesize inputSystem = _inputSystem;
-@synthesize physicsSystem = _physicsSystem;
 @synthesize movementSystem = _movementSystem;
+@synthesize physicsSystem = _physicsSystem;
 @synthesize renderSystem = _renderSystem;
 @synthesize shakeSystem = _shakeSystem;
 @synthesize shardSystem = _shardSystem;
 @synthesize slingerControlSystem = _slingerControlSystem;
 @synthesize spawnSystem = _spawnSystem;
+@synthesize waterWaveSystem = _waterWaveSystem;
 @synthesize woodSystem = _woodSystem;
-@synthesize healthSystem = _healthSystem;
-@synthesize disposalSystem = _disposalSystem;
 
 +(id) stateWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession
 {
@@ -183,6 +185,8 @@
 	[systemManager setSystem:_inputSystem];
 	_slingerControlSystem = [[[SlingerControlSystem alloc] init] autorelease];
 	[systemManager setSystem:_slingerControlSystem];
+	_aimPollenShooterSystem = [[AimPollenShooterSystem new] autorelease];
+	[systemManager setSystem:_aimPollenShooterSystem];
 	_beeExpirationSystem = [[[BeeExpiratonSystem alloc] init] autorelease];
 	[systemManager setSystem:_beeExpirationSystem];
 	_explodeControlSystem = [[[ExplodeControlSystem alloc] init] autorelease];

@@ -11,6 +11,7 @@
 #import "cocos2d.h"
 #import "GameMode.h"
 
+@class AimPollenShooterSystem;
 @class BeeaterSystem;
 @class BeeExpiratonSystem;
 @class ExplodeControlSystem;
@@ -64,6 +65,7 @@
     RenderSystem *_renderSystem;
 	ShardSystem *_shardSystem;
     SlingerControlSystem *_slingerControlSystem;
+	AimPollenShooterSystem *_aimPollenShooterSystem;
 	SpawnSystem *_spawnSystem;
 	WoodSystem *_woodSystem;
 	ShakeSystem *_shakeSystem;
@@ -78,26 +80,27 @@
 
 @property (nonatomic, readonly) NSString *levelName;
 @property (nonatomic, readonly) World *world;
+@property (nonatomic, readonly) AimPollenShooterSystem *aimPollenShooterSystem;
 @property (nonatomic, readonly) BeeaterSystem *beeaterSystem;
 @property (nonatomic, readonly) BeeExpiratonSystem *beeExpirationSystem;
 @property (nonatomic, readonly) BeeQueueRenderingSystem *beeQueueRenderingSystem;
 @property (nonatomic, readonly) CollisionSystem *collisionSystem;
-@property (nonatomic, readonly) WaterWaveSystem *waterWaveSystem;
+@property (nonatomic, readonly) DisposalSystem *disposalSystem;
 @property (nonatomic, readonly) ExplodeControlSystem *explodeControlSystem;
 @property (nonatomic, readonly) GameRulesSystem *gameRulesSystem;
 @property (nonatomic, readonly) GateOpeningSystem *gateOpeningSystem;
+@property (nonatomic, readonly) HealthSystem *healthSystem;
 @property (nonatomic, readonly) HUDRenderingSystem *hudRenderingSystem;
 @property (nonatomic, readonly) InputSystem *inputSystem;
 @property (nonatomic, readonly) MovementSystem *movementSystem;
 @property (nonatomic, readonly) PhysicsSystem *physicsSystem;
 @property (nonatomic, readonly) RenderSystem *renderSystem;
+@property (nonatomic, readonly) ShakeSystem *shakeSystem;
 @property (nonatomic, readonly) ShardSystem *shardSystem;
 @property (nonatomic, readonly) SlingerControlSystem *slingerControlSystem;
 @property (nonatomic, readonly) SpawnSystem *spawnSystem;
 @property (nonatomic, readonly) WoodSystem *woodSystem;
-@property (nonatomic, readonly) ShakeSystem *shakeSystem;
-@property (nonatomic, readonly) HealthSystem *healthSystem;
-@property (nonatomic, readonly) DisposalSystem *disposalSystem;
+@property (nonatomic, readonly) WaterWaveSystem *waterWaveSystem;
 
 +(id) stateWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession;
 +(id) stateWithLevelName:(NSString *)levelName;

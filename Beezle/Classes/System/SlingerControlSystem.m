@@ -28,7 +28,6 @@
 #define SLINGER_MAX_POWER 400
 #define SLINGER_AIM_SENSITIVITY 7.0f
 #define SLINGER_STRETCH_SOUND_SCALE 0.8f
-#define AIM_POLLEN_INTERVAL 16
 #define SCALE_AT_MIN_POWER 1.0f
 #define SCALE_AT_MAX_POWER 0.5f
 
@@ -36,9 +35,6 @@
 
 -(float) calculateAimAngle:(CGPoint)touchLocation slingerLocation:(CGPoint)slingerLocation;
 -(float) calculatePower:(CGPoint)touchLocation slingerLocation:(CGPoint)slingerLocation;
--(void) startShootingAimPollens;
--(void) stopShootingAimPollens;
--(void) shootAimPollens:(SlingerComponent *)slingerComponent trajectory:(TrajectoryComponent *)trajectoryComponent;
 
 @end
 
@@ -79,7 +75,6 @@
 					_startLocation = [nextInputAction touchLocation];
                     _startAngle = [transformComponent rotation];
 					_currentAngle = CC_DEGREES_TO_RADIANS(360 - [transformComponent rotation] + 270);
-					[self startShootingAimPollens];
 					
 					_stretchSoundPlayed = FALSE;
 					
@@ -173,8 +168,6 @@
 						[_inputSystem clearInputActions];
 					}
 					
-					[self stopShootingAimPollens];
-					
 					[slingerComponent setState:SLINGER_STATE_IDLE];
                 }
                 break;
@@ -201,16 +194,12 @@
                     
                     [_inputSystem clearInputActions];
                     
-                    [self stopShootingAimPollens];
-                    
                     [slingerComponent setState:SLINGER_STATE_IDLE];
                 }
                 break;
             }
         }
     }
-    
-    [self shootAimPollens:slingerComponent trajectory:trajectoryComponent];
 }
 
 -(float) calculateAimAngle:(CGPoint)touchLocation slingerLocation:(CGPoint)slingerLocation
@@ -240,34 +229,6 @@
 	power = min(power, SLINGER_MAX_POWER);
 	
 	return power;
-}
-
--(void) startShootingAimPollens
-{
-    _aimPollenCountdown = AIM_POLLEN_INTERVAL;
-    _isShootingAimPollens = TRUE;
-}
-
--(void) stopShootingAimPollens
-{
-    _aimPollenCountdown = 0;
-    _isShootingAimPollens = FALSE;
-}
-
--(void) shootAimPollens:(SlingerComponent *)slingerComponent trajectory:(TrajectoryComponent *)trajectoryComponent
-{
-    if (_isShootingAimPollens &&
-		![trajectoryComponent isZero])
-    {
-        _aimPollenCountdown--;
-        if (_aimPollenCountdown == 0)
-        {
-            Entity *aimPollenEntity = [EntityFactory createAimPollen:_world withBeeType:[slingerComponent loadedBeeType] andVelocity:[trajectoryComponent startVelocity]];
-            [EntityUtil setEntityPosition:aimPollenEntity position:[trajectoryComponent startPoint]];
-			
-            _aimPollenCountdown = AIM_POLLEN_INTERVAL;
-        }
-    }
 }
 
 @end
