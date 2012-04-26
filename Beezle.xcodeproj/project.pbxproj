@@ -468,6 +468,7 @@
 		2C5AB61A1543FEA100744B88 /* VolatileComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AB6191543FEA100744B88 /* VolatileComponent.m */; };
 		2C5AB61E1544017600744B88 /* SolidComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AB61D1544017600744B88 /* SolidComponent.m */; };
 		2C5AB6211544034200744B88 /* WobbleComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AB6201544034200744B88 /* WobbleComponent.m */; };
+		2C5C9A301549F44300FF6F57 /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C9A2F1549F44300FF6F57 /* fps_images-ipadhd.png */; };
 		2C5EFC2B14E496A10071ED39 /* SpawnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */; };
 		2C5EFC5114E7DACF0071ED39 /* Egg-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3A14E7DACF0071ED39 /* Egg-Animations.plist */; };
 		2C5EFC5214E7DACF0071ED39 /* HangNest-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3B14E7DACF0071ED39 /* HangNest-Animations.plist */; };
@@ -1644,6 +1645,7 @@
 		2C5AB61D1544017600744B88 /* SolidComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SolidComponent.m; path = Classes/Component/SolidComponent.m; sourceTree = "<group>"; };
 		2C5AB61F1544034200744B88 /* WobbleComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WobbleComponent.h; path = Classes/Component/WobbleComponent.h; sourceTree = "<group>"; };
 		2C5AB6201544034200744B88 /* WobbleComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WobbleComponent.m; path = Classes/Component/WobbleComponent.m; sourceTree = "<group>"; };
+		2C5C9A2F1549F44300FF6F57 /* fps_images-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fps_images-ipadhd.png"; sourceTree = "<group>"; };
 		2C5EFC2914E496A00071ED39 /* SpawnComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpawnComponent.h; path = Classes/Component/SpawnComponent.h; sourceTree = "<group>"; };
 		2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpawnComponent.m; path = Classes/Component/SpawnComponent.m; sourceTree = "<group>"; };
 		2C5EFC3A14E7DACF0071ED39 /* Egg-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Egg-Animations.plist"; sourceTree = "<group>"; };
@@ -2359,10 +2361,11 @@
 		2C00D85014FD798B00BE5B4C /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				2C4E92081546EC850092B006 /* fps_images-hd.png */,
-				2C4E92091546EC850092B006 /* fps_images.png */,
 				2C32988C1516372A009A5B83 /* Bubble-hd.png */,
 				2C53122C15097DE400FDE482 /* Bubble.png */,
+				2C4E92081546EC850092B006 /* fps_images-hd.png */,
+				2C5C9A2F1549F44300FF6F57 /* fps_images-ipadhd.png */,
+				2C4E92091546EC850092B006 /* fps_images.png */,
 				2C2C184114FEEB69007C2ADC /* Key-01.png */,
 				2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */,
 				2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */,
@@ -5165,6 +5168,7 @@
 				2C4E920E1546ED320092B006 /* Default.png in Resources */,
 				2C229D14154763CF007921C6 /* ChangeLog in Resources */,
 				2C229D15154763CF007921C6 /* CMakeLists.txt in Resources */,
+				2C5C9A301549F44300FF6F57 /* fps_images-ipadhd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
