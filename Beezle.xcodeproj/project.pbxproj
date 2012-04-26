@@ -991,7 +991,6 @@
 		2CEA347B145F66F9000FF575 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA347A145F66F9000FF575 /* AppDelegate.m */; };
 		2CEA352E1466B2B5000FF575 /* RenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA352D1466B2B5000FF575 /* RenderComponent.m */; };
 		2CEA35311466B2C9000FF575 /* PhysicsComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA35301466B2C9000FF575 /* PhysicsComponent.m */; };
-		2CEB9D6714EC7BE000CAC505 /* DebugNotificationTrackerSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB9D6614EC7BE000CAC505 /* DebugNotificationTrackerSystem.m */; };
 		2CEB9D7814EDC0A600CAC505 /* ShardSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7714EDC0A600CAC505 /* ShardSystem.m */; };
 		2CEB9D7B14EDC1BB00CAC505 /* ShardComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB9D7A14EDC1BA00CAC505 /* ShardComponent.m */; };
 		2CEE585215211EBE00953CE1 /* Bouncee-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEE585115211EBE00953CE1 /* Bouncee-Shapes.plist */; };
@@ -2298,8 +2297,6 @@
 		2CEA352D1466B2B5000FF575 /* RenderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderComponent.m; path = Classes/Component/RenderComponent.m; sourceTree = "<group>"; };
 		2CEA352F1466B2C9000FF575 /* PhysicsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsComponent.h; path = Classes/Component/PhysicsComponent.h; sourceTree = "<group>"; };
 		2CEA35301466B2C9000FF575 /* PhysicsComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhysicsComponent.m; path = Classes/Component/PhysicsComponent.m; sourceTree = "<group>"; };
-		2CEB9D6514EC7BE000CAC505 /* DebugNotificationTrackerSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugNotificationTrackerSystem.h; sourceTree = "<group>"; };
-		2CEB9D6614EC7BE000CAC505 /* DebugNotificationTrackerSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugNotificationTrackerSystem.m; sourceTree = "<group>"; };
 		2CEB9D7614EDC0A600CAC505 /* ShardSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShardSystem.h; path = Classes/System/ShardSystem.h; sourceTree = "<group>"; };
 		2CEB9D7714EDC0A600CAC505 /* ShardSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShardSystem.m; path = Classes/System/ShardSystem.m; sourceTree = "<group>"; };
 		2CEB9D7914EDC1BA00CAC505 /* ShardComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShardComponent.h; path = Classes/Component/ShardComponent.h; sourceTree = "<group>"; };
@@ -3851,8 +3848,6 @@
 		2CD4A99414EC7BAC0065FA90 /* Debug */ = {
 			isa = PBXGroup;
 			children = (
-				2CEB9D6514EC7BE000CAC505 /* DebugNotificationTrackerSystem.h */,
-				2CEB9D6614EC7BE000CAC505 /* DebugNotificationTrackerSystem.m */,
 				2CD4A99514EC7BAC0065FA90 /* DebugRenderPhysicsLayer.h */,
 				2CD4A99614EC7BAC0065FA90 /* DebugRenderPhysicsLayer.m */,
 				2CD4A99714EC7BAC0065FA90 /* DebugRenderPhysicsSystem.h */,
@@ -5252,7 +5247,6 @@
 				2C5EFCC214EC60580071ED39 /* CrumbleComponent.m in Sources */,
 				2CD4A99914EC7BAC0065FA90 /* DebugRenderPhysicsLayer.m in Sources */,
 				2CD4A99A14EC7BAC0065FA90 /* DebugRenderPhysicsSystem.m in Sources */,
-				2CEB9D6714EC7BE000CAC505 /* DebugNotificationTrackerSystem.m in Sources */,
 				2CEB9D7814EDC0A600CAC505 /* ShardSystem.m in Sources */,
 				2CEB9D7B14EDC1BB00CAC505 /* ShardComponent.m in Sources */,
 				2C24B3DA14F1B299002D1444 /* PollenComponent.m in Sources */,

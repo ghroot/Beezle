@@ -14,7 +14,6 @@
 #import "BeeQueueRenderingSystem.h"
 #import "BeeExpiratonSystem.h"
 #import "CollisionSystem.h"
-#import "DebugNotificationTrackerSystem.h"
 #import "DebugRenderPhysicsSystem.h"
 #import "DisposableComponent.h"
 #import "DisposalSystem.h"
@@ -169,52 +168,50 @@
 	
     _gameRulesSystem = [[[GameRulesSystem alloc] initWithLevelSession:_levelSession] autorelease];
     [systemManager setSystem:_gameRulesSystem];
-	_physicsSystem = [[[PhysicsSystem alloc] init] autorelease];
+	_physicsSystem = [PhysicsSystem system];
 	[systemManager setSystem:_physicsSystem];
-	_movementSystem = [[[MovementSystem alloc] init] autorelease];
+	_movementSystem = [MovementSystem system];
 	[systemManager setSystem:_movementSystem];
 	_collisionSystem = [[[CollisionSystem alloc] initWithLevelSession:_levelSession] autorelease];
 	[systemManager setSystem:_collisionSystem];
-	_waterWaveSystem = [[WaterWaveSystem new] autorelease];
+	_waterWaveSystem = [WaterWaveSystem system];
 	[systemManager setSystem:_waterWaveSystem];
 	_renderSystem = [[[RenderSystem alloc] initWithLayer:_gameLayer] autorelease];
 	[systemManager setSystem:_renderSystem];
 	_hudRenderingSystem = [[[HUDRenderingSystem alloc] initWithLayer:_uiLayer] autorelease];
 	[systemManager setSystem:_hudRenderingSystem];
-	_inputSystem = [[[InputSystem alloc] init] autorelease];
+	_inputSystem = [InputSystem system];
 	[systemManager setSystem:_inputSystem];
-	_slingerControlSystem = [[[SlingerControlSystem alloc] init] autorelease];
+	_slingerControlSystem = [SlingerControlSystem system];
 	[systemManager setSystem:_slingerControlSystem];
-	_aimPollenShooterSystem = [[AimPollenShooterSystem new] autorelease];
+	_aimPollenShooterSystem = [AimPollenShooterSystem system];
 	[systemManager setSystem:_aimPollenShooterSystem];
-	_beeExpirationSystem = [[[BeeExpiratonSystem alloc] init] autorelease];
+	_beeExpirationSystem = [BeeExpiratonSystem system];
 	[systemManager setSystem:_beeExpirationSystem];
-	_explodeControlSystem = [[[ExplodeControlSystem alloc] init] autorelease];
+	_explodeControlSystem = [ExplodeControlSystem system];
 	[systemManager setSystem:_explodeControlSystem];
 	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithZ:3] autorelease];
 	[systemManager setSystem:_beeQueueRenderingSystem];
-	_beeaterSystem = [[[BeeaterSystem alloc] init] autorelease];
+	_beeaterSystem = [BeeaterSystem system];
 	[systemManager setSystem:_beeaterSystem];
 	_gateOpeningSystem = [[[GateOpeningSystem alloc] initWithLevelSession:_levelSession] autorelease];
 	[systemManager setSystem:_gateOpeningSystem];
-	_shardSystem = [[[ShardSystem alloc] init] autorelease];
+	_shardSystem = [ShardSystem system];
 	[systemManager setSystem:_shardSystem];
-	_spawnSystem = [[[SpawnSystem alloc] init] autorelease];
+	_spawnSystem = [SpawnSystem system];
 	[systemManager setSystem:_spawnSystem];
-	_woodSystem = [[WoodSystem new] autorelease];
+	_woodSystem = [WoodSystem system];
 	[systemManager setSystem:_woodSystem];
-	_shakeSystem = [[ShakeSystem new] autorelease];
+	_shakeSystem = [ShakeSystem system];
 	[systemManager setSystem:_shakeSystem];
-	_healthSystem = [[HealthSystem new] autorelease];
+	_healthSystem = [HealthSystem system];
 	[systemManager setSystem:_healthSystem];
-	_disposalSystem = [[DisposalSystem new] autorelease];
+	_disposalSystem = [DisposalSystem system];
 	[systemManager setSystem:_disposalSystem];
 	if (_debug)
 	{
 		_debugRenderPhysicsSystem = [[[DebugRenderPhysicsSystem alloc] initWithScene:self] autorelease];
 		[systemManager setSystem:_debugRenderPhysicsSystem];
-		_debugNotificationTrackerSystem = [[[DebugNotificationTrackerSystem alloc] init] autorelease];
-		[systemManager setSystem:_debugNotificationTrackerSystem];
 	}
 	
 	[systemManager initialiseAll];

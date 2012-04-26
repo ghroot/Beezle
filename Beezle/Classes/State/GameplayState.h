@@ -17,7 +17,6 @@
 @class ExplodeControlSystem;
 @class BeeQueueRenderingSystem;
 @class CollisionSystem;
-@class DebugNotificationTrackerSystem;
 @class DebugRenderPhysicsSystem;
 @class DisposalSystem;
 @class GameRulesSystem;
@@ -72,7 +71,6 @@
 	HealthSystem *_healthSystem;
 	DisposalSystem *_disposalSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
-	DebugNotificationTrackerSystem *_debugNotificationTrackerSystem;
     
     NSMutableArray *_modes;
     GameMode *_currentMode;
