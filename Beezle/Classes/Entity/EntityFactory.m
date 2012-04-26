@@ -344,6 +344,7 @@
     
 	RenderComponent *renderComponent = [RenderComponent getFrom:aimPollenEntity];
 	RenderSprite *renderSprite = [[renderComponent renderSprites] objectAtIndex:0];
+	[renderSprite playAnimationLoop:@"Pollen-Static"];
     CCFadeOut *fadeOutAction = [CCFadeOut actionWithDuration:0.8f];
     CCCallFunc *callFunctionAction = [CCCallFunc actionWithTarget:aimPollenEntity selector:@selector(deleteEntity)];
     [[renderSprite sprite] runAction:[CCSequence actions:fadeOutAction, callFunctionAction, nil]];
