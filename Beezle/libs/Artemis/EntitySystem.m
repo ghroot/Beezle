@@ -36,6 +36,11 @@
 @synthesize world = _world;
 @synthesize active = _active;
 
++(id) system
+{
+	return [[self new] autorelease];
+}
+
 -(id) init
 {
     if (self = [super init])

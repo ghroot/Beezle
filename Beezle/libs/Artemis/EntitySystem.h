@@ -41,6 +41,8 @@
 @property (nonatomic, assign) World *world;
 @property (nonatomic, readonly) BOOL active;
 
++(id) system;
+
 -(void) initialise;
 -(void) begin;
 -(void) end;
