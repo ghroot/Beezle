@@ -144,19 +144,6 @@
 {
 	NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:levelName];
 	
-//	if ([theme isEqualToString:@"A"])
-//	{
-//		return [self createEntity:@"WATER" world:world];
-//	}
-//	else if ([theme isEqualToString:@"B"])
-//	{
-//		return [self createEntity:@"LAVA" world:world];
-//	}
-//	else
-//	{
-//		return nil;
-//	}
-	
 	Entity *waterEntity = [world createEntity];
 	
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
@@ -165,14 +152,17 @@
 	[waterEntity addComponent:[TransformComponent component]];
 	
 	// Render
-	float r1, g1, b1;
-	float r2, g2, b2;
-	float diffusion;
+	float r1, g1, b1, a1;
+	float r2, g2, b2, a2;
+	float damping, diffusion;
 	if ([theme isEqualToString:@"A"])
 	{
 		r1 = r2 = 24.0f / 255.0f;
 		g1 = g2 = 98.0f / 255.0f;
 		b1 = b2 = 185.0f / 255.0f;
+		a1 = 0.5f;
+		a2 = 0.7f;
+		damping = 0.99f;
 		diffusion = 0.98f;
 	}
 	else if ([theme isEqualToString:@"B"])
@@ -183,16 +173,19 @@
 		r2 = 88.0 / 255.0f;
 		g2 = 30.0f / 255.0f;
 		b2 = 18.0f / 255.0f;
-		diffusion = 0.96f;
+		a1 = 0.4f;
+		a2 = 0.5f;
+		damping = 0.99f;
+		diffusion = 0.90f;
 	}
 	CCSprite *sprite = [CCSprite node];
     CGRect bounds1 = CGRectMake(0.0f, 0.0f, winSize.width, 10.0f);
-    Waves1DNode *wave1 = [[Waves1DNode alloc] initWithBounds:bounds1 count:48 damping:0.99f diffusion:diffusion];
-	[wave1 setColor:ccc4f(r1, g1, b1, 0.5f)];
+    Waves1DNode *wave1 = [[Waves1DNode alloc] initWithBounds:bounds1 count:48 damping:damping diffusion:diffusion];
+	[wave1 setColor:ccc4f(r1, g1, b1, a1)];
     [sprite addChild:wave1];
     CGRect bounds2 = CGRectMake(0.0f, 0.0f, winSize.width, 7.0f);
-    Waves1DNode *wave2 = [[Waves1DNode alloc] initWithBounds:bounds2 count:48 damping:0.99f diffusion:diffusion];
-	[wave2 setColor:ccc4f(r2, g2, b2, 0.7f)];
+    Waves1DNode *wave2 = [[Waves1DNode alloc] initWithBounds:bounds2 count:48 damping:damping diffusion:diffusion];
+	[wave2 setColor:ccc4f(r2, g2, b2, a2)];
     [sprite addChild:wave2];
 	RenderSprite *renderSprite = [RenderSprite renderSpriteWithSprite:sprite z:1];
 	RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];

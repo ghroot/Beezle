@@ -96,16 +96,18 @@ diffuse(float diff, float damp, float prev, float curr, float next){
 		verts[2*i + 1] = (struct Vertex){x, top + _h2[i]};
 	}
 	
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	
     [shader_ use];
     [shader_ setUniformForModelViewProjectionMatrix];
     [shader_ setUniformLocation:colorLocation_ with4fv:(GLfloat*) &_color.r count:1];
 	
-	[[CCDirector sharedDirector] setGLDefaultValues];
-    
     ccGLEnableVertexAttribs(kCCVertexAttribFlag_Position);
     
     glVertexAttribPointer(kCCVertexAttrib_Position, 2, GL_FLOAT, GL_FALSE, 0, verts);
     glDrawArrays(GL_TRIANGLE_STRIP, 0, (GLsizei) _count*2);
+	
+	glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 -(void) makeSplashAt:(float)x amount:(float)amount
