@@ -97,20 +97,40 @@
     Entity *backgroundEntity = [world createEntity];
 	
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:name];
 	
     // Transform
     TransformComponent *transformComponent = [TransformComponent component];
     [backgroundEntity addComponent:transformComponent];
     
     // Render
-    [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB565];
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-    NSString *imageFileName = [NSString stringWithFormat:@"%@.jpg", name];
-    RenderSprite *renderSprite = [renderSystem createRenderSpriteWithFile:imageFileName z:1];
-    [renderSprite markAsBackground];
-	RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
+	RenderComponent *renderComponent = [RenderComponent component];
+	if ([theme isEqualToString:@"C"])
+	{
+		[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB565];
+		NSString *backImageFileName = [NSString stringWithFormat:@"%@-back.jpg", name];
+		RenderSprite *backRenderSprite = [renderSystem createRenderSpriteWithFile:backImageFileName z:1];
+		[backRenderSprite setName:@"back"];
+		[backRenderSprite markAsBackground];
+		[renderComponent addRenderSprite:backRenderSprite];
+		[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
+		
+		NSString *frontImageFileName = [NSString stringWithFormat:@"%@-front.png", name];
+		RenderSprite *frontRenderSprite = [renderSystem createRenderSpriteWithFile:frontImageFileName z:8];
+		[frontRenderSprite setName:@"front"];
+		[renderComponent addRenderSprite:frontRenderSprite];
+	}
+	else
+	{
+		[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB565];
+		NSString *imageFileName = [NSString stringWithFormat:@"%@.jpg", name];
+		RenderSprite *renderSprite = [renderSystem createRenderSpriteWithFile:imageFileName z:1];
+		[renderSprite markAsBackground];
+		[renderComponent addRenderSprite:renderSprite];
+		[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
+	}
     [backgroundEntity addComponent:renderComponent];
-    [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
     
     // Physics
     PhysicsSystem *physicsSystem = (PhysicsSystem *)[[world systemManager] getSystem:[PhysicsSystem class]];

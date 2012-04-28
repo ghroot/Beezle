@@ -8,6 +8,7 @@
 
 #import "LevelThemeSelectMenuState.h"
 #import "Game.h"
+#import "LevelOrganizer.h"
 #import "LevelSelectMenuState.h"
 #import "LevelThemeSelectMenuItem.h"
 
@@ -40,7 +41,7 @@
 
 -(void) createLevelThemeMenuItems
 {
-	NSArray *themes = [NSArray arrayWithObjects:@"A", @"B", nil];
+	NSArray *themes = [[LevelOrganizer sharedOrganizer] themes];
 	for (NSString *theme in themes)
 	{
 		LevelThemeSelectMenuItem *levelThemeMenuItem = [LevelThemeSelectMenuItem itemWithTheme:theme target:self selector:@selector(selectLevel:)];
