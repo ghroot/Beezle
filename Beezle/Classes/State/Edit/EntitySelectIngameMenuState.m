@@ -96,6 +96,13 @@
 		[entityType isEqualToString:@"HANGNEST"])
 	{
 		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:[editState levelName]];
+		
+		// TEMP
+		if ([theme isEqualToString:@"C"])
+		{
+			theme = @"A";
+		}
+		
 		entityType = [entityType stringByAppendingFormat:@"-%@", theme];
 	}
 	else if ([entityType isEqualToString:@"GLASS"])
