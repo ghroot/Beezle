@@ -10,7 +10,6 @@
 #import "BeeComponent.h"
 #import "BeeType.h"
 #import "EntityUtil.h"
-#import "GateComponent.h"
 #import "PhysicsComponent.h"
 
 @interface BeeExpiratonSystem()
@@ -79,19 +78,7 @@
         }
     }
 	
-	NSArray *gateEntities = [groupManager getEntitiesInGroup:@"GATES"];
-	BOOL worldHasOpenGate = FALSE;
-	for (Entity *gateEntity in gateEntities)
-	{
-		if ([[GateComponent getFrom:gateEntity] isOpened])
-		{
-			worldHasOpenGate = TRUE;
-			break;
-		}
-	}
-	
-    return !worldHasBeeatersLeft &&
-		!worldHasOpenGate;
+    return !worldHasBeeatersLeft;
 }
 
 @end

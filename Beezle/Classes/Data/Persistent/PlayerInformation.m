@@ -8,7 +8,6 @@
 
 #import "PlayerInformation.h"
 #import "DisposableComponent.h"
-#import "KeyComponent.h"
 #import "LevelOrganizer.h"
 #import "LevelSession.h"
 #import "PollenComponent.h"
@@ -38,8 +37,6 @@
 	if (self = [super init])
 	{
 		_pollenRecordByLevelName = [NSMutableDictionary new];
-		_levelNamesWhereKeysWereCollected = [NSMutableArray new];
-		_levelNamesWhereKeysWereUsed = [NSMutableArray new];
 		[self load];
 	}
 	return self;
@@ -48,8 +45,6 @@
 -(void) dealloc
 {
 	[_pollenRecordByLevelName release];
-	[_levelNamesWhereKeysWereCollected release];
-	[_levelNamesWhereKeysWereUsed release];
 	
 	[super dealloc];
 }
@@ -77,16 +72,12 @@
 	if (dict != nil)
 	{
 		[_pollenRecordByLevelName addEntriesFromDictionary:[dict objectForKey:@"pollenRecordByLevelName"]];
-		[_levelNamesWhereKeysWereCollected addObjectsFromArray:[dict objectForKey:@"levelNamesWhereKeysWereCollected"]];
-		[_levelNamesWhereKeysWereUsed addObjectsFromArray:[dict objectForKey:@"levelNamesWhereKeysWereUsed"]];
 	}
 }
 
 -(void) reset
 {
 	[_pollenRecordByLevelName removeAllObjects];
-	[_levelNamesWhereKeysWereCollected removeAllObjects];
-	[_levelNamesWhereKeysWereUsed removeAllObjects];
 	
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -99,8 +90,6 @@
 {
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	[dict setObject:[NSDictionary dictionaryWithDictionary:_pollenRecordByLevelName] forKey:@"pollenRecordByLevelName"];
-	[dict setObject:[NSArray arrayWithArray:_levelNamesWhereKeysWereCollected] forKey:@"levelNamesWhereKeysWereCollected"];
-	[dict setObject:[NSArray arrayWithArray:_levelNamesWhereKeysWereUsed] forKey:@"levelNamesWhereKeysWereUsed"];
 	return dict;
 }
 
@@ -109,16 +98,6 @@
 	if ([self isPollenRecord:levelSession])
 	{
 		[_pollenRecordByLevelName setObject:[NSNumber numberWithInt:[levelSession totalNumberOfPollen]] forKey:[levelSession levelName]];
-	}
-	if ([levelSession didCollectKey] &&
-		![_levelNamesWhereKeysWereCollected containsObject:[levelSession levelName]])
-	{
-		[_levelNamesWhereKeysWereCollected addObject:[levelSession levelName]];
-	}
-	if ([levelSession didUseKey] &&
-		![_levelNamesWhereKeysWereUsed containsObject:[levelSession levelName]])
-	{
-		[_levelNamesWhereKeysWereUsed addObject:[levelSession levelName]];
 	}
 }
 
@@ -145,16 +124,6 @@
 	}
 }
 
--(BOOL) hasCollectedKeyInLevel:(NSString *)levelName
-{
-	return [_levelNamesWhereKeysWereCollected containsObject:levelName];
-}
-
--(BOOL) hasUsedKeyInLevel:(NSString *)levelName
-{
-	return [_levelNamesWhereKeysWereUsed containsObject:levelName];
-}
-
 -(int) totalNumberOfPollen
 {
 	int total = 0;
@@ -163,11 +132,6 @@
 		total += [pollenRecord intValue];
 	}
 	return total;
-}
-
--(int) totalNumberOfKeys
-{
-	return [_levelNamesWhereKeysWereCollected count] - [_levelNamesWhereKeysWereUsed count];
 }
 
 -(BOOL) hasCompletedLevelAtLeastOnce:(NSString *)levelName

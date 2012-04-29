@@ -42,8 +42,6 @@
 	
 	CCLayer *_gameLayer;
 	CCLayer *_uiLayer;
-	
-	NSMutableArray *_notifications;
 
 	World *_world;
 	
@@ -56,7 +54,6 @@
     CollisionSystem *_collisionSystem;
 	ExplodeControlSystem *_explodeControlSystem;
     GameRulesSystem *_gameRulesSystem;
-	GateOpeningSystem *_gateOpeningSystem;
 	HUDRenderingSystem *_hudRenderingSystem;
     InputSystem *_inputSystem;
 	MovementSystem *_movementSystem;
@@ -86,7 +83,6 @@
 @property (nonatomic, readonly) DisposalSystem *disposalSystem;
 @property (nonatomic, readonly) ExplodeControlSystem *explodeControlSystem;
 @property (nonatomic, readonly) GameRulesSystem *gameRulesSystem;
-@property (nonatomic, readonly) GateOpeningSystem *gateOpeningSystem;
 @property (nonatomic, readonly) HealthSystem *healthSystem;
 @property (nonatomic, readonly) HUDRenderingSystem *hudRenderingSystem;
 @property (nonatomic, readonly) InputSystem *inputSystem;

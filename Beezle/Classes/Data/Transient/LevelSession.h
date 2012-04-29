@@ -13,20 +13,15 @@
 	NSString *_levelName;
 	int _numberOfCollectedPollen;
 	int _numberOfUnusedBees;
-	BOOL _didCollectKey;
-	BOOL _didUseKey;
 }
 
 @property (nonatomic, readonly) NSString *levelName;
 @property (nonatomic, readonly) int numberOfCollectedPollen;
 @property (nonatomic) int numberOfUnusedBees;
-@property (nonatomic, readonly) BOOL didCollectKey;
-@property (nonatomic) BOOL didUseKey;
 
 -(id) initWithLevelName:(NSString *)levelName;
 
 -(void) consumedPollenEntity:(Entity *)pollenEntity;
--(void) consumedKeyEntity:(Entity *)keyEntity;
 -(int) totalNumberOfPollen;
 
 @end

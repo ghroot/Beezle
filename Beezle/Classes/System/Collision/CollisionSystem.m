@@ -10,10 +10,8 @@
 #import "AnythingWithVoidCollisionHandler.h"
 #import "AnythingWithVolatileCollisionHandler.h"
 #import "BeeWithBeeaterCollisionHandler.h"
-#import "BeeWithGateCollisionHandler.h"
 #import "Collision.h"
 #import "CollisionHandler.h"
-#import "ConsumerWithKeyCollisionHandler.h"
 #import "ConsumerWithPollenCollisionHandler.h"
 #import "DozerWithCrumbleCollisionHandler.h"
 #import "LevelSession.h"
@@ -65,8 +63,6 @@
 	[self registerCollisionHandler:[AnythingWithVoidCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[AnythingWithVolatileCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[BeeWithBeeaterCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[self registerCollisionHandler:[BeeWithGateCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[self registerCollisionHandler:[ConsumerWithKeyCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[ConsumerWithPollenCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[DozerWithCrumbleCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[SawWithWoodCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];

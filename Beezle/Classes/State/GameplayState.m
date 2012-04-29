@@ -20,21 +20,17 @@
 #import "EntityUtil.h"
 #import "Game.h"
 #import "GameRulesSystem.h"
-#import "GateComponent.h"
-#import "GateOpeningSystem.h"
 #import "ShardSystem.h"
 #import "HealthSystem.h"
 #import "HUDRenderingSystem.h"
 #import "IngameMenuState.h"
 #import "InputSystem.h"
-#import "KeyComponent.h"
 #import "LevelCompletedMode.h"
 #import "LevelFailedMode.h"
 #import "LevelLoader.h"
 #import "LevelOrganizer.h"
 #import "LevelSession.h"
 #import "MovementSystem.h"
-#import "NotificationTypes.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
 #import "PlayerInformation.h"
@@ -54,11 +50,6 @@
 
 -(void) createUI;
 -(void) createWorldAndSystems;
--(void) addNotificationObservers;
--(void) queueNotification:(NSNotification *)notification;
--(void) handleNotifications;
--(void) handleNotification:(NSNotification *)notification;
--(void) handleGateEntered:(NSNotification *)notification;
 -(void) createModes;
 -(void) loadLevel;
 -(void) enterMode:(GameMode *)mode;
@@ -79,7 +70,6 @@
 @synthesize disposalSystem = _disposalSystem;
 @synthesize explodeControlSystem = _explodeControlSystem;
 @synthesize gameRulesSystem = _gameRulesSystem;
-@synthesize gateOpeningSystem = _gateOpeningSystem;
 @synthesize healthSystem = _healthSystem;
 @synthesize hudRenderingSystem = _hudRenderingSystem;
 @synthesize inputSystem = _inputSystem;
@@ -133,9 +123,6 @@
 	[super initialise];
 	
 	_debug = FALSE;
-	
-	_notifications = [NSMutableArray new];
-	[self addNotificationObservers];
 	
 	_gameLayer = [CCLayer node];
 	[self addChild:_gameLayer];
@@ -194,8 +181,6 @@
 	[systemManager setSystem:_beeQueueRenderingSystem];
 	_beeaterSystem = [BeeaterSystem system];
 	[systemManager setSystem:_beeaterSystem];
-	_gateOpeningSystem = [[[GateOpeningSystem alloc] initWithLevelSession:_levelSession] autorelease];
-	[systemManager setSystem:_gateOpeningSystem];
 	_shardSystem = [ShardSystem system];
 	[systemManager setSystem:_shardSystem];
 	_spawnSystem = [SpawnSystem system];
@@ -215,11 +200,6 @@
 	}
 	
 	[systemManager initialiseAll];
-}
-
--(void) addNotificationObservers
-{
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_GATE_ENTERED object:nil];
 }
 
 -(void) createModes
@@ -248,32 +228,10 @@
 -(void) loadLevel
 {
 	[[LevelLoader sharedLoader] loadLevel:_levelName inWorld:_world edit:FALSE];
-	
-	for (Entity *entity in [[_world entityManager] entities])
-	{
-		if ([[PlayerInformation sharedInformation] hasUsedKeyInLevel:[_levelSession levelName]] &&
-			[entity hasComponent:[GateComponent class]])
-		{
-			[[GateComponent getFrom:entity] setIsOpened:TRUE];
-			RenderSprite *defaultRenderSprite = [[RenderComponent getFrom:entity] defaultRenderSprite];
-			[defaultRenderSprite playAnimationLoop:@"Cavegate-Open-Idle"];
-		}
-		if ([[PlayerInformation sharedInformation] hasCollectedKeyInLevel:[_levelSession levelName]] &&
-			[entity hasComponent:[KeyComponent class]])
-		{
-			[EntityUtil setEntityDisposed:entity sendNotification:FALSE];
-			[EntityUtil disablePhysics:entity];
-			RenderSprite *defaultRenderSprite = [[RenderComponent getFrom:entity] defaultRenderSprite];
-			[defaultRenderSprite playAnimationLoop:@"Nut-Open-Idle"];
-		}
-	}
 }
 
 -(void) dealloc
-{
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[_notifications release];
-	
+{	
 	[_levelName release];
 	[_levelSession release];
 	
@@ -282,36 +240,6 @@
     [_world release];
 	
 	[super dealloc];
-}
-
--(void) queueNotification:(NSNotification *)notification
-{
-	[_notifications addObject:notification];
-}
-
--(void) handleNotifications
-{
-	while ([_notifications count] > 0)
-	{
-		NSNotification *nextNotification = [[_notifications objectAtIndex:0] retain];
-		[_notifications removeObjectAtIndex:0];
-		[self handleNotification:nextNotification];
-		[nextNotification release];
-	}
-}
-
--(void) handleNotification:(NSNotification *)notification
-{
-	if ([[notification name] isEqualToString:GAME_NOTIFICATION_GATE_ENTERED])
-	{
-		[self handleGateEntered:notification];
-	}
-}
-
--(void) handleGateEntered:(NSNotification *)notification
-{
-	NSString *caveLevelName = [NSString stringWithFormat:@"%@%@", [_levelSession levelName], @"-Cave", nil];
-	[_game replaceState:[GameplayState stateWithLevelName:caveLevelName andLevelSession:_levelSession]];
 }
 
 -(void) enter
@@ -339,8 +267,6 @@
 	[_world setDelta:(1000.0f * delta)];
     
     [self updateMode];
-	
-	[self handleNotifications];
 }
 
 -(void) enterMode:(GameMode *)mode

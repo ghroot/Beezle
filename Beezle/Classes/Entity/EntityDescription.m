@@ -15,9 +15,7 @@
 #import "DisposableComponent.h"
 #import "DozerComponent.h"
 #import "ExplodeComponent.h"
-#import "GateComponent.h"
 #import "HealthComponent.h"
-#import "KeyComponent.h"
 #import "MovementComponent.h"
 #import "PhysicsComponent.h"
 #import "PollenComponent.h"
@@ -84,17 +82,9 @@
 		{
 			component = [ExplodeComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
-		else if ([componentType isEqualToString:@"gate"])
-		{
-			component = [GateComponent componentWithContentsOfDictionary:componentDict world:world];
-		}
 		else if ([componentType isEqualToString:@"health"])
 		{
 			component = [HealthComponent componentWithContentsOfDictionary:componentDict world:world];
-		}
-		else if ([componentType isEqualToString:@"key"])
-		{
-			component = [KeyComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"movement"])
 		{

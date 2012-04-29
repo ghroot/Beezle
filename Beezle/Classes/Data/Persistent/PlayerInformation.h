@@ -13,8 +13,6 @@
 @interface PlayerInformation : NSObject
 {
 	NSMutableDictionary *_pollenRecordByLevelName;
-	NSMutableArray *_levelNamesWhereKeysWereCollected;
-	NSMutableArray *_levelNamesWhereKeysWereUsed;
 }
 
 +(PlayerInformation *) sharedInformation;
@@ -25,10 +23,7 @@
 -(void) storeAndSave:(LevelSession *)levelSession;
 -(BOOL) isPollenRecord:(LevelSession *)levelSession;
 -(int) pollenRecord:(NSString *)levelName;
--(BOOL) hasCollectedKeyInLevel:(NSString *)levelName;
--(BOOL) hasUsedKeyInLevel:(NSString *)levelName;
 -(int) totalNumberOfPollen;
--(int) totalNumberOfKeys;
 -(BOOL) canPlayLevel:(NSString *)levelName;
 
 @end

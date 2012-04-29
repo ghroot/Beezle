@@ -7,7 +7,6 @@
 //
 
 #import "LevelSession.h"
-#import "KeyComponent.h"
 #import "PollenComponent.h"
 
 #define POLLEN_PER_UNUSED_BEE 20
@@ -17,8 +16,6 @@
 @synthesize levelName = _levelName;
 @synthesize numberOfCollectedPollen = _numberOfCollectedPollen;
 @synthesize numberOfUnusedBees = _numberOfUnusedBees;
-@synthesize didCollectKey = _didCollectKey;
-@synthesize didUseKey = _didUseKey;
 
 -(id) initWithLevelName:(NSString *)levelName
 {
@@ -39,11 +36,6 @@
 -(void) consumedPollenEntity:(Entity *)pollenEntity
 {
 	_numberOfCollectedPollen += [[PollenComponent getFrom:pollenEntity] pollenCount];
-}
-
--(void) consumedKeyEntity:(Entity *)keyEntity
-{
-	_didCollectKey = TRUE;
 }
 
 -(int) totalNumberOfPollen

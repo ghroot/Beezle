@@ -11,7 +11,6 @@
 #import "DisposableComponent.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
-#import "GateComponent.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "LevelLayoutEntry.h"
@@ -104,6 +103,12 @@
 		{
 			Entity *entity = [EntityFactory createEntity:[levelLayoutEntry type] world:world edit:edit];
 			
+			if (entity == nil)
+			{
+				NSLog(@"Unsupported entity type in layout %@: %@", levelName, [levelLayoutEntry type]);
+				continue;
+			}
+			
 			if ([[levelLayoutEntry componentsDict] objectForKey:@"beeater"] != nil)
 			{
 				NSDictionary *beeaterDict = [[levelLayoutEntry componentsDict] objectForKey:@"beeater"];
@@ -113,11 +118,6 @@
 			{
 				NSDictionary *disposableDict = [[levelLayoutEntry componentsDict] objectForKey:@"disposable"];
 				[[DisposableComponent getFrom:entity] populateWithContentsOfDictionary:disposableDict world:world];
-			}
-			if ([[levelLayoutEntry componentsDict] objectForKey:@"gate"] != nil)
-			{
-				NSDictionary *gateDict = [[levelLayoutEntry componentsDict] objectForKey:@"gate"];
-				[[GateComponent getFrom:entity] populateWithContentsOfDictionary:gateDict world:world];
 			}
 			if ([[levelLayoutEntry componentsDict] objectForKey:@"movement"] != nil)
 			{

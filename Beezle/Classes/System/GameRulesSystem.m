@@ -9,7 +9,6 @@
 #import "GameRulesSystem.h"
 #import "DisposableComponent.h"
 #import "EntityUtil.h"
-#import "GateComponent.h"
 #import "LevelSession.h"
 #import "PlayerInformation.h"
 #import "SlingerComponent.h"
@@ -45,27 +44,8 @@
 
 -(void) updateIsLevelCompleted
 {
-	GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
-	NSArray *gateEntities = [groupManager getEntitiesInGroup:@"GATES"];
-	BOOL levelHasOpenGate = FALSE;
-	for (Entity *gateEntity in gateEntities)
-	{
-		if ([[GateComponent getFrom:gateEntity] isOpened])
-		{
-			levelHasOpenGate = TRUE;
-			break;
-		}
-	}
-	if (levelHasOpenGate)
-	{
-		// Keep level from completing if level has open gate
-		_isLevelCompleted = FALSE;
-	}
-	else
-	{
-		int numberOfUndisposedBeeaters = [self countNonDisposedEntitiesInGroup:@"BEEATERS"];
-		_isLevelCompleted = numberOfUndisposedBeeaters == 0;
-	}
+	int numberOfUndisposedBeeaters = [self countNonDisposedEntitiesInGroup:@"BEEATERS"];
+	_isLevelCompleted = numberOfUndisposedBeeaters == 0;
 }
 
 -(void) updateIsLevelFailed

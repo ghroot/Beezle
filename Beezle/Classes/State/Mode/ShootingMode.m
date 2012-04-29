@@ -35,7 +35,6 @@
 		[_systems addObject:[gameplayState beeExpirationSystem]];
 		[_systems addObject:[gameplayState explodeControlSystem]];
 		[_systems addObject:[gameplayState beeaterSystem]];
-		[_systems addObject:[gameplayState gateOpeningSystem]];
 		[_systems addObject:[gameplayState beeQueueRenderingSystem]];
 		[_systems addObject:[gameplayState shardSystem]];
 		[_systems addObject:[gameplayState woodSystem]];

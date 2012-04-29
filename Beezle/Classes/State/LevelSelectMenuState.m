@@ -91,31 +91,9 @@
 	for (NSString *levelName in levelNames)
 	{
 		LevelSelectMenuItem *levelMenuItem = [LevelSelectMenuItem itemWithLevelName:levelName target:self selector:@selector(startGame:)];
-        
-#ifdef DEBUG
-		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
-		if (levelLayout != nil)
-		{
-			BOOL hasGate = FALSE;
-			for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
-			{
-				if ([[levelLayoutEntry type] isEqualToString:@"CAVEGATE"])
-				{
-					hasGate = TRUE;
-					break;
-				}
-			}
-			if (hasGate)
-			{
-				NSString *caveLevelName = [NSString stringWithFormat:@"%@-Cave", levelName];
-				LevelSelectMenuItem *caveLevelMenuItem = [LevelSelectMenuItem itemWithLevelName:caveLevelName target:self selector:@selector(startGame:)];
-				[_menu addChild:caveLevelMenuItem];
-			}
-		}
-#else
+#ifndef DEBUG
         [levelMenuItem setIsEnabled:[[PlayerInformation sharedInformation] canPlayLevel:levelName]];
 #endif
-        
 		[_menu addChild:levelMenuItem];
 	}
 }

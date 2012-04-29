@@ -12,7 +12,6 @@
 @interface HUDRenderingSystem : EntitySystem
 {
 	CCLayer *_layer;
-	NSMutableArray *_keyImageSprites;
 }
 
 -(id) initWithLayer:(CCLayer *)layer;
