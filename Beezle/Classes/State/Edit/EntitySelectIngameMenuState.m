@@ -59,8 +59,7 @@
 	[self addMenuItemForEntityType:@"HANGNEST"];
 	[self addMenuItemForEntityType:@"LEAF"];
 	[self addMenuItemForEntityType:@"MUSHROOM"];
-	[self addMenuItemForEntityType:@"NUT"];
-	[self addMenuItemForEntityType:@"POLLEN"];
+	[self addMenuItemForEntityType:@"POLLEN-YELLOW"];
 	[self addMenuItemForEntityType:@"POLLEN-ORANGE"];
 	[self addMenuItemForEntityType:@"RAMP"];
 	[self addMenuItemForEntityType:@"SLINGER"];

@@ -253,14 +253,14 @@
 	_movingBeesCount++;
 	NSMutableArray *actions = [NSMutableArray array];
 	CCCallBlock *animateLookDownAction = [CCCallBlock actionWithBlock:^(){
-		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookDown", [savedBeeType capitalizedString]];
+		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-Look-Down", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimationOnce:animationName];
 	}];
 	[actions addObject:animateLookDownAction];
 	CCEaseSineInOut *moveUpAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.4f position:positionAboveBeeater]];
 	[actions addObject:moveUpAction];
 	CCCallBlock *animateLookScreenAction = [CCCallBlock actionWithBlock:^(){
-		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookScreen", [savedBeeType capitalizedString]];
+		NSString *animationName = [NSString stringWithFormat:@"%@-Saved-Look-Screen", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimationOnce:animationName];
 	}];
 	[actions addObject:animateLookScreenAction];
@@ -268,7 +268,7 @@
 	[actions addObject:waitAction1];
 	CCCallBlock *animateLookSideAction = [CCCallBlock actionWithBlock:^(){
 		NSString *animationName1 = [NSString stringWithFormat:@"%@-Saved-Leap", [savedBeeType capitalizedString]];
-		NSString *animationName2 = [NSString stringWithFormat:@"%@-Saved-LookSide", [savedBeeType capitalizedString]];
+		NSString *animationName2 = [NSString stringWithFormat:@"%@-Saved-Look-Side", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:animationName1, animationName2, nil]];
 	}];
 	[actions addObject:animateLookSideAction];
@@ -286,7 +286,7 @@
 	if (needsToTurn)
 	{
 		CCCallBlock *animateLookAwayAction = [CCCallBlock actionWithBlock:^(){
-			NSString *animationName = [NSString stringWithFormat:@"%@-Saved-LookAway", [savedBeeType capitalizedString]];
+			NSString *animationName = [NSString stringWithFormat:@"%@-Saved-Look-Away", [savedBeeType capitalizedString]];
 			[beeQueueRenderSprite playAnimationOnce:animationName];
 		}];
 		[actions addObject:animateLookAwayAction];

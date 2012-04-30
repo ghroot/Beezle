@@ -77,15 +77,15 @@
 					<key>anchorPoint</key>
 					<string>{ 0.2, 0.75 }</string>
 					<key>defaultIdleAnimation</key>
-					<string>Super-Beeater-Tail-Idle</string>
+					<string>Super-Beeater-A-Tail-Idle</string>
 					<key>defaultHitAnimation</key>
-					<string>Super-Beeater-Tail-Hit</string>
+					<string>Super-Beeater-A-Tail-Hit</string>
 					<key>defaultDestroyAnimation</key>
-					<string>Super-Beeater-Tail-Destroy</string>
+					<string>Super-Beeater-A-Tail-Destroy</string>
 				</dict>
                 <dict>
 					<key>name</key>
-					<string>back</string>
+					<string>headBack</string>
 					<key>spriteSheetName</key>
 					<string>Boss</string>
 					<key>animationFile</key>
@@ -95,15 +95,15 @@
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.5 }</string>
 					<key>defaultIdleAnimation</key>
-					<string>Super-Beeater-Back-Idle</string>
+					<string>Super-Beeater-A-Head-Back-Idle</string>
 					<key>defaultHitAnimation</key>
-					<string>Super-Beeater-Back-Hit</string>
+					<string>Super-Beeater-A-Head-Back-Hit</string>
 					<key>defaultDestroyAnimation</key>
-					<string>Super-Beeater-Back-Destroy</string>
+					<string>Super-Beeater-A-Head-Back-Destroy</string>
 				</dict>
 				<dict>
 					<key>name</key>
-					<string>front</string>
+					<string>headFront</string>
 					<key>spriteSheetName</key>
 					<string>Boss</string>
 					<key>animationFile</key>
@@ -113,11 +113,11 @@
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.5 }</string>
 					<key>defaultIdleAnimation</key>
-					<string>Super-Beeater-Front-Idle</string>
+					<string>Super-Beeater-A-Head-Front-Idle</string>
 					<key>defaultHitAnimation</key>
-					<string>Super-Beeater-Front-Hit</string>
+					<string>Super-Beeater-A-Head-Front-Hit</string>
 					<key>defaultDestroyAnimation</key>
-					<string>Super-Beeater-Front-Destroy</string>
+					<string>Super-Beeater-A-Head-Front-Destroy</string>
 				</dict>
                 <dict>
 					<key>name</key>
@@ -131,11 +131,11 @@
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.5 }</string>
 					<key>defaultIdleAnimation</key>
-					<string>Super-Beeater-Wing-Idle</string>
+					<string>Super-Beeater-A-Wing-Idle</string>
 					<key>defaultHitAnimation</key>
-					<string>Super-Beeater-Wing-Hit</string>
+					<string>Super-Beeater-A-Wing-Hit</string>
 					<key>defaultDestroyAnimation</key>
-					<string>Super-Beeater-Wing-Destroy</string>
+					<string>Super-Beeater-A-Wing-Destroy</string>
 				</dict>
 			</array>
 		</dict>
@@ -144,7 +144,7 @@
 		<key>shard</key>
 		<dict>
 			<key>piecesEntityType</key>
-			<string>BEEATER-A-PC</string>
+			<string>BEEATER-PIECE-A</string>
 			<key>piecesCount</key>
 			<integer>15</integer>
             <key>piecesSpawnType</key>

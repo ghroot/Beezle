@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>type</key>
+	<string>RAMP-PIECE</string>
 	<key>components</key>
 	<dict>
 		<key>physics</key>
@@ -20,15 +22,15 @@
 					<string>poly</string>
 					<key>vertices</key>
 					<array>
-						<string>{ -3, -1 }</string>
-						<string>{ -3, 1 }</string>
-						<string>{ 3, 1 }</string>
-						<string>{ 3, -1 }</string>
+						<string>{ -5, -5 }</string>
+						<string>{ -5, 5 }</string>
+						<string>{ 5, 5 }</string>
+						<string>{ 5, -5 }</string>
 					</array>
 					<key>elasticity</key>
-					<real>0.5</real>
-					<key>friction</key>
 					<real>0.3</real>
+					<key>friction</key>
+					<real>0.8</real>
 					<key>layers</key>
 					<integer>2</integer>
 					<key>group</key>
@@ -46,30 +48,18 @@
 					<key>spriteSheetName</key>
 					<string>Shared</string>
 					<key>animationFile</key>
-					<string>Glass-Piece-Animations.plist</string>
+					<string>Ramp-Animations.plist</string>
 					<key>z</key>
 					<integer>2</integer>
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.5 }</string>
-					<key>defaultIdleAnimations</key>
-					<array>
-						<string>Glass-A-Pc1-Idle</string>
-						<string>Glass-A-Pc2-Idle</string>
-						<string>Glass-A-Pc3-Idle</string>
-						<string>Glass-A-Pc4-Idle</string>
-						<string>Glass-A-Pc5-Idle</string>
-						<string>Glass-A-Pc6-Idle</string>
-						<string>Glass-A-Pc7-Idle</string>
-						<string>Glass-A-Pc8-Idle</string>
-					</array>
+					<key>defaultIdleAnimation</key>
+					<string>Ramp-Piece-Idle</string>
 				</dict>
 			</array>
 		</dict>
 		<key>transform</key>
-		<dict>
-			<key>scale</key>
-			<string>{ 0.5, 0.5 }</string>
-		</dict>
+		<dict/>
 	</dict>
 </dict>
 </plist>

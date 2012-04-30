@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>type</key>
-	<string>RAMP-PC</string>
 	<key>components</key>
 	<dict>
 		<key>physics</key>
@@ -22,15 +20,15 @@
 					<string>poly</string>
 					<key>vertices</key>
 					<array>
-						<string>{ -5, -5 }</string>
-						<string>{ -5, 5 }</string>
-						<string>{ 5, 5 }</string>
-						<string>{ 5, -5 }</string>
+						<string>{ -3, -1 }</string>
+						<string>{ -3, 1 }</string>
+						<string>{ 3, 1 }</string>
+						<string>{ 3, -1 }</string>
 					</array>
 					<key>elasticity</key>
-					<real>0.3</real>
+					<real>0.5</real>
 					<key>friction</key>
-					<real>0.8</real>
+					<real>0.3</real>
 					<key>layers</key>
 					<integer>2</integer>
 					<key>group</key>
@@ -48,18 +46,30 @@
 					<key>spriteSheetName</key>
 					<string>Shared</string>
 					<key>animationFile</key>
-					<string>Ramp-Animations.plist</string>
+					<string>Glass-Piece-Animations.plist</string>
 					<key>z</key>
 					<integer>2</integer>
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.5 }</string>
-					<key>defaultIdleAnimation</key>
-					<string>Ramp-Pc-Idle</string>
+					<key>defaultIdleAnimations</key>
+					<array>						
+						<string>%renderDefaultIdleAnimation1%</string>
+						<string>%renderDefaultIdleAnimation2%</string>
+						<string>%renderDefaultIdleAnimation3%</string>
+						<string>%renderDefaultIdleAnimation4%</string>
+						<string>%renderDefaultIdleAnimation5%</string>
+						<string>%renderDefaultIdleAnimation6%</string>
+						<string>%renderDefaultIdleAnimation7%</string>
+						<string>%renderDefaultIdleAnimation8%</string>
+					</array>
 				</dict>
 			</array>
 		</dict>
 		<key>transform</key>
-		<dict/>
+		<dict>
+			<key>scale</key>
+			<string>{ 0.5, 0.5 }</string>
+		</dict>
 	</dict>
 </dict>
 </plist>

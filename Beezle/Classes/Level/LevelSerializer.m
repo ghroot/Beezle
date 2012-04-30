@@ -68,6 +68,13 @@
 		LevelLayoutEntry *levelLayoutEntry = [LevelLayoutEntry entry];
 		
 		NSString *type = [entity objectForKey:@"type"];
+		
+		// TEMP: Convert from old to new entity types
+		if ([type isEqualToString:@"POLLEN"])
+		{
+			type = @"POLLEN-YELLOW";
+		}
+		
 		[levelLayoutEntry setType:[NSString stringWithString:type]];
 		
 		NSDictionary *components = [entity objectForKey:@"components"];
