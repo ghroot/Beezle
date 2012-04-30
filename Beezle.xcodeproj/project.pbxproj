@@ -495,6 +495,7 @@
 		2C5C9D1C154F081E00FF6F57 /* Pollen-Yellow-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C9D1A154F081E00FF6F57 /* Pollen-Yellow-Animations.plist */; };
 		2C5C9D20154F09FB00FF6F57 /* Mushroom-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C9D1E154F09FB00FF6F57 /* Mushroom-Animations.plist */; };
 		2C5C9D21154F09FB00FF6F57 /* Smoke-Mushroom-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C9D1F154F09FB00FF6F57 /* Smoke-Mushroom-Animations.plist */; };
+		2C5C9D23154F0E0600FF6F57 /* Beeater-Piece-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C9D22154F0E0500FF6F57 /* Beeater-Piece-Animations.plist */; };
 		2C5EFC2B14E496A10071ED39 /* SpawnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */; };
 		2C5EFC5114E7DACF0071ED39 /* Egg-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3A14E7DACF0071ED39 /* Egg-Animations.plist */; };
 		2C5EFC5814E7DACF0071ED39 /* Ramp-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC4114E7DACF0071ED39 /* Ramp-Animations.plist */; };
@@ -592,7 +593,6 @@
 		2CC9E7791502DD8300C094B0 /* Beeater-Head-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CC9E7781502DD8300C094B0 /* Beeater-Head-Animations.plist */; };
 		2CC9E77B1502E29C00C094B0 /* Bird-Beeater-Body-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CC9E77A1502E29C00C094B0 /* Bird-Beeater-Body-Animations.plist */; };
 		2CC9E77D1502E41800C094B0 /* Fish-Beeater-Body-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CC9E77C1502E41700C094B0 /* Fish-Beeater-Body-Animations.plist */; };
-		2CC9E77F1502E56C00C094B0 /* Beeater-Pc-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CC9E77E1502E56C00C094B0 /* Beeater-Pc-Animations.plist */; };
 		2CC9E7851502E80900C094B0 /* Bee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CC9E7811502E80900C094B0 /* Bee-Animations.plist */; };
 		2CC9E7861502E80900C094B0 /* Bombee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CC9E7821502E80900C094B0 /* Bombee-Animations.plist */; };
 		2CC9E7871502E80900C094B0 /* Sawee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CC9E7831502E80900C094B0 /* Sawee-Animations.plist */; };
@@ -1648,6 +1648,7 @@
 		2C5C9D1A154F081E00FF6F57 /* Pollen-Yellow-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Pollen-Yellow-Animations.plist"; sourceTree = "<group>"; };
 		2C5C9D1E154F09FB00FF6F57 /* Mushroom-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Mushroom-Animations.plist"; sourceTree = "<group>"; };
 		2C5C9D1F154F09FB00FF6F57 /* Smoke-Mushroom-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Smoke-Mushroom-Animations.plist"; sourceTree = "<group>"; };
+		2C5C9D22154F0E0500FF6F57 /* Beeater-Piece-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Piece-Animations.plist"; sourceTree = "<group>"; };
 		2C5EFC2914E496A00071ED39 /* SpawnComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpawnComponent.h; path = Classes/Component/SpawnComponent.h; sourceTree = "<group>"; };
 		2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpawnComponent.m; path = Classes/Component/SpawnComponent.m; sourceTree = "<group>"; };
 		2C5EFC3A14E7DACF0071ED39 /* Egg-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Egg-Animations.plist"; sourceTree = "<group>"; };
@@ -1850,7 +1851,6 @@
 		2CC9E7781502DD8300C094B0 /* Beeater-Head-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Head-Animations.plist"; sourceTree = "<group>"; };
 		2CC9E77A1502E29C00C094B0 /* Bird-Beeater-Body-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bird-Beeater-Body-Animations.plist"; sourceTree = "<group>"; };
 		2CC9E77C1502E41700C094B0 /* Fish-Beeater-Body-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Fish-Beeater-Body-Animations.plist"; sourceTree = "<group>"; };
-		2CC9E77E1502E56C00C094B0 /* Beeater-Pc-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Pc-Animations.plist"; sourceTree = "<group>"; };
 		2CC9E7811502E80900C094B0 /* Bee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bee-Animations.plist"; sourceTree = "<group>"; };
 		2CC9E7821502E80900C094B0 /* Bombee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bombee-Animations.plist"; sourceTree = "<group>"; };
 		2CC9E7831502E80900C094B0 /* Sawee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sawee-Animations.plist"; sourceTree = "<group>"; };
@@ -3555,7 +3555,7 @@
 			isa = PBXGroup;
 			children = (
 				2CC9E7781502DD8300C094B0 /* Beeater-Head-Animations.plist */,
-				2CC9E77E1502E56C00C094B0 /* Beeater-Pc-Animations.plist */,
+				2C5C9D22154F0E0500FF6F57 /* Beeater-Piece-Animations.plist */,
 				2CC9E77A1502E29C00C094B0 /* Bird-Beeater-Body-Animations.plist */,
 				2CC9E77C1502E41700C094B0 /* Fish-Beeater-Body-Animations.plist */,
 				2CB3623F15056629003687C1 /* Hanging-Beeater-Body-Animations.plist */,
@@ -4433,7 +4433,6 @@
 				2CC9E7791502DD8300C094B0 /* Beeater-Head-Animations.plist in Resources */,
 				2CC9E77B1502E29C00C094B0 /* Bird-Beeater-Body-Animations.plist in Resources */,
 				2CC9E77D1502E41800C094B0 /* Fish-Beeater-Body-Animations.plist in Resources */,
-				2CC9E77F1502E56C00C094B0 /* Beeater-Pc-Animations.plist in Resources */,
 				2CC9E7851502E80900C094B0 /* Bee-Animations.plist in Resources */,
 				2CC9E7861502E80900C094B0 /* Bombee-Animations.plist in Resources */,
 				2CC9E7871502E80900C094B0 /* Sawee-Animations.plist in Resources */,
@@ -5139,6 +5138,7 @@
 				2C5C9D1C154F081E00FF6F57 /* Pollen-Yellow-Animations.plist in Resources */,
 				2C5C9D20154F09FB00FF6F57 /* Mushroom-Animations.plist in Resources */,
 				2C5C9D21154F09FB00FF6F57 /* Smoke-Mushroom-Animations.plist in Resources */,
+				2C5C9D23154F0E0600FF6F57 /* Beeater-Piece-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
