@@ -8,8 +8,8 @@
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/Speedee/Speedee-1.png</string>
-				<string>Bees/Speedee/Speedee-2.png</string>
+				<string>Bees/Speedee/Speedee-Idle-1.png</string>
+				<string>Bees/Speedee/Speedee-Idle-2.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.2</real>
@@ -18,48 +18,37 @@
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/Speedee/Speedee-1.png</string>
-				<string>Bees/Speedee/Speedee-2.png</string>
+				<string>Bees/Speedee/Speedee-Idle-1.png</string>
+				<string>Bees/Speedee/Speedee-Idle-2.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.1</real>
 		</dict>
-		<key>Speedee-Crash</key>
+		<key>Speedee-Destroy</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/BeeEnding-General/BeeEnd-1.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-2.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-3.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-4.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-5.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-6.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-7.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-8.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-9.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-10.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-1.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-2.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-3.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-4.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-5.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-6.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-7.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-8.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-9.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-10.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.08</real>
-		</dict>
-		<key>Speedee-Puff</key>
-		<dict>
-			<key>frames</key>
-			<array>
-				<string>Bees/Speedee/SpeedeePuffAnim-1.png</string>
-				<string>Bees/Speedee/SpeedeePuffAnim-2.png</string>
-				<string>Bees/Speedee/SpeedeePuffAnim-3.png</string>
-			</array>
-			<key>delay</key>
-			<real>0.1</real>
 		</dict>
 		<key>Speedee-Saved-Leap-Dust</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/Speedee/SpeedeeFree-16.png</string>
-				<string>Bees/Speedee/SpeedeeFree-17.png</string>
-				<string>Bees/Speedee/SpeedeeFree-18.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Leap-Dust-1.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Leap-Dust-2.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Leap-Dust-3.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.08</real>
@@ -68,58 +57,70 @@
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/Speedee/SpeedeeFree-10.png</string>
-				<string>Bees/Speedee/SpeedeeFree-11.png</string>
-				<string>Bees/Speedee/SpeedeeFree-12.png</string>
-				<string>Bees/Speedee/SpeedeeFree-13.png</string>
-				<string>Bees/Speedee/SpeedeeFree-14.png</string>
-				<string>Bees/Speedee/SpeedeeFree-15.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Leap-1.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Leap-2.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Leap-3.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Leap-4.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Leap-5.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Leap-6.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.08</real>
 		</dict>
-		<key>Speedee-Saved-LookDown</key>
+		<key>Speedee-Saved-Look-Down</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/Speedee/SpeedeeFree-4.png</string>
-				<string>Bees/Speedee/SpeedeeFree-5.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Look-Down-1.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Look-Down-2.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.08</real>
 		</dict>
-		<key>Speedee-Saved-LookScreen</key>
+		<key>Speedee-Saved-Look-Screen</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/Speedee/SpeedeeFree-1.png</string>
-				<string>Bees/Speedee/SpeedeeFree-2.png</string>
-				<string>Bees/Speedee/SpeedeeFree-1.png</string>
-				<string>Bees/Speedee/SpeedeeFree-2.png</string>
-				<string>Bees/Speedee/SpeedeeFree-3.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Look-Screen-1.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Look-Screen-2.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Look-Screen-1.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Look-Screen-2.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Look-Screen-3.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.08</real>
 		</dict>
-		<key>Speedee-Saved-LookSide</key>
+		<key>Speedee-Saved-Look-Side</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/Speedee/SpeedeeFree-10.png</string>
-				<string>Bees/Speedee/SpeedeeFree-11.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Look-Side-1.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Look-Side-2.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.08</real>
 		</dict>
-		<key>Speedee-Saved-LookAway</key>
+		<key>Speedee-Saved-Look-Away</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/Speedee/SpeedeeFree-8.png</string>
-				<string>Bees/Speedee/SpeedeeFree-9.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Look-Away-1.png</string>
+				<string>Bees/Speedee/Speedee-Saved-Look-Away-2.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.08</real>
+		</dict>
+		
+		<key>Speedee-Puff</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>Bees/Speedee/Speedee-Puff-1.png</string>
+				<string>Bees/Speedee/Speedee-Puff-2.png</string>
+				<string>Bees/Speedee/Speedee-Puff-3.png</string>
+			</array>
+			<key>delay</key>
+			<real>0.1</real>
 		</dict>
 	</dict>
 </dict>

@@ -8,8 +8,8 @@
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/Bee/BeeShoot-1.png</string>
-				<string>Bees/Bee/BeeShoot-2.png</string>
+				<string>Bees/Bee/Bee-Shoot-1.png</string>
+				<string>Bees/Bee/Bee-Shoot-2.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.3</real>
@@ -18,31 +18,31 @@
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/Bee/Bee-1.png</string>
-				<string>Bees/Bee/Bee-2.png</string>
-				<string>Bees/Bee/Bee-1.png</string>
-				<string>Bees/Bee/Bee-2.png</string>
-				<string>Bees/Bee/Bee-1.png</string>
-				<string>Bees/Bee/Bee-2.png</string>
-				<string>Bees/Bee/BeeBlink.png</string>
+				<string>Bees/Bee/Bee-Idle-1.png</string>
+				<string>Bees/Bee/Bee-Idle-2.png</string>
+				<string>Bees/Bee/Bee-Idle-1.png</string>
+				<string>Bees/Bee/Bee-Idle-2.png</string>
+				<string>Bees/Bee/Bee-Idle-1.png</string>
+				<string>Bees/Bee/Bee-Idle-2.png</string>
+				<string>Bees/Bee/Bee-Blink.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.1</real>
 		</dict>
-		<key>Bee-Crash</key>
+		<key>Bee-Destroy</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/BeeEnding-General/BeeEnd-1.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-2.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-3.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-4.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-5.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-6.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-7.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-8.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-9.png</string>
-				<string>Bees/BeeEnding-General/BeeEnd-10.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-1.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-2.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-3.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-4.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-5.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-6.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-7.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-8.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-9.png</string>
+				<string>Bees/Ending-General/Bees-Ending-General-10.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.08</real>
@@ -51,60 +51,58 @@
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/Bee/BeeFree-9.png</string>
-				<string>Bees/Bee/BeeFree-10.png</string>
-				<string>Bees/Bee/BeeFree-9.png</string>
-				<string>Bees/Bee/BeeFree-10.png</string>
+				<string>Bees/Bee/Bee-Saved-Leap-Dust-1.png</string>
+				<string>Bees/Bee/Bee-Saved-Leap-Dust-2.png</string>
 			</array>
 			<key>delay</key>
-			<real>0.08</real>
+			<real>0.1</real>
 		</dict>
 		<key>Bee-Saved-Leap</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/Bee/Bee-1.png</string>
-				<string>Bees/Bee/Bee-2.png</string>
+				<string>Bees/Bee/Bee-Idle-1.png</string>
+				<string>Bees/Bee/Bee-Idle-2.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.08</real>
 		</dict>
-		<key>Bee-Saved-LookDown</key>
+		<key>Bee-Saved-Look-Down</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/Bee/BeeFree-1.png</string>
-				<string>Bees/Bee/BeeFree-2.png</string>
+				<string>Bees/Bee/Bee-Saved-Look-Down-1.png</string>
+				<string>Bees/Bee/Bee-Saved-Look-Down-2.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.08</real>
 		</dict>
-		<key>Bee-Saved-LookScreen</key>
+		<key>Bee-Saved-Look-Screen</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/Bee/BeeFree-3.png</string>
-				<string>Bees/Bee/BeeFree-4.png</string>
+				<string>Bees/Bee/Bee-Saved-Look-Screen-1.png</string>
+				<string>Bees/Bee/Bee-Saved-Look-Screen-1.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.08</real>
 		</dict>
-		<key>Bee-Saved-LookSide</key>
+		<key>Bee-Saved-Look-Side</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/Bee/BeeFree-5.png</string>
-				<string>Bees/Bee/BeeFree-6.png</string>
+				<string>Bees/Bee/Bee-Saved-Look-Side-1.png</string>
+				<string>Bees/Bee/Bee-Saved-Look-Side-2.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.08</real>
 		</dict>
-		<key>Bee-Saved-LookAway</key>
+		<key>Bee-Saved-Look-Away</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Bees/Bee/BeeFree-7.png</string>
-				<string>Bees/Bee/BeeFree-8.png</string>
+				<string>Bees/Bee/Bee-Saved-Look-Away-1.png</string>
+				<string>Bees/Bee/Bee-Saved-Look-Away-2.png</string>
 			</array>
 			<key>delay</key>
 			<real>0.08</real>
