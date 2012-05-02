@@ -4,6 +4,7 @@
 <dict>
 	<key>animations</key>
 	<dict>
+		<!-- Ramp -->
 		<key>Ramp-Idle</key>
 		<dict>
 			<key>frames</key>
@@ -27,11 +28,67 @@
 			<key>delay</key>
 			<real>0.08</real>
 		</dict>
-		<key>Ramp-Piece-Idle</key>
+		
+		<!-- Pieces -->
+		<key>Ramp-Part-1</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Obstacles/Ramp/Ramp-Piece.png</string>
+				<string>Obstacles/Ramp/Pieces/Ramp-Part-1.png</string>
+			</array>
+			<key>delay</key>
+			<real>1</real>
+		</dict>
+		<key>Ramp-Part-2</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>Obstacles/Ramp/Pieces/Ramp-Part-2.png</string>
+			</array>
+			<key>delay</key>
+			<real>1</real>
+		</dict>
+		<key>Ramp-Part-3</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>Obstacles/Ramp/Pieces/Ramp-Part-3.png</string>
+			</array>
+			<key>delay</key>
+			<real>1</real>
+		</dict>
+		<key>Ramp-Part-4</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>Obstacles/Ramp/Pieces/Ramp-Part-4.png</string>
+			</array>
+			<key>delay</key>
+			<real>1</real>
+		</dict>
+		<key>Ramp-Part-5</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>Obstacles/Ramp/Pieces/Ramp-Part-5.png</string>
+			</array>
+			<key>delay</key>
+			<real>1</real>
+		</dict>
+		<key>Ramp-Piece-1</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>Obstacles/Ramp/Pieces/Ramp-Piece-1.png</string>
+			</array>
+			<key>delay</key>
+			<real>1</real>
+		</dict>
+		<key>Ramp-Piece-2</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>Obstacles/Ramp/Pieces/Ramp-Piece-2.png</string>
 			</array>
 			<key>delay</key>
 			<real>1</real>
