@@ -8,6 +8,9 @@
 
 #import "artemis.h"
 
+/**
+  Destroyed on collision.
+ */
 @interface VolatileComponent : Component
 
 @end

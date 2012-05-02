@@ -8,6 +8,10 @@
 
 #import "artemis.h"
 
+/**
+  Entity contains pollen.
+  Can be consumed by consumer entities.
+ */
 @interface PollenComponent : Component
 {
 	int _pollenCount;

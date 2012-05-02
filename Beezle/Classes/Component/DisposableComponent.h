@@ -8,6 +8,9 @@
 
 #import "Component.h"
 
+/**
+  Can be disposed.
+ */
 @interface DisposableComponent : Component
 {
 	BOOL _deleteEntityWhenDisposed;

@@ -8,6 +8,9 @@
 
 #import "artemis.h"
 
+/**
+  Water specific.
+ */
 @interface WaterComponent : Component
 {
     NSString *_splashEntityType;

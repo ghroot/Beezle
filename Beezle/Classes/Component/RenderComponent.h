@@ -11,6 +11,9 @@
 
 @class RenderSprite;
 
+/**
+  Has a visual representation.
+ */
 @interface RenderComponent : Component <NSCopying>
 {
 	NSMutableArray *_renderSprites;

@@ -9,6 +9,9 @@
 #import "artemis.h"
 #import "BeeType.h"
 
+/**
+  Bee specific.
+ */
 @interface BeeComponent : Component
 {
 	BeeType *_type;

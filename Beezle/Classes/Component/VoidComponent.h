@@ -8,6 +8,9 @@
 
 #import "artemis.h"
 
+/**
+  Instantly destroys other entities on collision.
+ */
 @interface VoidComponent : Component
 {
 	BOOL _instant;

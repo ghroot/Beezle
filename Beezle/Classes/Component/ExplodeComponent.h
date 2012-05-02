@@ -17,6 +17,9 @@ typedef enum
     EXPLODED
 } ExplosionState;
 
+/**
+  Explodes brittle entities.
+ */
 @interface ExplodeComponent : Component
 {
 	int _radius;

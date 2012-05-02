@@ -8,6 +8,9 @@
 
 #import "artemis.h"
 
+/**
+  Destroys crumble entities on collision.
+ */
 @interface DozerComponent : Component
 
 @end

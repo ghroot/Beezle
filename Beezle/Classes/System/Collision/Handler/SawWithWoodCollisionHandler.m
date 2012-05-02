@@ -35,7 +35,7 @@
 	WoodComponent *woodComponent = [WoodComponent getFrom:woodEntity];
 	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:woodEntity];
 	int shapeIndexAtCollision = [[physicsComponent shapes] indexOfObject:[collision secondShape]];
-	[woodComponent setShapeIndexAtCollision:shapeIndexAtCollision];
+	[woodComponent setShapeIndexAtSawCollision:shapeIndexAtCollision];
 	[EntityUtil destroyEntity:secondEntity];
 	
 	return FALSE;

@@ -10,6 +10,7 @@
 #import "BeeaterComponent.h"
 #import "BeeComponent.h"
 #import "BreakableComponent.h"
+#import "BrittleComponent.h"
 #import "ConsumerComponent.h"
 #import "CrumbleComponent.h"
 #import "DisposableComponent.h"
@@ -61,6 +62,10 @@
 		else if ([componentType isEqualToString:@"breakable"])
 		{
 			component = [BreakableComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+		else if ([componentType isEqualToString:@"brittle"])
+		{
+			component = [BrittleComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"consumer"])
 		{

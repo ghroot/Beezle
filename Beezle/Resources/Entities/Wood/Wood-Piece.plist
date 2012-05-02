@@ -3,28 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>RAMP</string>
-	<key>labels</key>
-	<array>
-		<string>RAMP</string>
-	</array>
+	<string>WOOD-PIECE</string>
 	<key>components</key>
 	<dict>
-		<key>brittle</key>
-		<dict/>
-		<key>crumble</key>
-		<dict/>
-		<key>disposable</key>
-		<dict>
-			<key>deleteEntityWhenDisposed</key>
-			<true/>
-		</dict>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
 			<dict>
 				<key>mass</key>
-				<real>0</real>
+				<real>1</real>
+				<key>moment</key>
+				<real>1</real>
 			</dict>
 			<key>shapes</key>
 			<array>
@@ -33,19 +22,19 @@
 					<string>poly</string>
 					<key>vertices</key>
 					<array>
-						<string>{ -30, -3 }</string>
-						<string>{ -30, 3 }</string>
-						<string>{ 30, 3 }</string>
-						<string>{ 30, -3 }</string>
+						<string>{ -2, -5 }</string>
+						<string>{ -2, 5 }</string>
+						<string>{ 2, 5 }</string>
+						<string>{ 2, -5 }</string>
 					</array>
 					<key>elasticity</key>
-					<real>0.8</real>
+					<real>0.3</real>
 					<key>friction</key>
-					<real>0.5</real>
+					<real>0.8</real>
 					<key>layers</key>
-					<integer>7</integer>
+					<integer>2</integer>
 					<key>group</key>
-					<string>LEVEL</string>
+					<string>OBJECT</string>
 				</dict>
 			</array>
 		</dict>
@@ -59,26 +48,22 @@
 					<key>spriteSheetName</key>
 					<string>Shared</string>
 					<key>animationFile</key>
-					<string>Ramp-Animations.plist</string>
+					<string>Wood-Animations.plist</string>
 					<key>z</key>
 					<integer>2</integer>
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.5 }</string>
-					<key>defaultIdleAnimation</key>
-					<string>Ramp-Idle</string>
-					<key>defaultDestroyAnimation</key>
-					<string>Ramp-Destroy</string>
+					<key>defaultIdleAnimations</key>
+					<array>
+						<string>Wood-Piece-1</string>
+						<string>Wood-Piece-2</string>
+						<string>Wood-Piece-3</string>
+						<string>Wood-Piece-4</string>
+						<string>Wood-Piece-5</string>
+						<string>Wood-Piece-6</string>
+					</array>
 				</dict>
 			</array>
-		</dict>
-		<key>shard</key>
-		<dict>
-			<key>piecesEntityType</key>
-			<string>RAMP-PIECE</string>
-			<key>piecesCount</key>
-			<integer>10</integer>
-            <key>piecesSpawnType</key>
-            <string>SHARD_PIECES_SPAWN_FADEOUT</string>
 		</dict>
 		<key>transform</key>
 		<dict/>

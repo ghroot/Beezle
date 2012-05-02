@@ -8,6 +8,9 @@
 
 #import "artemis.h"
 
+/**
+  Destroyed on collision with solid entities.
+ */
 @interface BreakableComponent : Component
 
 @end

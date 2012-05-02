@@ -8,6 +8,9 @@
 
 #import "artemis.h"
 
+/**
+  Has a trajectory.
+ */
 @interface TrajectoryComponent : Component
 {
 	CGPoint _startPoint;

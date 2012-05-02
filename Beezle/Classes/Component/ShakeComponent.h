@@ -8,6 +8,9 @@
 
 #import "artemis.h"
 
+/**
+  Shakes on disposal.
+ */
 @interface ShakeComponent : Component
 
 @end

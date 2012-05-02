@@ -8,6 +8,9 @@
 
 #import "artemis.h"
 
+/**
+  Keeps track of edit related properties.
+ */
 @interface EditComponent : Component
 {
 	NSString *_levelLayoutType;

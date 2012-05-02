@@ -10,13 +10,14 @@
 
 @implementation WoodComponent
 
-@synthesize shapeIndexAtCollision = _shapeIndexAtCollision;
+@synthesize shapeIndexAtSawCollision = _shapeIndexAtSawCollision;
 
 -(id) init
 {
 	if (self = [super init])
 	{
 		_name = @"wood";
+		_shapeIndexAtSawCollision = -1;
 	}
 	return self;
 }

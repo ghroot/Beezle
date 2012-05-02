@@ -11,6 +11,9 @@
 
 @class StringList;
 
+/**
+  Beeater specific.
+ */
 @interface BeeaterComponent : Component
 {
 	BeeType *_containedBeeType;

@@ -8,11 +8,14 @@
 
 #import "artemis.h"
 
+/**
+  Wood specific.
+ */
 @interface WoodComponent : Component
 {
-	int _shapeIndexAtCollision;
+	int _shapeIndexAtSawCollision;
 }
 
-@property (nonatomic) int shapeIndexAtCollision;
+@property (nonatomic) int shapeIndexAtSawCollision;
 
 @end

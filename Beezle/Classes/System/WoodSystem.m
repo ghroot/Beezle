@@ -7,6 +7,7 @@
 //
 
 #import "WoodSystem.h"
+#import "EntityUtil.h"
 #import "NotificationProcessor.h"
 #import "NotificationTypes.h"
 #import "NSObject+PWObject.h"
@@ -54,14 +55,21 @@
 	if ([entity hasComponent:[WoodComponent class]])
 	{
 		WoodComponent *woodComponent = [WoodComponent getFrom:entity];
-		
-		NSArray *woodRenderSprites = [[RenderComponent getFrom:entity] renderSprites];
-		[self animateAndDestroyWoodPiece:woodRenderSprites atIndex:[woodComponent shapeIndexAtCollision] stepsFromStart:0 continueUp:TRUE continueDown:TRUE];
-		
-		// TODO: Don't just disable physics, remove at end of last animation
-		PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
-		[physicsComponent disable];
-		[entity refresh];
+		if ([woodComponent shapeIndexAtSawCollision] >= 0)
+		{
+			NSArray *woodRenderSprites = [[RenderComponent getFrom:entity] renderSprites];
+			[self animateAndDestroyWoodPiece:woodRenderSprites atIndex:[woodComponent shapeIndexAtSawCollision] stepsFromStart:0 continueUp:TRUE continueDown:TRUE];
+			
+			// TODO: Don't just disable physics, remove at end of last animation
+			PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
+			[physicsComponent disable];
+			[entity refresh];
+		}
+		else
+		{
+			[EntityUtil animateAndDeleteEntity:entity animationName:@"Wood-Split"];
+//			[EntityUtil destroyEntity:entity instant:TRUE];
+		}
 	}
 }
 

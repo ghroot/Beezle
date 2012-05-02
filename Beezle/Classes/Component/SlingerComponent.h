@@ -15,6 +15,9 @@ typedef enum
 	SLINGER_STATE_AIMING
 } SlingerState;
 
+/**
+  Slinger specific.
+ */
 @interface SlingerComponent : Component
 {
 	SlingerState _state;

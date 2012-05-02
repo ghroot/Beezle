@@ -909,6 +909,8 @@
 		2CDB98FD154F48FD00384B54 /* Glass-Piece-Small-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB98C1154F48FD00384B54 /* Glass-Piece-Small-Template.plist */; };
 		2CDB98FE154F48FD00384B54 /* Glass-Piece-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB98C2154F48FD00384B54 /* Glass-Piece-Template.plist */; };
 		2CDB98FF154F48FD00384B54 /* Glass-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB98C3154F48FD00384B54 /* Glass-Template.plist */; };
+		2CDB9902155181E800384B54 /* BrittleComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB9901155181E800384B54 /* BrittleComponent.m */; };
+		2CDB9904155186BE00384B54 /* Wood-Piece.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9903155186BE00384B54 /* Wood-Piece.plist */; };
 		2CE1A3331507C10000F17282 /* GameMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3321507C10000F17282 /* GameMode.m */; };
 		2CE1A3371507C11F00F17282 /* AimingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3361507C11F00F17282 /* AimingMode.m */; };
 		2CE1A33A1507C5AB00F17282 /* ShootingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3391507C5AB00F17282 /* ShootingMode.m */; };
@@ -2171,6 +2173,9 @@
 		2CDB98C1154F48FD00384B54 /* Glass-Piece-Small-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-Piece-Small-Template.plist"; sourceTree = "<group>"; };
 		2CDB98C2154F48FD00384B54 /* Glass-Piece-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-Piece-Template.plist"; sourceTree = "<group>"; };
 		2CDB98C3154F48FD00384B54 /* Glass-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-Template.plist"; sourceTree = "<group>"; };
+		2CDB9900155181E700384B54 /* BrittleComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrittleComponent.h; path = Classes/Component/BrittleComponent.h; sourceTree = "<group>"; };
+		2CDB9901155181E800384B54 /* BrittleComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrittleComponent.m; path = Classes/Component/BrittleComponent.m; sourceTree = "<group>"; };
+		2CDB9903155186BE00384B54 /* Wood-Piece.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Wood-Piece.plist"; sourceTree = "<group>"; };
 		2CE1A3311507C10000F17282 /* GameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMode.h; sourceTree = "<group>"; };
 		2CE1A3321507C10000F17282 /* GameMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameMode.m; sourceTree = "<group>"; };
 		2CE1A3351507C11F00F17282 /* AimingMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AimingMode.h; sourceTree = "<group>"; };
@@ -4120,6 +4125,7 @@
 				2CE4F5A5153CC8A80023B5C6 /* Wood-2.plist */,
 				2CE4F5A6153CC8A80023B5C6 /* Wood-3.plist */,
 				2CE4F5A7153CC8A80023B5C6 /* Wood-4.plist */,
+				2CDB9903155186BE00384B54 /* Wood-Piece.plist */,
 				2CE4F5A8153CC8A80023B5C6 /* Wood.plist */,
 			);
 			path = Wood;
@@ -4263,6 +4269,8 @@
 				2C3A6F95148980AF002721E3 /* BeeComponent.m */,
 				2C465EFA1544B24A00318F1E /* BreakableComponent.h */,
 				2C465EFB1544B24A00318F1E /* BreakableComponent.m */,
+				2CDB9900155181E700384B54 /* BrittleComponent.h */,
+				2CDB9901155181E800384B54 /* BrittleComponent.m */,
 				2CFFFC0315437623001D9307 /* ConsumerComponent.h */,
 				2CFFFC0415437624001D9307 /* ConsumerComponent.m */,
 				2C5EFCC014EC60530071ED39 /* CrumbleComponent.h */,
@@ -5139,6 +5147,7 @@
 				2CDB98FD154F48FD00384B54 /* Glass-Piece-Small-Template.plist in Resources */,
 				2CDB98FE154F48FD00384B54 /* Glass-Piece-Template.plist in Resources */,
 				2CDB98FF154F48FD00384B54 /* Glass-Template.plist in Resources */,
+				2CDB9904155186BE00384B54 /* Wood-Piece.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5403,6 +5412,7 @@
 				2C7DF4F61549F0F5001A194C /* SpawnSystem.m in Sources */,
 				2C7DF4F71549F0F5001A194C /* WaterWaveSystem.m in Sources */,
 				2C7DF4F81549F0F5001A194C /* WoodSystem.m in Sources */,
+				2CDB9902155181E800384B54 /* BrittleComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

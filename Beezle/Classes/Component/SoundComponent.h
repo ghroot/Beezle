@@ -10,6 +10,9 @@
 
 @class StringList;
 
+/**
+  Sounds for collision and destruction.
+ */
 @interface SoundComponent : Component
 {
 	StringList *_defaultCollisionSoundNames;

@@ -8,6 +8,9 @@
 
 #import "artemis.h"
 
+/**
+  Entity is significant.
+ */
 @interface SolidComponent : Component
 
 @end

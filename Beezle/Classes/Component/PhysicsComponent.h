@@ -14,6 +14,9 @@
 @class PhysicsBody;
 @class PhysicsShape;
 
+/**
+  Lets the entity be simulated in a physics world.
+ */
 @interface PhysicsComponent : Component
 {
     ChipmunkBody *_body;

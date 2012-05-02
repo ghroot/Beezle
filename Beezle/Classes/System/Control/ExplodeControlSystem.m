@@ -7,7 +7,7 @@
 //
 
 #import "ExplodeControlSystem.h"
-#import "CrumbleComponent.h"
+#import "BrittleComponent.h"
 #import "ExplodeComponent.h"
 #import "DisposableComponent.h"
 #import "EntityUtil.h"
@@ -22,7 +22,7 @@
 
 @interface ExplodeControlSystem()
 
--(BOOL) doesExplodedEntity:(Entity *)explodedEntity intersectCrumbleEntity:(Entity *)crumbleEntity;
+-(BOOL) doesExplodedEntity:(Entity *)explodedEntity intersectBrittleEntity:(Entity *)brittleEntity;
 -(void) startExplode:(Entity *)entity;
 -(void) endExplode:(Entity *)entity;
 
@@ -63,7 +63,7 @@
     }
 }
 
--(BOOL) doesExplodedEntity:(Entity *)explodedEntity intersectCrumbleEntity:(Entity *)crumbleEntity
+-(BOOL) doesExplodedEntity:(Entity *)explodedEntity intersectBrittleEntity:(Entity *)brittleEntity
 {
 	ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:explodedEntity];
 	TransformComponent *explodedTransformComponent = [TransformComponent getFrom:explodedEntity];
@@ -73,7 +73,7 @@
 	int bottom = [explodedTransformComponent position].y - [explodeComponent radius];
 	cpBB explosionBB = cpBBNew(left, bottom, right, top);
 	
-	PhysicsComponent *crumblePhysicsComponent = [PhysicsComponent getFrom:crumbleEntity];	
+	PhysicsComponent *crumblePhysicsComponent = [PhysicsComponent getFrom:brittleEntity];	
 	cpBB crumbleBB = [crumblePhysicsComponent boundingBox];
 	
 	return cpBBIntersects(explosionBB, crumbleBB);
@@ -109,9 +109,9 @@
     
     for (Entity *otherEntity in [[_world entityManager] entities])
     {
-        if ([otherEntity hasComponent:[CrumbleComponent class]])
+        if ([otherEntity hasComponent:[BrittleComponent class]])
         {
-            if ([self doesExplodedEntity:entity intersectCrumbleEntity:otherEntity])
+            if ([self doesExplodedEntity:entity intersectBrittleEntity:otherEntity])
             {
                 if (![EntityUtil isEntityDisposed:otherEntity])
                 {

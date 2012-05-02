@@ -15,6 +15,9 @@ typedef enum
     SHARD_PIECES_SPAWN_ANIMATE_AND_DELETE
 } ShardPiecesSpawnType;
 
+/**
+  Spawns pieces on disposal.
+ */
 @interface ShardComponent : Component
 {
 	NSString *_piecesEntityType;

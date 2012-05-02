@@ -8,6 +8,9 @@
 
 #import "artemis.h"
 
+/**
+  Restores disposed entities until health points run out.
+ */
 @interface HealthComponent : Component
 {
 	int _totalHealthPoints;

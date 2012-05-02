@@ -9,6 +9,9 @@
 #import "artemis.h"
 #import "cocos2d.h"
 
+/**
+  Spawns entities with a regular interval.
+ */
 @interface SpawnComponent : Component
 {
 	NSString *_entityType;

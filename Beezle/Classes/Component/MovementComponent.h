@@ -8,6 +8,9 @@
 
 #import "artemis.h"
 
+/**
+  Makes the entity move between checkpoints.
+ */
 @interface MovementComponent : Component
 {
 	NSArray *_positions;

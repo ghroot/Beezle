@@ -6,6 +6,8 @@
 	<string>WOOD</string>
 	<key>components</key>
 	<dict>
+		<key>crumble</key>
+		<dict/>
 		<key>disposable</key>
 		<dict/>
 		<key>physics</key>
@@ -60,13 +62,22 @@
 				</dict>
 			</array>
 		</dict>
-		<key>transform</key>
-		<dict/>
+		<key>shard</key>
+		<dict>
+			<key>piecesEntityType</key>
+			<string>WOOD-PIECE</string>
+			<key>piecesCount</key>
+			<integer>10</integer>
+            <key>piecesSpawnType</key>
+            <string>SHARD_PIECES_SPAWN_FADEOUT</string>
+		</dict>
 		<key>sound</key>
 		<dict>
 			<key>defaultDestroySound</key>
 			<string>WoodDestroy</string>
 		</dict>
+		<key>transform</key>
+		<dict/>
 		<key>wood</key>
 		<dict/>
 	</dict>

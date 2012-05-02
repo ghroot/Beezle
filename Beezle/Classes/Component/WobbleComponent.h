@@ -10,6 +10,9 @@
 
 @class StringList;
 
+/**
+  Plays animation on collision.
+ */
 @interface WobbleComponent : Component
 {
 	StringList *_wobbleAnimationNames;

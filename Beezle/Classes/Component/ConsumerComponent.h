@@ -8,6 +8,9 @@
 
 #import "artemis.h"
 
+/**
+  Consumes pollen.
+ */
 @interface ConsumerComponent : Component
 
 @end

@@ -8,6 +8,9 @@
 
 #import "artemis.h"
 
+/**
+  Has a position in the world.
+ */
 @interface TransformComponent : Component
 {
     CGPoint _position;

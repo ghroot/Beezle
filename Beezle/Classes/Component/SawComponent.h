@@ -8,6 +8,9 @@
 
 #import "artemis.h"
 
+/**
+  Can destroy wood components on collision.
+ */
 @interface SawComponent : Component
 
 @end
