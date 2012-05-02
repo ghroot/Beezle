@@ -55,11 +55,26 @@
 			RenderComponent *renderComponent = [RenderComponent getFrom:entity];
 			if ([renderComponent hasDefaultDestroyAnimation])
 			{
-				[EntityUtil animateAndDeleteEntity:entity];
+				if ([disposalComponent keepEntityDisabledInsteadOfDelete])
+				{
+					[renderComponent playDefaultDestroyAnimation];
+					[EntityUtil disablePhysics:entity];
+				}
+				else
+				{
+					[EntityUtil animateAndDeleteEntity:entity];
+				}
 			}
 			else
 			{
-				[entity deleteEntity];
+				if ([disposalComponent keepEntityDisabledInsteadOfDelete])
+				{
+					[EntityUtil disablePhysics:entity];
+				}
+				else
+				{
+					[entity deleteEntity];
+				}
 			}
 		}
 	}

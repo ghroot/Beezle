@@ -9,16 +9,18 @@
 #import "Component.h"
 
 /**
-  Can be disposed.
+  Keeps track of if an entity is disposed.
  */
 @interface DisposableComponent : Component
 {
 	BOOL _deleteEntityWhenDisposed;
+	BOOL _keepEntityDisabledInsteadOfDelete;
     BOOL _isDisposed;
 	BOOL _isAboutToBeDeleted;
 }
 
 @property (nonatomic) BOOL deleteEntityWhenDisposed;
+@property (nonatomic) BOOL keepEntityDisabledInsteadOfDelete;
 @property (nonatomic) BOOL isDisposed;
 @property (nonatomic) BOOL isAboutToBeDeleted;
 
