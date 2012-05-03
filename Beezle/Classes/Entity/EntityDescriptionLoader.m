@@ -59,7 +59,8 @@
 //    NSStringEncoding encoding;
 //    NSString *templateFileAsString = [NSString stringWithContentsOfFile:templateFilePath usedEncoding:&encoding error:&error];
     
-    NSString *templateFileAsStringWithReplacements = templateFileAsString;
+    NSString *templateFileAsStringWithReplacements = [NSString stringWithString:templateFileAsString];
+    [templateFileAsString release];
     for (NSString *tokenToReplace in templateSubstitutions)
     {
         NSString *stringToReplace = [NSString stringWithFormat:@"%%%@%%", tokenToReplace];

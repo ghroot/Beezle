@@ -198,6 +198,15 @@
 		damping = 0.99f;
 		diffusion = 0.90f;
 	}
+    else
+    {
+        r1 = r2 = 0.0f;
+        g1 = g2 = 0.0f;
+        b1 = b2 = 0.0f;
+        a1 = a2 = 0.0f;
+        damping = 1.0f;
+        diffusion = 1.0f;
+    }
 	CCSprite *sprite = [CCSprite node];
     CGRect bounds1 = CGRectMake(0.0f, 0.0f, winSize.width, 10.0f);
     Waves1DNode *wave1 = [[Waves1DNode alloc] initWithBounds:bounds1 count:48 damping:damping diffusion:diffusion];

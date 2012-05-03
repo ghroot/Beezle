@@ -578,6 +578,8 @@
 		2CADCC8D14746BA200302475 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CADCC8B14746BA200302475 /* InfoPlist.strings */; };
 		2CADCC9014746BA200302475 /* ArtemisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CADCC8F14746BA200302475 /* ArtemisTests.m */; };
 		2CB360E215042985003687C1 /* Bees-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB360E115042985003687C1 /* Bees-Animations.plist */; };
+		2CB5BE431552B72100F815AB /* DebugMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB5BE421552B72100F815AB /* DebugMenuState.m */; };
+		2CB5BE461552BA1800F815AB /* TestAnimationsState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB5BE451552BA1800F815AB /* TestAnimationsState.m */; };
 		2CBA326E154842AD00A85642 /* Waves1DNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA326D154842AD00A85642 /* Waves1DNode.m */; };
 		2CBCDDB314F7DCE700B11627 /* SoundComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCDDB214F7DCE700B11627 /* SoundComponent.m */; };
 		2CC3EBFD14D466460025F5DA /* MovementComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3EBFC14D466460025F5DA /* MovementComponent.m */; };
@@ -837,7 +839,6 @@
 		2CD2529E15095B9A00B9E300 /* Speedee-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD2529D15095B9A00B9E300 /* Speedee-Shapes.plist */; };
 		2CD2C42E14D19E2A00DC0BD5 /* GandEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD2C42D14D19E2A00DC0BD5 /* GandEnum.m */; };
 		2CD33ED8147D72AD000869C1 /* GameplayState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33ED7147D72AD000869C1 /* GameplayState.m */; };
-		2CD33EEA147EE7AD000869C1 /* TestState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EE9147EE7AD000869C1 /* TestState.m */; };
 		2CD33EF3147EFFA8000869C1 /* MainMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33EF2147EFFA7000869C1 /* MainMenuState.m */; };
 		2CDB9868154F2FEF00384B54 /* Beeater-Body-Bird-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9864154F2FEF00384B54 /* Beeater-Body-Bird-Animations.plist */; };
 		2CDB9869154F2FEF00384B54 /* Beeater-Body-Fish-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9865154F2FEF00384B54 /* Beeater-Body-Fish-Animations.plist */; };
@@ -1830,6 +1831,10 @@
 		2CADCC8F14746BA200302475 /* ArtemisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArtemisTests.m; sourceTree = "<group>"; };
 		2CADCC9114746BA200302475 /* ArtemisTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ArtemisTests-Prefix.pch"; sourceTree = "<group>"; };
 		2CB360E115042985003687C1 /* Bees-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bees-Animations.plist"; sourceTree = "<group>"; };
+		2CB5BE411552B72100F815AB /* DebugMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugMenuState.h; sourceTree = "<group>"; };
+		2CB5BE421552B72100F815AB /* DebugMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugMenuState.m; sourceTree = "<group>"; };
+		2CB5BE441552BA1800F815AB /* TestAnimationsState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAnimationsState.h; sourceTree = "<group>"; };
+		2CB5BE451552BA1800F815AB /* TestAnimationsState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAnimationsState.m; sourceTree = "<group>"; };
 		2CBA326C154842AD00A85642 /* Waves1DNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Waves1DNode.h; sourceTree = "<group>"; };
 		2CBA326D154842AD00A85642 /* Waves1DNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Waves1DNode.m; sourceTree = "<group>"; };
 		2CBCDDB114F7DCE600B11627 /* SoundComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundComponent.h; path = Classes/Component/SoundComponent.h; sourceTree = "<group>"; };
@@ -2099,8 +2104,6 @@
 		2CD2C42D14D19E2A00DC0BD5 /* GandEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GandEnum.m; sourceTree = "<group>"; };
 		2CD33ED6147D72AD000869C1 /* GameplayState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameplayState.h; sourceTree = "<group>"; };
 		2CD33ED7147D72AD000869C1 /* GameplayState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameplayState.m; sourceTree = "<group>"; };
-		2CD33EE8147EE7AD000869C1 /* TestState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestState.h; sourceTree = "<group>"; };
-		2CD33EE9147EE7AD000869C1 /* TestState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestState.m; sourceTree = "<group>"; };
 		2CD33EF1147EFFA7000869C1 /* MainMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuState.h; sourceTree = "<group>"; };
 		2CD33EF2147EFFA7000869C1 /* MainMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuState.m; sourceTree = "<group>"; };
 		2CDB9864154F2FEF00384B54 /* Beeater-Body-Bird-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Body-Bird-Animations.plist"; sourceTree = "<group>"; };
@@ -3523,6 +3526,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2CB5BE3F1552B6FF00F815AB /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				2CB5BE411552B72100F815AB /* DebugMenuState.h */,
+				2CB5BE421552B72100F815AB /* DebugMenuState.m */,
+				2CB5BE441552BA1800F815AB /* TestAnimationsState.h */,
+				2CB5BE451552BA1800F815AB /* TestAnimationsState.m */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
 		2CBA326B154842AD00A85642 /* Waves1DNode */ = {
 			isa = PBXGroup;
 			children = (
@@ -3857,6 +3871,7 @@
 		2CD33ED5147D72AC000869C1 /* State */ = {
 			isa = PBXGroup;
 			children = (
+				2CB5BE3F1552B6FF00F815AB /* Debug */,
 				2CC3EC0E14D608980025F5DA /* Edit */,
 				2C157BEC148FEA8E003F9040 /* Game.h */,
 				2C157BED148FEA8E003F9040 /* Game.m */,
@@ -3879,8 +3894,6 @@
 				2CD33EF1147EFFA7000869C1 /* MainMenuState.h */,
 				2CD33EF2147EFFA7000869C1 /* MainMenuState.m */,
 				2CE1A3301507C10000F17282 /* Mode */,
-				2CD33EE8147EE7AD000869C1 /* TestState.h */,
-				2CD33EE9147EE7AD000869C1 /* TestState.m */,
 			);
 			name = State;
 			path = Classes/State;
@@ -5188,7 +5201,6 @@
 				2CEA35311466B2C9000FF575 /* PhysicsComponent.m in Sources */,
 				2C068A34146858B9003E200D /* TransformComponent.m in Sources */,
 				2CD33ED8147D72AD000869C1 /* GameplayState.m in Sources */,
-				2CD33EEA147EE7AD000869C1 /* TestState.m in Sources */,
 				2CD33EF3147EFFA8000869C1 /* MainMenuState.m in Sources */,
 				2C827D3814840C4900517C8F /* RenderSprite.m in Sources */,
 				2C3A6F96148980AF002721E3 /* BeeComponent.m in Sources */,
@@ -5413,6 +5425,8 @@
 				2C7DF4F71549F0F5001A194C /* WaterWaveSystem.m in Sources */,
 				2C7DF4F81549F0F5001A194C /* WoodSystem.m in Sources */,
 				2CDB9902155181E800384B54 /* BrittleComponent.m in Sources */,
+				2CB5BE431552B72100F815AB /* DebugMenuState.m in Sources */,
+				2CB5BE461552BA1800F815AB /* TestAnimationsState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

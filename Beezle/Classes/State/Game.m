@@ -66,7 +66,7 @@
 		}
 		[gameState enter];
 		[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TRANSITION_DURATION scene:gameState]];
-}
+    }
 }
 
 -(void) pushState:(GameState *)gameState
