@@ -19,7 +19,7 @@
     {
         _layer = layer;
         _spriteSheetsByName = [NSMutableDictionary new];
-		_loadedAnimationsFileNames = [NSMutableArray new];
+		_loadedAnimationsFileNames = [NSMutableSet new];
     }
     return self;
 }
@@ -75,7 +75,7 @@
 	{
 		// Add animations if not already loaded
 		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:animationsFileName];
-		[_loadedAnimationsFileNames addObject:animationsFileName];
+        [_loadedAnimationsFileNames addObject:animationsFileName];
 	}
     
 	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet z:z];
