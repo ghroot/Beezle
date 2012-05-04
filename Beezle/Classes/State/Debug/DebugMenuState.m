@@ -17,6 +17,7 @@
 -(void) createMenu;
 -(void) sendEditedLevels:(id)sender;
 -(void) startTestAnimations:(id)sender;
+-(void) toggleStats:(id)sender;
 -(void) resetPlayerInformation:(id)sender;
 -(void) goBack:(id)sender;
 
@@ -39,10 +40,13 @@
 	[_menu addChild:sendMenuItem];
 	CCMenuItem *testAnimationsMenuItem = [CCMenuItemFont itemWithString:@"Test animations" target:self selector:@selector(startTestAnimations:)];
 	[_menu addChild:testAnimationsMenuItem];
+    CCMenuItem *toggleStatsMenuItem = [CCMenuItemFont itemWithString:@"Toggle stats" target:self selector:@selector(toggleStats:)];
+	[_menu addChild:toggleStatsMenuItem];
 	CCMenuItem *resetInfoMenuItem = [CCMenuItemFont itemWithString:@"Reset player information" target:self selector:@selector(resetPlayerInformation:)];
 	[_menu addChild:resetInfoMenuItem];
     
-    CCMenuItem *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
+    CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
+    [backMenuItem setFontSize:24];
 	[_menu addChild:backMenuItem];
 	
 	[_menu alignItemsVerticallyWithPadding:20.0f];
@@ -58,6 +62,11 @@
 -(void) startTestAnimations:(id)sender
 {
     [_game replaceState:[TestAnimationsState state]];
+}
+
+-(void) toggleStats:(id)sender
+{
+    [[CCDirector sharedDirector] setDisplayStats:![[CCDirector sharedDirector] displayStats]];
 }
 
 -(void) resetPlayerInformation:(id)sender

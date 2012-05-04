@@ -44,7 +44,6 @@
 	
 	// Settings
 	[_director setAnimationInterval:(1.0f / 60.0f)];
-//	[_director setDisplayStats:TRUE];
 	[_director setProjection:kCCDirectorProjection2D];
 	[_director setDepthTest:FALSE];
 	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
