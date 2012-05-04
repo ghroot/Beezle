@@ -47,8 +47,7 @@
 //	[_director setDisplayStats:TRUE];
 	[_director setProjection:kCCDirectorProjection2D];
 	[_director setDepthTest:FALSE];
-	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
-	[CCTexture2D PVRImagesHavePremultipliedAlpha:TRUE];
+	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
 	
 	// For rotation and other messages
 	[_director setDelegate:self];

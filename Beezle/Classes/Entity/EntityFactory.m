@@ -108,13 +108,14 @@
 	RenderComponent *renderComponent = [RenderComponent component];
 	if ([theme isEqualToString:@"C"])
 	{
-		[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB565];
+        CCTexture2DPixelFormat currentFormat = [CCTexture2D defaultAlphaPixelFormat];
+		[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB888];
 		NSString *backImageFileName = [NSString stringWithFormat:@"%@-back.jpg", name];
 		RenderSprite *backRenderSprite = [renderSystem createRenderSpriteWithFile:backImageFileName z:1];
 		[backRenderSprite setName:@"back"];
 		[backRenderSprite markAsBackground];
 		[renderComponent addRenderSprite:backRenderSprite];
-		[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
+		[CCTexture2D setDefaultAlphaPixelFormat:currentFormat];
 		
 		NSString *frontImageFileName = [NSString stringWithFormat:@"%@-front.png", name];
 		RenderSprite *frontRenderSprite = [renderSystem createRenderSpriteWithFile:frontImageFileName z:8];
@@ -123,12 +124,13 @@
 	}
 	else
 	{
-		[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB565];
+        CCTexture2DPixelFormat currentFormat = [CCTexture2D defaultAlphaPixelFormat];
+		[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB888];
 		NSString *imageFileName = [NSString stringWithFormat:@"%@.jpg", name];
 		RenderSprite *renderSprite = [renderSystem createRenderSpriteWithFile:imageFileName z:1];
 		[renderSprite markAsBackground];
 		[renderComponent addRenderSprite:renderSprite];
-		[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
+		[CCTexture2D setDefaultAlphaPixelFormat:currentFormat];
 	}
     [backgroundEntity addComponent:renderComponent];
     
