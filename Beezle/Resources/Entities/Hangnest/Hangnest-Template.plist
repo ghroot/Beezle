@@ -40,33 +40,29 @@
 		<dict>
 			<key>sprites</key>
 			<array>
-				<dict>
-					<key>name</key>
-					<string>main</string>
-					<key>spriteSheetName</key>
-					<string>Shared</string>
-					<key>animationFile</key>
-					<string>Hangnest-Animations.plist</string>
-					<key>z</key>
-					<integer>3</integer>
-					<key>anchorPoint</key>
-					<string>{ 0.6, 0.0 }</string>
-					<key>defaultIdleAnimation</key>
-					<string>Hangnest-Idle</string>
-				</dict>
-				<dict>
+                <dict>
 					<key>name</key>
 					<string>lian</string>
 					<key>spriteSheetName</key>
-					<string>Shared</string>
+					<string>Back</string>
 					<key>animationFile</key>
 					<string>Hangnest-Animations.plist</string>
-					<key>z</key>
-					<integer>2</integer>
 					<key>anchorPoint</key>
 					<string>{ 0.8, -0.3 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>%renderLianDefaultIdleAnimation%</string>
+				</dict>
+				<dict>
+					<key>name</key>
+					<string>main</string>
+					<key>spriteSheetName</key>
+					<string>Back</string>
+					<key>animationFile</key>
+					<string>Hangnest-Animations.plist</string>
+					<key>anchorPoint</key>
+					<string>{ 0.6, 0.0 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Hangnest-Idle</string>
 				</dict>
 			</array>
 		</dict>

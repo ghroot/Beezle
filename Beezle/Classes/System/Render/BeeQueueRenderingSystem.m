@@ -17,6 +17,7 @@
 #import "RenderSystem.h"
 #import "SlingerComponent.h"
 #import "TransformComponent.h"
+#import "ZOrder.h"
 
 #define QUEUE_START_OFFSET_X -30
 #define QUEUE_START_OFFSET_Y 0
@@ -344,7 +345,7 @@
 -(RenderSprite *) createBeeQueueRenderSpriteWithBeeType:(BeeType *)beeType position:(CGPoint)position
 {
 	// Create sprite
-	RenderSprite *beeQueueRenderSprite = [_renderSystem createRenderSpriteWithSpriteSheetName:@"Shared" z:_z];
+	RenderSprite *beeQueueRenderSprite = [_renderSystem createRenderSpriteWithSpriteSheetName:@"Back" zOrder:[ZOrder Z_DEFAULT]];
 	[[beeQueueRenderSprite sprite] setPosition:position];
 	[beeQueueRenderSprite addSpriteToSpriteSheet];
 	[_beeQueueRenderSprites addObject:beeQueueRenderSprite];
@@ -375,7 +376,7 @@
 //					   [slingerTransformComponent position].y - 150 + 150 * sinf(angle));
 	
 	// Method 3: Vertical
-	int x = [slingerTransformComponent position].x - 20;
+	int x = [slingerTransformComponent position].x - 32;
 	int y = [slingerTransformComponent position].y - 5 - 20 * index;
 	return CGPointMake(x, y);
 }

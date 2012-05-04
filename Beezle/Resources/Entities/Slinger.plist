@@ -14,35 +14,31 @@
 		<dict>
 			<key>sprites</key>
 			<array>
-				<dict>
-					<key>name</key>
-					<string>main</string>
-					<key>spriteSheetName</key>
-					<string>Shared</string>
-					<key>animationFile</key>
-					<string>Sling-Animations.plist</string>
-					<key>z</key>
-					<integer>5</integer>
-					<key>anchorPoint</key>
-					<string>{ 0.5, 0.93 }</string>
-					<key>defaultIdleAnimation</key>
-					<string>Sling-Idle</string>
-				</dict>
                 <dict>
 					<key>name</key>
 					<string>addon</string>
 					<key>spriteSheetName</key>
-					<string>Shared</string>
+					<string>Front</string>
 					<key>animationFile</key>
 					<string>Sling-Animations.plist</string>
-					<key>z</key>
-					<integer>5</integer>
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.0 }</string>
                     <key>scale</key>
                     <string>{ 1.0, 0.1 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>Sling-Addon-Idle</string>
+				</dict>
+				<dict>
+					<key>name</key>
+					<string>main</string>
+					<key>spriteSheetName</key>
+					<string>Front</string>
+					<key>animationFile</key>
+					<string>Sling-Animations.plist</string>
+					<key>anchorPoint</key>
+					<string>{ 0.5, 0.93 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Sling-Idle</string>
 				</dict>
 			</array>
 		</dict>

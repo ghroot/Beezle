@@ -30,6 +30,7 @@
 #import "VoidComponent.h"
 #import "WaterComponent.h"
 #import "Waves1DNode.h"
+#import "ZOrder.h"
 
 #define BACKGROUND_FRICTION 0.7f
 #define BACKGROUND_ELASTICITY 0.7f
@@ -104,21 +105,20 @@
     [backgroundEntity addComponent:transformComponent];
     
     // Render
-	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
 	RenderComponent *renderComponent = [RenderComponent component];
 	if ([theme isEqualToString:@"C"])
 	{
         CCTexture2DPixelFormat currentFormat = [CCTexture2D defaultAlphaPixelFormat];
 		[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB888];
 		NSString *backImageFileName = [NSString stringWithFormat:@"%@-back.jpg", name];
-		RenderSprite *backRenderSprite = [renderSystem createRenderSpriteWithFile:backImageFileName z:1];
+        RenderSprite *backRenderSprite = [RenderSprite renderSpriteWithFile:backImageFileName zOrder:[ZOrder Z_BACKGROUND_BACK]];
 		[backRenderSprite setName:@"back"];
 		[backRenderSprite markAsBackground];
 		[renderComponent addRenderSprite:backRenderSprite];
 		[CCTexture2D setDefaultAlphaPixelFormat:currentFormat];
 		
 		NSString *frontImageFileName = [NSString stringWithFormat:@"%@-front.png", name];
-		RenderSprite *frontRenderSprite = [renderSystem createRenderSpriteWithFile:frontImageFileName z:8];
+        RenderSprite *frontRenderSprite = [RenderSprite renderSpriteWithFile:frontImageFileName zOrder:[ZOrder Z_BACKGROUND_FRONT]];
 		[frontRenderSprite setName:@"front"];
 		[renderComponent addRenderSprite:frontRenderSprite];
 	}
@@ -127,7 +127,7 @@
         CCTexture2DPixelFormat currentFormat = [CCTexture2D defaultAlphaPixelFormat];
 		[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB888];
 		NSString *imageFileName = [NSString stringWithFormat:@"%@.jpg", name];
-		RenderSprite *renderSprite = [renderSystem createRenderSpriteWithFile:imageFileName z:1];
+        RenderSprite *renderSprite = [RenderSprite renderSpriteWithFile:imageFileName zOrder:[ZOrder Z_BACKGROUND_BACK]];
 		[renderSprite markAsBackground];
 		[renderComponent addRenderSprite:renderSprite];
 		[CCTexture2D setDefaultAlphaPixelFormat:currentFormat];
@@ -218,7 +218,7 @@
     Waves1DNode *wave2 = [[Waves1DNode alloc] initWithBounds:bounds2 count:48 damping:damping diffusion:diffusion];
 	[wave2 setColor:ccc4f(r2, g2, b2, a2)];
     [sprite addChild:wave2];
-	RenderSprite *renderSprite = [RenderSprite renderSpriteWithSprite:sprite z:1];
+	RenderSprite *renderSprite = [RenderSprite renderSpriteWithSprite:sprite zOrder:[ZOrder Z_WATER]];
 	RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
 	[waterEntity addComponent:renderComponent];
 	
@@ -410,7 +410,7 @@
     [entity addComponent:transformComponent];
 	
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Shared" animationFile:animationFile z:3];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Back" animationFile:animationFile zOrder:[ZOrder Z_DEFAULT]];
 	RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
 	[entity addComponent:renderComponent];
 	

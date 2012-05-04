@@ -9,6 +9,7 @@
 #import "RenderSprite.h"
 #import "ActionTags.h"
 #import "StringList.h"
+#import "ZOrder.h"
 
 @interface RenderSprite()
 
@@ -20,7 +21,7 @@
 
 @synthesize sprite = _sprite;
 @synthesize spriteSheet = _spriteSheet;
-@synthesize z = _z;
+@synthesize zOrder = _zOrder;
 @synthesize name = _name;
 @synthesize scale = _scale;
 @synthesize offset = _offset;
@@ -28,9 +29,9 @@
 @synthesize defaultHitAnimationNames = _defaultHitAnimationNames;
 @synthesize defaultDestroyAnimationNames = _defaultDestroyAnimationNames;
 
-+(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z
++(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet zOrder:(ZOrder *)zOrder
 {
-	return [[[RenderSprite alloc] initWithSpriteSheet:spriteSheet z:z] autorelease];
+	return [[[RenderSprite alloc] initWithSpriteSheet:spriteSheet zOrder:zOrder] autorelease];
 }
 
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet
@@ -38,14 +39,24 @@
 	return [[[RenderSprite alloc] initWithSpriteSheet:spriteSheet] autorelease];
 }
 
-+(RenderSprite *) renderSpriteWithSprite:(CCSprite *)sprite z:(int)z
++(RenderSprite *) renderSpriteWithSprite:(CCSprite *)sprite zOrder:(ZOrder *)zOrder
 {
-	return [[[RenderSprite alloc] initWithSprite:sprite z:z] autorelease];
+	return [[[RenderSprite alloc] initWithSprite:sprite zOrder:zOrder] autorelease];
 }
 
 +(RenderSprite *) renderSpriteWithSprite:(CCSprite *)sprite
 {
 	return [[[RenderSprite alloc] initWithSprite:sprite] autorelease];
+}
+
++(RenderSprite *) renderSpriteWithFile:(NSString *)file zOrder:(ZOrder *)zOrder
+{
+    return [[[RenderSprite alloc] initWithSprite:[CCSprite spriteWithFile:file] zOrder:zOrder] autorelease];
+}
+
++(RenderSprite *) renderSpriteWithFile:(NSString *)file
+{
+    return [self renderSpriteWithFile:file zOrder:[ZOrder Z_DEFAULT]];
 }
 
 -(id) init
@@ -62,35 +73,35 @@
 	return self;
 }
 
--(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z
+-(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet zOrder:(ZOrder *)zOrder
 {
     if (self = [self init])
     {
         _spriteSheet = spriteSheet;
         _sprite = [[CCSprite alloc] initWithTexture:[spriteSheet texture]];
-		_z = z;
+		_zOrder = zOrder;
     }
     return self;
 }
 
 -(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet
 {
-	return [self initWithSpriteSheet:spriteSheet z:0];
+	return [self initWithSpriteSheet:spriteSheet zOrder:[ZOrder Z_DEFAULT]];
 }
 
--(id) initWithSprite:(CCSprite *)sprite z:(int)z
+-(id) initWithSprite:(CCSprite *)sprite zOrder:(ZOrder *)zOrder
 {
 	if (self = [self init])
     {
         _sprite = [sprite retain];
-        _z = z;
+        _zOrder = zOrder;
     }
     return self;
 }
 
 -(id) initWithSprite:(CCSprite *)sprite
 {
-	return [self initWithSprite:sprite z:0];
+	return [self initWithSprite:sprite zOrder:[ZOrder Z_DEFAULT]];
 }
 
 -(void) dealloc
@@ -106,7 +117,7 @@
 
 -(id) copyWithZone:(NSZone *)zone
 {
-	RenderSprite *copiedRenderSprite = [[[self class] allocWithZone:zone] initWithSpriteSheet:_spriteSheet z:_z];
+	RenderSprite *copiedRenderSprite = [[[self class] allocWithZone:zone] initWithSpriteSheet:_spriteSheet zOrder:_zOrder];
 	[[copiedRenderSprite sprite] setAnchorPoint:[_sprite anchorPoint]];
 	[[copiedRenderSprite sprite] setDisplayFrame:[_sprite displayFrame]];
 	return copiedRenderSprite;
@@ -114,7 +125,7 @@
 
 -(void) addSpriteToSpriteSheet
 {
-	[_spriteSheet addChild:_sprite z:_z];
+	[_spriteSheet addChild:_sprite z:[_zOrder z]];
 }
 
 -(void) removeSpriteFromSpriteSheet

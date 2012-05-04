@@ -11,6 +11,7 @@
 #import "RenderSystem.h"
 #import "StringList.h"
 #import "Utils.h"
+#import "ZOrder.h"
 
 @interface RenderComponent()
 
@@ -50,10 +51,18 @@
 		{
 			RenderSprite *renderSprite = nil;
             
-			int z = [[spriteDict objectForKey:@"z"] intValue];
+			ZOrder *zOrder;
+            if ([spriteDict objectForKey:@"z"] != nil)
+            {
+                zOrder = [ZOrder enumFromName:[spriteDict objectForKey:@"z"]];
+            }
+            else
+            {
+                zOrder = [ZOrder Z_DEFAULT];
+            }
 			if ([spriteDict objectForKey:@"spriteSheetName"] != nil)
 			{
-				renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:[spriteDict objectForKey:@"spriteSheetName"] animationFile:[spriteDict objectForKey:@"animationFile"] z:z];
+				renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:[spriteDict objectForKey:@"spriteSheetName"] animationFile:[spriteDict objectForKey:@"animationFile"] zOrder:zOrder];
 				[[renderSprite defaultIdleAnimationNames] addStringsFromDictionary:spriteDict baseName:@"defaultIdleAnimation"];
 				[[renderSprite defaultHitAnimationNames] addStringsFromDictionary:spriteDict baseName:@"defaultHitAnimation"];
 				[[renderSprite defaultDestroyAnimationNames] addStringsFromDictionary:spriteDict baseName:@"defaultDestroyAnimation"];
@@ -61,7 +70,7 @@
 			else if ([spriteDict objectForKey:@"textureFile"] != nil)
 			{
                 NSString *textureFile = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:[spriteDict objectForKey:@"textureFile"]];
-				renderSprite = [renderSystem createRenderSpriteWithFile:textureFile z:z];
+                renderSprite = [RenderSprite renderSpriteWithFile:textureFile zOrder:zOrder];
 			}
             
             if ([spriteDict objectForKey:@"name"] != nil)
@@ -70,11 +79,12 @@
                 [renderSprite setName:name];
             }
             
+            CGPoint anchorPoint = CGPointMake(0.5f, 0.5f);
             if ([spriteDict objectForKey:@"anchorPoint"] != nil)
             {
-                CGPoint anchorPoint = [Utils stringToPoint:[spriteDict objectForKey:@"anchorPoint"]];
-                [[renderSprite sprite] setAnchorPoint:anchorPoint];
+                anchorPoint = [Utils stringToPoint:[spriteDict objectForKey:@"anchorPoint"]];
             }
+            [[renderSprite sprite] setAnchorPoint:anchorPoint];
             
             if ([spriteDict objectForKey:@"scale"] != nil)
             {

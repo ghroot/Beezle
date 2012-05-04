@@ -9,12 +9,13 @@
 #import "cocos2d.h"
 
 @class StringList;
+@class ZOrder;
 
 @interface RenderSprite : NSObject <NSCopying>
 {
     CCSpriteBatchNode *_spriteSheet;
     CCSprite *_sprite;
-	int _z;
+	ZOrder *_zOrder;
     NSString *_name;
     CGPoint _scale;
 	CGPoint _offset;
@@ -25,7 +26,7 @@
 
 @property (nonatomic, readonly) CCSprite *sprite;
 @property (nonatomic, readonly) CCSpriteBatchNode *spriteSheet;
-@property (nonatomic, readonly) int z;
+@property (nonatomic, readonly) ZOrder *zOrder;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic) CGPoint scale;
 @property (nonatomic) CGPoint offset;
@@ -33,14 +34,16 @@
 @property (nonatomic, readonly) StringList *defaultHitAnimationNames;
 @property (nonatomic, readonly) StringList *defaultDestroyAnimationNames;
 
-+(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z;
++(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet zOrder:(ZOrder *)zOrder;
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
-+(RenderSprite *) renderSpriteWithSprite:(CCSprite *)sprite z:(int)z;
++(RenderSprite *) renderSpriteWithSprite:(CCSprite *)sprite zOrder:(ZOrder *)zOrder;
 +(RenderSprite *) renderSpriteWithSprite:(CCSprite *)sprite;
++(RenderSprite *) renderSpriteWithFile:(NSString *)file zOrder:(ZOrder *)zOrder;
++(RenderSprite *) renderSpriteWithFile:(NSString *)file;
 
--(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet z:(int)z;
+-(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet zOrder:(ZOrder *)zOrder;
 -(id) initWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
--(id) initWithSprite:(CCSprite *)sprite z:(int)z;
+-(id) initWithSprite:(CCSprite *)sprite zOrder:(ZOrder *)zOrder;
 -(id) initWithSprite:(CCSprite *)sprite;
 
 -(void) addSpriteToSpriteSheet;

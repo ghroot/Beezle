@@ -10,6 +10,7 @@
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "TransformComponent.h"
+#import "ZOrder.h"
 
 @implementation RenderSystem
 
@@ -32,26 +33,12 @@
     [super dealloc];
 }
 
--(RenderSprite *) createRenderSpriteWithFile:(NSString *)fileName z:(int)z
+-(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name zOrder:(ZOrder *)zOrder
 {
-    CCSpriteBatchNode *spriteSheet = (CCSpriteBatchNode *)[_spriteSheetsByName objectForKey:fileName];
-    if (spriteSheet == nil)
-    {
-        spriteSheet = [CCSpriteBatchNode batchNodeWithFile:fileName];
-        [_layer addChild:spriteSheet z:z];
-        [_spriteSheetsByName setObject:spriteSheet forKey:fileName];
-		
-		// No frames, uses whole texture
-    }
-	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet z:z];
+    return [self createRenderSpriteWithSpriteSheetName:name animationFile:nil zOrder:zOrder];
 }
 
--(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name z:(int)z
-{
-    return [self createRenderSpriteWithSpriteSheetName:name animationFile:nil z:z];
-}
-
--(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name animationFile:(NSString *)animationsFileName z:(int)z;
+-(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name animationFile:(NSString *)animationsFileName zOrder:(ZOrder *)zOrder;
 {
     CCSpriteBatchNode *spriteSheet = (CCSpriteBatchNode *)[_spriteSheetsByName objectForKey:name];
     if (spriteSheet == nil)
@@ -63,7 +50,22 @@
         NSDictionary *metadataDict = [spriteSheetDict objectForKey:@"metadata"];
         NSString *texturePath = [metadataDict objectForKey:@"textureFileName"];
         spriteSheet = [CCSpriteBatchNode batchNodeWithFile:texturePath];
-        [_layer addChild:spriteSheet z:z];
+        
+        ZOrder *spriteSheetZOrder = nil;
+        if ([name isEqualToString:@"Back"])
+        {
+            spriteSheetZOrder = [ZOrder Z_SHEET_BACK];
+        }
+        else if ([name isEqualToString:@"Boss"])
+        {
+            spriteSheetZOrder = [ZOrder Z_SHEET_BOSS];
+        }
+        else if ([name isEqualToString:@"Front"])
+        {
+            spriteSheetZOrder = [ZOrder Z_SHEET_FRONT];
+        }
+        
+        [_layer addChild:spriteSheet z:[spriteSheetZOrder z]];
         [_spriteSheetsByName setObject:spriteSheet forKey:name];
         
 		// Create frames from file
@@ -78,7 +80,7 @@
         [_loadedAnimationsFileNames addObject:animationsFileName];
 	}
     
-	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet z:z];
+	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet zOrder:zOrder];
 }
 
 -(void) entityAdded:(Entity *)entity
@@ -92,7 +94,7 @@
 		}
 		else if ([renderSprite sprite] != nil)
 		{
-			[_layer addChild:[renderSprite sprite] z:[renderSprite z]];
+			[_layer addChild:[renderSprite sprite] z:[[renderSprite zOrder] z]];
 		}
 	}
     

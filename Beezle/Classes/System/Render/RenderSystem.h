@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 
 @class RenderSprite;
+@class ZOrder;
 
 @interface RenderSystem : EntityComponentSystem
 {
@@ -19,8 +20,7 @@
 }
 
 -(id) initWithLayer:(CCLayer *)layer;
--(RenderSprite *) createRenderSpriteWithFile:(NSString *)fileName z:(int)z;
--(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name animationFile:(NSString *)animationsFileName z:(int)z;
--(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name z:(int)z;
+-(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name animationFile:(NSString *)animationsFileName zOrder:(ZOrder *)zOrder;
+-(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name zOrder:(ZOrder *)zOrder;
 
 @end
