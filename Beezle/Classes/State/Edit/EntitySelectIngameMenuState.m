@@ -61,6 +61,7 @@
 	[self addMenuItemForEntityType:@"MUSHROOM"];
 	[self addMenuItemForEntityType:@"POLLEN-YELLOW"];
 	[self addMenuItemForEntityType:@"POLLEN-ORANGE"];
+	[self addMenuItemForEntityType:@"POLLEN-GREEN"];
 	[self addMenuItemForEntityType:@"RAMP"];
 	[self addMenuItemForEntityType:@"SLINGER"];
 	[self addMenuItemForEntityType:@"SMOKE-MUSHROOM"];

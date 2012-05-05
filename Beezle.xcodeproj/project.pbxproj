@@ -977,6 +977,10 @@
 		2CDB9CE315557FCA00384B54 /* Level-C55-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9AFD15557FCA00384B54 /* Level-C55-Shapes.plist */; };
 		2CDB9CE415557FCA00384B54 /* Level-C55.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9AFE15557FCA00384B54 /* Level-C55.jpg */; };
 		2CDB9CE515557FCA00384B54 /* Levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9AFF15557FCA00384B54 /* Levels.plist */; };
+		2CDB9CE71555DEE700384B54 /* Pollen-Green-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9CE61555DEE700384B54 /* Pollen-Green-Animations.plist */; };
+		2CDB9CE91555DF3E00384B54 /* Pollen-Green.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9CE81555DF3E00384B54 /* Pollen-Green.plist */; };
+		2CDB9D4B1555DFD200384B54 /* BoostComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB9D4A1555DFD200384B54 /* BoostComponent.m */; };
+		2CDB9D4E1555E04F00384B54 /* SolidWithBoostCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB9D4D1555E04F00384B54 /* SolidWithBoostCollisionHandler.m */; };
 		2CE1A3331507C10000F17282 /* GameMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3321507C10000F17282 /* GameMode.m */; };
 		2CE1A3371507C11F00F17282 /* AimingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3361507C11F00F17282 /* AimingMode.m */; };
 		2CE1A33A1507C5AB00F17282 /* ShootingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3391507C5AB00F17282 /* ShootingMode.m */; };
@@ -2310,6 +2314,12 @@
 		2CDB9AFD15557FCA00384B54 /* Level-C55-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-C55-Shapes.plist"; sourceTree = "<group>"; };
 		2CDB9AFE15557FCA00384B54 /* Level-C55.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-C55.jpg"; sourceTree = "<group>"; };
 		2CDB9AFF15557FCA00384B54 /* Levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Levels.plist; sourceTree = "<group>"; };
+		2CDB9CE61555DEE700384B54 /* Pollen-Green-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Pollen-Green-Animations.plist"; sourceTree = "<group>"; };
+		2CDB9CE81555DF3E00384B54 /* Pollen-Green.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Pollen-Green.plist"; sourceTree = "<group>"; };
+		2CDB9D491555DFD200384B54 /* BoostComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoostComponent.h; path = Classes/Component/BoostComponent.h; sourceTree = "<group>"; };
+		2CDB9D4A1555DFD200384B54 /* BoostComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoostComponent.m; path = Classes/Component/BoostComponent.m; sourceTree = "<group>"; };
+		2CDB9D4C1555E04F00384B54 /* SolidWithBoostCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SolidWithBoostCollisionHandler.h; sourceTree = "<group>"; };
+		2CDB9D4D1555E04F00384B54 /* SolidWithBoostCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SolidWithBoostCollisionHandler.m; sourceTree = "<group>"; };
 		2CE1A3311507C10000F17282 /* GameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMode.h; sourceTree = "<group>"; };
 		2CE1A3321507C10000F17282 /* GameMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameMode.m; sourceTree = "<group>"; };
 		2CE1A3351507C11F00F17282 /* AimingMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AimingMode.h; sourceTree = "<group>"; };
@@ -3118,6 +3128,7 @@
 		2C5C9D18154F081D00FF6F57 /* Pollen */ = {
 			isa = PBXGroup;
 			children = (
+				2CDB9CE61555DEE700384B54 /* Pollen-Green-Animations.plist */,
 				2C5C9D19154F081E00FF6F57 /* Pollen-Orange-Animations.plist */,
 				2C5C9D1A154F081E00FF6F57 /* Pollen-Yellow-Animations.plist */,
 			);
@@ -3237,6 +3248,8 @@
 				2C7DF48C1549F0F5001A194C /* DozerWithCrumbleCollisionHandler.m */,
 				2C7DF48D1549F0F5001A194C /* SawWithWoodCollisionHandler.h */,
 				2C7DF48E1549F0F5001A194C /* SawWithWoodCollisionHandler.m */,
+				2CDB9D4C1555E04F00384B54 /* SolidWithBoostCollisionHandler.h */,
+				2CDB9D4D1555E04F00384B54 /* SolidWithBoostCollisionHandler.m */,
 				2C7DF48F1549F0F5001A194C /* SolidWithBreakableCollisionHandler.h */,
 				2C7DF4901549F0F5001A194C /* SolidWithBreakableCollisionHandler.m */,
 				2C7DF4911549F0F5001A194C /* SolidWithSoundCollisionHandler.h */,
@@ -4312,6 +4325,7 @@
 		2CE4F59A153CC8A80023B5C6 /* Pollen */ = {
 			isa = PBXGroup;
 			children = (
+				2CDB9CE81555DF3E00384B54 /* Pollen-Green.plist */,
 				2CE4F59B153CC8A80023B5C6 /* Pollen-Orange.plist */,
 				2CDB9878154F44D500384B54 /* Pollen-Yellow.plist */,
 			);
@@ -4477,6 +4491,8 @@
 				2C1147E3148D4291002E4DBD /* BeeaterComponent.m */,
 				2C3A6F94148980AF002721E3 /* BeeComponent.h */,
 				2C3A6F95148980AF002721E3 /* BeeComponent.m */,
+				2CDB9D491555DFD200384B54 /* BoostComponent.h */,
+				2CDB9D4A1555DFD200384B54 /* BoostComponent.m */,
 				2C465EFA1544B24A00318F1E /* BreakableComponent.h */,
 				2C465EFB1544B24A00318F1E /* BreakableComponent.m */,
 				2CDB9900155181E700384B54 /* BrittleComponent.h */,
@@ -5422,6 +5438,8 @@
 				2CDB9CE315557FCA00384B54 /* Level-C55-Shapes.plist in Resources */,
 				2CDB9CE415557FCA00384B54 /* Level-C55.jpg in Resources */,
 				2CDB9CE515557FCA00384B54 /* Levels.plist in Resources */,
+				2CDB9CE71555DEE700384B54 /* Pollen-Green-Animations.plist in Resources */,
+				2CDB9CE91555DF3E00384B54 /* Pollen-Green.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5689,6 +5707,8 @@
 				2CB5BE431552B72100F815AB /* DebugMenuState.m in Sources */,
 				2CB5BE461552BA1800F815AB /* TestAnimationsState.m in Sources */,
 				2CB5BE8D15540D9200F815AB /* ZOrder.m in Sources */,
+				2CDB9D4B1555DFD200384B54 /* BoostComponent.m in Sources */,
+				2CDB9D4E1555E04F00384B54 /* SolidWithBoostCollisionHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

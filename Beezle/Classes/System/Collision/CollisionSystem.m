@@ -17,6 +17,7 @@
 #import "LevelSession.h"
 #import "SawWithWoodCollisionHandler.h"
 #import "SolidWithSoundCollisionHandler.h"
+#import "SolidWithBoostCollisionHandler.h"
 #import "SolidWithBreakableCollisionHandler.h"
 #import "SolidWithWaterCollisionHandler.h"
 #import "SolidWithWobbleCollisionHandler.h"
@@ -67,6 +68,7 @@
 	[self registerCollisionHandler:[DozerWithCrumbleCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[SawWithWoodCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[SolidWithSoundCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[self registerCollisionHandler:[SolidWithBoostCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[SolidWithBreakableCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[SolidWithWaterCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[SolidWithWobbleCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];

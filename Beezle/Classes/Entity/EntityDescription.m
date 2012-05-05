@@ -9,6 +9,7 @@
 #import "EntityDescription.h"
 #import "BeeaterComponent.h"
 #import "BeeComponent.h"
+#import "BoostComponent.h"
 #import "BreakableComponent.h"
 #import "BrittleComponent.h"
 #import "ConsumerComponent.h"
@@ -58,6 +59,10 @@
 		else if ([componentType isEqualToString:@"beeater"])
 		{
 			component = [BeeaterComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+		else if ([componentType isEqualToString:@"boost"])
+		{
+			component = [BoostComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"breakable"])
 		{
