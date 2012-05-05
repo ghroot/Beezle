@@ -357,7 +357,7 @@
     Entity *aimPollenEntity = [self createEntity:@"AIM-POLLEN" world:world];
 	
 	// Clone bee's physics component
-	EntityDescription *beeEntityDescription = [self getEntityDescription:[beeType capitalizedString]];
+	EntityDescription *beeEntityDescription = [self getEntityDescription:[beeType name]];
 	NSDictionary *beePhysicsDict = [[beeEntityDescription componentsDict] objectForKey:@"physics"];
 	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithContentsOfDictionary:beePhysicsDict world:world];
 	[physicsComponent setLayers:AIM_POLLEN_LAYERS];
