@@ -981,6 +981,12 @@
 		2CDB9CE91555DF3E00384B54 /* Pollen-Green.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9CE81555DF3E00384B54 /* Pollen-Green.plist */; };
 		2CDB9D4B1555DFD200384B54 /* BoostComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB9D4A1555DFD200384B54 /* BoostComponent.m */; };
 		2CDB9D4E1555E04F00384B54 /* SolidWithBoostCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB9D4D1555E04F00384B54 /* SolidWithBoostCollisionHandler.m */; };
+		2CDB9D511555E53E00384B54 /* Glass-B7.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D4F1555E53E00384B54 /* Glass-B7.plist */; };
+		2CDB9D521555E53E00384B54 /* Glass-B39.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D501555E53E00384B54 /* Glass-B39.plist */; };
+		2CDB9D571555E5A300384B54 /* B7-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D531555E5A300384B54 /* B7-Glass-hd.png */; };
+		2CDB9D581555E5A300384B54 /* B7-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D541555E5A300384B54 /* B7-Glass.png */; };
+		2CDB9D591555E5A300384B54 /* B39-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D551555E5A300384B54 /* B39-Glass-hd.png */; };
+		2CDB9D5A1555E5A300384B54 /* B39-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D561555E5A300384B54 /* B39-Glass.png */; };
 		2CE1A3331507C10000F17282 /* GameMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3321507C10000F17282 /* GameMode.m */; };
 		2CE1A3371507C11F00F17282 /* AimingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3361507C11F00F17282 /* AimingMode.m */; };
 		2CE1A33A1507C5AB00F17282 /* ShootingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3391507C5AB00F17282 /* ShootingMode.m */; };
@@ -2320,6 +2326,12 @@
 		2CDB9D4A1555DFD200384B54 /* BoostComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoostComponent.m; path = Classes/Component/BoostComponent.m; sourceTree = "<group>"; };
 		2CDB9D4C1555E04F00384B54 /* SolidWithBoostCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SolidWithBoostCollisionHandler.h; sourceTree = "<group>"; };
 		2CDB9D4D1555E04F00384B54 /* SolidWithBoostCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SolidWithBoostCollisionHandler.m; sourceTree = "<group>"; };
+		2CDB9D4F1555E53E00384B54 /* Glass-B7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-B7.plist"; sourceTree = "<group>"; };
+		2CDB9D501555E53E00384B54 /* Glass-B39.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Glass-B39.plist"; sourceTree = "<group>"; };
+		2CDB9D531555E5A300384B54 /* B7-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "B7-Glass-hd.png"; sourceTree = "<group>"; };
+		2CDB9D541555E5A300384B54 /* B7-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "B7-Glass.png"; sourceTree = "<group>"; };
+		2CDB9D551555E5A300384B54 /* B39-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "B39-Glass-hd.png"; sourceTree = "<group>"; };
+		2CDB9D561555E5A300384B54 /* B39-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "B39-Glass.png"; sourceTree = "<group>"; };
 		2CE1A3311507C10000F17282 /* GameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMode.h; sourceTree = "<group>"; };
 		2CE1A3321507C10000F17282 /* GameMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameMode.m; sourceTree = "<group>"; };
 		2CE1A3351507C11F00F17282 /* AimingMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AimingMode.h; sourceTree = "<group>"; };
@@ -3036,6 +3048,8 @@
 				2C5C9C52154DDB9C00FF6F57 /* B36-Glass.png */,
 				2C5C9C53154DDB9C00FF6F57 /* B37-Glass-hd.png */,
 				2C5C9C54154DDB9C00FF6F57 /* B37-Glass.png */,
+				2CDB9D551555E5A300384B54 /* B39-Glass-hd.png */,
+				2CDB9D561555E5A300384B54 /* B39-Glass.png */,
 				2C5C9C55154DDB9C00FF6F57 /* B40a-Glass-hd.png */,
 				2C5C9C56154DDB9C00FF6F57 /* B40a-Glass.png */,
 				2C5C9C57154DDB9C00FF6F57 /* B40b-Glass-hd.png */,
@@ -3072,6 +3086,8 @@
 				2C5C9C76154DDB9C00FF6F57 /* B57-Glass.png */,
 				2C5C9C77154DDB9C00FF6F57 /* B59-Glass-hd.png */,
 				2C5C9C78154DDB9C00FF6F57 /* B59-Glass.png */,
+				2CDB9D531555E5A300384B54 /* B7-Glass-hd.png */,
+				2CDB9D541555E5A300384B54 /* B7-Glass.png */,
 				2C5C9C79154DDB9C00FF6F57 /* B8-Glass-hd.png */,
 				2C5C9C7A154DDB9C00FF6F57 /* B8-Glass.png */,
 			);
@@ -3637,6 +3653,7 @@
 				2CDB98A9154F48FD00384B54 /* Glass-B35.plist */,
 				2CDB98AA154F48FD00384B54 /* Glass-B36.plist */,
 				2CDB98AB154F48FD00384B54 /* Glass-B37.plist */,
+				2CDB9D501555E53E00384B54 /* Glass-B39.plist */,
 				2CDB98AC154F48FD00384B54 /* Glass-B40-1.plist */,
 				2CDB98AD154F48FD00384B54 /* Glass-B40-2.plist */,
 				2CDB98AE154F48FD00384B54 /* Glass-B40-3.plist */,
@@ -3655,6 +3672,7 @@
 				2CDB98BB154F48FD00384B54 /* Glass-B56.plist */,
 				2CDB98BC154F48FD00384B54 /* Glass-B57.plist */,
 				2CDB98BD154F48FD00384B54 /* Glass-B59.plist */,
+				2CDB9D4F1555E53E00384B54 /* Glass-B7.plist */,
 				2CDB98BE154F48FD00384B54 /* Glass-B8.plist */,
 				2CDB98BF154F48FD00384B54 /* Glass-Piece-B.plist */,
 				2CDB98C0154F48FD00384B54 /* Glass-Piece-Small-B.plist */,
@@ -5440,6 +5458,12 @@
 				2CDB9CE515557FCA00384B54 /* Levels.plist in Resources */,
 				2CDB9CE71555DEE700384B54 /* Pollen-Green-Animations.plist in Resources */,
 				2CDB9CE91555DF3E00384B54 /* Pollen-Green.plist in Resources */,
+				2CDB9D511555E53E00384B54 /* Glass-B7.plist in Resources */,
+				2CDB9D521555E53E00384B54 /* Glass-B39.plist in Resources */,
+				2CDB9D571555E5A300384B54 /* B7-Glass-hd.png in Resources */,
+				2CDB9D581555E5A300384B54 /* B7-Glass.png in Resources */,
+				2CDB9D591555E5A300384B54 /* B39-Glass-hd.png in Resources */,
+				2CDB9D5A1555E5A300384B54 /* B39-Glass.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
