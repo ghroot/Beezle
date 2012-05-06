@@ -145,7 +145,7 @@
                         [addonRenderSprite setScale:CGPointMake(1.0f, 0.1f)];
                         
 						[[SoundManager sharedManager] stopSound:@"SlingerStretch"];
-						[[SoundManager sharedManager] playSound:@"33369__herbertboland__mouthpop.wav"];
+						[[SoundManager sharedManager] playSound:@"SlingerShoot"];
 						if ([slingerComponent loadedBeeType] == [BeeType SPEEDEE])
 						{
 							[[SoundManager sharedManager] playSound:@"SpeedeeSling"];
