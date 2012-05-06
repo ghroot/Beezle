@@ -11,11 +11,14 @@
 	NSMutableArray *_notifications;
     NSMutableDictionary *_selectorsByNotificationNames;
 	id _target;
+	BOOL _isActive;
 }
 
 -(id) initWithTarget:(id)target;
 
 -(void) registerNotification:(NSString *)name withSelector:(SEL)selector;
 -(void) processNotifications;
+-(void) activate;
+-(void) deactivate;
 
 @end

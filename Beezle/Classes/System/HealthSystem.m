@@ -39,6 +39,20 @@
 	[super dealloc];
 }
 
+-(void) activate
+{
+	[super activate];
+	
+	[_notificationProcessor activate];
+}
+
+-(void) deactivate
+{
+	[super deactivate];
+	
+	[_notificationProcessor deactivate];
+}
+
 -(void) begin
 {
 	[_notificationProcessor processNotifications];

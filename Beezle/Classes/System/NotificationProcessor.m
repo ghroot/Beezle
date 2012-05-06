@@ -53,7 +53,10 @@
 
 -(void) queueNotification:(NSNotification *)notification
 {
-	[_notifications addObject:notification];
+	if (_isActive)
+	{
+		[_notifications addObject:notification];
+	}
 }
 
 -(void) processNotifications
@@ -73,6 +76,17 @@
 	
     SEL selector = NSSelectorFromString([_selectorsByNotificationNames objectForKey:[notification name]]);
     [_target performSelector:selector withObject:notification];
+}
+
+-(void) activate
+{
+	_isActive = TRUE;
+}
+
+-(void) deactivate
+{
+	[_notifications removeAllObjects];
+	_isActive = FALSE;
 }
 
 @end
