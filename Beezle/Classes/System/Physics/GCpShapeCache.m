@@ -219,7 +219,7 @@ typedef enum
 }
 
 
--(BodyInfo *) createBodyWithName:(NSString*)name
+-(BodyInfo *) createBodyWithName:(NSString*)name scale:(float)scale
 {
     GBodyDef *bd = [bodyDefs objectForKey:name];
     NSAssert(bd != 0, @"Body not found");
@@ -256,7 +256,7 @@ typedef enum
     {
         if(fd->fixtureType == GFIXTURE_CIRCLE)
         {
-			ChipmunkShape *shape = [ChipmunkCircleShape circleWithBody:body radius:fd->radius offset:fd->center];
+			ChipmunkShape *shape = [ChipmunkCircleShape circleWithBody:body radius:(fd->radius * scale) offset:fd->center];
 
 			[shape setElasticity:fd->elasticity];
 			[shape setFriction:fd->friction];
@@ -272,7 +272,14 @@ typedef enum
             for(GPolygon *p in fd->polygons)
             {
                 // create new shape
-				ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:p->numVertices verts:p->vertices offset:CGPointZero];
+				cpVect *scaledVertices = malloc(sizeof(cpVect) * p->numVertices);
+				for (int i = 0; i < p->numVertices; i++)
+				{
+					scaledVertices[i].x = p->vertices[i].x * scale;
+					scaledVertices[i].y = p->vertices[i].y * scale;
+				}
+				ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:p->numVertices verts:scaledVertices offset:CGPointZero];
+				free(scaledVertices);
                 
                 // set values
 				[shape setElasticity:fd->elasticity];
@@ -289,6 +296,10 @@ typedef enum
     return bodyInfo;
 }
 
+-(BodyInfo *) createBodyWithName:(NSString*)name
+{
+	return [self createBodyWithName:name scale:1.0f];
+}
 
 -(BOOL) addShapesWithFile:(NSString*)plist
 {

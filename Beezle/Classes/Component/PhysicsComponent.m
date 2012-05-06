@@ -37,8 +37,14 @@
 			NSString *filePath = [dict objectForKey:@"file"];
 			NSString *bodyName = [dict objectForKey:@"bodyName"];
 			
+			float scale = 1.0f;
+			if ([dict objectForKey:@"scale"] != nil)
+			{
+				scale = [[dict objectForKey:@"scale"] floatValue];
+			}
+			
 			PhysicsSystem *physicsSystem = (PhysicsSystem *)[[world systemManager] getSystem:[PhysicsSystem class]];
-			BodyInfo *bodyInfo = [physicsSystem createBodyInfoFromFile:filePath bodyName:bodyName];
+			BodyInfo *bodyInfo = [physicsSystem createBodyInfoFromFile:filePath bodyName:bodyName scale:scale];
 			
 			[self setBody:[bodyInfo body]];
 			for (ChipmunkShape *shape in [bodyInfo shapes])

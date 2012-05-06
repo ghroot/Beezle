@@ -60,6 +60,7 @@
  * @param name name of the body
  * @result new created body info
  */
+-(BodyInfo*) createBodyWithName:(NSString*)name scale:(float)scale;
 -(BodyInfo*) createBodyWithName:(NSString*)name;
 
 /**

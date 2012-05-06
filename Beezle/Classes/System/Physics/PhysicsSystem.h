@@ -27,6 +27,7 @@
 
 @property (nonatomic, readonly) ChipmunkSpace *space;
 
+-(BodyInfo *) createBodyInfoFromFile:(NSString *)fileName bodyName:(NSString *)bodyName scale:(float)scale;
 -(BodyInfo *) createBodyInfoFromFile:(NSString *)fileName bodyName:(NSString *)bodyName;
 
 @end

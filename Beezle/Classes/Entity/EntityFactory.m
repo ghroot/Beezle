@@ -40,12 +40,6 @@
 #define EDGE_LAYERS 7
 #define AIM_POLLEN_LAYERS 2
 
-@interface EntityFactory()
-
-+(EntityDescription *) getEntityDescription:(NSString *)type;
-
-@end
-
 @implementation EntityFactory
 
 +(Entity *) createEdge:(World *)world

@@ -8,6 +8,7 @@
 
 #import "EntitySelectIngameMenuState.h"
 #import "EditState.h"
+#import "EntityFactory.h"
 #import "Game.h"
 #import "LevelOrganizer.h"
 
@@ -53,6 +54,7 @@
 	[self addMenuItemForEntityType:@"BEEATER-BIRD"];
 	[self addMenuItemForEntityType:@"BEEATER-FISH"];
     [self addMenuItemForEntityType:@"SUPER-BEEATER"];
+	[self addMenuItemForEntityType:@"CLIRR"];
 	[self addMenuItemForEntityType:@"EGG"];
 	[self addMenuItemForEntityType:@"FLOATING-BLOCK-A"];
 	[self addMenuItemForEntityType:@"GLASS"];
@@ -107,17 +109,45 @@
 	else if ([entityType isEqualToString:@"GLASS"])
 	{
 		NSString *levelSuffix = [[[editState levelName] componentsSeparatedByString:@"-"] objectAtIndex:1];
-		if ([levelSuffix isEqualToString:@"B40"])
+		NSString *glassEntityType = [NSString stringWithFormat:@"GLASS-%@", levelSuffix];
+		if ([EntityFactory getEntityDescription:glassEntityType] != nil)
 		{
-			[editState addEntityWithType:@"GLASS-B40-1"];
-			[editState addEntityWithType:@"GLASS-B40-2"];
-			[editState addEntityWithType:@"GLASS-B40-3"];
-			return;
+			[editState addEntityWithType:glassEntityType];
 		}
 		else
 		{
-			entityType = [NSString stringWithFormat:@"GLASS-%@", levelSuffix];
+			int i = 1;
+			while (TRUE)
+			{
+				NSString *glassEntityType = [NSString stringWithFormat:@"GLASS-%@-%d", levelSuffix, i++];
+				if ([EntityFactory getEntityDescription:glassEntityType] != nil)
+				{
+					[editState addEntityWithType:glassEntityType];
+				}
+				else
+				{
+					break;
+				}
+			}
 		}
+		return;
+	}
+	else if ([entityType isEqualToString:@"CLIRR"])
+	{
+		int i = 1;
+		while (TRUE)
+		{
+			NSString *clirrEntityType = [NSString stringWithFormat:@"CLIRR-C55-%d", i++];
+			if ([EntityFactory getEntityDescription:clirrEntityType] != nil)
+			{
+				[editState addEntityWithType:clirrEntityType];
+			}
+			else
+			{
+				break;
+			}
+		}
+		return;
 	}
 	
 	[editState addEntityWithType:entityType];

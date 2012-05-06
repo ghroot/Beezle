@@ -57,7 +57,7 @@ static const int GRAVITY = -90;
 	[_space setDefaultCollisionHandler:self begin:@selector(beginCollision:space:) preSolve:nil postSolve:nil separate:nil];
 }
 
--(BodyInfo *) createBodyInfoFromFile:(NSString *)fileName bodyName:(NSString *)bodyName
+-(BodyInfo *) createBodyInfoFromFile:(NSString *)fileName bodyName:(NSString *)bodyName scale:(float)scale
 {
 	if (![_loadedShapeFileNames containsObject:fileName])
     {
@@ -65,7 +65,12 @@ static const int GRAVITY = -90;
         [_loadedShapeFileNames addObject:fileName];
     }
     
-    return [[GCpShapeCache sharedShapeCache] createBodyWithName:bodyName];
+    return [[GCpShapeCache sharedShapeCache] createBodyWithName:bodyName scale:scale];
+}
+
+-(BodyInfo *) createBodyInfoFromFile:(NSString *)fileName bodyName:(NSString *)bodyName
+{
+	return [self createBodyInfoFromFile:fileName bodyName:bodyName scale:1.0f];
 }
 
 -(BOOL) beginCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space

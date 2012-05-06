@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>CLIRR-PIECE</string>
+	<key>components</key>
+	<dict>
+		<key>disposable</key>
+		<dict>
+			<key>deleteEntityWhenDisposed</key>
+			<true/>
+		</dict>
+		<key>physics</key>
+		<dict>
+			<key>body</key>
+			<dict>
+				<key>mass</key>
+				<real>1</real>
+				<key>moment</key>
+				<real>1</real>
+			</dict>
+			<key>shapes</key>
+			<array>
+				<dict>
+					<key>type</key>
+					<string>poly</string>
+					<key>vertices</key>
+					<array>
+						<string>{ -8, -3 }</string>
+						<string>{ -8, 3 }</string>
+						<string>{ 8, 3 }</string>
+						<string>{ 8, -3 }</string>
+					</array>
+					<key>elasticity</key>
+					<real>0.5</real>
+					<key>friction</key>
+					<real>0.3</real>
+					<key>layers</key>
+					<integer>2</integer>
+					<key>group</key>
+					<string>OBJECT</string>
+				</dict>
+			</array>
+		</dict>
+		<key>render</key>
+		<dict>
+			<key>sprites</key>
+			<array>
+				<dict>
+					<key>spriteSheetName</key>
+					<string>Back</string>
+					<key>animationFile</key>
+					<string>Clirr-Animations.plist</string>
+					<key>defaultIdleAnimations</key>
+					<array>
+						<string>C55-Clirr-1</string>
+						<string>C55-Clirr-2</string>
+						<string>C55-Clirr-3</string>
+						<string>C55-Clirr-4</string>
+						<string>C55-Clirr-5</string>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>transform</key>
+		<dict>
+			<key>scale</key>
+			<string>{ 0.2, 0.2 }</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

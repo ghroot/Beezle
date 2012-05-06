@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 
 @class BeeType;
+@class EntityDescription;
 
 @interface EntityFactory : NSObject
 
@@ -25,5 +26,7 @@
 +(Entity *) createMovementIndicator:(World *)world forEntity:(Entity *)entity;
 +(Entity *) createSimpleAnimatedEntity:(World *)world;
 +(Entity *) createSimpleAnimatedEntity:(World *)world animationFile:(NSString *)animationFile;
+
++(EntityDescription *) getEntityDescription:(NSString *)type;
 
 @end
