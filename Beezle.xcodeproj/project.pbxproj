@@ -5810,7 +5810,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: KM Lagerstrom (SMJ33Q3Z5B)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -5824,6 +5824,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				KEEP_PRIVATE_EXTERNS = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C700A858-181D-4582-92B5-25C9EDFE3A8A";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -5845,7 +5846,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				KEEP_PRIVATE_EXTERNS = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DDEC6CC8-17D0-4A59-9578-8E62D34A6883";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C8AA4690-85C5-4A3F-B8C7-3AF5F48682BF";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
