@@ -9,6 +9,8 @@
 #import "LevelCompletedDialog.h"
 #import "Game.h"
 #import "GameplayState.h"
+#import "LevelLayout.h"
+#import "LevelLayoutCache.h"
 #import "LevelOrganizer.h"
 #import "LevelRatings.h"
 #import "LevelSession.h"
@@ -39,7 +41,8 @@
 -(void) loadNextLevel
 {
 #ifdef DEBUG
-	if ([[LevelRatings sharedRatings] hasRated:[_levelSession levelName]])
+	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:[_levelSession levelName]];
+	if ([[LevelRatings sharedRatings] hasRatedLevel:[levelLayout levelName] withVersion:[levelLayout version]])
 	{
 		NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:[_levelSession levelName]];
 		if (nextLevelName != nil)

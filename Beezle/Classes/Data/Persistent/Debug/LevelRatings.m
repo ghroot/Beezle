@@ -7,6 +7,8 @@
 //
 
 #import "LevelRatings.h"
+#import "LevelLayout.h"
+#import "LevelLayoutCache.h"
 #import "LevelRating.h"
 
 @interface LevelRatings()
@@ -73,8 +75,9 @@
 		for (NSDictionary *ratingDict in ratings)
 		{
 			NSString *levelName = [ratingDict objectForKey:@"levelName"];
+			int levelVersion = [[ratingDict objectForKey:@"levelVersion"] intValue];
 			int numberOfStars = [[ratingDict objectForKey:@"rating"] intValue];
-			[_ratings addObject:[LevelRating ratingWithLevelName:levelName numberOfStars:numberOfStars]];
+			[_ratings addObject:[LevelRating ratingWithLevelName:levelName levelVersion:levelVersion numberOfStars:numberOfStars]];
 		}
 	}
 }
@@ -94,11 +97,15 @@
 {
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	
+	NSString *udid = [[UIDevice currentDevice] uniqueIdentifier];
+	[dict setObject:udid forKey:@"udid"];
+	
 	NSMutableArray *array = [NSMutableArray array];
 	for (LevelRating *rating in _ratings)
 	{
 		NSMutableDictionary *ratingDict = [NSMutableDictionary dictionary];
 		[ratingDict setObject:[rating levelName] forKey:@"levelName"];
+		[ratingDict setObject:[NSNumber numberWithInt:[rating levelVersion]] forKey:@"levelVersion"];
 		[ratingDict setObject:[NSNumber numberWithInt:[rating numberOfStars]] forKey:@"rating"];
 		[array addObject:ratingDict];
 	}
@@ -107,21 +114,37 @@
 	return dict;
 }
 
--(BOOL) hasRated:(NSString *)levelName
+-(LevelRating *) ratingForLevel:(NSString *)levelName
 {
 	for (LevelRating *rating in _ratings)
 	{
 		if ([[rating levelName] isEqualToString:levelName])
 		{
-			return TRUE;
+			return rating;
 		}
 	}
-	return FALSE;
+	return nil;
+}
+
+-(BOOL) hasRatedLevel:(NSString *)levelName withVersion:(int)levelVersion
+{
+	LevelRating *rating = [self ratingForLevel:levelName];
+	return [rating levelVersion] >= levelVersion;
 }
 
 -(void) rate:(NSString *)levelName numberOfStars:(int)numberOfStars
 {
-	[_ratings addObject:[LevelRating ratingWithLevelName:levelName numberOfStars:numberOfStars]];
+	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+	LevelRating *rating = [self ratingForLevel:levelName];
+	if (rating != nil)
+	{
+		[rating setLevelVersion:[levelLayout version]];
+		[rating setNumberOfStars:numberOfStars];
+	}
+	else
+	{
+		[_ratings addObject:[LevelRating ratingWithLevelName:levelName levelVersion:[levelLayout version] numberOfStars:numberOfStars]];
+	}
 }
 
 @end

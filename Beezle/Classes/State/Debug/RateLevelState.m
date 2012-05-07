@@ -59,7 +59,7 @@
 	
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	
-	CCLabelTTF *titleLabel = [CCLabelTTF labelWithString:@"Please rate this level:" fontName:@"Helvetica" fontSize:26.0f];
+	CCLabelTTF *titleLabel = [CCLabelTTF labelWithString:@"Please rate this level:" fontName:@"Marker Felt" fontSize:26.0f];
 	[titleLabel setAnchorPoint:CGPointMake(0.5f, 0.5f)];
 	[titleLabel setPosition:CGPointMake(winSize.width / 2, winSize.height - 40.0f)];
 	[self addChild:titleLabel];
@@ -76,7 +76,7 @@
 	[threeStarsMenuItem setFontSize:90.0f];
 	[_menu addChild:threeStarsMenuItem];
 	
-	CCLabelTTF *helpLabel = [CCLabelTTF labelWithString:@"1 = Not good, 2 = Ok, 3 = Great" fontName:@"Helvetica" fontSize:20.0f];
+	CCLabelTTF *helpLabel = [CCLabelTTF labelWithString:@"1 = Not good, 2 = Ok, 3 = Great" fontName:@"Marker Felt" fontSize:20.0f];
 	[helpLabel setAnchorPoint:CGPointMake(0.5f, 0.5f)];
 	[helpLabel setPosition:CGPointMake(winSize.width / 2, 40.0f)];
 	[self addChild:helpLabel];

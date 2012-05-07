@@ -77,7 +77,7 @@
     
     NSString* str = [[[NSString alloc] initWithBytes:bytes+currentByte length:numBytes encoding:NSUTF8StringEncoding] autorelease];
     
-    NSLog(@"readUTF8 numBytes: %d str: %@", numBytes,str);
+//    NSLog(@"readUTF8 numBytes: %d str: %@", numBytes,str);
     currentByte += numBytes;
     
     return str;
@@ -558,7 +558,7 @@
 - (BOOL) readStringCache
 {
     int numStrings = [self readIntWithSign:NO];
-    NSLog(@"numStrings: %d", numStrings);
+//    NSLog(@"numStrings: %d", numStrings);
     
     stringCache = [[NSMutableArray alloc] initWithCapacity:numStrings];
     

@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+@class LevelRating;
+
 @interface LevelRatings : NSObject
 {
 	NSMutableArray *_ratings;
@@ -17,7 +19,8 @@
 
 -(void) save;
 -(void) reset;
--(BOOL) hasRated:(NSString *)levelName;
+-(LevelRating *) ratingForLevel:(NSString *)levelName;
+-(BOOL) hasRatedLevel:(NSString *)levelName withVersion:(int)levelVersion;
 -(void) rate:(NSString *)levelName numberOfStars:(int)numberOfStars;
 
 @end

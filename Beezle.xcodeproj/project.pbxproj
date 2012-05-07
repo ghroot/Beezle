@@ -1011,6 +1011,7 @@
 		2CDB9D92155801F500384B54 /* RateLevelState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB9D91155801F400384B54 /* RateLevelState.m */; };
 		2CDB9D961558067500384B54 /* LevelRatings.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB9D951558067500384B54 /* LevelRatings.m */; };
 		2CDB9D99155807D700384B54 /* LevelRating.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB9D98155807D600384B54 /* LevelRating.m */; };
+		2CDB9D9C1558107B00384B54 /* ConfirmationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB9D9B1558107900384B54 /* ConfirmationState.m */; };
 		2CE1A3331507C10000F17282 /* GameMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3321507C10000F17282 /* GameMode.m */; };
 		2CE1A3371507C11F00F17282 /* AimingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3361507C11F00F17282 /* AimingMode.m */; };
 		2CE1A33A1507C5AB00F17282 /* ShootingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3391507C5AB00F17282 /* ShootingMode.m */; };
@@ -2384,6 +2385,8 @@
 		2CDB9D951558067500384B54 /* LevelRatings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelRatings.m; sourceTree = "<group>"; };
 		2CDB9D97155807D500384B54 /* LevelRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelRating.h; sourceTree = "<group>"; };
 		2CDB9D98155807D600384B54 /* LevelRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelRating.m; sourceTree = "<group>"; };
+		2CDB9D9A1558107700384B54 /* ConfirmationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmationState.h; sourceTree = "<group>"; };
+		2CDB9D9B1558107900384B54 /* ConfirmationState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmationState.m; sourceTree = "<group>"; };
 		2CE1A3311507C10000F17282 /* GameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMode.h; sourceTree = "<group>"; };
 		2CE1A3321507C10000F17282 /* GameMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameMode.m; sourceTree = "<group>"; };
 		2CE1A3351507C11F00F17282 /* AimingMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AimingMode.h; sourceTree = "<group>"; };
@@ -3534,6 +3537,8 @@
 		2CB5BE3F1552B6FF00F815AB /* Debug */ = {
 			isa = PBXGroup;
 			children = (
+				2CDB9D9A1558107700384B54 /* ConfirmationState.h */,
+				2CDB9D9B1558107900384B54 /* ConfirmationState.m */,
 				2CB5BE411552B72100F815AB /* DebugMenuState.h */,
 				2CB5BE421552B72100F815AB /* DebugMenuState.m */,
 				2CDB9D90155801F400384B54 /* RateLevelState.h */,
@@ -5869,6 +5874,7 @@
 				2CDB9D92155801F500384B54 /* RateLevelState.m in Sources */,
 				2CDB9D961558067500384B54 /* LevelRatings.m in Sources */,
 				2CDB9D99155807D700384B54 /* LevelRating.m in Sources */,
+				2CDB9D9C1558107B00384B54 /* ConfirmationState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
