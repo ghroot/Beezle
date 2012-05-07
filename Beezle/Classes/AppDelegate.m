@@ -58,10 +58,8 @@
 	// Show
 	[_window makeKeyAndVisible];
 	
-#ifdef DEBUG
 	// Tracking
 	[[SessionTracker sharedTracker] start];
-#endif
 	
 	// Setup sound
 	[[SoundManager sharedManager] setup];
