@@ -325,6 +325,7 @@
 		2C6A708C1542C5D90042F5A1 /* HealthComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A708B1542C5D80042F5A1 /* HealthComponent.m */; };
 		2C7B1C511558645D00AF0026 /* PauseArrow-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C501558645D00AF0026 /* PauseArrow-01-hd.png */; };
 		2C7B1C54155864CB00AF0026 /* NextLevelButton-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C53155864CB00AF0026 /* NextLevelButton-hd.png */; };
+		2C7B1C561558682800AF0026 /* Level-C55-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C551558682800AF0026 /* Level-C55-Layout.plist */; };
 		2C7C3B26150275B800640416 /* PauseArrow-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B25150275B800640416 /* PauseArrow-01.png */; };
 		2C7C3B29150276C300640416 /* Level Completed Bubble-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */; };
 		2C7C3B2A150276C300640416 /* Level Failed Bubble-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */; };
@@ -1590,6 +1591,7 @@
 		2C6A708B1542C5D80042F5A1 /* HealthComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HealthComponent.m; path = Classes/Component/HealthComponent.m; sourceTree = "<group>"; };
 		2C7B1C501558645D00AF0026 /* PauseArrow-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01-hd.png"; sourceTree = "<group>"; };
 		2C7B1C53155864CB00AF0026 /* NextLevelButton-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NextLevelButton-hd.png"; sourceTree = "<group>"; };
+		2C7B1C551558682800AF0026 /* Level-C55-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-C55-Layout.plist"; sourceTree = "<group>"; };
 		2C7C3B25150275B800640416 /* PauseArrow-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01.png"; sourceTree = "<group>"; };
 		2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level Completed Bubble-01.png"; sourceTree = "<group>"; };
 		2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level Failed Bubble-01.png"; sourceTree = "<group>"; };
@@ -4259,6 +4261,7 @@
 				2CDB9AF915557FCA00384B54 /* Level-C55-back.jpg */,
 				2CDB9AFA15557FCA00384B54 /* Level-C55-front-hd.png */,
 				2CDB9AFB15557FCA00384B54 /* Level-C55-front.png */,
+				2C7B1C551558682800AF0026 /* Level-C55-Layout.plist */,
 				2CDB9AFD15557FCA00384B54 /* Level-C55-Shapes.plist */,
 			);
 			path = C;
@@ -5609,6 +5612,7 @@
 				2CDB9D8B155733B700384B54 /* C-Level-Music.m4a in Resources */,
 				2C7B1C511558645D00AF0026 /* PauseArrow-01-hd.png in Resources */,
 				2C7B1C54155864CB00AF0026 /* NextLevelButton-hd.png in Resources */,
+				2C7B1C561558682800AF0026 /* Level-C55-Layout.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
