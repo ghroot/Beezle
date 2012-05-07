@@ -1008,6 +1008,9 @@
 		2CDB9D8915572FAF00384B54 /* Clirr-Piece.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D8815572FA800384B54 /* Clirr-Piece.plist */; };
 		2CDB9D8B155733B700384B54 /* C-Level-Music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D8A155733B700384B54 /* C-Level-Music.m4a */; };
 		2CDB9D8F1557FBDF00384B54 /* SessionTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB9D8E1557FBDF00384B54 /* SessionTracker.m */; };
+		2CDB9D92155801F500384B54 /* RateLevelState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB9D91155801F400384B54 /* RateLevelState.m */; };
+		2CDB9D961558067500384B54 /* LevelRatings.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB9D951558067500384B54 /* LevelRatings.m */; };
+		2CDB9D99155807D700384B54 /* LevelRating.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB9D98155807D600384B54 /* LevelRating.m */; };
 		2CE1A3331507C10000F17282 /* GameMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3321507C10000F17282 /* GameMode.m */; };
 		2CE1A3371507C11F00F17282 /* AimingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3361507C11F00F17282 /* AimingMode.m */; };
 		2CE1A33A1507C5AB00F17282 /* ShootingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3391507C5AB00F17282 /* ShootingMode.m */; };
@@ -2375,6 +2378,12 @@
 		2CDB9D8A155733B700384B54 /* C-Level-Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "C-Level-Music.m4a"; sourceTree = "<group>"; };
 		2CDB9D8D1557FBDF00384B54 /* SessionTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTracker.h; sourceTree = "<group>"; };
 		2CDB9D8E1557FBDF00384B54 /* SessionTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTracker.m; sourceTree = "<group>"; };
+		2CDB9D90155801F400384B54 /* RateLevelState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RateLevelState.h; sourceTree = "<group>"; };
+		2CDB9D91155801F400384B54 /* RateLevelState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RateLevelState.m; sourceTree = "<group>"; };
+		2CDB9D941558067500384B54 /* LevelRatings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelRatings.h; sourceTree = "<group>"; };
+		2CDB9D951558067500384B54 /* LevelRatings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelRatings.m; sourceTree = "<group>"; };
+		2CDB9D97155807D500384B54 /* LevelRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelRating.h; sourceTree = "<group>"; };
+		2CDB9D98155807D600384B54 /* LevelRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelRating.m; sourceTree = "<group>"; };
 		2CE1A3311507C10000F17282 /* GameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMode.h; sourceTree = "<group>"; };
 		2CE1A3321507C10000F17282 /* GameMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameMode.m; sourceTree = "<group>"; };
 		2CE1A3351507C11F00F17282 /* AimingMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AimingMode.h; sourceTree = "<group>"; };
@@ -3463,6 +3472,7 @@
 		2C88E2C114F5A36400496938 /* Persistent */ = {
 			isa = PBXGroup;
 			children = (
+				2CDB9D931558065A00384B54 /* Debug */,
 				2C88E2C214F5A36400496938 /* PlayerInformation.h */,
 				2C88E2C314F5A36400496938 /* PlayerInformation.m */,
 			);
@@ -3526,6 +3536,8 @@
 			children = (
 				2CB5BE411552B72100F815AB /* DebugMenuState.h */,
 				2CB5BE421552B72100F815AB /* DebugMenuState.m */,
+				2CDB9D90155801F400384B54 /* RateLevelState.h */,
+				2CDB9D91155801F400384B54 /* RateLevelState.m */,
 				2CB5BE441552BA1800F815AB /* TestAnimationsState.h */,
 				2CB5BE451552BA1800F815AB /* TestAnimationsState.m */,
 			);
@@ -4281,6 +4293,17 @@
 			children = (
 				2CDB9D8D1557FBDF00384B54 /* SessionTracker.h */,
 				2CDB9D8E1557FBDF00384B54 /* SessionTracker.m */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		2CDB9D931558065A00384B54 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				2CDB9D97155807D500384B54 /* LevelRating.h */,
+				2CDB9D98155807D600384B54 /* LevelRating.m */,
+				2CDB9D941558067500384B54 /* LevelRatings.h */,
+				2CDB9D951558067500384B54 /* LevelRatings.m */,
 			);
 			path = Debug;
 			sourceTree = "<group>";
@@ -5843,6 +5866,9 @@
 				2CDB9D4B1555DFD200384B54 /* BoostComponent.m in Sources */,
 				2CDB9D4E1555E04F00384B54 /* SolidWithBoostCollisionHandler.m in Sources */,
 				2CDB9D8F1557FBDF00384B54 /* SessionTracker.m in Sources */,
+				2CDB9D92155801F500384B54 /* RateLevelState.m in Sources */,
+				2CDB9D961558067500384B54 /* LevelRatings.m in Sources */,
+				2CDB9D99155807D700384B54 /* LevelRating.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

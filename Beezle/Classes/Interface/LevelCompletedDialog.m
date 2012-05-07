@@ -10,9 +10,11 @@
 #import "Game.h"
 #import "GameplayState.h"
 #import "LevelOrganizer.h"
+#import "LevelRatings.h"
 #import "LevelSession.h"
 #import "MainMenuState.h"
 #import "PlayerInformation.h"
+#import "RateLevelState.h"
 
 @interface LevelCompletedDialog()
 
@@ -36,6 +38,24 @@
 
 -(void) loadNextLevel
 {
+#ifdef DEBUG
+	if ([[LevelRatings sharedRatings] hasRated:[_levelSession levelName]])
+	{
+		NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:[_levelSession levelName]];
+		if (nextLevelName != nil)
+		{
+			[_game replaceState:[GameplayState stateWithLevelName:nextLevelName]];
+		}
+		else
+		{
+			[_game replaceState:[MainMenuState state]];
+		}
+	}
+	else
+	{
+		[_game replaceState:[RateLevelState stateWithLevelName:[_levelSession levelName]]];
+	}
+#else
     NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:[_levelSession levelName]];
     if (nextLevelName != nil)
     {
@@ -45,6 +65,7 @@
     {
 		[_game replaceState:[MainMenuState state]];
     }
+#endif
 }
 
 @end
