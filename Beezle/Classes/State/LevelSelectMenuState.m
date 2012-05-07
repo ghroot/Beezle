@@ -18,6 +18,7 @@
 
 @interface LevelSelectMenuState()
 
+-(void) createMenu;
 -(void) createLevelMenuItems;
 -(void) startGame:(id)sender;
 -(void) goBack:(id)sender;
@@ -50,6 +51,25 @@
 {
 	[super initialise];
 	
+	[self createMenu];
+	
+	NSString *pollenString = [NSString stringWithFormat:@"Pollen: %d", [[PlayerInformation sharedInformation] totalNumberOfPollen]];
+	CCLabelTTF *pollenLabel = [CCLabelTTF labelWithString:pollenString fontName:@"Marker Felt" fontSize:14.0f];
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	[pollenLabel setPosition:CGPointMake(winSize.width, 0.0f)];
+	[pollenLabel setAnchorPoint:CGPointMake(1.0f, 0.0f)];
+	[self addChild:pollenLabel];
+}
+
+-(void) dealloc
+{
+	[_theme release];
+	
+	[super dealloc];
+}
+
+-(void) createMenu
+{
 	_menu = [CCMenu menuWithItems:nil];
 	
     [self createLevelMenuItems];
@@ -63,26 +83,19 @@
 	int n1 = (int)(nLevels / nRows) + 1;
 	int n2 = nLevels - (nRows - 1) * n1;
 	[_menu alignItemsInColumns:
-		[NSNumber numberWithInt:n1],
-		[NSNumber numberWithInt:n1],
-		[NSNumber numberWithInt:n1],
-		[NSNumber numberWithInt:n1],
-		[NSNumber numberWithInt:n1],
-		[NSNumber numberWithInt:n1],
-		[NSNumber numberWithInt:n1],
-		[NSNumber numberWithInt:n1],
-		[NSNumber numberWithInt:n2],
-		[NSNumber numberWithInt:1],
-		nil];
+	 [NSNumber numberWithInt:n1],
+	 [NSNumber numberWithInt:n1],
+	 [NSNumber numberWithInt:n1],
+	 [NSNumber numberWithInt:n1],
+	 [NSNumber numberWithInt:n1],
+	 [NSNumber numberWithInt:n1],
+	 [NSNumber numberWithInt:n1],
+	 [NSNumber numberWithInt:n1],
+	 [NSNumber numberWithInt:n2],
+	 [NSNumber numberWithInt:1],
+	 nil];
 	
 	[self addChild:_menu];
-}
-
--(void) dealloc
-{
-	[_theme release];
-	
-	[super dealloc];
 }
 
 -(void) createLevelMenuItems

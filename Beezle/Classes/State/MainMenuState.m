@@ -41,7 +41,7 @@
 	NSString* appName = [infoDict objectForKey:@"CFBundleDisplayName"];
 	NSString* version = [infoDict objectForKey:@"CFBundleShortVersionString"];
 	NSString *labelString = [NSString stringWithFormat:@"%@ %@", appName, version];
-	CCLabelTTF *versionLabel = [CCLabelTTF labelWithString:labelString fontName:@"Helvetica" fontSize:14.0f];
+	CCLabelTTF *versionLabel = [CCLabelTTF labelWithString:labelString fontName:@"Marker Felt" fontSize:14.0f];
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	[versionLabel setPosition:CGPointMake(winSize.width, 0.0f)];
 	[versionLabel setAnchorPoint:CGPointMake(1.0f, 0.0f)];
