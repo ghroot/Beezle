@@ -95,8 +95,8 @@
 	[systemManager setSystem:_editOptionsSystem];
 	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithZ:2] autorelease];
 	[systemManager setSystem:_beeQueueRenderingSystem];
-	_beeaterAnimationSystem = [[[BeeaterSystem alloc] init] autorelease];
-	[systemManager setSystem:_beeaterAnimationSystem];
+	_beeaterSystem = [[[BeeaterSystem alloc] init] autorelease];
+	[systemManager setSystem:_beeaterSystem];
 	_debugRenderPhysicsSystem = [[[DebugRenderPhysicsSystem alloc] initWithScene:self] autorelease];
 	[systemManager setSystem:_debugRenderPhysicsSystem];
 	[_debugRenderPhysicsSystem deactivate];

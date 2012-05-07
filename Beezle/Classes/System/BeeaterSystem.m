@@ -23,7 +23,6 @@
 
 @interface BeeaterSystem()
 
--(void) handleBeeaterBeeChanged:(NSNotification *)notification;
 -(void) handleEntityDisposed:(NSNotification *)notification;
 -(void) animateBeeaterAndSaveContainedBee:(Entity *)beeaterEntity;
 
@@ -33,10 +32,9 @@
 
 -(id) init
 {
-	if (self = [super init])
+	if (self = [super initWithUsedComponentClass:[BeeaterComponent class]])
 	{
 		_notificationProcessor = [[NotificationProcessor alloc] initWithTarget:self];
-		[_notificationProcessor registerNotification:GAME_NOTIFICATION_BEEATER_CONTAINED_BEE_CHANGED withSelector:@selector(handleBeeaterBeeChanged:)];
 		[_notificationProcessor registerNotification:GAME_NOTIFICATION_ENTITY_DISPOSED withSelector:@selector(handleEntityDisposed:)];
 	}
 	return self;
@@ -63,15 +61,19 @@
 	[_notificationProcessor deactivate];
 }
 
+-(void) entityAdded:(Entity *)entity
+{
+	[self animateBeeater:entity];
+}
+
 -(void) begin
 {
 	[_notificationProcessor processNotifications];
 }
 
--(void) handleBeeaterBeeChanged:(NSNotification *)notification
+-(void) animateBeeater:(Entity *)beeaterEntity
 {
-	BeeaterComponent *beeaterComponent = [notification object];
-	Entity *beeaterEntity = [beeaterComponent parentEntity];
+	BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:beeaterEntity];
 	RenderComponent *renderComponent = [RenderComponent getFrom:beeaterEntity];
 	RenderSprite *headRenderSprite = [renderComponent renderSpriteWithName:@"head"];
 	NSString *headAnimationName = [NSString stringWithFormat:[beeaterComponent showBeeAnimationNameFormat], [[beeaterComponent containedBeeType] capitalizedString]];

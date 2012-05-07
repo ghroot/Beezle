@@ -10,9 +10,11 @@
 
 @class NotificationProcessor;
 
-@interface BeeaterSystem : EntitySystem
+@interface BeeaterSystem : EntityComponentSystem
 {
 	NotificationProcessor *_notificationProcessor;
 }
+
+-(void) animateBeeater:(Entity *)beeaterEntity;
 
 @end

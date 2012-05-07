@@ -9,6 +9,7 @@
 #import "artemis.h"
 #import "cocos2d.h"
 
+@class BeeaterSystem;
 @class BeeQueueRenderingSystem;
 @class EditControlSystem;
 @class EditState;
@@ -17,6 +18,7 @@
 {
 	EditControlSystem *_editControlSystem;
 	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
+	BeeaterSystem *_beeaterSystem;
 	
 	EditState *_editState;
 	CCLayer *_layer;

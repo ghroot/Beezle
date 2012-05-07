@@ -25,6 +25,7 @@
 		_target = target;
 		_notifications = [NSMutableArray new];
         _selectorsByNotificationNames = [NSMutableDictionary new];
+		_isActive = TRUE;
 	}
 	return self;
 }

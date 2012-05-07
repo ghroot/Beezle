@@ -8,6 +8,7 @@
 
 #import "EditOptionsSystem.h"
 #import "BeeaterComponent.h"
+#import "BeeaterSystem.h"
 #import "BeeQueueRenderingSystem.h"
 #import "BeeType.h"
 #import "EditComponent.h"
@@ -141,6 +142,7 @@
 {
 	_editControlSystem = (EditControlSystem *)[[_world systemManager] getSystem:[EditControlSystem class]];
 	_beeQueueRenderingSystem = (BeeQueueRenderingSystem *)[[_world systemManager] getSystem:[BeeQueueRenderingSystem class]];
+	_beeaterSystem = (BeeaterSystem *)[[_world systemManager] getSystem:[BeeaterSystem class]];
 }
 
 -(void) begin
@@ -306,6 +308,7 @@
 	NSString *beeTypeAsString = [menuItem userData];
 	BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:_entityWithOptionsDisplayed];
 	[beeaterComponent setContainedBeeType:[BeeType enumFromName:beeTypeAsString]];
+	[_beeaterSystem animateBeeater:_entityWithOptionsDisplayed];
 }
 
 -(void) doOptionAddSlingerBeeType:(id)sender

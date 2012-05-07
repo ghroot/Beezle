@@ -54,13 +54,6 @@
     [super dealloc];
 }
 
--(void) setContainedBeeType:(BeeType *)containedBeeType
-{
-	_containedBeeType = containedBeeType;
-	
-	[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEEATER_CONTAINED_BEE_CHANGED object:self];
-}
-
 -(NSDictionary *) getAsDictionary
 {
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];

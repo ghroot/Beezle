@@ -33,7 +33,7 @@
 	EditControlSystem *_editControlSystem;
 	EditOptionsSystem *_editOptionsSystem;
 	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
-	BeeaterSystem *_beeaterAnimationSystem;
+	BeeaterSystem *_beeaterSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
 }
 
