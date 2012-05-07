@@ -7,9 +7,7 @@
 //
 
 #import "DebugMenuState.h"
-#import "AppDelegate.h"
 #import "ConfirmationState.h"
-#import "EmailInfo.h"
 #import "Game.h"
 #import "LevelLayoutCache.h"
 #import "LevelOrganizer.h"
@@ -22,7 +20,7 @@
 
 -(void) createMenu;
 -(void) sendEditedLevels:(id)sender;
--(void) sendLevelsRatings:(id)sender;
+-(void) sendLevelRatings:(id)sender;
 -(void) startTestAnimations:(id)sender;
 -(void) toggleStats:(id)sender;
 -(void) resetPlayerInformation:(id)sender;
@@ -47,7 +45,7 @@
 	
 	CCMenuItemFont *sendEditedLevelsMenuItem = [CCMenuItemFont itemWithString:@"Send Edited Levels" target:self selector:@selector(sendEditedLevels:)];
 	[_menu addChild:sendEditedLevelsMenuItem];
-	CCMenuItemFont *sendLevelRatingsMenuItem = [CCMenuItemFont itemWithString:@"Send Level Ratings" target:self selector:@selector(sendLevelsRatings:)];
+	CCMenuItemFont *sendLevelRatingsMenuItem = [CCMenuItemFont itemWithString:@"Send Level Ratings" target:self selector:@selector(sendLevelRatings:)];
 	[_menu addChild:sendLevelRatingsMenuItem];
 	CCMenuItemFont *testAnimationsMenuItem = [CCMenuItemFont itemWithString:@"Test animations" target:self selector:@selector(startTestAnimations:)];
 	[_menu addChild:testAnimationsMenuItem];
@@ -77,30 +75,9 @@
     [[LevelSender sharedSender] sendEditedLevels];
 }
 
--(void) sendLevelsRatings:(id)sender
+-(void) sendLevelRatings:(id)sender
 {
-	EmailInfo *emailInfo = [[EmailInfo alloc] init];
-	[emailInfo setSubject:@"Beezle Level Ratings"];
-	[emailInfo setTo:@"marcus.lagerstrom@gmail.com"];
-	
-	// Message
-	[emailInfo setMessage:@"Here are my level ratings! :)"];
-	
-	// Attachments
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
-	NSString *documentsDirectory = [paths objectAtIndex:0];
-	NSString *fileName = @"Level-Ratings.plist";
-	NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
-	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
-	if (dict != nil)
-	{
-		NSString *errorString = nil;
-		NSData *data = [NSPropertyListSerialization dataFromPropertyList:dict format:NSPropertyListXMLFormat_v1_0 errorDescription:&errorString];
-		[emailInfo addAttachment:@"Level-Ratings.plist" data:data];
-	}
-	
-	[(AppDelegate *)[[UIApplication sharedApplication] delegate] sendEmail:emailInfo];
-	[emailInfo release];
+	[[LevelRatings sharedRatings] send];
 }
 
 -(void) startTestAnimations:(id)sender

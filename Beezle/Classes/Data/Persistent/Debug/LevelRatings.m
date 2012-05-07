@@ -7,6 +7,8 @@
 //
 
 #import "LevelRatings.h"
+#import "AppDelegate.h"
+#import "EmailInfo.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "LevelRating.h"
@@ -145,6 +147,32 @@
 	{
 		[_ratings addObject:[LevelRating ratingWithLevelName:levelName levelVersion:[levelLayout version] numberOfStars:numberOfStars]];
 	}
+}
+
+-(void) send
+{
+	EmailInfo *emailInfo = [[EmailInfo alloc] init];
+	[emailInfo setSubject:@"Beezle Level Ratings"];
+	[emailInfo setTo:@"marcus.lagerstrom@gmail.com"];
+	
+	// Message
+	[emailInfo setMessage:@"Here are my level ratings! :)"];
+	
+	// Attachments
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	NSString *fileName = @"Level-Ratings.plist";
+	NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
+	if (dict != nil)
+	{
+		NSString *errorString = nil;
+		NSData *data = [NSPropertyListSerialization dataFromPropertyList:dict format:NSPropertyListXMLFormat_v1_0 errorDescription:&errorString];
+		[emailInfo addAttachment:@"Level-Ratings.plist" data:data];
+	}
+	
+	[(AppDelegate *)[[UIApplication sharedApplication] delegate] sendEmail:emailInfo];
+	[emailInfo release];
 }
 
 @end

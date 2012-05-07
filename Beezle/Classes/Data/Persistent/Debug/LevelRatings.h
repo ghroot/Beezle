@@ -22,5 +22,6 @@
 -(LevelRating *) ratingForLevel:(NSString *)levelName;
 -(BOOL) hasRatedLevel:(NSString *)levelName withVersion:(int)levelVersion;
 -(void) rate:(NSString *)levelName numberOfStars:(int)numberOfStars;
+-(void) send;
 
 @end
