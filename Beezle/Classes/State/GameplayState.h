@@ -96,10 +96,8 @@
 @property (nonatomic, readonly) WoodSystem *woodSystem;
 @property (nonatomic, readonly) WaterWaveSystem *waterWaveSystem;
 
-+(id) stateWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession;
 +(id) stateWithLevelName:(NSString *)levelName;
 
--(id) initWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession;
 -(id) initWithLevelName:(NSString *)levelName;
 -(void) pauseGame:(id)sender;
 

@@ -84,33 +84,22 @@
 @synthesize waterWaveSystem = _waterWaveSystem;
 @synthesize woodSystem = _woodSystem;
 
-+(id) stateWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession
-{
-	return [[[self alloc] initWithLevelName:levelName andLevelSession:levelSession] autorelease];
-}
-
 +(id) stateWithLevelName:(NSString *)levelName
 {
 	return [[[self alloc] initWithLevelName:levelName] autorelease];
 }
 
 // Designated initialiser
--(id) initWithLevelName:(NSString *)levelName andLevelSession:(LevelSession *)levelSession
+-(id) initWithLevelName:(NSString *)levelName
 {
 	if (self = [super init])
     {
 		_levelName = [levelName retain];
-		_levelSession = [levelSession retain];
+		_levelSession = [[LevelSession alloc] initWithLevelName:levelName];
 		
 		_needsLoadingState = TRUE;
     }
     return self;
-}
-
--(id) initWithLevelName:(NSString *)levelName
-{
-	self = [self initWithLevelName:levelName andLevelSession:[[[LevelSession alloc] initWithLevelName:levelName] autorelease]];
-	return self;
 }
 
 -(id) init
