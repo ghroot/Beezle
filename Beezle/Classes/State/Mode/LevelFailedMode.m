@@ -11,6 +11,7 @@
 #import "GameplayState.h"
 #import "LevelFailedDialog.h"
 #import "LevelSession.h"
+#import "SessionTracker.h"
 
 @interface LevelFailedMode()
 
@@ -43,6 +44,13 @@
 	[_levelFailedDialog release];
 	
 	[super dealloc];
+}
+
+-(void) enter
+{
+	[super enter];
+	
+	[[SessionTracker sharedTracker] trackFailedLevel:[_levelSession levelName]];
 }
 
 -(void) update

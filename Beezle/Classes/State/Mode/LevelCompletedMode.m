@@ -15,6 +15,7 @@
 #import "LevelSession.h"
 #import "MainMenuState.h"
 #import "PlayerInformation.h"
+#import "SessionTracker.h"
 #import "SlingerComponent.h"
 
 @interface LevelCompletedMode()
@@ -49,6 +50,13 @@
 	[_levelCompletedDialog release];
 	
 	[super dealloc];
+}
+
+-(void) enter
+{
+	[super enter];
+	
+	[[SessionTracker sharedTracker] trackCompletedLevel:[_levelSession levelName]];
 }
 
 -(void) update

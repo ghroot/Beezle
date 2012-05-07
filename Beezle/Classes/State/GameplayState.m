@@ -37,6 +37,7 @@
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "RenderSystem.h"
+#import "SessionTracker.h"
 #import "ShakeSystem.h"
 #import "ShootingMode.h"
 #import "SlingerComponent.h"
@@ -131,6 +132,8 @@
 	[self createWorldAndSystems];
 	[self createModes];
 	[self loadLevel];
+	
+	[[SessionTracker sharedTracker] trackStartedLevel:_levelName];
 }
 
 -(void) createUI

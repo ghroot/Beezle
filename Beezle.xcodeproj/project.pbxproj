@@ -1007,6 +1007,7 @@
 		2CDB9D8615572B8500384B54 /* Clirr-C55-18.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D7615572B8500384B54 /* Clirr-C55-18.plist */; };
 		2CDB9D8915572FAF00384B54 /* Clirr-Piece.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D8815572FA800384B54 /* Clirr-Piece.plist */; };
 		2CDB9D8B155733B700384B54 /* C-Level-Music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D8A155733B700384B54 /* C-Level-Music.m4a */; };
+		2CDB9D8F1557FBDF00384B54 /* SessionTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB9D8E1557FBDF00384B54 /* SessionTracker.m */; };
 		2CE1A3331507C10000F17282 /* GameMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3321507C10000F17282 /* GameMode.m */; };
 		2CE1A3371507C11F00F17282 /* AimingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3361507C11F00F17282 /* AimingMode.m */; };
 		2CE1A33A1507C5AB00F17282 /* ShootingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1A3391507C5AB00F17282 /* ShootingMode.m */; };
@@ -2372,6 +2373,8 @@
 		2CDB9D7615572B8500384B54 /* Clirr-C55-18.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-18.plist"; sourceTree = "<group>"; };
 		2CDB9D8815572FA800384B54 /* Clirr-Piece.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-Piece.plist"; sourceTree = "<group>"; };
 		2CDB9D8A155733B700384B54 /* C-Level-Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "C-Level-Music.m4a"; sourceTree = "<group>"; };
+		2CDB9D8D1557FBDF00384B54 /* SessionTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTracker.h; sourceTree = "<group>"; };
+		2CDB9D8E1557FBDF00384B54 /* SessionTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTracker.m; sourceTree = "<group>"; };
 		2CE1A3311507C10000F17282 /* GameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMode.h; sourceTree = "<group>"; };
 		2CE1A3321507C10000F17282 /* GameMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameMode.m; sourceTree = "<group>"; };
 		2CE1A3351507C11F00F17282 /* AimingMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AimingMode.h; sourceTree = "<group>"; };
@@ -4273,6 +4276,15 @@
 			path = C;
 			sourceTree = "<group>";
 		};
+		2CDB9D8C1557FBBD00384B54 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				2CDB9D8D1557FBDF00384B54 /* SessionTracker.h */,
+				2CDB9D8E1557FBDF00384B54 /* SessionTracker.m */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
 		2CE1A3301507C10000F17282 /* Mode */ = {
 			isa = PBXGroup;
 			children = (
@@ -4651,6 +4663,7 @@
 		2CFFFBF9154349A0001D9307 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				2CDB9D8C1557FBBD00384B54 /* Debug */,
 				2CFFFBFA154349A1001D9307 /* EmailInfo.h */,
 				2CFFFBFB154349A1001D9307 /* EmailInfo.m */,
 				2CFFFBFC154349A1001D9307 /* SoundManager.h */,
@@ -5829,6 +5842,7 @@
 				2CB5BE8D15540D9200F815AB /* ZOrder.m in Sources */,
 				2CDB9D4B1555DFD200384B54 /* BoostComponent.m in Sources */,
 				2CDB9D4E1555E04F00384B54 /* SolidWithBoostCollisionHandler.m in Sources */,
+				2CDB9D8F1557FBDF00384B54 /* SessionTracker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

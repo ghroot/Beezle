@@ -8,19 +8,13 @@
 
 #import "AppDelegate.h"
 #import "EmailInfo.h"
-//#import "FlurryAnalytics.h"
 #import "Game.h"
 #import "LevelLayoutCache.h"
 #import "MainMenuState.h"
+#import "SessionTracker.h"
 #import "SoundManager.h"
-#import "TestFlight.h"
 
 @implementation AppDelegate
-
-//void uncaughtExceptionHandler(NSException *exception)
-//{
-//    [FlurryAnalytics logError:@"Uncaught" message:@"Crash!" exception:exception];
-//}
 
 -(void) applicationDidFinishLaunching:(UIApplication *)application
 {
@@ -66,13 +60,11 @@
 	
 	// Show
 	[_window makeKeyAndVisible];
-    
-    // Tracking (Flurry)
-//    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
-//    [FlurryAnalytics startSession:@"2GF435EGU2HN2KIKLCGG"];
 	
-	// Tracking (TestFlight)
-	[TestFlight takeOff:@"ae396bc6dbee18a35a1087713acb890b_ODQ5NTEyMDEyLTA0LTI2IDE5OjE0OjM3LjYyMDc3NQ"];
+#ifdef DEBUG
+	// Tracking
+	[[SessionTracker sharedTracker] start];
+#endif
 	
 	// Setup sound
 	[[SoundManager sharedManager] setup];
