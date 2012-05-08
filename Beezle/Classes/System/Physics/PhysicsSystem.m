@@ -15,7 +15,7 @@
 #import "PhysicsComponent.h"
 #import "TransformComponent.h"
 
-static const float QUARTER_TIMESTEP = FIXED_TIMESTEP / 4.0f;
+static const float HALF_TIMESTEP = FIXED_TIMESTEP / 2.0f;
 static const int GRAVITY = -90;
 
 @interface PhysicsSystem()
@@ -164,10 +164,13 @@ static const int GRAVITY = -90;
 {
     if ([_world delta] > 0)
 	{
-		[_space step:QUARTER_TIMESTEP];
-		[_space step:QUARTER_TIMESTEP];
-		[_space step:QUARTER_TIMESTEP];
-		[_space step:QUARTER_TIMESTEP];
+//		[_space step:QUARTER_TIMESTEP];
+//		[_space step:QUARTER_TIMESTEP];
+//		[_space step:QUARTER_TIMESTEP];
+//		[_space step:QUARTER_TIMESTEP];
+		
+		[_space step:HALF_TIMESTEP];
+		[_space step:HALF_TIMESTEP];
 		
 //		[_space step:FIXED_TIMESTEP];
 	}
