@@ -12,13 +12,12 @@
 					<key>queuedBeeTypes</key>
 					<array>
 						<string>BEE</string>
-						<string>BOMBEE</string>
 					</array>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 152.00, 288.00 }</string>
+					<string>{ 87.00, 267.00 }</string>
 					<key>rotation</key>
 					<real>330</real>
 					<key>scale</key>
@@ -31,17 +30,22 @@
 		<dict>
 			<key>components</key>
 			<dict>
+				<key>beeater</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>BOMBEE</string>
+				</dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 241.50, 213.00 }</string>
+					<string>{ 339.00, 201.00 }</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 241.50, 213.00 }</string>
+					<string>{ 339.00, 201.00 }</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -49,7 +53,7 @@
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>RAMP</string>
+			<string>BEEATER-LAND-A</string>
 		</dict>
 		<dict>
 			<key>components</key>
@@ -57,19 +61,19 @@
 				<key>beeater</key>
 				<dict>
 					<key>containedBeeType</key>
-					<string>SPEEDEE</string>
+					<string>BOMBEE</string>
 				</dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 375.00, 220.50 }</string>
+					<string>{ 347.00, 20.00 }</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 375.00, 220.50 }</string>
+					<string>{ 347.00, 20.00 }</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -87,24 +91,17 @@
 					<key>containedBeeType</key>
 					<string>BEE</string>
 				</dict>
-				<key>movement</key>
-				<dict>
-					<key>positions</key>
-					<array>
-						<string>{ 158.50, 21.50 }</string>
-					</array>
-				</dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 390.00, 24.50 }</string>
+					<string>{ 389.00, 107.00 }</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 390.00, 24.50 }</string>
+					<string>{ 389.00, 107.00 }</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -112,7 +109,7 @@
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>BEEATER-FISH-A</string>
+			<string>BEEATER-HANGING-A</string>
 		</dict>
 		<dict>
 			<key>components</key>
@@ -122,24 +119,17 @@
 					<key>containedBeeType</key>
 					<string>BEE</string>
 				</dict>
-				<key>movement</key>
-				<dict>
-					<key>positions</key>
-					<array>
-						<string>{ 101.50, 79.50 }</string>
-					</array>
-				</dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 331.00, 81.00 }</string>
+					<string>{ 436.00, 127.00 }</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 331.00, 81.00 }</string>
+					<string>{ 436.00, 127.00 }</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -147,42 +137,30 @@
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>BEEATER-BIRD-A</string>
+			<string>BEEATER-LAND-A</string>
 		</dict>
 		<dict>
 			<key>components</key>
 			<dict>
-				<key>beeater</key>
-				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
-				</dict>
-				<key>movement</key>
-				<dict>
-					<key>positions</key>
-					<array>
-						<string>{ 198.00, 139.50 }</string>
-					</array>
-				</dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>0.0</real>
+					<real>-6.1086521148681641</real>
 					<key>position</key>
-					<string>{ 358.50, 145.00 }</string>
+					<string>{ 423.00, 219.00 }</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 358.50, 145.00 }</string>
+					<string>{ 423.00, 219.00 }</string>
 					<key>rotation</key>
-					<real>0.0</real>
+					<real>350</real>
 					<key>scale</key>
 					<string>{ 1.00, 1.00 }</string>
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>BEEATER-BIRD-A</string>
+			<string>RAMP</string>
 		</dict>
 	</array>
 	<key>format</key>
@@ -192,6 +170,6 @@
 	<key>name</key>
 	<string>Level-A24</string>
 	<key>version</key>
-	<integer>6</integer>
+	<integer>8</integer>
 </dict>
 </plist>

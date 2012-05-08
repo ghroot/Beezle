@@ -12,7 +12,6 @@
 					<key>queuedBeeTypes</key>
 					<array>
 						<string>BEE</string>
-						<string>BEE</string>
 					</array>
 				</dict>
 				<key>transform</key>
@@ -156,7 +155,7 @@
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>POLLEN</string>
+			<string>POLLEN-YELLOW</string>
 		</dict>
 		<dict>
 			<key>components</key>
@@ -179,30 +178,7 @@
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>POLLEN</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{ 389.00, 134.00 }</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{ 389.00, 134.00 }</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>NUT</string>
+			<string>POLLEN-YELLOW</string>
 		</dict>
 		<dict>
 			<key>components</key>
@@ -210,7 +186,7 @@
 				<key>beeater</key>
 				<dict>
 					<key>containedBeeType</key>
-					<string>BOMBEE</string>
+					<string>SPEEDEE</string>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -232,6 +208,34 @@
 			<key>type</key>
 			<string>BEEATER-LAND-B</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>beeater</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>BEE</string>
+				</dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{ 384.00, 134.00 }</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{ 384.00, 134.00 }</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{ 1.00, 1.00 }</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>BEEATER-LAND-B</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -240,6 +244,6 @@
 	<key>name</key>
 	<string>Level-B34</string>
 	<key>version</key>
-	<integer>3</integer>
+	<integer>5</integer>
 </dict>
 </plist>

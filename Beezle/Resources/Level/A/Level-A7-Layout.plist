@@ -12,13 +12,12 @@
 					<key>queuedBeeTypes</key>
 					<array>
 						<string>BEE</string>
-						<string>BEE</string>
 					</array>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 66.00, 250.00 }</string>
+					<string>{ 91.00, 239.00 }</string>
 					<key>rotation</key>
 					<real>326</real>
 					<key>scale</key>
@@ -36,12 +35,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 218.00, 265.00 }</string>
+					<string>{ 321.00, 165.00 }</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 218.00, 265.00 }</string>
+					<string>{ 321.00, 165.00 }</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -49,7 +48,7 @@
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>POLLEN</string>
+			<string>POLLEN-YELLOW</string>
 		</dict>
 		<dict>
 			<key>components</key>
@@ -64,16 +63,16 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 156.00, 30.00 }</string>
+					<string>{ 142.00, 51.00 }</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 156.00, 30.00 }</string>
+					<string>{ 142.00, 51.00 }</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{ -1.00, 1.00 }</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -82,29 +81,6 @@
 		<dict>
 			<key>components</key>
 			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{ 248.00, 99.00 }</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{ 248.00, 99.00 }</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>EGG</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
 				<key>beeater</key>
 				<dict>
 					<key>containedBeeType</key>
@@ -115,12 +91,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 455.00, 192.00 }</string>
+					<string>{ 428.00, 167.00 }</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 455.00, 192.00 }</string>
+					<string>{ 428.00, 167.00 }</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -143,35 +119,47 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 397.00, 15.00 }</string>
+					<string>{ 158.00, 163.00 }</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 397.00, 15.00 }</string>
+					<string>{ 158.00, 163.00 }</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{ -1.00, 1.00 }</string>
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>BEEATER-LAND-A</string>
+			<string>BEEATER-HANGING-A</string>
 		</dict>
 		<dict>
 			<key>components</key>
 			<dict>
+				<key>beeater</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>BEE</string>
+				</dict>
+				<key>movement</key>
+				<dict>
+					<key>positions</key>
+					<array>
+						<string>{ 244.00, 20.00 }</string>
+					</array>
+				</dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 446.00, 163.00 }</string>
+					<string>{ 334.00, 22.00 }</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 446.00, 163.00 }</string>
+					<string>{ 334.00, 22.00 }</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -179,7 +167,7 @@
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>POLLEN</string>
+			<string>BEEATER-FISH-A</string>
 		</dict>
 	</array>
 	<key>format</key>
@@ -189,6 +177,6 @@
 	<key>name</key>
 	<string>Level-A7</string>
 	<key>version</key>
-	<integer>3</integer>
+	<integer>4</integer>
 </dict>
 </plist>
