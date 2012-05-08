@@ -27,7 +27,7 @@
 {
 	Entity *breakableEntity = secondEntity;
 	[EntityUtil destroyEntity:breakableEntity];
-	return FALSE;
+	return TRUE;
 }
 
 @end
