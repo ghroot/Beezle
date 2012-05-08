@@ -131,7 +131,8 @@
 -(BOOL) hasRatedLevel:(NSString *)levelName withVersion:(int)levelVersion
 {
 	LevelRating *rating = [self ratingForLevel:levelName];
-	return [rating levelVersion] >= levelVersion;
+	return rating != nil &&
+		[rating levelVersion] >= levelVersion;
 }
 
 -(void) rate:(NSString *)levelName numberOfStars:(int)numberOfStars

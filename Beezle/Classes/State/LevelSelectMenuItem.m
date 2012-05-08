@@ -9,6 +9,7 @@
 #import "LevelSelectMenuItem.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
+#import "LevelRatings.h"
 
 @implementation LevelSelectMenuItem
 
@@ -34,6 +35,12 @@
 	{
 		_levelName = [levelName copy];
 		[self setFontSize:24];
+#ifdef DEBUG
+		if ([[LevelRatings sharedRatings] hasRatedLevel:levelName withVersion:[levelLayout version]])
+		{
+			[self setColor:ccc3(255, 255, 0)];
+		}
+#endif
 	}
 	return self;
 }
