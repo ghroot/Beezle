@@ -18,6 +18,7 @@
 #import "DisposableComponent.h"
 #import "DisposalSystem.h"
 #import "EntityUtil.h"
+#import "FrozenSystem.h"
 #import "Game.h"
 #import "GameRulesSystem.h"
 #import "ShardSystem.h"
@@ -70,6 +71,7 @@
 @synthesize collisionSystem = _collisionSystem;
 @synthesize disposalSystem = _disposalSystem;
 @synthesize explodeControlSystem = _explodeControlSystem;
+@synthesize frozenSystem = _frozenSystem;
 @synthesize gameRulesSystem = _gameRulesSystem;
 @synthesize healthSystem = _healthSystem;
 @synthesize hudRenderingSystem = _hudRenderingSystem;
@@ -173,6 +175,8 @@
 	[systemManager setSystem:_beeQueueRenderingSystem];
 	_beeaterSystem = [BeeaterSystem system];
 	[systemManager setSystem:_beeaterSystem];
+	_frozenSystem = [FrozenSystem system];
+	[systemManager setSystem:_frozenSystem];
 	_shardSystem = [ShardSystem system];
 	[systemManager setSystem:_shardSystem];
 	_spawnSystem = [SpawnSystem system];

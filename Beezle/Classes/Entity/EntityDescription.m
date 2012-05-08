@@ -17,6 +17,7 @@
 #import "DisposableComponent.h"
 #import "DozerComponent.h"
 #import "ExplodeComponent.h"
+#import "FrozenComponent.h"
 #import "HealthComponent.h"
 #import "MovementComponent.h"
 #import "PhysicsComponent.h"
@@ -91,6 +92,10 @@
 		else if ([componentType isEqualToString:@"explode"])
 		{
 			component = [ExplodeComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+		else if ([componentType isEqualToString:@"frozen"])
+		{
+			component = [FrozenComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"health"])
 		{

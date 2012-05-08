@@ -97,12 +97,12 @@
 	// Save bee
 	TagManager *tagManager = (TagManager *)[[beeaterEntity world] getManager:[TagManager class]];
 	Entity *slingerEntity = (Entity *)[tagManager getEntity:@"SLINGER"];
-	BeeaterComponent *beeaterComponent = (BeeaterComponent *)[beeaterEntity getComponent:[BeeaterComponent class]];
-	SlingerComponent *slingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
+	BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:beeaterEntity];
+	SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
 	[slingerComponent pushBeeType:[beeaterComponent containedBeeType]];
 	
 	// Destroy beeater
-	TransformComponent *beeaterTransformComponent = (TransformComponent *)[beeaterEntity getComponent:[TransformComponent class]];
+	TransformComponent *beeaterTransformComponent = [TransformComponent getFrom:beeaterEntity];
 	RenderComponent *beeaterRenderComponent = (RenderComponent *)[beeaterEntity getComponent:[RenderComponent class]];
 	RenderSprite *beeaterBodyRenderSprite = (RenderSprite *)[beeaterRenderComponent renderSpriteWithName:@"body"];
 	RenderSprite *beeaterHeadRenderSprite = (RenderSprite *)[beeaterRenderComponent renderSpriteWithName:@"head"];
@@ -118,7 +118,7 @@
 	
 	// Game notification
 	NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
-	[notificationUserInfo setObject:[NSValue valueWithCGPoint:[beeaterTransformComponent position]] forKey:@"beeaterEntityPosition"];
+	[notificationUserInfo setObject:[NSValue valueWithCGPoint:[beeaterTransformComponent position]] forKey:@"entityPosition"];
 	[notificationUserInfo setObject:[beeaterComponent containedBeeType] forKey:@"beeType"];
 	[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_SAVED object:self userInfo:notificationUserInfo];
 }

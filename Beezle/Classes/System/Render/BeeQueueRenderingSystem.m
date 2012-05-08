@@ -230,14 +230,14 @@
 
 -(void) handleBeeSavedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity
 {
-	NSValue *beeterPositionValue = (NSValue *)[[notification userInfo] objectForKey:@"beeaterEntityPosition"];
-	CGPoint beeaterPosition = [beeterPositionValue CGPointValue];
+	NSValue *positionValue = (NSValue *)[[notification userInfo] objectForKey:@"entityPosition"];
+	CGPoint position = [positionValue CGPointValue];
 	BeeType *savedBeeType = (BeeType *)[[notification userInfo] objectForKey:@"beeType"];
 	
 	CGPoint nextPosition = [self calculatePositionForNextBeeQueueRenderSprite:slingerEntity];
 	
 	// Create sprite
-	CGPoint beePosition = CGPointMake(beeaterPosition.x, beeaterPosition.y + 20);
+	CGPoint beePosition = CGPointMake(position.x, position.y + 20);
 	RenderSprite *beeQueueRenderSprite = [self createBeeQueueRenderSpriteWithBeeType:savedBeeType position:beePosition];
 	
 	BOOL needsToTurn = [[TransformComponent getFrom:slingerEntity] position].x < beePosition.x;

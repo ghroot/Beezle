@@ -330,6 +330,11 @@
 		2C7B1C511558645D00AF0026 /* PauseArrow-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C501558645D00AF0026 /* PauseArrow-01-hd.png */; };
 		2C7B1C54155864CB00AF0026 /* NextLevelButton-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C53155864CB00AF0026 /* NextLevelButton-hd.png */; };
 		2C7B1C561558682800AF0026 /* Level-C55-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C551558682800AF0026 /* Level-C55-Layout.plist */; };
+		2C7B1C5E1559C0EE00AF0026 /* FrozenComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B1C5D1559C0EE00AF0026 /* FrozenComponent.m */; };
+		2C7B1C611559C12700AF0026 /* FrozenSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B1C601559C12700AF0026 /* FrozenSystem.m */; };
+		2C7B1C631559C6BD00AF0026 /* Frozen-Tbee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C621559C6BD00AF0026 /* Frozen-Tbee.plist */; };
+		2C7B1C651559C7E500AF0026 /* Tbee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C641559C7E500AF0026 /* Tbee-Animations.plist */; };
+		2C7B1C671559C8CC00AF0026 /* Tbee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C661559C8CC00AF0026 /* Tbee.plist */; };
 		2C7C3B26150275B800640416 /* PauseArrow-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B25150275B800640416 /* PauseArrow-01.png */; };
 		2C7C3B29150276C300640416 /* Level Completed Bubble-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */; };
 		2C7C3B2A150276C300640416 /* Level Failed Bubble-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */; };
@@ -1592,6 +1597,13 @@
 		2C7B1C501558645D00AF0026 /* PauseArrow-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01-hd.png"; sourceTree = "<group>"; };
 		2C7B1C53155864CB00AF0026 /* NextLevelButton-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NextLevelButton-hd.png"; sourceTree = "<group>"; };
 		2C7B1C551558682800AF0026 /* Level-C55-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-C55-Layout.plist"; sourceTree = "<group>"; };
+		2C7B1C5C1559C0EE00AF0026 /* FrozenComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FrozenComponent.h; path = Classes/Component/FrozenComponent.h; sourceTree = "<group>"; };
+		2C7B1C5D1559C0EE00AF0026 /* FrozenComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FrozenComponent.m; path = Classes/Component/FrozenComponent.m; sourceTree = "<group>"; };
+		2C7B1C5F1559C12700AF0026 /* FrozenSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrozenSystem.h; sourceTree = "<group>"; };
+		2C7B1C601559C12700AF0026 /* FrozenSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrozenSystem.m; sourceTree = "<group>"; };
+		2C7B1C621559C6BD00AF0026 /* Frozen-Tbee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Frozen-Tbee.plist"; sourceTree = "<group>"; };
+		2C7B1C641559C7E500AF0026 /* Tbee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tbee-Animations.plist"; sourceTree = "<group>"; };
+		2C7B1C661559C8CC00AF0026 /* Tbee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tbee.plist; sourceTree = "<group>"; };
 		2C7C3B25150275B800640416 /* PauseArrow-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01.png"; sourceTree = "<group>"; };
 		2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level Completed Bubble-01.png"; sourceTree = "<group>"; };
 		2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level Failed Bubble-01.png"; sourceTree = "<group>"; };
@@ -3267,6 +3279,8 @@
 				2C7DF4A51549F0F5001A194C /* DisposalSystem.h */,
 				2C7DF4A61549F0F5001A194C /* DisposalSystem.m */,
 				2C7DF4A71549F0F5001A194C /* Edit */,
+				2C7B1C5F1559C12700AF0026 /* FrozenSystem.h */,
+				2C7B1C601559C12700AF0026 /* FrozenSystem.m */,
 				2C7DF4AC1549F0F5001A194C /* GameRulesSystem.h */,
 				2C7DF4AD1549F0F5001A194C /* GameRulesSystem.m */,
 				2C7DF4B01549F0F5001A194C /* HealthSystem.h */,
@@ -3605,6 +3619,7 @@
 				2CC9E7831502E80900C094B0 /* Sawee-Animations.plist */,
 				2CC9E7841502E80900C094B0 /* Speedee-Animations.plist */,
 				2C8B19A015377920003F3465 /* Sumee-Animations.plist */,
+				2C7B1C641559C7E500AF0026 /* Tbee-Animations.plist */,
 			);
 			path = Bee;
 			sourceTree = "<group>";
@@ -4376,10 +4391,12 @@
 			children = (
 				2CE4F538153CC8A80023B5C6 /* Bee.plist */,
 				2CE4F539153CC8A80023B5C6 /* Bombee.plist */,
+				2C7B1C621559C6BD00AF0026 /* Frozen-Tbee.plist */,
 				2CE4F53B153CC8A80023B5C6 /* Sawee.plist */,
 				2CE4F53C153CC8A80023B5C6 /* Speedee-Puff.plist */,
 				2CE4F53D153CC8A80023B5C6 /* Speedee.plist */,
 				2CE4F53E153CC8A80023B5C6 /* Sumee.plist */,
+				2C7B1C661559C8CC00AF0026 /* Tbee.plist */,
 			);
 			path = Bee;
 			sourceTree = "<group>";
@@ -4639,6 +4656,8 @@
 				2CC3EC0A14D608870025F5DA /* Edit */,
 				2C5EFCBD14EC60390071ED39 /* ExplodeComponent.h */,
 				2C5EFCBE14EC603D0071ED39 /* ExplodeComponent.m */,
+				2C7B1C5C1559C0EE00AF0026 /* FrozenComponent.h */,
+				2C7B1C5D1559C0EE00AF0026 /* FrozenComponent.m */,
 				2C6A708A1542C5D70042F5A1 /* HealthComponent.h */,
 				2C6A708B1542C5D80042F5A1 /* HealthComponent.m */,
 				2CC3EBFB14D466460025F5DA /* MovementComponent.h */,
@@ -5597,6 +5616,9 @@
 				2C47B5E315593F2C006A68ED /* Shared-hd.png in Resources */,
 				2C47B5E415593F2C006A68ED /* Shared.plist in Resources */,
 				2C47B5E515593F2C006A68ED /* Shared.png in Resources */,
+				2C7B1C631559C6BD00AF0026 /* Frozen-Tbee.plist in Resources */,
+				2C7B1C651559C7E500AF0026 /* Tbee-Animations.plist in Resources */,
+				2C7B1C671559C8CC00AF0026 /* Tbee.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5871,6 +5893,8 @@
 				2CDB9D961558067500384B54 /* LevelRatings.m in Sources */,
 				2CDB9D99155807D700384B54 /* LevelRating.m in Sources */,
 				2CDB9D9C1558107B00384B54 /* ConfirmationState.m in Sources */,
+				2C7B1C5E1559C0EE00AF0026 /* FrozenComponent.m in Sources */,
+				2C7B1C611559C12700AF0026 /* FrozenSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

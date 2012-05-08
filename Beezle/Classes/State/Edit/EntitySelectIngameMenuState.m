@@ -57,6 +57,7 @@
 	[self addMenuItemForEntityType:@"CLIRR"];
 	[self addMenuItemForEntityType:@"EGG"];
 	[self addMenuItemForEntityType:@"FLOATING-BLOCK-A"];
+	[self addMenuItemForEntityType:@"FROZEN-TBEE"];
 	[self addMenuItemForEntityType:@"GLASS"];
 	[self addMenuItemForEntityType:@"HANGNEST"];
 	[self addMenuItemForEntityType:@"LEAF"];
