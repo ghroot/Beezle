@@ -12,7 +12,6 @@
 @interface RateLevelState : GameState
 {
 	NSString *_levelName;
-	CCMenu *_menu;
 }
 
 +(id) stateWithLevelName:(NSString *)levelName;
