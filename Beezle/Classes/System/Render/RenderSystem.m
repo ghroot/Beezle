@@ -52,17 +52,17 @@
         spriteSheet = [CCSpriteBatchNode batchNodeWithFile:texturePath];
         
         ZOrder *spriteSheetZOrder = nil;
-        if ([name isEqualToString:@"Back"])
+        if ([name isEqualToString:@"Shared"])
         {
-            spriteSheetZOrder = [ZOrder Z_SHEET_BACK];
+            spriteSheetZOrder = [ZOrder Z_SHEET_SHARED];
         }
         else if ([name isEqualToString:@"Boss"])
         {
             spriteSheetZOrder = [ZOrder Z_SHEET_BOSS];
         }
-        else if ([name isEqualToString:@"Front"])
+        else
         {
-            spriteSheetZOrder = [ZOrder Z_SHEET_FRONT];
+            spriteSheetZOrder = [ZOrder Z_SHEET_DEFAULT];
         }
         
         [_layer addChild:spriteSheet z:[spriteSheetZOrder z]];

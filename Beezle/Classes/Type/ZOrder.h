@@ -15,21 +15,22 @@
 
 @property (nonatomic) int z;
 
++(ZOrder *) Z_SHEET_DEFAULT;
 +(ZOrder *) Z_DEFAULT;
+
 
 +(ZOrder *) Z_BACKGROUND_BACK;
 
 +(ZOrder *) Z_WATER;
 
-+(ZOrder *) Z_SHEET_BACK;
-+(ZOrder *) Z_BEES;
-
 +(ZOrder *) Z_SHEET_BOSS;
 +(ZOrder *) Z_SUPER_BEEATER_BODY;
 +(ZOrder *) Z_SUPER_BEEATER_HEAD;
 
-+(ZOrder *) Z_BACKGROUND_FRONT;
++(ZOrder *) Z_SHEET_SHARED;
++(ZOrder *) Z_BEES;
++(ZOrder *) Z_SLINGER;
 
-+(ZOrder *) Z_SHEET_FRONT;
++(ZOrder *) Z_BACKGROUND_FRONT;
 
 @end

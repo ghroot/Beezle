@@ -404,7 +404,7 @@
     [entity addComponent:transformComponent];
 	
 	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Back" animationFile:animationFile zOrder:[ZOrder Z_DEFAULT]];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:@"Shared" animationFile:animationFile zOrder:[ZOrder Z_DEFAULT]];
 	RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
 	[entity addComponent:renderComponent];
 	

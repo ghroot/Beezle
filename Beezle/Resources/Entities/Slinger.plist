@@ -18,9 +18,11 @@
 					<key>name</key>
 					<string>addon</string>
 					<key>spriteSheetName</key>
-					<string>Front</string>
+					<string>Shared</string>
 					<key>animationFile</key>
 					<string>Sling-Animations.plist</string>
+                    <key>z</key>
+                    <string>Z_SLINGER</string>
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.0 }</string>
                     <key>scale</key>
@@ -32,9 +34,11 @@
 					<key>name</key>
 					<string>main</string>
 					<key>spriteSheetName</key>
-					<string>Front</string>
+					<string>Shared</string>
 					<key>animationFile</key>
 					<string>Sling-Animations.plist</string>
+                    <key>z</key>
+                    <string>Z_SLINGER</string>
 					<key>anchorPoint</key>
 					<string>{ 0.5, 0.93 }</string>
 					<key>defaultIdleAnimation</key>

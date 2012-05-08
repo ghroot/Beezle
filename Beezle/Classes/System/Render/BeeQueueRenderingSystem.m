@@ -345,7 +345,7 @@
 -(RenderSprite *) createBeeQueueRenderSpriteWithBeeType:(BeeType *)beeType position:(CGPoint)position
 {
 	// Create sprite
-	RenderSprite *beeQueueRenderSprite = [_renderSystem createRenderSpriteWithSpriteSheetName:@"Back" zOrder:[ZOrder Z_DEFAULT]];
+	RenderSprite *beeQueueRenderSprite = [_renderSystem createRenderSpriteWithSpriteSheetName:@"Shared" zOrder:[ZOrder Z_DEFAULT]];
 	[[beeQueueRenderSprite sprite] setPosition:position];
 	[beeQueueRenderSprite addSpriteToSpriteSheet];
 	[_beeQueueRenderSprites addObject:beeQueueRenderSprite];
