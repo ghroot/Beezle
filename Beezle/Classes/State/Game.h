@@ -21,5 +21,6 @@
 -(void) popState;
 -(void) clearAndReplaceState:(GameState *)gameState;
 -(GameState *) currentState;
+-(GameState *) previousState;
 
 @end

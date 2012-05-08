@@ -120,4 +120,16 @@
 	}
 }
 
+-(GameState *) previousState
+{
+	if ([_gameStateStack count] > 1)
+	{
+		return [_gameStateStack objectAtIndex:[_gameStateStack count] - 2];
+	}
+	else
+	{
+		return nil;
+	}
+}
+
 @end

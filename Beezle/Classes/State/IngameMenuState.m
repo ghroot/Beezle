@@ -47,6 +47,13 @@
 	[_menu alignItemsVerticallyWithPadding:30.0f];
 	
 	[self addChild:_menu];
+	
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	GameplayState *gameplayState = (GameplayState *)[_game previousState];
+	CCLabelTTF *levelNameLabel = [CCLabelTTF labelWithString:[gameplayState levelName] fontName:@"Marker Felt" fontSize:14.0f];
+	[levelNameLabel setPosition:CGPointMake(winSize.width, 0.0f)];
+	[levelNameLabel setAnchorPoint:CGPointMake(1.0f, 0.0f)];
+	[self addChild:levelNameLabel];
 }
 
 -(void) resumeGame:(id)sender
