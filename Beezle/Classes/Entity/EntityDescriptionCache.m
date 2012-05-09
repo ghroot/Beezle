@@ -47,4 +47,9 @@
 	return [_entityDescriptionsByType objectForKey:type];
 }
 
+-(void) purgeCachedData
+{
+	[_entityDescriptionsByType removeAllObjects];
+}
+
 @end

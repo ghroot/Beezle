@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "EmailInfo.h"
+#import "EntityDescriptionCache.h"
 #import "Game.h"
 #import "LevelLayoutCache.h"
 #import "MainMenuState.h"
@@ -125,6 +126,7 @@
 {
 	[[CCDirector sharedDirector] purgeCachedData];
 	[[LevelLayoutCache sharedLevelLayoutCache] purgeAllCachedLevelLayouts];
+	[[EntityDescriptionCache sharedCache] purgeCachedData];
 }
 
 -(void) applicationSignificantTimeChange:(UIApplication *)application
