@@ -42,26 +42,23 @@ void uncaughtExceptionHandler(NSException *exception)
 
 -(void) trackStartedLevel:(NSString *)levelName
 {
-	NSString *levelSuffix = [[levelName componentsSeparatedByString:@"-"] objectAtIndex:1];
-	NSString *eventName = [NSString stringWithFormat:@"LEVEL_STARTED_%@", levelSuffix];
-	[FlurryAnalytics logEvent:eventName];
-	[TestFlight passCheckpoint:eventName];
+	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+	[parameters setObject:levelName forKey:@"levelName"];
+	[FlurryAnalytics logEvent:@"LEVEL_STARTED" withParameters:parameters];
 }
 
 -(void) trackCompletedLevel:(NSString *)levelName
 {
-	NSString *levelSuffix = [[levelName componentsSeparatedByString:@"-"] objectAtIndex:1];
-	NSString *eventName = [NSString stringWithFormat:@"LEVEL_COMPLETED_%@", levelSuffix];
-	[FlurryAnalytics logEvent:eventName];
-	[TestFlight passCheckpoint:eventName];
+	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+	[parameters setObject:levelName forKey:@"levelName"];
+	[FlurryAnalytics logEvent:@"LEVEL_COMPLETED" withParameters:parameters];
 }
 
 -(void) trackFailedLevel:(NSString *)levelName
 {
-	NSString *levelSuffix = [[levelName componentsSeparatedByString:@"-"] objectAtIndex:1];
-	NSString *eventName = [NSString stringWithFormat:@"LEVEL_FAILED_%@", levelSuffix];
-	[FlurryAnalytics logEvent:eventName];
-	[TestFlight passCheckpoint:eventName];
+	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+	[parameters setObject:levelName forKey:@"levelName"];
+	[FlurryAnalytics logEvent:@"LEVEL_FAILED" withParameters:parameters];
 }
 
 @end
