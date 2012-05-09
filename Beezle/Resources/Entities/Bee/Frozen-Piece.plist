@@ -3,24 +3,22 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>FROZEN-TBEE</string>
+	<string>FROZEN-PIECE</string>
 	<key>components</key>
 	<dict>
-		<key>frozen</key>
-		<dict>
-			<key>containedBeeType</key>
-			<string>TBEE</string>
-		</dict>
-		<key>brittle</key>
-		<dict/>
 		<key>disposable</key>
-		<dict/>
+		<dict>
+			<key>deleteEntityWhenDisposed</key>
+			<true/>
+		</dict>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
 			<dict>
 				<key>mass</key>
-				<real>0</real>
+				<real>1</real>
+				<key>moment</key>
+				<real>1</real>
 			</dict>
 			<key>shapes</key>
 			<array>
@@ -28,15 +26,15 @@
 					<key>type</key>
 					<string>circle</string>
 					<key>radius</key>
-					<real>12</real>
+					<real>5</real>
 					<key>elasticity</key>
-					<real>0</real>
+					<real>0.5</real>
 					<key>friction</key>
-					<real>0</real>
+					<real>0.3</real>
 					<key>layers</key>
-					<integer>1</integer>
+					<integer>8</integer>
 					<key>group</key>
-					<string>LEVEL</string>
+					<string>OBJECT</string>
 				</dict>
 			</array>
 		</dict>
@@ -48,25 +46,23 @@
 					<key>spriteSheetName</key>
 					<string>Shared</string>
 					<key>animationFile</key>
-					<string>Tbee-Animations.plist</string>
-					<key>defaultIdleAnimation</key>
-					<string>Tbee-Frozen</string>
-					<key>defaultDestroyAnimation</key>
-					<string>Tbee-Frozen-Hole</string>
+					<string>Clirr-Animations.plist</string>
+					<key>defaultIdleAnimations</key>
+					<array>
+						<string>C55-Clirr-1</string>
+						<string>C55-Clirr-2</string>
+						<string>C55-Clirr-3</string>
+						<string>C55-Clirr-4</string>
+						<string>C55-Clirr-5</string>
+					</array>
 				</dict>
 			</array>
 		</dict>
-		<key>shard</key>
-		<dict>
-			<key>piecesEntityType</key>
-			<string>FROZEN-PIECE</string>
-			<key>piecesCount</key>
-			<integer>10</integer>
-            <key>piecesSpawnType</key>
-            <string>SHARD_PIECES_SPAWN_FADEOUT</string>
-		</dict>
 		<key>transform</key>
-		<dict/>
+		<dict>
+			<key>scale</key>
+			<string>{ 0.3, 0.3 }</string>
+		</dict>
 	</dict>
 </dict>
 </plist>
