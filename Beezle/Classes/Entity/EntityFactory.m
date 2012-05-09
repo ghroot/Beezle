@@ -38,6 +38,7 @@
 #define EDGE_FRICTION 0.5f
 #define EDGE_ELASTICITY 0.0f
 #define EDGE_LAYERS 15
+#define WATER_LAYERS 5
 #define AIM_POLLEN_LAYERS 2
 
 @implementation EntityFactory
@@ -230,6 +231,7 @@
     {
         int nextI = i == numEdgeVerts - 1 ? 0 : i + 1;
 		ChipmunkShape *shape = [ChipmunkSegmentShape segmentWithBody:body from:edgeVerts[i] to:edgeVerts[nextI] radius:0];
+		[shape setLayers:WATER_LAYERS];
 		[shape setGroup:[CollisionGroup LEVEL]];
         [shapes addObject:shape];
     }
