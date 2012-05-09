@@ -153,28 +153,33 @@
 
 -(void) handleBeeLoadedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity
 {
-	// Load next bee sprite
-//	_beeLoadedRenderSprite = [[_beeQueueRenderSprites objectAtIndex:0] retain];
-//	[_beeQueueRenderSprites removeObjectAtIndex:0];
-//	TransformComponent *slingerTransformComponent = (TransformComponent *)[slingerEntity getComponent:[TransformComponent class]];
-//	[[_beeLoadedRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
-//	CCAction *moveAction = [CCMoveTo actionWithDuration:0.5f position:[slingerTransformComponent position]];
-//	[moveAction setTag:ACTION_TAG_BEE_QUEUE];
-//	[[_beeLoadedRenderSprite sprite] runAction:moveAction];
-    
-    // Load next bee sprite (instant version)
-    _beeLoadedRenderSprite = [[_beeQueueRenderSprites objectAtIndex:0] retain];
+	// Move first bee towards slinger and fade out
+	TransformComponent *slingerTransformComponent = (TransformComponent *)[slingerEntity getComponent:[TransformComponent class]];
+    RenderSprite *beeLoadingRenderSprite = [[_beeQueueRenderSprites objectAtIndex:0] retain];
 	[_beeQueueRenderSprites removeObjectAtIndex:0];
+	[[beeLoadingRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
+	CCMoveTo *moveAction = [CCMoveTo actionWithDuration:0.3f position:[slingerTransformComponent position]];
+	CCFadeOut *fadeOutAction = [CCFadeOut actionWithDuration:0.3f];
+	CCSpawn *spawnAction = [CCSpawn actions:moveAction, fadeOutAction, nil];
+	CCCallBlock *removeAction = [CCCallBlock actionWithBlock:^{
+		[beeLoadingRenderSprite removeSpriteFromSpriteSheet];
+	}];
+	CCSequence *sequence = [CCSequence actions:spawnAction, removeAction, nil];
+	[sequence setTag:ACTION_TAG_BEE_QUEUE];
+	[[beeLoadingRenderSprite sprite] runAction:sequence];
+	[beeLoadingRenderSprite release];
 	
-	// Remove and add so it ends up on top
-	[_beeLoadedRenderSprite removeSpriteFromSpriteSheet];
-	[_beeLoadedRenderSprite addSpriteToSpriteSheet];
-	
-	// Idle animation
+	// Create new sprite and place in slinger
 	SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
 	BeeType *beeType = [slingerComponent loadedBeeType];
+	_beeLoadedRenderSprite = [self createBeeQueueRenderSpriteWithBeeType:beeType position:[slingerTransformComponent position]];
+	[_beeLoadedRenderSprite retain];
 	NSString *animationName = [NSString stringWithFormat:@"%@-Idle", [beeType capitalizedString]];
 	[_beeLoadedRenderSprite playAnimationLoop:animationName];
+	[[_beeLoadedRenderSprite sprite] setOpacity:0];
+	CCFadeIn *fadeInAction = [CCFadeIn actionWithDuration:0.3f];
+	[fadeInAction setTag:ACTION_TAG_BEE_QUEUE];
+	[[_beeLoadedRenderSprite sprite] runAction:fadeInAction];
 	
 	// Move queued sprites right
 	for (int i = 0; i < [_beeQueueRenderSprites count]; i++)
@@ -239,6 +244,7 @@
 	// Create sprite
 	CGPoint beePosition = CGPointMake(position.x, position.y + 20);
 	RenderSprite *beeQueueRenderSprite = [self createBeeQueueRenderSpriteWithBeeType:savedBeeType position:beePosition];
+	[_beeQueueRenderSprites addObject:beeQueueRenderSprite];
 	
 	BOOL needsToTurn = [[TransformComponent getFrom:slingerEntity] position].x < beePosition.x;
 	
@@ -334,6 +340,7 @@
     {
 		// Create sprite
 		RenderSprite *beeQueueRenderSprite = [self createBeeQueueRenderSpriteWithBeeType:beeType position:[self calculatePositionForNextBeeQueueRenderSprite:slingerEntity]];
+		[_beeQueueRenderSprites addObject:beeQueueRenderSprite];
 		
 		// Sway
 		CCAction *swayAction = [self createSwayAction:[[beeQueueRenderSprite sprite] position]];
@@ -348,7 +355,6 @@
 	RenderSprite *beeQueueRenderSprite = [_renderSystem createRenderSpriteWithSpriteSheetName:@"Shared" zOrder:[ZOrder Z_DEFAULT]];
 	[[beeQueueRenderSprite sprite] setPosition:position];
 	[beeQueueRenderSprite addSpriteToSpriteSheet];
-	[_beeQueueRenderSprites addObject:beeQueueRenderSprite];
 	
 	// Make sure animation is loaded
 	NSString *animationsFileName = [NSString stringWithFormat:@"%@-Animations.plist", [beeType capitalizedString]];
