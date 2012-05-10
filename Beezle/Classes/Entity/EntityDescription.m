@@ -12,12 +12,14 @@
 #import "BoostComponent.h"
 #import "BreakableComponent.h"
 #import "BrittleComponent.h"
+#import "CapturedComponent.h"
 #import "ConsumerComponent.h"
 #import "CrumbleComponent.h"
 #import "DisposableComponent.h"
 #import "DozerComponent.h"
 #import "ExplodeComponent.h"
-#import "FrozenComponent.h"
+#import "FreezableComponent.h"
+#import "FreezeComponent.h"
 #import "HealthComponent.h"
 #import "MovementComponent.h"
 #import "PhysicsComponent.h"
@@ -73,6 +75,10 @@
 		{
 			component = [BrittleComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
+		else if ([componentType isEqualToString:@"captured"])
+		{
+			component = [CapturedComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
 		else if ([componentType isEqualToString:@"consumer"])
 		{
 			component = [ConsumerComponent componentWithContentsOfDictionary:componentDict world:world];
@@ -93,9 +99,13 @@
 		{
 			component = [ExplodeComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
-		else if ([componentType isEqualToString:@"frozen"])
+		else if ([componentType isEqualToString:@"freeze"])
 		{
-			component = [FrozenComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [FreezeComponent componentWithContentsOfDictionary:componentDict world:world];
+		}
+		else if ([componentType isEqualToString:@"freezable"])
+		{
+			component = [FreezableComponent componentWithContentsOfDictionary:componentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"health"])
 		{

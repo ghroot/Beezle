@@ -22,6 +22,7 @@
 	StringList *_defaultIdleAnimationNames;
 	StringList *_defaultHitAnimationNames;
     StringList *_defaultDestroyAnimationNames;
+	StringList *_defaultStillAnimationNames;
 }
 
 @property (nonatomic, readonly) CCSprite *sprite;
@@ -33,6 +34,7 @@
 @property (nonatomic, readonly) StringList *defaultIdleAnimationNames;
 @property (nonatomic, readonly) StringList *defaultHitAnimationNames;
 @property (nonatomic, readonly) StringList *defaultDestroyAnimationNames;
+@property (nonatomic, readonly) StringList *defaultStillAnimationNames;
 
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet zOrder:(ZOrder *)zOrder;
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;
@@ -64,6 +66,9 @@
 -(BOOL) hasDefaultHitAnimation;
 -(NSString *) randomDefaultHitAnimationName;
 -(void) playDefaultHitAnimation;
+-(BOOL) hasDefaultStillAnimation;
+-(NSString *) randomDefaultStillAnimationName;
+-(void) playDefaultStillAnimation;
 -(void) setAnimationSpeed:(float)speed;
 -(void) hide;
 -(void) show;

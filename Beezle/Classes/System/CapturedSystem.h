@@ -10,7 +10,7 @@
 
 @class NotificationProcessor;
 
-@interface FrozenSystem : EntityComponentSystem
+@interface CapturedSystem : EntityComponentSystem
 {
 	NotificationProcessor *_notificationProcessor;
 }

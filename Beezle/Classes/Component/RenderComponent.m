@@ -66,6 +66,7 @@
 				[[renderSprite defaultIdleAnimationNames] addStringsFromDictionary:spriteDict baseName:@"defaultIdleAnimation"];
 				[[renderSprite defaultHitAnimationNames] addStringsFromDictionary:spriteDict baseName:@"defaultHitAnimation"];
 				[[renderSprite defaultDestroyAnimationNames] addStringsFromDictionary:spriteDict baseName:@"defaultDestroyAnimation"];
+				[[renderSprite defaultStillAnimationNames] addStringsFromDictionary:spriteDict baseName:@"defaultStillAnimation"];
 			}
 			else if ([spriteDict objectForKey:@"textureFile"] != nil)
 			{
@@ -243,6 +244,26 @@
 	for (RenderSprite *renderSprite in _renderSprites)
 	{
 		[renderSprite playDefaultHitAnimation];
+	}
+}
+
+-(BOOL) hasDefaultStillAnimation
+{
+	for (RenderSprite *renderSprite in _renderSprites)
+	{
+		if (![renderSprite hasDefaultStillAnimation])
+		{
+			return FALSE;
+		}
+	}
+	return TRUE;
+}
+
+-(void) playDefaultStillAnimation
+{
+	for (RenderSprite *renderSprite in _renderSprites)
+	{
+		[renderSprite playDefaultStillAnimation];
 	}
 }
 

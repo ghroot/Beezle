@@ -16,10 +16,11 @@
 @class BeeExpiratonSystem;
 @class ExplodeControlSystem;
 @class BeeQueueRenderingSystem;
+@class CapturedSystem;
 @class CollisionSystem;
 @class DebugRenderPhysicsSystem;
 @class DisposalSystem;
-@class FrozenSystem;
+@class FreezeSystem;
 @class GameRulesSystem;
 @class GateOpeningSystem;
 @class HealthSystem;
@@ -49,13 +50,14 @@
 	BOOL _debug;
 	
 	BeeaterSystem *_beeaterSystem;
-	FrozenSystem *_frozenSystem;
+	CapturedSystem *_capturedSystem;
     BeeExpiratonSystem *_beeExpirationSystem;
 	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
 	WaterWaveSystem *_waterWaveSystem;
     CollisionSystem *_collisionSystem;
 	ExplodeControlSystem *_explodeControlSystem;
     GameRulesSystem *_gameRulesSystem;
+	FreezeSystem *_freezeSystem;
 	HUDRenderingSystem *_hudRenderingSystem;
     InputSystem *_inputSystem;
 	MovementSystem *_movementSystem;
@@ -81,10 +83,11 @@
 @property (nonatomic, readonly) BeeaterSystem *beeaterSystem;
 @property (nonatomic, readonly) BeeExpiratonSystem *beeExpirationSystem;
 @property (nonatomic, readonly) BeeQueueRenderingSystem *beeQueueRenderingSystem;
+@property (nonatomic, readonly) CapturedSystem *capturedSystem;
 @property (nonatomic, readonly) CollisionSystem *collisionSystem;
 @property (nonatomic, readonly) DisposalSystem *disposalSystem;
 @property (nonatomic, readonly) ExplodeControlSystem *explodeControlSystem;
-@property (nonatomic, readonly) FrozenSystem *frozenSystem;
+@property (nonatomic, readonly) FreezeSystem *freezeSystem;
 @property (nonatomic, readonly) GameRulesSystem *gameRulesSystem;
 @property (nonatomic, readonly) HealthSystem *healthSystem;
 @property (nonatomic, readonly) HUDRenderingSystem *hudRenderingSystem;

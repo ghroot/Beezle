@@ -28,6 +28,7 @@
 @synthesize defaultIdleAnimationNames = _defaultIdleAnimationNames;
 @synthesize defaultHitAnimationNames = _defaultHitAnimationNames;
 @synthesize defaultDestroyAnimationNames = _defaultDestroyAnimationNames;
+@synthesize defaultStillAnimationNames = _defaultStillAnimationNames;
 
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet zOrder:(ZOrder *)zOrder
 {
@@ -69,6 +70,7 @@
 		_defaultIdleAnimationNames = [StringList new];
 		_defaultHitAnimationNames = [StringList new];
 		_defaultDestroyAnimationNames = [StringList new];
+		_defaultStillAnimationNames = [StringList new];
 	}
 	return self;
 }
@@ -111,6 +113,7 @@
 	[_defaultIdleAnimationNames release];
 	[_defaultHitAnimationNames release];
 	[_defaultDestroyAnimationNames release];
+	[_defaultStillAnimationNames release];
     
     [super dealloc];
 }
@@ -272,6 +275,24 @@
 	if ([self hasDefaultHitAnimation])
 	{
 		[self playAnimationsLoopLast:[NSArray arrayWithObjects:[self randomDefaultHitAnimationName], [self randomDefaultIdleAnimationName], nil]];
+	}
+}
+
+-(BOOL) hasDefaultStillAnimation
+{
+	return [_defaultStillAnimationNames hasStrings];
+}
+
+-(NSString *) randomDefaultStillAnimationName
+{
+	return [_defaultStillAnimationNames randomString];
+}
+
+-(void) playDefaultStillAnimation
+{
+	if ([self hasDefaultStillAnimation])
+	{
+		[self playAnimationLoop:[self randomDefaultStillAnimationName]];
 	}
 }
 

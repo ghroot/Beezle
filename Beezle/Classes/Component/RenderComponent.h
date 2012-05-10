@@ -35,5 +35,7 @@
 -(void) playDefaultDestroyAnimation;
 -(BOOL) hasDefaultHitAnimation;
 -(void) playDefaultHitAnimation;
+-(BOOL) hasDefaultStillAnimation;
+-(void) playDefaultStillAnimation;
 
 @end

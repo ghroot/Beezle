@@ -18,7 +18,8 @@
 #import "DisposableComponent.h"
 #import "DisposalSystem.h"
 #import "EntityUtil.h"
-#import "FrozenSystem.h"
+#import "CapturedSystem.h"
+#import "FreezeSystem.h"
 #import "Game.h"
 #import "GameRulesSystem.h"
 #import "ShardSystem.h"
@@ -68,10 +69,11 @@
 @synthesize beeaterSystem = _beeaterSystem;
 @synthesize beeExpirationSystem = _beeExpirationSystem;
 @synthesize beeQueueRenderingSystem = _beeQueueRenderingSystem;
+@synthesize capturedSystem = _capturedSystem;
 @synthesize collisionSystem = _collisionSystem;
 @synthesize disposalSystem = _disposalSystem;
 @synthesize explodeControlSystem = _explodeControlSystem;
-@synthesize frozenSystem = _frozenSystem;
+@synthesize freezeSystem = _freezeSystem;
 @synthesize gameRulesSystem = _gameRulesSystem;
 @synthesize healthSystem = _healthSystem;
 @synthesize hudRenderingSystem = _hudRenderingSystem;
@@ -167,6 +169,8 @@
 	[systemManager setSystem:_slingerControlSystem];
 	_aimPollenShooterSystem = [AimPollenShooterSystem system];
 	[systemManager setSystem:_aimPollenShooterSystem];
+	_freezeSystem = [FreezeSystem system];
+	[systemManager setSystem:_freezeSystem];
 	_beeExpirationSystem = [BeeExpiratonSystem system];
 	[systemManager setSystem:_beeExpirationSystem];
 	_explodeControlSystem = [ExplodeControlSystem system];
@@ -175,8 +179,8 @@
 	[systemManager setSystem:_beeQueueRenderingSystem];
 	_beeaterSystem = [BeeaterSystem system];
 	[systemManager setSystem:_beeaterSystem];
-	_frozenSystem = [FrozenSystem system];
-	[systemManager setSystem:_frozenSystem];
+	_capturedSystem = [CapturedSystem system];
+	[systemManager setSystem:_capturedSystem];
 	_shardSystem = [ShardSystem system];
 	[systemManager setSystem:_shardSystem];
 	_spawnSystem = [SpawnSystem system];

@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "FrozenComponent.h"
+#import "CapturedComponent.h"
 #import "BeeType.h"
 
-@implementation FrozenComponent
+@implementation CapturedComponent
 
 @synthesize containedBeeType = _containedBeeType;
 
@@ -31,7 +31,7 @@
 {
 	if (self = [super init])
 	{
-		_name = @"frozen";
+		_name = @"captured";
 		_containedBeeType = nil;
 	}
 	return self;

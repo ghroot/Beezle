@@ -330,12 +330,15 @@
 		2C7B1C511558645D00AF0026 /* PauseArrow-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C501558645D00AF0026 /* PauseArrow-01-hd.png */; };
 		2C7B1C54155864CB00AF0026 /* NextLevelButton-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C53155864CB00AF0026 /* NextLevelButton-hd.png */; };
 		2C7B1C561558682800AF0026 /* Level-C55-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C551558682800AF0026 /* Level-C55-Layout.plist */; };
-		2C7B1C5E1559C0EE00AF0026 /* FrozenComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B1C5D1559C0EE00AF0026 /* FrozenComponent.m */; };
-		2C7B1C611559C12700AF0026 /* FrozenSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B1C601559C12700AF0026 /* FrozenSystem.m */; };
+		2C7B1C5E1559C0EE00AF0026 /* CapturedComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B1C5D1559C0EE00AF0026 /* CapturedComponent.m */; };
+		2C7B1C611559C12700AF0026 /* CapturedSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B1C601559C12700AF0026 /* CapturedSystem.m */; };
 		2C7B1C631559C6BD00AF0026 /* Frozen-Tbee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C621559C6BD00AF0026 /* Frozen-Tbee.plist */; };
 		2C7B1C651559C7E500AF0026 /* Tbee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C641559C7E500AF0026 /* Tbee-Animations.plist */; };
 		2C7B1C671559C8CC00AF0026 /* Tbee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C661559C8CC00AF0026 /* Tbee.plist */; };
 		2C7B1C69155B151100AF0026 /* Frozen-Piece.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C68155B151100AF0026 /* Frozen-Piece.plist */; };
+		2C7B1C6C155B299F00AF0026 /* FreezeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B1C6B155B299E00AF0026 /* FreezeComponent.m */; };
+		2C7B1C6F155C66A400AF0026 /* FreezeSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B1C6E155C66A300AF0026 /* FreezeSystem.m */; };
+		2C7B1C72155C683500AF0026 /* FreezableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B1C71155C683300AF0026 /* FreezableComponent.m */; };
 		2C7C3B26150275B800640416 /* PauseArrow-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B25150275B800640416 /* PauseArrow-01.png */; };
 		2C7C3B29150276C300640416 /* Level Completed Bubble-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */; };
 		2C7C3B2A150276C300640416 /* Level Failed Bubble-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */; };
@@ -1598,14 +1601,20 @@
 		2C7B1C501558645D00AF0026 /* PauseArrow-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01-hd.png"; sourceTree = "<group>"; };
 		2C7B1C53155864CB00AF0026 /* NextLevelButton-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NextLevelButton-hd.png"; sourceTree = "<group>"; };
 		2C7B1C551558682800AF0026 /* Level-C55-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-C55-Layout.plist"; sourceTree = "<group>"; };
-		2C7B1C5C1559C0EE00AF0026 /* FrozenComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FrozenComponent.h; path = Classes/Component/FrozenComponent.h; sourceTree = "<group>"; };
-		2C7B1C5D1559C0EE00AF0026 /* FrozenComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FrozenComponent.m; path = Classes/Component/FrozenComponent.m; sourceTree = "<group>"; };
-		2C7B1C5F1559C12700AF0026 /* FrozenSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrozenSystem.h; sourceTree = "<group>"; };
-		2C7B1C601559C12700AF0026 /* FrozenSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrozenSystem.m; sourceTree = "<group>"; };
+		2C7B1C5C1559C0EE00AF0026 /* CapturedComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CapturedComponent.h; path = Classes/Component/CapturedComponent.h; sourceTree = "<group>"; };
+		2C7B1C5D1559C0EE00AF0026 /* CapturedComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CapturedComponent.m; path = Classes/Component/CapturedComponent.m; sourceTree = "<group>"; };
+		2C7B1C5F1559C12700AF0026 /* CapturedSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapturedSystem.h; sourceTree = "<group>"; };
+		2C7B1C601559C12700AF0026 /* CapturedSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapturedSystem.m; sourceTree = "<group>"; };
 		2C7B1C621559C6BD00AF0026 /* Frozen-Tbee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Frozen-Tbee.plist"; sourceTree = "<group>"; };
 		2C7B1C641559C7E500AF0026 /* Tbee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tbee-Animations.plist"; sourceTree = "<group>"; };
 		2C7B1C661559C8CC00AF0026 /* Tbee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tbee.plist; sourceTree = "<group>"; };
 		2C7B1C68155B151100AF0026 /* Frozen-Piece.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Frozen-Piece.plist"; sourceTree = "<group>"; };
+		2C7B1C6A155B299D00AF0026 /* FreezeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FreezeComponent.h; path = Classes/Component/FreezeComponent.h; sourceTree = "<group>"; };
+		2C7B1C6B155B299E00AF0026 /* FreezeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FreezeComponent.m; path = Classes/Component/FreezeComponent.m; sourceTree = "<group>"; };
+		2C7B1C6D155C66A200AF0026 /* FreezeSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreezeSystem.h; sourceTree = "<group>"; };
+		2C7B1C6E155C66A300AF0026 /* FreezeSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreezeSystem.m; sourceTree = "<group>"; };
+		2C7B1C70155C683100AF0026 /* FreezableComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FreezableComponent.h; path = Classes/Component/FreezableComponent.h; sourceTree = "<group>"; };
+		2C7B1C71155C683300AF0026 /* FreezableComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FreezableComponent.m; path = Classes/Component/FreezableComponent.m; sourceTree = "<group>"; };
 		2C7C3B25150275B800640416 /* PauseArrow-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01.png"; sourceTree = "<group>"; };
 		2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level Completed Bubble-01.png"; sourceTree = "<group>"; };
 		2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level Failed Bubble-01.png"; sourceTree = "<group>"; };
@@ -3275,14 +3284,16 @@
 				2C7DF4741549F0F5001A194C /* BeeaterSystem.m */,
 				2C7DF4751549F0F5001A194C /* BeeExpiratonSystem.h */,
 				2C7DF4761549F0F5001A194C /* BeeExpiratonSystem.m */,
+				2C7B1C5F1559C12700AF0026 /* CapturedSystem.h */,
+				2C7B1C601559C12700AF0026 /* CapturedSystem.m */,
 				2C7DF4771549F0F5001A194C /* Collision */,
 				2C7DF4971549F0F5001A194C /* Control */,
 				2C7DF4A01549F0F5001A194C /* Debug */,
 				2C7DF4A51549F0F5001A194C /* DisposalSystem.h */,
 				2C7DF4A61549F0F5001A194C /* DisposalSystem.m */,
 				2C7DF4A71549F0F5001A194C /* Edit */,
-				2C7B1C5F1559C12700AF0026 /* FrozenSystem.h */,
-				2C7B1C601559C12700AF0026 /* FrozenSystem.m */,
+				2C7B1C6D155C66A200AF0026 /* FreezeSystem.h */,
+				2C7B1C6E155C66A300AF0026 /* FreezeSystem.m */,
 				2C7DF4AC1549F0F5001A194C /* GameRulesSystem.h */,
 				2C7DF4AD1549F0F5001A194C /* GameRulesSystem.m */,
 				2C7DF4B01549F0F5001A194C /* HealthSystem.h */,
@@ -4648,6 +4659,8 @@
 				2C465EFB1544B24A00318F1E /* BreakableComponent.m */,
 				2CDB9900155181E700384B54 /* BrittleComponent.h */,
 				2CDB9901155181E800384B54 /* BrittleComponent.m */,
+				2C7B1C5C1559C0EE00AF0026 /* CapturedComponent.h */,
+				2C7B1C5D1559C0EE00AF0026 /* CapturedComponent.m */,
 				2CFFFC0315437623001D9307 /* ConsumerComponent.h */,
 				2CFFFC0415437624001D9307 /* ConsumerComponent.m */,
 				2C5EFCC014EC60530071ED39 /* CrumbleComponent.h */,
@@ -4659,8 +4672,10 @@
 				2CC3EC0A14D608870025F5DA /* Edit */,
 				2C5EFCBD14EC60390071ED39 /* ExplodeComponent.h */,
 				2C5EFCBE14EC603D0071ED39 /* ExplodeComponent.m */,
-				2C7B1C5C1559C0EE00AF0026 /* FrozenComponent.h */,
-				2C7B1C5D1559C0EE00AF0026 /* FrozenComponent.m */,
+				2C7B1C70155C683100AF0026 /* FreezableComponent.h */,
+				2C7B1C71155C683300AF0026 /* FreezableComponent.m */,
+				2C7B1C6A155B299D00AF0026 /* FreezeComponent.h */,
+				2C7B1C6B155B299E00AF0026 /* FreezeComponent.m */,
 				2C6A708A1542C5D70042F5A1 /* HealthComponent.h */,
 				2C6A708B1542C5D80042F5A1 /* HealthComponent.m */,
 				2CC3EBFB14D466460025F5DA /* MovementComponent.h */,
@@ -5897,8 +5912,11 @@
 				2CDB9D961558067500384B54 /* LevelRatings.m in Sources */,
 				2CDB9D99155807D700384B54 /* LevelRating.m in Sources */,
 				2CDB9D9C1558107B00384B54 /* ConfirmationState.m in Sources */,
-				2C7B1C5E1559C0EE00AF0026 /* FrozenComponent.m in Sources */,
-				2C7B1C611559C12700AF0026 /* FrozenSystem.m in Sources */,
+				2C7B1C5E1559C0EE00AF0026 /* CapturedComponent.m in Sources */,
+				2C7B1C611559C12700AF0026 /* CapturedSystem.m in Sources */,
+				2C7B1C6C155B299F00AF0026 /* FreezeComponent.m in Sources */,
+				2C7B1C6F155C66A400AF0026 /* FreezeSystem.m in Sources */,
+				2C7B1C72155C683500AF0026 /* FreezableComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@
 
 @class BeeType;
 
-@interface FrozenComponent : Component
+@interface CapturedComponent : Component
 {
 	BeeType *_containedBeeType;
 }

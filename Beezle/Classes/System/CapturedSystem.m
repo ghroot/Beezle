@@ -6,27 +6,27 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "FrozenSystem.h"
+#import "CapturedSystem.h"
 #import "EntityUtil.h"
-#import "FrozenComponent.h"
+#import "CapturedComponent.h"
 #import "NotificationProcessor.h"
 #import "NotificationTypes.h"
 #import "RenderComponent.h"
 #import "SlingerComponent.h"
 #import "TransformComponent.h"
 
-@interface FrozenSystem()
+@interface CapturedSystem()
 
 -(void) handleEntityDisposed:(NSNotification *)notification;
 -(void) animateAndSaveContainedBee:(Entity *)frozenEntity;
 
 @end
 
-@implementation FrozenSystem
+@implementation CapturedSystem
 
 -(id) init
 {
-	if (self = [super initWithUsedComponentClass:[FrozenComponent class]])
+	if (self = [super initWithUsedComponentClass:[CapturedComponent class]])
 	{
 		_notificationProcessor = [[NotificationProcessor alloc] initWithTarget:self];
 		[_notificationProcessor registerNotification:GAME_NOTIFICATION_ENTITY_DISPOSED withSelector:@selector(handleEntityDisposed:)];
@@ -63,7 +63,7 @@
 -(void) handleEntityDisposed:(NSNotification *)notification
 {
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
-	if ([entity hasComponent:[FrozenComponent class]])
+	if ([entity hasComponent:[CapturedComponent class]])
 	{
 		[self animateAndSaveContainedBee:entity];
 	}
@@ -74,7 +74,7 @@
 	// Save bee
 	TagManager *tagManager = (TagManager *)[[frozenEntity world] getManager:[TagManager class]];
 	Entity *slingerEntity = (Entity *)[tagManager getEntity:@"SLINGER"];
-	FrozenComponent *frozenComponent = [FrozenComponent getFrom:frozenEntity];
+	CapturedComponent *frozenComponent = [CapturedComponent getFrom:frozenEntity];
 	SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
 	[slingerComponent pushBeeType:[frozenComponent containedBeeType]];
 	
