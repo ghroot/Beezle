@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>GLASS-C59</string>
+    <key>template</key>
+    <string>Glass-Template.plist</string>
+    <key>templateSubstitutions</key>
+    <dict>
+        <key>physicsFile</key>
+        <string>C-Glass-Shapes.plist</string>
+        <key>physicsBodyName</key>
+        <string>C59-Glass</string>
+        <key>renderTextureFile</key>
+        <string>C59-Glass.png</string>
+        <key>shardPiecesEntityType</key>
+        <string>GLASS-PIECE-C</string>
+    </dict>
+</dict>
+</plist>
