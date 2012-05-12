@@ -253,6 +253,7 @@
 	
 	if (entityDescription == nil)
 	{
+		NSLog(@"WARNING: Entity type not found: %@", type);
 		return nil;
 	}
 	

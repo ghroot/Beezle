@@ -67,6 +67,9 @@
                                   @"SPEEDEE-PUFF",
                                   @"SPEEDEE",
                                   @"SUMEE",
+								  @"TBEE",
+								  @"FROZEN-PIECE",
+								  @"FROZEN-TBEE",
                                   @"BEEATER-BIRD-A",
                                   @"BEEATER-FISH-A",
                                   @"BEEATER-HANGING-A",
@@ -76,6 +79,10 @@
                                   @"BEEATER-HANGING-B",
                                   @"BEEATER-LAND-B",
                                   @"BEEATER-PIECE-B",
+								  @"BEEATER-BIRD-C",
+								  @"BEEATER-HANGING-C",
+								  @"BEEATER-LAND-C",
+								  @"BEEATER-PIECE-C",
                                   @"SUPER-BEEATER",
                                   @"EGG",
                                   @"FLOATING-BLOCK-A",
@@ -87,8 +94,12 @@
 								  @"POLLEN-ORANGE",
 								  @"POLLEN-YELLOW",
                                   @"SMOKE-MUSHROOM",
-                                  @"RAMP",
-                                  @"RAMP-PIECE",
+                                  @"RAMP-A",
+								  @"RAMP-B",
+								  @"RAMP-C",
+                                  @"RAMP-PIECE-A",
+								  @"RAMP-PIECE-B",
+								  @"RAMP-PIECE-C",
                                   @"SLINGER",
                                   @"LAVA-SPLASH",
                                   @"WATER-SPLASH",
@@ -98,12 +109,6 @@
                                   @"WOOD-3",
                                   @"WOOD-4",
                                   nil];
-    for (int levelNumber = 1; levelNumber <= 60; levelNumber++)
-    {
-        [entityTypesToTest addObject:[NSString stringWithFormat:@"GLASS-A%d", levelNumber]];
-        [entityTypesToTest addObject:[NSString stringWithFormat:@"GLASS-B%d", levelNumber]];
-        [entityTypesToTest addObject:[NSString stringWithFormat:@"GLASS-C%d", levelNumber]];
-    }
     
     for (NSString *entityType in entityTypesToTest)
     {
