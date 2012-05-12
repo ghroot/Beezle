@@ -56,6 +56,18 @@
         {
             spriteSheetZOrder = [ZOrder Z_SHEET_SHARED];
         }
+		else if ([name isEqualToString:@"A"])
+        {
+            spriteSheetZOrder = [ZOrder Z_SHEET_A];
+        }
+		else if ([name isEqualToString:@"B"])
+        {
+            spriteSheetZOrder = [ZOrder Z_SHEET_B];
+        }
+		else if ([name isEqualToString:@"C"])
+        {
+            spriteSheetZOrder = [ZOrder Z_SHEET_C];
+        }
         else if ([name isEqualToString:@"Boss"])
         {
             spriteSheetZOrder = [ZOrder Z_SHEET_BOSS];

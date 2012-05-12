@@ -27,6 +27,10 @@
 +(ZOrder *) Z_SUPER_BEEATER_BODY;
 +(ZOrder *) Z_SUPER_BEEATER_HEAD;
 
++(ZOrder *) Z_SHEET_A;
++(ZOrder *) Z_SHEET_B;
++(ZOrder *) Z_SHEET_C;
+
 +(ZOrder *) Z_SHEET_SHARED;
 +(ZOrder *) Z_BEES;
 +(ZOrder *) Z_SLINGER;

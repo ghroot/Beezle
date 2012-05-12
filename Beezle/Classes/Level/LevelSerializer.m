@@ -12,6 +12,7 @@
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "LevelLayoutEntry.h"
+#import "LevelOrganizer.h"
 
 #define LEVEL_LAYOUT_FORMAT 2
 
@@ -73,6 +74,11 @@
 		if ([type isEqualToString:@"POLLEN"])
 		{
 			type = @"POLLEN-YELLOW";
+		}
+		else if ([type isEqualToString:@"RAMP"])
+		{
+			NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:levelName];
+			type = [NSString stringWithFormat:@"RAMP-%@", theme];
 		}
 		
 		[levelLayoutEntry setType:[NSString stringWithString:type]];

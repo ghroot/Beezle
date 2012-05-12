@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>BEEATER-HANGING-C</string>
+	<key>template</key>
+    <string>Beeater-Hanging-Template.plist</string>
+    <key>templateSubstitutions</key>
+    <dict>
+        <key>beeaterShowBeeAnimationFormat</key>
+        <string>Beeater-Head-C-%@-%@</string>
+		<key>beeaterShowBeeBetweenAnimation1</key>
+        <string>Beeater-Head-C-Idle-Between-Short</string>
+		<key>beeaterShowBeeBetweenAnimation2</key>
+        <string>Beeater-Head-C-Idle-Between-Medium</string>
+		<key>beeaterShowBeeBetweenAnimation3</key>
+        <string>Beeater-Head-C-Idle-Between-Long</string>
+		<key>renderSpriteSheetName</key>
+		<string>C</string>
+		<key>renderBodyDefaultIdleAnimation</key>
+		<string>Beeater-Body-Hanging-C-Idle</string>
+		<key>renderBodyDefaultDestroyAnimation</key>
+		<string>Beeater-Hanging-C-Destroy</string>
+		<key>renderHeadDefaultIdleAnimation</key>
+		<string>Beeater-Head-C-Idle-NoBee</string>
+    </dict>
+</dict>
+</plist>

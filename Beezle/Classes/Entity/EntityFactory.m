@@ -93,7 +93,6 @@
     Entity *backgroundEntity = [world createEntity];
 	
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:name];
 	
     // Transform
     TransformComponent *transformComponent = [TransformComponent component];
@@ -101,32 +100,25 @@
     
     // Render
 	RenderComponent *renderComponent = [RenderComponent component];
-	if ([theme isEqualToString:@"C"])
+	
+	CCTexture2DPixelFormat currentFormat = [CCTexture2D defaultAlphaPixelFormat];
+	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB888];
+	NSString *backImageFileName = [NSString stringWithFormat:@"%@.jpg", name];
+	RenderSprite *backRenderSprite = [RenderSprite renderSpriteWithFile:backImageFileName zOrder:[ZOrder Z_BACKGROUND_BACK]];
+	[backRenderSprite setName:@"back"];
+	[backRenderSprite markAsBackground];
+	[renderComponent addRenderSprite:backRenderSprite];
+	[CCTexture2D setDefaultAlphaPixelFormat:currentFormat];
+	
+	NSString *frontImageFileName = [NSString stringWithFormat:@"%@-front.png", name];
+	CCSprite *frontImageSprite = [CCSprite spriteWithFile:frontImageFileName];
+	if (frontImageSprite != nil)
 	{
-        CCTexture2DPixelFormat currentFormat = [CCTexture2D defaultAlphaPixelFormat];
-		[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB888];
-		NSString *backImageFileName = [NSString stringWithFormat:@"%@-back.jpg", name];
-        RenderSprite *backRenderSprite = [RenderSprite renderSpriteWithFile:backImageFileName zOrder:[ZOrder Z_BACKGROUND_BACK]];
-		[backRenderSprite setName:@"back"];
-		[backRenderSprite markAsBackground];
-		[renderComponent addRenderSprite:backRenderSprite];
-		[CCTexture2D setDefaultAlphaPixelFormat:currentFormat];
-		
-		NSString *frontImageFileName = [NSString stringWithFormat:@"%@-front.png", name];
-        RenderSprite *frontRenderSprite = [RenderSprite renderSpriteWithFile:frontImageFileName zOrder:[ZOrder Z_BACKGROUND_FRONT]];
+		RenderSprite *frontRenderSprite = [RenderSprite renderSpriteWithSprite:frontImageSprite zOrder:[ZOrder Z_BACKGROUND_FRONT]];
 		[frontRenderSprite setName:@"front"];
 		[renderComponent addRenderSprite:frontRenderSprite];
 	}
-	else
-	{
-        CCTexture2DPixelFormat currentFormat = [CCTexture2D defaultAlphaPixelFormat];
-		[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB888];
-		NSString *imageFileName = [NSString stringWithFormat:@"%@.jpg", name];
-        RenderSprite *renderSprite = [RenderSprite renderSpriteWithFile:imageFileName zOrder:[ZOrder Z_BACKGROUND_BACK]];
-		[renderSprite markAsBackground];
-		[renderComponent addRenderSprite:renderSprite];
-		[CCTexture2D setDefaultAlphaPixelFormat:currentFormat];
-	}
+	
     [backgroundEntity addComponent:renderComponent];
     
     // Physics

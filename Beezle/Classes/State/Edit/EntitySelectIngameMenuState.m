@@ -95,16 +95,10 @@
 		[entityType isEqualToString:@"BEEATER-HANGING"] ||
 		[entityType isEqualToString:@"BEEATER-BIRD"] ||
 		[entityType isEqualToString:@"BEEATER-FISH"] ||
-		[entityType isEqualToString:@"HANGNEST"])
+		[entityType isEqualToString:@"HANGNEST"] ||
+		[entityType isEqualToString:@"RAMP"])
 	{
 		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:[editState levelName]];
-		
-		// TEMP
-		if ([theme isEqualToString:@"C"])
-		{
-			theme = @"A";
-		}
-		
 		entityType = [entityType stringByAppendingFormat:@"-%@", theme];
 	}
 	else if ([entityType isEqualToString:@"GLASS"])
