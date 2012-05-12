@@ -60,6 +60,7 @@
 	[self addMenuItemForEntityType:@"FROZEN-TBEE"];
 	[self addMenuItemForEntityType:@"GLASS"];
 	[self addMenuItemForEntityType:@"HANGNEST"];
+	[self addMenuItemForEntityType:@"ICE"];
 	[self addMenuItemForEntityType:@"LEAF"];
 	[self addMenuItemForEntityType:@"MUSHROOM"];
 	[self addMenuItemForEntityType:@"POLLEN-YELLOW"];
@@ -140,6 +141,32 @@
 			else
 			{
 				break;
+			}
+		}
+		return;
+	}
+	else if ([entityType isEqualToString:@"ICE"])
+	{
+		NSString *levelSuffix = [[[editState levelName] componentsSeparatedByString:@"-"] objectAtIndex:1];
+		NSString *iceEntityType = [NSString stringWithFormat:@"ICE-%@", levelSuffix];
+		if ([EntityFactory getEntityDescription:iceEntityType] != nil)
+		{
+			[editState addEntityWithType:iceEntityType];
+		}
+		else
+		{
+			int i = 1;
+			while (TRUE)
+			{
+				NSString *iceEntityType = [NSString stringWithFormat:@"ICE-%@-%d", levelSuffix, i++];
+				if ([EntityFactory getEntityDescription:iceEntityType] != nil)
+				{
+					[editState addEntityWithType:iceEntityType];
+				}
+				else
+				{
+					break;
+				}
 			}
 		}
 		return;

@@ -16,43 +16,50 @@
 
 -(id) init
 {
-	self = [super initWithUsedComponentClass:[FreezeComponent class]];
+	self = [super initWithUsedComponentClass:[FreezableComponent class]];
 	return self;
 }
 
 -(void) processEntity:(Entity *)entity
 {
-	PhysicsComponent *freezePhysicsComponent = [PhysicsComponent getFrom:entity];	
-	cpBB freezeBB = [freezePhysicsComponent boundingBox];
+	PhysicsComponent *freezablePhysicsComponent = [PhysicsComponent getFrom:entity];	
+	cpBB freezableBB = [freezablePhysicsComponent boundingBox];
 	
+	BOOL isTouchingAtLeastOneFreezeEntity = FALSE;
 	for (Entity *otherEntity in [[_world entityManager] entities])
 	{
-		if ([otherEntity hasComponent:[FreezableComponent class]])
+		if ([otherEntity hasComponent:[FreezeComponent class]] &&
+			[otherEntity hasComponent:[PhysicsComponent class]])
 		{
-			FreezableComponent *freezableComponent = [FreezableComponent getFrom:otherEntity];
-			
-			PhysicsComponent *freezablePhysicsComponent = [PhysicsComponent getFrom:otherEntity];	
-			cpBB freezableBB = [freezablePhysicsComponent boundingBox];
+			PhysicsComponent *freezePhysicsComponent = [PhysicsComponent getFrom:otherEntity];	
+			cpBB freezeBB = [freezePhysicsComponent boundingBox];
 			if (cpBBIntersects(freezeBB, freezableBB))
 			{
-				if (![freezableComponent isFrozen])
-				{
-					[freezableComponent setIsFrozen:TRUE];
-					
-					NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:otherEntity forKey:@"entity"];
-					[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_FROZEN object:self userInfo:notificationUserInfo];
-				}
+				isTouchingAtLeastOneFreezeEntity = TRUE;
+				break;
 			}
-			else
-			{
-				if ([freezableComponent isFrozen])
-				{
-					[freezableComponent setIsFrozen:FALSE];
-					
-					NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:otherEntity forKey:@"entity"];
-					[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_UNFROZEN object:self userInfo:notificationUserInfo];
-				}
-			}
+		}
+	}
+
+	FreezableComponent *freezableComponent = [FreezableComponent getFrom:entity];
+	if (isTouchingAtLeastOneFreezeEntity)
+	{
+		if (![freezableComponent isFrozen])
+		{
+			[freezableComponent setIsFrozen:TRUE];
+			
+			NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
+			[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_FROZEN object:self userInfo:notificationUserInfo];
+		}
+	}
+	else
+	{
+		if ([freezableComponent isFrozen])
+		{
+			[freezableComponent setIsFrozen:FALSE];
+			
+			NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
+			[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_UNFROZEN object:self userInfo:notificationUserInfo];
 		}
 	}
 }
