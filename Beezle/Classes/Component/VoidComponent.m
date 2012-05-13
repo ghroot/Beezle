@@ -12,6 +12,18 @@
 
 @synthesize instant = _instant;
 
+-(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+{
+	if (self = [self init])
+	{
+		if ([dict objectForKey:@"instant"] != nil)
+		{
+			_instant = [[dict objectForKey:@"instant"] boolValue];
+		}
+	}
+	return self;
+}
+
 -(id) init
 {
     if (self = [super init])
@@ -19,14 +31,6 @@
 		_name = @"void";
     }
     return self;
-}
-
--(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
-{
-	if ([dict objectForKey:@"instant"] != nil)
-	{
-		_instant = [[dict objectForKey:@"instant"] boolValue];
-	}
 }
 
 @end
