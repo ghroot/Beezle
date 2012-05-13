@@ -17,13 +17,15 @@
 #import "TransformComponent.h"
 #import "Utils.h"
 
-#define PIECES_MIN_VELOCITY 50
-#define PIECES_MAX_VELOCITY 100
-#define PIECES_FADEOUT_DURATION 7.0f
+static const float PIECES_MIN_VELOCITY = 50.0f;
+static const float PIECES_MAX_VELOCITY = 100.0f;
+static const float PIECES_FADEOUT_DURATION = 7.0f;
+static const float DERIVED_PIECES_PER_AREA = 0.0005f;
 
 @interface ShardSystem()
 
 -(void) handleEntityDisposed:(NSNotification *)notification;
+-(int) derivePiecesCountFromBoundingBox:(cpBB)boundingBox;
 -(CGPoint) getRandomPositionWithinShapes:(NSArray *)shapes boundingBox:(cpBB)boundingBox;
 
 @end
@@ -76,7 +78,13 @@
 		
 		cpBB boundingBox = [physicsComponent boundingBox];
 		
-		for (int i = 0; i < [shardComponent piecesCount]; i++)
+		int numberOfPiecesToSpawn = [shardComponent piecesCount];
+		if (numberOfPiecesToSpawn == 0)
+		{
+			numberOfPiecesToSpawn = [self derivePiecesCountFromBoundingBox:boundingBox];
+		}
+		
+		for (int i = 0; i < numberOfPiecesToSpawn; i++)
 		{
 			// Create entity
 			Entity *shardPieceEntity = [EntityFactory createEntity:[shardComponent piecesEntityType] world:_world];
@@ -106,6 +114,12 @@
             }
 		}
 	}
+}
+
+-(int) derivePiecesCountFromBoundingBox:(cpBB)boundingBox
+{
+	float area = (boundingBox.r - boundingBox.l) * (boundingBox.t - boundingBox.b);
+	return (int)(area * DERIVED_PIECES_PER_AREA);
 }
 
 -(CGPoint) getRandomPositionWithinShapes:(NSArray *)shapes boundingBox:(cpBB)boundingBox
