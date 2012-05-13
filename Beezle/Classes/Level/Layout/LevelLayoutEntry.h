@@ -9,11 +9,11 @@
 @interface LevelLayoutEntry : NSObject
 {
     NSString *_type;
-    NSDictionary *_componentsDict;
+    NSDictionary *_instanceComponentsDict;
 }
 
 @property (nonatomic, copy) NSString *type;
-@property (nonatomic, copy) NSDictionary *componentsDict;
+@property (nonatomic, copy) NSDictionary *instanceComponentsDict;
 
 +(LevelLayoutEntry *) entry;
 

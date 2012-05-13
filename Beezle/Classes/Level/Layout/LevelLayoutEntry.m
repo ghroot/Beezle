@@ -11,7 +11,7 @@
 @implementation LevelLayoutEntry
 
 @synthesize type = _type;
-@synthesize componentsDict = _componentsDict;
+@synthesize instanceComponentsDict = _instanceComponentsDict;
 
 +(LevelLayoutEntry *) entry
 {
@@ -22,7 +22,7 @@
 {
     if (self = [super init])
     {
-		_componentsDict = [[NSMutableDictionary alloc] init];
+		_instanceComponentsDict = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -30,7 +30,7 @@
 -(void) dealloc
 {
 	[_type release];
-	[_componentsDict release];
+	[_instanceComponentsDict release];
     
     [super dealloc];
 }

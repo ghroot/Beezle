@@ -84,7 +84,7 @@
 		[levelLayoutEntry setType:[NSString stringWithString:type]];
 		
 		NSDictionary *components = [entity objectForKey:@"components"];
-		[levelLayoutEntry setComponentsDict:components];
+		[levelLayoutEntry setInstanceComponentsDict:components];
 		
 		[levelLayout addLevelLayoutEntry:levelLayoutEntry];
 	}
@@ -107,7 +107,7 @@
 	{
 		NSMutableDictionary *entity = [NSMutableDictionary dictionary];
 		[entity setObject:[levelLayoutEntry type] forKey:@"type"];
-		[entity setObject:[levelLayoutEntry componentsDict] forKey:@"components"];
+		[entity setObject:[levelLayoutEntry instanceComponentsDict] forKey:@"components"];
 		[entities addObject:entity];
 	}
 	[dict setObject:entities forKey:@"entities"];
@@ -144,7 +144,7 @@
 					[componentsDict setObject:componentDict forKey:[component name]];
 				}
 			}
-			[levelLayoutEntry setComponentsDict:componentsDict];
+			[levelLayoutEntry setInstanceComponentsDict:componentsDict];
 						
 			[levelLayout addLevelLayoutEntry:levelLayoutEntry];
 		}

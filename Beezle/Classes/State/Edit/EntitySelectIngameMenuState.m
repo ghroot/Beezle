@@ -8,17 +8,19 @@
 
 #import "EntitySelectIngameMenuState.h"
 #import "EditState.h"
+#import "EntityDescription.h"
 #import "EntityFactory.h"
 #import "Game.h"
 #import "LevelOrganizer.h"
+#import "RenderComponent.h"
+#import "RenderSprite.h"
+#import "StringList.h"
 
 @interface EntitySelectIngameMenuState()
 
 -(void) createEntityMenuItems;
 -(void) addMenuItemForEntityType:(NSString *)entityType;
-
 -(void) addEntity:(id)sender;
-
 -(void) cancel:(id)sender;
 
 @end
@@ -92,6 +94,9 @@
 	[_game popState];
 	EditState *editState = (EditState *)[_game currentState];
 	
+	NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:[editState levelName]];
+	NSString *levelSuffix = [[[editState levelName] componentsSeparatedByString:@"-"] objectAtIndex:1];
+	
 	if ([entityType isEqualToString:@"BEEATER-LAND"] ||
 		[entityType isEqualToString:@"BEEATER-HANGING"] ||
 		[entityType isEqualToString:@"BEEATER-BIRD"] ||
@@ -99,12 +104,10 @@
 		[entityType isEqualToString:@"HANGNEST"] ||
 		[entityType isEqualToString:@"RAMP"])
 	{
-		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:[editState levelName]];
 		entityType = [entityType stringByAppendingFormat:@"-%@", theme];
 	}
 	else if ([entityType isEqualToString:@"GLASS"])
 	{
-		NSString *levelSuffix = [[[editState levelName] componentsSeparatedByString:@"-"] objectAtIndex:1];
 		NSString *glassEntityType = [NSString stringWithFormat:@"GLASS-%@", levelSuffix];
 		if ([EntityFactory getEntityDescription:glassEntityType] != nil)
 		{
@@ -130,24 +133,72 @@
 	}
 	else if ([entityType isEqualToString:@"CLIRR"])
 	{
+		EntityDescription *clirrEntityDescription = [EntityFactory getEntityDescription:@"CLIRR"];
+		NSDictionary *clirrRenderComponentDict = [[clirrEntityDescription typeComponentsDict] objectForKey:@"render"];
+		NSDictionary *clirrRenderSpriteDict = [[clirrRenderComponentDict objectForKey:@"sprites"] lastObject];
+		NSString *clirrAnimationsFile = [clirrRenderSpriteDict objectForKey:@"animationFile"];
+		NSString *path = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:clirrAnimationsFile];
+		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+		NSDictionary *animationsDict = [dict objectForKey:@"animations"];
+		NSMutableArray *clirrAnimationNames = [NSMutableArray array];
+		for (NSString *animationName in [animationsDict allKeys])
+		{
+			[clirrAnimationNames addObject:animationName];
+		}
+		
 		int i = 1;
 		while (TRUE)
 		{
-			NSString *clirrEntityType = [NSString stringWithFormat:@"CLIRR-C55-%d", i++];
-			if ([EntityFactory getEntityDescription:clirrEntityType] != nil)
+			NSString *clirrAnimationName = [NSString stringWithFormat:@"%@-Clirr-%d", levelSuffix, i++];
+			if ([clirrAnimationNames containsObject:clirrAnimationName])
 			{
-				[editState addEntityWithType:clirrEntityType];
+				Entity *clirrEntity = [editState addEntityWithType:@"CLIRR"];
+				RenderComponent *clirrRenderComponent = [RenderComponent getFrom:clirrEntity];
+				RenderSprite *clirrRenderSprite = [clirrRenderComponent defaultRenderSprite];
+				[[clirrRenderSprite defaultIdleAnimationNames] addString:clirrAnimationName];
+				[clirrRenderSprite playDefaultIdleAnimation];
 			}
 			else
 			{
+				i = 1;
+				int j = 1;
+				BOOL atLeastOneAnimationForThisI = FALSE;
+				while (TRUE)
+				{
+					clirrAnimationName = [NSString stringWithFormat:@"%@-Clirr-%d-%d", levelSuffix, i, j++];
+					if ([clirrAnimationNames containsObject:clirrAnimationName])
+					{
+						Entity *clirrEntity = [editState addEntityWithType:@"CLIRR"];
+						RenderComponent *clirrRenderComponent = [RenderComponent getFrom:clirrEntity];
+						RenderSprite *clirrRenderSprite = [clirrRenderComponent defaultRenderSprite];
+						[[clirrRenderSprite overrideIdleAnimationNames] addString:clirrAnimationName];
+						[clirrRenderSprite playDefaultIdleAnimation];
+						
+						atLeastOneAnimationForThisI = TRUE;
+					}
+					else
+					{
+						if (atLeastOneAnimationForThisI)
+						{
+							atLeastOneAnimationForThisI = FALSE;
+							i++;
+							j = 1;
+						}
+						else
+						{
+							break;
+						}
+					}
+				}
+				
 				break;
 			}
 		}
+		
 		return;
 	}
 	else if ([entityType isEqualToString:@"ICE"])
 	{
-		NSString *levelSuffix = [[[editState levelName] componentsSeparatedByString:@"-"] objectAtIndex:1];
 		NSString *iceEntityType = [NSString stringWithFormat:@"ICE-%@", levelSuffix];
 		if ([EntityFactory getEntityDescription:iceEntityType] != nil)
 		{

@@ -247,7 +247,7 @@
 	return waterEntity;
 }
 
-+(Entity *) createEntity:(NSString *)type world:(World *)world edit:(BOOL)edit
++(Entity *) createEntity:(NSString *)type world:(World *)world instanceComponentsDict:(NSDictionary *)instanceComponentsDict edit:(BOOL)edit
 {
 	EntityDescription *entityDescription = [self getEntityDescription:type];
 	
@@ -264,7 +264,7 @@
 		[entity addComponent:[EditComponent componentWithLevelLayoutType:type]];
 	}
 	
-	NSArray *components = [entityDescription createComponents:world];
+	NSArray *components = [entityDescription createComponents:world instanceComponentsDict:instanceComponentsDict];
 	for (Component *component in components)
 	{
 		[entity addComponent:component];
@@ -277,7 +277,7 @@
 		{
 			NSString *spawnType = [[SpawnComponent getFrom:entity] entityType];
 			EntityDescription *spawnEntityDescription = [self getEntityDescription:spawnType];
-			NSDictionary *renderComponentDict = [[spawnEntityDescription componentsDict] objectForKey:@"render"];
+			NSDictionary *renderComponentDict = [[spawnEntityDescription typeComponentsDict] objectForKey:@"render"];
 			if (renderComponentDict != nil)
 			{
 				RenderComponent *spawnRenderComponent = [RenderComponent componentWithContentsOfDictionary:renderComponentDict world:world];
@@ -323,9 +323,14 @@
 	return entityDescription;
 }
 
++(Entity *) createEntity:(NSString *)type world:(World *)world edit:(BOOL)edit
+{
+	return [self createEntity:type world:world instanceComponentsDict:nil edit:edit];
+}
+
 +(Entity *) createEntity:(NSString *)type world:(World *)world
 {
-	return [self createEntity:type world:world edit:FALSE];
+	return [self createEntity:type world:world instanceComponentsDict:nil edit:FALSE];
 }
 
 +(Entity *) createBee:(World *)world withBeeType:(BeeType *)beeType andVelocity:(CGPoint)velocity
@@ -347,7 +352,7 @@
 	
 	// Clone bee's physics component
 	EntityDescription *beeEntityDescription = [self getEntityDescription:[beeType name]];
-	NSDictionary *beePhysicsDict = [[beeEntityDescription componentsDict] objectForKey:@"physics"];
+	NSDictionary *beePhysicsDict = [[beeEntityDescription typeComponentsDict] objectForKey:@"physics"];
 	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithContentsOfDictionary:beePhysicsDict world:world];
 	[physicsComponent setLayers:AIM_POLLEN_LAYERS];
 	[[physicsComponent body] setVel:velocity];

@@ -18,6 +18,7 @@
 +(Entity *) createBackground:(World *)world withLevelName:(NSString *)name;
 +(Entity *) createWater:(World *)world withLevelName:(NSString *)levelName;
 
++(Entity *) createEntity:(NSString *)type world:(World *)world instanceComponentsDict:(NSDictionary *)instanceComponentsDict edit:(BOOL)edit;
 +(Entity *) createEntity:(NSString *)type world:(World *)world edit:(BOOL)edit;
 +(Entity *) createEntity:(NSString *)type world:(World *)world;
 

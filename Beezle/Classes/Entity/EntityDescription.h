@@ -14,15 +14,15 @@
 	NSArray *_groups;
 	NSArray *_labels;
 	NSArray *_tags;
-	NSDictionary *_componentsDict;
+	NSDictionary *_typeComponentsDict;
 }
 
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSArray *groups;
 @property (nonatomic, copy) NSArray *labels;
 @property (nonatomic, copy) NSArray *tags;
-@property (nonatomic, copy) NSDictionary *componentsDict;
+@property (nonatomic, copy) NSDictionary *typeComponentsDict;
 
--(NSArray *) createComponents:(World *)world;
+-(NSArray *) createComponents:(World *)world instanceComponentsDict:(NSDictionary *)instanceComponentsDict;
 
 @end

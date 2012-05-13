@@ -73,6 +73,10 @@
                 NSString *textureFile = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:[spriteDict objectForKey:@"textureFile"]];
                 renderSprite = [RenderSprite renderSpriteWithFile:textureFile zOrder:zOrder];
 			}
+			else
+			{
+				NSLog(@"WARNING: Render component must specify either 'spriteSheetName' or 'textureFile'");
+			}
             
             if ([spriteDict objectForKey:@"name"] != nil)
             {
@@ -105,6 +109,40 @@
 	[_renderSprites release];
     
     [super dealloc];
+}
+
+-(NSDictionary *) getAsDictionary
+{
+	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	NSMutableArray *renderSpritesArray = [NSMutableArray array];
+	for (RenderSprite *renderSprite in _renderSprites)
+	{
+		NSMutableDictionary *renderSpriteDict = [NSMutableDictionary dictionary];
+		if ([[renderSprite overrideIdleAnimationNames] hasStrings])
+		{
+			[renderSpriteDict setObject:[renderSprite name] forKey:@"name"];
+			[renderSpriteDict setObject:[[renderSprite overrideIdleAnimationNames] randomString] forKey:@"overrideIdleAnimation"];
+			[renderSpritesArray addObject:renderSpriteDict];
+		}
+	}
+	if ([renderSpritesArray count] > 0)
+	{
+		[dict setObject:renderSpritesArray forKey:@"sprites"];
+	}
+	return dict;
+}
+
+-(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+{
+	if ([dict objectForKey:@"sprites"] != nil)
+	{
+		for (NSDictionary *renderSpriteDict in [dict objectForKey:@"sprites"])
+		{
+			RenderSprite *renderSprite = [self renderSpriteWithName:[renderSpriteDict objectForKey:@"name"]];
+			[[renderSprite overrideIdleAnimationNames] addStringsFromDictionary:renderSpriteDict baseName:@"overrideIdleAnimation"];
+			[renderSprite playDefaultIdleAnimation];
+		}
+	}
 }
 
 -(id) copyWithZone:(NSZone *)zone

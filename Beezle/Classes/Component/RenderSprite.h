@@ -13,6 +13,7 @@
 
 @interface RenderSprite : NSObject <NSCopying>
 {
+	// Type
     CCSpriteBatchNode *_spriteSheet;
     CCSprite *_sprite;
 	ZOrder *_zOrder;
@@ -23,6 +24,9 @@
 	StringList *_defaultHitAnimationNames;
     StringList *_defaultDestroyAnimationNames;
 	StringList *_defaultStillAnimationNames;
+	
+	// Instance
+	StringList *_overrideIdleAnimationNames;
 }
 
 @property (nonatomic, readonly) CCSprite *sprite;
@@ -35,6 +39,7 @@
 @property (nonatomic, readonly) StringList *defaultHitAnimationNames;
 @property (nonatomic, readonly) StringList *defaultDestroyAnimationNames;
 @property (nonatomic, readonly) StringList *defaultStillAnimationNames;
+@property (nonatomic, readonly) StringList *overrideIdleAnimationNames;
 
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet zOrder:(ZOrder *)zOrder;
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;

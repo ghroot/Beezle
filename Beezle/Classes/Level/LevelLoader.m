@@ -25,6 +25,7 @@
 @interface LevelLoader()
 
 -(LevelLayout *) loadLevelLayoutFromFile:(NSString *)filePath isEdited:(BOOL)isEdited;
+-(void) createEntities:(NSArray *)entries levelName:(NSString *)levelName world:(World *)world edit:(BOOL)edit;
 
 @end
 
@@ -95,64 +96,30 @@
 -(void) loadLevel:(NSString *)levelName inWorld:(World *)world edit:(BOOL)edit
 {
 	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+	
+	[EntityFactory createEdge:world];
+	[EntityFactory createBackground:world withLevelName:levelName];
+	
 	if (levelLayout != nil)
 	{
-		[EntityFactory createEdge:world];
-		[EntityFactory createBackground:world withLevelName:levelName];
-		for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
-		{
-			Entity *entity = [EntityFactory createEntity:[levelLayoutEntry type] world:world edit:edit];
-			
-			if (entity == nil)
-			{
-				NSLog(@"Unsupported entity type in layout %@: %@", levelName, [levelLayoutEntry type]);
-				continue;
-			}
-			
-			if ([[levelLayoutEntry componentsDict] objectForKey:@"beeater"] != nil)
-			{
-				NSDictionary *beeaterDict = [[levelLayoutEntry componentsDict] objectForKey:@"beeater"];
-				[[BeeaterComponent getFrom:entity] populateWithContentsOfDictionary:beeaterDict world:world];
-			}
-			if ([[levelLayoutEntry componentsDict] objectForKey:@"disposable"] != nil)
-			{
-				NSDictionary *disposableDict = [[levelLayoutEntry componentsDict] objectForKey:@"disposable"];
-				[[DisposableComponent getFrom:entity] populateWithContentsOfDictionary:disposableDict world:world];
-			}
-			if ([[levelLayoutEntry componentsDict] objectForKey:@"movement"] != nil)
-			{
-				NSDictionary *movementDict = [[levelLayoutEntry componentsDict] objectForKey:@"movement"];
-				[[MovementComponent getFrom:entity] populateWithContentsOfDictionary:movementDict world:world edit:edit];
-			}
-			if ([[levelLayoutEntry componentsDict] objectForKey:@"physics"] != nil)
-			{
-				NSDictionary *physicsDict = [[levelLayoutEntry componentsDict] objectForKey:@"physics"];
-				[[PhysicsComponent getFrom:entity] populateWithContentsOfDictionary:physicsDict world:world];
-			}
-			if ([[levelLayoutEntry componentsDict] objectForKey:@"render"] != nil)
-			{
-				NSDictionary *renderDict = [[levelLayoutEntry componentsDict] objectForKey:@"render"];
-				[[RenderComponent getFrom:entity] populateWithContentsOfDictionary:renderDict world:world];
-			}
-			if ([[levelLayoutEntry componentsDict] objectForKey:@"slinger"] != nil)
-			{
-				NSDictionary *slingerDict = [[levelLayoutEntry componentsDict] objectForKey:@"slinger"];
-				[[SlingerComponent getFrom:entity] populateWithContentsOfDictionary:slingerDict world:world];
-			}
-			if ([[levelLayoutEntry componentsDict] objectForKey:@"transform"] != nil)
-			{
-				NSDictionary *transformDict = [[levelLayoutEntry componentsDict] objectForKey:@"transform"];
-				[[TransformComponent getFrom:entity] populateWithContentsOfDictionary:transformDict world:world];
-			}
-		}
+		[self createEntities:[levelLayout entries] levelName:levelName world:world edit:edit];
 		if ([levelLayout hasWater])
 		{
 			[EntityFactory createWater:world withLevelName:levelName];
 		}
 	}
-	else
+}
+
+-(void) createEntities:(NSArray *)entries levelName:(NSString *)levelName world:(World *)world edit:(BOOL)edit
+{
+	for (LevelLayoutEntry *levelLayoutEntry in entries)
 	{
-		[EntityFactory createBackground:world withLevelName:levelName];
+		Entity *entity = [EntityFactory createEntity:[levelLayoutEntry type] world:world instanceComponentsDict:[levelLayoutEntry instanceComponentsDict] edit:edit];
+		
+		if (entity == nil)
+		{
+			NSLog(@"Unsupported entity type in layout %@: %@", levelName, [levelLayoutEntry type]);
+		}
 	}
 }
 

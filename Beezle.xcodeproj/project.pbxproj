@@ -767,6 +767,10 @@
 		2CD1CCA3155F26B30090AFBE /* Ice-C25.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD1CCA2155F26B30090AFBE /* Ice-C25.plist */; };
 		2CD1CCA5155F27180090AFBE /* C25-Ice-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CD1CCA4155F27180090AFBE /* C25-Ice-hd.png */; };
 		2CD1CCA7155F27990090AFBE /* C-Ice-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD1CCA6155F27990090AFBE /* C-Ice-Shapes.plist */; };
+		2CD1CCA9155F36BB0090AFBE /* C4-Ice-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CD1CCA8155F36BB0090AFBE /* C4-Ice-hd.png */; };
+		2CD1CCAB155F36F10090AFBE /* Ice-C4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD1CCAA155F36F10090AFBE /* Ice-C4.plist */; };
+		2CD1CCAD156008B40090AFBE /* Clirr.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD1CCAC156008B40090AFBE /* Clirr.plist */; };
+		2CD1CCB115605D2B0090AFBE /* NSDictionary+Merge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD1CCB015605D2B0090AFBE /* NSDictionary+Merge.m */; };
 		2CD2529E15095B9A00B9E300 /* Speedee-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD2529D15095B9A00B9E300 /* Speedee-Shapes.plist */; };
 		2CD2C42E14D19E2A00DC0BD5 /* GandEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD2C42D14D19E2A00DC0BD5 /* GandEnum.m */; };
 		2CD33ED8147D72AD000869C1 /* GameplayState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD33ED7147D72AD000869C1 /* GameplayState.m */; };
@@ -1328,25 +1332,7 @@
 		2CDB9D591555E5A300384B54 /* B39-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D551555E5A300384B54 /* B39-Glass-hd.png */; };
 		2CDB9D5A1555E5A300384B54 /* B39-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D561555E5A300384B54 /* B39-Glass.png */; };
 		2CDB9D5C1557143300384B54 /* Clirr-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D5B1557143200384B54 /* Clirr-Animations.plist */; };
-		2CDB9D61155716DE00384B54 /* Clirr-C55-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D5F155716DE00384B54 /* Clirr-C55-1.plist */; };
 		2CDB9D62155716DE00384B54 /* Clirr-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D60155716DE00384B54 /* Clirr-Template.plist */; };
-		2CDB9D661557278A00384B54 /* Clirr-C55-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D651557278900384B54 /* Clirr-C55-2.plist */; };
-		2CDB9D7715572B8500384B54 /* Clirr-C55-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D6715572B7400384B54 /* Clirr-C55-3.plist */; };
-		2CDB9D7815572B8500384B54 /* Clirr-C55-4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D6815572B7400384B54 /* Clirr-C55-4.plist */; };
-		2CDB9D7915572B8500384B54 /* Clirr-C55-5.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D6915572B7500384B54 /* Clirr-C55-5.plist */; };
-		2CDB9D7A15572B8500384B54 /* Clirr-C55-6.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D6A15572B7500384B54 /* Clirr-C55-6.plist */; };
-		2CDB9D7B15572B8500384B54 /* Clirr-C55-7.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D6B15572B7700384B54 /* Clirr-C55-7.plist */; };
-		2CDB9D7C15572B8500384B54 /* Clirr-C55-8.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D6C15572B7900384B54 /* Clirr-C55-8.plist */; };
-		2CDB9D7D15572B8500384B54 /* Clirr-C55-9.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D6D15572B7A00384B54 /* Clirr-C55-9.plist */; };
-		2CDB9D7E15572B8500384B54 /* Clirr-C55-10.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D6E15572B7A00384B54 /* Clirr-C55-10.plist */; };
-		2CDB9D7F15572B8500384B54 /* Clirr-C55-11.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D6F15572B7B00384B54 /* Clirr-C55-11.plist */; };
-		2CDB9D8015572B8500384B54 /* Clirr-C55-12.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D7015572B7B00384B54 /* Clirr-C55-12.plist */; };
-		2CDB9D8115572B8500384B54 /* Clirr-C55-13.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D7115572B7C00384B54 /* Clirr-C55-13.plist */; };
-		2CDB9D8215572B8500384B54 /* Clirr-C55-14.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D7215572B7F00384B54 /* Clirr-C55-14.plist */; };
-		2CDB9D8315572B8500384B54 /* Clirr-C55-15.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D7315572B7F00384B54 /* Clirr-C55-15.plist */; };
-		2CDB9D8415572B8500384B54 /* Clirr-C55-16.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D7415572B8000384B54 /* Clirr-C55-16.plist */; };
-		2CDB9D8515572B8500384B54 /* Clirr-C55-17.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D7515572B8400384B54 /* Clirr-C55-17.plist */; };
-		2CDB9D8615572B8500384B54 /* Clirr-C55-18.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D7615572B8500384B54 /* Clirr-C55-18.plist */; };
 		2CDB9D8915572FAF00384B54 /* Clirr-Piece.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D8815572FA800384B54 /* Clirr-Piece.plist */; };
 		2CDB9D8B155733B700384B54 /* C-Level-Music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB9D8A155733B700384B54 /* C-Level-Music.m4a */; };
 		2CDB9D8F1557FBDF00384B54 /* SessionTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB9D8E1557FBDF00384B54 /* SessionTracker.m */; };
@@ -2477,6 +2463,11 @@
 		2CD1CCA2155F26B30090AFBE /* Ice-C25.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ice-C25.plist"; sourceTree = "<group>"; };
 		2CD1CCA4155F27180090AFBE /* C25-Ice-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C25-Ice-hd.png"; sourceTree = "<group>"; };
 		2CD1CCA6155F27990090AFBE /* C-Ice-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "C-Ice-Shapes.plist"; sourceTree = "<group>"; };
+		2CD1CCA8155F36BB0090AFBE /* C4-Ice-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C4-Ice-hd.png"; sourceTree = "<group>"; };
+		2CD1CCAA155F36F10090AFBE /* Ice-C4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ice-C4.plist"; sourceTree = "<group>"; };
+		2CD1CCAC156008B40090AFBE /* Clirr.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Clirr.plist; sourceTree = "<group>"; };
+		2CD1CCAF15605D2B0090AFBE /* NSDictionary+Merge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Merge.h"; sourceTree = "<group>"; };
+		2CD1CCB015605D2B0090AFBE /* NSDictionary+Merge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Merge.m"; sourceTree = "<group>"; };
 		2CD2529D15095B9A00B9E300 /* Speedee-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Speedee-Shapes.plist"; sourceTree = "<group>"; };
 		2CD2C42C14D19E2A00DC0BD5 /* GandEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GandEnum.h; sourceTree = "<group>"; };
 		2CD2C42D14D19E2A00DC0BD5 /* GandEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GandEnum.m; sourceTree = "<group>"; };
@@ -3044,25 +3035,7 @@
 		2CDB9D551555E5A300384B54 /* B39-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "B39-Glass-hd.png"; sourceTree = "<group>"; };
 		2CDB9D561555E5A300384B54 /* B39-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "B39-Glass.png"; sourceTree = "<group>"; };
 		2CDB9D5B1557143200384B54 /* Clirr-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-Animations.plist"; sourceTree = "<group>"; };
-		2CDB9D5F155716DE00384B54 /* Clirr-C55-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-1.plist"; sourceTree = "<group>"; };
 		2CDB9D60155716DE00384B54 /* Clirr-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-Template.plist"; sourceTree = "<group>"; };
-		2CDB9D651557278900384B54 /* Clirr-C55-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-2.plist"; sourceTree = "<group>"; };
-		2CDB9D6715572B7400384B54 /* Clirr-C55-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-3.plist"; sourceTree = "<group>"; };
-		2CDB9D6815572B7400384B54 /* Clirr-C55-4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-4.plist"; sourceTree = "<group>"; };
-		2CDB9D6915572B7500384B54 /* Clirr-C55-5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-5.plist"; sourceTree = "<group>"; };
-		2CDB9D6A15572B7500384B54 /* Clirr-C55-6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-6.plist"; sourceTree = "<group>"; };
-		2CDB9D6B15572B7700384B54 /* Clirr-C55-7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-7.plist"; sourceTree = "<group>"; };
-		2CDB9D6C15572B7900384B54 /* Clirr-C55-8.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-8.plist"; sourceTree = "<group>"; };
-		2CDB9D6D15572B7A00384B54 /* Clirr-C55-9.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-9.plist"; sourceTree = "<group>"; };
-		2CDB9D6E15572B7A00384B54 /* Clirr-C55-10.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-10.plist"; sourceTree = "<group>"; };
-		2CDB9D6F15572B7B00384B54 /* Clirr-C55-11.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-11.plist"; sourceTree = "<group>"; };
-		2CDB9D7015572B7B00384B54 /* Clirr-C55-12.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-12.plist"; sourceTree = "<group>"; };
-		2CDB9D7115572B7C00384B54 /* Clirr-C55-13.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-13.plist"; sourceTree = "<group>"; };
-		2CDB9D7215572B7F00384B54 /* Clirr-C55-14.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-14.plist"; sourceTree = "<group>"; };
-		2CDB9D7315572B7F00384B54 /* Clirr-C55-15.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-15.plist"; sourceTree = "<group>"; };
-		2CDB9D7415572B8000384B54 /* Clirr-C55-16.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-16.plist"; sourceTree = "<group>"; };
-		2CDB9D7515572B8400384B54 /* Clirr-C55-17.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-17.plist"; sourceTree = "<group>"; };
-		2CDB9D7615572B8500384B54 /* Clirr-C55-18.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-C55-18.plist"; sourceTree = "<group>"; };
 		2CDB9D8815572FA800384B54 /* Clirr-Piece.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Clirr-Piece.plist"; sourceTree = "<group>"; };
 		2CDB9D8A155733B700384B54 /* C-Level-Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "C-Level-Music.m4a"; sourceTree = "<group>"; };
 		2CDB9D8D1557FBDF00384B54 /* SessionTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTracker.h; sourceTree = "<group>"; };
@@ -4722,6 +4695,7 @@
 				2CD1CC6A155F260B0090AFBE /* C36-Ice.png */,
 				2CD1CC6B155F260B0090AFBE /* C38-Ice.png */,
 				2CD1CC6C155F260B0090AFBE /* C39-Ice.png */,
+				2CD1CCA8155F36BB0090AFBE /* C4-Ice-hd.png */,
 				2CD1CC6D155F260B0090AFBE /* C4-Ice.png */,
 				2CD1CC6E155F260B0090AFBE /* C40-Ice.png */,
 				2CD1CC6F155F260B0090AFBE /* C41-Ice.png */,
@@ -4753,9 +4727,20 @@
 		2CD1CC9F155F264E0090AFBE /* C */ = {
 			isa = PBXGroup;
 			children = (
+				2CD1CCAA155F36F10090AFBE /* Ice-C4.plist */,
 				2CD1CCA2155F26B30090AFBE /* Ice-C25.plist */,
 			);
 			path = C;
+			sourceTree = "<group>";
+		};
+		2CD1CCAE15605D0E0090AFBE /* NSDictionary+Merge */ = {
+			isa = PBXGroup;
+			children = (
+				2CD1CCAF15605D2B0090AFBE /* NSDictionary+Merge.h */,
+				2CD1CCB015605D2B0090AFBE /* NSDictionary+Merge.m */,
+			);
+			name = "NSDictionary+Merge";
+			path = "libs/NSDictionary+Merge";
 			sourceTree = "<group>";
 		};
 		2CD2C42B14D19E2A00DC0BD5 /* GandEnum */ = {
@@ -5379,36 +5364,11 @@
 		2CDB9D5D155716DE00384B54 /* Clirr */ = {
 			isa = PBXGroup;
 			children = (
-				2CDB9D5E155716DE00384B54 /* C */,
 				2CDB9D8815572FA800384B54 /* Clirr-Piece.plist */,
 				2CDB9D60155716DE00384B54 /* Clirr-Template.plist */,
+				2CD1CCAC156008B40090AFBE /* Clirr.plist */,
 			);
 			path = Clirr;
-			sourceTree = "<group>";
-		};
-		2CDB9D5E155716DE00384B54 /* C */ = {
-			isa = PBXGroup;
-			children = (
-				2CDB9D5F155716DE00384B54 /* Clirr-C55-1.plist */,
-				2CDB9D6E15572B7A00384B54 /* Clirr-C55-10.plist */,
-				2CDB9D6F15572B7B00384B54 /* Clirr-C55-11.plist */,
-				2CDB9D7015572B7B00384B54 /* Clirr-C55-12.plist */,
-				2CDB9D7115572B7C00384B54 /* Clirr-C55-13.plist */,
-				2CDB9D7215572B7F00384B54 /* Clirr-C55-14.plist */,
-				2CDB9D7315572B7F00384B54 /* Clirr-C55-15.plist */,
-				2CDB9D7415572B8000384B54 /* Clirr-C55-16.plist */,
-				2CDB9D7515572B8400384B54 /* Clirr-C55-17.plist */,
-				2CDB9D7615572B8500384B54 /* Clirr-C55-18.plist */,
-				2CDB9D651557278900384B54 /* Clirr-C55-2.plist */,
-				2CDB9D6715572B7400384B54 /* Clirr-C55-3.plist */,
-				2CDB9D6815572B7400384B54 /* Clirr-C55-4.plist */,
-				2CDB9D6915572B7500384B54 /* Clirr-C55-5.plist */,
-				2CDB9D6A15572B7500384B54 /* Clirr-C55-6.plist */,
-				2CDB9D6B15572B7700384B54 /* Clirr-C55-7.plist */,
-				2CDB9D6C15572B7900384B54 /* Clirr-C55-8.plist */,
-				2CDB9D6D15572B7A00384B54 /* Clirr-C55-9.plist */,
-			);
-			path = C;
 			sourceTree = "<group>";
 		};
 		2CDB9D8C1557FBBD00384B54 /* Debug */ = {
@@ -5706,6 +5666,7 @@
 				2C114746148B9459002E4DBD /* LICENSE_cocos2d.txt */,
 				2C114747148B9459002E4DBD /* LICENSE_CocosDenshion.txt */,
 				2C114748148B9459002E4DBD /* LICENSE_Kazmath.txt */,
+				2CD1CCAE15605D0E0090AFBE /* NSDictionary+Merge */,
 				2C88B5AC14A3DA8700B5B190 /* ObjectiveChipmunk-iPhone */,
 				2C8B1819153391FC003F3465 /* PWObject */,
 				2C5C9A36154A0D8800FF6F57 /* TestFlight */,
@@ -6681,25 +6642,7 @@
 				2CDB9D591555E5A300384B54 /* B39-Glass-hd.png in Resources */,
 				2CDB9D5A1555E5A300384B54 /* B39-Glass.png in Resources */,
 				2CDB9D5C1557143300384B54 /* Clirr-Animations.plist in Resources */,
-				2CDB9D61155716DE00384B54 /* Clirr-C55-1.plist in Resources */,
 				2CDB9D62155716DE00384B54 /* Clirr-Template.plist in Resources */,
-				2CDB9D661557278A00384B54 /* Clirr-C55-2.plist in Resources */,
-				2CDB9D7715572B8500384B54 /* Clirr-C55-3.plist in Resources */,
-				2CDB9D7815572B8500384B54 /* Clirr-C55-4.plist in Resources */,
-				2CDB9D7915572B8500384B54 /* Clirr-C55-5.plist in Resources */,
-				2CDB9D7A15572B8500384B54 /* Clirr-C55-6.plist in Resources */,
-				2CDB9D7B15572B8500384B54 /* Clirr-C55-7.plist in Resources */,
-				2CDB9D7C15572B8500384B54 /* Clirr-C55-8.plist in Resources */,
-				2CDB9D7D15572B8500384B54 /* Clirr-C55-9.plist in Resources */,
-				2CDB9D7E15572B8500384B54 /* Clirr-C55-10.plist in Resources */,
-				2CDB9D7F15572B8500384B54 /* Clirr-C55-11.plist in Resources */,
-				2CDB9D8015572B8500384B54 /* Clirr-C55-12.plist in Resources */,
-				2CDB9D8115572B8500384B54 /* Clirr-C55-13.plist in Resources */,
-				2CDB9D8215572B8500384B54 /* Clirr-C55-14.plist in Resources */,
-				2CDB9D8315572B8500384B54 /* Clirr-C55-15.plist in Resources */,
-				2CDB9D8415572B8500384B54 /* Clirr-C55-16.plist in Resources */,
-				2CDB9D8515572B8500384B54 /* Clirr-C55-17.plist in Resources */,
-				2CDB9D8615572B8500384B54 /* Clirr-C55-18.plist in Resources */,
 				2CDB9D8915572FAF00384B54 /* Clirr-Piece.plist in Resources */,
 				2CDB9D8B155733B700384B54 /* C-Level-Music.m4a in Resources */,
 				2C7B1C511558645D00AF0026 /* PauseArrow-01-hd.png in Resources */,
@@ -7066,6 +7009,9 @@
 				2CD1CCA3155F26B30090AFBE /* Ice-C25.plist in Resources */,
 				2CD1CCA5155F27180090AFBE /* C25-Ice-hd.png in Resources */,
 				2CD1CCA7155F27990090AFBE /* C-Ice-Shapes.plist in Resources */,
+				2CD1CCA9155F36BB0090AFBE /* C4-Ice-hd.png in Resources */,
+				2CD1CCAB155F36F10090AFBE /* Ice-C4.plist in Resources */,
+				2CD1CCAD156008B40090AFBE /* Clirr.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7345,6 +7291,7 @@
 				2C7B1C6C155B299F00AF0026 /* FreezeComponent.m in Sources */,
 				2C7B1C6F155C66A400AF0026 /* FreezeSystem.m in Sources */,
 				2C7B1C72155C683500AF0026 /* FreezableComponent.m in Sources */,
+				2CD1CCB115605D2B0090AFBE /* NSDictionary+Merge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

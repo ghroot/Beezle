@@ -46,146 +46,159 @@
 @synthesize groups = _groups;
 @synthesize labels = _labels;
 @synthesize tags = _tags;
-@synthesize componentsDict = _componentsDict;
+@synthesize typeComponentsDict = _typeComponentsDict;
 
--(NSArray *) createComponents:(World *)world
+-(NSArray *) createComponents:(World *)world instanceComponentsDict:(NSDictionary *)instanceComponentsDict
 {
 	NSMutableArray *components = [NSMutableArray array];
-	for (NSString *componentType in [_componentsDict allKeys])
+	for (NSString *componentType in [_typeComponentsDict allKeys])
 	{
 		Component *component = nil;
-		NSDictionary *componentDict = [_componentsDict objectForKey:componentType];
+		
+		NSDictionary *typeComponentDict = [_typeComponentsDict objectForKey:componentType];
+		
 		if ([componentType isEqualToString:@"bee"])
 		{
-			component = [BeeComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [BeeComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"beeater"])
 		{
-			component = [BeeaterComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [BeeaterComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"boost"])
 		{
-			component = [BoostComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [BoostComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"breakable"])
 		{
-			component = [BreakableComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [BreakableComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"brittle"])
 		{
-			component = [BrittleComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [BrittleComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"captured"])
 		{
-			component = [CapturedComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [CapturedComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"consumer"])
 		{
-			component = [ConsumerComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [ConsumerComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"crumble"])
 		{
-			component = [CrumbleComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [CrumbleComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"disposable"])
 		{
-			component = [DisposableComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [DisposableComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
         else if ([componentType isEqualToString:@"dozer"])
 		{
-			component = [DozerComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [DozerComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"explode"])
 		{
-			component = [ExplodeComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [ExplodeComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"freeze"])
 		{
-			component = [FreezeComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [FreezeComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"freezable"])
 		{
-			component = [FreezableComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [FreezableComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"health"])
 		{
-			component = [HealthComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [HealthComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"movement"])
 		{
-			component = [MovementComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [MovementComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"physics"])
 		{
-			component = [PhysicsComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [PhysicsComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"pollen"])
 		{
-			component = [PollenComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [PollenComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"render"])
 		{
-			component = [RenderComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [RenderComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"saw"])
 		{
-			component = [SawComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [SawComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"shake"])
 		{
-			component = [ShakeComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [ShakeComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"shard"])
 		{
-			component = [ShardComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [ShardComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"slinger"])
 		{
-			component = [SlingerComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [SlingerComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"solid"])
 		{
-			component = [SolidComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [SolidComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
         else if ([componentType isEqualToString:@"sound"])
 		{
-			component = [SoundComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [SoundComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"spawn"])
 		{
-			component = [SpawnComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [SpawnComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"trajectory"])
 		{
-			component = [TrajectoryComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [TrajectoryComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"transform"])
 		{
-			component = [TransformComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [TransformComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"void"])
 		{
-			component = [VoidComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [VoidComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"volatile"])
 		{
-			component = [VolatileComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [VolatileComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
         else if ([componentType isEqualToString:@"water"])
 		{
-			component = [WaterComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [WaterComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"wobble"])
 		{
-			component = [WobbleComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [WobbleComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
 		else if ([componentType isEqualToString:@"wood"])
 		{
-			component = [WoodComponent componentWithContentsOfDictionary:componentDict world:world];
+			component = [WoodComponent componentWithContentsOfDictionary:typeComponentDict world:world];
 		}
+		
 		if (component != nil)
 		{
+			NSDictionary *instanceComponentDict = [instanceComponentsDict objectForKey:componentType];
+			if (instanceComponentDict != nil)
+			{
+				[component populateWithContentsOfDictionary:instanceComponentDict world:world];
+			}
+			
 			[components addObject:component];
+		}
+		else
+		{
+			NSLog(@"WARNING: Unknown component type: %@", componentType);
 		}
 	}
 	return components;

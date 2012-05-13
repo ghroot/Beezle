@@ -3,15 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>CLIRR-C55-2</string>
+	<string>ICE-C4</string>
     <key>template</key>
-    <string>Clirr-Template.plist</string>
+    <string>Ice-Template.plist</string>
     <key>templateSubstitutions</key>
     <dict>
+        <key>physicsFile</key>
+        <string>C-Ice-Shapes.plist</string>
         <key>physicsBodyName</key>
-        <string>C55-Clirr-2</string>
-        <key>renderDefaultIdleAnimation</key>
-        <string>C55-Clirr-2</string>
+        <string>C4-Ice</string>
+        <key>renderTextureFile</key>
+        <string>C4-Ice.png</string>
+		<key>shardPiecesEntityType</key>
+		<string>GLASS-PIECE-C</string>
     </dict>
 </dict>
 </plist>
