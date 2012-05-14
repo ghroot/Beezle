@@ -46,8 +46,8 @@
 
 -(id) initWithLevelName:(NSString *)levelName;
 
--(Entity *) addEntityWithType:(NSString *)type instanceComponentsDict:(NSDictionary *)instanceComponentsDict;
--(Entity *) addEntityWithType:(NSString *)type;
+-(void) addEntityWithType:(NSString *)type instanceComponentsDict:(NSDictionary *)instanceComponentsDict;
+-(void) addEntityWithType:(NSString *)type;
 -(void) toggleDebugPhysicsDrawing;
 -(void) pauseGame:(id)sender;
 

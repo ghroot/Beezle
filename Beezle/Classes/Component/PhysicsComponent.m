@@ -16,6 +16,7 @@
 
 @synthesize body = _body;
 @synthesize shapes = _shapes;
+@synthesize overrideBodyName = _overrideBodyName;
 @synthesize positionOrRotationUpdatedManually = _positionOrRotationUpdatedManually;
 
 +(id) componentWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes
@@ -37,6 +38,12 @@
 		{
 			NSString *filePath = [typeComponentDict objectForKey:@"file"];
 			NSString *bodyName = [typeComponentDict objectForKey:@"bodyName"];
+			
+			if ([instanceComponentDict objectForKey:@"overrideBodyName"] != nil)
+			{
+				_overrideBodyName = [[instanceComponentDict objectForKey:@"overrideBodyName"] copy];
+				bodyName = _overrideBodyName;
+			}
 			
 			float scale = 1.0f;
 			if ([typeComponentDict objectForKey:@"scale"] != nil)
@@ -190,6 +197,10 @@
 	NSMutableDictionary *instanceComponentDict = [NSMutableDictionary dictionary];
 	[instanceComponentDict setObject:[Utils pointToString:[_body pos]] forKey:@"position"];
 	[instanceComponentDict setObject:[NSNumber numberWithFloat:[_body angle]] forKey:@"angle"];
+	if (_overrideBodyName != nil)
+	{
+		[instanceComponentDict setObject:_overrideBodyName forKey:@"overrideBodyName"];
+	}
 	return instanceComponentDict;
 }
 

@@ -22,6 +22,9 @@
     // Type / Instance
     ChipmunkBody *_body;
     NSMutableArray *_shapes;
+	
+	// Instance
+	NSString *_overrideBodyName;
     
     // Transient
 	BOOL _positionOrRotationUpdatedManually;
@@ -29,6 +32,7 @@
 
 @property (nonatomic, retain) ChipmunkBody *body;
 @property (nonatomic, readonly) NSArray *shapes;
+@property (nonatomic, copy) NSString *overrideBodyName;
 @property (nonatomic) BOOL positionOrRotationUpdatedManually;
 
 +(id) componentWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes;

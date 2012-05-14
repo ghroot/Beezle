@@ -3,19 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>GLASS-B16</string>
-	<key>template</key>
+	<string>GLASS-A</string>
+    <key>template</key>
     <string>Glass-Template.plist</string>
     <key>templateSubstitutions</key>
     <dict>
         <key>physicsFile</key>
-        <string>B-Glass-Shapes.plist</string>
-        <key>physicsBodyName</key>
-        <string>B16-Glass</string>
-        <key>renderTextureFile</key>
-        <string>B16-Glass.png</string>
+        <string>A-Glass-Shapes.plist</string>
         <key>shardPiecesEntityType</key>
-        <string>GLASS-PIECE-B</string>
+        <string>GLASS-PIECE-A</string>
     </dict>
 </dict>
 </plist>

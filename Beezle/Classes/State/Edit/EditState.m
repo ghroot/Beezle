@@ -137,7 +137,7 @@
 	[[_world systemManager] processAll];
 }
 
--(Entity *) addEntityWithType:(NSString *)type instanceComponentsDict:(NSDictionary *)instanceComponentsDict
+-(void) addEntityWithType:(NSString *)type instanceComponentsDict:(NSDictionary *)instanceComponentsDict
 {	
 	Entity *entity = [EntityFactory createEntity:type world:_world instanceComponentsDict:instanceComponentsDict edit:TRUE];
 	if (entity != nil)
@@ -150,12 +150,11 @@
 		
 		[_editControlSystem selectEntity:entity];
 	}
-	return entity;
 }
 
--(Entity *) addEntityWithType:(NSString *)type
+-(void) addEntityWithType:(NSString *)type
 {
-	return [self addEntityWithType:type instanceComponentsDict:nil];
+	[self addEntityWithType:type instanceComponentsDict:nil];
 }
 
 -(void) toggleDebugPhysicsDrawing

@@ -18,9 +18,15 @@
 {
     // Type / Instance
 	NSMutableArray *_renderSprites;
+	
+	// Instance
+	NSString *_overrideIdleAnimationName;
+	NSString *_overrideTextureFile;
 }
 
 @property (nonatomic, readonly) NSArray *renderSprites;
+@property (nonatomic, copy) NSString *overrideIdleAnimationName;
+@property (nonatomic, copy) NSString *overrideTextureFile;
 
 +(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite;
 

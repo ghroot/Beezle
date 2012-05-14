@@ -70,6 +70,7 @@
 		LevelLayoutEntry *levelLayoutEntry = [LevelLayoutEntry entry];
 		
 		NSString *type = [entity objectForKey:@"type"];
+		NSDictionary *instanceComponentsDict = [entity objectForKey:@"components"];
 		
 		// TEMP: Convert from old to new entity types
 		if ([type isEqualToString:@"POLLEN"])
@@ -81,11 +82,43 @@
 			NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:levelName];
 			type = [NSString stringWithFormat:@"RAMP-%@", theme];
 		}
+		else if ([type hasPrefix:@"GLASS-"] &&
+				 [type length] >= 8)
+		{
+			NSString *glassBaseName = nil;
+			NSString *levelSuffix = [[levelName componentsSeparatedByString:@"-"] objectAtIndex:1];
+			NSArray *typeComponents = [type componentsSeparatedByString:@"-"];
+			if ([typeComponents count] == 3)
+			{
+				int glassNumber = [[typeComponents objectAtIndex:2] intValue];
+				NSArray *alphabet = [NSArray arrayWithObjects:@"a", @"b", @"c", @"d", @"e", @"f", nil];
+				NSString *glassLetter = [alphabet objectAtIndex:glassNumber - 1];
+				glassBaseName = [NSString stringWithFormat:@"%@%@-Glass", levelSuffix, glassLetter];
+			}
+			else
+			{
+				glassBaseName = [NSString stringWithFormat:@"%@-Glass", levelSuffix];
+			}
+			
+			type = [type substringToIndex:7];
+		
+			NSMutableDictionary *mutableInstanceComponentsDict = [NSMutableDictionary dictionaryWithDictionary:instanceComponentsDict];
+			
+			NSMutableDictionary *mutableRenderInstanceComponentDict = [NSMutableDictionary dictionaryWithDictionary:[instanceComponentsDict objectForKey:@"render"]];
+			NSString *imageFileName = [NSString stringWithFormat:@"%@.png", glassBaseName];
+			[mutableRenderInstanceComponentDict setObject:imageFileName forKey:@"overrideTextureFile"];
+			[mutableInstanceComponentsDict setObject:mutableRenderInstanceComponentDict forKey:@"render"];
+			
+			NSMutableDictionary *mutablePhysicsInstanceComponentDict = [NSMutableDictionary dictionaryWithDictionary:[instanceComponentsDict objectForKey:@"physics"]];
+			NSString *bodyName = glassBaseName;
+			[mutablePhysicsInstanceComponentDict setObject:bodyName forKey:@"overrideBodyName"];
+			[mutableInstanceComponentsDict setObject:mutablePhysicsInstanceComponentDict forKey:@"physics"];
+			 
+			 instanceComponentsDict = mutableInstanceComponentsDict;
+		}
 		
 		[levelLayoutEntry setType:[NSString stringWithString:type]];
-		
-		NSDictionary *components = [entity objectForKey:@"components"];
-		[levelLayoutEntry setInstanceComponentsDict:components];
+		[levelLayoutEntry setInstanceComponentsDict:instanceComponentsDict];
 		
 		[levelLayout addLevelLayoutEntry:levelLayoutEntry];
 	}

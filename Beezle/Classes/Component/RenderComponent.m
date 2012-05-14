@@ -23,6 +23,8 @@
 @implementation RenderComponent
 
 @synthesize renderSprites = _renderSprites;
+@synthesize overrideIdleAnimationName = _overrideIdleAnimationName;
+@synthesize overrideTextureFile = _overrideTextureFile;
 
 +(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite
 {
@@ -60,17 +62,29 @@
             {
                 zOrder = [ZOrder Z_DEFAULT];
             }
-			if ([spriteDict objectForKey:@"spriteSheetName"] != nil)
+			if ([instanceComponentDict objectForKey:@"overrideTextureFile"] != nil)
+			{
+				_overrideTextureFile = [[instanceComponentDict objectForKey:@"overrideTextureFile"] copy];
+				NSString *overrideTextureFile = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:_overrideTextureFile];
+				renderSprite = [RenderSprite renderSpriteWithFile:overrideTextureFile zOrder:zOrder];
+			}
+			else if ([spriteDict objectForKey:@"spriteSheetName"] != nil)
 			{
 				renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:[spriteDict objectForKey:@"spriteSheetName"] animationFile:[spriteDict objectForKey:@"animationFile"] zOrder:zOrder];
 				[[renderSprite defaultIdleAnimationNames] addStringsFromDictionary:spriteDict baseName:@"defaultIdleAnimation"];
 				[[renderSprite defaultHitAnimationNames] addStringsFromDictionary:spriteDict baseName:@"defaultHitAnimation"];
 				[[renderSprite defaultDestroyAnimationNames] addStringsFromDictionary:spriteDict baseName:@"defaultDestroyAnimation"];
 				[[renderSprite defaultStillAnimationNames] addStringsFromDictionary:spriteDict baseName:@"defaultStillAnimation"];
+				
+				if ([instanceComponentDict objectForKey:@"overrideIdleAnimation"] != nil)
+				{
+					_overrideIdleAnimationName = [[instanceComponentDict objectForKey:@"overrideIdleAnimation"] copy];
+					[[renderSprite defaultIdleAnimationNames] addString:_overrideIdleAnimationName];
+				}
 			}
 			else if ([spriteDict objectForKey:@"textureFile"] != nil)
 			{
-                NSString *textureFile = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:[spriteDict objectForKey:@"textureFile"]];
+				NSString *textureFile = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:[spriteDict objectForKey:@"textureFile"]];
                 renderSprite = [RenderSprite renderSpriteWithFile:textureFile zOrder:zOrder];
 			}
 			else
@@ -100,12 +114,6 @@
 			[self addRenderSprite:renderSprite];
 		}
         
-        // Instance
-		if ([instanceComponentDict objectForKey:@"overrideIdleAnimation"] != nil)
-		{
-			[[[self defaultRenderSprite] overrideIdleAnimationNames] addStringsFromDictionary:instanceComponentDict baseName:@"overrideIdleAnimation"];
-		}
-        
 		[self playDefaultIdleAnimation];
 	}
 	return self;
@@ -114,6 +122,8 @@
 -(void) dealloc
 {
 	[_renderSprites release];
+	[_overrideIdleAnimationName release];
+	[_overrideTextureFile release];
     
     [super dealloc];
 }
@@ -121,10 +131,16 @@
 -(NSDictionary *) getInstanceComponentDict
 {
 	NSMutableDictionary *instanceComponentDict = [NSMutableDictionary dictionary];
-	if ([self defaultRenderSprite] != nil &&
-		[[[self defaultRenderSprite] overrideIdleAnimationNames] hasStrings])
+	if ([self defaultRenderSprite] != nil)
 	{
-		[instanceComponentDict setObject:[[[self defaultRenderSprite] overrideIdleAnimationNames] randomString] forKey:@"overrideIdleAnimation"];
+		if (_overrideIdleAnimationName != nil)
+		{
+			[instanceComponentDict setObject:_overrideIdleAnimationName forKey:@"overrideIdleAnimation"];
+		}
+		if (_overrideTextureFile != nil)
+		{
+			[instanceComponentDict setObject:_overrideTextureFile forKey:@"overrideTextureFile"];
+		}
 	}
 	return instanceComponentDict;
 }

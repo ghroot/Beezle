@@ -12,6 +12,7 @@
 #import "EntityFactory.h"
 #import "Game.h"
 #import "LevelOrganizer.h"
+#import "PhysicsComponent.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "StringList.h"
@@ -108,20 +109,47 @@
 	}
 	else if ([entityType isEqualToString:@"GLASS"])
 	{
-		NSString *glassEntityType = [NSString stringWithFormat:@"GLASS-%@", levelSuffix];
-		if ([EntityFactory getEntityDescription:glassEntityType] != nil)
+		NSString *glassEntityType = [NSString stringWithFormat:@"GLASS-%@", theme];
+		
+		NSString *imageFileName = [NSString stringWithFormat:@"%@-Glass.png", levelSuffix];
+		if ([CCSprite spriteWithFile:imageFileName] != nil)
 		{
-			[editState addEntityWithType:glassEntityType];
+			NSMutableDictionary *instanceComponentsDict = [NSMutableDictionary dictionary];
+			
+			NSMutableDictionary *renderInstanceComponentDict = [NSMutableDictionary dictionary];
+			[renderInstanceComponentDict setObject:imageFileName forKey:@"overrideTextureFile"];
+			[instanceComponentsDict setObject:renderInstanceComponentDict forKey:@"render"];
+			
+			NSMutableDictionary *physicsInstanceComponentDict = [NSMutableDictionary dictionary];
+			NSString *bodyName = [NSString stringWithFormat:@"%@-Glass", levelSuffix];
+			[physicsInstanceComponentDict setObject:bodyName forKey:@"overrideBodyName"];
+			[instanceComponentsDict setObject:physicsInstanceComponentDict forKey:@"physics"];
+			
+			[editState addEntityWithType:glassEntityType instanceComponentsDict:instanceComponentsDict];
 		}
 		else
 		{
-			int i = 1;
+			NSArray *alphabet = [NSArray arrayWithObjects:@"a", @"b", @"c", @"d", @"e", @"f", nil];
+			int i = 0;
 			while (TRUE)
 			{
-				NSString *glassEntityType = [NSString stringWithFormat:@"GLASS-%@-%d", levelSuffix, i++];
-				if ([EntityFactory getEntityDescription:glassEntityType] != nil)
+				imageFileName = [NSString stringWithFormat:@"%@%@-Glass.png", levelSuffix, [alphabet objectAtIndex:i]];
+				if ([CCSprite spriteWithFile:imageFileName] != nil)
 				{
-					[editState addEntityWithType:glassEntityType];
+					NSMutableDictionary *instanceComponentsDict = [NSMutableDictionary dictionary];
+					
+					NSMutableDictionary *renderInstanceComponentDict = [NSMutableDictionary dictionary];
+					[renderInstanceComponentDict setObject:imageFileName forKey:@"overrideTextureFile"];
+					[instanceComponentsDict setObject:renderInstanceComponentDict forKey:@"render"];
+					
+					NSMutableDictionary *physicsInstanceComponentDict = [NSMutableDictionary dictionary];
+					NSString *bodyName = [NSString stringWithFormat:@"%@%@-Glass", levelSuffix, [alphabet objectAtIndex:i]];
+					[physicsInstanceComponentDict setObject:bodyName forKey:@"overrideBodyName"];
+					[instanceComponentsDict setObject:physicsInstanceComponentDict forKey:@"physics"];
+					
+					[editState addEntityWithType:glassEntityType instanceComponentsDict:instanceComponentsDict];
+					
+					i++;
 				}
 				else
 				{
@@ -129,6 +157,7 @@
 				}
 			}
 		}
+		
 		return;
 	}
 	else if ([entityType isEqualToString:@"CLIRR"])
@@ -152,11 +181,13 @@
 			NSString *clirrAnimationName = [NSString stringWithFormat:@"%@-Clirr-%d", levelSuffix, i++];
 			if ([clirrAnimationNames containsObject:clirrAnimationName])
 			{
-				Entity *clirrEntity = [editState addEntityWithType:@"CLIRR"];
-				RenderComponent *clirrRenderComponent = [RenderComponent getFrom:clirrEntity];
-				RenderSprite *clirrRenderSprite = [clirrRenderComponent defaultRenderSprite];
-				[[clirrRenderSprite overrideIdleAnimationNames] addString:clirrAnimationName];
-				[clirrRenderSprite playDefaultIdleAnimation];
+				NSMutableDictionary *instanceComponentsDict = [NSMutableDictionary dictionary];
+				
+				NSMutableDictionary *renderInstanceComponentDict = [NSMutableDictionary dictionary];
+				[renderInstanceComponentDict setObject:clirrAnimationName forKey:@"overrideIdleAnimation"];
+				[instanceComponentsDict setObject:renderInstanceComponentDict forKey:@"render"];
+				
+				[editState addEntityWithType:@"CLIRR" instanceComponentsDict:instanceComponentsDict];
 			}
 			else
 			{
@@ -168,11 +199,13 @@
 					clirrAnimationName = [NSString stringWithFormat:@"%@-Clirr-%d-%d", levelSuffix, i, j++];
 					if ([clirrAnimationNames containsObject:clirrAnimationName])
 					{
-						Entity *clirrEntity = [editState addEntityWithType:@"CLIRR"];
-						RenderComponent *clirrRenderComponent = [RenderComponent getFrom:clirrEntity];
-						RenderSprite *clirrRenderSprite = [clirrRenderComponent defaultRenderSprite];
-						[[clirrRenderSprite overrideIdleAnimationNames] addString:clirrAnimationName];
-						[clirrRenderSprite playDefaultIdleAnimation];
+						NSMutableDictionary *instanceComponentsDict = [NSMutableDictionary dictionary];
+						
+						NSMutableDictionary *renderInstanceComponentDict = [NSMutableDictionary dictionary];
+						[renderInstanceComponentDict setObject:clirrAnimationName forKey:@"overrideIdleAnimation"];
+						[instanceComponentsDict setObject:renderInstanceComponentDict forKey:@"render"];
+						
+						[editState addEntityWithType:@"CLIRR" instanceComponentsDict:instanceComponentsDict];
 						
 						atLeastOneAnimationForThisI = TRUE;
 					}
@@ -199,20 +232,45 @@
 	}
 	else if ([entityType isEqualToString:@"ICE"])
 	{
-		NSString *iceEntityType = [NSString stringWithFormat:@"ICE-%@", levelSuffix];
-		if ([EntityFactory getEntityDescription:iceEntityType] != nil)
+		NSString *imageFileName = [NSString stringWithFormat:@"%@-Ice.png", levelSuffix];
+		if ([CCSprite spriteWithFile:imageFileName] != nil)
 		{
-			[editState addEntityWithType:iceEntityType];
+			NSMutableDictionary *instanceComponentsDict = [NSMutableDictionary dictionary];
+			
+			NSMutableDictionary *renderInstanceComponentDict = [NSMutableDictionary dictionary];
+			[renderInstanceComponentDict setObject:imageFileName forKey:@"overrideTextureFile"];
+			[instanceComponentsDict setObject:renderInstanceComponentDict forKey:@"render"];
+			
+			NSMutableDictionary *physicsInstanceComponentDict = [NSMutableDictionary dictionary];
+			NSString *bodyName = [NSString stringWithFormat:@"%@-Ice", levelSuffix];
+			[physicsInstanceComponentDict setObject:bodyName forKey:@"overrideBodyName"];
+			[instanceComponentsDict setObject:physicsInstanceComponentDict forKey:@"physics"];
+			
+			[editState addEntityWithType:@"ICE" instanceComponentsDict:instanceComponentsDict];
 		}
 		else
 		{
-			int i = 1;
+			NSArray *alphabet = [NSArray arrayWithObjects:@"a", @"b", @"c", @"d", @"e", @"f", nil];
+			int i = 0;
 			while (TRUE)
 			{
-				NSString *iceEntityType = [NSString stringWithFormat:@"ICE-%@-%d", levelSuffix, i++];
-				if ([EntityFactory getEntityDescription:iceEntityType] != nil)
+				imageFileName = [NSString stringWithFormat:@"%@%@-Ice.png", levelSuffix, [alphabet objectAtIndex:i]];
+				if ([CCSprite spriteWithFile:imageFileName] != nil)
 				{
-					[editState addEntityWithType:iceEntityType];
+					NSMutableDictionary *instanceComponentsDict = [NSMutableDictionary dictionary];
+					
+					NSMutableDictionary *renderInstanceComponentDict = [NSMutableDictionary dictionary];
+					[renderInstanceComponentDict setObject:imageFileName forKey:@"overrideTextureFile"];
+					[instanceComponentsDict setObject:renderInstanceComponentDict forKey:@"render"];
+					
+					NSMutableDictionary *physicsInstanceComponentDict = [NSMutableDictionary dictionary];
+					NSString *bodyName = [NSString stringWithFormat:@"%@%@-Ice", levelSuffix, [alphabet objectAtIndex:i]];
+					[physicsInstanceComponentDict setObject:bodyName forKey:@"overrideBodyName"];
+					[instanceComponentsDict setObject:physicsInstanceComponentDict forKey:@"physics"];
+					
+					[editState addEntityWithType:@"ICE" instanceComponentsDict:instanceComponentsDict];
+					
+					i++;
 				}
 				else
 				{
@@ -220,6 +278,7 @@
 				}
 			}
 		}
+		
 		return;
 	}
 	

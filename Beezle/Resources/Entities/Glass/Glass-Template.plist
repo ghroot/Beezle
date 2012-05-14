@@ -17,8 +17,6 @@
 		<dict>
 			<key>file</key>
 			<string>%physicsFile%</string>
-			<key>bodyName</key>
-			<string>%physicsBodyName%</string>
 			<key>layers</key>
 			<integer>7</integer>
 			<key>group</key>
@@ -28,10 +26,7 @@
 		<dict>
 			<key>sprites</key>
 			<array>
-				<dict>
-					<key>textureFile</key>
-					<string>%renderTextureFile%</string>
-				</dict>
+				<dict/>
 			</array>
 		</dict>
 		<key>shard</key>
