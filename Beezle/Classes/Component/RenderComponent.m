@@ -101,14 +101,10 @@
 		}
         
         // Instance
-        if ([instanceComponentDict objectForKey:@"sprites"] != nil)
-        {
-            for (NSDictionary *renderSpriteDict in [instanceComponentDict objectForKey:@"sprites"])
-            {
-                RenderSprite *renderSprite = [self renderSpriteWithName:[renderSpriteDict objectForKey:@"name"]];
-                [[renderSprite overrideIdleAnimationNames] addStringsFromDictionary:renderSpriteDict baseName:@"overrideIdleAnimation"];
-            }
-        }
+		if ([instanceComponentDict objectForKey:@"overrideIdleAnimation"] != nil)
+		{
+			[[[self defaultRenderSprite] overrideIdleAnimationNames] addStringsFromDictionary:instanceComponentDict baseName:@"overrideIdleAnimation"];
+		}
         
 		[self playDefaultIdleAnimation];
 	}
@@ -125,20 +121,10 @@
 -(NSDictionary *) getInstanceComponentDict
 {
 	NSMutableDictionary *instanceComponentDict = [NSMutableDictionary dictionary];
-	NSMutableArray *renderSpritesArray = [NSMutableArray array];
-	for (RenderSprite *renderSprite in _renderSprites)
+	if ([self defaultRenderSprite] != nil &&
+		[[[self defaultRenderSprite] overrideIdleAnimationNames] hasStrings])
 	{
-		NSMutableDictionary *renderSpriteDict = [NSMutableDictionary dictionary];
-		if ([[renderSprite overrideIdleAnimationNames] hasStrings])
-		{
-			[renderSpriteDict setObject:[renderSprite name] forKey:@"name"];
-			[renderSpriteDict setObject:[[renderSprite overrideIdleAnimationNames] randomString] forKey:@"overrideIdleAnimation"];
-			[renderSpritesArray addObject:renderSpriteDict];
-		}
-	}
-	if ([renderSpritesArray count] > 0)
-	{
-		[instanceComponentDict setObject:renderSpritesArray forKey:@"sprites"];
+		[instanceComponentDict setObject:[[[self defaultRenderSprite] overrideIdleAnimationNames] randomString] forKey:@"overrideIdleAnimation"];
 	}
 	return instanceComponentDict;
 }
