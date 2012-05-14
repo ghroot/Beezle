@@ -155,7 +155,7 @@
 				Entity *clirrEntity = [editState addEntityWithType:@"CLIRR"];
 				RenderComponent *clirrRenderComponent = [RenderComponent getFrom:clirrEntity];
 				RenderSprite *clirrRenderSprite = [clirrRenderComponent defaultRenderSprite];
-				[[clirrRenderSprite defaultIdleAnimationNames] addString:clirrAnimationName];
+				[[clirrRenderSprite overrideIdleAnimationNames] addString:clirrAnimationName];
 				[clirrRenderSprite playDefaultIdleAnimation];
 			}
 			else
