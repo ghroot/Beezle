@@ -31,7 +31,7 @@
 	if (self = [self init])
 	{
         // Type
-        NSString *defaultContainedBeeTypeAsString = [typeComponentDict objectForKey:@"containedBeeType"];
+        NSString *defaultContainedBeeTypeAsString = [typeComponentDict objectForKey:@"defaultContainedBeeType"];
         _containedBeeType = [BeeType enumFromName:defaultContainedBeeTypeAsString];
         _showBeeAnimationNameFormat = [[typeComponentDict objectForKey:@"showBeeAnimationFormat"] copy];
 		[_showBeeBetweenAnimationNames addStringsFromDictionary:typeComponentDict baseName:@"showBeeBetweenAnimation"];
