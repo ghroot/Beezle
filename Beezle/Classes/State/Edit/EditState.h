@@ -15,6 +15,7 @@
 @class EditControlSystem;
 @class EditOptionsSystem;
 @class InputSystem;
+@class MovementSystem;
 @class RenderSystem;
 @class PhysicsSystem;
 
@@ -29,6 +30,7 @@
 	
     RenderSystem *_renderSystem;
 	PhysicsSystem *_physicsSystem;
+	MovementSystem *_movementSystem;
     InputSystem *_inputSystem;
 	EditControlSystem *_editControlSystem;
 	EditOptionsSystem *_editOptionsSystem;

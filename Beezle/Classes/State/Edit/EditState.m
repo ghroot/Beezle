@@ -21,6 +21,7 @@
 #import "InputSystem.h"
 #import "LabelManager.h"
 #import "LevelLoader.h"
+#import "MovementSystem.h"
 #import "PhysicsSystem.h"
 #import "RenderSystem.h"
 
@@ -87,6 +88,8 @@
 	[systemManager setSystem:_renderSystem];
 	_physicsSystem = [[[PhysicsSystem alloc] init] autorelease];
 	[systemManager setSystem:_physicsSystem];
+	_movementSystem = [MovementSystem system];
+	[systemManager setSystem:_movementSystem];
 	_inputSystem = [[[InputSystem alloc] init] autorelease];
 	[systemManager setSystem:_inputSystem];
 	_editControlSystem = [[[EditControlSystem alloc] init] autorelease];

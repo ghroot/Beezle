@@ -75,7 +75,7 @@
             TransformComponent *currentTransformComponent = [TransformComponent getFrom:currentMovementIndicatorEntity];
             EditComponent *currentEditComponent = [EditComponent getFrom:currentMovementIndicatorEntity];
             
-            [latestPositions addObject:[Utils pointToString:[currentTransformComponent position]]];
+			[latestPositions addObject:[NSValue valueWithCGPoint:[currentTransformComponent position]]];
             
             currentMovementIndicatorEntity = [currentEditComponent nextMovementIndicatorEntity];
         }
