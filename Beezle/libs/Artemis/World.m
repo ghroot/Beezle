@@ -128,11 +128,12 @@
 {
     if ([_refreshed count] > 0)
     {
-        for (Entity *entity in _refreshed)
+		NSArray *immutableRefreshed = [NSArray arrayWithArray:_refreshed];
+        for (Entity *entity in immutableRefreshed)
         {
             [[self entityManager] refreshEntity:entity];
+			[_refreshed removeObject:entity];
         }
-        [_refreshed removeAllObjects];
     }
     
     if  ([_deleted count] > 0)
