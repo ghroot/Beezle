@@ -13,6 +13,7 @@
  */
 @interface EditComponent : Component
 {
+    // Transient
 	NSString *_levelLayoutType;
 	Entity *_nextMovementIndicatorEntity;
 	Entity *_mainMoveEntity;

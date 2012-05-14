@@ -13,6 +13,7 @@
  */
 @interface WoodComponent : Component
 {
+    // Transient
 	int _shapeIndexAtSawCollision;
 }
 

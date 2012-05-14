@@ -28,19 +28,20 @@
 	return [[[self alloc] initWithBody:body andShape:shape] autorelease];
 }
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+-(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
 	if (self = [self init])
 	{
-		if ([dict objectForKey:@"file"] != nil)
+        // Type
+		if ([typeComponentDict objectForKey:@"file"] != nil)
 		{
-			NSString *filePath = [dict objectForKey:@"file"];
-			NSString *bodyName = [dict objectForKey:@"bodyName"];
+			NSString *filePath = [typeComponentDict objectForKey:@"file"];
+			NSString *bodyName = [typeComponentDict objectForKey:@"bodyName"];
 			
 			float scale = 1.0f;
-			if ([dict objectForKey:@"scale"] != nil)
+			if ([typeComponentDict objectForKey:@"scale"] != nil)
 			{
-				scale = [[dict objectForKey:@"scale"] floatValue];
+				scale = [[typeComponentDict objectForKey:@"scale"] floatValue];
 			}
 			
 			PhysicsSystem *physicsSystem = (PhysicsSystem *)[[world systemManager] getSystem:[PhysicsSystem class]];
@@ -49,13 +50,13 @@
 			[self setBody:[bodyInfo body]];
 			for (ChipmunkShape *shape in [bodyInfo shapes])
 			{	
-				if ([dict objectForKey:@"layers"] != nil)
+				if ([typeComponentDict objectForKey:@"layers"] != nil)
 				{
-					[shape setLayers:[[dict objectForKey:@"layers"] intValue]];
+					[shape setLayers:[[typeComponentDict objectForKey:@"layers"] intValue]];
 				}
-				if ([dict objectForKey:@"group"] != nil)
+				if ([typeComponentDict objectForKey:@"group"] != nil)
 				{
-					[shape setGroup:[CollisionGroup enumFromName:[dict objectForKey:@"group"]]];
+					[shape setGroup:[CollisionGroup enumFromName:[typeComponentDict objectForKey:@"group"]]];
 				}
 				
 				[self addShape:shape];
@@ -63,7 +64,7 @@
 		}
 		else
 		{
-			NSDictionary *bodyDict = [dict objectForKey:@"body"];
+			NSDictionary *bodyDict = [typeComponentDict objectForKey:@"body"];
 			float mass = [[bodyDict objectForKey:@"mass"] floatValue];
 			ChipmunkBody *body = nil;
 			if (mass == 0.0f)
@@ -82,7 +83,7 @@
 			}
 			_body = [body retain];
 			
-			NSArray *shapeDicts = [dict objectForKey:@"shapes"];
+			NSArray *shapeDicts = [typeComponentDict objectForKey:@"shapes"];
 			for (NSDictionary *shapeDict in shapeDicts)
 			{
 				NSString *shapeType = [shapeDict objectForKey:@"type"];
@@ -135,11 +136,16 @@
 				[_shapes addObject:shape];
 			}
 		}
+        
+        // Instance
+        CGPoint position = [Utils stringToPoint:[instanceComponentDict objectForKey:@"position"]];
+        [_body setPos:position];
+        float angle = [[instanceComponentDict objectForKey:@"angle"] floatValue];
+        [_body setAngle:angle];
 	}
 	return self;
 }
 
-// Designated initializer
 -(id) initWithBody:(ChipmunkBody *)body andShapes:(NSArray *)shapes
 {
     if (self = [super init])
@@ -166,7 +172,7 @@
 	return self;
 }
 
-- (void)dealloc
+-(void) dealloc
 {
     [_shapes release];
     [_body release];
@@ -179,26 +185,12 @@
 	return [_body mass] == INFINITY;
 }
 
--(NSDictionary *) getAsDictionary
+-(NSDictionary *) getInstanceComponentDict
 {
-	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-	[dict setObject:[Utils pointToString:[_body pos]] forKey:@"position"];
-	[dict setObject:[NSNumber numberWithFloat:[_body angle]] forKey:@"angle"];
-	return dict;
-}
-
--(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
-{
-	if ([dict objectForKey:@"position"] != nil)
-	{
-		CGPoint position = [Utils stringToPoint:[dict objectForKey:@"position"]];
-		[_body setPos:position];
-	}
-	if ([dict objectForKey:@"angle"] != nil)
-	{
-		float angle = [[dict objectForKey:@"angle"] floatValue];
-		[_body setAngle:angle];
-	}
+	NSMutableDictionary *instanceComponentDict = [NSMutableDictionary dictionary];
+	[instanceComponentDict setObject:[Utils pointToString:[_body pos]] forKey:@"position"];
+	[instanceComponentDict setObject:[NSNumber numberWithFloat:[_body angle]] forKey:@"angle"];
+	return instanceComponentDict;
 }
 
 -(void) addShape:(ChipmunkShape *)shape

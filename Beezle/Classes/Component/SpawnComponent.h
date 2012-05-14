@@ -14,11 +14,14 @@
  */
 @interface SpawnComponent : Component
 {
+    // Type
 	NSString *_entityType;
 	CGPoint _offset;
 	BOOL _autoDestroy;
 	float _interval;
 	float _intervalRandomDeviation;
+    
+    // Transient
 	float _countdown;
 }
 

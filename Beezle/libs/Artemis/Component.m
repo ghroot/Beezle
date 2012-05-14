@@ -42,12 +42,12 @@
 	return [[[self alloc] init] autorelease];
 }
 
-+(id) componentWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
++(id) componentWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
-	return [[[self alloc] initWithContentsOfDictionary:dict world:world] autorelease];
+	return [[[self alloc] initWithTypeComponentDict:typeComponentDict andInstanceComponentDict:instanceComponentDict world:world] autorelease];
 }
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+-(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
 	return [self init];
 }
@@ -80,13 +80,9 @@
 	return [entity getComponent:[self class]];
 }
 
--(NSDictionary *) getAsDictionary
+-(NSDictionary *) getInstanceComponentDict
 {
-	return [NSDictionary dictionary];
-}
-
--(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
-{
+	return nil;
 }
 
 -(void) enable

@@ -7,10 +7,6 @@
 //
 
 #import "MovementComponent.h"
-#import "EditComponent.h"
-#import "EntityFactory.h"
-#import "EntityUtil.h"
-#import "TransformComponent.h"
 #import "Utils.h"
 
 @implementation MovementComponent
@@ -22,7 +18,6 @@
 @synthesize startPosition = _startPosition;
 @synthesize isMovingTowardsStartPosition = _isMovingTowardsStartPosition;
 
-// Designated initializer
 -(id) init
 {
 	if (self = [super init])
@@ -35,14 +30,25 @@
 	return self;
 }
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+-(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
 	if (self = [self init])
 	{
-		if ([dict objectForKey:@"alwaysFaceForward"] != nil)
-		{
-			_alwaysFaceForward = [[dict objectForKey:@"alwaysFaceForward"] boolValue];
-		}
+        // Type
+        if ([typeComponentDict objectForKey:@"alwaysFaceForward"] != nil)
+        {
+            _alwaysFaceForward = [[typeComponentDict objectForKey:@"alwaysFaceForward"] boolValue];
+        }
+        
+        // Instance
+        NSArray *positionsAsStrings = [instanceComponentDict objectForKey:@"positions"];
+        NSMutableArray *positions = [NSMutableArray array];
+        for (NSString *positionAsString in positionsAsStrings)
+        {
+            CGPoint position = [Utils stringToPoint:positionAsString];
+            [positions addObject:[NSValue valueWithCGPoint:position]];
+        }
+        [self setPositions:positions];
 	}
 	return self;
 }
@@ -54,71 +60,18 @@
 	[super dealloc];
 }
 
--(NSDictionary *) getAsDictionary
+-(NSDictionary *) getInstanceComponentDict
 {
-	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	NSMutableDictionary *instanceComponentDict = [NSMutableDictionary dictionary];
 	
 	NSMutableArray *positionsAsStrings = [NSMutableArray array];
-	
-    if ([_parentEntity hasComponent:[EditComponent class]])
+    for (NSValue *positionAsValue in _positions)
     {
-        Entity *currentMovementIndicatorEntity = [[EditComponent getFrom:_parentEntity] nextMovementIndicatorEntity];
-		while (currentMovementIndicatorEntity != nil)
-		{
-			TransformComponent *currentTransformComponent = [TransformComponent getFrom:currentMovementIndicatorEntity];
-			EditComponent *currentEditComponent = [EditComponent getFrom:currentMovementIndicatorEntity];
-			
-			[positionsAsStrings addObject:[Utils pointToString:[currentTransformComponent position]]];
-			
-			currentMovementIndicatorEntity = [currentEditComponent nextMovementIndicatorEntity];
-		}
+        [positionsAsStrings addObject:[Utils pointToString:[positionAsValue CGPointValue]]];
     }
-    else
-    {
-        for (NSValue *positionAsValue in _positions)
-		{
-			[positionsAsStrings addObject:[Utils pointToString:[positionAsValue CGPointValue]]];
-		}
-    }
+	[instanceComponentDict setObject:positionsAsStrings forKey:@"positions"];
 	
-	[dict setObject:positionsAsStrings forKey:@"positions"];
-	
-	return dict;
-}
-
--(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
-{
-	[self populateWithContentsOfDictionary:dict world:world edit:FALSE];
-}
-
--(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world edit:(BOOL)edit
-{
-	if ([dict objectForKey:@"positions"] != nil)
-	{
-		NSArray *positionsAsStrings = [dict objectForKey:@"positions"];
-		NSMutableArray *positions = [NSMutableArray array];
-		for (NSString *positionAsString in positionsAsStrings)
-		{
-			CGPoint position = [Utils stringToPoint:positionAsString];
-			[positions addObject:[NSValue valueWithCGPoint:position]];
-		}
-		[self setPositions:positions];
-		
-		if (edit)
-		{
-			// Create movement indicator entities to allow for editing
-			EditComponent *currentEditComponent = [EditComponent getFrom:_parentEntity];
-			for (NSValue *movePositionAsValue in _positions)
-			{
-				Entity *movementIndicator = [EntityFactory createMovementIndicator:world forEntity:_parentEntity];
-				[EntityUtil setEntityPosition:movementIndicator position:[movePositionAsValue CGPointValue]];
-				[currentEditComponent setNextMovementIndicatorEntity:movementIndicator];
-				[currentEditComponent setMainMoveEntity:_parentEntity];
-				currentEditComponent = [EditComponent getFrom:movementIndicator];
-			}
-			[currentEditComponent setMainMoveEntity:_parentEntity];
-		}
-	}
+	return instanceComponentDict;
 }
 
 @end

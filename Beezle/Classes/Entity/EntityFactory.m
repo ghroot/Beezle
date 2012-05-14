@@ -277,10 +277,10 @@
 		{
 			NSString *spawnType = [[SpawnComponent getFrom:entity] entityType];
 			EntityDescription *spawnEntityDescription = [self getEntityDescription:spawnType];
-			NSDictionary *renderComponentDict = [[spawnEntityDescription typeComponentsDict] objectForKey:@"render"];
-			if (renderComponentDict != nil)
+			NSDictionary *renderTypeComponentDict = [[spawnEntityDescription typeComponentsDict] objectForKey:@"render"];
+			if (renderTypeComponentDict != nil)
 			{
-				RenderComponent *spawnRenderComponent = [RenderComponent componentWithContentsOfDictionary:renderComponentDict world:world];
+				RenderComponent *spawnRenderComponent = [RenderComponent componentWithTypeComponentDict:renderTypeComponentDict andInstanceComponentDict:nil world:world];
 				[entity addComponent:spawnRenderComponent];
 			}
 		}
@@ -353,7 +353,7 @@
 	// Clone bee's physics component
 	EntityDescription *beeEntityDescription = [self getEntityDescription:[beeType name]];
 	NSDictionary *beePhysicsDict = [[beeEntityDescription typeComponentsDict] objectForKey:@"physics"];
-	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithContentsOfDictionary:beePhysicsDict world:world];
+    PhysicsComponent *physicsComponent = [PhysicsComponent componentWithTypeComponentDict:beePhysicsDict andInstanceComponentDict:nil world:world];
 	[physicsComponent setLayers:AIM_POLLEN_LAYERS];
 	[[physicsComponent body] setVel:velocity];
 	[aimPollenEntity addComponent:physicsComponent];

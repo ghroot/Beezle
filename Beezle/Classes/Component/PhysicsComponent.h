@@ -19,8 +19,11 @@
  */
 @interface PhysicsComponent : Component
 {
+    // Type / Instance
     ChipmunkBody *_body;
     NSMutableArray *_shapes;
+    
+    // Transient
 	BOOL _positionOrRotationUpdatedManually;
 }
 

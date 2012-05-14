@@ -11,16 +11,6 @@
 
 @implementation SoundComponent
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
-{
-	if (self = [self init])
-	{
-        [_defaultCollisionSoundNames addStringsFromDictionary:dict baseName:@"defaultCollisionSound"];
-        [_defaultDestroySoundNames addStringsFromDictionary:dict baseName:@"defaultDestroySound"];
-	}
-	return self;
-}
-
 -(id) init
 {
     if (self = [super init])
@@ -30,6 +20,17 @@
         _defaultDestroySoundNames = [StringList new];
     }
     return self;
+}
+
+-(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
+{
+	if (self = [self init])
+	{
+        // Type
+        [_defaultCollisionSoundNames addStringsFromDictionary:typeComponentDict baseName:@"defaultCollisionSound"];
+        [_defaultDestroySoundNames addStringsFromDictionary:typeComponentDict baseName:@"defaultDestroySound"];
+	}
+	return self;
 }
 
 -(void) dealloc

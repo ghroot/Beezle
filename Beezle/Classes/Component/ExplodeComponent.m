@@ -25,20 +25,14 @@
 	return self;
 }
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+-(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
 	if (self = [self init])
 	{
-		if ([dict objectForKey:@"radius"] != nil)
-		{
-			_radius = [[dict objectForKey:@"radius"] intValue];
-		}
-		if ([dict objectForKey:@"explodeStartAnimation"] != nil &&
-			[dict objectForKey:@"explodeEndAnimation"] != nil)
-		{
-			_explodeStartAnimationName = [[dict objectForKey:@"explodeStartAnimation"] retain];
-			_explodeEndAnimationName = [[dict objectForKey:@"explodeEndAnimation"] retain];
-		}
+        // Type
+        _radius = [[typeComponentDict objectForKey:@"radius"] intValue];
+        _explodeStartAnimationName = [[typeComponentDict objectForKey:@"explodeStartAnimation"] copy];
+        _explodeEndAnimationName = [[typeComponentDict objectForKey:@"explodeEndAnimation"] copy];
 	}
 	return self;
 }

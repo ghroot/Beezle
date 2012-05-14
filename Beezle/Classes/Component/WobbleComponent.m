@@ -21,11 +21,12 @@
 	return self;
 }
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+-(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
 	if (self = [self init])
 	{
-		[_wobbleAnimationNames addStringsFromDictionary:dict baseName:@"wobbleAnimation"];
+        // Type
+		[_wobbleAnimationNames addStringsFromDictionary:typeComponentDict baseName:@"wobbleAnimation"];
 	}
 	return self;
 }

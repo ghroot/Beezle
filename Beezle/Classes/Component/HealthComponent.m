@@ -19,14 +19,12 @@
     return self;
 }
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+-(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
 	if (self = [self init])
 	{
-		if ([dict objectForKey:@"totalHealthPoints"] != nil)
-		{
-			_totalHealthPoints = [[dict objectForKey:@"totalHealthPoints"] intValue];
-		}
+        // Type
+        _totalHealthPoints = [[typeComponentDict objectForKey:@"totalHealthPoints"] intValue];
 	}
 	return self;
 }

@@ -24,18 +24,13 @@
     return self;
 }
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+-(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
 	if (self = [self init])
 	{
-		if ([dict objectForKey:@"deleteEntityWhenDisposed"] != nil)
-		{
-			_deleteEntityWhenDisposed = [[dict objectForKey:@"deleteEntityWhenDisposed"] boolValue];
-		}
-		if ([dict objectForKey:@"keepEntityDisabledInsteadOfDelete"] != nil)
-		{
-			_keepEntityDisabledInsteadOfDelete = [[dict objectForKey:@"keepEntityDisabledInsteadOfDelete"] boolValue];
-		}
+        // Type
+        _deleteEntityWhenDisposed = [[typeComponentDict objectForKey:@"deleteEntityWhenDisposed"] boolValue];
+        _keepEntityDisabledInsteadOfDelete = [[typeComponentDict objectForKey:@"keepEntityDisabledInsteadOfDelete"] boolValue];
 	}
 	return self;
 }

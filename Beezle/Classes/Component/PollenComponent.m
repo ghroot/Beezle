@@ -21,14 +21,12 @@
 	return self;
 }
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+-(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
 	if (self = [self init])
 	{
-		if ([dict objectForKey:@"pollenCount"] != nil)
-		{
-			_pollenCount = [[dict objectForKey:@"pollenCount"] intValue];
-		}
+        // Type
+        _pollenCount = [[typeComponentDict objectForKey:@"pollenCount"] intValue];
 	}
 	return self;
 }

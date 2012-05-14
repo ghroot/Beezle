@@ -18,45 +18,41 @@
 @synthesize intervalRandomDeviation = _intervalRandomDeviation;
 @synthesize countdown = _countdown;
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
-{
-	if (self = [self init])
-	{
-		if ([dict objectForKey:@"entityType"] != nil)
-		{
-			_entityType = [[dict objectForKey:@"entityType"] retain];
-		}
-		if ([dict objectForKey:@"offset"] != nil)
-		{
-			_offset = [Utils stringToPoint:[dict objectForKey:@"offset"]];
-		}
-		if ([dict objectForKey:@"autoDestroy"] != nil)
-		{
-			_autoDestroy = [[dict objectForKey:@"autoDestroy"] boolValue];
-		}
-		if ([dict objectForKey:@"interval"] != nil)
-		{
-			_interval = [[dict objectForKey:@"interval"] floatValue];
-		}
-		if ([dict objectForKey:@"intervalRandomDeviation"] != nil)
-		{
-			_intervalRandomDeviation = [[dict objectForKey:@"intervalRandomDeviation"] floatValue];
-		}
-	}
-	return self;
-}
-
 -(id) init
 {
     if (self = [super init])
     {
 		_name = @"spawn";
-		_offset = CGPointZero;
-		_interval = 1.0f;
-		_intervalRandomDeviation = 0.0f;
 		_countdown = 0.0f;
     }
     return self;
+}
+
+-(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
+{
+	if (self = [self init])
+	{
+        // Type
+        _entityType = [[typeComponentDict objectForKey:@"entityType"] retain];
+		if ([typeComponentDict objectForKey:@"offset"] != nil)
+		{
+			_offset = [Utils stringToPoint:[typeComponentDict objectForKey:@"offset"]];
+		}
+        else
+        {
+            _offset = CGPointZero;
+        }
+		if ([typeComponentDict objectForKey:@"autoDestroy"] != nil)
+		{
+			_autoDestroy = [[typeComponentDict objectForKey:@"autoDestroy"] boolValue];
+		}
+        _interval = [[typeComponentDict objectForKey:@"interval"] floatValue];
+		if ([typeComponentDict objectForKey:@"intervalRandomDeviation"] != nil)
+		{
+			_intervalRandomDeviation = [[typeComponentDict objectForKey:@"intervalRandomDeviation"] floatValue];
+		}
+	}
+	return self;
 }
 
 -(void) dealloc

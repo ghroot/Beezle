@@ -20,14 +20,17 @@ typedef enum
  */
 @interface SlingerComponent : Component
 {
+    // Instance
+    NSMutableArray *_queuedBeeTypes;
+    
+    // Transient
 	SlingerState _state;
-	NSMutableArray *_queuedBeeTypes;
 	BeeType *_loadedBeeType;
 	int _aimPollenCountdown;
 }
 
-@property (nonatomic) SlingerState state;
 @property (nonatomic, readonly) NSArray *queuedBeeTypes;
+@property (nonatomic) SlingerState state;
 @property (nonatomic, readonly) BeeType *loadedBeeType;
 
 -(void) pushBeeType:(BeeType *)beeType;

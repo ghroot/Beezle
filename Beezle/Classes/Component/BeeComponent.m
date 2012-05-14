@@ -21,14 +21,12 @@
 	return self;
 }
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+-(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
 	if (self = [self init])
 	{
-		if ([dict objectForKey:@"type"] != nil)
-		{
-			_type = [BeeType enumFromName:[dict objectForKey:@"type"]];
-		}
+        // Type
+        _type = [BeeType enumFromName:[typeComponentDict objectForKey:@"type"]];
 	}
 	return self;
 }

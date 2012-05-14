@@ -15,6 +15,7 @@
  */
 @interface SoundComponent : Component
 {
+    // Type
 	StringList *_defaultCollisionSoundNames;
     StringList *_defaultDestroySoundNames;
 }

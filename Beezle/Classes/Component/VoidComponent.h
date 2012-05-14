@@ -13,6 +13,7 @@
  */
 @interface VoidComponent : Component
 {
+    // Type
 	BOOL _instant;
 }
 

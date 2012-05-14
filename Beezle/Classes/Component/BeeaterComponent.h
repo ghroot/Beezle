@@ -16,14 +16,17 @@
  */
 @interface BeeaterComponent : Component
 {
-	BeeType *_containedBeeType;
+    // Type
     NSString *_showBeeAnimationNameFormat;
     StringList *_showBeeBetweenAnimationNames;
+    
+    // Instance
+	BeeType *_containedBeeType;
 }
 
-@property (nonatomic, assign) BeeType *containedBeeType;
 @property (nonatomic, copy) NSString *showBeeAnimationNameFormat;
 @property (nonatomic, readonly) StringList *showBeeBetweenAnimationNames;
+@property (nonatomic, assign) BeeType *containedBeeType;
 
 -(BOOL) hasContainedBee;
 

@@ -12,18 +12,6 @@
 
 @synthesize instant = _instant;
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
-{
-	if (self = [self init])
-	{
-		if ([dict objectForKey:@"instant"] != nil)
-		{
-			_instant = [[dict objectForKey:@"instant"] boolValue];
-		}
-	}
-	return self;
-}
-
 -(id) init
 {
     if (self = [super init])
@@ -31,6 +19,19 @@
 		_name = @"void";
     }
     return self;
+}
+
+-(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
+{
+	if (self = [self init])
+	{
+        // Type
+		if ([typeComponentDict objectForKey:@"instant"] != nil)
+		{
+			_instant = [[typeComponentDict objectForKey:@"instant"] boolValue];
+		}
+	}
+	return self;
 }
 
 @end

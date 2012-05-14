@@ -13,6 +13,7 @@
  */
 @interface WaterComponent : Component
 {
+    // Type
     NSString *_splashEntityType;
 }
 

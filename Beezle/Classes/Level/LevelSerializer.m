@@ -19,6 +19,7 @@
 @interface LevelSerializer()
 
 -(BOOL) isLevelLayoutEntity:(Entity *)entity;
+-(BOOL) hasInstanceComponentDictAnyValues:(NSDictionary *)instanceComponentDict;
 
 @end
 
@@ -134,17 +135,17 @@
 			EditComponent *editComponent = [EditComponent getFrom:entity];
 			[levelLayoutEntry setType:[editComponent levelLayoutType]];
 			
-			NSMutableDictionary *componentsDict = [NSMutableDictionary dictionary];
+			NSMutableDictionary *instanceComponentsDict = [NSMutableDictionary dictionary];
 			NSArray *components = [entity getComponents];
 			for (Component *component in components)
 			{
-				NSDictionary *componentDict = [component getAsDictionary];
-				if ([componentDict count] > 0)
+				NSDictionary *instanceComponentDict = [component getInstanceComponentDict];
+				if ([self hasInstanceComponentDictAnyValues:instanceComponentDict])
 				{
-					[componentsDict setObject:componentDict forKey:[component name]];
+					[instanceComponentsDict setObject:instanceComponentDict forKey:[component name]];
 				}
 			}
-			[levelLayoutEntry setInstanceComponentsDict:componentsDict];
+			[levelLayoutEntry setInstanceComponentsDict:instanceComponentsDict];
 						
 			[levelLayout addLevelLayoutEntry:levelLayoutEntry];
 		}
@@ -164,6 +165,13 @@
 		}
 	}
 	return FALSE;
+}
+
+-(BOOL) hasInstanceComponentDictAnyValues:(NSDictionary *)instanceComponentDict
+{
+    // TODO: Check all sub collections
+    return instanceComponentDict != nil &&
+        [instanceComponentDict count] > 0;
 }
 
 @end

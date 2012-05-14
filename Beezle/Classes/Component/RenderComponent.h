@@ -16,6 +16,7 @@
  */
 @interface RenderComponent : Component <NSCopying>
 {
+    // Type / Instance
 	NSMutableArray *_renderSprites;
 }
 

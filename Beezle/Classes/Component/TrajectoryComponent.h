@@ -13,6 +13,7 @@
  */
 @interface TrajectoryComponent : Component
 {
+    // Transient
 	CGPoint _startPoint;
 	float _power;
 	float _angle;

@@ -20,26 +20,23 @@
 	if (self = [super init])
 	{
 		_name = @"shard";
-		_piecesSpawnType = SHARD_PIECES_SPAWN_NORMAL;
 	}
 	return self;
 }
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+-(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
 	if (self = [self init])
 	{
-		if ([dict objectForKey:@"piecesEntityType"] != nil)
+        // Type
+        _piecesEntityType = [[typeComponentDict objectForKey:@"piecesEntityType"] copy];
+		if ([typeComponentDict objectForKey:@"piecesCount"] != nil)
 		{
-			_piecesEntityType = [[dict objectForKey:@"piecesEntityType"] copy];
+			_piecesCount = [[typeComponentDict objectForKey:@"piecesCount"] intValue];
 		}
-		if ([dict objectForKey:@"piecesCount"] != nil)
+        if ([typeComponentDict objectForKey:@"piecesSpawnType"] != nil)
 		{
-			_piecesCount = [[dict objectForKey:@"piecesCount"] intValue];
-		}
-        if ([dict objectForKey:@"piecesSpawnType"] != nil)
-		{
-            NSString *piecesSpawnTypeAsString = [dict objectForKey:@"piecesSpawnType"];
+            NSString *piecesSpawnTypeAsString = [typeComponentDict objectForKey:@"piecesSpawnType"];
             if ([piecesSpawnTypeAsString isEqualToString:@"SHARD_PIECES_SPAWN_FADEOUT"])
             {
                 _piecesSpawnType = SHARD_PIECES_SPAWN_FADEOUT;
@@ -49,6 +46,10 @@
                 _piecesSpawnType = SHARD_PIECES_SPAWN_ANIMATE_AND_DELETE;
             }
 		}
+        else
+        {
+            _piecesSpawnType = SHARD_PIECES_SPAWN_NORMAL;
+        }
 	}
 	return self;
 }

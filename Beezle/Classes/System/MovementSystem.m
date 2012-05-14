@@ -7,10 +7,14 @@
 //
 
 #import "MovementSystem.h"
+#import "EditComponent.h"
+#import "EntityFactory.h"
+#import "EntityUtil.h"
 #import "MovementComponent.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
 #import "TransformComponent.h"
+#import "Utils.h"
 
 @interface MovementSystem()
 
@@ -35,26 +39,64 @@
 {
 	TransformComponent *transformComponent = [TransformComponent getFrom:entity];
 	MovementComponent *movementComponent = [MovementComponent getFrom:entity];
-	
-	[movementComponent setStartPosition:[transformComponent position]];
+    
+    EditComponent *editComponent = [EditComponent getFrom:entity];
+    if (editComponent != nil)
+    {
+        // Create movement indicator entities to allow for editing
+        EditComponent *currentEditComponent = editComponent;
+        for (NSValue *movePositionAsValue in [movementComponent positions])
+        {
+            Entity *movementIndicator = [EntityFactory createMovementIndicator:_world forEntity:entity];
+            [EntityUtil setEntityPosition:movementIndicator position:[movePositionAsValue CGPointValue]];
+            [currentEditComponent setNextMovementIndicatorEntity:movementIndicator];
+            [currentEditComponent setMainMoveEntity:entity];
+            currentEditComponent = [EditComponent getFrom:movementIndicator];
+        }
+        [currentEditComponent setMainMoveEntity:entity];
+    }
+    else
+    {
+        [movementComponent setStartPosition:[transformComponent position]];
+    }
 }
 
 -(void) processEntity:(Entity *)entity
 {
 	MovementComponent *movementComponent = [MovementComponent getFrom:entity];
-	if ([[movementComponent positions] count] == 0)
-	{
-		return;
-	}
-	
-	if ([self isAtNextPosition:entity])
-	{
-		[self updateNextPosition:entity];
-	}
-	else
-	{
-		[self moveTowardsNextPosition:entity];
-	}
+    
+    EditComponent *editComponent = [EditComponent getFrom:entity];
+    if (editComponent != nil)
+    {
+        NSMutableArray *latestPositions = [NSMutableArray array];
+        Entity *currentMovementIndicatorEntity = [editComponent nextMovementIndicatorEntity];
+        while (currentMovementIndicatorEntity != nil)
+        {
+            TransformComponent *currentTransformComponent = [TransformComponent getFrom:currentMovementIndicatorEntity];
+            EditComponent *currentEditComponent = [EditComponent getFrom:currentMovementIndicatorEntity];
+            
+            [latestPositions addObject:[Utils pointToString:[currentTransformComponent position]]];
+            
+            currentMovementIndicatorEntity = [currentEditComponent nextMovementIndicatorEntity];
+        }
+        [movementComponent setPositions:latestPositions];
+    }
+    else
+    {
+        if ([[movementComponent positions] count] == 0)
+        {
+            return;
+        }
+        
+        if ([self isAtNextPosition:entity])
+        {
+            [self updateNextPosition:entity];
+        }
+        else
+        {
+            [self moveTowardsNextPosition:entity];
+        }
+    }
 }
 
 -(CGPoint) getCurrentPosition:(Entity *)entity

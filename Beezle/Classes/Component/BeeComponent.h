@@ -14,7 +14,10 @@
  */
 @interface BeeComponent : Component
 {
+    // Type
 	BeeType *_type;
+    
+    // Transient
 	int _beeaterHitsLeft;
 	int _autoDestroyCountdown;
 }

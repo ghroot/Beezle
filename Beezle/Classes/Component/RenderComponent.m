@@ -31,7 +31,6 @@
 	return renderComponent;
 }
 
-// Designated initializer
 -(id) init
 {
 	if (self = [super init])
@@ -42,12 +41,13 @@
 	return self;
 }
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+-(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
 	if (self = [self init])
 	{
+        // Type
 		RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
-		for (NSDictionary *spriteDict in [dict objectForKey:@"sprites"])
+		for (NSDictionary *spriteDict in [typeComponentDict objectForKey:@"sprites"])
 		{
 			RenderSprite *renderSprite = nil;
             
@@ -99,6 +99,17 @@
             
 			[self addRenderSprite:renderSprite];
 		}
+        
+        // Instance
+        if ([instanceComponentDict objectForKey:@"sprites"] != nil)
+        {
+            for (NSDictionary *renderSpriteDict in [instanceComponentDict objectForKey:@"sprites"])
+            {
+                RenderSprite *renderSprite = [self renderSpriteWithName:[renderSpriteDict objectForKey:@"name"]];
+                [[renderSprite overrideIdleAnimationNames] addStringsFromDictionary:renderSpriteDict baseName:@"overrideIdleAnimation"];
+            }
+        }
+        
 		[self playDefaultIdleAnimation];
 	}
 	return self;
@@ -111,9 +122,9 @@
     [super dealloc];
 }
 
--(NSDictionary *) getAsDictionary
+-(NSDictionary *) getInstanceComponentDict
 {
-	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	NSMutableDictionary *instanceComponentDict = [NSMutableDictionary dictionary];
 	NSMutableArray *renderSpritesArray = [NSMutableArray array];
 	for (RenderSprite *renderSprite in _renderSprites)
 	{
@@ -127,22 +138,9 @@
 	}
 	if ([renderSpritesArray count] > 0)
 	{
-		[dict setObject:renderSpritesArray forKey:@"sprites"];
+		[instanceComponentDict setObject:renderSpritesArray forKey:@"sprites"];
 	}
-	return dict;
-}
-
--(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
-{
-	if ([dict objectForKey:@"sprites"] != nil)
-	{
-		for (NSDictionary *renderSpriteDict in [dict objectForKey:@"sprites"])
-		{
-			RenderSprite *renderSprite = [self renderSpriteWithName:[renderSpriteDict objectForKey:@"name"]];
-			[[renderSprite overrideIdleAnimationNames] addStringsFromDictionary:renderSpriteDict baseName:@"overrideIdleAnimation"];
-			[renderSprite playDefaultIdleAnimation];
-		}
-	}
+	return instanceComponentDict;
 }
 
 -(id) copyWithZone:(NSZone *)zone

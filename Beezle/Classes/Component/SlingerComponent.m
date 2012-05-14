@@ -12,8 +12,8 @@ static const int AIM_POLLEN_INTERVAL = 16;
 
 @implementation SlingerComponent
 
-@synthesize state = _state;
 @synthesize queuedBeeTypes = _queuedBeeTypes;
+@synthesize state = _state;
 @synthesize loadedBeeType = _loadedBeeType;
 
 -(id) init
@@ -25,6 +25,21 @@ static const int AIM_POLLEN_INTERVAL = 16;
 		_loadedBeeType = nil;
 	}
 	return self;
+}
+
+-(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
+{
+    if (self = [self init])
+    {
+        // Instance
+        NSArray *queuedBeeTypesAsStrings = [instanceComponentDict objectForKey:@"queuedBeeTypes"];
+		for (NSString *queuedBeeTypeAsString in queuedBeeTypesAsStrings)
+		{
+			BeeType *queuedBeeType = [BeeType enumFromName:queuedBeeTypeAsString];
+			[self pushBeeType:queuedBeeType];
+		}
+    }
+    return self;
 }
 
 -(void) dealloc
@@ -39,29 +54,16 @@ static const int AIM_POLLEN_INTERVAL = 16;
 	[super dealloc];
 }
 
--(NSDictionary *) getAsDictionary
+-(NSDictionary *) getInstanceComponentDict
 {
-	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	NSMutableDictionary *instanceComponentDict = [NSMutableDictionary dictionary];
 	NSMutableArray *queuedBeeTypesAsStrings = [NSMutableArray array];
 	for (BeeType *queuedBeeType in _queuedBeeTypes)
 	{
 		[queuedBeeTypesAsStrings addObject:[queuedBeeType name]];
 	}
-	[dict setObject:queuedBeeTypesAsStrings forKey:@"queuedBeeTypes"];
-	return dict;
-}
-
--(void) populateWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
-{
-	if ([dict objectForKey:@"queuedBeeTypes"])
-	{
-		NSArray *queuedBeeTypesAsStrings = [dict objectForKey:@"queuedBeeTypes"];
-		for (NSString *queuedBeeTypeAsString in queuedBeeTypesAsStrings)
-		{
-			BeeType *queuedBeeType = [BeeType enumFromName:queuedBeeTypeAsString];
-			[self pushBeeType:queuedBeeType];
-		}
-	}
+	[instanceComponentDict setObject:queuedBeeTypesAsStrings forKey:@"queuedBeeTypes"];
+	return instanceComponentDict;
 }
 
 -(void) pushBeeType:(BeeType *)beeType

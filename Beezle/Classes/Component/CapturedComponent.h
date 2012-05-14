@@ -12,6 +12,7 @@
 
 @interface CapturedComponent : Component
 {
+    // Type
 	BeeType *_containedBeeType;
 }
 

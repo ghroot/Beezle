@@ -10,6 +10,7 @@
 
 @interface FreezableComponent : Component
 {
+    // Transient
 	BOOL _isFrozen;
 }
 

@@ -13,7 +13,10 @@
  */
 @interface HealthComponent : Component
 {
+    // Instance
 	int _totalHealthPoints;
+    
+    // Transient
 	int _healthPointsLeft;
 }
 

@@ -6,15 +6,18 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "Component.h"
+#import "artemis.h"
 
 /**
   Keeps track of if an entity is disposed.
  */
 @interface DisposableComponent : Component
 {
+    // Type
 	BOOL _deleteEntityWhenDisposed;
 	BOOL _keepEntityDisabledInsteadOfDelete;
+    
+    // Transient
     BOOL _isDisposed;
 	BOOL _isAboutToBeDeleted;
 }

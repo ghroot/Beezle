@@ -22,15 +22,18 @@ typedef enum
  */
 @interface ExplodeComponent : Component
 {
+    // Type
 	int _radius;
 	NSString *_explodeStartAnimationName;
 	NSString *_explodeEndAnimationName;
+    
+    // Transient
     ExplosionState _explosionState;
 }
 
 @property (nonatomic) int radius;
-@property (nonatomic, retain) NSString *explodeStartAnimationName;
-@property (nonatomic, retain) NSString *explodeEndAnimationName;
+@property (nonatomic, copy) NSString *explodeStartAnimationName;
+@property (nonatomic, copy) NSString *explodeEndAnimationName;
 @property (nonatomic) ExplosionState explosionState;
 
 @end

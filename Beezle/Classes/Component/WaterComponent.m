@@ -21,13 +21,14 @@
 	return self;
 }
 
--(id) initWithContentsOfDictionary:(NSDictionary *)dict world:(World *)world
+-(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
 	if (self = [self init])
 	{
-		if ([dict objectForKey:@"splashEntityType"] != nil)
+        // Type
+		if ([typeComponentDict objectForKey:@"splashEntityType"] != nil)
 		{
-			_splashEntityType = [[dict objectForKey:@"splashEntityType"] copy];
+			_splashEntityType = [[typeComponentDict objectForKey:@"splashEntityType"] copy];
 		}
 	}
 	return self;

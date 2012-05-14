@@ -20,6 +20,7 @@ typedef enum
  */
 @interface ShardComponent : Component
 {
+    // Type
 	NSString *_piecesEntityType;
 	int _piecesCount;
     ShardPiecesSpawnType _piecesSpawnType;

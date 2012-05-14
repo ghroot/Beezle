@@ -13,17 +13,16 @@
  */
 @interface TransformComponent : Component
 {
+    // Type / Instance
+    CGPoint _scale;
+    
+    // Instance
     CGPoint _position;
     float _rotation;
-    CGPoint _scale;
 }
 
+@property (nonatomic) CGPoint scale;
 @property (nonatomic) CGPoint position;
 @property (nonatomic) float rotation;
-@property (nonatomic) CGPoint scale;
-
-+(id) componentWithPosition:(CGPoint)position;
-
--(id) initWithPosition:(CGPoint)position;
 
 @end

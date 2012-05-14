@@ -15,6 +15,7 @@
  */
 @interface WobbleComponent : Component
 {
+    // Type
 	StringList *_wobbleAnimationNames;
 }
 
