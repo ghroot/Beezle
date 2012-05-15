@@ -56,7 +56,15 @@
 			
 			[self setBody:[bodyInfo body]];
 			for (ChipmunkShape *shape in [bodyInfo shapes])
-			{	
+			{
+				if ([typeComponentDict objectForKey:@"elasticity"] != nil)
+				{
+					[shape setElasticity:[[typeComponentDict objectForKey:@"elasticity"] floatValue]];
+				}
+				if ([typeComponentDict objectForKey:@"friction"] != nil)
+				{
+					[shape setFriction:[[typeComponentDict objectForKey:@"friction"] floatValue]];
+				}
 				if ([typeComponentDict objectForKey:@"layers"] != nil)
 				{
 					[shape setLayers:[[typeComponentDict objectForKey:@"layers"] intValue]];
