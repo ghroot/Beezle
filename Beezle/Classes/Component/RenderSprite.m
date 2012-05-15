@@ -128,12 +128,18 @@
 
 -(void) addSpriteToSpriteSheet
 {
-	[_spriteSheet addChild:_sprite z:[_zOrder z]];
+	if (_spriteSheet != nil)
+	{
+		[_spriteSheet addChild:_sprite z:[_zOrder z]];
+	}
 }
 
 -(void) removeSpriteFromSpriteSheet
 {
-	[_spriteSheet removeChild:_sprite cleanup:TRUE];
+	if (_spriteSheet != nil)
+	{
+		[_spriteSheet removeChild:_sprite cleanup:TRUE];
+	}
 }
 
 /**
