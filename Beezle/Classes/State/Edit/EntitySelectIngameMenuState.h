@@ -12,6 +12,7 @@
 @interface EntitySelectIngameMenuState : GameState
 {
     CCMenu *_menu;
+    NSArray *_alphabet;
 }
 
 @end
