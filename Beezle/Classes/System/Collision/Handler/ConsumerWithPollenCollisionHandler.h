@@ -7,6 +7,7 @@
 //
 
 #import "CollisionHandler.h"
+#import "cocos2d.h"
 
 @interface ConsumerWithPollenCollisionHandler : CollisionHandler
 

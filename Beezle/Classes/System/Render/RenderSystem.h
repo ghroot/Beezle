@@ -19,6 +19,8 @@
 	NSMutableSet *_loadedAnimationsFileNames;
 }
 
+@property (nonatomic, readonly) CCLayer *layer;
+
 -(id) initWithLayer:(CCLayer *)layer;
 -(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name animationFile:(NSString *)animationsFileName zOrder:(ZOrder *)zOrder;
 -(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name zOrder:(ZOrder *)zOrder;

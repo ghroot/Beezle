@@ -14,6 +14,8 @@
 
 @implementation RenderSystem
 
+@synthesize layer = _layer;
+
 -(id) initWithLayer:(CCLayer *)layer
 {
     if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], [RenderComponent class], nil]])
