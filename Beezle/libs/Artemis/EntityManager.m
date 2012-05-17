@@ -87,15 +87,11 @@
 
 -(void) addComponent:(Component *)component toEntity:(Entity *)entity
 {
-    NSMutableDictionary *componentsByEntity;
-    if ([_componentsByClass objectForKey:[component class]] == nil)
+    NSMutableDictionary *componentsByEntity = [_componentsByClass objectForKey:[component class]];
+    if (componentsByEntity == nil)
     {
         componentsByEntity = [NSMutableDictionary dictionary];
         [_componentsByClass setObject:componentsByEntity forKey:[component class]];
-    }
-    else
-    {
-        componentsByEntity = [_componentsByClass objectForKey:[component class]];
     }
     [componentsByEntity setObject:component forKey:[entity entityId]];
 	[component setParentEntity:entity];
@@ -124,9 +120,9 @@
 
 -(Component *) getComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity
 {
-    if ([_componentsByClass objectForKey:componentClass] != nil)
+	NSMutableDictionary *_componentsByEntity = [_componentsByClass objectForKey:componentClass];
+    if (_componentsByEntity != nil)
     {
-        NSMutableDictionary *_componentsByEntity = [_componentsByClass objectForKey:componentClass];
         return [_componentsByEntity objectForKey:[entity entityId]];
     }
     else
