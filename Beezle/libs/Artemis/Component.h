@@ -34,12 +34,10 @@
 @interface Component : NSObject <NSCopying>
 {
 	NSString *_name;
-	Entity *_parentEntity;
     BOOL _enabled;
 }
 
 @property (nonatomic, readonly) NSString *name;
-@property (nonatomic, assign) Entity *parentEntity;
 @property (nonatomic, readonly) BOOL enabled;
 
 +(id) component;

@@ -34,7 +34,6 @@
 @implementation Component
 
 @synthesize name = _name;
-@synthesize parentEntity = _parentEntity;
 @synthesize enabled = _enabled;
 
 +(id) component
@@ -71,7 +70,6 @@
 -(id) copyWithZone:(NSZone *)zone
 {
 	Component *copiedComponent = [[[self class] allocWithZone:zone] init];
-	[copiedComponent setParentEntity:_parentEntity];
 	return copiedComponent;
 }
 
