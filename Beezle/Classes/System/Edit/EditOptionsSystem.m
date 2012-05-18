@@ -33,10 +33,29 @@
 -(void) createBeeaterOptionsMenu;
 -(void) createSlingerOptionsMenu;
 -(void) createMovementOptionsMenu;
+-(void) createReflectionOptionsMenu;
 -(CCMenuItem *) createMenuItem:(NSString *)label selector:(SEL)selector userData:(void *)userData;
 -(void) updateMenus;
 -(void) ensureMenuIsNotInLayer:(CCMenu *)menu;
 -(void) removeAllMenus;
+
+-(void) doOptionOpenEntityMenu:(id)sender;
+-(void) doOptionToggleWater:(id)sender;
+-(void) doOptionToggleLines:(id)sender;
+
+-(void) doOptionMirror:(id)sender;
+-(void) doOptionRotateLeft:(id)sender;
+-(void) doOptionRotateRight:(id)sender;
+-(void) doOptionDelete:(id)sender;
+
+-(void) doOptionSetBeeaterBeeType:(id)sender;
+
+-(void) doOptionAddSlingerBeeType:(id)sender;
+-(void) doOptionClearSlingerBees:(id)sender;
+
+-(void) doOptionAddMovementIndicator:(id)sender;
+
+-(void) doOptionToggleReflection:(id)sender;
 
 @end
 
@@ -54,6 +73,7 @@
 		[self createBeeaterOptionsMenu];
 		[self createSlingerOptionsMenu];
 		[self createMovementOptionsMenu];
+		[self createReflectionOptionsMenu];
 		
 		[self updateMenus];
 	}
@@ -130,6 +150,13 @@
 	[_movementOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
 }
 
+-(void) createReflectionOptionsMenu
+{
+	_reflectionOptionsMenu = [[CCMenu menuWithItems:nil] retain];
+	[_reflectionOptionsMenu addChild:[self createMenuItem:@"Toggle reflection" selector:@selector(doOptionToggleReflection:) userData:nil]];
+	[_reflectionOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
+}
+
 -(CCMenuItem *) createMenuItem:(NSString *)label selector:(SEL)selector userData:(void *)userData
 {
 	CCMenuItemFont *menuItem = [CCMenuItemFont itemWithString:label target:self selector:selector];
@@ -184,7 +211,19 @@
 		if ([_entityWithOptionsDisplayed hasComponent:[MovementComponent class]])
 		{
 			[_movementOptionsMenu setPosition:CGPointMake(currentX, currentY)];
+			currentY += 20;
 			[_layer addChild:_movementOptionsMenu];
+		}
+		EditComponent *editComponent = [EditComponent getFrom:_entityWithOptionsDisplayed];
+		if ([[editComponent levelLayoutType] isEqualToString:@"BEEATER-LAND-C"] ||
+			[[editComponent levelLayoutType] isEqualToString:@"BEEATER-LAND-C-REFLECTION"] ||
+			[[editComponent levelLayoutType] isEqualToString:@"BEEATER-HANGING-C"] ||
+			[[editComponent levelLayoutType] isEqualToString:@"BEEATER-HANGING-C-REFLECTION"] ||
+			[[editComponent levelLayoutType] isEqualToString:@"EGG"] ||
+			[[editComponent levelLayoutType] isEqualToString:@"EGG-REFLECTION"])
+		{
+			[_reflectionOptionsMenu setPosition:CGPointMake(currentX, currentY)];
+			[_layer addChild:_reflectionOptionsMenu];
 		}
 	}
 	else
@@ -213,6 +252,7 @@
 	[self ensureMenuIsNotInLayer:_beeaterOptionsMenu];
 	[self ensureMenuIsNotInLayer:_slingerOptionsMenu];
 	[self ensureMenuIsNotInLayer:_movementOptionsMenu];
+	[self ensureMenuIsNotInLayer:_reflectionOptionsMenu];
 }
 
 -(void) doOptionOpenEntityMenu:(id)sender
@@ -356,6 +396,50 @@
 	
 	// Select new movement indicator
 	[_editControlSystem selectEntity:movementIndicatorEntity];
+}
+
+-(void) doOptionToggleReflection:(id)sender
+{
+	TransformComponent *transformComponent = [TransformComponent getFrom:_entityWithOptionsDisplayed];
+	
+	// Deselect first if selected
+	if (_entityWithOptionsDisplayed == [_editControlSystem selectedEntity])
+	{
+		[_editControlSystem deselectSelectedEntity];
+	}
+	
+	// Delete entity
+	[_entityWithOptionsDisplayed deleteEntity];
+	
+	EditComponent *editComponent = [EditComponent getFrom:_entityWithOptionsDisplayed];
+	NSString *levelLayoutType = [editComponent levelLayoutType];
+	
+	NSString *entityType = nil;
+	if ([levelLayoutType hasSuffix:@"-REFLECTION"])
+	{
+		entityType = [levelLayoutType stringByReplacingOccurrencesOfString:@"-REFLECTION" withString:@""];
+	}
+	else
+	{
+		entityType = [NSString stringWithFormat:@"%@-REFLECTION", levelLayoutType];
+	}
+	
+	NSMutableDictionary *instanceComponentDict = nil;
+	
+	if ([[editComponent levelLayoutType] hasPrefix:@"BEEATER-"])
+	{
+		BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:_entityWithOptionsDisplayed];
+		instanceComponentDict = [NSMutableDictionary dictionary];
+		NSMutableDictionary *beeaterComponentDict = [NSMutableDictionary dictionary];
+		[beeaterComponentDict setObject:[[beeaterComponent containedBeeType] name] forKey:@"containedBeeType"];
+		[instanceComponentDict setObject:beeaterComponentDict forKey:@"beeater"];
+	}
+	
+	Entity *entity = [EntityFactory createEntity:entityType world:_world instanceComponentsDict:instanceComponentDict edit:TRUE];
+	[EntityUtil setEntityPosition:entity position:[transformComponent position]];
+	[EntityUtil setEntityRotation:entity rotation:[transformComponent rotation]];
+	[EntityUtil setEntityMirrored:entity mirrored:([transformComponent scale].x < 0)];
+	[_editControlSystem selectEntity:entity];
 }
 
 @end

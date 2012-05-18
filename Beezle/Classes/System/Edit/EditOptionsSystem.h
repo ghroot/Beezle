@@ -29,24 +29,9 @@
 	CCMenu *_beeaterOptionsMenu;
 	CCMenu *_slingerOptionsMenu;
 	CCMenu *_movementOptionsMenu;
+	CCMenu *_reflectionOptionsMenu;
 }
 
 -(id) initWithLayer:(CCLayer *)layer andEditState:(EditState *)editState;
-
--(void) doOptionOpenEntityMenu:(id)sender;
--(void) doOptionToggleWater:(id)sender;
--(void) doOptionToggleLines:(id)sender;
-
--(void) doOptionMirror:(id)sender;
--(void) doOptionRotateLeft:(id)sender;
--(void) doOptionRotateRight:(id)sender;
--(void) doOptionDelete:(id)sender;
-
--(void) doOptionSetBeeaterBeeType:(id)sender;
-
--(void) doOptionAddSlingerBeeType:(id)sender;
--(void) doOptionClearSlingerBees:(id)sender;
-
--(void) doOptionAddMovementIndicator:(id)sender;
 
 @end

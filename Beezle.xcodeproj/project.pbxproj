@@ -170,6 +170,11 @@
 		2C5373CE1538D05A00040EED /* A-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5373CD1538D05A00040EED /* A-Glass-Shapes.plist */; };
 		2C5373D01538D3A300040EED /* B-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5373CF1538D3A300040EED /* B-Glass-Shapes.plist */; };
 		2C537429153B318400040EED /* WoodComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C537428153B318100040EED /* WoodComponent.m */; };
+		2C563A641566D9A800D422F6 /* Beeater-Hanging-C-Reflection.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C563A621566D9A800D422F6 /* Beeater-Hanging-C-Reflection.plist */; };
+		2C563A651566D9A800D422F6 /* Beeater-Land-C-Reflection.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C563A631566D9A800D422F6 /* Beeater-Land-C-Reflection.plist */; };
+		2C563A6B1566EDC200D422F6 /* Egg-Reflection.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C563A681566EDC200D422F6 /* Egg-Reflection.plist */; };
+		2C563A6C1566EDC200D422F6 /* Egg-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C563A691566EDC200D422F6 /* Egg-Template.plist */; };
+		2C563A6D1566EDC200D422F6 /* Egg.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C563A6A1566EDC200D422F6 /* Egg.plist */; };
 		2C596D3E14A13FDD00DFCC14 /* LevelLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */; };
 		2C5AB61A1543FEA100744B88 /* VolatileComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AB6191543FEA100744B88 /* VolatileComponent.m */; };
 		2C5AB61E1544017600744B88 /* SolidComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AB61D1544017600744B88 /* SolidComponent.m */; };
@@ -1320,7 +1325,6 @@
 		2CE4F5BB153CC8A80023B5C6 /* Beeater-Fish-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F54C153CC8A80023B5C6 /* Beeater-Fish-Template.plist */; };
 		2CE4F5BC153CC8A80023B5C6 /* Beeater-Hanging-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F54D153CC8A80023B5C6 /* Beeater-Hanging-Template.plist */; };
 		2CE4F5BD153CC8A80023B5C6 /* Beeater-Land-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F54E153CC8A80023B5C6 /* Beeater-Land-Template.plist */; };
-		2CE4F5C0153CC8A80023B5C6 /* Egg.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F551153CC8A80023B5C6 /* Egg.plist */; };
 		2CE4F5C1153CC8A80023B5C6 /* Floating-Block-A.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F552153CC8A80023B5C6 /* Floating-Block-A.plist */; };
 		2CE4F600153CC8A80023B5C6 /* Leaf.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F595153CC8A80023B5C6 /* Leaf.plist */; };
 		2CE4F601153CC8A80023B5C6 /* Mushroom.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F597153CC8A80023B5C6 /* Mushroom.plist */; };
@@ -1701,6 +1705,11 @@
 		2C5373CF1538D3A300040EED /* B-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "B-Glass-Shapes.plist"; sourceTree = "<group>"; };
 		2C537427153B317D00040EED /* WoodComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WoodComponent.h; path = Classes/Component/WoodComponent.h; sourceTree = "<group>"; };
 		2C537428153B318100040EED /* WoodComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WoodComponent.m; path = Classes/Component/WoodComponent.m; sourceTree = "<group>"; };
+		2C563A621566D9A800D422F6 /* Beeater-Hanging-C-Reflection.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Hanging-C-Reflection.plist"; sourceTree = "<group>"; };
+		2C563A631566D9A800D422F6 /* Beeater-Land-C-Reflection.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Land-C-Reflection.plist"; sourceTree = "<group>"; };
+		2C563A681566EDC200D422F6 /* Egg-Reflection.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Egg-Reflection.plist"; sourceTree = "<group>"; };
+		2C563A691566EDC200D422F6 /* Egg-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Egg-Template.plist"; sourceTree = "<group>"; };
+		2C563A6A1566EDC200D422F6 /* Egg.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Egg.plist; sourceTree = "<group>"; };
 		2C596D3914A13FDD00DFCC14 /* LevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLoader.h; sourceTree = "<group>"; };
 		2C596D3A14A13FDD00DFCC14 /* LevelLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLoader.m; sourceTree = "<group>"; };
 		2C5AB6181543FEA100744B88 /* VolatileComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VolatileComponent.h; path = Classes/Component/VolatileComponent.h; sourceTree = "<group>"; };
@@ -2990,7 +2999,6 @@
 		2CE4F54C153CC8A80023B5C6 /* Beeater-Fish-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Fish-Template.plist"; sourceTree = "<group>"; };
 		2CE4F54D153CC8A80023B5C6 /* Beeater-Hanging-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Hanging-Template.plist"; sourceTree = "<group>"; };
 		2CE4F54E153CC8A80023B5C6 /* Beeater-Land-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Land-Template.plist"; sourceTree = "<group>"; };
-		2CE4F551153CC8A80023B5C6 /* Egg.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Egg.plist; sourceTree = "<group>"; };
 		2CE4F552153CC8A80023B5C6 /* Floating-Block-A.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Floating-Block-A.plist"; sourceTree = "<group>"; };
 		2CE4F595153CC8A80023B5C6 /* Leaf.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Leaf.plist; sourceTree = "<group>"; };
 		2CE4F597153CC8A80023B5C6 /* Mushroom.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Mushroom.plist; sourceTree = "<group>"; };
@@ -3547,6 +3555,16 @@
 			);
 			name = Icon;
 			path = Resources/Icon;
+			sourceTree = "<group>";
+		};
+		2C563A671566EDC200D422F6 /* Egg */ = {
+			isa = PBXGroup;
+			children = (
+				2C563A681566EDC200D422F6 /* Egg-Reflection.plist */,
+				2C563A691566EDC200D422F6 /* Egg-Template.plist */,
+				2C563A6A1566EDC200D422F6 /* Egg.plist */,
+			);
+			path = Egg;
 			sourceTree = "<group>";
 		};
 		2C596D3214A13FDD00DFCC14 /* Level */ = {
@@ -4245,7 +4263,9 @@
 			isa = PBXGroup;
 			children = (
 				2C8808B0155F0971000FD02E /* Beeater-Bird-C.plist */,
+				2C563A621566D9A800D422F6 /* Beeater-Hanging-C-Reflection.plist */,
 				2C8808AE155F07C4000FD02E /* Beeater-Hanging-C.plist */,
+				2C563A631566D9A800D422F6 /* Beeater-Land-C-Reflection.plist */,
 				2C8808AB155EF3BD000FD02E /* Beeater-Land-C.plist */,
 				2C8808B2155F0A32000FD02E /* Beeater-Piece-C.plist */,
 			);
@@ -5250,7 +5270,7 @@
 				2CE4F537153CC8A80023B5C6 /* Bee */,
 				2CE4F53F153CC8A80023B5C6 /* Beeater */,
 				2C893388156317A400089998 /* Clirr.plist */,
-				2CE4F551153CC8A80023B5C6 /* Egg.plist */,
+				2C563A671566EDC200D422F6 /* Egg */,
 				2CE4F552153CC8A80023B5C6 /* Floating-Block-A.plist */,
 				2CE4F553153CC8A80023B5C6 /* Glass */,
 				2CE4F592153CC8A80023B5C6 /* Hangnest */,
@@ -5758,7 +5778,6 @@
 				2CE4F5BB153CC8A80023B5C6 /* Beeater-Fish-Template.plist in Resources */,
 				2CE4F5BC153CC8A80023B5C6 /* Beeater-Hanging-Template.plist in Resources */,
 				2CE4F5BD153CC8A80023B5C6 /* Beeater-Land-Template.plist in Resources */,
-				2CE4F5C0153CC8A80023B5C6 /* Egg.plist in Resources */,
 				2CE4F5C1153CC8A80023B5C6 /* Floating-Block-A.plist in Resources */,
 				2CE4F600153CC8A80023B5C6 /* Leaf.plist in Resources */,
 				2CE4F601153CC8A80023B5C6 /* Mushroom.plist in Resources */,
@@ -6800,6 +6819,11 @@
 				2C8933851562E72600089998 /* C59-Ice.png in Resources */,
 				2C893387156300C000089998 /* Ice.plist in Resources */,
 				2C893389156317A500089998 /* Clirr.plist in Resources */,
+				2C563A641566D9A800D422F6 /* Beeater-Hanging-C-Reflection.plist in Resources */,
+				2C563A651566D9A800D422F6 /* Beeater-Land-C-Reflection.plist in Resources */,
+				2C563A6B1566EDC200D422F6 /* Egg-Reflection.plist in Resources */,
+				2C563A6C1566EDC200D422F6 /* Egg-Template.plist in Resources */,
+				2C563A6D1566EDC200D422F6 /* Egg.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

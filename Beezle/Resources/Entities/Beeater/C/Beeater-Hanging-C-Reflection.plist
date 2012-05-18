@@ -3,35 +3,35 @@
 <plist version="1.0">
 <dict>
 	<key>type</key>
-	<string>BEEATER-HANGING-B</string>
+	<string>BEEATER-HANGING-C-REFLECTION</string>
 	<key>template</key>
     <string>Beeater-Hanging-Template.plist</string>
     <key>templateSubstitutions</key>
     <dict>
         <key>beeaterShowBeeAnimationFormat</key>
-        <string>Beeater-Head-B-%@-%@</string>
+        <string>Beeater-Head-C-%@-%@</string>
 		<key>beeaterShowBeeBetweenAnimation1</key>
-        <string>Beeater-Head-B-Idle-Between-Short</string>
+        <string>Beeater-Head-C-Idle-Between-Short</string>
 		<key>beeaterShowBeeBetweenAnimation2</key>
-        <string>Beeater-Head-B-Idle-Between-Medium</string>
+        <string>Beeater-Head-C-Idle-Between-Medium</string>
 		<key>beeaterShowBeeBetweenAnimation3</key>
-        <string>Beeater-Head-B-Idle-Between-Long</string>
+        <string>Beeater-Head-C-Idle-Between-Long</string>
 		<key>renderSpriteSheetName</key>
-		<string>B</string>
+		<string>C</string>
 		<key>renderBodyAnimationFile</key>
-		<string>Beeater-Body-Hanging-B-Animations.plist</string>
+		<string>Beeater-Body-Hanging-C-Animations.plist</string>
 		<key>renderBodyAnchorPoint</key>
-		<string>{ 0.6, 1.0 }</string>
+		<string>{ 0.6, 0.72 }</string>
 		<key>renderBodyDefaultIdleAnimation</key>
-		<string>Beeater-Body-Hanging-B-Idle</string>
+		<string>Beeater-Body-Hanging-C-Idle-Reflection</string>
 		<key>renderBodyDefaultDestroyAnimation</key>
-		<string>Beeater-Hanging-B-Destroy</string>
+		<string>Beeater-Hanging-C-Destroy-Reflection</string>
 		<key>renderBodyDefaultStillAnimation</key>
-		<string>Beeater-Body-Hanging-B-Still</string>
+		<string>Beeater-Body-Hanging-C-Still-Reflection</string>
 		<key>renderHeadAnimationFile</key>
-		<string>Beeater-Head-B-Animations.plist</string>
+		<string>Beeater-Head-C-Animations.plist</string>
 		<key>renderHeadDefaultIdleAnimation</key>
-		<string>Beeater-Head-B-Idle-NoBee</string>
+		<string>Beeater-Head-C-Idle-NoBee</string>
     </dict>
 </dict>
 </plist>
