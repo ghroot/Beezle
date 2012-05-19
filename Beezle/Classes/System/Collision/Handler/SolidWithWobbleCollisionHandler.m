@@ -29,7 +29,16 @@
 	WobbleComponent *wobbleComponent = [WobbleComponent getFrom:secondEntity];
 	RenderComponent *renderComponent = [RenderComponent getFrom:secondEntity];
 	RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];
-	[defaultRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:[wobbleComponent randomWobbleAnimationName], [defaultRenderSprite randomDefaultIdleAnimationName], nil]];
+	
+	if ([wobbleComponent hasWobbled])
+	{
+		[defaultRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:[wobbleComponent randomWobbleAnimationName], [wobbleComponent randomWobbleFollowupAnimationName], nil]];
+	}
+	else
+	{
+		[defaultRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:[wobbleComponent randomFirstWobbleAnimationName], [wobbleComponent randomWobbleFollowupAnimationName], nil]];
+		[wobbleComponent setHasWobbled:TRUE];
+	}
 	
 	return TRUE;
 }

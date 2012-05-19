@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>components</key>
+	<dict>
+		<key>physics</key>
+		<dict>
+			<key>body</key>
+			<dict>
+				<key>mass</key>
+				<real>0</real>
+			</dict>
+			<key>shapes</key>
+			<array>
+				<dict>
+					<key>type</key>
+					<string>circle</string>
+					<key>radius</key>
+					<real>20</real>
+					<key>offset</key>
+					<string>{ 0, 16 }</string>
+					<key>elasticity</key>
+					<real>1.5</real>
+					<key>friction</key>
+					<real>0.5</real>
+					<key>layers</key>
+					<integer>7</integer>
+					<key>group</key>
+					<string>LEVEL</string>
+				</dict>
+			</array>
+		</dict>
+		<key>render</key>
+		<dict>
+			<key>sprites</key>
+			<array>
+				<dict>
+					<key>spriteSheetName</key>
+					<string>Shared</string>
+					<key>animationFile</key>
+					<string>Mushroom-Animations.plist</string>
+					<key>anchorPoint</key>
+					<string>%renderAnchorPoint%</string>
+					<key>defaultIdleAnimation</key>
+					<string>%renderDefaultIdleAnimation%</string>
+				</dict>
+			</array>
+		</dict>
+		<key>sound</key>
+		<dict>
+			<key>defaultCollisionSound</key>
+			<string>MushroomBounce</string>
+		</dict>
+		<key>transform</key>
+		<dict/>
+		<key>wobble</key>
+		<dict>
+			<key>firstWobbleAnimation</key>
+			<string>%wobbleFirstWobbleAnimation%</string>
+			<key>wobbleAnimation</key>
+			<string>%wobbleWobbleAnimation%</string>
+			<key>wobbleFollowupAnimation</key>
+			<string>%wobbleWobbleFollowupAnimation%</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

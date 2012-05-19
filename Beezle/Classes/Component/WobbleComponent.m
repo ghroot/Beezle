@@ -11,12 +11,16 @@
 
 @implementation WobbleComponent
 
+@synthesize hasWobbled = _hasWobbled;
+
 -(id) init
 {
 	if (self = [super init])
 	{
 		_name = @"wobble";
+		_firstWobbleAnimationNames = [StringList new];
 		_wobbleAnimationNames = [StringList new];
+		_wobbleFollowupAnimationNames = [StringList new];
 	}
 	return self;
 }
@@ -26,21 +30,42 @@
 	if (self = [self init])
 	{
         // Type
+		[_firstWobbleAnimationNames addStringsFromDictionary:typeComponentDict baseName:@"firstWobbleAnimation"];
 		[_wobbleAnimationNames addStringsFromDictionary:typeComponentDict baseName:@"wobbleAnimation"];
+		[_wobbleFollowupAnimationNames addStringsFromDictionary:typeComponentDict baseName:@"wobbleFollowupAnimation"];
 	}
 	return self;
 }
 
 -(void) dealloc
 {
+	[_firstWobbleAnimationNames release];
 	[_wobbleAnimationNames release];
+	[_wobbleFollowupAnimationNames release];
 	
 	[super dealloc];
+}
+
+-(NSString *) randomFirstWobbleAnimationName
+{
+	if ([_firstWobbleAnimationNames hasStrings])
+	{
+		return [_firstWobbleAnimationNames randomString];
+	}
+	else
+	{
+		return [self randomWobbleAnimationName];
+	}
 }
 
 -(NSString *) randomWobbleAnimationName
 {
 	return [_wobbleAnimationNames randomString];
+}
+
+-(NSString *) randomWobbleFollowupAnimationName
+{
+	return [_wobbleFollowupAnimationNames randomString];
 }
 
 @end

@@ -16,9 +16,18 @@
 @interface WobbleComponent : Component
 {
     // Type
+	StringList *_firstWobbleAnimationNames;
 	StringList *_wobbleAnimationNames;
+	StringList *_wobbleFollowupAnimationNames;
+	
+	// Transient
+	BOOL _hasWobbled;
 }
 
+@property (nonatomic) BOOL hasWobbled;
+
+-(NSString *) randomFirstWobbleAnimationName;
 -(NSString *) randomWobbleAnimationName;
+-(NSString *) randomWobbleFollowupAnimationName;
 
 @end

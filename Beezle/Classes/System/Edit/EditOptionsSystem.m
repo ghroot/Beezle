@@ -215,12 +215,11 @@
 			[_layer addChild:_movementOptionsMenu];
 		}
 		EditComponent *editComponent = [EditComponent getFrom:_entityWithOptionsDisplayed];
-		if ([[editComponent levelLayoutType] isEqualToString:@"BEEATER-LAND-C"] ||
-			[[editComponent levelLayoutType] isEqualToString:@"BEEATER-LAND-C-REFLECTION"] ||
-			[[editComponent levelLayoutType] isEqualToString:@"BEEATER-HANGING-C"] ||
-			[[editComponent levelLayoutType] isEqualToString:@"BEEATER-HANGING-C-REFLECTION"] ||
-			[[editComponent levelLayoutType] isEqualToString:@"EGG"] ||
-			[[editComponent levelLayoutType] isEqualToString:@"EGG-REFLECTION"])
+		if ([[editComponent levelLayoutType] hasPrefix:@"BEEATER-LAND-C"] ||
+			[[editComponent levelLayoutType] hasPrefix:@"BEEATER-HANGING-C"] ||
+			[[editComponent levelLayoutType] hasPrefix:@"EGG"] ||
+			[[editComponent levelLayoutType] hasPrefix:@"MUSHROOM"] ||
+			[[editComponent levelLayoutType] hasPrefix:@"SMOKE-MUSHROOM"])
 		{
 			[_reflectionOptionsMenu setPosition:CGPointMake(currentX, currentY)];
 			[_layer addChild:_reflectionOptionsMenu];

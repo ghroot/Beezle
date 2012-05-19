@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>MUSHROOM-REFLECTION</string>
+	<key>template</key>
+	<string>Mushroom-Template.plist</string>
+	<key>templateSubstitutions</key>
+	<dict>
+		<key>renderAnchorPoint</key>
+		<string>{ 0.5, 0.28 }</string>
+		<key>renderDefaultIdleAnimation</key>
+		<string>Mushroom-Idle-Reflection-Ice</string>
+		<key>wobbleFirstWobbleAnimation</key>
+		<string>Mushroom-Bounce-Reflection-Ice</string>
+		<key>wobbleWobbleAnimation</key>
+		<string>Mushroom-Bounce-Reflection</string>
+		<key>wobbleWobbleFollowupAnimation</key>
+		<string>Mushroom-Idle-Reflection</string>
+	</dict>
+</dict>
+</plist>

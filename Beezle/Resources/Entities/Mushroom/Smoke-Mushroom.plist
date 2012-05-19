@@ -4,67 +4,16 @@
 <dict>
 	<key>type</key>
 	<string>SMOKE-MUSHROOM</string>
-	<key>components</key>
-	<dict>
-		<key>breakable</key>
-		<dict/>
-		<key>disposable</key>
-		<dict>
-            <key>deleteEntityWhenDisposed</key>
-            <true/>
-        </dict>
-		<key>physics</key>
-		<dict>
-			<key>body</key>
-			<dict>
-				<key>mass</key>
-				<real>0</real>
-			</dict>
-			<key>shapes</key>
-			<array>
-				<dict>
-					<key>type</key>
-					<string>circle</string>
-					<key>radius</key>
-					<real>20</real>
-					<key>offset</key>
-					<string>{ 0, 16 }</string>
-					<key>elasticity</key>
-					<real>1.5</real>
-					<key>friction</key>
-					<real>0.5</real>
-					<key>layers</key>
-					<integer>7</integer>
-					<key>group</key>
-					<string>LEVEL</string>
-				</dict>
-			</array>
-		</dict>
-		<key>render</key>
-		<dict>
-			<key>sprites</key>
-			<array>
-				<dict>
-					<key>spriteSheetName</key>
-					<string>Shared</string>
-					<key>animationFile</key>
-					<string>Smoke-Mushroom-Animations.plist</string>
-					<key>anchorPoint</key>
-					<string>{ 0.5, 0.0 }</string>
-					<key>defaultIdleAnimation</key>
-					<string>Smoke-Mushroom-Idle</string>
-                    <key>defaultDestroyAnimation</key>
-                    <string>Smoke-Mushroom-Bounce-And-Destroy</string>
-				</dict>
-			</array>
-		</dict>
-        <key>sound</key>
-        <dict>
-            <key>defaultDestroySound</key>
-            <string>SmokeMushroom</string>
-        </dict>
-		<key>transform</key>
-		<dict/>
-	</dict>
+    <key>template</key>
+    <string>Smoke-Mushroom-Template.plist</string>
+    <key>templateSubstitutions</key>
+    <dict>
+		<key>renderAnchorPoint</key>
+		<string>{ 0.5, 0.0 }</string>
+		<key>renderDefaultIdleAnimation</key>
+		<string>Smoke-Mushroom-Idle</string>
+		<key>renderDefaultDestroyAnimation</key>
+		<string>Smoke-Mushroom-Bounce-And-Destroy</string>
+    </dict>
 </dict>
 </plist>
