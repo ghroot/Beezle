@@ -30,7 +30,6 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 
 @interface BeeQueueRenderingSystem()
 
--(BOOL) canHandleNotifications;
 -(void) handleBeeLoaded:(NSNotification *)notification;
 -(void) handleBeeReverted:(NSNotification *)notification;
 -(void) handleBeeFired:(NSNotification *)notification;
@@ -104,17 +103,8 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 
 -(void) begin
 {
-	if ([self canHandleNotifications])
-	{
-		[_notificationProcessor processNotifications];
-	}
-	
+	[_notificationProcessor processNotifications];
 	[self updateLoadedBee];
-}
-
--(BOOL) canHandleNotifications
-{
-	return _movingBeesCount == 0;
 }
 
 -(Entity *) getSlingerEntity
