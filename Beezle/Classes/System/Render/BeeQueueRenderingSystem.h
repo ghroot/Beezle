@@ -16,7 +16,6 @@
 @interface BeeQueueRenderingSystem : EntityComponentSystem
 {
 	RenderSystem *_renderSystem;
-	int _z;
 	
 	NotificationProcessor *_notificationProcessor;
 	
