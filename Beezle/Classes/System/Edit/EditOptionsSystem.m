@@ -359,7 +359,7 @@
 	
 	[slingerComponent pushBeeType:[BeeType enumFromName:beeTypeAsString]];
 	
-	[_beeQueueRenderingSystem refreshSprites:slingerEntity];
+	[_beeQueueRenderingSystem refreshSprites];
 }
 
 -(void) doOptionClearSlingerBees:(id)sender
@@ -369,7 +369,7 @@
 	
 	[slingerComponent clearBeeTypes];
 	
-	[_beeQueueRenderingSystem refreshSprites:slingerEntity];
+	[_beeQueueRenderingSystem refreshSprites];
 }
 
 -(void) doOptionAddMovementIndicator:(id)sender

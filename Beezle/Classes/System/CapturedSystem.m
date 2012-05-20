@@ -74,20 +74,28 @@
 	// Save bee
 	TagManager *tagManager = (TagManager *)[[frozenEntity world] getManager:[TagManager class]];
 	Entity *slingerEntity = (Entity *)[tagManager getEntity:@"SLINGER"];
-	CapturedComponent *frozenComponent = [CapturedComponent getFrom:frozenEntity];
+	CapturedComponent *capturedComponent = [CapturedComponent getFrom:frozenEntity];
 	SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
-	[slingerComponent pushBeeType:[frozenComponent containedBeeType]];
+	BeeType *savedBeeType = [capturedComponent containedBeeType];
+	if ([savedBeeType canBeReused])
+	{
+		[slingerComponent insertBeeTypeAtStart:savedBeeType];
+	}
+	else
+	{
+		[slingerComponent pushBeeType:savedBeeType];
+	}
 	
 	// Swap bee sprite for hole graphics
-	RenderComponent *frozenRenderComponent = [RenderComponent getFrom:frozenEntity];
-	[frozenRenderComponent playDefaultDestroyAnimation];
+	RenderComponent *capturedRenderComponent = [RenderComponent getFrom:frozenEntity];
+	[capturedRenderComponent playDefaultDestroyAnimation];
 	[EntityUtil disablePhysics:frozenEntity];
 	
 	// Game notification
 	TransformComponent *transformComponent = [TransformComponent getFrom:frozenEntity];
 	NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
 	[notificationUserInfo setObject:[NSValue valueWithCGPoint:[transformComponent position]] forKey:@"entityPosition"];
-	[notificationUserInfo setObject:[frozenComponent containedBeeType] forKey:@"savedBeeType"];
+	[notificationUserInfo setObject:savedBeeType forKey:@"savedBeeType"];
 	[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_SAVED object:self userInfo:notificationUserInfo];
 }
 

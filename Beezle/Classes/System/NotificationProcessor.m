@@ -86,6 +86,11 @@
 
 -(void) deactivate
 {
+	if ([_notifications count] > 0)
+	{
+		NSLog(@"Removing %d notifications", [_notifications count]);
+	}
+	
 	[_notifications removeAllObjects];
 	_isActive = FALSE;
 }

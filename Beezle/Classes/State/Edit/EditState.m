@@ -96,7 +96,7 @@
 	[systemManager setSystem:_editControlSystem];
 	_editOptionsSystem = [[[EditOptionsSystem alloc] initWithLayer:_uiLayer andEditState:self] autorelease];
 	[systemManager setSystem:_editOptionsSystem];
-	_beeQueueRenderingSystem = [[[BeeQueueRenderingSystem alloc] initWithZ:2] autorelease];
+	_beeQueueRenderingSystem = [[BeeQueueRenderingSystem new] autorelease];
 	[systemManager setSystem:_beeQueueRenderingSystem];
 	_beeaterSystem = [[[BeeaterSystem alloc] init] autorelease];
 	[systemManager setSystem:_beeaterSystem];

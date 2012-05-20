@@ -12,6 +12,7 @@
 #import "BeeType.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
+#import "NotificationProcessor.h"
 #import "NotificationTypes.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
@@ -20,26 +21,24 @@
 #import "TransformComponent.h"
 #import "ZOrder.h"
 
-#define QUEUE_START_OFFSET_X -30
-#define QUEUE_START_OFFSET_Y 0
-#define QUEUE_SPACING_X 30
-#define QUEUE_SWAY_Y 4
-#define LOADED_BEE_MIN_ANIMATION_DURATION 0.4f
-#define LOADED_BEE_MAX_ANIMATION_DURATION 1.0f
+static const float QUEUE_START_OFFSET_X = -30.0f;
+static const float QUEUE_START_OFFSET_Y = 0.0f;
+static const float QUEUE_SPACING_X = 30.0f;
+static const float QUEUE_SWAY_Y = 4.0f;
+static const float LOADED_BEE_MIN_ANIMATION_DURATION = 0.4f;
+static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 
 @interface BeeQueueRenderingSystem()
 
--(void) addNotificationObservers;
--(void) queueNotification:(NSNotification *)notification;
 -(BOOL) canHandleNotifications;
--(void) handleNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
--(void) handleBeeLoadedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
--(void) handleBeeRevertedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
--(void) handleBeeFiredNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
--(void) handleBeeSavedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
--(void) handleEntityDisposedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity;
+-(void) handleBeeLoaded:(NSNotification *)notification;
+-(void) handleBeeReverted:(NSNotification *)notification;
+-(void) handleBeeFired:(NSNotification *)notification;
+-(void) handleBeeSaved:(NSNotification *)notification;
+-(void) handleEntityDisposed:(NSNotification *)notification;
+-(Entity *) getSlingerEntity;
 -(void) decreaseMovingBeesCount;
--(void) updateLoadedBee:(Entity *)slingerEntity;
+-(void) updateLoadedBee;
 -(RenderSprite *) createBeeQueueRenderSpriteWithBeeType:(BeeType *)beeType position:(CGPoint)position;
 -(CGPoint) calculatePositionForBeeQueueRenderSpriteAtIndex:(int)index slingerEntity:(Entity *)slingerEntity;
 -(CGPoint) calculatePositionForNextBeeQueueRenderSprite:(Entity *)slingerEntity;
@@ -49,36 +48,27 @@
 
 @implementation BeeQueueRenderingSystem
 
--(id) initWithZ:(int)z
+-(id) init
 {
-	if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObject:[SlingerComponent class]]])
+	if (self = [super initWithUsedComponentClass:[SlingerComponent class]])
 	{
-		_z = z;
+		_notificationProcessor = [[NotificationProcessor alloc] initWithTarget:self];
+		[_notificationProcessor registerNotification:GAME_NOTIFICATION_BEE_LOADED withSelector:@selector(handleBeeLoaded:)];
+		[_notificationProcessor registerNotification:GAME_NOTIFICATION_BEE_REVERTED withSelector:@selector(handleBeeReverted:)];
+		[_notificationProcessor registerNotification:GAME_NOTIFICATION_BEE_FIRED withSelector:@selector(handleBeeFired:)];
+		[_notificationProcessor registerNotification:GAME_NOTIFICATION_BEE_SAVED withSelector:@selector(handleBeeSaved:)];
+		[_notificationProcessor registerNotification:GAME_NOTIFICATION_ENTITY_DISPOSED withSelector:@selector(handleEntityDisposed:)];
 		
-		_notifications = [[NSMutableArray alloc] init];
 		_beeQueueRenderSprites = [[NSMutableArray alloc] init];
 		
 		_movingBeesCount = 0;
-		
-		[self addNotificationObservers];
 	}
 	return self;
 }
 
--(void) addNotificationObservers
-{
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEE_LOADED object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEE_REVERTED object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEE_FIRED object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_BEE_SAVED object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queueNotification:) name:GAME_NOTIFICATION_ENTITY_DISPOSED object:nil];
-}
-
 -(void) dealloc
 {
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-
-	[_notifications release];
+	[_notificationProcessor release];
 	[_beeQueueRenderSprites release];
 	
 	if (_beeLoadedRenderSprite != nil)
@@ -90,6 +80,20 @@
 	[super dealloc];
 }
 
+-(void) activate
+{
+	[super activate];
+	
+	[_notificationProcessor activate];
+}
+
+-(void) deactivate
+{
+	[super deactivate];
+	
+	[_notificationProcessor deactivate];
+}
+
 -(void) initialise
 {
 	_renderSystem = (RenderSystem *)[[_world systemManager] getSystem:[RenderSystem class]];
@@ -97,31 +101,28 @@
 
 -(void) entityAdded:(Entity *)entity
 {
-    [self refreshSprites:entity];
+    [self refreshSprites];
 }
 
--(void) processEntity:(Entity *)entity
+-(void) begin
 {
-	while ([_notifications count] > 0 &&
-		   [self canHandleNotifications])
+	if ([self canHandleNotifications])
 	{
-		NSNotification *nextNotification = [[_notifications objectAtIndex:0] retain];
-		[_notifications removeObjectAtIndex:0];
-		[self handleNotification:nextNotification slingerEntity:entity];
-		[nextNotification release];
+		[_notificationProcessor processNotifications];
 	}
 	
-	[self updateLoadedBee:entity];
-}
-
--(void) queueNotification:(NSNotification *)notification
-{
-	[_notifications addObject:notification];
+	[self updateLoadedBee];
 }
 
 -(BOOL) canHandleNotifications
 {
 	return _movingBeesCount == 0;
+}
+
+-(Entity *) getSlingerEntity
+{
+	TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
+	return [tagManager getEntity:@"SLINGER"];
 }
 
 -(void) decreaseMovingBeesCount
@@ -134,34 +135,12 @@
 	return _movingBeesCount > 0;
 }
 
--(void) handleNotification:(NSNotification *)notification slingerEntity:(Entity *)entity
+-(void) handleBeeLoaded:(NSNotification *)notification
 {
-	if ([[notification name] isEqualToString:GAME_NOTIFICATION_BEE_LOADED])
-	{
-		[self handleBeeLoadedNotification:notification slingerEntity:entity];
-	}
-    else if ([[notification name] isEqualToString:GAME_NOTIFICATION_BEE_REVERTED])
-	{
-		[self handleBeeRevertedNotification:notification slingerEntity:entity];
-	}
-	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_BEE_FIRED])
-	{
-		[self handleBeeFiredNotification:notification slingerEntity:entity];
-	}
-	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_BEE_SAVED])
-	{
-		[self handleBeeSavedNotification:notification slingerEntity:entity];
-	}
-	else if ([[notification name] isEqualToString:GAME_NOTIFICATION_ENTITY_DISPOSED])
-	{
-		[self handleEntityDisposedNotification:notification slingerEntity:entity];
-	}
-}
-
--(void) handleBeeLoadedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity
-{
+	Entity *slingerEntity = [self getSlingerEntity];
+	
 	// Move first bee towards slinger and fade out
-	TransformComponent *slingerTransformComponent = (TransformComponent *)[slingerEntity getComponent:[TransformComponent class]];
+	TransformComponent *slingerTransformComponent = [TransformComponent getFrom:slingerEntity];
     RenderSprite *beeLoadingRenderSprite = [[_beeQueueRenderSprites objectAtIndex:0] retain];
 	[_beeQueueRenderSprites removeObjectAtIndex:0];
 	[[beeLoadingRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
@@ -189,13 +168,14 @@
 	[[_beeLoadedRenderSprite sprite] runAction:fadeInAction];
 }
 
--(void) handleBeeRevertedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity
+-(void) handleBeeReverted:(NSNotification *)notification
 {
-    [self refreshSprites:slingerEntity];
+    [self refreshSprites];
 }
 
--(void) updateLoadedBee:(Entity *)slingerEntity
+-(void) updateLoadedBee
 {
+	Entity *slingerEntity = [self getSlingerEntity];
 	if (_beeLoadedRenderSprite != nil)
 	{
 		// Rotation
@@ -217,7 +197,7 @@
     }
 }
 
--(void) handleBeeFiredNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity
+-(void) handleBeeFired:(NSNotification *)notification
 {
 	// Remove loaded bee sprite
 	[_beeLoadedRenderSprite removeSpriteFromSpriteSheet];
@@ -225,8 +205,10 @@
 	_beeLoadedRenderSprite = nil;
 }
 
--(void) handleBeeSavedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity
+-(void) handleBeeSaved:(NSNotification *)notification
 {
+	Entity *slingerEntity = [self getSlingerEntity];
+	
 	// Notification data
 	CGPoint position = [[[notification userInfo] objectForKey:@"entityPosition"] CGPointValue];
 	BeeType *savedBeeType = (BeeType *)[[notification userInfo] objectForKey:@"savedBeeType"];
@@ -245,14 +227,30 @@
 		[[reusedBeeQueueRenderSprite sprite] runAction:sequence];
 	}
 	
-	CGPoint endOfQueuePosition = [self calculatePositionForNextBeeQueueRenderSprite:slingerEntity];
+	CGPoint targetPosition;
+	if ([savedBeeType canBeReused])
+	{
+		targetPosition = [self calculatePositionForBeeQueueRenderSpriteAtIndex:0 slingerEntity:slingerEntity];
+	}
+	else
+	{
+		targetPosition = [self calculatePositionForNextBeeQueueRenderSprite:slingerEntity];
+	}
+	
 	CGPoint beePosition = CGPointMake(position.x, position.y + 20);
 	CGPoint positionAboveBeeater = CGPointMake(beePosition.x, beePosition.y + 30);
 	BOOL needsToTurn = [[TransformComponent getFrom:slingerEntity] position].x < beePosition.x;
 	
 	// Create sprite
 	RenderSprite *beeQueueRenderSprite = [self createBeeQueueRenderSpriteWithBeeType:savedBeeType position:beePosition];
-	[_beeQueueRenderSprites addObject:beeQueueRenderSprite];
+	if ([savedBeeType canBeReused])
+	{
+		[_beeQueueRenderSprites insertObject:beeQueueRenderSprite atIndex:0];
+	}
+	else
+	{
+		[_beeQueueRenderSprites addObject:beeQueueRenderSprite];
+	}
 	
 	// Face the slinger
 	if (needsToTurn)
@@ -292,7 +290,7 @@
 		[EntityUtil animateAndDeleteEntity:leapEntity animationName:animationName];
 	}];
 	[actions addObject:spawnLeapAnimationAction];
-	CCEaseSineOut *moveToQueueAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.6f position:endOfQueuePosition]];
+	CCEaseSineOut *moveToQueueAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.6f position:targetPosition]];
 	[actions addObject:moveToQueueAction];
 	if (needsToTurn)
 	{
@@ -316,18 +314,20 @@
 	[actions addObject:animateIdleAction];
 	CCCallFunc *decreaseMovingBeesCountAction = [CCCallFunc actionWithTarget:self selector:@selector(decreaseMovingBeesCount)];
 	[actions addObject:decreaseMovingBeesCountAction];
-	[actions addObject:[self createSwayAction:endOfQueuePosition]];
+	[actions addObject:[self createSwayAction:targetPosition]];
 	[[beeQueueRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
 	CCAction *sequence = [CCSequence actionsWithArray:actions];
 	[sequence setTag:ACTION_TAG_BEE_QUEUE];
 	[[beeQueueRenderSprite sprite] runAction:sequence];
 }
 
--(void) handleEntityDisposedNotification:(NSNotification *)notification slingerEntity:(Entity *)slingerEntity
+-(void) handleEntityDisposed:(NSNotification *)notification
 {
+	Entity *slingerEntity = [self getSlingerEntity];
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
 	if ([entity hasComponent:[BeeComponent class]])
 	{
+		// TODO: This works, but can be done better.
 		SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
 		if ([[[slingerComponent queuedBeeTypes] objectAtIndex:0] canBeReused])
 		{
@@ -351,8 +351,9 @@
 	}
 }
 
--(void) refreshSprites:(Entity *)slingerEntity
+-(void) refreshSprites
 {
+	Entity *slingerEntity = [self getSlingerEntity];
     SlingerComponent *slingerSlingerComponent = (SlingerComponent *)[slingerEntity getComponent:[SlingerComponent class]];
 	
 	// Remove all sprites

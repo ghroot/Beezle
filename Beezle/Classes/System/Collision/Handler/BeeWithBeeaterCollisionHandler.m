@@ -34,7 +34,7 @@
 		[beeComponent decreaseBeeaterHitsLeft];
 		if ([beeComponent isOutOfBeeaterKills])
 		{
-			[EntityUtil destroyEntity:beeEntity];
+			[EntityUtil destroyEntity:beeEntity instant:TRUE];
 		}
 		
 		BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:beeaterEntity];

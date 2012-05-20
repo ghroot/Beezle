@@ -9,6 +9,7 @@
 #import "artemis.h"
 #import "cocos2d.h"
 
+@class NotificationProcessor;
 @class RenderSprite;
 @class RenderSystem;
 
@@ -17,7 +18,7 @@
 	RenderSystem *_renderSystem;
 	int _z;
 	
-	NSMutableArray *_notifications;
+	NotificationProcessor *_notificationProcessor;
 	
 	int _movingBeesCount;
 	
@@ -25,9 +26,7 @@
 	RenderSprite *_beeLoadedRenderSprite;
 }
 
--(id) initWithZ:(int)z;
-
--(void) refreshSprites:(Entity *)slingerEntity;
+-(void) refreshSprites;
 -(BOOL) isBusy;
 -(void) turnRemainingBeesIntoPollen;
 

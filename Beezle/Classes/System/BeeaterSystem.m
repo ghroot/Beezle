@@ -106,13 +106,22 @@
 	Entity *slingerEntity = (Entity *)[tagManager getEntity:@"SLINGER"];
 	BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:beeaterEntity];
 	SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
+	BeeType *savedBeeType = [beeaterComponent containedBeeType];
+	BeeType *savingBeeType = [beeaterComponent destroyedByBeeType];
 	
 	// Save bee
-	[slingerComponent pushBeeType:[beeaterComponent containedBeeType]];
+	if ([savedBeeType canBeReused])
+	{
+		[slingerComponent insertBeeTypeAtStart:savedBeeType];
+	}
+	else
+	{
+		[slingerComponent pushBeeType:savedBeeType];
+	}
 	
 	// Reuse bee
-	if ([beeaterComponent destroyedByBeeType] != nil &&
-		[[beeaterComponent destroyedByBeeType] canBeReused])
+	if (savingBeeType != nil &&
+		[savingBeeType canBeReused])
 	{
 		[slingerComponent insertBeeTypeAtStart:[beeaterComponent destroyedByBeeType]];
 	}
@@ -121,10 +130,10 @@
 	TransformComponent *beeaterTransformComponent = [TransformComponent getFrom:beeaterEntity];
 	NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
 	[notificationUserInfo setObject:[NSValue valueWithCGPoint:[beeaterTransformComponent position]] forKey:@"entityPosition"];
-	[notificationUserInfo setObject:[beeaterComponent containedBeeType] forKey:@"savedBeeType"];
-	if ([beeaterComponent destroyedByBeeType] != nil)
+	[notificationUserInfo setObject:savedBeeType forKey:@"savedBeeType"];
+	if (savingBeeType != nil)
 	{
-		[notificationUserInfo setObject:[beeaterComponent destroyedByBeeType] forKey:@"savingBeeType"];
+		[notificationUserInfo setObject:savingBeeType forKey:@"savingBeeType"];
 	}
 	[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_SAVED object:self userInfo:notificationUserInfo];
 	

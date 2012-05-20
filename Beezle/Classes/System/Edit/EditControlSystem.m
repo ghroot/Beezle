@@ -66,7 +66,7 @@
 					
 					if ([_selectedEntity hasComponent:[SlingerComponent class]])
 					{
-						[_beeQueueRenderingSystem refreshSprites:_selectedEntity];
+						[_beeQueueRenderingSystem refreshSprites];
 					}
 				}
 				_hasTouchMoved = TRUE;
