@@ -72,7 +72,7 @@
     return [disposableComponent isDisposed];
 }
 
-+(void) setEntityDisposed:(Entity *)entity sendNotification:(BOOL)sendNotification
++(void) setEntityDisposed:(Entity *)entity
 {
 	DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
     if (disposableComponent == nil)
@@ -83,17 +83,9 @@
 	{
 		[disposableComponent setIsDisposed:TRUE];
     
-		if (sendNotification)
-		{
-			NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
-			[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_DISPOSED object:self userInfo:notificationUserInfo];
-		}
+		NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
+		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_DISPOSED object:self userInfo:notificationUserInfo];
 	}
-}
-
-+(void) setEntityDisposed:(Entity *)entity
-{
-    [self setEntityDisposed:entity sendNotification:TRUE];
 }
 
 +(void) setEntityUndisposed:(Entity *)entity
@@ -113,14 +105,10 @@
 {
 	if ([self isEntityDisposable:entity])
 	{
+		[self setEntityDisposed:entity];
         if (instant)
         {
-            [self setEntityDisposed:entity sendNotification:FALSE];
             [entity deleteEntity];
-        }
-        else
-        {
-            [self setEntityDisposed:entity];
         }
 	}
 	else if (!instant &&

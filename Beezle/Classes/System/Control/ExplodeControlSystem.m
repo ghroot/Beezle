@@ -61,6 +61,11 @@
     {
         [self endExplode:entity];
     }
+	else if ([explodeComponent explosionState] == WAITING_FOR_DESTROY)
+	{
+		[EntityUtil destroyEntity:entity instant:TRUE];
+		[explodeComponent setExplosionState:EXPLODED];
+	}
 }
 
 -(BOOL) doesExplodedEntity:(Entity *)explodedEntity intersectBrittleEntity:(Entity *)brittleEntity
@@ -99,8 +104,7 @@
 	RenderComponent *renderComponent = [RenderComponent getFrom:entity];
 	RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];
 	[defaultRenderSprite playAnimationOnce:[explodeComponent explodeEndAnimationName] andCallBlockAtEnd:^{
-		[EntityUtil destroyEntity:entity instant:TRUE];
-		[explodeComponent setExplosionState:EXPLODED];
+		[explodeComponent setExplosionState:WAITING_FOR_DESTROY];
 	}];
 	
 	[EntityUtil disablePhysics:entity];

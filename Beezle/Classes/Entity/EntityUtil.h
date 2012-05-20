@@ -15,7 +15,6 @@
 +(void) setEntityMirrored:(Entity *)entity mirrored:(BOOL)mirrored;
 +(BOOL) isEntityDisposable:(Entity *)entity;
 +(BOOL) isEntityDisposed:(Entity *)entity;
-+(void) setEntityDisposed:(Entity *)entity sendNotification:(BOOL)sendNotification;
 +(void) setEntityDisposed:(Entity *)entity;
 +(void) setEntityUndisposed:(Entity *)entity;
 +(void) destroyEntity:(Entity *)entity instant:(BOOL)instant;

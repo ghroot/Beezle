@@ -35,7 +35,6 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 -(void) handleBeeReverted:(NSNotification *)notification;
 -(void) handleBeeFired:(NSNotification *)notification;
 -(void) handleBeeSaved:(NSNotification *)notification;
--(void) handleEntityDisposed:(NSNotification *)notification;
 -(Entity *) getSlingerEntity;
 -(void) decreaseMovingBeesCount;
 -(void) updateLoadedBee;
@@ -57,7 +56,6 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 		[_notificationProcessor registerNotification:GAME_NOTIFICATION_BEE_REVERTED withSelector:@selector(handleBeeReverted:)];
 		[_notificationProcessor registerNotification:GAME_NOTIFICATION_BEE_FIRED withSelector:@selector(handleBeeFired:)];
 		[_notificationProcessor registerNotification:GAME_NOTIFICATION_BEE_SAVED withSelector:@selector(handleBeeSaved:)];
-		[_notificationProcessor registerNotification:GAME_NOTIFICATION_ENTITY_DISPOSED withSelector:@selector(handleEntityDisposed:)];
 		
 		_beeQueueRenderSprites = [[NSMutableArray alloc] init];
 		
@@ -203,6 +201,22 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 	[_beeLoadedRenderSprite removeSpriteFromSpriteSheet];
 	[_beeLoadedRenderSprite release];
 	_beeLoadedRenderSprite = nil;
+	
+	// Move queued sprites up
+	Entity *slingerEntity = [self getSlingerEntity];
+	for (int i = 0; i < [_beeQueueRenderSprites count]; i++)
+	{
+		CGPoint nextPosition = [self calculatePositionForBeeQueueRenderSpriteAtIndex:i slingerEntity:slingerEntity];
+		
+		RenderSprite *beeQueueRenderSprite = [_beeQueueRenderSprites objectAtIndex:i];
+		_movingBeesCount++;
+		CCMoveTo *moveUpAction = [CCMoveTo actionWithDuration:0.5f position:nextPosition];
+		CCCallFunc *decreaseMovingBeesCountAction = [CCCallFunc actionWithTarget:self selector:@selector(decreaseMovingBeesCount)];
+		[[beeQueueRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
+		CCAction *action = [CCSequence actions:moveUpAction, decreaseMovingBeesCountAction, [self createSwayAction:nextPosition], nil];
+		[action setTag:ACTION_TAG_BEE_QUEUE];
+		[[beeQueueRenderSprite sprite] runAction:action];
+	}
 }
 
 -(void) handleBeeSaved:(NSNotification *)notification
@@ -225,6 +239,22 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 		CCSequence *sequence = [CCSequence actions:moveAction, [self createSwayAction:startOfQueuePosition], nil];
 		[sequence setTag:ACTION_TAG_BEE_QUEUE];
 		[[reusedBeeQueueRenderSprite sprite] runAction:sequence];
+		
+		// Move queued sprites down
+		Entity *slingerEntity = [self getSlingerEntity];
+		for (int i = 1; i < [_beeQueueRenderSprites count]; i++)
+		{
+			CGPoint nextPosition = [self calculatePositionForBeeQueueRenderSpriteAtIndex:i slingerEntity:slingerEntity];
+			
+			RenderSprite *beeQueueRenderSprite = [_beeQueueRenderSprites objectAtIndex:i];
+			_movingBeesCount++;
+			CCMoveTo *moveUpAction = [CCMoveTo actionWithDuration:0.5f position:nextPosition];
+			CCCallFunc *decreaseMovingBeesCountAction = [CCCallFunc actionWithTarget:self selector:@selector(decreaseMovingBeesCount)];
+			[[beeQueueRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
+			CCAction *action = [CCSequence actions:moveUpAction, decreaseMovingBeesCountAction, [self createSwayAction:nextPosition], nil];
+			[action setTag:ACTION_TAG_BEE_QUEUE];
+			[[beeQueueRenderSprite sprite] runAction:action];
+		}
 	}
 	
 	CGPoint targetPosition;
@@ -246,6 +276,22 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 	if ([savedBeeType canBeReused])
 	{
 		[_beeQueueRenderSprites insertObject:beeQueueRenderSprite atIndex:0];
+		
+		// Move queued sprites down
+		Entity *slingerEntity = [self getSlingerEntity];
+		for (int i = 1; i < [_beeQueueRenderSprites count]; i++)
+		{
+			CGPoint nextPosition = [self calculatePositionForBeeQueueRenderSpriteAtIndex:i slingerEntity:slingerEntity];
+			
+			RenderSprite *beeQueueRenderSprite = [_beeQueueRenderSprites objectAtIndex:i];
+			_movingBeesCount++;
+			CCMoveTo *moveUpAction = [CCMoveTo actionWithDuration:0.5f position:nextPosition];
+			CCCallFunc *decreaseMovingBeesCountAction = [CCCallFunc actionWithTarget:self selector:@selector(decreaseMovingBeesCount)];
+			[[beeQueueRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
+			CCAction *action = [CCSequence actions:moveUpAction, decreaseMovingBeesCountAction, [self createSwayAction:nextPosition], nil];
+			[action setTag:ACTION_TAG_BEE_QUEUE];
+			[[beeQueueRenderSprite sprite] runAction:action];
+		}
 	}
 	else
 	{
@@ -319,36 +365,6 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 	CCAction *sequence = [CCSequence actionsWithArray:actions];
 	[sequence setTag:ACTION_TAG_BEE_QUEUE];
 	[[beeQueueRenderSprite sprite] runAction:sequence];
-}
-
--(void) handleEntityDisposed:(NSNotification *)notification
-{
-	Entity *slingerEntity = [self getSlingerEntity];
-	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
-	if ([entity hasComponent:[BeeComponent class]])
-	{
-		// TODO: This works, but can be done better.
-		SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
-		if ([[[slingerComponent queuedBeeTypes] objectAtIndex:0] canBeReused])
-		{
-			return;
-		}
-		
-		// Move queued sprites up
-		for (int i = 0; i < [_beeQueueRenderSprites count]; i++)
-		{
-			CGPoint nextPosition = [self calculatePositionForBeeQueueRenderSpriteAtIndex:i slingerEntity:slingerEntity];
-			
-			RenderSprite *beeQueueRenderSprite = [_beeQueueRenderSprites objectAtIndex:i];
-			_movingBeesCount++;
-			CCMoveTo *moveUpAction = [CCMoveTo actionWithDuration:0.5f position:nextPosition];
-			CCCallFunc *decreaseMovingBeesCountAction = [CCCallFunc actionWithTarget:self selector:@selector(decreaseMovingBeesCount)];
-			[[beeQueueRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
-			CCAction *action = [CCSequence actions:moveUpAction, decreaseMovingBeesCountAction, [self createSwayAction:nextPosition], nil];
-			[action setTag:ACTION_TAG_BEE_QUEUE];
-			[[beeQueueRenderSprite sprite] runAction:action];
-		}
-	}
 }
 
 -(void) refreshSprites
