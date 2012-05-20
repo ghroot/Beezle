@@ -73,6 +73,7 @@
         if (![EntityUtil isEntityDisposed:beeEntity])
         {
             isBeeFlying = TRUE;
+			break;
         }
     }
     if (!isBeeFlying)

@@ -22,11 +22,15 @@
     
     // Instance
 	BeeType *_containedBeeType;
+	
+	// Transient
+	BeeType *_destroyedByBeeType;
 }
 
 @property (nonatomic, copy) NSString *showBeeAnimationNameFormat;
 @property (nonatomic, readonly) StringList *showBeeBetweenAnimationNames;
 @property (nonatomic, assign) BeeType *containedBeeType;
+@property (nonatomic, assign) BeeType *destroyedByBeeType;
 
 -(BOOL) hasContainedBee;
 

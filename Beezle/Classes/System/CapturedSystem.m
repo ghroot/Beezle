@@ -87,7 +87,7 @@
 	TransformComponent *transformComponent = [TransformComponent getFrom:frozenEntity];
 	NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
 	[notificationUserInfo setObject:[NSValue valueWithCGPoint:[transformComponent position]] forKey:@"entityPosition"];
-	[notificationUserInfo setObject:[frozenComponent containedBeeType] forKey:@"beeType"];
+	[notificationUserInfo setObject:[frozenComponent containedBeeType] forKey:@"savedBeeType"];
 	[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_SAVED object:self userInfo:notificationUserInfo];
 }
 

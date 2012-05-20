@@ -11,12 +11,14 @@
 @interface BeeType : GandEnum
 {
 	int _beeaterHits;
+	BOOL _canBeReused;
 	int _autoDestroyDelay;
 	float _slingerShootSpeedModifier;
 	BOOL _doesExpire;
 }
 
 @property (nonatomic) int beeaterHits;
+@property (nonatomic) BOOL canBeReused;
 @property (nonatomic) int autoDestroyDelay;
 @property (nonatomic) float slingerShootSpeedModifier;
 @property (nonatomic) BOOL doesExpire;

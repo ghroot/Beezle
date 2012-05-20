@@ -102,15 +102,33 @@
 		 
 -(void) animateBeeaterAndSaveContainedBee:(Entity *)beeaterEntity
 {
-	// Save bee
 	TagManager *tagManager = (TagManager *)[[beeaterEntity world] getManager:[TagManager class]];
 	Entity *slingerEntity = (Entity *)[tagManager getEntity:@"SLINGER"];
 	BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:beeaterEntity];
 	SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
+	
+	// Save bee
 	[slingerComponent pushBeeType:[beeaterComponent containedBeeType]];
 	
-	// Destroy beeater
+	// Reuse bee
+	if ([beeaterComponent destroyedByBeeType] != nil &&
+		[[beeaterComponent destroyedByBeeType] canBeReused])
+	{
+		[slingerComponent insertBeeTypeAtStart:[beeaterComponent destroyedByBeeType]];
+	}
+	
+	// Notification
 	TransformComponent *beeaterTransformComponent = [TransformComponent getFrom:beeaterEntity];
+	NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
+	[notificationUserInfo setObject:[NSValue valueWithCGPoint:[beeaterTransformComponent position]] forKey:@"entityPosition"];
+	[notificationUserInfo setObject:[beeaterComponent containedBeeType] forKey:@"savedBeeType"];
+	if ([beeaterComponent destroyedByBeeType] != nil)
+	{
+		[notificationUserInfo setObject:[beeaterComponent destroyedByBeeType] forKey:@"savingBeeType"];
+	}
+	[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_SAVED object:self userInfo:notificationUserInfo];
+	
+	// Destroy beeater
 	RenderComponent *beeaterRenderComponent = (RenderComponent *)[beeaterEntity getComponent:[RenderComponent class]];
 	RenderSprite *beeaterBodyRenderSprite = (RenderSprite *)[beeaterRenderComponent renderSpriteWithName:@"body"];
 	RenderSprite *beeaterHeadRenderSprite = (RenderSprite *)[beeaterRenderComponent renderSpriteWithName:@"head"];
@@ -120,15 +138,7 @@
 	}];
 	
 	// Disable physics
-	PhysicsComponent *beeaterPhysicsComponent = [PhysicsComponent getFrom:beeaterEntity];
-	[beeaterPhysicsComponent disable];
-	[beeaterEntity refresh];
-	
-	// Game notification
-	NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
-	[notificationUserInfo setObject:[NSValue valueWithCGPoint:[beeaterTransformComponent position]] forKey:@"entityPosition"];
-	[notificationUserInfo setObject:[beeaterComponent containedBeeType] forKey:@"beeType"];
-	[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_SAVED object:self userInfo:notificationUserInfo];
+	[EntityUtil disablePhysics:beeaterEntity];
 }
 
 -(void) handleEntityFrozen:(NSNotification *)notification

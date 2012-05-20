@@ -65,19 +65,16 @@
 -(BOOL) shouldExpireDueToNoBeeatersLeft:(Entity *)entity
 {
     GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
-	
     NSArray *beeaterEntities = [groupManager getEntitiesInGroup:@"BEEATERS"];
     BOOL worldHasBeeatersLeft = FALSE;
     for (Entity *beeaterEntity in beeaterEntities)
     {
-        if (![EntityUtil isEntityDisposable:beeaterEntity] ||
-            ![EntityUtil isEntityDisposed:beeaterEntity])
+        if (![EntityUtil isEntityDisposed:beeaterEntity])
         {
             worldHasBeeatersLeft = TRUE;
             break;
         }
     }
-	
     return !worldHasBeeatersLeft;
 }
 

@@ -71,6 +71,11 @@ static const int AIM_POLLEN_INTERVAL = 16;
 	[_queuedBeeTypes addObject:beeType];
 }
 
+-(void) insertBeeTypeAtStart:(BeeType *)beeType
+{
+	[_queuedBeeTypes insertObject:beeType atIndex:0];
+}
+
 -(BeeType *) popNextBeeType
 {
 	BeeType *nextBeeType = [_queuedBeeTypes objectAtIndex:0];

@@ -36,6 +36,9 @@
 		{
 			[EntityUtil destroyEntity:beeEntity];
 		}
+		
+		BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:beeaterEntity];
+		[beeaterComponent setDestroyedByBeeType:[beeComponent type]];
 		[EntityUtil destroyEntity:beeaterEntity];
 	}
 	

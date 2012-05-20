@@ -34,6 +34,7 @@ typedef enum
 @property (nonatomic, readonly) BeeType *loadedBeeType;
 
 -(void) pushBeeType:(BeeType *)beeType;
+-(void) insertBeeTypeAtStart:(BeeType *)beeType;
 -(BeeType *) popNextBeeType;
 -(BOOL) hasMoreBees;
 -(int) numberOfBeesInQueue;

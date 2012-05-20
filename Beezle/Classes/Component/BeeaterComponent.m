@@ -15,6 +15,7 @@
 @synthesize showBeeAnimationNameFormat = _showBeeAnimationNameFormat;
 @synthesize showBeeBetweenAnimationNames = _showBeeBetweenAnimationNames;
 @synthesize containedBeeType = _containedBeeType;
+@synthesize destroyedByBeeType = _destroyedByBeeType;
 
 -(id) init
 {
