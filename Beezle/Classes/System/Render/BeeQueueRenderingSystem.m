@@ -221,7 +221,7 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 		CGPoint startOfQueuePosition = [self calculatePositionForBeeQueueRenderSpriteAtIndex:0 slingerEntity:slingerEntity];
 		RenderSprite *reusedBeeQueueRenderSprite = [self createBeeQueueRenderSpriteWithBeeType:savingBeeType position:position];
 		[_beeQueueRenderSprites insertObject:reusedBeeQueueRenderSprite atIndex:0];
-		CCMoveTo *moveAction = [CCMoveTo actionWithDuration:1.0f position:startOfQueuePosition];
+		CCEaseSineOut *moveAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.6f position:startOfQueuePosition]];
 		CCSequence *sequence = [CCSequence actions:moveAction, [self createSwayAction:startOfQueuePosition], nil];
 		[sequence setTag:ACTION_TAG_BEE_QUEUE];
 		[[reusedBeeQueueRenderSprite sprite] runAction:sequence];

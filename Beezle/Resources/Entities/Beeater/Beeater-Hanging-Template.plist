@@ -10,8 +10,6 @@
 	<dict>
 		<key>beeater</key>
 		<dict>
-			<key>defaultContainedBeeType</key>
-			<string>BEE</string>
             <key>showBeeAnimationFormat</key>
             <string>%beeaterShowBeeAnimationFormat%</string>
             <key>showBeeBetweenAnimations</key>
@@ -23,6 +21,11 @@
 		</dict>
 		<key>brittle</key>
 		<dict/>
+		<key>captured</key>
+		<dict>
+			<key>defaultContainedBeeType</key>
+			<string>BEE</string>
+		</dict>
 		<key>crumble</key>
 		<dict/>
 		<key>disposable</key>

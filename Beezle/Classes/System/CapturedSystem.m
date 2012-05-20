@@ -18,7 +18,7 @@
 @interface CapturedSystem()
 
 -(void) handleEntityDisposed:(NSNotification *)notification;
--(void) animateAndSaveContainedBee:(Entity *)frozenEntity;
+-(void) saveContainedBee:(Entity *)capturedEntity;
 
 @end
 
@@ -65,18 +65,26 @@
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
 	if ([entity hasComponent:[CapturedComponent class]])
 	{
-		[self animateAndSaveContainedBee:entity];
+		[self saveContainedBee:entity];
 	}
 }
 
--(void) animateAndSaveContainedBee:(Entity *)frozenEntity
+-(void) saveContainedBee:(Entity *)capturedEntity
 {
-	// Save bee
-	TagManager *tagManager = (TagManager *)[[frozenEntity world] getManager:[TagManager class]];
+	TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
 	Entity *slingerEntity = (Entity *)[tagManager getEntity:@"SLINGER"];
-	CapturedComponent *capturedComponent = [CapturedComponent getFrom:frozenEntity];
+	CapturedComponent *capturedComponent = [CapturedComponent getFrom:capturedEntity];
 	SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
 	BeeType *savedBeeType = [capturedComponent containedBeeType];
+	BeeType *savingBeeType = [capturedComponent destroyedByBeeType];
+	
+	if ([savedBeeType canBeReused] &&
+		[savingBeeType canBeReused])
+	{
+		CCLOG(@"WARNING: Both saved and saving bee can not be reusable");
+	}
+	
+	// Save bee
 	if ([savedBeeType canBeReused])
 	{
 		[slingerComponent insertBeeTypeAtStart:savedBeeType];
@@ -86,16 +94,22 @@
 		[slingerComponent pushBeeType:savedBeeType];
 	}
 	
-	// Swap bee sprite for hole graphics
-	RenderComponent *capturedRenderComponent = [RenderComponent getFrom:frozenEntity];
-	[capturedRenderComponent playDefaultDestroyAnimation];
-	[EntityUtil disablePhysics:frozenEntity];
+	// Reuse bee
+	if (savingBeeType != nil &&
+		[savingBeeType canBeReused])
+	{
+		[slingerComponent insertBeeTypeAtStart:savingBeeType];
+	}
 	
-	// Game notification
-	TransformComponent *transformComponent = [TransformComponent getFrom:frozenEntity];
+	// Notification
+	TransformComponent *capturedTransformComponent = [TransformComponent getFrom:capturedEntity];
 	NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
-	[notificationUserInfo setObject:[NSValue valueWithCGPoint:[transformComponent position]] forKey:@"entityPosition"];
+	[notificationUserInfo setObject:[NSValue valueWithCGPoint:[capturedTransformComponent position]] forKey:@"entityPosition"];
 	[notificationUserInfo setObject:savedBeeType forKey:@"savedBeeType"];
+	if (savingBeeType != nil)
+	{
+		[notificationUserInfo setObject:savingBeeType forKey:@"savingBeeType"];
+	}
 	[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_SAVED object:self userInfo:notificationUserInfo];
 }
 

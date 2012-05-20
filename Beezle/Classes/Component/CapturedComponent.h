@@ -12,10 +12,18 @@
 
 @interface CapturedComponent : Component
 {
-    // Type
+	// Type
+	BeeType *_defaultContainedBeeType;
+	
+    // Instance
 	BeeType *_containedBeeType;
+	
+	// Transient
+	BeeType *_destroyedByBeeType;
 }
 
+@property (nonatomic, assign) BeeType *defaultContainedBeeType;
 @property (nonatomic, assign) BeeType *containedBeeType;
+@property (nonatomic, assign) BeeType *destroyedByBeeType;
 
 @end

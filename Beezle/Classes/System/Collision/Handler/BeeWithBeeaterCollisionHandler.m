@@ -9,6 +9,7 @@
 #import "BeeWithBeeaterCollisionHandler.h"
 #import "BeeComponent.h"
 #import "BeeaterComponent.h"
+#import "CapturedComponent.h"
 #import "EntityUtil.h"
 
 @implementation BeeWithBeeaterCollisionHandler
@@ -34,11 +35,11 @@
 		[beeComponent decreaseBeeaterHitsLeft];
 		if ([beeComponent isOutOfBeeaterKills])
 		{
-			[EntityUtil destroyEntity:beeEntity instant:TRUE];
+			[EntityUtil destroyEntity:beeEntity];
 		}
 		
-		BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:beeaterEntity];
-		[beeaterComponent setDestroyedByBeeType:[beeComponent type]];
+		CapturedComponent *capturedComponent = [CapturedComponent getFrom:beeaterEntity];
+		[capturedComponent setDestroyedByBeeType:[beeComponent type]];
 		[EntityUtil destroyEntity:beeaterEntity];
 	}
 	

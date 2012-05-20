@@ -7,6 +7,7 @@
 //
 
 #import "LevelSerializer.h"
+#import "BeeType.h"
 #import "EditComponent.h"
 #import "EntityUtil.h"
 #import "LevelLayout.h"
@@ -115,6 +116,30 @@
 			[mutableInstanceComponentsDict setObject:mutablePhysicsInstanceComponentDict forKey:@"physics"];
 			 
 			 instanceComponentsDict = mutableInstanceComponentsDict;
+		}
+		else if ([type hasPrefix:@"BEEATER-"])
+		{
+			NSMutableDictionary *mutableInstanceComponentsDict = [NSMutableDictionary dictionaryWithDictionary:instanceComponentsDict];
+			
+			NSMutableDictionary *mutableBeeaterInstanceComponentDict = [NSMutableDictionary dictionaryWithDictionary:[instanceComponentsDict objectForKey:@"beeater"]];
+			NSString *containedBeeTypeAsString = [mutableBeeaterInstanceComponentDict objectForKey:@"containedBeeType"];
+			[mutableInstanceComponentsDict removeObjectForKey:@"beeater"];
+			
+			NSMutableDictionary *capturedInstanceComponentDict = [NSMutableDictionary dictionary];
+			[capturedInstanceComponentDict setObject:containedBeeTypeAsString forKey:@"containedBeeType"];
+			[mutableInstanceComponentsDict setObject:capturedInstanceComponentDict forKey:@"captured"];
+			
+			instanceComponentsDict = mutableInstanceComponentsDict;
+		}
+		else if ([type isEqualToString:@"FROZEN-TBEE"])
+		{
+			NSMutableDictionary *mutableInstanceComponentsDict = [NSMutableDictionary dictionaryWithDictionary:instanceComponentsDict];
+			
+			NSMutableDictionary *capturedInstanceComponentDict = [NSMutableDictionary dictionary];
+			[capturedInstanceComponentDict setObject:[[BeeType TBEE] name] forKey:@"containedBeeType"];
+			[mutableInstanceComponentsDict setObject:capturedInstanceComponentDict forKey:@"captured"];
+			
+			instanceComponentsDict = mutableInstanceComponentsDict;
 		}
 		
 		[levelLayoutEntry setType:[NSString stringWithString:type]];

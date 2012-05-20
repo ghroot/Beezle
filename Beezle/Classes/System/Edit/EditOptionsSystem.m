@@ -11,6 +11,7 @@
 #import "BeeaterSystem.h"
 #import "BeeQueueRenderingSystem.h"
 #import "BeeType.h"
+#import "CapturedComponent.h"
 #import "EditComponent.h"
 #import "EditControlSystem.h"
 #import "EditState.h"
@@ -345,8 +346,8 @@
 {
 	CCMenuItem *menuItem = (CCMenuItem *)sender;
 	NSString *beeTypeAsString = [menuItem userData];
-	BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:_entityWithOptionsDisplayed];
-	[beeaterComponent setContainedBeeType:[BeeType enumFromName:beeTypeAsString]];
+	CapturedComponent *capturedComponent = [CapturedComponent getFrom:_entityWithOptionsDisplayed];
+	[capturedComponent setContainedBeeType:[BeeType enumFromName:beeTypeAsString]];
 	[_beeaterSystem animateBeeater:_entityWithOptionsDisplayed];
 }
 
@@ -423,18 +424,18 @@
 		entityType = [NSString stringWithFormat:@"%@-REFLECTION", levelLayoutType];
 	}
 	
-	NSMutableDictionary *instanceComponentDict = nil;
+	NSMutableDictionary *instanceComponentsDict = nil;
 	
 	if ([[editComponent levelLayoutType] hasPrefix:@"BEEATER-"])
 	{
-		BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:_entityWithOptionsDisplayed];
-		instanceComponentDict = [NSMutableDictionary dictionary];
-		NSMutableDictionary *beeaterComponentDict = [NSMutableDictionary dictionary];
-		[beeaterComponentDict setObject:[[beeaterComponent containedBeeType] name] forKey:@"containedBeeType"];
-		[instanceComponentDict setObject:beeaterComponentDict forKey:@"beeater"];
+		CapturedComponent *capturedComponent = [CapturedComponent getFrom:_entityWithOptionsDisplayed];
+		instanceComponentsDict = [NSMutableDictionary dictionary];
+		NSMutableDictionary *capturedComponentDict = [NSMutableDictionary dictionary];
+		[capturedComponentDict setObject:[[capturedComponent containedBeeType] name] forKey:@"containedBeeType"];
+		[instanceComponentsDict setObject:capturedComponentDict forKey:@"captured"];
 	}
 	
-	Entity *entity = [EntityFactory createEntity:entityType world:_world instanceComponentsDict:instanceComponentDict edit:TRUE];
+	Entity *entity = [EntityFactory createEntity:entityType world:_world instanceComponentsDict:instanceComponentsDict edit:TRUE];
 	[EntityUtil setEntityPosition:entity position:[transformComponent position]];
 	[EntityUtil setEntityRotation:entity rotation:[transformComponent rotation]];
 	[EntityUtil setEntityMirrored:entity mirrored:([transformComponent scale].x < 0)];

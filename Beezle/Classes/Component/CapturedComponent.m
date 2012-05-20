@@ -11,7 +11,9 @@
 
 @implementation CapturedComponent
 
+@synthesize defaultContainedBeeType = _defaultContainedBeeType;
 @synthesize containedBeeType = _containedBeeType;
+@synthesize destroyedByBeeType = _destroyedByBeeType;
 
 -(id) init
 {
@@ -26,9 +28,16 @@
 {
 	if (self = [self init])
 	{
-        // Type
-        NSString *containedBeeTypeAsString = [typeComponentDict objectForKey:@"containedBeeType"];
-        _containedBeeType = [BeeType enumFromName:containedBeeTypeAsString];
+		// Type
+		NSString *defaultContainedBeeTypeAsString = [typeComponentDict objectForKey:@"defaultContainedBeeType"];
+		_containedBeeType = [BeeType enumFromName:defaultContainedBeeTypeAsString];
+		
+        // Instance
+		if (instanceComponentDict != nil)
+		{
+			NSString *containedBeeTypeAsString = [instanceComponentDict objectForKey:@"containedBeeType"];
+			_containedBeeType = [BeeType enumFromName:containedBeeTypeAsString];
+		}
 	}
 	return self;
 }

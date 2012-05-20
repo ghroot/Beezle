@@ -8,13 +8,18 @@
 	<dict>
 		<key>captured</key>
 		<dict>
-			<key>containedBeeType</key>
+			<key>defaultContainedBeeType</key>
 			<string>TBEE</string>
 		</dict>
 		<key>brittle</key>
 		<dict/>
 		<key>disposable</key>
-		<dict/>
+		<dict>
+			<key>deleteEntityWhenDisposed</key>
+			<true/>
+			<key>keepEntityDisabledInsteadOfDelete</key>
+			<true/>
+		</dict>
 		<key>physics</key>
 		<dict>
 			<key>body</key>

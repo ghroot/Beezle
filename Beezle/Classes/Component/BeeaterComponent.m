@@ -14,8 +14,6 @@
 
 @synthesize showBeeAnimationNameFormat = _showBeeAnimationNameFormat;
 @synthesize showBeeBetweenAnimationNames = _showBeeBetweenAnimationNames;
-@synthesize containedBeeType = _containedBeeType;
-@synthesize destroyedByBeeType = _destroyedByBeeType;
 
 -(id) init
 {
@@ -32,17 +30,8 @@
 	if (self = [self init])
 	{
         // Type
-        NSString *defaultContainedBeeTypeAsString = [typeComponentDict objectForKey:@"defaultContainedBeeType"];
-        _containedBeeType = [BeeType enumFromName:defaultContainedBeeTypeAsString];
         _showBeeAnimationNameFormat = [[typeComponentDict objectForKey:@"showBeeAnimationFormat"] copy];
 		[_showBeeBetweenAnimationNames addStringsFromDictionary:typeComponentDict baseName:@"showBeeBetweenAnimation"];
-        
-        // Instance
-        if (instanceComponentDict != nil)
-        {
-            NSString *containedBeeTypeAsString = [instanceComponentDict objectForKey:@"containedBeeType"];
-            _containedBeeType = [BeeType enumFromName:containedBeeTypeAsString];
-        }
 	}
 	return self;
 }
@@ -53,18 +42,6 @@
     [_showBeeBetweenAnimationNames release];
     
     [super dealloc];
-}
-
--(NSDictionary *) getInstanceComponentDict
-{
-	NSMutableDictionary *instanceComponentsDict = [NSMutableDictionary dictionary];
-	[instanceComponentsDict setObject:[_containedBeeType name] forKey:@"containedBeeType"];
-	return instanceComponentsDict;
-}
-
--(BOOL) hasContainedBee
-{
-	return _containedBeeType != nil;
 }
 
 @end
