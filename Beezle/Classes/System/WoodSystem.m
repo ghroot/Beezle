@@ -75,14 +75,11 @@
 			[self animateAndDestroyWoodPiece:woodRenderSprites atIndex:[woodComponent shapeIndexAtSawCollision] stepsFromStart:0 continueUp:TRUE continueDown:TRUE];
 			
 			// TODO: Don't just disable physics, remove at end of last animation
-			PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
-			[physicsComponent disable];
-			[entity refresh];
+			[EntityUtil disablePhysics:entity];
 		}
 		else
 		{
 			[EntityUtil animateAndDeleteEntity:entity animationName:@"Wood-Split"];
-//			[EntityUtil destroyEntity:entity instant:TRUE];
 		}
 	}
 }
