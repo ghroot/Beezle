@@ -87,7 +87,7 @@ static const float DERIVED_PIECES_PER_AREA = 0.0005f;
 		for (int i = 0; i < numberOfPiecesToSpawn; i++)
 		{
 			// Create entity
-			Entity *shardPieceEntity = [EntityFactory createEntity:[shardComponent piecesEntityType] world:_world];
+			Entity *shardPieceEntity = [EntityFactory createEntity:[shardComponent randomPiecesEntityType] world:_world];
 			
 			// Position
 			CGPoint randomPosition = [self getRandomPositionWithinShapes:[physicsComponent shapes] boundingBox:boundingBox];

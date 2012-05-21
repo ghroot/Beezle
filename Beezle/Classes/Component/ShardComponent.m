@@ -7,11 +7,11 @@
 //
 
 #import "ShardComponent.h"
+#import "StringList.h"
 #import "Utils.h"
 
 @implementation ShardComponent
 
-@synthesize piecesEntityType = _piecesEntityType;
 @synthesize piecesCount = _piecesCount;
 @synthesize piecesSpawnType = _piecesSpawnType;
 
@@ -20,6 +20,7 @@
 	if (self = [super init])
 	{
 		_name = @"shard";
+        _piecesEntityTypes = [StringList new];
 	}
 	return self;
 }
@@ -29,7 +30,7 @@
 	if (self = [self init])
 	{
         // Type
-        _piecesEntityType = [[typeComponentDict objectForKey:@"piecesEntityType"] copy];
+        [_piecesEntityTypes addStringsFromDictionary:typeComponentDict baseName:@"piecesEntityType"];
 		if ([typeComponentDict objectForKey:@"piecesCount"] != nil)
 		{
 			_piecesCount = [[typeComponentDict objectForKey:@"piecesCount"] intValue];
@@ -56,9 +57,14 @@
 
 -(void) dealloc
 {
-	[_piecesEntityType release];
+	[_piecesEntityTypes release];
 	
 	[super dealloc];
+}
+
+-(NSString *) randomPiecesEntityType
+{
+    return [_piecesEntityTypes randomString];
 }
 
 @end

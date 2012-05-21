@@ -8,6 +8,8 @@
 
 #import "artemis.h"
 
+@class StringList;
+
 typedef enum
 {
 	SHARD_PIECES_SPAWN_NORMAL,
@@ -21,13 +23,14 @@ typedef enum
 @interface ShardComponent : Component
 {
     // Type
-	NSString *_piecesEntityType;
+	StringList *_piecesEntityTypes;
 	int _piecesCount;
     ShardPiecesSpawnType _piecesSpawnType;
 }
 
-@property (nonatomic, readonly) NSString *piecesEntityType;
 @property (nonatomic, readonly) int piecesCount;
 @property (nonatomic, readonly) ShardPiecesSpawnType piecesSpawnType;
+
+-(NSString *) randomPiecesEntityType;
 
 @end
