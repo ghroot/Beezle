@@ -17,6 +17,12 @@
 #import "TransformComponent.h"
 #import "WaterComponent.h"
 
+@interface EntityUtil()
+
++(void) setEntityDisposed:(Entity *)entity sendNotification:(BOOL)sendNotification;
+
+@end
+
 @implementation EntityUtil
 
 +(void) setEntityPosition:(Entity *)entity position:(CGPoint)position
@@ -72,7 +78,7 @@
     return [disposableComponent isDisposed];
 }
 
-+(void) setEntityDisposed:(Entity *)entity
++(void) setEntityDisposed:(Entity *)entity sendNotification:(BOOL)sendNotification
 {
 	DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
     if (disposableComponent == nil)
@@ -83,9 +89,17 @@
 	{
 		[disposableComponent setIsDisposed:TRUE];
     
-		NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
-		[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_DISPOSED object:self userInfo:notificationUserInfo];
+		if (sendNotification)
+		{
+			NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
+			[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_DISPOSED object:self userInfo:notificationUserInfo];
+		}
 	}
+}
+
++(void) setEntityDisposed:(Entity *)entity
+{
+	[self setEntityDisposed:entity sendNotification:TRUE];
 }
 
 +(void) setEntityUndisposed:(Entity *)entity
@@ -105,11 +119,16 @@
 {
 	if ([self isEntityDisposable:entity])
 	{
-		[self setEntityDisposed:entity];
-        if (instant)
-        {
-            [entity deleteEntity];
-        }
+		if (instant)
+		{
+			// Don't send notification so systems like DisposalSystem doesn't pick it up
+			[self setEntityDisposed:entity sendNotification:FALSE];
+			[entity deleteEntity];
+		}
+		else
+		{
+			[self setEntityDisposed:entity];
+		}
 	}
 	else if (!instant &&
 			 [[RenderComponent getFrom:entity] hasDefaultDestroyAnimation])
