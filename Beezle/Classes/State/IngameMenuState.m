@@ -10,6 +10,8 @@
 #import "EditState.h"
 #import "Game.h"
 #import "GameplayState.h"
+#import "LevelLayout.h"
+#import "LevelLayoutCache.h"
 #import "LevelOrganizer.h"
 #import "MainMenuState.h"
 
@@ -50,10 +52,12 @@
 	
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	GameplayState *gameplayState = (GameplayState *)[_game previousState];
-	CCLabelTTF *levelNameLabel = [CCLabelTTF labelWithString:[gameplayState levelName] fontName:@"Marker Felt" fontSize:14.0f];
-	[levelNameLabel setPosition:CGPointMake(winSize.width, 0.0f)];
-	[levelNameLabel setAnchorPoint:CGPointMake(1.0f, 0.0f)];
-	[self addChild:levelNameLabel];
+	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:[gameplayState levelName]];
+	NSString *levelInfoString = [NSString stringWithFormat:@"%@v%d%@", [levelLayout levelName], [levelLayout version], ([levelLayout isEdited] ? @" (edited)" : @"")];
+	CCLabelTTF *levelInfoLabel = [CCLabelTTF labelWithString:levelInfoString fontName:@"Marker Felt" fontSize:14.0f];
+	[levelInfoLabel setPosition:CGPointMake(winSize.width, 0.0f)];
+	[levelInfoLabel setAnchorPoint:CGPointMake(1.0f, 0.0f)];
+	[self addChild:levelInfoLabel];
 }
 
 -(void) resumeGame:(id)sender
