@@ -117,7 +117,8 @@
 			 
 			 instanceComponentsDict = mutableInstanceComponentsDict;
 		}
-		else if ([type hasPrefix:@"BEEATER-"])
+		else if ([type hasPrefix:@"BEEATER-"] &&
+				 [instanceComponentsDict objectForKey:@"beeater"] != nil)
 		{
 			NSMutableDictionary *mutableInstanceComponentsDict = [NSMutableDictionary dictionaryWithDictionary:instanceComponentsDict];
 			
@@ -131,7 +132,8 @@
 			
 			instanceComponentsDict = mutableInstanceComponentsDict;
 		}
-		else if ([type isEqualToString:@"FROZEN-TBEE"])
+		else if ([type isEqualToString:@"FROZEN-TBEE"] &&
+				 [instanceComponentsDict objectForKey:@"captured"] == nil)
 		{
 			NSMutableDictionary *mutableInstanceComponentsDict = [NSMutableDictionary dictionaryWithDictionary:instanceComponentsDict];
 			

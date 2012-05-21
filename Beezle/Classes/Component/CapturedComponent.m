@@ -42,4 +42,11 @@
 	return self;
 }
 
+-(NSDictionary *) getInstanceComponentDict
+{
+	NSMutableDictionary *instanceComponentDict = [NSMutableDictionary dictionary];
+	[instanceComponentDict setObject:[_containedBeeType name] forKey:@"containedBeeType"];
+	return instanceComponentDict;
+}
+
 @end
