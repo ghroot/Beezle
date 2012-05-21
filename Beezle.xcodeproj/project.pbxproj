@@ -330,7 +330,6 @@
 		2C5C9D21154F09FB00FF6F57 /* Smoke-Mushroom-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C9D1F154F09FB00FF6F57 /* Smoke-Mushroom-Animations.plist */; };
 		2C5EFC2B14E496A10071ED39 /* SpawnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */; };
 		2C5EFC5114E7DACF0071ED39 /* Egg-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC3A14E7DACF0071ED39 /* Egg-Animations.plist */; };
-		2C5EFC5814E7DACF0071ED39 /* Ramp-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC4114E7DACF0071ED39 /* Ramp-Animations.plist */; };
 		2C5EFC5A14E7DACF0071ED39 /* Sling-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC4314E7DACF0071ED39 /* Sling-Animations.plist */; };
 		2C5EFC5D14E7DACF0071ED39 /* Wood-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC4614E7DACF0071ED39 /* Wood-Animations.plist */; };
 		2C5EFC5E14E7DACF0071ED39 /* FloatingBlockA-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5EFC4814E7DACF0071ED39 /* FloatingBlockA-Shapes.plist */; };
@@ -728,6 +727,8 @@
 		2C8B198E153639C7003F3465 /* LevelThemeSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B198D153639C7003F3465 /* LevelThemeSelectMenuItem.m */; };
 		2C8B19A115377920003F3465 /* Sumee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8B19A015377920003F3465 /* Sumee-Animations.plist */; };
 		2C8B19A315377C69003F3465 /* Sumee-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8B19A215377C69003F3465 /* Sumee-Shapes.plist */; };
+		2C96EDD8156ADAD200052239 /* Ramp-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDD6156ADAD200052239 /* Ramp-Animations.plist */; };
+		2C96EDD9156ADAD200052239 /* Ramp-C-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDD7156ADAD200052239 /* Ramp-C-Animations.plist */; };
 		2C9EF99014B4E8DF00F9EE34 /* LevelSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF98F14B4E8DF00F9EE34 /* LevelSerializer.m */; };
 		2C9EF99914B4E91800F9EE34 /* LevelLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF99414B4E91800F9EE34 /* LevelLayout.m */; };
 		2C9EF99A14B4E91800F9EE34 /* LevelLayoutCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF99614B4E91800F9EE34 /* LevelLayoutCache.m */; };
@@ -1882,7 +1883,6 @@
 		2C5EFC2914E496A00071ED39 /* SpawnComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpawnComponent.h; path = Classes/Component/SpawnComponent.h; sourceTree = "<group>"; };
 		2C5EFC2A14E496A10071ED39 /* SpawnComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpawnComponent.m; path = Classes/Component/SpawnComponent.m; sourceTree = "<group>"; };
 		2C5EFC3A14E7DACF0071ED39 /* Egg-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Egg-Animations.plist"; sourceTree = "<group>"; };
-		2C5EFC4114E7DACF0071ED39 /* Ramp-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ramp-Animations.plist"; sourceTree = "<group>"; };
 		2C5EFC4314E7DACF0071ED39 /* Sling-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sling-Animations.plist"; sourceTree = "<group>"; };
 		2C5EFC4614E7DACF0071ED39 /* Wood-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Wood-Animations.plist"; sourceTree = "<group>"; };
 		2C5EFC4814E7DACF0071ED39 /* FloatingBlockA-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FloatingBlockA-Shapes.plist"; sourceTree = "<group>"; };
@@ -2375,6 +2375,8 @@
 		2C8B198D153639C7003F3465 /* LevelThemeSelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelThemeSelectMenuItem.m; sourceTree = "<group>"; };
 		2C8B19A015377920003F3465 /* Sumee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sumee-Animations.plist"; sourceTree = "<group>"; };
 		2C8B19A215377C69003F3465 /* Sumee-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sumee-Shapes.plist"; sourceTree = "<group>"; };
+		2C96EDD6156ADAD200052239 /* Ramp-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ramp-Animations.plist"; sourceTree = "<group>"; };
+		2C96EDD7156ADAD200052239 /* Ramp-C-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ramp-C-Animations.plist"; sourceTree = "<group>"; };
 		2C9EF98E14B4E8DF00F9EE34 /* LevelSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSerializer.h; sourceTree = "<group>"; };
 		2C9EF98F14B4E8DF00F9EE34 /* LevelSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSerializer.m; sourceTree = "<group>"; };
 		2C9EF99314B4E91800F9EE34 /* LevelLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLayout.h; sourceTree = "<group>"; };
@@ -3840,7 +3842,7 @@
 				2CEEC7B9150577B500EAC127 /* Leaf-Animations.plist */,
 				2C5C9D1D154F09FA00FF6F57 /* Mushroom */,
 				2C5C9D18154F081D00FF6F57 /* Pollen */,
-				2C5EFC4114E7DACF0071ED39 /* Ramp-Animations.plist */,
+				2C96EDD5156ADAD200052239 /* Ramp */,
 				2C5EFC4314E7DACF0071ED39 /* Sling-Animations.plist */,
 				2C7D0ABC14F843AF00221427 /* Waterdrop-Animations.plist */,
 				2C5EFC4614E7DACF0071ED39 /* Wood-Animations.plist */,
@@ -4474,6 +4476,15 @@
 			);
 			name = PWObject;
 			path = libs/PWObject;
+			sourceTree = "<group>";
+		};
+		2C96EDD5156ADAD200052239 /* Ramp */ = {
+			isa = PBXGroup;
+			children = (
+				2C96EDD6156ADAD200052239 /* Ramp-Animations.plist */,
+				2C96EDD7156ADAD200052239 /* Ramp-C-Animations.plist */,
+			);
+			path = Ramp;
 			sourceTree = "<group>";
 		};
 		2C9EF99214B4E91800F9EE34 /* Layout */ = {
@@ -5764,7 +5775,6 @@
 				2C1147CC148B9459002E4DBD /* LICENSE_CocosDenshion.txt in Resources */,
 				2C1147CD148B9459002E4DBD /* LICENSE_Kazmath.txt in Resources */,
 				2C5EFC5114E7DACF0071ED39 /* Egg-Animations.plist in Resources */,
-				2C5EFC5814E7DACF0071ED39 /* Ramp-Animations.plist in Resources */,
 				2C5EFC5A14E7DACF0071ED39 /* Sling-Animations.plist in Resources */,
 				2C5EFC5D14E7DACF0071ED39 /* Wood-Animations.plist in Resources */,
 				2C5EFC5E14E7DACF0071ED39 /* FloatingBlockA-Shapes.plist in Resources */,
@@ -6868,6 +6878,8 @@
 				2C4F5BCA156A92CB008F63D4 /* Beeater-Head-Piece-A-3.plist in Resources */,
 				2C4F5BCB156A92CB008F63D4 /* Beeater-Head-Piece-A-4.plist in Resources */,
 				2C4F5BCC156A92CB008F63D4 /* Beeater-Head-Piece-A-5.plist in Resources */,
+				2C96EDD8156ADAD200052239 /* Ramp-Animations.plist in Resources */,
+				2C96EDD9156ADAD200052239 /* Ramp-C-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
