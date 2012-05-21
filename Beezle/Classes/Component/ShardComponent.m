@@ -14,6 +14,7 @@
 
 @synthesize piecesCount = _piecesCount;
 @synthesize piecesSpawnType = _piecesSpawnType;
+@synthesize piecesDistributionType = _piecesDistributionType;
 
 -(id) init
 {
@@ -51,6 +52,22 @@
         {
             _piecesSpawnType = SHARD_PIECES_SPAWN_NORMAL;
         }
+        if ([typeComponentDict objectForKey:@"piecesDistributionType"] != nil)
+        {
+            NSString *piecesDistributionTypeAsString = [typeComponentDict objectForKey:@"piecesDistributionType"];
+            if ([piecesDistributionTypeAsString isEqualToString:@"SHARD_PIECES_DISTRIBUTION_RANDOM"])
+            {
+                _piecesDistributionType = SHARD_PIECES_DISTRIBUTION_RANDOM;
+            }
+            else if ([piecesDistributionTypeAsString isEqualToString:@"SHARD_PIECES_DISTRIBUTION_SEQUENTIAL"])
+            {
+                _piecesDistributionType = SHARD_PIECES_DISTRIBUTION_SEQUENTIAL;
+            }
+        }
+        else
+        {
+            _piecesDistributionType = SHARD_PIECES_DISTRIBUTION_RANDOM;
+        }
 	}
 	return self;
 }
@@ -60,6 +77,11 @@
 	[_piecesEntityTypes release];
 	
 	[super dealloc];
+}
+
+-(NSArray *) piecesEntityTypes
+{
+    return [_piecesEntityTypes strings];
 }
 
 -(NSString *) randomPiecesEntityType

@@ -83,11 +83,24 @@ static const float DERIVED_PIECES_PER_AREA = 0.0005f;
 		{
 			numberOfPiecesToSpawn = [self derivePiecesCountFromBoundingBox:boundingBox];
 		}
+        
+        NSMutableArray *pieceEntityTypes = [NSMutableArray array];
+        for (int i = 0; i < numberOfPiecesToSpawn; i++)
+        {
+            if ([shardComponent piecesDistributionType] == SHARD_PIECES_DISTRIBUTION_RANDOM)
+            {
+                [pieceEntityTypes addObject:[shardComponent randomPiecesEntityType]];
+            }
+            else if ([shardComponent piecesDistributionType] == SHARD_PIECES_DISTRIBUTION_SEQUENTIAL)
+            {
+                [pieceEntityTypes addObject:[[shardComponent piecesEntityTypes] objectAtIndex:(i % [[shardComponent piecesEntityTypes] count])]];
+            }
+        }
 		
-		for (int i = 0; i < numberOfPiecesToSpawn; i++)
+		for (NSString *pieceEntityType in pieceEntityTypes)
 		{
 			// Create entity
-			Entity *shardPieceEntity = [EntityFactory createEntity:[shardComponent randomPiecesEntityType] world:_world];
+			Entity *shardPieceEntity = [EntityFactory createEntity:pieceEntityType world:_world];
 			
 			// Position
 			CGPoint randomPosition = [self getRandomPositionWithinShapes:[physicsComponent shapes] boundingBox:boundingBox];

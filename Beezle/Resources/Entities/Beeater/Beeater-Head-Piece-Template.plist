@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>components</key>
+	<dict>
+		<key>physics</key>
+		<dict>
+			<key>body</key>
+			<dict>
+				<key>mass</key>
+				<real>1</real>
+				<key>moment</key>
+				<real>1</real>
+			</dict>
+			<key>shapes</key>
+			<array>
+				<dict>
+					<key>type</key>
+					<string>poly</string>
+					<key>vertices</key>
+					<array>
+						<string>{ -5, -3 }</string>
+						<string>{ -5, 3 }</string>
+						<string>{ 5, 3 }</string>
+						<string>{ 5, -3 }</string>
+					</array>
+					<key>elasticity</key>
+					<real>0.5</real>
+					<key>friction</key>
+					<real>0.6</real>
+					<key>layers</key>
+					<integer>2</integer>
+					<key>group</key>
+					<string>OBJECT</string>
+				</dict>
+			</array>
+		</dict>
+		<key>render</key>
+		<dict>
+			<key>sprites</key>
+			<array>
+				<dict>
+					<key>spriteSheetName</key>
+					<string>%renderSpriteSheetName%</string>
+					<key>animationFile</key>
+					<string>%renderAnimationFile%</string>
+					<key>defaultIdleAnimation</key>
+                    <string>%renderDefaultIdleAnimation%</string>
+				</dict>
+			</array>
+		</dict>
+		<key>transform</key>
+		<dict/>
+	</dict>
+</dict>
+</plist>
