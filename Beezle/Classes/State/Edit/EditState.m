@@ -148,6 +148,11 @@
 		CGSize winSize = [[CCDirector sharedDirector] winSize];
 		[EntityUtil setEntityPosition:entity position:CGPointMake(winSize.width / 2, winSize.height / 2)];
 		
+		if ([type isEqualToString:@"SLINGER"])
+		{
+			[EntityUtil setEntityRotation:entity rotation:325.0f];
+		}
+		
 		[_editControlSystem selectEntity:entity];
 	}
 }
