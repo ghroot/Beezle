@@ -9,6 +9,7 @@
 #import "DebugMenuState.h"
 #import "ConfirmationState.h"
 #import "Game.h"
+#import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "LevelOrganizer.h"
 #import "LevelRatings.h"
@@ -26,6 +27,7 @@
 -(void) resetPlayerInformation:(id)sender;
 -(void) resetLevelRatings:(id)sender;
 -(void) resetEditedLevels:(id)sender;
+-(void) resaveEditedLevels:(id)sender;
 -(void) goBack:(id)sender;
 
 @end
@@ -52,20 +54,23 @@
     CCMenuItemFont *toggleStatsMenuItem = [CCMenuItemFont itemWithString:@"Toggle stats" target:self selector:@selector(toggleStats:)];
 	[_menu addChild:toggleStatsMenuItem];
 	CCMenuItemFont *resetInfoMenuItem = [CCMenuItemFont itemWithString:@"Reset player information" target:self selector:@selector(resetPlayerInformation:)];
-	[resetInfoMenuItem setFontSize:24.0f];
+	[resetInfoMenuItem setFontSize:20.0f];
 	[_menu addChild:resetInfoMenuItem];
 	CCMenuItemFont *resetEditedLevelsMenuItem = [CCMenuItemFont itemWithString:@"Reset edited levels" target:self selector:@selector(resetEditedLevels:)];
-	[resetEditedLevelsMenuItem setFontSize:24.0f];
+	[resetEditedLevelsMenuItem setFontSize:20.0f];
 	[_menu addChild:resetEditedLevelsMenuItem];
+    CCMenuItemFont *resaveEditedLevelsMenuItem = [CCMenuItemFont itemWithString:@"Resave edited levels" target:self selector:@selector(resaveEditedLevels:)];
+	[resaveEditedLevelsMenuItem setFontSize:20.0f];
+	[_menu addChild:resaveEditedLevelsMenuItem];
 	CCMenuItemFont *resetRatingsMenuItem = [CCMenuItemFont itemWithString:@"Reset level ratings" target:self selector:@selector(resetLevelRatings:)];
-	[resetRatingsMenuItem setFontSize:24.0f];
+	[resetRatingsMenuItem setFontSize:20.0f];
 	[_menu addChild:resetRatingsMenuItem];
     
     CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
-    [backMenuItem setFontSize:30.0f];
+    [backMenuItem setFontSize:26.0f];
 	[_menu addChild:backMenuItem];
 	
-	[_menu alignItemsVerticallyWithPadding:10.0f];
+	[_menu alignItemsVerticallyWithPadding:6.0f];
 	
 	[self addChild:_menu];
 }
@@ -118,6 +123,40 @@
 			[[NSFileManager defaultManager] removeItemAtPath:filePath error:NULL];
 		}
 	}]];
+}
+
+-(void) resaveEditedLevels:(id)sender
+{
+    [_game pushState:[ConfirmationState stateWithTitle:@"Really resave edited levels?" block:^{
+        NSArray *allLevelNames = [[LevelOrganizer sharedOrganizer] allLevelNames];
+        for (NSString *levelName in allLevelNames)
+        {
+            LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+            if (levelLayout != nil)
+            {
+                // Update version
+                [levelLayout setVersion:[levelLayout version] + 1];
+                
+                // Replace cached version of level layout
+                [[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:levelLayout];
+                
+                // Save level as dictionary to a file
+                NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
+                NSString *documentsDirectory = [paths objectAtIndex:0];
+                NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
+                NSString *filePath = [documentsDirectory stringByAppendingPathComponent:levelFileName];
+                BOOL success = [[levelLayout layoutAsDictionary] writeToFile:filePath atomically:TRUE];
+                if (success)
+                {
+                    NSLog(@"%@v%i saved successfully!", levelName, [levelLayout version]);
+                }
+                else
+                {
+                    NSLog(@"%@ failed to save...", levelName);
+                }
+            }
+        }
+    }]];
 }
 
 -(void) goBack:(id)sender
