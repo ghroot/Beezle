@@ -719,7 +719,6 @@
 		2C8933831562E72600089998 /* C55-Ice.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C89333F1562E72600089998 /* C55-Ice.png */; };
 		2C8933841562E72600089998 /* C59-Ice-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8933401562E72600089998 /* C59-Ice-hd.png */; };
 		2C8933851562E72600089998 /* C59-Ice.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8933411562E72600089998 /* C59-Ice.png */; };
-		2C893387156300C000089998 /* Ice.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C893386156300BF00089998 /* Ice.plist */; };
 		2C893389156317A500089998 /* Clirr.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C893388156317A400089998 /* Clirr.plist */; };
 		2C8B181C153391FC003F3465 /* NSObject+PWObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B181B153391FC003F3465 /* NSObject+PWObject.m */; };
 		2C8B198B15363878003F3465 /* LevelThemeSelectMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B198A15363878003F3465 /* LevelThemeSelectMenuState.m */; };
@@ -729,6 +728,10 @@
 		2C96EDD8156ADAD200052239 /* Ramp-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDD6156ADAD200052239 /* Ramp-Animations.plist */; };
 		2C96EDD9156ADAD200052239 /* Ramp-C-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDD7156ADAD200052239 /* Ramp-C-Animations.plist */; };
 		2C96EDDD156AED9F00052239 /* 79282__justinbw__hedge-trimmers-rev.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDDC156AED9F00052239 /* 79282__justinbw__hedge-trimmers-rev.m4a */; };
+		2C96EDE9156D9C2300052239 /* Ice.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDE6156D9C2300052239 /* Ice.plist */; };
+		2C96EDEA156D9C2300052239 /* Icicle-Piece.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDE7156D9C2300052239 /* Icicle-Piece.plist */; };
+		2C96EDEB156D9C2300052239 /* Icicle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDE8156D9C2300052239 /* Icicle.plist */; };
+		2C96EDED156D9D7A00052239 /* Icicle-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDEC156D9D7A00052239 /* Icicle-Animations.plist */; };
 		2C9EF99014B4E8DF00F9EE34 /* LevelSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF98F14B4E8DF00F9EE34 /* LevelSerializer.m */; };
 		2C9EF99914B4E91800F9EE34 /* LevelLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF99414B4E91800F9EE34 /* LevelLayout.m */; };
 		2C9EF99A14B4E91800F9EE34 /* LevelLayoutCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF99614B4E91800F9EE34 /* LevelLayoutCache.m */; };
@@ -2364,7 +2367,6 @@
 		2C89333F1562E72600089998 /* C55-Ice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C55-Ice.png"; sourceTree = "<group>"; };
 		2C8933401562E72600089998 /* C59-Ice-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C59-Ice-hd.png"; sourceTree = "<group>"; };
 		2C8933411562E72600089998 /* C59-Ice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C59-Ice.png"; sourceTree = "<group>"; };
-		2C893386156300BF00089998 /* Ice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Ice.plist; sourceTree = "<group>"; };
 		2C893388156317A400089998 /* Clirr.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Clirr.plist; sourceTree = "<group>"; };
 		2C8B181A153391FC003F3465 /* NSObject+PWObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PWObject.h"; sourceTree = "<group>"; };
 		2C8B181B153391FC003F3465 /* NSObject+PWObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PWObject.m"; sourceTree = "<group>"; };
@@ -2377,6 +2379,10 @@
 		2C96EDD6156ADAD200052239 /* Ramp-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ramp-Animations.plist"; sourceTree = "<group>"; };
 		2C96EDD7156ADAD200052239 /* Ramp-C-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ramp-C-Animations.plist"; sourceTree = "<group>"; };
 		2C96EDDC156AED9F00052239 /* 79282__justinbw__hedge-trimmers-rev.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "79282__justinbw__hedge-trimmers-rev.m4a"; sourceTree = "<group>"; };
+		2C96EDE6156D9C2300052239 /* Ice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Ice.plist; sourceTree = "<group>"; };
+		2C96EDE7156D9C2300052239 /* Icicle-Piece.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Icicle-Piece.plist"; sourceTree = "<group>"; };
+		2C96EDE8156D9C2300052239 /* Icicle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Icicle.plist; sourceTree = "<group>"; };
+		2C96EDEC156D9D7A00052239 /* Icicle-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Icicle-Animations.plist"; sourceTree = "<group>"; };
 		2C9EF98E14B4E8DF00F9EE34 /* LevelSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSerializer.h; sourceTree = "<group>"; };
 		2C9EF98F14B4E8DF00F9EE34 /* LevelSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSerializer.m; sourceTree = "<group>"; };
 		2C9EF99314B4E91800F9EE34 /* LevelLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLayout.h; sourceTree = "<group>"; };
@@ -3839,6 +3845,7 @@
 				2C8808DC155F15DF000FD02E /* Glass */,
 				2C8808E3155F16D8000FD02E /* Hangnest */,
 				2C80E55B155DC8F5004DE19A /* Ice-Piece-Animations.plist */,
+				2C96EDEC156D9D7A00052239 /* Icicle-Animations.plist */,
 				2CEEC7B9150577B500EAC127 /* Leaf-Animations.plist */,
 				2C5C9D1D154F09FA00FF6F57 /* Mushroom */,
 				2C5C9D18154F081D00FF6F57 /* Pollen */,
@@ -4485,6 +4492,16 @@
 				2C96EDD7156ADAD200052239 /* Ramp-C-Animations.plist */,
 			);
 			path = Ramp;
+			sourceTree = "<group>";
+		};
+		2C96EDE5156D9C2300052239 /* Ice */ = {
+			isa = PBXGroup;
+			children = (
+				2C96EDE6156D9C2300052239 /* Ice.plist */,
+				2C96EDE7156D9C2300052239 /* Icicle-Piece.plist */,
+				2C96EDE8156D9C2300052239 /* Icicle.plist */,
+			);
+			path = Ice;
 			sourceTree = "<group>";
 		};
 		2C9EF99214B4E91800F9EE34 /* Layout */ = {
@@ -5308,7 +5325,7 @@
 				2CE4F552153CC8A80023B5C6 /* Floating-Block-A.plist */,
 				2CE4F553153CC8A80023B5C6 /* Glass */,
 				2CE4F592153CC8A80023B5C6 /* Hangnest */,
-				2C893386156300BF00089998 /* Ice.plist */,
+				2C96EDE5156D9C2300052239 /* Ice */,
 				2CE4F595153CC8A80023B5C6 /* Leaf.plist */,
 				2CE4F596153CC8A80023B5C6 /* Mushroom */,
 				2CE4F59A153CC8A80023B5C6 /* Pollen */,
@@ -6857,7 +6874,6 @@
 				2C8933831562E72600089998 /* C55-Ice.png in Resources */,
 				2C8933841562E72600089998 /* C59-Ice-hd.png in Resources */,
 				2C8933851562E72600089998 /* C59-Ice.png in Resources */,
-				2C893387156300C000089998 /* Ice.plist in Resources */,
 				2C893389156317A500089998 /* Clirr.plist in Resources */,
 				2C563A641566D9A800D422F6 /* Beeater-Hanging-C-Reflection.plist in Resources */,
 				2C563A651566D9A800D422F6 /* Beeater-Land-C-Reflection.plist in Resources */,
@@ -6880,6 +6896,10 @@
 				2C96EDD8156ADAD200052239 /* Ramp-Animations.plist in Resources */,
 				2C96EDD9156ADAD200052239 /* Ramp-C-Animations.plist in Resources */,
 				2C96EDDD156AED9F00052239 /* 79282__justinbw__hedge-trimmers-rev.m4a in Resources */,
+				2C96EDE9156D9C2300052239 /* Ice.plist in Resources */,
+				2C96EDEA156D9C2300052239 /* Icicle-Piece.plist in Resources */,
+				2C96EDEB156D9C2300052239 /* Icicle.plist in Resources */,
+				2C96EDED156D9D7A00052239 /* Icicle-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

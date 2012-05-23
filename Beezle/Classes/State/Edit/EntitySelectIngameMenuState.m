@@ -80,6 +80,7 @@
 	[self addMenuItemForEntityType:@"GLASS"];
 	[self addMenuItemForEntityType:@"HANGNEST"];
 	[self addMenuItemForEntityType:@"ICE"];
+	[self addMenuItemForEntityType:@"ICICLE"];
 	[self addMenuItemForEntityType:@"LEAF"];
 	[self addMenuItemForEntityType:@"MUSHROOM"];
 	[self addMenuItemForEntityType:@"POLLEN-YELLOW"];
