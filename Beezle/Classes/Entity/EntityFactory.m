@@ -32,14 +32,14 @@
 #import "Waves1DNode.h"
 #import "ZOrder.h"
 
-#define BACKGROUND_FRICTION 0.7f
-#define BACKGROUND_ELASTICITY 0.7f
-#define BACKGROUND_LAYERS 7
-#define EDGE_FRICTION 0.5f
-#define EDGE_ELASTICITY 0.0f
-#define EDGE_LAYERS 15
-#define WATER_LAYERS 5
-#define AIM_POLLEN_LAYERS 2
+static const float BACKGROUND_FRICTION = 0.7f;
+static const float BACKGROUND_ELASTICITY = 0.7f;
+static const int BACKGROUND_LAYERS = 7;
+static const float EDGE_FRICTION = 0.5f;
+static const float EDGE_ELASTICITY = 0.0f;
+static const int EDGE_LAYERS = 15;
+static const int WATER_LAYERS = 5;
+static const int AIM_POLLEN_LAYERS = 2;
 
 @implementation EntityFactory
 
