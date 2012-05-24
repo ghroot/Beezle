@@ -736,6 +736,7 @@
 		2C9EF99914B4E91800F9EE34 /* LevelLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF99414B4E91800F9EE34 /* LevelLayout.m */; };
 		2C9EF99A14B4E91800F9EE34 /* LevelLayoutCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF99614B4E91800F9EE34 /* LevelLayoutCache.m */; };
 		2C9EF99B14B4E91800F9EE34 /* LevelLayoutEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EF99814B4E91800F9EE34 /* LevelLayoutEntry.m */; };
+		2CAB5CBE156E903D00EF4183 /* ComponentDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB5CBD156E903D00EF4183 /* ComponentDirectory.m */; };
 		2CADCC8514746BA100302475 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CADCC8414746BA100302475 /* SenTestingKit.framework */; };
 		2CADCC8614746BA100302475 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3281145F66F7000FF575 /* UIKit.framework */; };
 		2CADCC8714746BA100302475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3283145F66F7000FF575 /* Foundation.framework */; };
@@ -2391,6 +2392,8 @@
 		2C9EF99614B4E91800F9EE34 /* LevelLayoutCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLayoutCache.m; sourceTree = "<group>"; };
 		2C9EF99714B4E91800F9EE34 /* LevelLayoutEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLayoutEntry.h; sourceTree = "<group>"; };
 		2C9EF99814B4E91800F9EE34 /* LevelLayoutEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLayoutEntry.m; sourceTree = "<group>"; };
+		2CAB5CBC156E903D00EF4183 /* ComponentDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComponentDirectory.h; path = Classes/Component/ComponentDirectory.h; sourceTree = "<group>"; };
+		2CAB5CBD156E903D00EF4183 /* ComponentDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComponentDirectory.m; path = Classes/Component/ComponentDirectory.m; sourceTree = "<group>"; };
 		2CADCC8314746BA100302475 /* ArtemisTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtemisTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CADCC8414746BA100302475 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2CADCC8A14746BA200302475 /* ArtemisTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ArtemisTests-Info.plist"; sourceTree = "<group>"; };
@@ -5633,6 +5636,8 @@
 				2CDB9901155181E800384B54 /* BrittleComponent.m */,
 				2C7B1C5C1559C0EE00AF0026 /* CapturedComponent.h */,
 				2C7B1C5D1559C0EE00AF0026 /* CapturedComponent.m */,
+				2CAB5CBC156E903D00EF4183 /* ComponentDirectory.h */,
+				2CAB5CBD156E903D00EF4183 /* ComponentDirectory.m */,
 				2CFFFC0315437623001D9307 /* ConsumerComponent.h */,
 				2CFFFC0415437624001D9307 /* ConsumerComponent.m */,
 				2C5EFCC014EC60530071ED39 /* CrumbleComponent.h */,
@@ -7180,6 +7185,7 @@
 				2C7B1C6F155C66A400AF0026 /* FreezeSystem.m in Sources */,
 				2C7B1C72155C683500AF0026 /* FreezableComponent.m in Sources */,
 				2CD1CCB115605D2B0090AFBE /* NSDictionary+Merge.m in Sources */,
+				2CAB5CBE156E903D00EF4183 /* ComponentDirectory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
