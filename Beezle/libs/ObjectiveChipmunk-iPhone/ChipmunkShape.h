@@ -1,3 +1,7 @@
+@class ChipmunkNearestPointQueryInfo;
+@class ChipmunkSegmentQueryInfo;
+
+
 /// Abstract base class for collsion shape types.
 @interface ChipmunkShape : NSObject <ChipmunkBaseObject> {
 @public
@@ -57,7 +61,34 @@
 - (cpBB)cacheBB;
 
 /// Check if a point in absolute coordinates lies within the shape.
-- (bool)pointQuery:(cpVect)point;
+/// @deprecated Use nearestPointQuery: instead
+- (bool)pointQuery:(cpVect)point __attribute__((__deprecated__));
+
+- (ChipmunkNearestPointQueryInfo *)nearestPointQuery:(cpVect)point;
+- (ChipmunkSegmentQueryInfo *)segmentQueryFrom:(cpVect)start to:(cpVect)end;
+
+@end
+
+
+@interface ChipmunkNearestPointQueryInfo : NSObject {
+	@private
+	cpNearestPointQueryInfo _info;
+}
+
+- (id)initWithInfo:(cpNearestPointQueryInfo *)info;
+
+/// Returns a pointer to the underlying cpNearestPointQueryInfo C struct.
+@property (readonly) cpNearestPointQueryInfo *info;
+
+/// The ChipmunkShape found.
+@property (readonly) ChipmunkShape *shape;
+
+/// The distance between the point and the surface of the shape.
+/// Negative distances mean that the point is that depth inside the shape.
+@property (readonly) cpFloat dist;
+
+/// The closest point on the surface of the shape to the point.
+@property (readonly) cpVect point;
 
 @end
 
@@ -69,7 +100,7 @@
 	cpVect _start, _end;
 }
 
-- (id)initWithStart:(cpVect)start end:(cpVect)end;
+- (id)initWithInfo:(cpSegmentQueryInfo *)info start:(cpVect)start end:(cpVect)end;
 
 /// Returns a pointer to the underlying cpSegmentQueryInfo C struct.
 @property (readonly) cpSegmentQueryInfo *info;
@@ -173,11 +204,17 @@
 /// Create an autoreleased box shape centered on the center of gravity.
 + (id)boxWithBody:(ChipmunkBody *)body width:(cpFloat)width height:(cpFloat)height;
 
+/// Create an autoreleased box shape with the given bounding box in body local coordinates.
++ (id)boxWithBody:(ChipmunkBody *)body bb:(cpBB)bb;
+
 /// Initialize a polygon shape from the given vertex and offset from the center of gravity.
 - (id)initWithBody:(ChipmunkBody *)body count:(int)count verts:(cpVect *)verts offset:(cpVect)offset;
 
 /// Initialize a box shape centered on the center of gravity.
 - (id)initBoxWithBody:(ChipmunkBody *)body width:(cpFloat)width height:(cpFloat)height;
+
+/// Initialize a box shape with the given bounding box in body local coordinates.
+- (id)initBoxWithBody:(ChipmunkBody *)body bb:(cpBB)bb;
 
 /// The number of vertexes in this polygon.
 @property (readonly) int count;

@@ -144,7 +144,8 @@ static const float DERIVED_PIECES_PER_AREA = 0.0005f;
 		randomPosition = CGPointMake(boundingBox.l + rand() % (int)(boundingBox.r - boundingBox.l), boundingBox.b + rand() % (int)(boundingBox.t - boundingBox.b));
 		for (ChipmunkShape *shape in shapes)
 		{
-			if ([shape pointQuery:randomPosition])
+            ChipmunkNearestPointQueryInfo *queryInfo = [shape nearestPointQuery:randomPosition];
+			if ([queryInfo dist] <= 0)
 			{
 				validPoint = TRUE;
 			}
