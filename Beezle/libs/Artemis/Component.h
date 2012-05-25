@@ -33,11 +33,9 @@
 
 @interface Component : NSObject <NSCopying>
 {
-	NSString *_name;
     BOOL _enabled;
 }
 
-@property (nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) BOOL enabled;
 
 +(id) component;

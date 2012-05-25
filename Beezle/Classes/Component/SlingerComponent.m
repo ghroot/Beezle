@@ -20,7 +20,6 @@ static const int AIM_POLLEN_INTERVAL = 16;
 {
 	if (self = [super init])
 	{
-		_name = @"slinger";
 		_queuedBeeTypes = [[NSMutableArray alloc] init];
 		_loadedBeeType = nil;
 	}

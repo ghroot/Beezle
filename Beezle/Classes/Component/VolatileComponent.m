@@ -10,13 +10,4 @@
 
 @implementation VolatileComponent
 
--(id) init
-{
-	if (self = [super init])
-	{
-		_name = @"volatile";
-	}
-	return self;
-}
-
 @end

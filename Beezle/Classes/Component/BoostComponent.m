@@ -10,13 +10,4 @@
 
 @implementation BoostComponent
 
--(id) init
-{
-	if (self = [super init])
-	{
-		_name = @"boost";
-	}
-	return self;
-}
-
 @end

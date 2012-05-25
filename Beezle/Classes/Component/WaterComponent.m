@@ -12,15 +12,6 @@
 
 @synthesize splashEntityType = _splashEntityType;
 
--(id) init
-{
-	if (self = [super init])
-	{
-		_name = @"water";
-	}
-	return self;
-}
-
 -(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
 	if (self = [self init])

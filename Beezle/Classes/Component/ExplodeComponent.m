@@ -19,7 +19,6 @@
 {
 	if (self = [super init])
 	{
-		_name = @"explode";
         _explosionState = NOT_EXPLODED;
 	}
 	return self;

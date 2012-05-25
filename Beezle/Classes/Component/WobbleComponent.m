@@ -17,7 +17,6 @@
 {
 	if (self = [super init])
 	{
-		_name = @"wobble";
 		_firstWobbleAnimationNames = [StringList new];
 		_wobbleAnimationNames = [StringList new];
 		_wobbleFollowupAnimationNames = [StringList new];

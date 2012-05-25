@@ -16,7 +16,6 @@
 {
 	if (self = [super init])
 	{
-		_name = @"wood";
 		_shapeIndexAtSawCollision = -1;
 	}
 	return self;

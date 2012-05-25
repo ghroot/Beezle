@@ -10,18 +10,9 @@
 
 @implementation HealthComponent
 
--(id) init
-{
-    if (self = [super init])
-    {
-		_name = @"health";
-    }
-    return self;
-}
-
 -(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
-	if (self = [self init])
+	if (self = [super init])
 	{
         // Type
         _totalHealthPoints = [[typeComponentDict objectForKey:@"totalHealthPoints"] intValue];

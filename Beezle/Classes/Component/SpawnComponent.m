@@ -22,7 +22,6 @@
 {
     if (self = [super init])
     {
-		_name = @"spawn";
 		_countdown = 0.0f;
     }
     return self;
@@ -30,7 +29,7 @@
 
 -(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
-	if (self = [self init])
+	if (self = [super init])
 	{
         // Type
         _entityType = [[typeComponentDict objectForKey:@"entityType"] retain];

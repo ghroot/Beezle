@@ -10,13 +10,4 @@
 
 @implementation BrittleComponent
 
--(id) init
-{
-	if (self = [super init])
-	{
-		_name = @"brittle";
-	}
-	return self;
-}
-
 @end

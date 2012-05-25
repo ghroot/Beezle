@@ -10,13 +10,4 @@
 
 @implementation CrumbleComponent
 
--(id) init
-{
-	if (self = [super init])
-	{
-		_name = @"crumble";
-	}
-	return self;
-}
-
 @end

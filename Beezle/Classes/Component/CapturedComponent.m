@@ -15,18 +15,9 @@
 @synthesize containedBeeType = _containedBeeType;
 @synthesize destroyedByBeeType = _destroyedByBeeType;
 
--(id) init
-{
-	if (self = [super init])
-	{
-		_name = @"captured";
-	}
-	return self;
-}
-
 -(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
-	if (self = [self init])
+	if (self = [super init])
 	{
 		// Type
 		NSString *defaultContainedBeeTypeAsString = [typeComponentDict objectForKey:@"defaultContainedBeeType"];

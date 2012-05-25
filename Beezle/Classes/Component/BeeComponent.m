@@ -12,18 +12,9 @@
 
 @synthesize type = _type;
 
--(id) init
-{
-	if (self = [super init])
-	{
-		_name = @"bee";
-	}
-	return self;
-}
-
 -(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
-	if (self = [self init])
+	if (self = [super init])
 	{
         // Type
         _type = [BeeType enumFromName:[typeComponentDict objectForKey:@"type"]];

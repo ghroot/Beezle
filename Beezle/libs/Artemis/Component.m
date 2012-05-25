@@ -33,7 +33,6 @@
 
 @implementation Component
 
-@synthesize name = _name;
 @synthesize enabled = _enabled;
 
 +(id) component
@@ -58,13 +57,6 @@
         _enabled = TRUE;
     }
     return self;
-}
-
--(void) dealloc
-{
-	[_name release];
-	
-	[super dealloc];
 }
 
 -(id) copyWithZone:(NSZone *)zone

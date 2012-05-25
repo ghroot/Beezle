@@ -24,7 +24,6 @@
 {
     if (self = [super init])
     {
-		_name = @"transform";
 		_scale = CGPointMake(1.0f, 1.0f);
 		_position = CGPointZero;
 		_rotation = 0.0f;

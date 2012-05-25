@@ -12,18 +12,9 @@
 
 @synthesize instant = _instant;
 
--(id) init
-{
-    if (self = [super init])
-    {
-		_name = @"void";
-    }
-    return self;
-}
-
 -(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
-	if (self = [self init])
+	if (self = [super init])
 	{
         // Type
 		if ([typeComponentDict objectForKey:@"instant"] != nil)

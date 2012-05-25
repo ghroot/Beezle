@@ -19,7 +19,6 @@
 {
 	if (self = [super init])
 	{
-		_name = @"beeater";
 		_showBeeBetweenAnimationNames = [StringList new];
 	}
 	return self;

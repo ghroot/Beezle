@@ -165,7 +165,6 @@
 {
     if (self = [super init])
     {
-		_name = @"physics";
 		if (body != nil)
 		{
 			_body = [body retain];

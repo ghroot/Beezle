@@ -22,7 +22,6 @@
 {
 	if (self = [super init])
 	{
-		_name = @"movement";
 		_positions = [[NSArray alloc] init];
 		_alwaysFaceForward = FALSE;
 		_isMovingForwardInPositionList = TRUE;

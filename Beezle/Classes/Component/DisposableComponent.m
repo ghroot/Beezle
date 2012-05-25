@@ -15,18 +15,9 @@
 @synthesize isDisposed = _isDisposed;
 @synthesize isAboutToBeDeleted = _isAboutToBeDeleted;
 
--(id) init
-{
-    if (self = [super init])
-    {
-		_name = @"disposable";
-    }
-    return self;
-}
-
 -(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
-	if (self = [self init])
+	if (self = [super init])
 	{
         // Type
         _deleteEntityWhenDisposed = [[typeComponentDict objectForKey:@"deleteEntityWhenDisposed"] boolValue];

@@ -12,13 +12,4 @@
 
 @synthesize isFrozen = _isFrozen;
 
--(id) init
-{
-	if (self = [super init])
-	{
-		_name = @"freezable";
-	}
-	return self;
-}
-
 @end

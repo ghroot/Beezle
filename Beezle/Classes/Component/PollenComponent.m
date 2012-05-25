@@ -12,18 +12,9 @@
 
 @synthesize pollenCount = _pollenCount;
 
--(id) init
-{
-	if (self = [super init])
-	{
-		_name = @"pollen";
-	}
-	return self;
-}
-
 -(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
-	if (self = [self init])
+	if (self = [super init])
 	{
         // Type
         _pollenCount = [[typeComponentDict objectForKey:@"pollenCount"] intValue];

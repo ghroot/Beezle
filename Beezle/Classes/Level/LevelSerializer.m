@@ -202,7 +202,9 @@
 				NSDictionary *instanceComponentDict = [component getInstanceComponentDict];
 				if ([self hasInstanceComponentDictAnyValues:instanceComponentDict])
 				{
-					[instanceComponentsDict setObject:instanceComponentDict forKey:[component name]];
+                    NSString *componentClassName = NSStringFromClass([component class]);
+                    NSString *componentName = [[componentClassName stringByReplacingOccurrencesOfString:@"Component" withString:@""] lowercaseString];
+					[instanceComponentsDict setObject:instanceComponentDict forKey:componentName];
 				}
 			}
 			[levelLayoutEntry setInstanceComponentsDict:instanceComponentsDict];

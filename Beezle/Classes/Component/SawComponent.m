@@ -10,13 +10,4 @@
 
 @implementation SawComponent
 
--(id) init
-{
-	if (self = [super init])
-	{
-		_name = @"saw";
-	}
-	return self;
-}
-
 @end

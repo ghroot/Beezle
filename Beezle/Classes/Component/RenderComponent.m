@@ -37,7 +37,6 @@
 {
 	if (self = [super init])
 	{
-		_name = @"render";
 		_renderSprites = [NSMutableArray new];
 	}
 	return self;

@@ -24,7 +24,6 @@
 {
 	if (self = [super init])
 	{
-		_name = @"edit";
 		_levelLayoutType = [levelLayoutType retain];
 	}
 	return self;
