@@ -25,6 +25,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+#define kCCBVersion 2
+
 enum {
     kCCBPropTypePosition = 0,
     kCCBPropTypeSize,
@@ -49,7 +51,10 @@ enum {
     kCCBPropTypeIntegerLabeled,
     kCCBPropTypeBlock,
 	kCCBPropTypeAnimation,
-    kCCBPropTypeCCBFile
+    kCCBPropTypeCCBFile,
+    kCCBPropTypeString,
+    kCCBPropTypeBlockCCControl,
+    kCCBPropTypeFloatScale
 };
 
 enum {
@@ -73,6 +78,30 @@ enum {
     kCCBTargetTypeOwner = 2,
 };
 
+enum
+{
+    kCCBPositionTypeRelativeBottomLeft,
+    kCCBPositionTypeRelativeTopLeft,
+    kCCBPositionTypeRelativeTopRight,
+    kCCBPositionTypeRelativeBottomRight,
+    kCCBPositionTypePercent
+};
+
+enum
+{
+    kCCBSizeTypeAbsolute,
+    kCCBSizeTypePercent,
+    kCCBSizeTypeRelativeContainer,
+    kCCBSizeTypeHorizontalPercent,
+    kCCBSzieTypeVerticalPercent
+};
+
+enum
+{
+    kCCBScaleTypeAbsolute,
+    kCCBScaleTypeMultiplyResolution
+};
+
 @interface CCBReader : NSObject
 {
     NSData* data;
@@ -81,16 +110,25 @@ enum {
     int currentBit;
     
     NSMutableArray* stringCache;
+    NSMutableSet* loadedSpriteSheets;
     
     CCNode* rootNode;
     id owner;
+    CGSize rootContainerSize;
+    int resolutionScale;
 }
 
 + (CCNode*) nodeGraphFromFile:(NSString*) file;
 + (CCNode*) nodeGraphFromFile:(NSString*) file owner:(id)owner;
++ (CCNode*) nodeGraphFromFile:(NSString*) file owner:(id)owner parentSize:(CGSize)parentSize;
 
 + (CCScene*) sceneWithNodeGraphFromFile:(NSString*) file;
 + (CCScene*) sceneWithNodeGraphFromFile:(NSString *)file owner:(id)owner;
++ (CCScene*) sceneWithNodeGraphFromFile:(NSString *)file owner:(id)owner parentSize:(CGSize)parentSize;
+
+#ifdef CCB_ENABLE_UNZIP
++ (BOOL) unzipResources:(NSString*)resPath;
+#endif
 
 @end
 
@@ -99,4 +137,11 @@ enum {
     CCNode* ccbFile;
 }
 @property (nonatomic,retain) CCNode* ccbFile;
+@end
+
+@interface CCBFileUtils : CCFileUtils
+{
+    NSString* ccbDirectoryPath;
+}
+@property (nonatomic,copy) NSString* ccbDirectoryPath;
 @end

@@ -126,12 +126,7 @@
 		2C27E90B14D20577002165CD /* TagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FD14D20577002165CD /* TagManager.m */; };
 		2C27E90C14D20577002165CD /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FF14D20577002165CD /* World.m */; };
 		2C2FB66B14FE800100D115AF /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */; settings = {ATTRIBUTES = (Required, ); }; };
-		2C32988D1516372A009A5B83 /* Bubble-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C32988C1516372A009A5B83 /* Bubble-hd.png */; };
 		2C32989115164527009A5B83 /* CCBReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C32989015164527009A5B83 /* CCBReader.m */; };
-		2C32989515164850009A5B83 /* Pollen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C32989415164850009A5B83 /* Pollen.png */; };
-		2C32989715164A05009A5B83 /* NextLevelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C32989615164A05009A5B83 /* NextLevelButton.png */; };
-		2C32989B15164C69009A5B83 /* LevelCompletedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2C32989915164C69009A5B83 /* LevelCompletedDialog.ccbi */; };
-		2C32989C15164C69009A5B83 /* LevelFailedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2C32989A15164C69009A5B83 /* LevelFailedDialog.ccbi */; };
 		2C462BD215419632000DA559 /* Super-Beeater.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C462BD115419632000DA559 /* Super-Beeater.plist */; };
 		2C47B5DE15593F2C006A68ED /* Boss-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C47B5D615593F2C006A68ED /* Boss-hd.plist */; };
 		2C47B5DF15593F2C006A68ED /* Boss-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C47B5D715593F2C006A68ED /* Boss-hd.png */; };
@@ -158,7 +153,6 @@
 		2C4F5BCA156A92CB008F63D4 /* Beeater-Head-Piece-A-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C4F5BC6156A92CB008F63D4 /* Beeater-Head-Piece-A-3.plist */; };
 		2C4F5BCB156A92CB008F63D4 /* Beeater-Head-Piece-A-4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C4F5BC7156A92CB008F63D4 /* Beeater-Head-Piece-A-4.plist */; };
 		2C4F5BCC156A92CB008F63D4 /* Beeater-Head-Piece-A-5.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C4F5BC8156A92CB008F63D4 /* Beeater-Head-Piece-A-5.plist */; };
-		2C53122D15097DE400FDE482 /* Bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C53122C15097DE400FDE482 /* Bubble.png */; };
 		2C5373CE1538D05A00040EED /* A-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5373CD1538D05A00040EED /* A-Glass-Shapes.plist */; };
 		2C5373D01538D3A300040EED /* B-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5373CF1538D3A300040EED /* B-Glass-Shapes.plist */; };
 		2C563A641566D9A800D422F6 /* Beeater-Hanging-C-Reflection.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C563A621566D9A800D422F6 /* Beeater-Hanging-C-Reflection.plist */; };
@@ -442,15 +436,10 @@
 		2C74B5B0156FAD3900596A22 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B585156FAD3900596A22 /* SoundManager.m */; };
 		2C74B5B1156FAD3900596A22 /* StringList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B587156FAD3900596A22 /* StringList.m */; };
 		2C74B5B2156FAD3900596A22 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B589156FAD3900596A22 /* Utils.m */; };
-		2C7B1C511558645D00AF0026 /* PauseArrow-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C501558645D00AF0026 /* PauseArrow-01-hd.png */; };
-		2C7B1C54155864CB00AF0026 /* NextLevelButton-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C53155864CB00AF0026 /* NextLevelButton-hd.png */; };
 		2C7B1C631559C6BD00AF0026 /* Frozen-Tbee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C621559C6BD00AF0026 /* Frozen-Tbee.plist */; };
 		2C7B1C651559C7E500AF0026 /* Tbee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C641559C7E500AF0026 /* Tbee-Animations.plist */; };
 		2C7B1C671559C8CC00AF0026 /* Tbee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C661559C8CC00AF0026 /* Tbee.plist */; };
 		2C7B1C69155B151100AF0026 /* Frozen-Piece.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C68155B151100AF0026 /* Frozen-Piece.plist */; };
-		2C7C3B26150275B800640416 /* PauseArrow-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B25150275B800640416 /* PauseArrow-01.png */; };
-		2C7C3B29150276C300640416 /* Level Completed Bubble-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */; };
-		2C7C3B2A150276C300640416 /* Level Failed Bubble-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */; };
 		2C7D0ABD14F843AF00221427 /* Waterdrop-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7D0ABC14F843AF00221427 /* Waterdrop-Animations.plist */; };
 		2C80E55C155DC8F5004DE19A /* Ice-Piece-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C80E55B155DC8F5004DE19A /* Ice-Piece-Animations.plist */; };
 		2C80E55F155DCCA4004DE19A /* C-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C80E55E155DCCA4004DE19A /* C-Glass-Shapes.plist */; };
@@ -779,6 +768,16 @@
 		2C96EDEA156D9C2300052239 /* Icicle-Piece.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDE7156D9C2300052239 /* Icicle-Piece.plist */; };
 		2C96EDEB156D9C2300052239 /* Icicle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDE8156D9C2300052239 /* Icicle.plist */; };
 		2C96EDED156D9D7A00052239 /* Icicle-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDEC156D9D7A00052239 /* Icicle-Animations.plist */; };
+		2C96EE001570450600052239 /* Bubble-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDF71570450600052239 /* Bubble-hd.png */; };
+		2C96EE011570450600052239 /* Bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDF81570450600052239 /* Bubble.png */; };
+		2C96EE021570450600052239 /* LevelCompletedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDF91570450600052239 /* LevelCompletedDialog.ccbi */; };
+		2C96EE031570450600052239 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDFA1570450600052239 /* Loading.png */; };
+		2C96EE041570450600052239 /* NextLevelButton-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDFB1570450600052239 /* NextLevelButton-hd.png */; };
+		2C96EE051570450600052239 /* NextLevelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDFC1570450600052239 /* NextLevelButton.png */; };
+		2C96EE061570450600052239 /* PauseArrow-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDFD1570450600052239 /* PauseArrow-01-hd.png */; };
+		2C96EE071570450600052239 /* PauseArrow-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDFE1570450600052239 /* PauseArrow-01.png */; };
+		2C96EE081570450600052239 /* Pollen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDFF1570450600052239 /* Pollen.png */; };
+		2C96EE0A15704B3A00052239 /* LevelFailedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EE0915704B3A00052239 /* LevelFailedDialog.ccbi */; };
 		2CADCC8514746BA100302475 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CADCC8414746BA100302475 /* SenTestingKit.framework */; };
 		2CADCC8614746BA100302475 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3281145F66F7000FF575 /* UIKit.framework */; };
 		2CADCC8714746BA100302475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3283145F66F7000FF575 /* Foundation.framework */; };
@@ -1383,7 +1382,6 @@
 		2CEE585215211EBE00953CE1 /* Bouncee-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEE585115211EBE00953CE1 /* Bouncee-Shapes.plist */; };
 		2CEEC7BA150577B500EAC127 /* Leaf-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7B9150577B500EAC127 /* Leaf-Animations.plist */; };
 		2CEEC7BE1505807900EAC127 /* Leave-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7BD1505807900EAC127 /* Leave-Shapes.plist */; };
-		2CEEEDDD150231B10096DCA1 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEEDDC150231B10096DCA1 /* Loading.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1656,13 +1654,8 @@
 		2C27E8FF14D20577002165CD /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
 		2C2FB66914FE800100D115AF /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAnalytics.h; sourceTree = "<group>"; };
 		2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryAnalytics.a; sourceTree = "<group>"; };
-		2C32988C1516372A009A5B83 /* Bubble-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bubble-hd.png"; sourceTree = "<group>"; };
 		2C32988F15164527009A5B83 /* CCBReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBReader.h; sourceTree = "<group>"; };
 		2C32989015164527009A5B83 /* CCBReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBReader.m; sourceTree = "<group>"; };
-		2C32989415164850009A5B83 /* Pollen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pollen.png; sourceTree = "<group>"; };
-		2C32989615164A05009A5B83 /* NextLevelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NextLevelButton.png; sourceTree = "<group>"; };
-		2C32989915164C69009A5B83 /* LevelCompletedDialog.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = LevelCompletedDialog.ccbi; sourceTree = "<group>"; };
-		2C32989A15164C69009A5B83 /* LevelFailedDialog.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = LevelFailedDialog.ccbi; sourceTree = "<group>"; };
 		2C462BD115419632000DA559 /* Super-Beeater.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Super-Beeater.plist"; sourceTree = "<group>"; };
 		2C47B5D615593F2C006A68ED /* Boss-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Boss-hd.plist"; sourceTree = "<group>"; };
 		2C47B5D715593F2C006A68ED /* Boss-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boss-hd.png"; sourceTree = "<group>"; };
@@ -1689,7 +1682,6 @@
 		2C4F5BC6156A92CB008F63D4 /* Beeater-Head-Piece-A-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Head-Piece-A-3.plist"; sourceTree = "<group>"; };
 		2C4F5BC7156A92CB008F63D4 /* Beeater-Head-Piece-A-4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Head-Piece-A-4.plist"; sourceTree = "<group>"; };
 		2C4F5BC8156A92CB008F63D4 /* Beeater-Head-Piece-A-5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Head-Piece-A-5.plist"; sourceTree = "<group>"; };
-		2C53122C15097DE400FDE482 /* Bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bubble.png; sourceTree = "<group>"; };
 		2C5373CD1538D05A00040EED /* A-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "A-Glass-Shapes.plist"; sourceTree = "<group>"; };
 		2C5373CF1538D3A300040EED /* B-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "B-Glass-Shapes.plist"; sourceTree = "<group>"; };
 		2C563A621566D9A800D422F6 /* Beeater-Hanging-C-Reflection.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Hanging-C-Reflection.plist"; sourceTree = "<group>"; };
@@ -2139,15 +2131,10 @@
 		2C74B587156FAD3900596A22 /* StringList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringList.m; sourceTree = "<group>"; };
 		2C74B588156FAD3900596A22 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		2C74B589156FAD3900596A22 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		2C7B1C501558645D00AF0026 /* PauseArrow-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01-hd.png"; sourceTree = "<group>"; };
-		2C7B1C53155864CB00AF0026 /* NextLevelButton-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NextLevelButton-hd.png"; sourceTree = "<group>"; };
 		2C7B1C621559C6BD00AF0026 /* Frozen-Tbee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Frozen-Tbee.plist"; sourceTree = "<group>"; };
 		2C7B1C641559C7E500AF0026 /* Tbee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tbee-Animations.plist"; sourceTree = "<group>"; };
 		2C7B1C661559C8CC00AF0026 /* Tbee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tbee.plist; sourceTree = "<group>"; };
 		2C7B1C68155B151100AF0026 /* Frozen-Piece.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Frozen-Piece.plist"; sourceTree = "<group>"; };
-		2C7C3B25150275B800640416 /* PauseArrow-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01.png"; sourceTree = "<group>"; };
-		2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level Completed Bubble-01.png"; sourceTree = "<group>"; };
-		2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level Failed Bubble-01.png"; sourceTree = "<group>"; };
 		2C7D0ABC14F843AF00221427 /* Waterdrop-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Waterdrop-Animations.plist"; sourceTree = "<group>"; };
 		2C80E55B155DC8F5004DE19A /* Ice-Piece-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ice-Piece-Animations.plist"; sourceTree = "<group>"; };
 		2C80E55E155DCCA4004DE19A /* C-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "C-Glass-Shapes.plist"; sourceTree = "<group>"; };
@@ -2477,6 +2464,16 @@
 		2C96EDE7156D9C2300052239 /* Icicle-Piece.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Icicle-Piece.plist"; sourceTree = "<group>"; };
 		2C96EDE8156D9C2300052239 /* Icicle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Icicle.plist; sourceTree = "<group>"; };
 		2C96EDEC156D9D7A00052239 /* Icicle-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Icicle-Animations.plist"; sourceTree = "<group>"; };
+		2C96EDF71570450600052239 /* Bubble-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bubble-hd.png"; sourceTree = "<group>"; };
+		2C96EDF81570450600052239 /* Bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bubble.png; sourceTree = "<group>"; };
+		2C96EDF91570450600052239 /* LevelCompletedDialog.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = LevelCompletedDialog.ccbi; sourceTree = "<group>"; };
+		2C96EDFA1570450600052239 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
+		2C96EDFB1570450600052239 /* NextLevelButton-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NextLevelButton-hd.png"; sourceTree = "<group>"; };
+		2C96EDFC1570450600052239 /* NextLevelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NextLevelButton.png; sourceTree = "<group>"; };
+		2C96EDFD1570450600052239 /* PauseArrow-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01-hd.png"; sourceTree = "<group>"; };
+		2C96EDFE1570450600052239 /* PauseArrow-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01.png"; sourceTree = "<group>"; };
+		2C96EDFF1570450600052239 /* Pollen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pollen.png; sourceTree = "<group>"; };
+		2C96EE0915704B3A00052239 /* LevelFailedDialog.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = LevelFailedDialog.ccbi; sourceTree = "<group>"; };
 		2CADCC8314746BA100302475 /* ArtemisTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtemisTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CADCC8414746BA100302475 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2CADCC8A14746BA200302475 /* ArtemisTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ArtemisTests-Info.plist"; sourceTree = "<group>"; };
@@ -3089,7 +3086,6 @@
 		2CEE585115211EBE00953CE1 /* Bouncee-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bouncee-Shapes.plist"; sourceTree = "<group>"; };
 		2CEEC7B9150577B500EAC127 /* Leaf-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Leaf-Animations.plist"; sourceTree = "<group>"; };
 		2CEEC7BD1505807900EAC127 /* Leave-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Leave-Shapes.plist"; sourceTree = "<group>"; };
-		2CEEEDDC150231B10096DCA1 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3129,19 +3125,9 @@
 		2C00D85014FD798B00BE5B4C /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				2C32988C1516372A009A5B83 /* Bubble-hd.png */,
-				2C53122C15097DE400FDE482 /* Bubble.png */,
 				2C4E92081546EC850092B006 /* fps_images-hd.png */,
 				2C5C9A2F1549F44300FF6F57 /* fps_images-ipadhd.png */,
 				2C4E92091546EC850092B006 /* fps_images.png */,
-				2C7C3B27150276C300640416 /* Level Completed Bubble-01.png */,
-				2C7C3B28150276C300640416 /* Level Failed Bubble-01.png */,
-				2CEEEDDC150231B10096DCA1 /* Loading.png */,
-				2C7B1C53155864CB00AF0026 /* NextLevelButton-hd.png */,
-				2C32989615164A05009A5B83 /* NextLevelButton.png */,
-				2C7B1C501558645D00AF0026 /* PauseArrow-01-hd.png */,
-				2C7C3B25150275B800640416 /* PauseArrow-01.png */,
-				2C32989415164850009A5B83 /* Pollen.png */,
 			);
 			name = Images;
 			path = Resources/Images;
@@ -3526,8 +3512,16 @@
 		2C32989815164C69009A5B83 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				2C32989915164C69009A5B83 /* LevelCompletedDialog.ccbi */,
-				2C32989A15164C69009A5B83 /* LevelFailedDialog.ccbi */,
+				2C96EDF71570450600052239 /* Bubble-hd.png */,
+				2C96EDF81570450600052239 /* Bubble.png */,
+				2C96EDF91570450600052239 /* LevelCompletedDialog.ccbi */,
+				2C96EE0915704B3A00052239 /* LevelFailedDialog.ccbi */,
+				2C96EDFA1570450600052239 /* Loading.png */,
+				2C96EDFB1570450600052239 /* NextLevelButton-hd.png */,
+				2C96EDFC1570450600052239 /* NextLevelButton.png */,
+				2C96EDFD1570450600052239 /* PauseArrow-01-hd.png */,
+				2C96EDFE1570450600052239 /* PauseArrow-01.png */,
+				2C96EDFF1570450600052239 /* Pollen.png */,
 			);
 			name = Interface;
 			path = Resources/Interface;
@@ -5885,10 +5879,6 @@
 				2C5EFC5E14E7DACF0071ED39 /* FloatingBlockA-Shapes.plist in Resources */,
 				2C5EFC6E14E829390071ED39 /* Bee-Shapes.plist in Resources */,
 				2C7D0ABD14F843AF00221427 /* Waterdrop-Animations.plist in Resources */,
-				2CEEEDDD150231B10096DCA1 /* Loading.png in Resources */,
-				2C7C3B26150275B800640416 /* PauseArrow-01.png in Resources */,
-				2C7C3B29150276C300640416 /* Level Completed Bubble-01.png in Resources */,
-				2C7C3B2A150276C300640416 /* Level Failed Bubble-01.png in Resources */,
 				2CC9E7851502E80900C094B0 /* Bee-Animations.plist in Resources */,
 				2CC9E7861502E80900C094B0 /* Bombee-Animations.plist in Resources */,
 				2CC9E7871502E80900C094B0 /* Sawee-Animations.plist in Resources */,
@@ -5897,12 +5887,6 @@
 				2CEEC7BA150577B500EAC127 /* Leaf-Animations.plist in Resources */,
 				2CEEC7BE1505807900EAC127 /* Leave-Shapes.plist in Resources */,
 				2CD2529E15095B9A00B9E300 /* Speedee-Shapes.plist in Resources */,
-				2C53122D15097DE400FDE482 /* Bubble.png in Resources */,
-				2C32988D1516372A009A5B83 /* Bubble-hd.png in Resources */,
-				2C32989515164850009A5B83 /* Pollen.png in Resources */,
-				2C32989715164A05009A5B83 /* NextLevelButton.png in Resources */,
-				2C32989B15164C69009A5B83 /* LevelCompletedDialog.ccbi in Resources */,
-				2C32989C15164C69009A5B83 /* LevelFailedDialog.ccbi in Resources */,
 				2CEE585215211EBE00953CE1 /* Bouncee-Shapes.plist in Resources */,
 				2C8B19A115377920003F3465 /* Sumee-Animations.plist in Resources */,
 				2C8B19A315377C69003F3465 /* Sumee-Shapes.plist in Resources */,
@@ -6587,8 +6571,6 @@
 				2CDB9D5A1555E5A300384B54 /* B39-Glass.png in Resources */,
 				2CDB9D5C1557143300384B54 /* Clirr-Animations.plist in Resources */,
 				2CDB9D8B155733B700384B54 /* C-Level-Music.m4a in Resources */,
-				2C7B1C511558645D00AF0026 /* PauseArrow-01-hd.png in Resources */,
-				2C7B1C54155864CB00AF0026 /* NextLevelButton-hd.png in Resources */,
 				2C47B5DE15593F2C006A68ED /* Boss-hd.plist in Resources */,
 				2C47B5DF15593F2C006A68ED /* Boss-hd.png in Resources */,
 				2C47B5E015593F2C006A68ED /* Boss.plist in Resources */,
@@ -6988,6 +6970,16 @@
 				2C96EDEA156D9C2300052239 /* Icicle-Piece.plist in Resources */,
 				2C96EDEB156D9C2300052239 /* Icicle.plist in Resources */,
 				2C96EDED156D9D7A00052239 /* Icicle-Animations.plist in Resources */,
+				2C96EE001570450600052239 /* Bubble-hd.png in Resources */,
+				2C96EE011570450600052239 /* Bubble.png in Resources */,
+				2C96EE021570450600052239 /* LevelCompletedDialog.ccbi in Resources */,
+				2C96EE031570450600052239 /* Loading.png in Resources */,
+				2C96EE041570450600052239 /* NextLevelButton-hd.png in Resources */,
+				2C96EE051570450600052239 /* NextLevelButton.png in Resources */,
+				2C96EE061570450600052239 /* PauseArrow-01-hd.png in Resources */,
+				2C96EE071570450600052239 /* PauseArrow-01.png in Resources */,
+				2C96EE081570450600052239 /* Pollen.png in Resources */,
+				2C96EE0A15704B3A00052239 /* LevelFailedDialog.ccbi in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
