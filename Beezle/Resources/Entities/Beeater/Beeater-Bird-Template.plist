@@ -31,7 +31,10 @@
 		<key>disposable</key>
 		<dict/>
 		<key>freezable</key>
-		<dict/>
+		<dict>
+			<key>deferFreezeHandling</key>
+			<true/>
+		</dict>
 		<key>movement</key>
 		<dict>
 			<key>alwaysFaceForward</key>

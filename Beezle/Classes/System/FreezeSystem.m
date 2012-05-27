@@ -12,6 +12,7 @@
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
+#import "RenderComponent.h"
 
 @implementation FreezeSystem
 
@@ -65,8 +66,15 @@
 		{
 			[freezableComponent setIsFrozen:TRUE];
 			
-			NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
-			[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_FROZEN object:self userInfo:notificationUserInfo];
+			if ([freezableComponent deferFreezeHandling])
+			{
+				NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
+				[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_FROZEN object:self userInfo:notificationUserInfo];
+			}
+			else
+			{
+				[[RenderComponent getFrom:entity] playDefaultStillAnimation];
+			}
 		}
 	}
 	else
@@ -75,8 +83,15 @@
 		{
 			[freezableComponent setIsFrozen:FALSE];
 			
-			NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
-			[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_UNFROZEN object:self userInfo:notificationUserInfo];
+			if ([freezableComponent deferFreezeHandling])
+			{
+				NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
+				[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_UNFROZEN object:self userInfo:notificationUserInfo];
+			}
+			else
+			{
+				[[RenderComponent getFrom:entity] playDefaultIdleAnimation];
+			}
 		}
 	}
 }

@@ -13,6 +13,8 @@
 			<key>deleteEntityWhenDisposed</key>
 			<true/>
 		</dict>
+		<key>freezable</key>
+		<dict/>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
@@ -53,6 +55,8 @@
 					<string>Pollen-Green-Idle</string>
                     <key>defaultDestroyAnimation</key>
                     <string>Pollen-Green-Pickup</string>
+					<key>defaultStillAnimation</key>
+					<string>Pollen-Green-Still</string>
 				</dict>
 			</array>
 		</dict>
