@@ -31,6 +31,7 @@
 +(ZOrder *) Z_SHEET_B;
 +(ZOrder *) Z_SHEET_C;
 
++(ZOrder *) Z_GLASS;
 +(ZOrder *) Z_ICE;
 
 +(ZOrder *) Z_SHEET_SHARED;
