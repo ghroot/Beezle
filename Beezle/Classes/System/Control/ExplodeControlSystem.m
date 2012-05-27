@@ -23,7 +23,6 @@
 
 @interface ExplodeControlSystem()
 
--(BOOL) doesExplodedEntity:(Entity *)explodedEntity intersectBrittleEntity:(Entity *)brittleEntity;
 -(void) startExplode:(Entity *)entity;
 -(void) endExplode:(Entity *)entity;
 
