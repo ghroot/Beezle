@@ -15,6 +15,7 @@
 #import "InputSystem.h"
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
+#import "PhysicsSystem.h"
 #import "RenderSprite.h"
 #import "RenderComponent.h"
 #import "SoundManager.h"
@@ -39,6 +40,7 @@
 -(void) initialise
 {
 	_inputSystem = (InputSystem *)[[_world systemManager] getSystem:[InputSystem class]];
+	_physicsSystem = (PhysicsSystem *)[[_world systemManager] getSystem:[PhysicsSystem class]];
 }
 
 -(void) processEntity:(Entity *)entity
@@ -68,22 +70,6 @@
 	}
 }
 
--(BOOL) doesExplodedEntity:(Entity *)explodedEntity intersectBrittleEntity:(Entity *)brittleEntity
-{
-	ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:explodedEntity];
-	TransformComponent *explodedTransformComponent = [TransformComponent getFrom:explodedEntity];
-	int left = [explodedTransformComponent position].x - [explodeComponent radius];
-	int right = [explodedTransformComponent position].x + [explodeComponent radius];
-	int top = [explodedTransformComponent position].y + [explodeComponent radius];
-	int bottom = [explodedTransformComponent position].y - [explodeComponent radius];
-	cpBB explosionBB = cpBBNew(left, bottom, right, top);
-	
-	PhysicsComponent *crumblePhysicsComponent = [PhysicsComponent getFrom:brittleEntity];	
-	cpBB crumbleBB = [crumblePhysicsComponent boundingBox];
-	
-	return cpBBIntersects(explosionBB, crumbleBB);
-}
-
 -(void) startExplode:(Entity *)entity
 {
     ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
@@ -108,22 +94,33 @@
 	}];
 	
 	[EntityUtil disablePhysics:entity];
-	
-    [[SoundManager sharedManager] playSound:@"BombeeBoom"];
     
-    for (Entity *otherEntity in [[_world entityManager] entities])
+	TransformComponent *transformComponent = [TransformComponent getFrom:entity];
+	ChipmunkBody *explosionBody = [ChipmunkBody staticBody];
+	ChipmunkShape *explosionShape = [ChipmunkCircleShape circleWithBody:explosionBody radius:[explodeComponent radius] offset:CGPointZero];
+	[explosionBody setPos:[transformComponent position]];
+	NSArray *shapeQueryInfos = [[_physicsSystem space] shapeQueryAll:explosionShape];
+	NSMutableArray *entitiesToDestroy = [NSMutableArray array];
+	for (ChipmunkShapeQueryInfo *shapeQueryInfo in shapeQueryInfos)
+	{
+		Entity *otherEntity = [[shapeQueryInfo shape] data];
+		if (otherEntity != nil &&
+			[otherEntity hasComponent:[BrittleComponent class]] &&
+			![entitiesToDestroy containsObject:otherEntity])
+		{
+			[entitiesToDestroy addObject:otherEntity];
+		}
+	}
+	
+    for (Entity *entityToDestroy in entitiesToDestroy)
     {
-        if ([otherEntity hasComponent:[BrittleComponent class]])
-        {
-            if ([self doesExplodedEntity:entity intersectBrittleEntity:otherEntity])
-            {
-                if (![EntityUtil isEntityDisposed:otherEntity])
-                {
-                    [EntityUtil destroyEntity:otherEntity];
-                }
-            }
-        }
+		if (![EntityUtil isEntityDisposed:entityToDestroy])
+		{
+			[EntityUtil destroyEntity:entityToDestroy];
+		}
     }
+	
+	[[SoundManager sharedManager] playSound:@"BombeeBoom"];
 }
 
 @end

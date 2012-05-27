@@ -9,10 +9,12 @@
 #import "artemis.h"
 
 @class InputSystem;
+@class PhysicsSystem;
 
 @interface ExplodeControlSystem : EntityComponentSystem
 {
 	InputSystem *_inputSystem;
+	PhysicsSystem *_physicsSystem;
 }
 
 @end

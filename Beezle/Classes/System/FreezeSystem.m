@@ -45,7 +45,8 @@
 		for (ChipmunkShapeQueryInfo *shapeQueryInfo in shapeQueryInfos)
 		{
 			Entity *otherEntity = [[shapeQueryInfo shape] data];
-			if ([otherEntity hasComponent:[FreezeComponent class]])
+			if (otherEntity != nil &&
+				[otherEntity hasComponent:[FreezeComponent class]])
 			{
 				isTouchingAtLeastOneFreezeEntity = TRUE;
 				break;
