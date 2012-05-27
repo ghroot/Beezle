@@ -8,6 +8,11 @@
 
 #import "artemis.h"
 
+@class PhysicsSystem;
+
 @interface FreezeSystem : EntityComponentSystem
+{
+	PhysicsSystem *_physicsSystem;
+}
 
 @end

@@ -11,6 +11,7 @@
 #import "FreezeComponent.h"
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
+#import "PhysicsSystem.h"
 
 @implementation FreezeSystem
 
@@ -20,27 +21,42 @@
 	return self;
 }
 
+-(void) initialise
+{
+	_physicsSystem = (PhysicsSystem *)[[_world systemManager] getSystem:[PhysicsSystem class]];
+}
+
 -(void) processEntity:(Entity *)entity
 {
-	PhysicsComponent *freezablePhysicsComponent = [PhysicsComponent getFrom:entity];	
-	cpBB freezableBB = [freezablePhysicsComponent boundingBox];
+	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
 	
 	BOOL isTouchingAtLeastOneFreezeEntity = FALSE;
-	for (Entity *otherEntity in [[_world entityManager] entities])
+	
+	for (ChipmunkShape *shape in [physicsComponent shapes])
 	{
-		if ([otherEntity hasComponent:[FreezeComponent class]] &&
-			[otherEntity hasComponent:[PhysicsComponent class]])
+		cpLayers currentLayers = [shape layers];
+		id currentGroup = [shape group];
+		[shape setLayers:CP_ALL_LAYERS];
+		[shape setGroup:nil];
+		NSArray *shapeQueryInfos = [[_physicsSystem space] shapeQueryAll:shape];
+		[shape setLayers:currentLayers];
+		[shape setGroup:currentGroup];
+		
+		for (ChipmunkShapeQueryInfo *shapeQueryInfo in shapeQueryInfos)
 		{
-			PhysicsComponent *freezePhysicsComponent = [PhysicsComponent getFrom:otherEntity];	
-			cpBB freezeBB = [freezePhysicsComponent boundingBox];
-			if (cpBBIntersects(freezeBB, freezableBB))
+			Entity *otherEntity = [[shapeQueryInfo shape] data];
+			if ([otherEntity hasComponent:[FreezeComponent class]])
 			{
 				isTouchingAtLeastOneFreezeEntity = TRUE;
 				break;
 			}
+			if (isTouchingAtLeastOneFreezeEntity)
+			{
+				break;
+			}
 		}
 	}
-
+	
 	FreezableComponent *freezableComponent = [FreezableComponent getFrom:entity];
 	if (isTouchingAtLeastOneFreezeEntity)
 	{
