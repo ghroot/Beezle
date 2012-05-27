@@ -7,6 +7,7 @@
 //
 
 #import "ExplodeComponent.h"
+#import "StringList.h"
 
 @implementation ExplodeComponent
 
@@ -19,6 +20,7 @@
 {
 	if (self = [super init])
 	{
+		_explodeSoundNames = [StringList new];
         _explosionState = NOT_EXPLODED;
 	}
 	return self;
@@ -32,6 +34,7 @@
         _radius = [[typeComponentDict objectForKey:@"radius"] intValue];
         _explodeStartAnimationName = [[typeComponentDict objectForKey:@"explodeStartAnimation"] copy];
         _explodeEndAnimationName = [[typeComponentDict objectForKey:@"explodeEndAnimation"] copy];
+		[_explodeSoundNames addStringsFromDictionary:typeComponentDict baseName:@"explodeSound"];
 	}
 	return self;
 }
@@ -40,8 +43,14 @@
 {
 	[_explodeStartAnimationName release];
 	[_explodeEndAnimationName release];
+	[_explodeSoundNames release];
 	
 	[super dealloc];
+}
+
+-(NSString *) randomExplodeSoundName
+{
+	return [_explodeSoundNames randomString];
 }
 
 @end

@@ -8,6 +8,8 @@
 
 #import "Component.h"
 
+@class StringList;
+
 typedef enum
 {
     NOT_EXPLODED,
@@ -27,14 +29,17 @@ typedef enum
 	int _radius;
 	NSString *_explodeStartAnimationName;
 	NSString *_explodeEndAnimationName;
+	StringList *_explodeSoundNames;
     
     // Transient
     ExplosionState _explosionState;
 }
 
 @property (nonatomic) int radius;
-@property (nonatomic, copy) NSString *explodeStartAnimationName;
-@property (nonatomic, copy) NSString *explodeEndAnimationName;
+@property (nonatomic, readonly) NSString *explodeStartAnimationName;
+@property (nonatomic, readonly) NSString *explodeEndAnimationName;
 @property (nonatomic) ExplosionState explosionState;
+
+-(NSString *) randomExplodeSoundName;
 
 @end

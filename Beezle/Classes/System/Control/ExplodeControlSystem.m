@@ -120,7 +120,7 @@
 		}
     }
 	
-	[[SoundManager sharedManager] playSound:@"BombeeBoom"];
+	[[SoundManager sharedManager] playSound:[explodeComponent randomExplodeSoundName]];
 }
 
 @end
