@@ -126,16 +126,19 @@ static const int AIM_POLLEN_LAYERS = 2;
 	NSMutableArray *shapes = [NSMutableArray array];
     NSString *shapesFileName = [NSString stringWithFormat:@"%@-Shapes.plist", name];
 	BodyInfo *bodyInfo = [physicsSystem createBodyInfoFromFile:shapesFileName bodyName:name];
-	for (ChipmunkShape *shape in [bodyInfo shapes])
+	if (bodyInfo != nil)
 	{
-		[shape setFriction:BACKGROUND_FRICTION];
-		[shape setElasticity:BACKGROUND_ELASTICITY];
-		[shape setLayers:BACKGROUND_LAYERS];
-        [shape setGroup:[CollisionGroup LEVEL]];
+		for (ChipmunkShape *shape in [bodyInfo shapes])
+		{
+			[shape setFriction:BACKGROUND_FRICTION];
+			[shape setElasticity:BACKGROUND_ELASTICITY];
+			[shape setLayers:BACKGROUND_LAYERS];
+			[shape setGroup:[CollisionGroup LEVEL]];
+		}
+		[shapes addObjectsFromArray:[bodyInfo shapes]];
+		PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:[bodyInfo body] andShapes:shapes];
+		[backgroundEntity addComponent:physicsComponent];
 	}
-	[shapes addObjectsFromArray:[bodyInfo shapes]];
-	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:[bodyInfo body] andShapes:shapes];
-    [backgroundEntity addComponent:physicsComponent];
 	
 	// Sound
     SoundComponent *soundComponent = [SoundComponent component];
