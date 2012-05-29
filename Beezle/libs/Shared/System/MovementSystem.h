@@ -9,6 +9,11 @@
 #import "EntityComponentSystem.h"
 #import "cocos2d.h"
 
+@class NotificationProcessor;
+
 @interface MovementSystem : EntityComponentSystem
+{
+	NotificationProcessor *_notificationProcessor;
+}
 
 @end

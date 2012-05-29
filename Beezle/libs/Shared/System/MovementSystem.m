@@ -11,6 +11,8 @@
 #import "EntityFactory.h"
 #import "EntityUtil.h"
 #import "MovementComponent.h"
+#import "NotificationProcessor.h"
+#import "NotificationTypes.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
 #import "TransformComponent.h"
@@ -24,6 +26,8 @@
 -(BOOL) isAtNextPosition:(Entity *)entity;
 -(void) updateNextPosition:(Entity *)entity;
 -(void) moveTowardsNextPosition:(Entity *)entity;
+-(void) handleEntityFrozen:(NSNotification *)notification;
+-(void) handleEntityUnfrozen:(NSNotification *)notification;
 
 @end
 
@@ -31,8 +35,34 @@
 
 -(id) init
 {
-	self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], [MovementComponent class], [PhysicsComponent class], nil]];
+	if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[TransformComponent class], [MovementComponent class], [PhysicsComponent class], nil]])
+	{
+		_notificationProcessor = [[NotificationProcessor alloc] initWithTarget:self];
+		[_notificationProcessor registerNotification:GAME_NOTIFICATION_ENTITY_FROZEN withSelector:@selector(handleEntityFrozen:)];
+		[_notificationProcessor registerNotification:GAME_NOTIFICATION_ENTITY_UNFROZEN withSelector:@selector(handleEntityUnfrozen:)];
+	}
 	return self;
+}
+
+-(void) dealloc
+{
+	[_notificationProcessor release];
+	
+	[super dealloc];
+}
+
+-(void) activate
+{
+	[super activate];
+	
+	[_notificationProcessor activate];
+}
+
+-(void) deactivate
+{
+	[super deactivate];
+	
+	[_notificationProcessor deactivate];
 }
 
 -(void) entityAdded:(Entity *)entity
@@ -61,6 +91,11 @@
     }
 }
 
+-(void) begin
+{
+	[_notificationProcessor processNotifications];
+}
+
 -(void) processEntity:(Entity *)entity
 {
 	MovementComponent *movementComponent = [MovementComponent getFrom:entity];
@@ -83,7 +118,8 @@
     }
     else
     {
-        if ([[movementComponent positions] count] == 0)
+        if ([movementComponent isMovingPaused] ||
+			[[movementComponent positions] count] == 0)
         {
             return;
         }
@@ -210,6 +246,26 @@
 		{
 			[transformComponent setScale:CGPointMake(-abs([transformComponent scale].x), [transformComponent scale].y)];
 		}
+	}
+}
+
+-(void) handleEntityFrozen:(NSNotification *)notification
+{
+	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
+	if ([entity hasComponent:[MovementComponent class]])
+	{
+		MovementComponent *movementComponent = [MovementComponent getFrom:entity];
+		[movementComponent setIsMovingPaused:TRUE];
+	}
+}
+
+-(void) handleEntityUnfrozen:(NSNotification *)notification
+{
+	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
+	if ([entity hasComponent:[MovementComponent class]])
+	{
+		MovementComponent *movementComponent = [MovementComponent getFrom:entity];
+		[movementComponent setIsMovingPaused:FALSE];
 	}
 }
 

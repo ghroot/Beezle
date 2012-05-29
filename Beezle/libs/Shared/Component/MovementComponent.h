@@ -20,6 +20,7 @@
 	NSArray *_positions;
 	
     // Transient
+	BOOL _isMovingPaused;
 	int _currentPositionIndex;
 	BOOL _isMovingForwardInPositionList;
 	CGPoint _startPosition;
@@ -28,6 +29,7 @@
 
 @property (nonatomic) BOOL alwaysFaceForward;
 @property (nonatomic, retain) NSArray *positions;
+@property (nonatomic) BOOL isMovingPaused;
 @property (nonatomic) int currentPositionIndex;
 @property (nonatomic) BOOL isMovingForwardInPositionList;
 @property (nonatomic) CGPoint startPosition;

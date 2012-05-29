@@ -13,6 +13,7 @@
 
 @synthesize positions = _positions;
 @synthesize alwaysFaceForward = _alwaysFaceForward;
+@synthesize isMovingPaused = _isMovingPaused;
 @synthesize currentPositionIndex = _currentPositionIndex;
 @synthesize isMovingForwardInPositionList = _isMovingForwardInPositionList;
 @synthesize startPosition = _startPosition;
