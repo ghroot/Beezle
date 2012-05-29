@@ -21,7 +21,6 @@ static const int AIM_POLLEN_INTERVAL = 16;
 	if (self = [super init])
 	{
 		_queuedBeeTypes = [[NSMutableArray alloc] init];
-		_loadedBeeType = nil;
 	}
 	return self;
 }
@@ -44,11 +43,6 @@ static const int AIM_POLLEN_INTERVAL = 16;
 -(void) dealloc
 {
 	[_queuedBeeTypes release];
-	
-	if ([self hasLoadedBee])
-	{
-		[self clearLoadedBee];
-	}
 	
 	[super dealloc];
 }
@@ -78,10 +72,8 @@ static const int AIM_POLLEN_INTERVAL = 16;
 -(BeeType *) popNextBeeType
 {
 	BeeType *nextBeeType = [_queuedBeeTypes objectAtIndex:0];
-	[nextBeeType retain];
 	[_queuedBeeTypes removeObjectAtIndex:0];
-	
-	return [nextBeeType autorelease];
+	return nextBeeType;
 }
 
 -(BOOL) hasMoreBees
@@ -101,12 +93,11 @@ static const int AIM_POLLEN_INTERVAL = 16;
 
 -(void) loadNextBee
 {
-	_loadedBeeType = [[self popNextBeeType] retain];
+	_loadedBeeType = [self popNextBeeType];
 }
 
 -(void) clearLoadedBee
 {
-	[_loadedBeeType release];
 	_loadedBeeType = nil;
 }
 
