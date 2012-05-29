@@ -12,6 +12,8 @@
 #import "TransformComponent.h"
 #import "ZOrder.h"
 
+static const int BATCH_NODE_CAPACITY = 140;
+
 @implementation RenderSystem
 
 @synthesize layer = _layer;
@@ -51,7 +53,7 @@
         NSDictionary *spriteSheetDict = [NSDictionary dictionaryWithContentsOfFile:spriteSheetFilePath];
         NSDictionary *metadataDict = [spriteSheetDict objectForKey:@"metadata"];
         NSString *texturePath = [metadataDict objectForKey:@"textureFileName"];
-        spriteSheet = [CCSpriteBatchNode batchNodeWithFile:texturePath];
+        spriteSheet = [CCSpriteBatchNode batchNodeWithFile:texturePath capacity:BATCH_NODE_CAPACITY];
         
         ZOrder *spriteSheetZOrder = nil;
         if ([name isEqualToString:@"Shared"])
