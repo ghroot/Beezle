@@ -4,6 +4,11 @@
 <dict>
 	<key>components</key>
 	<dict>
+		<key>disposable</key>
+		<dict>
+			<key>deleteEntityWhenDisposed</key>
+			<true/>
+		</dict>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
@@ -52,13 +57,22 @@
 						<string>%renderDefaultIdleAnimation3%</string>
 						<string>%renderDefaultIdleAnimation4%</string>
 						<string>%renderDefaultIdleAnimation5%</string>
-						<string>%renderDefaultIdleAnimation6%</string>
-						<string>%renderDefaultIdleAnimation7%</string>
 					</array>
 				</dict>
 			</array>
 		</dict>
+		<key>shard</key>
+		<dict>
+			<key>piecesEntityType</key>
+			<string>%shardPiecesEntityType%</string>
+			<key>piecesCount</key>
+			<integer>2</integer>
+			<key>piecesSpawnType</key>
+            <string>SHARD_PIECES_SPAWN_FADEOUT</string>
+		</dict>
 		<key>transform</key>
+		<dict/>
+		<key>volatile</key>
 		<dict/>
 	</dict>
 </dict>
