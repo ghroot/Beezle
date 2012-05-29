@@ -19,6 +19,8 @@
 
 static const float PIECES_MIN_VELOCITY = 50.0f;
 static const float PIECES_MAX_VELOCITY = 100.0f;
+static const int PIECES_MIN_NUMBER_OF_SHARDS = 1;
+static const int PIECES_MAX_NUMBER_OF_SHARDS = 15;
 static const float PIECES_FADEOUT_DURATION = 7.0f;
 static const float DERIVED_PIECES_PER_AREA = 0.0005f;
 
@@ -83,6 +85,8 @@ static const float DERIVED_PIECES_PER_AREA = 0.0005f;
 		{
 			numberOfPiecesToSpawn = [self derivePiecesCountFromBoundingBox:boundingBox];
 		}
+		numberOfPiecesToSpawn = max(PIECES_MIN_NUMBER_OF_SHARDS, numberOfPiecesToSpawn);
+		numberOfPiecesToSpawn = min(PIECES_MAX_NUMBER_OF_SHARDS, numberOfPiecesToSpawn);
         
         NSMutableArray *pieceEntityTypes = [NSMutableArray array];
         for (int i = 0; i < numberOfPiecesToSpawn; i++)
