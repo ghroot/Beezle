@@ -7,7 +7,6 @@
 //
 
 #import "TestAnimationsState.h"
-#import "DebugMenuState.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
 #import "Game.h"
@@ -149,7 +148,7 @@
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-	[_game replaceState:[DebugMenuState state]];
+	[_game popState];
     return TRUE;
 }
 

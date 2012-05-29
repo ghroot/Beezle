@@ -14,7 +14,7 @@
 @interface MainMenuState()
 
 -(void) selectTheme:(id)sender;
--(void) testAnimations:(id)sender;
+-(void) showDebugMenu:(id)sender;
 
 @end
 
@@ -29,7 +29,7 @@
 	CCMenuItem *playMenuItem = [CCMenuItemFont itemWithString:@"Play" target:self selector:@selector(selectTheme:)];
 	[_menu addChild:playMenuItem];
 #ifdef DEBUG
-	CCMenuItem *debugMenuItem = [CCMenuItemFont itemWithString:@"Debug" target:self selector:@selector(testAnimations:)];
+	CCMenuItem *debugMenuItem = [CCMenuItemFont itemWithString:@"Debug" target:self selector:@selector(showDebugMenu:)];
 	[_menu addChild:debugMenuItem];
 #endif
 	
@@ -53,7 +53,7 @@
 	[_game pushState:[LevelThemeSelectMenuState state]];
 }
 
--(void) testAnimations:(id)sender
+-(void) showDebugMenu:(id)sender
 {
 	[_game pushState:[DebugMenuState state]];
 }

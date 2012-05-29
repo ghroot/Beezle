@@ -15,14 +15,14 @@
 #import "LevelRatings.h"
 #import "LevelSender.h"
 #import "PlayerInformation.h"
-#import "TestAnimationsState.h"
+#import "TestMenuState.h"
 
 @interface DebugMenuState()
 
 -(void) createMenu;
 -(void) sendEditedLevels:(id)sender;
 -(void) sendLevelRatings:(id)sender;
--(void) startTestAnimations:(id)sender;
+-(void) showTestMenu:(id)sender;
 -(void) toggleStats:(id)sender;
 -(void) resetPlayerInformation:(id)sender;
 -(void) resetLevelRatings:(id)sender;
@@ -49,8 +49,8 @@
 	[_menu addChild:sendEditedLevelsMenuItem];
 	CCMenuItemFont *sendLevelRatingsMenuItem = [CCMenuItemFont itemWithString:@"Send Level Ratings" target:self selector:@selector(sendLevelRatings:)];
 	[_menu addChild:sendLevelRatingsMenuItem];
-	CCMenuItemFont *testAnimationsMenuItem = [CCMenuItemFont itemWithString:@"Test animations" target:self selector:@selector(startTestAnimations:)];
-	[_menu addChild:testAnimationsMenuItem];
+	CCMenuItemFont *testMenuItem = [CCMenuItemFont itemWithString:@"Test" target:self selector:@selector(showTestMenu:)];
+	[_menu addChild:testMenuItem];
     CCMenuItemFont *toggleStatsMenuItem = [CCMenuItemFont itemWithString:@"Toggle stats" target:self selector:@selector(toggleStats:)];
 	[_menu addChild:toggleStatsMenuItem];
 	CCMenuItemFont *resetInfoMenuItem = [CCMenuItemFont itemWithString:@"Reset player information" target:self selector:@selector(resetPlayerInformation:)];
@@ -85,9 +85,9 @@
 	[[LevelRatings sharedRatings] send];
 }
 
--(void) startTestAnimations:(id)sender
+-(void) showTestMenu:(id)sender
 {
-    [_game replaceState:[TestAnimationsState state]];
+    [_game pushState:[TestMenuState state]];
 }
 
 -(void) toggleStats:(id)sender

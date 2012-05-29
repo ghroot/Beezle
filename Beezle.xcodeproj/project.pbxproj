@@ -1394,6 +1394,9 @@
 		2C96F77215727B9500052239 /* Level-C9-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96F48415727B9400052239 /* Level-C9-Shapes.plist */; };
 		2C96F77315727B9500052239 /* Level-C9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C96F48515727B9400052239 /* Level-C9.jpg */; };
 		2C96F77415727B9500052239 /* Levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96F48615727B9400052239 /* Levels.plist */; };
+		2C96F77715741BA400052239 /* TestMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C96F77615741BA400052239 /* TestMenuState.m */; };
+		2C96F77A15741DEA00052239 /* TestEntitySystemState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C96F77915741DE900052239 /* TestEntitySystemState.m */; };
+		2C96F780157422CC00052239 /* DebugSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C96F77F157422CA00052239 /* DebugSystem.m */; };
 		2CADCC8514746BA100302475 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CADCC8414746BA100302475 /* SenTestingKit.framework */; };
 		2CADCC8614746BA100302475 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3281145F66F7000FF575 /* UIKit.framework */; };
 		2CADCC8714746BA100302475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3283145F66F7000FF575 /* Foundation.framework */; };
@@ -3179,6 +3182,12 @@
 		2C96F48415727B9400052239 /* Level-C9-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Level-C9-Shapes.plist"; sourceTree = "<group>"; };
 		2C96F48515727B9400052239 /* Level-C9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-C9.jpg"; sourceTree = "<group>"; };
 		2C96F48615727B9400052239 /* Levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Levels.plist; sourceTree = "<group>"; };
+		2C96F77515741BA400052239 /* TestMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMenuState.h; sourceTree = "<group>"; };
+		2C96F77615741BA400052239 /* TestMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMenuState.m; sourceTree = "<group>"; };
+		2C96F77815741DE800052239 /* TestEntitySystemState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestEntitySystemState.h; sourceTree = "<group>"; };
+		2C96F77915741DE900052239 /* TestEntitySystemState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestEntitySystemState.m; sourceTree = "<group>"; };
+		2C96F77E157422C900052239 /* DebugSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugSystem.h; sourceTree = "<group>"; };
+		2C96F77F157422CA00052239 /* DebugSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugSystem.m; sourceTree = "<group>"; };
 		2CADCC8314746BA100302475 /* ArtemisTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtemisTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CADCC8414746BA100302475 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2CADCC8A14746BA200302475 /* ArtemisTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ArtemisTests-Info.plist"; sourceTree = "<group>"; };
@@ -4140,10 +4149,16 @@
 				2C74B464156FAD1E00596A22 /* ConfirmationState.m */,
 				2C74B465156FAD1E00596A22 /* DebugMenuState.h */,
 				2C74B466156FAD1E00596A22 /* DebugMenuState.m */,
+				2C96F77E157422C900052239 /* DebugSystem.h */,
+				2C96F77F157422CA00052239 /* DebugSystem.m */,
 				2C74B467156FAD1E00596A22 /* RateLevelState.h */,
 				2C74B468156FAD1E00596A22 /* RateLevelState.m */,
 				2C74B469156FAD1E00596A22 /* TestAnimationsState.h */,
 				2C74B46A156FAD1E00596A22 /* TestAnimationsState.m */,
+				2C96F77815741DE800052239 /* TestEntitySystemState.h */,
+				2C96F77915741DE900052239 /* TestEntitySystemState.m */,
+				2C96F77515741BA400052239 /* TestMenuState.h */,
+				2C96F77615741BA400052239 /* TestMenuState.m */,
 			);
 			path = Debug;
 			sourceTree = "<group>";
@@ -7616,6 +7631,9 @@
 				2C74B5B0156FAD3900596A22 /* SoundManager.m in Sources */,
 				2C74B5B1156FAD3900596A22 /* StringList.m in Sources */,
 				2C74B5B2156FAD3900596A22 /* Utils.m in Sources */,
+				2C96F77715741BA400052239 /* TestMenuState.m in Sources */,
+				2C96F77A15741DEA00052239 /* TestEntitySystemState.m in Sources */,
+				2C96F780157422CC00052239 /* DebugSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
