@@ -13,7 +13,6 @@
 
 @synthesize radius = _radius;
 @synthesize explodeStartAnimationName = _explodeStartAnimationName;
-@synthesize explodeEndAnimationName = _explodeEndAnimationName;
 @synthesize explosionState = _explosionState;
 
 -(id) init
@@ -33,7 +32,6 @@
         // Type
         _radius = [[typeComponentDict objectForKey:@"radius"] intValue];
         _explodeStartAnimationName = [[typeComponentDict objectForKey:@"explodeStartAnimation"] copy];
-        _explodeEndAnimationName = [[typeComponentDict objectForKey:@"explodeEndAnimation"] copy];
 		[_explodeSoundNames addStringsFromDictionary:typeComponentDict baseName:@"explodeSound"];
 	}
 	return self;
@@ -42,7 +40,6 @@
 -(void) dealloc
 {
 	[_explodeStartAnimationName release];
-	[_explodeEndAnimationName release];
 	[_explodeSoundNames release];
 	
 	[super dealloc];

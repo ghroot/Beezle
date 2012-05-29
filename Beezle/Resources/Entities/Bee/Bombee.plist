@@ -58,9 +58,18 @@
 					<key>defaultIdleAnimation</key>
 					<string>Bombee-Idle</string>
 					<key>defaultDestroyAnimation</key>
-					<string>Bombee-Destroy</string>
+					<string>Bombee-Boom-End</string>
 				</dict>
 			</array>
+		</dict>
+		<key>shard</key>
+		<dict>
+			<key>piecesEntityType</key>
+			<string>BOMBEE-PIECE</string>
+			<key>piecesCount</key>
+			<integer>8</integer>
+            <key>piecesSpawnType</key>
+            <string>SHARD_PIECES_SPAWN_FADEOUT</string>
 		</dict>
 		<key>solid</key>
 		<dict/>

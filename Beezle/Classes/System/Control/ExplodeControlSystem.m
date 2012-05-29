@@ -23,6 +23,7 @@
 
 @interface ExplodeControlSystem()
 
+-(BOOL) didTouchBegin;
 -(void) startExplode:(Entity *)entity;
 -(void) endExplode:(Entity *)entity;
 
@@ -45,28 +46,29 @@
 -(void) processEntity:(Entity *)entity
 {
     ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
-    
-    while ([_inputSystem hasInputActions])
+	if ([self didTouchBegin] &&
+		[explodeComponent explosionState] == NOT_EXPLODED)
+	{
+		[self startExplode:entity];
+	}
+    else if ([explodeComponent explosionState] == WAITING_FOR_END_EXPLOSION)
+    {
+        [self endExplode:entity];
+    }
+}
+
+-(BOOL) didTouchBegin
+{
+	BOOL didTouchBegin = FALSE;
+	while ([_inputSystem hasInputActions])
     {
         InputAction *nextInputAction = [_inputSystem popInputAction];
         if ([nextInputAction touchType] == TOUCH_BEGAN)
         {
-            if ([explodeComponent explosionState] == NOT_EXPLODED)
-            {
-                [self startExplode:entity];
-            }
+            didTouchBegin = TRUE;
         }
     }
-    
-    if ([explodeComponent explosionState] == WAITING_FOR_EXPLOSION)
-    {
-        [self endExplode:entity];
-    }
-	else if ([explodeComponent explosionState] == WAITING_FOR_DESTROY)
-	{
-		[EntityUtil destroyEntity:entity instant:TRUE];
-		[explodeComponent setExplosionState:EXPLODED];
-	}
+	return didTouchBegin;
 }
 
 -(void) startExplode:(Entity *)entity
@@ -77,22 +79,17 @@
 	RenderComponent *renderComponent = [RenderComponent getFrom:entity];
 	RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];
 	[defaultRenderSprite playAnimationOnce:[explodeComponent explodeStartAnimationName] andCallBlockAtEnd:^{
-		[explodeComponent setExplosionState:WAITING_FOR_EXPLOSION];
+		[explodeComponent setExplosionState:WAITING_FOR_END_EXPLOSION];
 	}];
 }
 
 -(void) endExplode:(Entity *)entity
 {
 	ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
-    [explodeComponent setExplosionState:ANIMATING_END_EXPLOSION];
-	
-	RenderComponent *renderComponent = [RenderComponent getFrom:entity];
-	RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];
-	[defaultRenderSprite playAnimationOnce:[explodeComponent explodeEndAnimationName] andCallBlockAtEnd:^{
-		[explodeComponent setExplosionState:WAITING_FOR_DESTROY];
-	}];
+	[explodeComponent setExplosionState:EXPLODED];
 	
 	[EntityUtil disablePhysics:entity];
+	[EntityUtil destroyEntity:entity];
     
 	TransformComponent *transformComponent = [TransformComponent getFrom:entity];
 	ChipmunkBody *explosionBody = [ChipmunkBody staticBody];

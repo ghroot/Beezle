@@ -14,9 +14,7 @@ typedef enum
 {
     NOT_EXPLODED,
     ANIMATING_START_EXPLOSION,
-    WAITING_FOR_EXPLOSION,
-	ANIMATING_END_EXPLOSION,
-	WAITING_FOR_DESTROY,
+    WAITING_FOR_END_EXPLOSION,
     EXPLODED
 } ExplosionState;
 
@@ -28,7 +26,6 @@ typedef enum
     // Type
 	int _radius;
 	NSString *_explodeStartAnimationName;
-	NSString *_explodeEndAnimationName;
 	StringList *_explodeSoundNames;
     
     // Transient
@@ -37,7 +34,6 @@ typedef enum
 
 @property (nonatomic) int radius;
 @property (nonatomic, readonly) NSString *explodeStartAnimationName;
-@property (nonatomic, readonly) NSString *explodeEndAnimationName;
 @property (nonatomic) ExplosionState explosionState;
 
 -(NSString *) randomExplodeSoundName;
