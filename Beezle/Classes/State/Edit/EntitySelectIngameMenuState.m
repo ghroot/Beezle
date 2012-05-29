@@ -44,7 +44,7 @@
 		[self createEntityMenuItems];
 		
 		CCMenuItemFont *cancelMenuItem = [CCMenuItemFont itemWithString:@"<cancel>" target:self selector:@selector(cancel:)];
-		[cancelMenuItem setFontSize:18];
+		[cancelMenuItem setFontSize:14];
 		[_menu addChild:cancelMenuItem];
 		
 		int nMenuItems = [[_menu  children] count];
@@ -100,7 +100,7 @@
 -(void) addMenuItemForEntityType:(NSString *)entityType
 {
 	CCMenuItemFont *menuItem = [CCMenuItemFont itemWithString:entityType target:self selector:@selector(addEntity:)];
-	[menuItem setFontSize:20];
+	[menuItem setFontSize:16];
 	[menuItem setUserData:entityType];
 	[_menu addChild:menuItem];
 }
