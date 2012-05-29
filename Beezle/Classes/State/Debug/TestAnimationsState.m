@@ -90,6 +90,8 @@
                                   @"FLOATING-BLOCK-A",
                                   @"HANGNEST-A",
                                   @"HANGNEST-B",
+								  @"ICICLE",
+								  @"ICICLE-SMALL",
                                   @"LEAF",
                                   @"MUSHROOM",
 								  @"POLLEN-GREEN",

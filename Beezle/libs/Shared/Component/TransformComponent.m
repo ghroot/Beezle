@@ -13,7 +13,6 @@
 
 @synthesize position = _position;
 @synthesize rotation = _rotation;
-@synthesize scale = _scale;
 
 +(id) componentWithPosition:(CGPoint)position
 {
@@ -24,7 +23,8 @@
 {
     if (self = [super init])
     {
-		_scale = CGPointMake(1.0f, 1.0f);
+		_typeScale = CGPointMake(1.0f, 1.0f);
+		_instanceScale = CGPointMake(1.0f, 1.0f);
 		_position = CGPointZero;
 		_rotation = 0.0f;
     }
@@ -38,29 +38,16 @@
         // Type
 		if ([typeComponentDict objectForKey:@"scale"] != nil)
 		{
-			_scale = [Utils stringToPoint:[typeComponentDict objectForKey:@"scale"]];
+			_typeScale = [Utils stringToPoint:[typeComponentDict objectForKey:@"scale"]];
 		}
-        else
-        {
-            _scale = CGPointMake(1.0f, 1.0f);
-        }
         
         // Instance
-        _position = [Utils stringToPoint:[instanceComponentDict objectForKey:@"position"]];
-        if ([instanceComponentDict objectForKey:@"rotation"] != nil)
-        {
-            _rotation = [[instanceComponentDict objectForKey:@"rotation"] floatValue];
-        }
-        else
-        {
-            _rotation = 0.0f;
-        }
-        if ([instanceComponentDict objectForKey:@"scale"] != nil)
-        {
-            // Scale is multiplied with current values
-            CGPoint instanceScale = [Utils stringToPoint:[instanceComponentDict objectForKey:@"scale"]];
-            _scale = CGPointMake(_scale.x * instanceScale.x, _scale.y * instanceScale.y);
-        }
+		if (instanceComponentDict != nil)
+		{
+			_position = [Utils stringToPoint:[instanceComponentDict objectForKey:@"position"]];
+			_rotation = [[instanceComponentDict objectForKey:@"rotation"] floatValue];
+			_instanceScale = [Utils stringToPoint:[instanceComponentDict objectForKey:@"scale"]];
+		}
 	}
 	return self;
 }
@@ -70,8 +57,18 @@
 	NSMutableDictionary *instanceComponentDict = [NSMutableDictionary dictionary];
 	[instanceComponentDict setObject:[Utils pointToString:_position] forKey:@"position"];
 	[instanceComponentDict setObject:[NSNumber numberWithFloat:_rotation] forKey:@"rotation"];
-	[instanceComponentDict setObject:[Utils pointToString:_scale] forKey:@"scale"];
+	[instanceComponentDict setObject:[Utils pointToString:_instanceScale] forKey:@"scale"];
 	return instanceComponentDict;
+}
+
+-(CGPoint) scale
+{
+	return CGPointMake(_typeScale.x * _instanceScale.x, _typeScale.y * _instanceScale.y);
+}
+
+-(void) setScale:(CGPoint)scale
+{
+	_instanceScale = scale;
 }
 
 @end

@@ -1476,6 +1476,8 @@
 		2CEEC7BE1505807900EAC127 /* Leave-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEEC7BD1505807900EAC127 /* Leave-Shapes.plist */; };
 		2CF8E0B615751BFB0052F330 /* Bombee-Piece.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0B515751BFB0052F330 /* Bombee-Piece.plist */; };
 		2CF8E0B91575603D0052F330 /* Mushroom-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0B81575603D0052F330 /* Mushroom-Shapes.plist */; };
+		2CF8E0BC157563D40052F330 /* Icicle-Small.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0BA157563D40052F330 /* Icicle-Small.plist */; };
+		2CF8E0BD157563D40052F330 /* Icicle-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0BB157563D40052F330 /* Icicle-Template.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3277,6 +3279,8 @@
 		2CEEC7BD1505807900EAC127 /* Leave-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Leave-Shapes.plist"; sourceTree = "<group>"; };
 		2CF8E0B515751BFB0052F330 /* Bombee-Piece.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bombee-Piece.plist"; sourceTree = "<group>"; };
 		2CF8E0B81575603D0052F330 /* Mushroom-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Mushroom-Shapes.plist"; sourceTree = "<group>"; };
+		2CF8E0BA157563D40052F330 /* Icicle-Small.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Icicle-Small.plist"; sourceTree = "<group>"; };
+		2CF8E0BB157563D40052F330 /* Icicle-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Icicle-Template.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4616,6 +4620,8 @@
 			children = (
 				2C96EDE6156D9C2300052239 /* Ice.plist */,
 				2C96EDE7156D9C2300052239 /* Icicle-Piece.plist */,
+				2CF8E0BA157563D40052F330 /* Icicle-Small.plist */,
+				2CF8E0BB157563D40052F330 /* Icicle-Template.plist */,
 				2C96EDE8156D9C2300052239 /* Icicle.plist */,
 			);
 			path = Ice;
@@ -7359,6 +7365,8 @@
 				2C96F77415727B9500052239 /* Levels.plist in Resources */,
 				2CF8E0B615751BFB0052F330 /* Bombee-Piece.plist in Resources */,
 				2CF8E0B91575603D0052F330 /* Mushroom-Shapes.plist in Resources */,
+				2CF8E0BC157563D40052F330 /* Icicle-Small.plist in Resources */,
+				2CF8E0BD157563D40052F330 /* Icicle-Template.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
