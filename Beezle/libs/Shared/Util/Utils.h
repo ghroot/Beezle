@@ -11,10 +11,6 @@
 
 @interface Utils : NSObject
 
-+(CGPoint) stringToPoint:(NSString *)string;
-+(NSString *) pointToString:(CGPoint)point;
-+(CGSize) stringToSize:(NSString *)string;
-+(NSString *) sizeToString:(CGSize)size;
 +(cpVect) createVectorWithRandomAngleAndLengthBetween:(int)minLength and:(int)maxLength;
 +(float) unwindAngleDegrees:(float)angle;
 +(float) unwindAngleRadians:(float)angle;

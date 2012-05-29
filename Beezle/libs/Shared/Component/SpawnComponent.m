@@ -35,7 +35,7 @@
         _entityType = [[typeComponentDict objectForKey:@"entityType"] retain];
 		if ([typeComponentDict objectForKey:@"offset"] != nil)
 		{
-			_offset = [Utils stringToPoint:[typeComponentDict objectForKey:@"offset"]];
+			_offset = CGPointFromString([typeComponentDict objectForKey:@"offset"]);
 		}
         else
         {

@@ -100,13 +100,13 @@
             CGPoint anchorPoint = CGPointMake(0.5f, 0.5f);
             if ([spriteDict objectForKey:@"anchorPoint"] != nil)
             {
-                anchorPoint = [Utils stringToPoint:[spriteDict objectForKey:@"anchorPoint"]];
+                anchorPoint = CGPointFromString([spriteDict objectForKey:@"anchorPoint"]);
             }
             [[renderSprite sprite] setAnchorPoint:anchorPoint];
             
             if ([spriteDict objectForKey:@"scale"] != nil)
             {
-                CGPoint scale = [Utils stringToPoint:[spriteDict objectForKey:@"scale"]];
+                CGPoint scale = CGPointFromString([spriteDict objectForKey:@"scale"]);
                 [renderSprite setScale:scale];
             }
             

@@ -7,7 +7,6 @@
 //
 
 #import "MovementComponent.h"
-#import "Utils.h"
 
 @implementation MovementComponent
 
@@ -45,7 +44,7 @@
         NSMutableArray *positions = [NSMutableArray array];
         for (NSString *positionAsString in positionsAsStrings)
         {
-            CGPoint position = [Utils stringToPoint:positionAsString];
+            CGPoint position = CGPointFromString(positionAsString);
             [positions addObject:[NSValue valueWithCGPoint:position]];
         }
         [self setPositions:positions];
@@ -67,7 +66,7 @@
 	NSMutableArray *positionsAsStrings = [NSMutableArray array];
     for (NSValue *positionAsValue in _positions)
     {
-        [positionsAsStrings addObject:[Utils pointToString:[positionAsValue CGPointValue]]];
+        [positionsAsStrings addObject:NSStringFromCGPoint([positionAsValue CGPointValue])];
     }
 	[instanceComponentDict setObject:positionsAsStrings forKey:@"positions"];
 	

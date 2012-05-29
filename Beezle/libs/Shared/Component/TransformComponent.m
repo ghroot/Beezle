@@ -7,17 +7,11 @@
 //
 
 #import "TransformComponent.h"
-#import "Utils.h"
 
 @implementation TransformComponent
 
 @synthesize position = _position;
 @synthesize rotation = _rotation;
-
-+(id) componentWithPosition:(CGPoint)position
-{
-	return [[[self alloc] initWithPosition:position] autorelease];
-}
 
 -(id) init
 {
@@ -38,15 +32,15 @@
         // Type
 		if ([typeComponentDict objectForKey:@"scale"] != nil)
 		{
-			_typeScale = [Utils stringToPoint:[typeComponentDict objectForKey:@"scale"]];
+			_typeScale = CGPointFromString([typeComponentDict objectForKey:@"scale"]);
 		}
         
         // Instance
 		if (instanceComponentDict != nil)
 		{
-			_position = [Utils stringToPoint:[instanceComponentDict objectForKey:@"position"]];
+			_position = CGPointFromString([instanceComponentDict objectForKey:@"position"]);
 			_rotation = [[instanceComponentDict objectForKey:@"rotation"] floatValue];
-			_instanceScale = [Utils stringToPoint:[instanceComponentDict objectForKey:@"scale"]];
+			_instanceScale = CGPointFromString([instanceComponentDict objectForKey:@"scale"]);
 		}
 	}
 	return self;
@@ -55,9 +49,9 @@
 -(NSDictionary *) getInstanceComponentDict
 {
 	NSMutableDictionary *instanceComponentDict = [NSMutableDictionary dictionary];
-	[instanceComponentDict setObject:[Utils pointToString:_position] forKey:@"position"];
+	[instanceComponentDict setObject:NSStringFromCGPoint(_position) forKey:@"position"];
 	[instanceComponentDict setObject:[NSNumber numberWithFloat:_rotation] forKey:@"rotation"];
-	[instanceComponentDict setObject:[Utils pointToString:_instanceScale] forKey:@"scale"];
+	[instanceComponentDict setObject:NSStringFromCGPoint(_instanceScale) forKey:@"scale"];
 	return instanceComponentDict;
 }
 

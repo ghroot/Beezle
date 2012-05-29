@@ -112,7 +112,7 @@
 				CGPoint offset;
 				if ([shapeDict objectForKey:@"offset"] != nil)
 				{
-					offset = [Utils stringToPoint:[shapeDict objectForKey:@"offset"]];
+					offset = CGPointFromString([shapeDict objectForKey:@"offset"]);
 				}
 				else
 				{
@@ -126,7 +126,7 @@
 					CGPoint verts[[verticesAsStrings count]];
 					for (NSString *vertexAsString in verticesAsStrings)
 					{
-						CGPoint vert = [Utils stringToPoint:vertexAsString];
+						CGPoint vert = CGPointFromString(vertexAsString);
 						verts[[verticesAsStrings indexOfObject:vertexAsString]] = vert;
 					}
 					shape = [ChipmunkPolyShape polyWithBody:body count:[verticesAsStrings count] verts:verts offset:offset];
@@ -153,7 +153,7 @@
 		}
         
         // Instance
-        CGPoint position = [Utils stringToPoint:[instanceComponentDict objectForKey:@"position"]];
+        CGPoint position = CGPointFromString([instanceComponentDict objectForKey:@"position"]);
         [_body setPos:position];
         float angle = [[instanceComponentDict objectForKey:@"angle"] floatValue];
         [_body setAngle:angle];
@@ -202,7 +202,7 @@
 -(NSDictionary *) getInstanceComponentDict
 {
 	NSMutableDictionary *instanceComponentDict = [NSMutableDictionary dictionary];
-	[instanceComponentDict setObject:[Utils pointToString:[_body pos]] forKey:@"position"];
+	[instanceComponentDict setObject:NSStringFromCGPoint([_body pos]) forKey:@"position"];
 	[instanceComponentDict setObject:[NSNumber numberWithFloat:[_body angle]] forKey:@"angle"];
 	if (_overrideBodyName != nil)
 	{
