@@ -40,7 +40,7 @@ static const float EDGE_ELASTICITY = 0.0f;
 static const int EDGE_LAYERS = 15;
 static const float WATER_FRICTION = 0.9f;
 static const float WATER_ELASTICITY = 0.1f;
-static const int WATER_LAYERS = 7;
+static const int WATER_LAYERS = 5;
 static const int AIM_POLLEN_LAYERS = 2;
 
 @implementation EntityFactory
