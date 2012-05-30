@@ -102,9 +102,16 @@
 		RenderSprite *beeaterBodyRenderSprite = (RenderSprite *)[beeaterRenderComponent renderSpriteWithName:@"body"];
 		RenderSprite *beeaterHeadRenderSprite = (RenderSprite *)[beeaterRenderComponent renderSpriteWithName:@"head"];
 		[beeaterHeadRenderSprite hide];
-		[beeaterBodyRenderSprite playDefaultDestroyAnimationAndCallBlockAtEnd:^{
+		if ([beeaterBodyRenderSprite hasDefaultDestroyAnimation])
+		{
+			[beeaterBodyRenderSprite playDefaultDestroyAnimationAndCallBlockAtEnd:^{
+				[entity deleteEntity];
+			}];
+		}
+		else
+		{
 			[entity deleteEntity];
-		}];
+		}
 		
 		// Disable physics
 		[EntityUtil disablePhysics:entity];
