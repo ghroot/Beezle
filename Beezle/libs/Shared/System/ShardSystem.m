@@ -27,6 +27,9 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 @interface ShardSystem()
 
 -(void) handleEntityDisposed:(NSNotification *)notification;
+-(NSArray *) createShardPieceEntities:(Entity *)entity;
+-(NSArray *) generateShardPieceEntityTypes:(Entity *)entity;
+-(int) calculateNumberOfShardPiecesToSpawn:(Entity *)entity;
 -(int) derivePiecesCountFromBoundingBox:(cpBB)boundingBox;
 -(CGPoint) getRandomPositionWithinShapes:(NSArray *)shapes boundingBox:(cpBB)boundingBox;
 
@@ -36,7 +39,7 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 
 -(id) init
 {
-	if (self = [super init])
+	if (self = [super initWithUsedComponentClass:[ShardComponent class]])
 	{
 		_notificationProcessor = [[NotificationProcessor alloc] initWithTarget:self];
 		[_notificationProcessor registerNotification:GAME_NOTIFICATION_ENTITY_DISPOSED withSelector:@selector(handleEntityDisposed:)];
@@ -70,6 +73,20 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 	[_notificationProcessor processNotifications];
 }
 
+-(void) entityAdded:(Entity *)entity
+{
+	ShardComponent *shardComponent = [ShardComponent getFrom:entity];
+	if ([shardComponent cacheShardPieceEntities])
+	{
+		NSArray *shardPieceEntities = [self createShardPieceEntities:entity];
+		for (Entity *shardPieceEntity in shardPieceEntities)
+		{
+			[EntityUtil disableAllComponents:shardPieceEntity];
+		}
+		[shardComponent setCachedShardPieceEntities:shardPieceEntities];
+	}
+}
+
 -(void) handleEntityDisposed:(NSNotification *)notification
 {
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
@@ -80,32 +97,22 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 		
 		cpBB boundingBox = [physicsComponent boundingBox];
 		
-		int numberOfPiecesToSpawn = [shardComponent piecesCount];
-		if (numberOfPiecesToSpawn == 0)
+		NSArray *shardPieceEntities = nil;
+		if ([shardComponent cacheShardPieceEntities])
 		{
-			numberOfPiecesToSpawn = [self derivePiecesCountFromBoundingBox:boundingBox];
+			shardPieceEntities = [shardComponent cachedShardPieceEntities];
+			for (Entity *pieceEntity in shardPieceEntities)
+			{
+				[EntityUtil enableAllComponents:pieceEntity];
+			}
 		}
-		numberOfPiecesToSpawn = max(PIECES_MIN_NUMBER_OF_SHARDS, numberOfPiecesToSpawn);
-		numberOfPiecesToSpawn = min(PIECES_MAX_NUMBER_OF_SHARDS, numberOfPiecesToSpawn);
-        
-        NSMutableArray *pieceEntityTypes = [NSMutableArray array];
-        for (int i = 0; i < numberOfPiecesToSpawn; i++)
-        {
-            if ([shardComponent piecesDistributionType] == SHARD_PIECES_DISTRIBUTION_RANDOM)
-            {
-                [pieceEntityTypes addObject:[shardComponent randomPiecesEntityType]];
-            }
-            else if ([shardComponent piecesDistributionType] == SHARD_PIECES_DISTRIBUTION_SEQUENTIAL)
-            {
-                [pieceEntityTypes addObject:[[shardComponent piecesEntityTypes] objectAtIndex:(i % [[shardComponent piecesEntityTypes] count])]];
-            }
-        }
-		
-		for (NSString *pieceEntityType in pieceEntityTypes)
+		else
 		{
-			// Create entity
-			Entity *shardPieceEntity = [EntityFactory createEntity:pieceEntityType world:_world];
-			
+			shardPieceEntities = [self createShardPieceEntities:entity];
+		}
+		
+		for (Entity *shardPieceEntity in shardPieceEntities)
+		{
 			// Position
 			CGPoint randomPosition = [self getRandomPositionWithinShapes:[physicsComponent shapes] boundingBox:boundingBox];
 			[EntityUtil setEntityPosition:shardPieceEntity position:randomPosition];
@@ -131,6 +138,55 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
             }
 		}
 	}
+}
+
+-(NSArray *) createShardPieceEntities:(Entity *)entity
+{
+	NSMutableArray *shardPieceEntities = [NSMutableArray array];
+	NSArray *shardPieceEntityTypes = [self generateShardPieceEntityTypes:entity];
+	for (NSString *shardPieceEntityType in shardPieceEntityTypes)
+	{
+		Entity *shardPieceEntity = [EntityFactory createEntity:shardPieceEntityType world:_world];
+		[shardPieceEntities addObject:shardPieceEntity];
+	}
+	return shardPieceEntities;
+}
+
+-(NSArray *) generateShardPieceEntityTypes:(Entity *)entity
+{
+	ShardComponent *shardComponent = [ShardComponent getFrom:entity];
+	
+	int numberOfPiecesToSpawn = [self calculateNumberOfShardPiecesToSpawn:entity];
+	
+	NSMutableArray *pieceEntityTypes = [NSMutableArray array];
+	for (int i = 0; i < numberOfPiecesToSpawn; i++)
+	{
+		if ([shardComponent piecesDistributionType] == SHARD_PIECES_DISTRIBUTION_RANDOM)
+		{
+			[pieceEntityTypes addObject:[shardComponent randomPiecesEntityType]];
+		}
+		else if ([shardComponent piecesDistributionType] == SHARD_PIECES_DISTRIBUTION_SEQUENTIAL)
+		{
+			[pieceEntityTypes addObject:[[shardComponent piecesEntityTypes] objectAtIndex:(i % [[shardComponent piecesEntityTypes] count])]];
+		}
+	}
+	
+	return pieceEntityTypes;
+}
+
+-(int) calculateNumberOfShardPiecesToSpawn:(Entity *)entity
+{
+	ShardComponent *shardComponent = [ShardComponent getFrom:entity];
+	int numberOfPiecesToSpawn = [shardComponent piecesCount];
+	if (numberOfPiecesToSpawn == 0)
+	{
+		PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];	
+		cpBB boundingBox = [physicsComponent boundingBox];
+		numberOfPiecesToSpawn = [self derivePiecesCountFromBoundingBox:boundingBox];
+	}
+	numberOfPiecesToSpawn = max(PIECES_MIN_NUMBER_OF_SHARDS, numberOfPiecesToSpawn);
+	numberOfPiecesToSpawn = min(PIECES_MAX_NUMBER_OF_SHARDS, numberOfPiecesToSpawn);
+	return numberOfPiecesToSpawn;
 }
 
 -(int) derivePiecesCountFromBoundingBox:(cpBB)boundingBox

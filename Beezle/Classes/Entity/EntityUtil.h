@@ -13,6 +13,8 @@
 +(void) setEntityPosition:(Entity *)entity position:(CGPoint)position;
 +(void) setEntityRotation:(Entity *)entity rotation:(float)rotation;
 +(void) setEntityMirrored:(Entity *)entity mirrored:(BOOL)mirrored;
++(void) disableAllComponents:(Entity *)entity;
++(void) enableAllComponents:(Entity *)entity;
 +(BOOL) isEntityDisposable:(Entity *)entity;
 +(BOOL) isEntityDisposed:(Entity *)entity;
 +(void) setEntityDisposed:(Entity *)entity;

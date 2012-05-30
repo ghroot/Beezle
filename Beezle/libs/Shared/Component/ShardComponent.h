@@ -33,11 +33,17 @@ typedef enum
 	int _piecesCount;
     ShardPiecesSpawnType _piecesSpawnType;
     ShardPiecesDistributionType _piecesDistributionType;
+	BOOL _cacheShardPieceEntities;
+	
+	// Transient
+	NSArray *_cachedShardPieceEntities;
 }
 
 @property (nonatomic, readonly) int piecesCount;
 @property (nonatomic, readonly) ShardPiecesSpawnType piecesSpawnType;
 @property (nonatomic, readonly) ShardPiecesDistributionType piecesDistributionType;
+@property (nonatomic, readonly) BOOL cacheShardPieceEntities;
+@property (nonatomic, retain) NSArray *cachedShardPieceEntities;
 
 -(NSArray *) piecesEntityTypes;
 -(NSString *) randomPiecesEntityType;

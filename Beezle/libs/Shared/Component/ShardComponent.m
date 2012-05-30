@@ -15,6 +15,8 @@
 @synthesize piecesCount = _piecesCount;
 @synthesize piecesSpawnType = _piecesSpawnType;
 @synthesize piecesDistributionType = _piecesDistributionType;
+@synthesize cacheShardPieceEntities = _cacheShardPieceEntities;
+@synthesize cachedShardPieceEntities = _cachedShardPieceEntities;
 
 -(id) init
 {
@@ -67,6 +69,10 @@
         {
             _piecesDistributionType = SHARD_PIECES_DISTRIBUTION_RANDOM;
         }
+		if ([typeComponentDict objectForKey:@"cacheShardPieceEntities"] != nil)
+		{
+			_cacheShardPieceEntities = [[typeComponentDict objectForKey:@"cacheShardPieceEntities"] boolValue];
+		}
 	}
 	return self;
 }
@@ -74,6 +80,7 @@
 -(void) dealloc
 {
 	[_piecesEntityTypes release];
+	[_cachedShardPieceEntities release];
 	
 	[super dealloc];
 }

@@ -11,7 +11,7 @@
 
 @class NotificationProcessor;
 
-@interface ShardSystem : EntitySystem
+@interface ShardSystem : EntityComponentSystem
 {
 	NotificationProcessor *_notificationProcessor;
 }

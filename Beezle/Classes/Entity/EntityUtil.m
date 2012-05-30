@@ -63,6 +63,26 @@
 	}
 }
 
++(void) disableAllComponents:(Entity *)entity
+{
+	NSArray *components = [entity getComponents];
+	for (Component *component in components)
+	{
+		[component disable];
+	}
+	[entity refresh];
+}
+
++(void) enableAllComponents:(Entity *)entity
+{
+	NSArray *components = [entity getComponents];
+	for (Component *component in components)
+	{
+		[component enable];
+	}
+	[entity refresh];
+}
+
 +(BOOL) isEntityDisposable:(Entity *)entity
 {
     return [entity hasComponent:[DisposableComponent class]];
