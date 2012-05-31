@@ -8,7 +8,7 @@
 
 #import "artemis.h"
 
-@class StringList;
+@class StringCollection;
 
 /**
   Sounds for collision and destruction.
@@ -16,8 +16,8 @@
 @interface SoundComponent : Component
 {
     // Type
-	StringList *_defaultCollisionSoundNames;
-    StringList *_defaultDestroySoundNames;
+	StringCollection *_defaultCollisionSoundNames;
+    StringCollection *_defaultDestroySoundNames;
 }
 
 -(BOOL) hasDefaultCollisionSoundName;

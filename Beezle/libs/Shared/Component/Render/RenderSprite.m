@@ -8,7 +8,7 @@
 
 #import "RenderSprite.h"
 #import "ActionTags.h"
-#import "StringList.h"
+#import "StringCollection.h"
 #import "ZOrder.h"
 
 @interface RenderSprite()
@@ -67,10 +67,10 @@
         _name = @"default";
         _scale = CGPointMake(1.0f, 1.0f);
 		_offset = CGPointZero;
-		_defaultIdleAnimationNames = [StringList new];
-		_defaultHitAnimationNames = [StringList new];
-		_defaultDestroyAnimationNames = [StringList new];
-		_defaultStillAnimationNames = [StringList new];
+		_defaultIdleAnimationNames = [StringCollection new];
+		_defaultHitAnimationNames = [StringCollection new];
+		_defaultDestroyAnimationNames = [StringCollection new];
+		_defaultStillAnimationNames = [StringCollection new];
 	}
 	return self;
 }

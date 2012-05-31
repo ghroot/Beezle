@@ -328,7 +328,7 @@
 		2C74B5AE156FAD3900596A22 /* SpawnSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B580156FAD3900596A22 /* SpawnSystem.m */; };
 		2C74B5AF156FAD3900596A22 /* NotificationProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B583156FAD3900596A22 /* NotificationProcessor.m */; };
 		2C74B5B0156FAD3900596A22 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B585156FAD3900596A22 /* SoundManager.m */; };
-		2C74B5B1156FAD3900596A22 /* StringList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B587156FAD3900596A22 /* StringList.m */; };
+		2C74B5B1156FAD3900596A22 /* StringCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B587156FAD3900596A22 /* StringCollection.m */; };
 		2C74B5B2156FAD3900596A22 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B589156FAD3900596A22 /* Utils.m */; };
 		2C7B1C631559C6BD00AF0026 /* Frozen-Tbee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C621559C6BD00AF0026 /* Frozen-Tbee.plist */; };
 		2C7B1C651559C7E500AF0026 /* Tbee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7B1C641559C7E500AF0026 /* Tbee-Animations.plist */; };
@@ -2133,8 +2133,8 @@
 		2C74B583156FAD3900596A22 /* NotificationProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationProcessor.m; sourceTree = "<group>"; };
 		2C74B584156FAD3900596A22 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		2C74B585156FAD3900596A22 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
-		2C74B586156FAD3900596A22 /* StringList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringList.h; sourceTree = "<group>"; };
-		2C74B587156FAD3900596A22 /* StringList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringList.m; sourceTree = "<group>"; };
+		2C74B586156FAD3900596A22 /* StringCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; path = StringCollection.h; sourceTree = "<group>"; };
+		2C74B587156FAD3900596A22 /* StringCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringCollection.m; sourceTree = "<group>"; };
 		2C74B588156FAD3900596A22 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		2C74B589156FAD3900596A22 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		2C7B1C621559C6BD00AF0026 /* Frozen-Tbee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Frozen-Tbee.plist"; sourceTree = "<group>"; };
@@ -4538,8 +4538,8 @@
 				2C74B583156FAD3900596A22 /* NotificationProcessor.m */,
 				2C74B584156FAD3900596A22 /* SoundManager.h */,
 				2C74B585156FAD3900596A22 /* SoundManager.m */,
-				2C74B586156FAD3900596A22 /* StringList.h */,
-				2C74B587156FAD3900596A22 /* StringList.m */,
+				2C74B586156FAD3900596A22 /* StringCollection.h */,
+				2C74B587156FAD3900596A22 /* StringCollection.m */,
 				2C74B588156FAD3900596A22 /* Utils.h */,
 				2C74B589156FAD3900596A22 /* Utils.m */,
 			);
@@ -7709,7 +7709,7 @@
 				2C74B5AE156FAD3900596A22 /* SpawnSystem.m in Sources */,
 				2C74B5AF156FAD3900596A22 /* NotificationProcessor.m in Sources */,
 				2C74B5B0156FAD3900596A22 /* SoundManager.m in Sources */,
-				2C74B5B1156FAD3900596A22 /* StringList.m in Sources */,
+				2C74B5B1156FAD3900596A22 /* StringCollection.m in Sources */,
 				2C74B5B2156FAD3900596A22 /* Utils.m in Sources */,
 				2C96F77715741BA400052239 /* TestMenuState.m in Sources */,
 				2C96F77A15741DEA00052239 /* TestEntitySystemState.m in Sources */,

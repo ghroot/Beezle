@@ -7,7 +7,7 @@
 //
 
 #import "ShardComponent.h"
-#import "StringList.h"
+#import "StringCollection.h"
 
 @implementation ShardComponent
 
@@ -21,7 +21,7 @@
 {
 	if (self = [super init])
 	{
-        _piecesEntityTypes = [StringList new];
+        _piecesEntityTypes = [StringCollection new];
 	}
 	return self;
 }

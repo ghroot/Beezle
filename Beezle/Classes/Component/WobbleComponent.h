@@ -8,7 +8,7 @@
 
 #import "artemis.h"
 
-@class StringList;
+@class StringCollection;
 
 /**
   Plays animation on collision.
@@ -16,9 +16,9 @@
 @interface WobbleComponent : Component
 {
     // Type
-	StringList *_firstWobbleAnimationNames;
-	StringList *_wobbleAnimationNames;
-	StringList *_wobbleFollowupAnimationNames;
+	StringCollection *_firstWobbleAnimationNames;
+	StringCollection *_wobbleAnimationNames;
+	StringCollection *_wobbleFollowupAnimationNames;
 	
 	// Transient
 	BOOL _hasWobbled;

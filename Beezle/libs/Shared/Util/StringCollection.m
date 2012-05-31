@@ -1,14 +1,14 @@
 //
-//  StringList.m
+//  StringCollection.m
 //  Beezle
 //
 //  Created by Marcus on 4/19/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "StringList.h"
+#import "StringCollection.h"
 
-@implementation StringList
+@implementation StringCollection
 
 @synthesize strings = _strings;
 

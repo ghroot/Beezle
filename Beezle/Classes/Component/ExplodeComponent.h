@@ -8,7 +8,7 @@
 
 #import "Component.h"
 
-@class StringList;
+@class StringCollection;
 
 typedef enum
 {
@@ -26,7 +26,7 @@ typedef enum
     // Type
 	int _radius;
 	NSString *_explodeStartAnimationName;
-	StringList *_explodeSoundNames;
+	StringCollection *_explodeSoundNames;
     
     // Transient
     ExplosionState _explosionState;

@@ -14,7 +14,7 @@
 #import "NotificationTypes.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
-#import "StringList.h"
+#import "StringCollection.h"
 
 @interface BeeaterSystem()
 
@@ -80,7 +80,7 @@
 	CapturedComponent *capturedComponent = [CapturedComponent getFrom:beeaterEntity];
 	RenderSprite *headRenderSprite = [renderComponent renderSpriteWithName:@"head"];
 	NSString *headAnimationName = [NSString stringWithFormat:[beeaterComponent showBeeAnimationNameFormat], @"Idle", [[capturedComponent containedBeeType] capitalizedString]];
-	StringList *betweenAnimationNames = [beeaterComponent showBeeBetweenAnimationNames];
+	StringCollection *betweenAnimationNames = [beeaterComponent showBeeBetweenAnimationNames];
 	NSString *firstBetweenAnimationName = [betweenAnimationNames randomString];
 	NSString *secondBetweenAnimationName = [betweenAnimationNames randomString];
 	[headRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:firstBetweenAnimationName, headAnimationName, secondBetweenAnimationName, headAnimationName, nil]];

@@ -1,5 +1,5 @@
 //
-//  RenderableBehaviour.h
+//  RenderComponent.h
 //  Beezle
 //
 //  Created by Me on 06/11/2011.

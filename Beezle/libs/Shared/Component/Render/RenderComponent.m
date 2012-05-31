@@ -1,5 +1,5 @@
 //
-//  RenderableBehaviour.m
+//  RenderComponent.m
 //  Beezle
 //
 //  Created by Me on 06/11/2011.
@@ -9,7 +9,7 @@
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "RenderSystem.h"
-#import "StringList.h"
+#import "StringCollection.h"
 #import "ZOrder.h"
 
 @interface RenderComponent()

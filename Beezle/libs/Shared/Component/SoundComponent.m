@@ -7,7 +7,7 @@
 //
 
 #import "SoundComponent.h"
-#import "StringList.h"
+#import "StringCollection.h"
 
 @implementation SoundComponent
 
@@ -15,8 +15,8 @@
 {
     if (self = [super init])
     {
-        _defaultCollisionSoundNames = [StringList new];
-        _defaultDestroySoundNames = [StringList new];
+        _defaultCollisionSoundNames = [StringCollection new];
+        _defaultDestroySoundNames = [StringCollection new];
     }
     return self;
 }

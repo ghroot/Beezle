@@ -7,7 +7,7 @@
 //
 
 #import "WobbleComponent.h"
-#import "StringList.h"
+#import "StringCollection.h"
 
 @implementation WobbleComponent
 
@@ -17,9 +17,9 @@
 {
 	if (self = [super init])
 	{
-		_firstWobbleAnimationNames = [StringList new];
-		_wobbleAnimationNames = [StringList new];
-		_wobbleFollowupAnimationNames = [StringList new];
+		_firstWobbleAnimationNames = [StringCollection new];
+		_wobbleAnimationNames = [StringCollection new];
+		_wobbleFollowupAnimationNames = [StringCollection new];
 	}
 	return self;
 }

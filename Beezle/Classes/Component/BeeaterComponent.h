@@ -9,7 +9,7 @@
 #import "artemis.h"
 #import "BeeType.h"
 
-@class StringList;
+@class StringCollection;
 
 /**
   Beeater specific.
@@ -18,10 +18,10 @@
 {
     // Type
     NSString *_showBeeAnimationNameFormat;
-    StringList *_showBeeBetweenAnimationNames;
+    StringCollection *_showBeeBetweenAnimationNames;
 }
 
 @property (nonatomic, copy) NSString *showBeeAnimationNameFormat;
-@property (nonatomic, readonly) StringList *showBeeBetweenAnimationNames;
+@property (nonatomic, readonly) StringCollection *showBeeBetweenAnimationNames;
 
 @end

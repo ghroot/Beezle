@@ -8,7 +8,7 @@
 
 #import "artemis.h"
 
-@class StringList;
+@class StringCollection;
 
 typedef enum
 {
@@ -29,7 +29,7 @@ typedef enum
 @interface ShardComponent : Component
 {
     // Type
-	StringList *_piecesEntityTypes;
+	StringCollection *_piecesEntityTypes;
 	int _piecesCount;
     ShardPiecesSpawnType _piecesSpawnType;
     ShardPiecesDistributionType _piecesDistributionType;

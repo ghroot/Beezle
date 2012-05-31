@@ -8,7 +8,7 @@
 
 #import "cocos2d.h"
 
-@class StringList;
+@class StringCollection;
 @class ZOrder;
 
 @interface RenderSprite : NSObject <NSCopying>
@@ -20,10 +20,10 @@
     NSString *_name;
     CGPoint _scale;
 	CGPoint _offset;
-	StringList *_defaultIdleAnimationNames;
-	StringList *_defaultHitAnimationNames;
-    StringList *_defaultDestroyAnimationNames;
-	StringList *_defaultStillAnimationNames;
+	StringCollection *_defaultIdleAnimationNames;
+	StringCollection *_defaultHitAnimationNames;
+    StringCollection *_defaultDestroyAnimationNames;
+	StringCollection *_defaultStillAnimationNames;
 }
 
 @property (nonatomic, readonly) CCSprite *sprite;
@@ -32,10 +32,10 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic) CGPoint scale;
 @property (nonatomic) CGPoint offset;
-@property (nonatomic, readonly) StringList *defaultIdleAnimationNames;
-@property (nonatomic, readonly) StringList *defaultHitAnimationNames;
-@property (nonatomic, readonly) StringList *defaultDestroyAnimationNames;
-@property (nonatomic, readonly) StringList *defaultStillAnimationNames;
+@property (nonatomic, readonly) StringCollection *defaultIdleAnimationNames;
+@property (nonatomic, readonly) StringCollection *defaultHitAnimationNames;
+@property (nonatomic, readonly) StringCollection *defaultDestroyAnimationNames;
+@property (nonatomic, readonly) StringCollection *defaultStillAnimationNames;
 
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet zOrder:(ZOrder *)zOrder;
 +(RenderSprite *) renderSpriteWithSpriteSheet:(CCSpriteBatchNode *)spriteSheet;

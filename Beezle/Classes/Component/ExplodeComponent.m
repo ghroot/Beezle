@@ -7,7 +7,7 @@
 //
 
 #import "ExplodeComponent.h"
-#import "StringList.h"
+#import "StringCollection.h"
 
 @implementation ExplodeComponent
 
@@ -19,7 +19,7 @@
 {
 	if (self = [super init])
 	{
-		_explodeSoundNames = [StringList new];
+		_explodeSoundNames = [StringCollection new];
         _explosionState = NOT_EXPLODED;
 	}
 	return self;

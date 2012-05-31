@@ -1,12 +1,12 @@
 //
-//  StringList.h
+//  StringCollection.h
 //  Beezle
 //
 //  Created by Marcus on 4/19/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-@interface StringList : NSObject
+@interface StringCollection : NSObject
 {
     NSMutableArray *_strings;
 }

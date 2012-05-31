@@ -7,7 +7,7 @@
 //
 
 #import "BeeaterComponent.h"
-#import "StringList.h"
+#import "StringCollection.h"
 
 @implementation BeeaterComponent
 
@@ -18,7 +18,7 @@
 {
 	if (self = [super init])
 	{
-		_showBeeBetweenAnimationNames = [StringList new];
+		_showBeeBetweenAnimationNames = [StringCollection new];
 	}
 	return self;
 }
