@@ -1,46 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="841ba117-c663-486c-8721-faa99a48a091" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/Component/BeeaterComponent.m" afterPath="$PROJECT_DIR$/Beezle/Classes/Component/BeeaterComponent.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/Data/Persistent/PlayerInformation.m" afterPath="$PROJECT_DIR$/Beezle/Classes/Data/Persistent/PlayerInformation.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/Entity/EntityFactory.m" afterPath="$PROJECT_DIR$/Beezle/Classes/Entity/EntityFactory.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/Interface/LevelCompletedDialog.m" afterPath="$PROJECT_DIR$/Beezle/Classes/Interface/LevelCompletedDialog.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/Level/LevelLoader.m" afterPath="$PROJECT_DIR$/Beezle/Classes/Level/LevelLoader.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/Level/LevelSerializer.m" afterPath="$PROJECT_DIR$/Beezle/Classes/Level/LevelSerializer.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/State/Edit/EditIngameMenuState.m" afterPath="$PROJECT_DIR$/Beezle/Classes/State/Edit/EditIngameMenuState.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/State/Edit/EditState.m" afterPath="$PROJECT_DIR$/Beezle/Classes/State/Edit/EditState.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/State/Edit/EntitySelectIngameMenuState.m" afterPath="$PROJECT_DIR$/Beezle/Classes/State/Edit/EntitySelectIngameMenuState.m" />
+    <list default="true" id="841ba117-c663-486c-8721-faa99a48a091" name="Default" comment="Fix AppCode inspection errors and warnings.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/State/GameplayState.m" afterPath="$PROJECT_DIR$/Beezle/Classes/State/GameplayState.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/State/LevelSelectMenuState.m" afterPath="$PROJECT_DIR$/Beezle/Classes/State/LevelSelectMenuState.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/State/Mode/LevelCompletedMode.m" afterPath="$PROJECT_DIR$/Beezle/Classes/State/Mode/LevelCompletedMode.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/System/BeeExpiratonSystem.m" afterPath="$PROJECT_DIR$/Beezle/Classes/System/BeeExpiratonSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/System/BeeaterSystem.m" afterPath="$PROJECT_DIR$/Beezle/Classes/System/BeeaterSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/System/CapturedSystem.m" afterPath="$PROJECT_DIR$/Beezle/Classes/System/CapturedSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/System/Control/ExplodeControlSystem.m" afterPath="$PROJECT_DIR$/Beezle/Classes/System/Control/ExplodeControlSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/System/Control/SlingerControlSystem.m" afterPath="$PROJECT_DIR$/Beezle/Classes/System/Control/SlingerControlSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/System/Edit/EditControlSystem.m" afterPath="$PROJECT_DIR$/Beezle/Classes/System/Edit/EditControlSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/System/Edit/EditOptionsSystem.m" afterPath="$PROJECT_DIR$/Beezle/Classes/System/Edit/EditOptionsSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/System/GameRulesSystem.m" afterPath="$PROJECT_DIR$/Beezle/Classes/System/GameRulesSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/System/Render/BeeQueueRenderingSystem.m" afterPath="$PROJECT_DIR$/Beezle/Classes/System/Render/BeeQueueRenderingSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/System/Render/HUDRenderingSystem.m" afterPath="$PROJECT_DIR$/Beezle/Classes/System/Render/HUDRenderingSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/System/WaterWaveSystem.m" afterPath="$PROJECT_DIR$/Beezle/Classes/System/WaterWaveSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/System/WoodSystem.m" afterPath="$PROJECT_DIR$/Beezle/Classes/System/WoodSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/libs/Artemis/World.m" afterPath="$PROJECT_DIR$/Beezle/libs/Artemis/World.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/libs/Shared/Component/Physics/PhysicsComponent.m" afterPath="$PROJECT_DIR$/Beezle/libs/Shared/Component/Physics/PhysicsComponent.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/libs/Shared/Component/Render/RenderComponent.m" afterPath="$PROJECT_DIR$/Beezle/libs/Shared/Component/Render/RenderComponent.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/libs/Shared/Component/ShardComponent.m" afterPath="$PROJECT_DIR$/Beezle/libs/Shared/Component/ShardComponent.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/libs/Shared/Component/SpawnComponent.m" afterPath="$PROJECT_DIR$/Beezle/libs/Shared/Component/SpawnComponent.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/libs/Shared/Entity/EntityDescriptionCache.m" afterPath="$PROJECT_DIR$/Beezle/libs/Shared/Entity/EntityDescriptionCache.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/libs/Shared/System/Collision/CollisionSystem.m" afterPath="$PROJECT_DIR$/Beezle/libs/Shared/System/Collision/CollisionSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/libs/Shared/System/Control/InputSystem.m" afterPath="$PROJECT_DIR$/Beezle/libs/Shared/System/Control/InputSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/libs/Shared/System/HealthSystem.m" afterPath="$PROJECT_DIR$/Beezle/libs/Shared/System/HealthSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/libs/Shared/System/MovementSystem.m" afterPath="$PROJECT_DIR$/Beezle/libs/Shared/System/MovementSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/libs/Shared/System/Physics/PhysicsSystem.m" afterPath="$PROJECT_DIR$/Beezle/libs/Shared/System/Physics/PhysicsSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/libs/Shared/System/ShardSystem.m" afterPath="$PROJECT_DIR$/Beezle/libs/Shared/System/ShardSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/libs/Shared/System/SpawnSystem.m" afterPath="$PROJECT_DIR$/Beezle/libs/Shared/System/SpawnSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/libs/Shared/Util/SoundManager.m" afterPath="$PROJECT_DIR$/Beezle/libs/Shared/Util/SoundManager.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/main.m" afterPath="$PROJECT_DIR$/Beezle/main.m" />
     </list>
     <ignored path="Beezle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,7 +26,105 @@
     <favorites_list name="Beezle" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="BeeQueueRenderingSystem.m" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Beezle/Classes/System/Render/BeeQueueRenderingSystem.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="492" column="20" selection-start="21223" selection-end="21223" vertical-scroll-proportion="0.5013928">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameplayState.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Beezle/Classes/State/GameplayState.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="259" column="22" selection-start="7956" selection-end="7956" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EntityFactory.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Beezle/Classes/Entity/EntityFactory.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="206" column="129" selection-start="6885" selection-end="6885" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditOptionsSystem.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Beezle/Classes/System/Edit/EditOptionsSystem.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="413" column="24" selection-start="15350" selection-end="15350" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestAnimationsState.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Beezle/Classes/State/Debug/TestAnimationsState.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="145" column="22" selection-start="4452" selection-end="4452" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditState.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Beezle/Classes/State/Edit/EditState.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="132" column="31" selection-start="3465" selection-end="3465" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BeeaterSystem.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Beezle/Classes/System/BeeaterSystem.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="96" column="48" selection-start="3160" selection-end="3160" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#157#182#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RateLevelState.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Beezle/Classes/State/Debug/RateLevelState.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="89" column="38" selection-start="2394" selection-end="2394" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LevelSerializer.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Beezle/Classes/Level/LevelSerializer.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="87" column="35" selection-start="2151" selection-end="2151" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LevelSelectMenuState.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Beezle/Classes/State/LevelSelectMenuState.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="79" column="14" selection-start="1740" selection-end="1740" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -69,7 +132,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/Beezle/Classes/State/Edit/EntitySelectIngameMenuState.m" />
+        <option value="$PROJECT_DIR$/Beezle/Classes/State/Debug/TestEntitySystemState.m" />
+        <option value="$PROJECT_DIR$/Beezle/Classes/Entity/EntityUtil.m" />
+        <option value="$PROJECT_DIR$/Beezle/Classes/State/Debug/ConfirmationState.m" />
+        <option value="$PROJECT_DIR$/Beezle/Classes/System/BeeExpiratonSystem.m" />
+        <option value="$PROJECT_DIR$/Beezle/Classes/State/Debug/DebugMenuState.m" />
+        <option value="$PROJECT_DIR$/Beezle/Classes/State/LevelSelectMenuState.m" />
+        <option value="$PROJECT_DIR$/Beezle/Classes/Level/LevelSerializer.m" />
+        <option value="$PROJECT_DIR$/Beezle/Classes/State/Debug/RateLevelState.m" />
         <option value="$PROJECT_DIR$/Beezle/Classes/System/BeeaterSystem.m" />
+        <option value="$PROJECT_DIR$/Beezle/Classes/State/Edit/EditState.m" />
+        <option value="$PROJECT_DIR$/Beezle/Classes/State/Debug/TestAnimationsState.m" />
+        <option value="$PROJECT_DIR$/Beezle/Classes/Entity/EntityFactory.m" />
+        <option value="$PROJECT_DIR$/Beezle/Classes/State/GameplayState.m" />
+        <option value="$PROJECT_DIR$/Beezle/Classes/System/Edit/EditOptionsSystem.m" />
+        <option value="$PROJECT_DIR$/Beezle/Classes/System/Render/BeeQueueRenderingSystem.m" />
       </list>
     </option>
   </component>
@@ -80,6 +158,25 @@
     <option name="y" value="22" />
     <option name="width" value="1280" />
     <option name="height" value="687" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Type checks</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>SignednessMismatch</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -107,6 +204,16 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="DirectoryView.Xcode">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Beezle" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeDirectoryView$1$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -147,7 +254,47 @@
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Classes" />
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Beezle" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Beezle" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Beezle" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Beezle" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Shared" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -168,29 +315,31 @@
               <option name="myItemId" value="Classes" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="System" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="DirectoryView.Xcode">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeDirectoryView$1$1" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="97" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="105" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="102" />
+    <property name="options.lastSelected" value="preferences.keymap" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="preferences.sourceCode.Objective-C" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="109" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="903" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="901" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="107" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="104" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -205,6 +354,8 @@
     </configuration>
     <configuration default="false" name="Beezle" type="AppleRunConfiguration" factoryName="Application" SCHEME_NAME="Beezle" PROJECT_NAME="Beezle" TARGET_NAME="Beezle" CONFIG_NAME="Debug" DESTINATION_ID="iphonesimulator_5.1_1" RUN_TARGET_PROJECT_NAME="Beezle" RUN_TARGET_NAME="Beezle" DEBUGGER="LLDB" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
       <envs />
+      <RunnerSettings RunnerId="AppRunner" />
+      <ConfigurationWrapper RunnerId="AppRunner" />
       <method />
     </configuration>
     <list size="1">
@@ -236,37 +387,50 @@
       <created>1338500687558</created>
       <updated>1338500687558</updated>
     </task>
+    <task id="LOCAL-00001" summary="Removed unused imports.">
+      <created>1338504925572</created>
+      <updated>1338504925572</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Removed unused imports.">
+      <created>1338504953092</created>
+      <updated>1338504953092</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Fix AppCode inspection errors and warnings.">
+      <created>1338507505027</created>
+      <updated>1338507505027</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="687" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32715008" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32715008" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32715008" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32715008" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46543002" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24980111" sideWeight="0.6728499" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24980111" sideWeight="0.6728499" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39966273" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39966273" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5261383" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="myTodoPanelSettings">
       <value>
@@ -296,7 +460,7 @@
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed unused imports." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix AppCode inspection errors and warnings." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -310,24 +474,123 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="Removed unused imports." />
+    <MESSAGE value="Fix AppCode inspection errors and warnings." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Beezle/Classes/Entity/EntityFactory.m">
+    <entry file="file://$PROJECT_DIR$/Beezle/Classes/State/Edit/EntitySelectIngameMenuState.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="229" column="19" selection-start="7769" selection-end="7769" vertical-scroll-proportion="0.0">
+        <state line="46" column="26" selection-start="1406" selection-end="1406" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Beezle/Classes/State/Debug/TestEntitySystemState.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="38" selection-start="1164" selection-end="1164" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Beezle/Classes/State/Debug/ConfirmationState.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="28" selection-start="1451" selection-end="1451" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Beezle/Classes/Entity/EntityUtil.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="58" selection-start="1793" selection-end="1793" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Beezle/Classes/System/BeeExpiratonSystem.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="31" selection-start="422" selection-end="422" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Beezle/Classes/State/Debug/DebugMenuState.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="32" selection-start="2755" selection-end="2755" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Beezle/Classes/State/LevelSelectMenuState.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="14" selection-start="1740" selection-end="1740" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Beezle/Classes/Level/LevelSerializer.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="35" selection-start="2151" selection-end="2151" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Beezle/Classes/State/Debug/RateLevelState.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="38" selection-start="2394" selection-end="2394" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Beezle/Classes/System/BeeaterSystem.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="46" selection-start="432" selection-end="432" vertical-scroll-proportion="0.4050633">
+        <state line="96" column="48" selection-start="3160" selection-end="3160" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#157#182#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Beezle/Classes/State/Edit/EditState.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="132" column="31" selection-start="3465" selection-end="3465" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Beezle/Classes/State/Debug/TestAnimationsState.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="22" selection-start="4452" selection-end="4452" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Beezle/Classes/Entity/EntityFactory.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="206" column="129" selection-start="6885" selection-end="6885" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Beezle/Classes/State/GameplayState.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="259" column="22" selection-start="7956" selection-end="7956" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Beezle/Classes/System/Edit/EditOptionsSystem.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="413" column="24" selection-start="15350" selection-end="15350" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Beezle/Classes/System/Render/BeeQueueRenderingSystem.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="492" column="20" selection-start="21223" selection-end="21223" vertical-scroll-proportion="0.5013928">
+          <folding />
         </state>
       </provider>
     </entry>
