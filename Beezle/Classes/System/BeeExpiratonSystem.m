@@ -8,7 +8,6 @@
 
 #import "BeeExpiratonSystem.h"
 #import "BeeComponent.h"
-#import "BeeType.h"
 #import "EntityUtil.h"
 #import "PhysicsComponent.h"
 

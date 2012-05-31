@@ -7,7 +7,6 @@
 //
 
 #import "EntityDescriptionCache.h"
-#import "EntityDescription.h"
 
 @implementation EntityDescriptionCache
 

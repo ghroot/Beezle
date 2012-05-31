@@ -7,7 +7,6 @@
 //
 
 #import "SpawnComponent.h"
-#import "Utils.h"
 
 @implementation SpawnComponent
 

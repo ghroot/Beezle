@@ -8,7 +8,6 @@
 
 #import "InputSystem.h"
 #import "InputAction.h"
-#import "TouchTypes.h"
 
 #define DISTANCE_FROM_EDGE_FOR_TOUCH_CANCEL 8
 

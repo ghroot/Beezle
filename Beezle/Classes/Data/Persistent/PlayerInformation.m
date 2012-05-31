@@ -7,10 +7,8 @@
 //
 
 #import "PlayerInformation.h"
-#import "DisposableComponent.h"
 #import "LevelOrganizer.h"
 #import "LevelSession.h"
-#import "PollenComponent.h"
 
 @interface PlayerInformation()
 

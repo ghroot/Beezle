@@ -10,7 +10,6 @@
 #import "RenderSprite.h"
 #import "RenderSystem.h"
 #import "StringList.h"
-#import "Utils.h"
 #import "ZOrder.h"
 
 @interface RenderComponent()

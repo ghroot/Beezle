@@ -9,7 +9,6 @@
 #import "BeeQueueRenderingSystem.h"
 #import "ActionTags.h"
 #import "BeeComponent.h"
-#import "BeeType.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
 #import "NotificationProcessor.h"

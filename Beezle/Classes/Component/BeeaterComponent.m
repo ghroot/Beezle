@@ -7,7 +7,6 @@
 //
 
 #import "BeeaterComponent.h"
-#import "NotificationTypes.h"
 #import "StringList.h"
 
 @implementation BeeaterComponent

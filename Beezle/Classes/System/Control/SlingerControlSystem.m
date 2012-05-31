@@ -8,7 +8,6 @@
 
 #import "SlingerControlSystem.h"
 #import "BeeComponent.h"
-#import "BeeType.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
 #import "NotificationTypes.h"
@@ -18,7 +17,6 @@
 #import "RenderSprite.h"
 #import "SlingerComponent.h"
 #import "SoundManager.h"
-#import "TouchTypes.h"
 #import "TrajectoryComponent.h"
 #import "TransformComponent.h"
 #import "Utils.h"

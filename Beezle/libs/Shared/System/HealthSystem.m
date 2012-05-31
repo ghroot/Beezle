@@ -8,7 +8,6 @@
 
 #import "HealthSystem.h"
 #import "HealthComponent.h"
-#import "DisposableComponent.h"
 #import "EntityUtil.h"
 #import "NotificationProcessor.h"
 #import "NotificationTypes.h"

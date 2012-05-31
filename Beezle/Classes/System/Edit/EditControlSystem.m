@@ -13,7 +13,6 @@
 #import "EntityUtil.h"
 #import "InputAction.h"
 #import "InputSystem.h"
-#import "PhysicsComponent.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "SlingerComponent.h"

@@ -7,7 +7,6 @@
 //
 
 #import "HUDRenderingSystem.h"
-#import "PlayerInformation.h"
 
 @implementation HUDRenderingSystem
 

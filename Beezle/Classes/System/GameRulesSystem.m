@@ -7,10 +7,8 @@
 //
 
 #import "GameRulesSystem.h"
-#import "DisposableComponent.h"
 #import "EntityUtil.h"
 #import "LevelSession.h"
-#import "PlayerInformation.h"
 #import "SlingerComponent.h"
 
 @interface GameRulesSystem()

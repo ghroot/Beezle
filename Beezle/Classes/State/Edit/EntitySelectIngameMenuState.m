@@ -12,10 +12,6 @@
 #import "EntityFactory.h"
 #import "Game.h"
 #import "LevelOrganizer.h"
-#import "PhysicsComponent.h"
-#import "RenderComponent.h"
-#import "RenderSprite.h"
-#import "StringList.h"
 
 @interface EntitySelectIngameMenuState()
 

@@ -8,7 +8,6 @@
 
 #import "ShardComponent.h"
 #import "StringList.h"
-#import "Utils.h"
 
 @implementation ShardComponent
 

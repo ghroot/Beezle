@@ -9,7 +9,6 @@
 #import "WaterWaveSystem.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
-#import "TransformComponent.h"
 #import "WaterComponent.h"
 #import "Waves1DNode.h"
 

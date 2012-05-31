@@ -9,18 +9,12 @@
 #import "BeeaterSystem.h"
 #import "BeeaterComponent.h"
 #import "CapturedComponent.h"
-#import "EntityFactory.h"
 #import "EntityUtil.h"
 #import "NotificationProcessor.h"
 #import "NotificationTypes.h"
-#import "PhysicsComponent.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
-#import "SlingerComponent.h"
-#import "SoundManager.h"
 #import "StringList.h"
-#import "TransformComponent.h"
-#import "Utils.h"
 
 @interface BeeaterSystem()
 

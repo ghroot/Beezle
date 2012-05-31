@@ -7,20 +7,10 @@
 //
 
 #import "LevelLoader.h"
-#import "BeeaterComponent.h"
-#import "DisposableComponent.h"
 #import "EntityFactory.h"
-#import "EntityUtil.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "LevelLayoutEntry.h"
-#import "LevelLoader.h"
-#import "MovementComponent.h"
-#import "PhysicsComponent.h"
-#import "PlayerInformation.h"
-#import "RenderComponent.h"
-#import "SlingerComponent.h"
-#import "TransformComponent.h"
 
 @interface LevelLoader()
 

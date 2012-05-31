@@ -15,7 +15,6 @@
 #import "LevelRatings.h"
 #import "LevelSession.h"
 #import "MainMenuState.h"
-#import "PlayerInformation.h"
 #import "RateLevelState.h"
 
 @interface LevelCompletedDialog()

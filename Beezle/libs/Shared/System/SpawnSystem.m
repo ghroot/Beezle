@@ -9,7 +9,6 @@
 #import "SpawnSystem.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
-#import "RenderComponent.h"
 #import "SpawnComponent.h"
 #import "TransformComponent.h"
 

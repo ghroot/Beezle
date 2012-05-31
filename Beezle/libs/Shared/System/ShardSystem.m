@@ -7,14 +7,12 @@
 //
 
 #import "ShardSystem.h"
-#import "DisposableComponent.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
 #import "ShardComponent.h"
 #import "NotificationProcessor.h"
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
-#import "TransformComponent.h"
 #import "Utils.h"
 
 static const float PIECES_MIN_VELOCITY = 40.0f;

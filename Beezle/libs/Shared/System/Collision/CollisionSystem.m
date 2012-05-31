@@ -11,7 +11,6 @@
 #import "AnythingWithVolatileCollisionHandler.h"
 #import "BeeWithBeeaterCollisionHandler.h"
 #import "Collision.h"
-#import "CollisionHandler.h"
 #import "ConsumerWithPollenCollisionHandler.h"
 #import "DozerWithCrumbleCollisionHandler.h"
 #import "LevelSession.h"

@@ -8,7 +8,6 @@
 
 #import "PhysicsSystem.h"
 #import "BodyInfo.h"
-#import "CollisionSystem.h"
 #import "Collision.h"
 #import "EntityUtil.h"
 #import "GCpShapeCache.h"

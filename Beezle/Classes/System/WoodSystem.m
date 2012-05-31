@@ -11,7 +11,6 @@
 #import "NotificationProcessor.h"
 #import "NotificationTypes.h"
 #import "NSObject+PWObject.h"
-#import "PhysicsComponent.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "WoodComponent.h"

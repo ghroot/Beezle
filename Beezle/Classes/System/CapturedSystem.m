@@ -7,7 +7,6 @@
 //
 
 #import "CapturedSystem.h"
-#import "EntityUtil.h"
 #import "CapturedComponent.h"
 #import "NotificationProcessor.h"
 #import "NotificationTypes.h"

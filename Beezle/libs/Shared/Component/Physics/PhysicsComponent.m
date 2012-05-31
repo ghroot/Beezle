@@ -10,7 +10,6 @@
 #import "BodyInfo.h"
 #import "CollisionGroup.h"
 #import "PhysicsSystem.h"
-#import "Utils.h"
 
 @implementation PhysicsComponent
 
