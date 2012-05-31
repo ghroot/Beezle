@@ -80,7 +80,7 @@
 		{
 			NSDictionary *bodyDict = [typeComponentDict objectForKey:@"body"];
 			float mass = [[bodyDict objectForKey:@"mass"] floatValue];
-			ChipmunkBody *body = nil;
+			ChipmunkBody *body;
 			if (mass == 0.0f)
 			{
 				body = [ChipmunkBody staticBody];

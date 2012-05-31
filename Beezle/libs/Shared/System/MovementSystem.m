@@ -239,11 +239,11 @@
 		TransformComponent *transformComponent = [TransformComponent getFrom:entity];
 		if (velocity.x < 0)
 		{
-			[transformComponent setScale:CGPointMake(abs([transformComponent scale].x), [transformComponent scale].y)];
+			[transformComponent setScale:CGPointMake(abs((int)[transformComponent scale].x), [transformComponent scale].y)];
 		}
 		else
 		{
-			[transformComponent setScale:CGPointMake(-abs([transformComponent scale].x), [transformComponent scale].y)];
+			[transformComponent setScale:CGPointMake(-abs((int)[transformComponent scale].x), [transformComponent scale].y)];
 		}
 	}
 }

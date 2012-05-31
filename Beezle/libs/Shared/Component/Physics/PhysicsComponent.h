@@ -11,9 +11,6 @@
 #import "cocos2d.h"
 #import "ObjectiveChipmunk.h"
 
-@class PhysicsBody;
-@class PhysicsShape;
-
 /**
   Lets the entity be simulated in a physics world.
  */

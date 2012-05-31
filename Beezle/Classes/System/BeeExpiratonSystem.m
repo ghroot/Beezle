@@ -15,7 +15,7 @@
 
 -(BOOL) shouldExpireDueToDestroyCountdown:(Entity *)entity;
 -(BOOL) shouldExpireDueToSleepingBody:(Entity *)entity;
--(BOOL) shouldExpireDueToNoBeeatersLeft:(Entity *)entity;
+-(BOOL) shouldExpireDueToNoBeeatersLeft;
 
 @end
 
@@ -39,7 +39,7 @@
     {
         if ([self shouldExpireDueToDestroyCountdown:entity] ||
             [self shouldExpireDueToSleepingBody:entity] ||
-            [self shouldExpireDueToNoBeeatersLeft:entity])
+				[self shouldExpireDueToNoBeeatersLeft])
         {
             [EntityUtil destroyEntity:entity];
         }
@@ -61,7 +61,7 @@
         [[physicsComponent body] isSleeping];
 }
 
--(BOOL) shouldExpireDueToNoBeeatersLeft:(Entity *)entity
+-(BOOL) shouldExpireDueToNoBeeatersLeft
 {
     GroupManager *groupManager = (GroupManager *)[_world getManager:[GroupManager class]];
     NSArray *beeaterEntities = [groupManager getEntitiesInGroup:@"BEEATERS"];

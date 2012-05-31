@@ -11,7 +11,7 @@
 
 @interface Utils : NSObject
 
-+(cpVect) createVectorWithRandomAngleAndLengthBetween:(int)minLength and:(int)maxLength;
++(cpVect) createVectorWithRandomAngleAndLengthBetween:(float)minLength and:(float)maxLength;
 +(float) unwindAngleDegrees:(float)angle;
 +(float) unwindAngleRadians:(float)angle;
 +(CGPoint) getScreenCenterPosition;

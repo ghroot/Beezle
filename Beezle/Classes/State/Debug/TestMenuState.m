@@ -39,7 +39,7 @@
 	[_menu addChild:testEntitySystemMenuItem];
     
     CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
-    [backMenuItem setFontSize:26.0f];
+    [backMenuItem setFontSize:26];
 	[_menu addChild:backMenuItem];
 	
 	[_menu alignItemsVerticallyWithPadding:6.0f];

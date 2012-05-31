@@ -54,20 +54,20 @@
     CCMenuItemFont *toggleStatsMenuItem = [CCMenuItemFont itemWithString:@"Toggle stats" target:self selector:@selector(toggleStats:)];
 	[_menu addChild:toggleStatsMenuItem];
 	CCMenuItemFont *resetInfoMenuItem = [CCMenuItemFont itemWithString:@"Reset player information" target:self selector:@selector(resetPlayerInformation:)];
-	[resetInfoMenuItem setFontSize:20.0f];
+	[resetInfoMenuItem setFontSize:20];
 	[_menu addChild:resetInfoMenuItem];
 	CCMenuItemFont *resetEditedLevelsMenuItem = [CCMenuItemFont itemWithString:@"Reset edited levels" target:self selector:@selector(resetEditedLevels:)];
-	[resetEditedLevelsMenuItem setFontSize:20.0f];
+	[resetEditedLevelsMenuItem setFontSize:20];
 	[_menu addChild:resetEditedLevelsMenuItem];
     CCMenuItemFont *resaveEditedLevelsMenuItem = [CCMenuItemFont itemWithString:@"Resave edited levels" target:self selector:@selector(resaveEditedLevels:)];
-	[resaveEditedLevelsMenuItem setFontSize:20.0f];
+	[resaveEditedLevelsMenuItem setFontSize:20];
 	[_menu addChild:resaveEditedLevelsMenuItem];
 	CCMenuItemFont *resetRatingsMenuItem = [CCMenuItemFont itemWithString:@"Reset level ratings" target:self selector:@selector(resetLevelRatings:)];
-	[resetRatingsMenuItem setFontSize:20.0f];
+	[resetRatingsMenuItem setFontSize:20];
 	[_menu addChild:resetRatingsMenuItem];
     
     CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
-    [backMenuItem setFontSize:26.0f];
+    [backMenuItem setFontSize:26];
 	[_menu addChild:backMenuItem];
 	
 	[_menu alignItemsVerticallyWithPadding:6.0f];

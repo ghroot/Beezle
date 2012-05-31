@@ -106,7 +106,7 @@
 		name != nil)
     {
 		NSString *soundFilePath = [_soundFilePathsByName objectForKey:name];
-		ALuint soundId = 0;
+		ALuint soundId;
 		if (soundFilePath != nil)
 		{
 			soundId = [[SimpleAudioEngine sharedEngine] playEffect:soundFilePath];

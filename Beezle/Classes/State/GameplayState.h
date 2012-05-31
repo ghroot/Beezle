@@ -22,7 +22,6 @@
 @class DisposalSystem;
 @class FreezeSystem;
 @class GameRulesSystem;
-@class GateOpeningSystem;
 @class HealthSystem;
 @class HUDRenderingSystem;
 @class InputSystem;

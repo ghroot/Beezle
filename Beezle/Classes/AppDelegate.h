@@ -12,7 +12,6 @@
 
 @class EmailInfo;
 @class Game;
-@class RootViewController;
 
 @interface AppDelegate : NSObject <UIApplicationDelegate, MFMailComposeViewControllerDelegate, CCDirectorDelegate>
 {

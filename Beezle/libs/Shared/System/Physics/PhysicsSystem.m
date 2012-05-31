@@ -74,8 +74,7 @@ static const int GRAVITY = -90;
 
 -(BOOL) beginCollision:(cpArbiter *)arbiter space:(ChipmunkSpace *)space
 {
-	BOOL isFirstContact = cpArbiterIsFirstContact(arbiter);
-	if (isFirstContact)
+	if (cpArbiterIsFirstContact(arbiter))
 	{
 		cpShape *firstShape;
 		cpShape *secondShape;

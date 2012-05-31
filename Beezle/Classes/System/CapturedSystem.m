@@ -71,7 +71,7 @@
 -(void) saveContainedBee:(Entity *)capturedEntity
 {
 	TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
-	Entity *slingerEntity = (Entity *)[tagManager getEntity:@"SLINGER"];
+	Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
 	CapturedComponent *capturedComponent = [CapturedComponent getFrom:capturedEntity];
 	SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
 	BeeType *savedBeeType = [capturedComponent containedBeeType];

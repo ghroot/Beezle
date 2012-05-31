@@ -95,7 +95,7 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 		
 		cpBB boundingBox = [physicsComponent boundingBox];
 		
-		NSArray *shardPieceEntities = nil;
+		NSArray *shardPieceEntities;
 		if ([shardComponent cacheShardPieceEntities])
 		{
 			shardPieceEntities = [shardComponent cachedShardPieceEntities];
@@ -182,8 +182,9 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 		cpBB boundingBox = [physicsComponent boundingBox];
 		numberOfPiecesToSpawn = [self derivePiecesCountFromBoundingBox:boundingBox];
 	}
-	numberOfPiecesToSpawn = max(PIECES_MIN_NUMBER_OF_SHARDS, numberOfPiecesToSpawn);
-	numberOfPiecesToSpawn = min(PIECES_MAX_NUMBER_OF_SHARDS, numberOfPiecesToSpawn);
+	numberOfPiecesToSpawn = (int)max(PIECES_MIN_NUMBER_OF_SHARDS, numberOfPiecesToSpawn);
+	numberOfPiecesToSpawn = (int)min(PIECES_MAX_NUMBER_OF_SHARDS, numberOfPiecesToSpawn);
+
 	return numberOfPiecesToSpawn;
 }
 
@@ -195,7 +196,7 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 
 -(CGPoint) getRandomPositionWithinShapes:(NSArray *)shapes boundingBox:(cpBB)boundingBox
 {
-	CGPoint randomPosition;
+	CGPoint randomPosition = CGPointZero;
 	BOOL validPoint = FALSE;
 	while (!validPoint)
 	{

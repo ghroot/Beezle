@@ -67,15 +67,15 @@
     CCMenu *ratingsMenu = [CCMenu menuWithItems:nil];
     
 	CCMenuItemFont *oneStarMenuItem = [CCMenuItemFont itemWithString:@"1" target:self selector:@selector(rateOneStar:)];
-	[oneStarMenuItem setFontSize:90.0f];
+	[oneStarMenuItem setFontSize:90];
 	[ratingsMenu addChild:oneStarMenuItem];
 	
 	CCMenuItemFont *twoStarsMenuItem = [CCMenuItemFont itemWithString:@"2" target:self selector:@selector(rateTwoStars:)];
-	[twoStarsMenuItem setFontSize:90.0f];
+	[twoStarsMenuItem setFontSize:90];
 	[ratingsMenu addChild:twoStarsMenuItem];
 	
 	CCMenuItemFont *threeStarsMenuItem = [CCMenuItemFont itemWithString:@"3" target:self selector:@selector(rateThreeStars:)];
-	[threeStarsMenuItem setFontSize:90.0f];
+	[threeStarsMenuItem setFontSize:90];
 	[ratingsMenu addChild:threeStarsMenuItem];
     
     [ratingsMenu setPosition:ccpAdd([ratingsMenu position], CGPointMake(0.0f, 20.0f))];
@@ -87,7 +87,7 @@
     CCMenu *skipRatingMenu = [CCMenu menuWithItems:nil];
     
     CCMenuItemFont *skipRatingMenuItem = [CCMenuItemFont itemWithString:@"Not now" target:self selector:@selector(skipRating:)];
-	[skipRatingMenuItem setFontSize:40.0f];
+	[skipRatingMenuItem setFontSize:40];
 	[skipRatingMenu addChild:skipRatingMenuItem];
     
     [skipRatingMenu setPosition:ccpAdd([skipRatingMenu position], CGPointMake(0.0f, -50.0f))];

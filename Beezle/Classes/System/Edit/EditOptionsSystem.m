@@ -185,7 +185,7 @@
 	[self removeAllMenus];
 	
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	int currentX = winSize.width / 2;
+	int currentX = (int)(winSize.width / 2);
 	int currentY = 14;
 	
 	if (_entityWithOptionsDisplayed != nil)
@@ -411,7 +411,7 @@
 	EditComponent *editComponent = [EditComponent getFrom:_entityWithOptionsDisplayed];
 	NSString *levelLayoutType = [editComponent levelLayoutType];
 	
-	NSString *entityType = nil;
+	NSString *entityType;
 	if ([levelLayoutType hasSuffix:@"-REFLECTION"])
 	{
 		entityType = [levelLayoutType stringByReplacingOccurrencesOfString:@"-REFLECTION" withString:@""];

@@ -56,10 +56,10 @@
 	[self addChild:titleLabel];
 	
 	CCMenuItemFont *yesMenuItem = [CCMenuItemFont itemWithString:@"Yes" target:self selector:@selector(confirm:)];
-	[yesMenuItem setFontSize:40.0f];
+	[yesMenuItem setFontSize:40];
 	[_menu addChild:yesMenuItem];
 	CCMenuItemFont *noMenuItem = [CCMenuItemFont itemWithString:@"No" target:self selector:@selector(cancel:)];
-	[noMenuItem setFontSize:60.0f];
+	[noMenuItem setFontSize:60];
 	[_menu addChild:noMenuItem];
 	
 	[_menu setPosition:ccpAdd([_menu position], CGPointMake(0.0f, -30.0f))];

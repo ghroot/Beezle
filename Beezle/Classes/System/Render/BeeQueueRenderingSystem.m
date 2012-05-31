@@ -379,6 +379,7 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 -(void) handleBeeSaved:(NSNotification *)notification
 {
 	Entity *slingerEntity = [self getSlingerEntity];
+	TransformComponent *transformComponent = [TransformComponent getFrom:slingerEntity];
 	
 	// Notification data
 	CGPoint position = [[[notification userInfo] objectForKey:@"entityPosition"] CGPointValue];
@@ -388,7 +389,7 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 	CGPoint targetPosition = [self calculatePositionForNextBeeQueueRenderSprite:slingerEntity];
 	CGPoint beePosition = CGPointMake(position.x, position.y + 20);
 	CGPoint positionAboveBeeater = CGPointMake(beePosition.x, beePosition.y + 30);
-	BOOL needsToTurn = [[TransformComponent getFrom:slingerEntity] position].x < beePosition.x;
+	BOOL needsToTurn = [transformComponent position].x < beePosition.x;
 	
 	// Create sprite
 	RenderSprite *beeQueueRenderSprite = [self createBeeQueueRenderSpriteWithBeeType:savedBeeType position:beePosition];
@@ -471,28 +472,28 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 		[_beeQueueRenderSprites addObject:reusedBeeQueueRenderSprite];
 		
 		[self increaseMovingBeesCount];
-		NSMutableArray *actions = [NSMutableArray array];
-		BOOL needsToTurn = [[TransformComponent getFrom:slingerEntity] position].x < position.x;
-		if (needsToTurn)
+		NSMutableArray *reusedBeeActions = [NSMutableArray array];
+		BOOL reusedBeeNeedsToTurn = [transformComponent position].x < position.x;
+		if (reusedBeeNeedsToTurn)
 		{
 			[[reusedBeeQueueRenderSprite sprite] setScaleX:-1];
 		}
 		CCEaseSineOut *moveAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.6f position:endOfQueuePosition]];
-		[actions addObject:moveAction];
-		if (needsToTurn)
+		[reusedBeeActions addObject:moveAction];
+		if (reusedBeeNeedsToTurn)
 		{
 			CCCallBlock *faceRightAction = [CCCallBlock actionWithBlock:^()
 			{
 				[[reusedBeeQueueRenderSprite sprite] setScaleX:1];
 			}];
-			[actions addObject:faceRightAction];
+			[reusedBeeActions addObject:faceRightAction];
 		}
-		CCCallFunc *decreaseMovingBeesCountAction = [CCCallFunc actionWithTarget:self selector:@selector(decreaseMovingBeesCount)];
-		[actions addObject:decreaseMovingBeesCountAction];
-		[actions addObject:[self createSwayAction:endOfQueuePosition]];
-		CCSequence *sequence = [CCSequence actionsWithArray:actions];
-		[sequence setTag:ACTION_TAG_BEE_QUEUE];
-		[[reusedBeeQueueRenderSprite sprite] runAction:sequence];
+		CCCallFunc *decreaseMovingBeesCountAction2 = [CCCallFunc actionWithTarget:self selector:@selector(decreaseMovingBeesCount)];
+		[reusedBeeActions addObject:decreaseMovingBeesCountAction2];
+		[reusedBeeActions addObject:[self createSwayAction:endOfQueuePosition]];
+		CCSequence *sequence2 = [CCSequence actionsWithArray:reusedBeeActions];
+		[sequence2 setTag:ACTION_TAG_BEE_QUEUE];
+		[[reusedBeeQueueRenderSprite sprite] runAction:sequence2];
 	}
 }
 

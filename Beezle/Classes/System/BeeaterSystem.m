@@ -93,8 +93,8 @@
 	{
 		// Destroy beeater
 		RenderComponent *beeaterRenderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
-		RenderSprite *beeaterBodyRenderSprite = (RenderSprite *)[beeaterRenderComponent renderSpriteWithName:@"body"];
-		RenderSprite *beeaterHeadRenderSprite = (RenderSprite *)[beeaterRenderComponent renderSpriteWithName:@"head"];
+		RenderSprite *beeaterBodyRenderSprite = [beeaterRenderComponent renderSpriteWithName:@"body"];
+		RenderSprite *beeaterHeadRenderSprite = [beeaterRenderComponent renderSpriteWithName:@"head"];
 		[beeaterHeadRenderSprite hide];
 		if ([beeaterBodyRenderSprite hasDefaultDestroyAnimation])
 		{

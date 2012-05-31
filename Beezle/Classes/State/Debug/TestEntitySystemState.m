@@ -50,7 +50,7 @@
 -(void) update:(ccTime)delta
 {	
 	[_world loopStart];
-	[_world setDelta:(1000.0f * delta)];
+	[_world setDelta:(int)(1000.0f * delta)];
 	
 	NSDate *startTime = [NSDate date];
     

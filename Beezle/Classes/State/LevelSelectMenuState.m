@@ -77,7 +77,7 @@
 	
 	int nLevels = [[_menu children] count] - 1;
 	int nRows = 9;
-	int n1 = (int)(nLevels / nRows) + 1;
+	int n1 = nLevels / nRows + 1;
 	int n2 = nLevels - (nRows - 1) * n1;
 	[_menu alignItemsInColumns:
 	 [NSNumber numberWithInt:n1],

@@ -29,7 +29,7 @@
 		
 		if (componentClass != nil)
 		{
-            Component *component = [componentClass componentWithTypeComponentDict:typeComponentDict andInstanceComponentDict:instanceComponentDict world:world];
+            Component *component = (Component *)[componentClass componentWithTypeComponentDict:typeComponentDict andInstanceComponentDict:instanceComponentDict world:world];
 			[components addObject:component];
 		}
 		else

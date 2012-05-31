@@ -85,7 +85,7 @@
 		else if ([type hasPrefix:@"GLASS-"] &&
 				 [type length] >= 8)
 		{
-			NSString *glassBaseName = nil;
+			NSString *glassBaseName;
 			NSString *levelSuffix = [[levelName componentsSeparatedByString:@"-"] objectAtIndex:1];
 			NSArray *typeComponents = [type componentsSeparatedByString:@"-"];
 			if ([typeComponents count] == 3)

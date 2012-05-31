@@ -145,7 +145,7 @@
 
 -(id) copyWithZone:(NSZone *)zone
 {
-	RenderComponent *copiedRenderComponent = [super copyWithZone:zone];
+	RenderComponent *copiedRenderComponent = (RenderComponent *)[super copyWithZone:zone];
 	for (RenderSprite *renderSprite in _renderSprites)
 	{
 		RenderSprite *copiedRenderSprite = [renderSprite copy];
@@ -181,7 +181,7 @@
 {
 	for (RenderSprite *renderSprite in _renderSprites)
 	{
-		[[renderSprite sprite] setOpacity:(alpha * 256)];
+		[[renderSprite sprite] setOpacity:(GLubyte)(alpha * 256)];
 	}
 }
 

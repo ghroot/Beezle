@@ -12,10 +12,10 @@
 
 @implementation Utils
 
-+(cpVect) createVectorWithRandomAngleAndLengthBetween:(int)minLength and:(int)maxLength
++(cpVect) createVectorWithRandomAngleAndLengthBetween:(float)minLength and:(float)maxLength
 {
-	int velocityLength = minLength + (rand() % (maxLength - minLength));
-	int velocityAngle = CC_DEGREES_TO_RADIANS(rand() % 360);
+	float velocityLength = minLength + (rand() % (int)(maxLength - minLength));
+	float velocityAngle = CC_DEGREES_TO_RADIANS(rand() % 360);
 	cpVect randomVelocity = cpv(velocityLength * cosf(velocityAngle), velocityLength * sinf(velocityAngle));
 	return randomVelocity;
 }
