@@ -152,13 +152,18 @@ static const int GRAVITY = -90;
 				[_shapes addObject:shape];
 			}
 		}
-		if ([typeComponentDict objectForKey:@"gravity"] != nil)
+		if ([_body mass] != INFINITY)
 		{
-			[_body setForce:CGPointMake(0.0f, [[typeComponentDict objectForKey:@"gravity"] floatValue])];
-		}
-		else
-		{
-			[_body setForce:CGPointMake(0.0f, GRAVITY)];
+			if ([typeComponentDict objectForKey:@"gravity"] != nil)
+			{
+				float force = [_body mass] * [[typeComponentDict objectForKey:@"gravity"] floatValue];
+				[_body applyForce:CGPointMake(0.0f, force) offset:CGPointZero];
+			}
+			else
+			{
+				float force = [_body mass] * GRAVITY;
+				[_body applyForce:CGPointMake(0.0f, force) offset:CGPointZero];
+			}
 		}
 		if ([typeComponentDict objectForKey:@"maxVelocity"] != nil)
 		{
