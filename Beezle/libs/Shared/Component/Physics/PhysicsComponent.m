@@ -11,6 +11,8 @@
 #import "CollisionGroup.h"
 #import "PhysicsSystem.h"
 
+static const int GRAVITY = -90;
+
 @implementation PhysicsComponent
 
 @synthesize body = _body;
@@ -149,6 +151,18 @@
 				
 				[_shapes addObject:shape];
 			}
+		}
+		if ([typeComponentDict objectForKey:@"gravity"] != nil)
+		{
+			[_body setForce:CGPointMake(0.0f, [[typeComponentDict objectForKey:@"gravity"] floatValue])];
+		}
+		else
+		{
+			[_body setForce:CGPointMake(0.0f, GRAVITY)];
+		}
+		if ([typeComponentDict objectForKey:@"maxVelocity"] != nil)
+		{
+			[_body setVelLimit:[[typeComponentDict objectForKey:@"maxVelocity"] floatValue]];
 		}
         
         // Instance

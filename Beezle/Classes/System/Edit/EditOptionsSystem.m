@@ -137,6 +137,7 @@
 	[_slingerOptionsMenu addChild:[self createMenuItem:@"Speedee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"SPEEDEE"]];
 	[_slingerOptionsMenu addChild:[self createMenuItem:@"Sawee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"SAWEE"]];
 	[_slingerOptionsMenu addChild:[self createMenuItem:@"Sumee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"SUMEE"]];
+	[_slingerOptionsMenu addChild:[self createMenuItem:@"Mumee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"MUMEE"]];
 	[_slingerOptionsMenu addChild:[self createMenuItem:@"Clear" selector:@selector(doOptionClearSlingerBees:) userData:nil]];	
 	[_slingerOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
 }

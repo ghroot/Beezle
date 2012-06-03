@@ -41,6 +41,7 @@
 #import "SpawnSystem.h"
 #import "WaterWaveSystem.h"
 #import "WoodSystem.h"
+#import "FollowControlSystem.h"
 
 @interface GameplayState()
 
@@ -80,6 +81,7 @@
 @synthesize spawnSystem = _spawnSystem;
 @synthesize waterWaveSystem = _waterWaveSystem;
 @synthesize woodSystem = _woodSystem;
+@synthesize followControlSystem = _followControlSystem;
 
 +(id) stateWithLevelName:(NSString *)levelName
 {
@@ -162,6 +164,8 @@
 	[systemManager setSystem:_slingerControlSystem];
 	_aimPollenShooterSystem = [AimPollenShooterSystem system];
 	[systemManager setSystem:_aimPollenShooterSystem];
+	_followControlSystem = [FollowControlSystem system];
+	[systemManager setSystem:_followControlSystem];
 	_freezeSystem = [FreezeSystem system];
 	[systemManager setSystem:_freezeSystem];
 	_beeExpirationSystem = [BeeExpiratonSystem system];

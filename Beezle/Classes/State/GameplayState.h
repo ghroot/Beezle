@@ -35,6 +35,7 @@
 @class SpawnSystem;
 @class WaterWaveSystem;
 @class WoodSystem;
+@class FollowControlSystem;
 
 @interface GameplayState : GameState
 {
@@ -65,6 +66,7 @@
 	ShardSystem *_shardSystem;
     SlingerControlSystem *_slingerControlSystem;
 	AimPollenShooterSystem *_aimPollenShooterSystem;
+	FollowControlSystem *_followControlSystem;
 	SpawnSystem *_spawnSystem;
 	WoodSystem *_woodSystem;
 	ShakeSystem *_shakeSystem;
@@ -86,6 +88,7 @@
 @property (nonatomic, readonly) CollisionSystem *collisionSystem;
 @property (nonatomic, readonly) DisposalSystem *disposalSystem;
 @property (nonatomic, readonly) ExplodeControlSystem *explodeControlSystem;
+@property (nonatomic, readonly) FollowControlSystem *followControlSystem;
 @property (nonatomic, readonly) FreezeSystem *freezeSystem;
 @property (nonatomic, readonly) GameRulesSystem *gameRulesSystem;
 @property (nonatomic, readonly) HealthSystem *healthSystem;

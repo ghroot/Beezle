@@ -29,6 +29,7 @@
 +(BeeType *) BOMBEE;
 +(BeeType *) SUMEE;
 +(BeeType *) TBEE;
++(BeeType *) MUMEE;
 
 -(NSString *) capitalizedString;
 

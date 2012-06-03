@@ -15,7 +15,6 @@
 #import "TransformComponent.h"
 
 static const float HALF_TIMESTEP = FIXED_TIMESTEP / 2.0f;
-static const int GRAVITY = -90;
 
 @interface PhysicsSystem()
 
@@ -51,7 +50,7 @@ static const int GRAVITY = -90;
 	_space = [[ChipmunkSpace alloc] init];
 	[_space setSleepTimeThreshold:1.0f];
 	[_space setData:self];
-	[_space setGravity:CGPointMake(0.0f, GRAVITY)];
+	[_space setGravity:CGPointMake(0.0f, 0.0f)];
 	
 	[_space setDefaultCollisionHandler:self begin:@selector(beginCollision:space:) preSolve:nil postSolve:nil separate:nil];
 }
@@ -175,8 +174,7 @@ static const int GRAVITY = -90;
 }
 
 -(void) processEntity:(Entity *)entity
-{   
-    TransformComponent *transformComponent = [TransformComponent getFrom:entity];
+{
     PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
 	
 	if ([physicsComponent positionOrRotationUpdatedManually])
@@ -192,7 +190,8 @@ static const int GRAVITY = -90;
 		}
 		[physicsComponent setPositionOrRotationUpdatedManually:FALSE];
 	}
-	
+
+	TransformComponent *transformComponent = [TransformComponent getFrom:entity];
     [transformComponent setPosition:[[physicsComponent body] pos]];
     [transformComponent setRotation:CC_RADIANS_TO_DEGREES(-[[physicsComponent body] angle])];
 }

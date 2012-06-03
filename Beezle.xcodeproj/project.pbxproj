@@ -1494,6 +1494,10 @@
 		2CF8E0F41576B45F0052F330 /* Beeater-Head-Piece-C-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0EF1576B45F0052F330 /* Beeater-Head-Piece-C-3.plist */; };
 		2CF8E0F51576B45F0052F330 /* Beeater-Head-Piece-C-4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F01576B45F0052F330 /* Beeater-Head-Piece-C-4.plist */; };
 		2CF8E0F61576B45F0052F330 /* Beeater-Head-Piece-C-5.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F11576B45F0052F330 /* Beeater-Head-Piece-C-5.plist */; };
+		2CF8E0F61576B45F0052F335 /* FollowControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F334 /* FollowControlSystem.m */; };
+		2CF8E0F61576B45F0052F33B /* FollowComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F33A /* FollowComponent.m */; };
+		2CF8E0F61576B45F0052F33E /* Mumee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F33D /* Mumee.plist */; };
+		2CF8E0F61576B45F0052F340 /* Mumee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F33F /* Mumee-Animations.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3313,6 +3317,12 @@
 		2CF8E0EF1576B45F0052F330 /* Beeater-Head-Piece-C-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Head-Piece-C-3.plist"; sourceTree = "<group>"; };
 		2CF8E0F01576B45F0052F330 /* Beeater-Head-Piece-C-4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Head-Piece-C-4.plist"; sourceTree = "<group>"; };
 		2CF8E0F11576B45F0052F330 /* Beeater-Head-Piece-C-5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Head-Piece-C-5.plist"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F334 /* FollowControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowControlSystem.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F336 /* FollowControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowControlSystem.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F33A /* FollowComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowComponent.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F33C /* FollowComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowComponent.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F33D /* Mumee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Mumee.plist; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F33F /* Mumee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Mumee-Animations.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4011,6 +4021,8 @@
 		2C74B40B156FAD1E00596A22 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F33C /* FollowComponent.h */,
+				2CF8E0F61576B45F0052F33A /* FollowComponent.m */,
 				2C74B40C156FAD1E00596A22 /* BeeaterComponent.h */,
 				2C74B40D156FAD1E00596A22 /* BeeaterComponent.m */,
 				2C74B40E156FAD1E00596A22 /* BeeComponent.h */,
@@ -4301,6 +4313,8 @@
 		2C74B4AC156FAD1E00596A22 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F336 /* FollowControlSystem.h */,
+				2CF8E0F61576B45F0052F334 /* FollowControlSystem.m */,
 				2C74B4AD156FAD1E00596A22 /* ExplodeControlSystem.h */,
 				2C74B4AE156FAD1E00596A22 /* ExplodeControlSystem.m */,
 				2C74B4AF156FAD1E00596A22 /* SlingerControlSystem.h */,
@@ -5739,6 +5753,7 @@
 		2CC9E7801502E80900C094B0 /* Bee */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F33F /* Mumee-Animations.plist */,
 				2CC9E7811502E80900C094B0 /* Bee-Animations.plist */,
 				2CB360E115042985003687C1 /* Bees-Animations.plist */,
 				2CC9E7821502E80900C094B0 /* Bombee-Animations.plist */,
@@ -5844,6 +5859,7 @@
 		2CE4F537153CC8A80023B5C6 /* Bee */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F33D /* Mumee.plist */,
 				2CE4F538153CC8A80023B5C6 /* Bee.plist */,
 				2CF8E0B515751BFB0052F330 /* Bombee-Piece.plist */,
 				2CE4F539153CC8A80023B5C6 /* Bombee.plist */,
@@ -7431,6 +7447,8 @@
 				2CF8E0F41576B45F0052F330 /* Beeater-Head-Piece-C-3.plist in Resources */,
 				2CF8E0F51576B45F0052F330 /* Beeater-Head-Piece-C-4.plist in Resources */,
 				2CF8E0F61576B45F0052F330 /* Beeater-Head-Piece-C-5.plist in Resources */,
+				2CF8E0F61576B45F0052F33E /* Mumee.plist in Resources */,
+				2CF8E0F61576B45F0052F340 /* Mumee-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7714,6 +7732,8 @@
 				2C96F77715741BA400052239 /* TestMenuState.m in Sources */,
 				2C96F77A15741DEA00052239 /* TestEntitySystemState.m in Sources */,
 				2C96F780157422CC00052239 /* DebugSystem.m in Sources */,
+				2CF8E0F61576B45F0052F335 /* FollowControlSystem.m in Sources */,
+				2CF8E0F61576B45F0052F33B /* FollowComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
