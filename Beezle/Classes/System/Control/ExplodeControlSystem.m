@@ -44,7 +44,8 @@
 -(void) processEntity:(Entity *)entity
 {
     ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
-	if ([self didTouchBegin] &&
+	BOOL didTouchBegin = [self didTouchBegin];
+	if (didTouchBegin &&
 		[explodeComponent explosionState] == NOT_EXPLODED)
 	{
 		[self startExplode:entity];
