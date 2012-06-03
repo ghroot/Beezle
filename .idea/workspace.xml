@@ -2,28 +2,88 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="841ba117-c663-486c-8721-faa99a48a091" name="Default" comment="Fix AppCode inspection errors and warnings.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Beezle/Raw/Sprites/Sheets/Shared/Bees/Mumee/Mumee-Idle-1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Beezle/Raw/Sprites/Sheets/Shared/Bees/Mumee/Mumee-Idle-2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Beezle/Classes/Component/FollowComponent.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Beezle/Classes/Component/FollowComponent.m" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Beezle/Classes/System/Control/FollowControlSystem.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Beezle/Classes/System/Control/FollowControlSystem.m" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Beezle/Resources/Entities/Bee/Mumee.plist" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Animations/Bee/Mumee-Animations.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Sheets/Shared-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Sheets/Shared-hd.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Sheets/Shared.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Sheets/Shared.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C12-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C12-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C12-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C12-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C15-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C15-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C15-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C15-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C19-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C19-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C19-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C19-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C20-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C20-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C20-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C20-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C24a-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C24a-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C24a-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C24a-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C24b-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C24b-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C24b-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C24b-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C25-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C25-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C25-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C25-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C26-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C26-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C26-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C26-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C27-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C27-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C27-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C27-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C28-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C28-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C28-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C28-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C29a-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C29a-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C29a-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C29a-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C29b-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C29b-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C29b-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C29b-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C33-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C33-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C33-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C33-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C34a-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C34a-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C34a-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C34a-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C34b-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C34b-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C34b-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C34b-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C34c-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C34c-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C34c-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C34c-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C34d-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C34d-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C34d-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C34d-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C35a-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C35a-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C35a-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C35a-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C35b-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C35b-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C35b-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C35b-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C36-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C36-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C36-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C36-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C38-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C38-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C38-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C38-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C39-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C39-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C39-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C39-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C4-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C4-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C4-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C4-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C40-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C40-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C40-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C40-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C41-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C41-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C41-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C41-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C43a-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C43a-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C43a-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C43a-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C43b-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C43b-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C43b-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C43b-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C44-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C44-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C44-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C44-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C45-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C45-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C45-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C45-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C46-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C46-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C46-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C46-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C47-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C47-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C47-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C47-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C48-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C48-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C48-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C48-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C49-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C49-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C49-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C49-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C50-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C50-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C50-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C50-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C51a-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C51a-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C51a-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C51a-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C51b-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C51b-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C51b-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C51b-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C52-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C52-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C52-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C52-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C53-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C53-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C53-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C53-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C55-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C55-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C55-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C55-Ice.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C59-Ice-hd.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C59-Ice-hd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C59-Ice.png" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C59-Ice.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/Beezle.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/State/GameplayState.h" afterPath="$PROJECT_DIR$/Beezle/Classes/State/GameplayState.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/State/GameplayState.m" afterPath="$PROJECT_DIR$/Beezle/Classes/State/GameplayState.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/State/Mode/ShootingMode.m" afterPath="$PROJECT_DIR$/Beezle/Classes/State/Mode/ShootingMode.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/System/Edit/EditOptionsSystem.m" afterPath="$PROJECT_DIR$/Beezle/Classes/System/Edit/EditOptionsSystem.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/Type/BeeType.h" afterPath="$PROJECT_DIR$/Beezle/Classes/Type/BeeType.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Classes/Type/BeeType.m" afterPath="$PROJECT_DIR$/Beezle/Classes/Type/BeeType.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Sheets/Shared-hd.plist" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Sheets/Shared-hd.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/Resources/Sprites/Sheets/Shared.plist" afterPath="$PROJECT_DIR$/Beezle/Resources/Sprites/Sheets/Shared.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/libs/Shared/Component/Physics/PhysicsComponent.m" afterPath="$PROJECT_DIR$/Beezle/libs/Shared/Component/Physics/PhysicsComponent.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Beezle/libs/Shared/System/Physics/PhysicsSystem.m" afterPath="$PROJECT_DIR$/Beezle/libs/Shared/System/Physics/PhysicsSystem.m" />
     </list>
     <ignored path="Beezle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,7 +101,11 @@
     <disable_hints />
   </component>
   <component name="FavoritesManager">
-    <favorites_list name="Beezle" />
+    <favorites_list name="Beezle">
+      <favorite_root url="2C74B408156FAD1E00596A22" type="Xcode.pbxref" klass="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
+      <favorite_root url="2C74B402156FA7A400596A22" type="Xcode.pbxref" klass="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
+      <favorite_root url="2CEA3288145F66F7000FF575" type="Xcode.pbxref" klass="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
+    </favorites_list>
   </component>
   <component name="FileEditorManager">
     <leaf />
@@ -120,7 +184,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -131,292 +195,7 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="DirectoryView.Xcode">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeDirectoryView$1$1" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Products" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sprites" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sprites" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Animations" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sprites" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Animations" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bee" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Entities" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Entities" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bee" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Classes" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Classes" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="System" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Classes" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="System" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Control" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beezle" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Classes" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Component" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
@@ -427,21 +206,21 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="102" />
-    <property name="options.lastSelected" value="fileTemplates" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Objective-C" />
     <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="109" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="903" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="901" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="903" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="107" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="104" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="FullScreen" value="false" />
     <property name="OBJC.PRESERVED_TARGET_SELECTION" value="" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager" selected="Application.Beezle">
     <configuration default="true" type="AppleRunConfiguration" factoryName="Application" PROJECT_NAME="Beezle" TARGET_NAME="Beezle" CONFIG_NAME="Debug" DESTINATION_ID="iphonesimulator_5.1_1" RUN_TARGET_PROJECT_NAME="Beezle" RUN_TARGET_NAME="Beezle" PASS_PARENT_ENVS="FALSE" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
@@ -501,27 +280,47 @@
     <option name="localTasksCounter" value="4" />
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="687" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3263328" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6058158" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46543002" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28162292" sideWeight="0.50080776" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980111" sideWeight="0.6728499" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41195476" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39966273" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="false" weight="0.3293556" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288364" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28162292" sideWeight="0.4878837" order="2" side_tool="false" content_ui="tabs" x="433" y="69" width="414" height="593" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279483" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5250404" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46543002" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3263328" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39966273" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -579,20 +378,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Beezle/Classes/Component/SlingerComponent.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="176" selection-end="176" vertical-scroll-proportion="0.025337838">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Beezle/Classes/Component/SlingerComponent.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="24" selection-start="164" selection-end="164" vertical-scroll-proportion="0.2027027">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Beezle/Classes/Component/FollowComponent.m">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="4" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0">
@@ -611,21 +396,12 @@
     </entry>
     <entry file="file://$USER_HOME$/Downloads/Chipmunk-6.1.1/Demo/Planet.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.7483108">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.7483108" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Beezle/libs/Shared/Component/Physics/PhysicsComponent.h">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="11" selection-start="304" selection-end="304" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Beezle/Classes/System/Control/FollowControlSystem.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="11" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -688,13 +464,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Beezle/Classes/AppDelegate.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="36" selection-start="2156" selection-end="2156" vertical-scroll-proportion="1.722973">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Beezle/Classes/System/Control/FollowControlSystem.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="11" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Beezle/Classes/System/Control/FollowControlSystem.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="0" selection-start="2139" selection-end="2139" vertical-scroll-proportion="1.3682432">
+        <state line="60" column="13" selection-start="1336" selection-end="1336" vertical-scroll-proportion="0.3716216">
           <folding>
             <element signature="e#145#176#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Beezle/Resources/Sprites/Textures/Ice/C/C12-Ice.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>
