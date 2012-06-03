@@ -21,13 +21,13 @@
 #import "TransformComponent.h"
 #import "Utils.h"
 
-#define SLINGER_POWER_SENSITIVITY 7.5f
-#define SLINGER_MIN_POWER 100
-#define SLINGER_MAX_POWER 400
-#define SLINGER_AIM_SENSITIVITY 7.0f
-#define SLINGER_STRETCH_SOUND_SCALE 0.8f
-#define SCALE_AT_MIN_POWER 1.0f
-#define SCALE_AT_MAX_POWER 0.5f
+static const float SLINGER_POWER_SENSITIVITY = 7.5f;
+static const int SLINGER_MIN_POWER = 100;
+static const int SLINGER_MAX_POWER = 400;
+static const float SLINGER_AIM_SENSITIVITY = 7.0f;
+static const float SLINGER_STRETCH_SOUND_SCALE = 0.8f;
+static const float SCALE_AT_MIN_POWER = 1.0f;
+static const float SCALE_AT_MAX_POWER = 0.5f;
 
 @interface SlingerControlSystem()
 

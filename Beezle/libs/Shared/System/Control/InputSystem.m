@@ -9,7 +9,7 @@
 #import "InputSystem.h"
 #import "InputAction.h"
 
-#define DISTANCE_FROM_EDGE_FOR_TOUCH_CANCEL 8
+static const int DISTANCE_FROM_EDGE_FOR_TOUCH_CANCEL = 8;
 
 @interface InputSystem()
 
