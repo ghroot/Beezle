@@ -18,10 +18,10 @@ typedef enum
 {
 	// Transient
 	FollowControlState _state;
-	CGPoint _startLocation;
+	CGPoint _location;
 }
 
 @property (nonatomic) FollowControlState state;
-@property (nonatomic) CGPoint startLocation;
+@property (nonatomic) CGPoint location;
 
 @end

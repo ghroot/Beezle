@@ -11,14 +11,11 @@
 @implementation FollowComponent
 
 @synthesize state = _state;
-@synthesize startLocation = _startLocation;
+@synthesize location = _location;
 
 -(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
-	if (self = [super init])
-	{
-
-	}
+	self = [super init];
 	return self;
 }
 
