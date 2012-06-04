@@ -195,7 +195,7 @@
         [animationActions addObject:animationAction];
     }
 	[_sprite setDisplayFrameWithAnimationName:[animationNames objectAtIndex:0] index:0];
-    CCSequence *sequenceAction = [CCSequence actionsWithArray:animationActions];
+    CCSequence *sequenceAction = [CCSequence actionWithArray:animationActions];
     CCRepeatForever *repeatForeverAction = [CCRepeatForever actionWithAction:sequenceAction];
     [repeatForeverAction setTag:ACTION_TAG_ANIMATION];
     [_sprite runAction:repeatForeverAction];
@@ -220,7 +220,7 @@
 		}
     }
 	[_sprite setDisplayFrameWithAnimationName:[animationNames objectAtIndex:0] index:0];
-    CCSequence *sequenceAction = [CCSequence actionsWithArray:animationActions];
+    CCSequence *sequenceAction = [CCSequence actionWithArray:animationActions];
     [sequenceAction setTag:ACTION_TAG_ANIMATION];
     [_sprite runAction:sequenceAction];
 }

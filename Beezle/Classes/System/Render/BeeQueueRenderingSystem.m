@@ -459,7 +459,7 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 	[actions addObject:decreaseMovingBeesCountAction];
 	[actions addObject:[self createSwayAction:targetPosition]];
 	[[beeQueueRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
-	CCAction *sequence = [CCSequence actionsWithArray:actions];
+	CCAction *sequence = [CCSequence actionWithArray:actions];
 	[sequence setTag:ACTION_TAG_BEE_QUEUE];
 	[[beeQueueRenderSprite sprite] runAction:sequence];
 	
@@ -491,7 +491,7 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 		CCCallFunc *decreaseMovingBeesCountAction2 = [CCCallFunc actionWithTarget:self selector:@selector(decreaseMovingBeesCount)];
 		[reusedBeeActions addObject:decreaseMovingBeesCountAction2];
 		[reusedBeeActions addObject:[self createSwayAction:endOfQueuePosition]];
-		CCSequence *sequence2 = [CCSequence actionsWithArray:reusedBeeActions];
+		CCSequence *sequence2 = [CCSequence actionWithArray:reusedBeeActions];
 		[sequence2 setTag:ACTION_TAG_BEE_QUEUE];
 		[[reusedBeeQueueRenderSprite sprite] runAction:sequence2];
 	}

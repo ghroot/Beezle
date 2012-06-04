@@ -1,8 +1,7 @@
 /*
  * cocos2d for iPhone: http://www.cocos2d-iphone.org
  *
- * Copyright (c) 2008-2010 Ricardo Quesada
- * Copyright (c) 2011 Zynga Inc.
+ * Copyright (c) 2012 Zynga Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,12 +22,50 @@
  * THE SOFTWARE.
  */
 
+#import "CCNode+Debug.h"
 
-#import <Foundation/Foundation.h>
-#import "cocos2d.h"
-static NSString *version = @"cocos2d v2.0.0-rc2";
+#ifdef DEBUG
 
-NSString *cocos2dVersion()
+@implementation CCNode (Debug)
+
+-(void) walkSceneGraph:(NSUInteger)level
 {
-	return version;
+	char buf[64];
+	NSUInteger i=0;
+	for( i=0; i<level+1; i++)
+		buf[i] = '-';
+	buf[i] = 0;
+	
+
+	if(children_) {
+		
+		[self sortAllChildren];
+		
+		ccArray *arrayData = children_->data;
+		i = 0;
+		
+		// draw children zOrder < 0
+		for( ; i < arrayData->num; i++ ) {
+			CCNode *child = arrayData->arr[i];
+			if ( [child zOrder] < 0 )
+				[child walkSceneGraph:level+1];
+			else
+				break;
+		}
+		
+		// self draw
+		NSLog(@"walk tree: %s> %@ %p", buf, self, self);
+		
+		// draw children zOrder >= 0
+		for( ; i < arrayData->num; i++ ) {
+			CCNode *child =  arrayData->arr[i];
+			[child walkSceneGraph:level+1];
+		}
+		
+	} else
+		NSLog(@"walk tree: %s> %@ %p", buf, self, self);
+	
 }
+@end
+
+#endif // DEBUG

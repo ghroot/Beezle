@@ -1,8 +1,7 @@
 /*
  * cocos2d for iPhone: http://www.cocos2d-iphone.org
  *
- * Copyright (c) 2008-2010 Ricardo Quesada
- * Copyright (c) 2011 Zynga Inc.
+ * Copyright (c) 2012 Zynga Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,12 +22,18 @@
  * THE SOFTWARE.
  */
 
+#import "CCNode.h"
 
-#import <Foundation/Foundation.h>
-#import "cocos2d.h"
-static NSString *version = @"cocos2d v2.0.0-rc2";
+#ifdef DEBUG
 
-NSString *cocos2dVersion()
-{
-	return version;
-}
+/** Debugging extensions of CCNode.
+ They are available when the DEBUG macro is defined at compile time
+ */
+@interface CCNode (Debug)
+
+/** prints on the debug console the scene graph */
+-(void) walkSceneGraph:(NSUInteger)level;
+
+@end
+
+#endif // DEBUG

@@ -94,7 +94,7 @@
 		}];
 		[actions addObject:callBlockAction2];
 		
-		CCSequence *sequenceAction = [CCSequence actionsWithArray:actions];
+		CCSequence *sequenceAction = [CCSequence actionWithArray:actions];
 		[[[CCDirector sharedDirector] actionManager] addAction:sequenceAction target:self paused:FALSE];
 	}
 }

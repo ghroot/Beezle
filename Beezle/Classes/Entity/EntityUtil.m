@@ -264,7 +264,7 @@
 			[actions addObject:callBlockAction];
 		}
 		
-		[[renderSprite sprite] runAction:[CCSequence actionsWithArray:actions]];
+		[[renderSprite sprite] runAction:[CCSequence actionWithArray:actions]];
 	}
 	if ([self isEntityDisposable:entity])
 	{
