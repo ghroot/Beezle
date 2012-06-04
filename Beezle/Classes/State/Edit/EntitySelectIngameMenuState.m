@@ -12,6 +12,7 @@
 #import "EntityFactory.h"
 #import "Game.h"
 #import "LevelOrganizer.h"
+#import "EntityDescriptionCache.h"
 
 @interface EntitySelectIngameMenuState()
 
@@ -281,7 +282,7 @@
 
 -(NSArray *) getAllClirrAnimationNames
 {
-    EntityDescription *clirrEntityDescription = [EntityFactory getEntityDescription:@"CLIRR"];
+	EntityDescription *clirrEntityDescription = [[EntityDescriptionCache sharedCache] entityDescriptionByType:@"CLIRR"];
 	NSDictionary *clirrRenderComponentDict = [[clirrEntityDescription typeComponentsDict] objectForKey:@"render"];
 	NSDictionary *clirrRenderSpriteDict = [[clirrRenderComponentDict objectForKey:@"sprites"] lastObject];
 	NSString *clirrAnimationsFile = [clirrRenderSpriteDict objectForKey:@"animationFile"];

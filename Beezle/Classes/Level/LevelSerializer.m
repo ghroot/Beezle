@@ -13,6 +13,9 @@
 #import "LevelLayout.h"
 #import "LevelLayoutEntry.h"
 #import "LevelOrganizer.h"
+#import "GCpShapeCache.h"
+#import "EntityDescription.h"
+#import "EntityDescriptionCache.h"
 
 #define LEVEL_LAYOUT_FORMAT 2
 
@@ -142,7 +145,25 @@
 			
 			instanceComponentsDict = mutableInstanceComponentsDict;
 		}
-		
+
+		// TEMP: Ignore GLASS and ICE with override values that don't exist
+		if ([type isEqualToString:@"GLASS"] ||
+			[type isEqualToString:@"ICE"])
+		{
+			EntityDescription *entityDescription = [[EntityDescriptionCache sharedCache] entityDescriptionByType:type];
+			NSDictionary *physicsTypeComponentDict = [[entityDescription typeComponentsDict] objectForKey:@"physics"];
+			NSString *shapesFileName = [physicsTypeComponentDict objectForKey:@"file"];
+			[[GCpShapeCache sharedShapeCache] addShapesWithFile:shapesFileName];
+
+			NSDictionary *physicsInstanceComponentDict = [instanceComponentsDict objectForKey:@"physics"];
+			NSString *overrideBodyName = [physicsInstanceComponentDict objectForKey:@"overrideBodyName"];
+			if (overrideBodyName != nil &&
+				[[GCpShapeCache sharedShapeCache] createBodyWithName:overrideBodyName] == nil)
+			{
+				continue;
+			}
+		}
+
 		[levelLayoutEntry setType:[NSString stringWithString:type]];
 		[levelLayoutEntry setInstanceComponentsDict:instanceComponentsDict];
 		

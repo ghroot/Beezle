@@ -15,7 +15,6 @@
 
 +(EntityDescriptionCache *) sharedCache;
 
--(void) addEntityDescription:(EntityDescription *)entityDescription;
 -(EntityDescription *) entityDescriptionByType:(NSString *)type;
 -(void) purgeCachedData;
 

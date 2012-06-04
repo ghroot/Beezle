@@ -253,8 +253,8 @@ static const int AIM_POLLEN_LAYERS = 2;
 
 +(Entity *) createEntity:(NSString *)type world:(World *)world instanceComponentsDict:(NSDictionary *)instanceComponentsDict edit:(BOOL)edit
 {
-	EntityDescription *entityDescription = [self getEntityDescription:type];
-	
+	EntityDescription *entityDescription = [[EntityDescriptionCache sharedCache] entityDescriptionByType:type];
+
 	if (entityDescription == nil)
 	{
 		NSLog(@"WARNING: Entity type not found: %@", type);
@@ -280,7 +280,7 @@ static const int AIM_POLLEN_LAYERS = 2;
 			![entity hasComponent:[RenderComponent class]])
 		{
 			NSString *spawnType = [[SpawnComponent getFrom:entity] entityType];
-			EntityDescription *spawnEntityDescription = [self getEntityDescription:spawnType];
+			EntityDescription *spawnEntityDescription = [[EntityDescriptionCache sharedCache] entityDescriptionByType:spawnType];
 			NSDictionary *renderTypeComponentDict = [[spawnEntityDescription typeComponentsDict] objectForKey:@"render"];
 			if (renderTypeComponentDict != nil)
 			{
@@ -313,20 +313,6 @@ static const int AIM_POLLEN_LAYERS = 2;
 	return entity;
 }
 
-+(EntityDescription *) getEntityDescription:(NSString *)type
-{
-	EntityDescription *entityDescription = [[EntityDescriptionCache sharedCache] entityDescriptionByType:type];
-	if (entityDescription == nil)
-	{
-		entityDescription = [[EntityDescriptionLoader sharedLoader] loadEntityDescription:type];
-		if (entityDescription != nil)
-		{
-			[[EntityDescriptionCache sharedCache] addEntityDescription:entityDescription];
-		}
-	}
-	return entityDescription;
-}
-
 +(Entity *) createEntity:(NSString *)type world:(World *)world edit:(BOOL)edit
 {
 	return [self createEntity:type world:world instanceComponentsDict:nil edit:edit];
@@ -355,7 +341,7 @@ static const int AIM_POLLEN_LAYERS = 2;
     Entity *aimPollenEntity = [self createEntity:@"AIM-POLLEN" world:world];
 	
 	// Clone bee's physics component
-	EntityDescription *beeEntityDescription = [self getEntityDescription:[beeType name]];
+	EntityDescription *beeEntityDescription = [[EntityDescriptionCache sharedCache] entityDescriptionByType:[beeType name]];
 	NSDictionary *beePhysicsDict = [[beeEntityDescription typeComponentsDict] objectForKey:@"physics"];
     PhysicsComponent *physicsComponent = [PhysicsComponent componentWithTypeComponentDict:beePhysicsDict andInstanceComponentDict:nil world:world];
 	[physicsComponent setLayers:AIM_POLLEN_LAYERS];

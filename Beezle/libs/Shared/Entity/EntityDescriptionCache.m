@@ -7,6 +7,7 @@
 //
 
 #import "EntityDescriptionCache.h"
+#import "EntityDescriptionLoader.h"
 
 @implementation EntityDescriptionCache
 
@@ -36,14 +37,18 @@
 	[super dealloc];
 }
 
--(void) addEntityDescription:(EntityDescription *)entityDescription
-{
-	[_entityDescriptionsByType setObject:entityDescription forKey:[entityDescription type]];
-}
-
 -(EntityDescription *) entityDescriptionByType:(NSString *)type
 {
-	return [_entityDescriptionsByType objectForKey:type];
+	EntityDescription *entityDescription = [_entityDescriptionsByType objectForKey:type];
+	if (entityDescription == nil)
+	{
+		entityDescription = [[EntityDescriptionLoader sharedLoader] loadEntityDescription:type];
+		if (entityDescription != nil)
+		{
+			[_entityDescriptionsByType setObject:entityDescription forKey:[entityDescription type]];
+		}
+	}
+	return entityDescription;
 }
 
 -(void) purgeCachedData

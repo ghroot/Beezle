@@ -28,6 +28,4 @@
 +(Entity *) createSimpleAnimatedEntity:(World *)world;
 +(Entity *) createSimpleAnimatedEntity:(World *)world animationFile:(NSString *)animationFile;
 
-+(EntityDescription *) getEntityDescription:(NSString *)type;
-
 @end
