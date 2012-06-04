@@ -34,6 +34,7 @@
 		[_systems addObject:[gameplayState inputSystem]];
 		[_systems addObject:[gameplayState beeExpirationSystem]];
 		[_systems addObject:[gameplayState explodeControlSystem]];
+		[_systems addObject:[gameplayState disintegrateControlSystem]];
 		[_systems addObject:[gameplayState followControlSystem]];
 		[_systems addObject:[gameplayState freezeSystem]];
 		[_systems addObject:[gameplayState beeaterSystem]];

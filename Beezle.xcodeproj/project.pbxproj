@@ -1525,6 +1525,8 @@
 		2CF8E0F61576B45F0052F33B /* FollowComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F33A /* FollowComponent.m */; };
 		2CF8E0F61576B45F0052F33E /* Mumee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F33D /* Mumee.plist */; };
 		2CF8E0F61576B45F0052F340 /* Mumee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F33F /* Mumee-Animations.plist */; };
+		2CF8E0F61576B45F0052F343 /* DisintegrateComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F342 /* DisintegrateComponent.m */; };
+		2CF8E0F61576B45F0052F346 /* DisintegrateControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F345 /* DisintegrateControlSystem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3378,6 +3380,10 @@
 		2CF8E0F61576B45F0052F33C /* FollowComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowComponent.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F33D /* Mumee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Mumee.plist; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F33F /* Mumee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Mumee-Animations.plist"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F341 /* DisintegrateComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DisintegrateComponent.h; path = Beezle/libs/Shared/DisintegrateComponent.h; sourceTree = SOURCE_ROOT; };
+		2CF8E0F61576B45F0052F342 /* DisintegrateComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DisintegrateComponent.m; path = Beezle/libs/Shared/DisintegrateComponent.m; sourceTree = SOURCE_ROOT; };
+		2CF8E0F61576B45F0052F344 /* DisintegrateControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DisintegrateControlSystem.h; path = Beezle/libs/Shared/System/DisintegrateControlSystem.h; sourceTree = SOURCE_ROOT; };
+		2CF8E0F61576B45F0052F345 /* DisintegrateControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DisintegrateControlSystem.m; path = Beezle/libs/Shared/System/DisintegrateControlSystem.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4107,6 +4113,8 @@
 		2C74B52A156FAD3900596A22 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F342 /* DisintegrateComponent.m */,
+				2CF8E0F61576B45F0052F341 /* DisintegrateComponent.h */,
 				2C74B52B156FAD3900596A22 /* DisposableComponent.h */,
 				2C74B52C156FAD3900596A22 /* DisposableComponent.m */,
 				2C74B52D156FAD3900596A22 /* HealthComponent.h */,
@@ -4228,6 +4236,8 @@
 		2C74B560156FAD3900596A22 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F345 /* DisintegrateControlSystem.m */,
+				2CF8E0F61576B45F0052F344 /* DisintegrateControlSystem.h */,
 				2C74B561156FAD3900596A22 /* InputAction.h */,
 				2C74B562156FAD3900596A22 /* InputAction.m */,
 				2C74B563156FAD3900596A22 /* InputSystem.h */,
@@ -7852,6 +7862,8 @@
 				2C7D9397157D516E00CC7128 /* vec2.c in Sources */,
 				2C7D9398157D516E00CC7128 /* vec3.c in Sources */,
 				2C7D9399157D516E00CC7128 /* vec4.c in Sources */,
+				2CF8E0F61576B45F0052F343 /* DisintegrateComponent.m in Sources */,
+				2CF8E0F61576B45F0052F346 /* DisintegrateControlSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

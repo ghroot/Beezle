@@ -42,6 +42,7 @@
 #import "WaterWaveSystem.h"
 #import "WoodSystem.h"
 #import "FollowControlSystem.h"
+#import "DisintegrateControlSystem.h"
 
 @interface GameplayState()
 
@@ -65,6 +66,7 @@
 @synthesize beeQueueRenderingSystem = _beeQueueRenderingSystem;
 @synthesize capturedSystem = _capturedSystem;
 @synthesize collisionSystem = _collisionSystem;
+@synthesize disintegrateControlSystem = _disintegrateControlSystem;
 @synthesize disposalSystem = _disposalSystem;
 @synthesize explodeControlSystem = _explodeControlSystem;
 @synthesize freezeSystem = _freezeSystem;
@@ -164,6 +166,8 @@
 	[systemManager setSystem:_slingerControlSystem];
 	_aimPollenShooterSystem = [AimPollenShooterSystem system];
 	[systemManager setSystem:_aimPollenShooterSystem];
+	_disintegrateControlSystem = [DisintegrateControlSystem system];
+	[systemManager setSystem:_disintegrateControlSystem];
 	_followControlSystem = [FollowControlSystem system];
 	[systemManager setSystem:_followControlSystem];
 	_freezeSystem = [FreezeSystem system];

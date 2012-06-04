@@ -31,8 +31,8 @@
 
 -(id) init
 {
-    self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[ExplodeComponent class], [RenderComponent class], nil]];
-    return self;
+    self = [super initWithUsedComponentClass:[ExplodeComponent class]];
+	return self;
 }
 
 -(void) initialise

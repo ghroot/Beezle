@@ -36,6 +36,7 @@
 @class WaterWaveSystem;
 @class WoodSystem;
 @class FollowControlSystem;
+@class DisintegrateControlSystem;
 
 @interface GameplayState : GameState
 {
@@ -66,6 +67,7 @@
 	ShardSystem *_shardSystem;
     SlingerControlSystem *_slingerControlSystem;
 	AimPollenShooterSystem *_aimPollenShooterSystem;
+	DisintegrateControlSystem *_disintegrateControlSystem;
 	FollowControlSystem *_followControlSystem;
 	SpawnSystem *_spawnSystem;
 	WoodSystem *_woodSystem;
@@ -86,6 +88,7 @@
 @property (nonatomic, readonly) BeeQueueRenderingSystem *beeQueueRenderingSystem;
 @property (nonatomic, readonly) CapturedSystem *capturedSystem;
 @property (nonatomic, readonly) CollisionSystem *collisionSystem;
+@property (nonatomic, readonly) DisintegrateControlSystem *disintegrateControlSystem;
 @property (nonatomic, readonly) DisposalSystem *disposalSystem;
 @property (nonatomic, readonly) ExplodeControlSystem *explodeControlSystem;
 @property (nonatomic, readonly) FollowControlSystem *followControlSystem;
