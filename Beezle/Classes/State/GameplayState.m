@@ -51,7 +51,7 @@
 -(void) createModes;
 -(void) loadLevel;
 -(void) enterMode:(GameMode *)mode;
--(void) updateMode;
+-(void) updateMode:(float)delta;
 -(void) showLabel:(NSString *)labelText;
 
 @end
@@ -267,7 +267,7 @@
 	[_world loopStart];
 	[_world setDelta:(int)(1000.0f * delta)];
     
-    [self updateMode];
+    [self updateMode:delta];
 }
 
 -(void) enterMode:(GameMode *)mode
@@ -277,9 +277,9 @@
     [_currentMode enter];
 }
 
--(void) updateMode
+-(void) updateMode:(float)delta
 {
-	[_currentMode update];
+	[_currentMode update:delta];
 	
 	GameMode *nextMode = [_currentMode nextMode];
 	if (nextMode != nil)

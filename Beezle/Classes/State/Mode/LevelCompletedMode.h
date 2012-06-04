@@ -17,6 +17,7 @@
 	CCLayer *_uiLayer;
 	LevelSession *_levelSession;
 	BOOL _hasTurnedBeesIntoPollen;
+	float _timeInSecondsUntilDialog;
 	LevelCompletedDialog *_levelCompletedDialog;
 }
 

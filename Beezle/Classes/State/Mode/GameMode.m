@@ -47,7 +47,7 @@
     }
 }
 
--(void) update
+-(void) update:(float)delta
 {
 	[self processSystems];
 }

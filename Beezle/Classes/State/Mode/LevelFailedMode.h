@@ -16,6 +16,7 @@
 {
 	CCLayer *_uiLayer;
 	LevelSession *_levelSession;
+	float _timeInSecondsUntilDialog;
 	LevelFailedDialog *_levelFailedDialog;
 }
 

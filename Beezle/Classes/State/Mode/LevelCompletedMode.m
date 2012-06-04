@@ -16,6 +16,8 @@
 #import "SessionTracker.h"
 #import "SlingerComponent.h"
 
+static const float DIALOG_DELAY_IN_SECONDS = 0.2f;
+
 @interface LevelCompletedMode()
 
 -(void) updateLevelSessionWithNumberOfUnusedBees;
@@ -55,20 +57,27 @@
 	[super enter];
 	
 	[[SessionTracker sharedTracker] trackCompletedLevel:[_levelSession levelName]];
+
+	_timeInSecondsUntilDialog = DIALOG_DELAY_IN_SECONDS;
 }
 
--(void) update
+-(void) update:(float)delta
 {
-	[super update];
+	[super update:delta];
 	
 	if (_hasTurnedBeesIntoPollen)
 	{
 		if (_levelCompletedDialog == nil &&
-			![[_gameplayState beeQueueRenderingSystem] isBusy])
+			![[_gameplayState beeQueueRenderingSystem] isBusy] &&
+			_timeInSecondsUntilDialog > 0)
 		{
-			[self updateLevelSessionWithNumberOfUnusedBees];
-			[self showLevelCompleteDialog];
-			[[PlayerInformation sharedInformation] storeAndSave:_levelSession];
+			_timeInSecondsUntilDialog -= delta;
+			if (_timeInSecondsUntilDialog <= 0)
+			{
+				[self updateLevelSessionWithNumberOfUnusedBees];
+				[self showLevelCompleteDialog];
+				[[PlayerInformation sharedInformation] storeAndSave:_levelSession];
+			}
 		}
 	}
 	else

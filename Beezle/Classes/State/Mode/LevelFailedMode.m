@@ -13,6 +13,8 @@
 #import "LevelSession.h"
 #import "SessionTracker.h"
 
+static const float DIALOG_DELAY_IN_SECONDS = 1.0f;
+
 @interface LevelFailedMode()
 
 -(void) showLevelFailedDialog;
@@ -51,15 +53,22 @@
 	[super enter];
 	
 	[[SessionTracker sharedTracker] trackFailedLevel:[_levelSession levelName]];
+
+	_timeInSecondsUntilDialog = DIALOG_DELAY_IN_SECONDS;
 }
 
--(void) update
+-(void) update:(float)delta
 {
-    [super update];
+    [super update:delta];
     
-	if (_levelFailedDialog == nil)
+	if (_levelFailedDialog == nil &&
+		_timeInSecondsUntilDialog > 0)
 	{
-		[self showLevelFailedDialog];
+		_timeInSecondsUntilDialog -= delta;
+		if (_timeInSecondsUntilDialog <= 0)
+		{
+			[self showLevelFailedDialog];
+		}
 	}
 }
 

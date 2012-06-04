@@ -17,7 +17,7 @@
 }
 
 -(void) enter;
--(void) update;
+-(void) update:(float)delta;
 -(void) leave;
 
 -(id) initWithGameplayState:(GameplayState *)gameplayState;
