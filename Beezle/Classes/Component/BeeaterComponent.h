@@ -19,9 +19,19 @@
     // Type
     NSString *_showBeeAnimationNameFormat;
     StringCollection *_showBeeBetweenAnimationNames;
+	StringCollection *_synchronisedBodyAnimationNames;
+	StringCollection *_synchronisedHeadAnimationNames;
+
+	// Transient
+	int _synchronisedAnimationCountdown;
 }
 
-@property (nonatomic, copy) NSString *showBeeAnimationNameFormat;
-@property (nonatomic, readonly) StringCollection *showBeeBetweenAnimationNames;
+-(NSString *) headAnimationNameForBeeType:(BeeType *)beeType string:(NSString *)string;
+-(NSString *) randomBetweenHeadAnimationName;
+-(void) resetSynchronisedAnimationCountdown;
+-(void) decreaseSynchronisedAnimationCountdown;
+-(BOOL) hasSynchronisedAnimationCountdownReachedZero;
+-(NSString *) randomSynchronisedBodyAnimationName;
+-(NSString *) randomSynchronisedHeadAnimationName;
 
 @end

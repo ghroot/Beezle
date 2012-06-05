@@ -39,8 +39,9 @@
 
 -(void) addStringsFromDictionary:(NSDictionary *)dict baseName:(NSString *)baseName
 {
-    if ([dict objectForKey:baseName] != nil)
-    {
+    if ([dict objectForKey:baseName] != nil &&
+		[[dict objectForKey:baseName] length] > 0)
+	{
         [self addString:[dict objectForKey:baseName]];
     }
     
@@ -49,7 +50,10 @@
     {
         for (NSString *string in [dict objectForKey:pluralName])
         {
-            [self addString:string];
+			if ([string length] > 0)
+			{
+            	[self addString:string];
+			}
         }
     }
 }

@@ -14,7 +14,6 @@
 #import "NotificationTypes.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
-#import "StringCollection.h"
 
 @interface BeeaterSystem()
 
@@ -62,11 +61,40 @@
 -(void) entityAdded:(Entity *)entity
 {
 	[self animateBeeater:entity];
+
+	BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:entity];
+	if ([beeaterComponent randomSynchronisedBodyAnimationName] != nil &&
+		[beeaterComponent randomSynchronisedHeadAnimationName] != nil)
+	{
+		[beeaterComponent resetSynchronisedAnimationCountdown];
+	}
 }
 
 -(void) begin
 {
 	[_notificationProcessor processNotifications];
+}
+
+-(void) processEntity:(Entity *)entity
+{
+	BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:entity];
+	if (![beeaterComponent hasSynchronisedAnimationCountdownReachedZero])
+	{
+		[beeaterComponent decreaseSynchronisedAnimationCountdown];
+		if ([beeaterComponent hasSynchronisedAnimationCountdownReachedZero])
+		{
+			RenderComponent *renderComponent = [RenderComponent getFrom:entity];
+
+			RenderSprite *bodyRenderSprite = [renderComponent renderSpriteWithName:@"body"];
+			[bodyRenderSprite playAnimationOnce:[beeaterComponent randomSynchronisedBodyAnimationName] andCallBlockAtEnd:^{
+				[self animateBeeater:entity];
+				[beeaterComponent resetSynchronisedAnimationCountdown];
+			}];
+
+			RenderSprite *headRenderSprite = [renderComponent renderSpriteWithName:@"head"];
+			[headRenderSprite playAnimationOnce:[beeaterComponent randomSynchronisedHeadAnimationName]];
+		}
+	}
 }
 
 -(void) animateBeeater:(Entity *)beeaterEntity
@@ -79,10 +107,9 @@
 	BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:beeaterEntity];
 	CapturedComponent *capturedComponent = [CapturedComponent getFrom:beeaterEntity];
 	RenderSprite *headRenderSprite = [renderComponent renderSpriteWithName:@"head"];
-	NSString *headAnimationName = [NSString stringWithFormat:[beeaterComponent showBeeAnimationNameFormat], @"Idle", [[capturedComponent containedBeeType] capitalizedString]];
-	StringCollection *betweenAnimationNames = [beeaterComponent showBeeBetweenAnimationNames];
-	NSString *firstBetweenAnimationName = [betweenAnimationNames randomString];
-	NSString *secondBetweenAnimationName = [betweenAnimationNames randomString];
+	NSString *headAnimationName = [beeaterComponent headAnimationNameForBeeType:[capturedComponent containedBeeType] string:@"Idle"];
+	NSString *firstBetweenAnimationName = [beeaterComponent randomBetweenHeadAnimationName];
+	NSString *secondBetweenAnimationName = [beeaterComponent randomBetweenHeadAnimationName];
 	[headRenderSprite playAnimationsLoopAll:[NSArray arrayWithObjects:firstBetweenAnimationName, headAnimationName, secondBetweenAnimationName, headAnimationName, nil]];
 }
 
@@ -125,7 +152,7 @@
 		BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:entity];
 		CapturedComponent *capturedComponent = [CapturedComponent getFrom:entity];
 		RenderSprite *headRenderSprite = [renderComponent renderSpriteWithName:@"head"];
-		NSString *headAnimationName = [NSString stringWithFormat:[beeaterComponent showBeeAnimationNameFormat], @"Still", [[capturedComponent containedBeeType] capitalizedString]];
+		NSString *headAnimationName = [beeaterComponent headAnimationNameForBeeType:[capturedComponent containedBeeType] string:@"Still"];
 		[headRenderSprite playAnimationLoop:headAnimationName];
 	}
 }
