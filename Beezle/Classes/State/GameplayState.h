@@ -37,6 +37,7 @@
 @class WoodSystem;
 @class FollowControlSystem;
 @class DisintegrateControlSystem;
+@class FadeSystem;
 
 @interface GameplayState : GameState
 {
@@ -59,6 +60,7 @@
 	ExplodeControlSystem *_explodeControlSystem;
     GameRulesSystem *_gameRulesSystem;
 	FreezeSystem *_freezeSystem;
+	FadeSystem *_fadeSystem;
 	HUDRenderingSystem *_hudRenderingSystem;
     InputSystem *_inputSystem;
 	MovementSystem *_movementSystem;
@@ -91,6 +93,7 @@
 @property (nonatomic, readonly) DisintegrateControlSystem *disintegrateControlSystem;
 @property (nonatomic, readonly) DisposalSystem *disposalSystem;
 @property (nonatomic, readonly) ExplodeControlSystem *explodeControlSystem;
+@property (nonatomic, readonly) FadeSystem *fadeSystem;
 @property (nonatomic, readonly) FollowControlSystem *followControlSystem;
 @property (nonatomic, readonly) FreezeSystem *freezeSystem;
 @property (nonatomic, readonly) GameRulesSystem *gameRulesSystem;
@@ -106,6 +109,7 @@
 @property (nonatomic, readonly) SpawnSystem *spawnSystem;
 @property (nonatomic, readonly) WoodSystem *woodSystem;
 @property (nonatomic, readonly) WaterWaveSystem *waterWaveSystem;
+
 
 +(id) stateWithLevelName:(NSString *)levelName;
 

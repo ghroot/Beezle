@@ -37,6 +37,7 @@
 		[_systems addObject:[gameplayState disintegrateControlSystem]];
 		[_systems addObject:[gameplayState followControlSystem]];
 		[_systems addObject:[gameplayState freezeSystem]];
+		[_systems addObject:[gameplayState fadeSystem]];
 		[_systems addObject:[gameplayState beeaterSystem]];
 		[_systems addObject:[gameplayState capturedSystem]];
 		[_systems addObject:[gameplayState beeQueueRenderingSystem]];

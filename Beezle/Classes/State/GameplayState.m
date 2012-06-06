@@ -43,6 +43,7 @@
 #import "WoodSystem.h"
 #import "FollowControlSystem.h"
 #import "DisintegrateControlSystem.h"
+#import "FadeSystem.h"
 
 @interface GameplayState()
 
@@ -69,6 +70,7 @@
 @synthesize disintegrateControlSystem = _disintegrateControlSystem;
 @synthesize disposalSystem = _disposalSystem;
 @synthesize explodeControlSystem = _explodeControlSystem;
+@synthesize fadeSystem = _fadeSystem;
 @synthesize freezeSystem = _freezeSystem;
 @synthesize gameRulesSystem = _gameRulesSystem;
 @synthesize healthSystem = _healthSystem;
@@ -84,6 +86,7 @@
 @synthesize waterWaveSystem = _waterWaveSystem;
 @synthesize woodSystem = _woodSystem;
 @synthesize followControlSystem = _followControlSystem;
+
 
 +(id) stateWithLevelName:(NSString *)levelName
 {
@@ -172,6 +175,8 @@
 	[systemManager setSystem:_followControlSystem];
 	_freezeSystem = [FreezeSystem system];
 	[systemManager setSystem:_freezeSystem];
+	_fadeSystem = [FadeSystem system];
+	[systemManager setSystem:_fadeSystem];
 	_beeExpirationSystem = [BeeExpiratonSystem system];
 	[systemManager setSystem:_beeExpirationSystem];
 	_explodeControlSystem = [ExplodeControlSystem system];
@@ -239,7 +244,8 @@
     [_modes release];
     
     [_world release];
-	
+
+	[_fadeSystem release];
 	[super dealloc];
 }
 

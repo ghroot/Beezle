@@ -1528,6 +1528,8 @@
 		2CF8E0F61576B45F0052F343 /* DisintegrateComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F342 /* DisintegrateComponent.m */; };
 		2CF8E0F61576B45F0052F346 /* DisintegrateControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F345 /* DisintegrateControlSystem.m */; };
 		2CF8E0F61576B45F0052F349 /* Bag.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F348 /* Bag.m */; };
+		2CF8E0F61576B45F0052F34C /* FadeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F34B /* FadeComponent.m */; };
+		2CF8E0F61576B45F0052F34F /* FadeSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F34E /* FadeSystem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3387,6 +3389,10 @@
 		2CF8E0F61576B45F0052F345 /* DisintegrateControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DisintegrateControlSystem.m; path = Beezle/libs/Shared/System/DisintegrateControlSystem.m; sourceTree = SOURCE_ROOT; };
 		2CF8E0F61576B45F0052F348 /* Bag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bag.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F34A /* Bag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bag.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F34B /* FadeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadeComponent.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F34D /* FadeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeComponent.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F34E /* FadeSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadeSystem.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F350 /* FadeSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeSystem.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3755,6 +3761,8 @@
 		2C74B40B156FAD1E00596A22 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F34D /* FadeComponent.h */,
+				2CF8E0F61576B45F0052F34B /* FadeComponent.m */,
 				2CF8E0F61576B45F0052F33C /* FollowComponent.h */,
 				2CF8E0F61576B45F0052F33A /* FollowComponent.m */,
 				2C74B40C156FAD1E00596A22 /* BeeaterComponent.h */,
@@ -3983,6 +3991,8 @@
 		2C74B48B156FAD1E00596A22 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F350 /* FadeSystem.h */,
+				2CF8E0F61576B45F0052F34E /* FadeSystem.m */,
 				2C74B48C156FAD1E00596A22 /* AimPollenShooterSystem.h */,
 				2C74B48D156FAD1E00596A22 /* AimPollenShooterSystem.m */,
 				2C74B48E156FAD1E00596A22 /* BeeaterSystem.h */,
@@ -7878,6 +7888,8 @@
 				2CF8E0F61576B45F0052F343 /* DisintegrateComponent.m in Sources */,
 				2CF8E0F61576B45F0052F346 /* DisintegrateControlSystem.m in Sources */,
 				2CF8E0F61576B45F0052F349 /* Bag.m in Sources */,
+				2CF8E0F61576B45F0052F34C /* FadeComponent.m in Sources */,
+				2CF8E0F61576B45F0052F34F /* FadeSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
