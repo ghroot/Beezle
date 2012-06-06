@@ -13,7 +13,7 @@
 			<key>delay</key>
 			<real>1</real>
 		</dict>
-		<key>Sling-Shoot</key>
+		<key>Sling-Shoot-Fast</key>
 		<dict>
 			<key>frames</key>
 			<array>
@@ -25,11 +25,22 @@
 			<key>delay</key>
 			<real>0.05</real>
 		</dict>
+        <key>Sling-Shoot-Slow</key>
+        <dict>
+            <key>frames</key>
+            <array>
+                <string>Tools/Slinger/Slinger-Shoot-1.png</string>
+                <string>Tools/Slinger/Slinger-Shoot-2.png</string>
+                <string>Tools/Slinger/Slinger-Shoot-4.png</string>
+            </array>
+            <key>delay</key>
+            <real>0.08</real>
+        </dict>
         <key>Sling-Addon-Idle</key>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>Tools/Slinger/Slinger-addon.png</string>
+				<string>Tools/Slinger/Slinger-Addon.png</string>
 			</array>
 			<key>delay</key>
 			<real>1</real>

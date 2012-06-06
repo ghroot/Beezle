@@ -97,7 +97,7 @@ static const float SCALE_AT_MAX_POWER = 0.5f;
 					float modifiedPower = power * [[slingerComponent loadedBeeType] slingerShootSpeedModifier];
 					
 					// Trajectory
-					float slingerHeight = 25.0f;
+					float slingerHeight = 28.0f;
 					CGPoint slingerTipVector = CGPointMake(cosf(aimAngle) * slingerHeight, sinf(aimAngle) * slingerHeight);
 					CGPoint tipPosition = CGPointMake([transformComponent position].x + slingerTipVector.x, [transformComponent position].y + slingerTipVector.y);
 					[trajectoryComponent setStartPoint:tipPosition];
@@ -138,7 +138,8 @@ static const float SCALE_AT_MAX_POWER = 0.5f;
 						
                         RenderSprite *mainRenderSprite = [renderComponent renderSpriteWithName:@"main"];
                         [mainRenderSprite setScale:CGPointMake(1.0f, 1.0f)];
-                        [mainRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:@"Sling-Shoot", @"Sling-Idle", nil]];
+						NSString *slingShootAnimationName = ccpLength([trajectoryComponent startVelocity]) >= 100.0f ? @"Sling-Shoot-Fast" : @"Sling-Shoot-Slow";
+                        [mainRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:slingShootAnimationName, @"Sling-Idle", nil]];
                         RenderSprite *addonRenderSprite = [renderComponent renderSpriteWithName:@"addon"];
                         [addonRenderSprite setScale:CGPointMake(1.0f, 0.1f)];
                         
