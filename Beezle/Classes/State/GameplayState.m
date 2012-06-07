@@ -245,7 +245,6 @@
     
     [_world release];
 
-	[_fadeSystem release];
 	[super dealloc];
 }
 
