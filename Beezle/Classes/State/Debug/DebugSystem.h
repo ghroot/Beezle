@@ -9,5 +9,8 @@
 #import "artemis.h"
 
 @interface DebugSystem : EntityComponentSystem
+{
+	ComponentMapper *_transformComponentMapper;
+}
 
 @end

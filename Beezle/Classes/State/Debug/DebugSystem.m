@@ -17,9 +17,25 @@
 	return self;
 }
 
+-(void) dealloc
+{
+	[_transformComponentMapper release];
+
+	[super dealloc];
+}
+
+-(void) initialise
+{
+	_transformComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[TransformComponent class]];
+}
+
 -(void) processEntity:(Entity *)entity
 {
+	// Slow
 	[TransformComponent getFrom:entity];
+
+	// Fast
+	[_transformComponentMapper getComponentFor:entity];
 }
 
 @end

@@ -1530,6 +1530,7 @@
 		2CF8E0F61576B45F0052F34C /* FadeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F34B /* FadeComponent.m */; };
 		2CF8E0F61576B45F0052F34F /* FadeSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F34E /* FadeSystem.m */; };
 		2CF8E0F61576B45F0052F353 /* Bag.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F352 /* Bag.m */; };
+		2CF8E0F61576B45F0052F355 /* ComponentMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F354 /* ComponentMapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3393,6 +3394,8 @@
 		2CF8E0F61576B45F0052F350 /* FadeSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeSystem.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F351 /* Bag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bag.h; path = libs/Bag/Bag.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F352 /* Bag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bag.m; path = libs/Bag/Bag.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F354 /* ComponentMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComponentMapper.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F356 /* ComponentMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentMapper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3443,6 +3446,8 @@
 		2C27E8E414D20577002165CD /* Artemis */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F356 /* ComponentMapper.h */,
+				2CF8E0F61576B45F0052F354 /* ComponentMapper.m */,
 				2C27E8E514D20577002165CD /* artemis.h */,
 				2C27E8E614D20577002165CD /* Component.h */,
 				2C27E8E714D20577002165CD /* Component.m */,
@@ -7890,6 +7895,7 @@
 				2CF8E0F61576B45F0052F34C /* FadeComponent.m in Sources */,
 				2CF8E0F61576B45F0052F34F /* FadeSystem.m in Sources */,
 				2CF8E0F61576B45F0052F353 /* Bag.m in Sources */,
+				2CF8E0F61576B45F0052F355 /* ComponentMapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

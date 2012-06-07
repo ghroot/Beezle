@@ -38,6 +38,7 @@
 @implementation EntityManager
 
 @synthesize entities = _entities;
+@synthesize componentsByClass = _componentsByClass;
 
 -(id) initWithWorld:(World *)world
 {

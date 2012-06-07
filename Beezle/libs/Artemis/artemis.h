@@ -29,6 +29,7 @@
 */
 
 #import "Component.h"
+#import "ComponentMapper.h"
 #import "Entity.h"
 #import "EntityComponentSystem.h"
 #import "EntitySystem.h"

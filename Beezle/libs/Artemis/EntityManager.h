@@ -41,6 +41,7 @@
 }
 
 @property (nonatomic, readonly) NSArray *entities;
+@property (nonatomic, readonly) NSDictionary *componentsByClass;
 
 -(Entity *) createEntity;
 -(void) removeEntity:(Entity *)entity;
