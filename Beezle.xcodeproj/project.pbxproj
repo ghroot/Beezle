@@ -1531,6 +1531,8 @@
 		2CF8E0F61576B45F0052F34F /* FadeSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F34E /* FadeSystem.m */; };
 		2CF8E0F61576B45F0052F353 /* Bag.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F352 /* Bag.m */; };
 		2CF8E0F61576B45F0052F355 /* ComponentMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F354 /* ComponentMapper.m */; };
+		2CF8E0F61576B45F0052F358 /* ComponentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F357 /* ComponentType.m */; };
+		2CF8E0F61576B45F0052F35B /* ComponentTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F35A /* ComponentTypeManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3396,6 +3398,10 @@
 		2CF8E0F61576B45F0052F352 /* Bag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bag.m; path = libs/Bag/Bag.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F354 /* ComponentMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComponentMapper.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F356 /* ComponentMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentMapper.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F357 /* ComponentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComponentType.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F359 /* ComponentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentType.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F35A /* ComponentTypeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComponentTypeManager.m; path = ComponentTypeManager.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F35C /* ComponentTypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComponentTypeManager.h; path = ComponentTypeManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3446,6 +3452,10 @@
 		2C27E8E414D20577002165CD /* Artemis */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F35A /* ComponentTypeManager.m */,
+				2CF8E0F61576B45F0052F35C /* ComponentTypeManager.h */,
+				2CF8E0F61576B45F0052F359 /* ComponentType.h */,
+				2CF8E0F61576B45F0052F357 /* ComponentType.m */,
 				2CF8E0F61576B45F0052F356 /* ComponentMapper.h */,
 				2CF8E0F61576B45F0052F354 /* ComponentMapper.m */,
 				2C27E8E514D20577002165CD /* artemis.h */,
@@ -7896,6 +7906,8 @@
 				2CF8E0F61576B45F0052F34F /* FadeSystem.m in Sources */,
 				2CF8E0F61576B45F0052F353 /* Bag.m in Sources */,
 				2CF8E0F61576B45F0052F355 /* ComponentMapper.m in Sources */,
+				2CF8E0F61576B45F0052F358 /* ComponentType.m in Sources */,
+				2CF8E0F61576B45F0052F35B /* ComponentTypeManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
