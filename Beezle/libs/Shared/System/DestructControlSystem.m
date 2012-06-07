@@ -1,23 +1,23 @@
 //
-//  DisintegrateControlSystem.m
+//  DestructControlSystem.m
 //  Beezle
 //
 //  Created by Marcus Lagerstrom on 06/04/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "DisintegrateControlSystem.h"
+#import "DestructControlSystem.h"
 #import "InputSystem.h"
-#import "DisintegrateComponent.h"
+#import "DestructComponent.h"
 #import "TouchTypes.h"
 #import "InputAction.h"
 #import "EntityUtil.h"
 
-@implementation DisintegrateControlSystem
+@implementation DestructControlSystem
 
 -(id) init
 {
-	self = [super initWithUsedComponentClass:[DisintegrateComponent class]];
+	self = [super initWithUsedComponentClass:[DestructComponent class]];
 	return self;
 }
 

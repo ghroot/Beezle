@@ -1,5 +1,5 @@
 //
-//  DisintegrateControlSystem.h
+//  DestructControlSystem.h
 //  Beezle
 //
 //  Created by Marcus Lagerstrom on 06/04/12.
@@ -10,7 +10,7 @@
 
 @class InputSystem;
 
-@interface DisintegrateControlSystem : EntityComponentSystem
+@interface DestructControlSystem : EntityComponentSystem
 {
 	InputSystem *_inputSystem;
 }

@@ -1,13 +1,13 @@
 //
-//  DisintegrateComponent.h
+//  DestructComponent.m
 //  Beezle
 //
 //  Created by Marcus Lagerstrom on 06/04/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "artemis.h"
+#import "DestructComponent.h"
 
-@interface DisintegrateComponent : Component
+@implementation DestructComponent
 
 @end
