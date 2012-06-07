@@ -114,10 +114,10 @@
 
 -(Component *) getComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity
 {
-	NSMutableDictionary *_componentsByEntity = [_componentsByClass objectForKey:componentClass];
-    if (_componentsByEntity != nil)
+	NSMutableDictionary *componentsByEntity = [_componentsByClass objectForKey:componentClass];
+    if (componentsByEntity != nil)
     {
-        return [_componentsByEntity objectForKey:[entity entityId]];
+        return [componentsByEntity objectForKey:[entity entityId]];
     }
     else
     {
