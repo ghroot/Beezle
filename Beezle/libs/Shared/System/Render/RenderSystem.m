@@ -33,8 +33,11 @@ static const int BATCH_NODE_CAPACITY = 140;
 {
     [_spriteSheetsByName release];
 	[_loadedAnimationsFileNames release];
-    
-    [super dealloc];
+
+	[CCSpriteFrameCache purgeSharedSpriteFrameCache];
+	[CCAnimationCache purgeSharedAnimationCache];
+
+	[super dealloc];
 }
 
 -(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name zOrder:(ZOrder *)zOrder
@@ -113,8 +116,6 @@ static const int BATCH_NODE_CAPACITY = 140;
 			[_layer addChild:[renderSprite sprite] z:[[renderSprite zOrder] z]];
 		}
 	}
-    
-    [super entityAdded:entity];
 }
 
 -(void) entityRemoved:(Entity *)entity
@@ -131,8 +132,6 @@ static const int BATCH_NODE_CAPACITY = 140;
 			[_layer removeChild:[renderSprite sprite] cleanup:TRUE];
 		}
 	}
-    
-    [super entityRemoved:entity];
 }
 
 -(void) processEntity:(Entity *)entity
