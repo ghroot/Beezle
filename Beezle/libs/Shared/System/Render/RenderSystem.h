@@ -14,6 +14,9 @@
 
 @interface RenderSystem : EntityComponentSystem
 {
+	ComponentMapper *_transformComponentMapper;
+	ComponentMapper *_renderComponentMapper;
+
     CCLayer *_layer;
     NSMutableDictionary *_spriteSheetsByName;
 	NSMutableSet *_loadedAnimationsFileNames;

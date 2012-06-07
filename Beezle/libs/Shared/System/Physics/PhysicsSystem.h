@@ -19,6 +19,8 @@
 
 @interface PhysicsSystem : EntityComponentSystem
 {
+	ComponentMapper *_transformComponentMapper;
+	ComponentMapper *_physicsComponentMapper;
     CollisionSystem *_collisionSystem;
     
     ChipmunkSpace *_space;

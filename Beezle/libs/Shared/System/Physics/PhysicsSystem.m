@@ -37,6 +37,9 @@ static const float HALF_TIMESTEP = FIXED_TIMESTEP / 2.0f;
 
 -(void) dealloc
 {
+	[_transformComponentMapper release];
+	[_physicsComponentMapper release];
+
 	[_space release];
     [_loadedShapeFileNames release];
     
@@ -45,7 +48,9 @@ static const float HALF_TIMESTEP = FIXED_TIMESTEP / 2.0f;
 
 -(void) initialise
 {
-    _collisionSystem = (CollisionSystem *)[[_world systemManager] getSystem:[CollisionSystem class]];
+	_transformComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[TransformComponent class]];
+	_physicsComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[PhysicsComponent class]];
+	_collisionSystem = (CollisionSystem *)[[_world systemManager] getSystem:[CollisionSystem class]];
     
 	_space = [[ChipmunkSpace alloc] init];
 	[_space setSleepTimeThreshold:1.0f];
@@ -109,8 +114,8 @@ static const float HALF_TIMESTEP = FIXED_TIMESTEP / 2.0f;
 
 -(void) entityAdded:(Entity *)entity
 {
-    PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
-	
+    PhysicsComponent *physicsComponent = [_physicsComponentMapper getComponentFor:entity];
+
 	if (![[physicsComponent body] isStatic] &&
 		![physicsComponent isRougeBody])
 	{
@@ -134,7 +139,7 @@ static const float HALF_TIMESTEP = FIXED_TIMESTEP / 2.0f;
 
 -(void) entityRemoved:(Entity *)entity
 {
-    PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
+	PhysicsComponent *physicsComponent = [_physicsComponentMapper getComponentFor:entity];
 	
 	if (![[physicsComponent body] isStatic] &&
 		![physicsComponent isRougeBody])
@@ -175,7 +180,7 @@ static const float HALF_TIMESTEP = FIXED_TIMESTEP / 2.0f;
 
 -(void) processEntity:(Entity *)entity
 {
-    PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
+	PhysicsComponent *physicsComponent = [_physicsComponentMapper getComponentFor:entity];
 	
 	if ([physicsComponent positionOrRotationUpdatedManually])
 	{
@@ -191,8 +196,8 @@ static const float HALF_TIMESTEP = FIXED_TIMESTEP / 2.0f;
 		[physicsComponent setPositionOrRotationUpdatedManually:FALSE];
 	}
 
-	TransformComponent *transformComponent = [TransformComponent getFrom:entity];
-    [transformComponent setPosition:[[physicsComponent body] pos]];
+	TransformComponent *transformComponent = [_transformComponentMapper getComponentFor:entity];
+	[transformComponent setPosition:[[physicsComponent body] pos]];
     [transformComponent setRotation:CC_RADIANS_TO_DEGREES(-[[physicsComponent body] angle])];
 }
 

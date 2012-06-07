@@ -31,6 +31,9 @@ static const int BATCH_NODE_CAPACITY = 140;
 
 -(void) dealloc
 {
+	[_transformComponentMapper release];
+	[_renderComponentMapper release];
+
     [_spriteSheetsByName release];
 	[_loadedAnimationsFileNames release];
 
@@ -102,9 +105,15 @@ static const int BATCH_NODE_CAPACITY = 140;
 	return [RenderSprite renderSpriteWithSpriteSheet:spriteSheet zOrder:zOrder];
 }
 
+-(void) initialise
+{
+	_transformComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[TransformComponent class]];
+	_renderComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[RenderComponent class]];
+}
+
 -(void) entityAdded:(Entity *)entity
 {
-    RenderComponent *renderComponent = [RenderComponent getFrom:entity];
+    RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
 	for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
 		if ([renderSprite spriteSheet] != nil)
@@ -120,7 +129,7 @@ static const int BATCH_NODE_CAPACITY = 140;
 
 -(void) entityRemoved:(Entity *)entity
 {
-    RenderComponent *renderComponent = [RenderComponent getFrom:entity];
+	RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
 	for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
 		if ([renderSprite spriteSheet] != nil)
@@ -136,9 +145,8 @@ static const int BATCH_NODE_CAPACITY = 140;
 
 -(void) processEntity:(Entity *)entity
 {
-    TransformComponent *transformComponent = [TransformComponent getFrom:entity];
-    RenderComponent *renderComponent = [RenderComponent getFrom:entity];
-	
+    TransformComponent *transformComponent = [_transformComponentMapper getComponentFor:entity];
+	RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
     for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
 		CGPoint newPosition;
