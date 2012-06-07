@@ -14,6 +14,7 @@
 {
 	World *_world;
 	CCLabelTTF *_label;
+	CCLabelTTF *_label2;
 }
 
 @end

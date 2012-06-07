@@ -38,27 +38,32 @@
 	[_label setAnchorPoint:CGPointMake(0.5f, 0.0f)];
 	[_label setPosition:[Utils getScreenCenterPosition]];
 	[self addChild:_label];
-	
+
+	_label2 = [CCLabelTTF labelWithString:@"Slow" fontName:@"Marker Felt" fontSize:30.0f];
+	[_label2 setAnchorPoint:CGPointMake(0.5f, 1.0f)];
+	[_label2 setPosition:[Utils getScreenCenterPosition]];
+	[self addChild:_label2];
+
     [[_world systemManager] setSystem:[DebugSystem system]];
     [[_world systemManager] initialiseAll];
-    
-	Entity *entity = [_world createEntity];
-	[entity addComponent:[TransformComponent component]];
-	[entity refresh];
+
+	for (int i = 0; i < 100; i++)
+	{
+		Entity *entity = [_world createEntity];
+		[entity addComponent:[TransformComponent component]];
+		[entity refresh];
+	}
 }
 
 -(void) update:(ccTime)delta
 {	
 	[_world loopStart];
 	[_world setDelta:(int)(1000.0f * delta)];
-	
+
 	NSDate *startTime = [NSDate date];
-    
-	for (int i = 0; i < 100000; i++)
-	{
-		[[_world systemManager] processAll];
-	}
-	
+
+	[[_world systemManager] processAll];
+
 	NSDate *endTime = [NSDate date];
 	NSTimeInterval duration = [endTime timeIntervalSinceDate:startTime];
 	[_label setString:[NSString stringWithFormat:@"%f", duration]];
@@ -66,7 +71,26 @@
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-	[_game popState];
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	CGPoint location = [touch locationInView: [touch view]];
+	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+	if (convertedLocation.x < winSize.width / 2)
+	{
+		[_game popState];
+	}
+	else
+	{
+		DebugSystem *debugSystem = (DebugSystem *)[[_world systemManager] getSystem:[DebugSystem class]];
+		[debugSystem setSlow:![debugSystem slow]];
+		if ([debugSystem slow])
+		{
+			[_label2 setString:@"Slow"];
+		}
+		else
+		{
+			[_label2 setString:@"Fast"];
+		}
+	}
     return TRUE;
 }
 

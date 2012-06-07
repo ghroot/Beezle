@@ -3400,8 +3400,8 @@
 		2CF8E0F61576B45F0052F356 /* ComponentMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentMapper.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F357 /* ComponentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComponentType.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F359 /* ComponentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentType.h; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F35A /* ComponentTypeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComponentTypeManager.m; path = ComponentTypeManager.m; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F35C /* ComponentTypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComponentTypeManager.h; path = ComponentTypeManager.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F35A /* ComponentTypeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComponentTypeManager.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F35C /* ComponentTypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentTypeManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -8030,6 +8030,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: KM Lagerstrom (SMJ33Q3Z5B)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -8050,6 +8051,7 @@
 				);
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EAA03D4E-4CA5-4DC1-90AA-892DD801DF52";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
@@ -8060,6 +8062,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: KM Lagerstrom";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
@@ -8081,6 +8084,7 @@
 				OTHER_CFLAGS = "-DNDEBUG";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CC7F4E0F-6102-4812-9E17-CF1E1ABEBF21";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;

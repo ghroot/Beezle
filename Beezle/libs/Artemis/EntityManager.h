@@ -41,7 +41,6 @@
 }
 
 @property (nonatomic, readonly) NSArray *entities;
-@property (nonatomic, readonly) NSDictionary *componentsByClass;
 
 -(Entity *) createEntity;
 -(void) removeEntity:(Entity *)entity;
@@ -53,5 +52,6 @@
 -(Component *) getComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity;
 -(Entity *) getEntity:(NSNumber *)entityId;
 -(NSArray *) getComponents:(Entity *)entity;
+-(NSMutableDictionary *) getComponentsByEntity:(Class)componentClass;
 
 @end

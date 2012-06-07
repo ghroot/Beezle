@@ -14,8 +14,7 @@
 {
 	if (self = [super init])
 	{
-		_componentClass = componentClass;
-		_componentsByEntity = [[entityManager componentsByClass] objectForKey:componentClass];
+		_componentsByEntity = [entityManager getComponentsByEntity:componentClass];
 	}
 	return self;
 }

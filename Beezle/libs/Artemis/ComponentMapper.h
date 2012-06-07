@@ -9,7 +9,6 @@
 
 @interface ComponentMapper : NSObject
 {
-	Class _componentClass;
 	NSMutableDictionary *_componentsByEntity;
 }
 

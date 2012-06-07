@@ -9,11 +9,18 @@
 #import "DebugSystem.h"
 #import "TransformComponent.h"
 
+static const int LOOPS = 1000;
+
 @implementation DebugSystem
+
+@synthesize slow = _slow;
 
 -(id) init
 {
-	self = [super initWithUsedComponentClass:[TransformComponent class]];
+	if (self = [super initWithUsedComponentClass:[TransformComponent class]])
+	{
+		_slow = TRUE;
+	}
 	return self;
 }
 
@@ -31,11 +38,21 @@
 
 -(void) processEntity:(Entity *)entity
 {
-	// Slow
-	[TransformComponent getFrom:entity];
-
-	// Fast
-	[_transformComponentMapper getComponentFor:entity];
+	if (_slow)
+	{
+		for (int i = 0; i < LOOPS; i++)
+		{
+			[TransformComponent getFrom:entity];
+		}
+	}
+	else
+	{
+		for (int i = 0; i < LOOPS; i++)
+		{
+			[_transformComponentMapper getComponentFor:entity];
+		}
+	}
 }
 
 @end
+

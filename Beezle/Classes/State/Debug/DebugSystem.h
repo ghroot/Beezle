@@ -10,7 +10,10 @@
 
 @interface DebugSystem : EntityComponentSystem
 {
+	BOOL _slow;
 	ComponentMapper *_transformComponentMapper;
 }
+
+@property (nonatomic) BOOL slow;
 
 @end

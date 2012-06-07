@@ -38,7 +38,6 @@
 @implementation EntityManager
 
 @synthesize entities = _entities;
-@synthesize componentsByClass = _componentsByClass;
 
 -(id) initWithWorld:(World *)world
 {
@@ -84,12 +83,7 @@
 
 -(void) addComponent:(Component *)component toEntity:(Entity *)entity
 {
-    NSMutableDictionary *componentsByEntity = [_componentsByClass objectForKey:[component class]];
-    if (componentsByEntity == nil)
-    {
-        componentsByEntity = [NSMutableDictionary dictionary];
-        [_componentsByClass setObject:componentsByEntity forKey:[component class]];
-    }
+    NSMutableDictionary *componentsByEntity = [self getComponentsByEntity:[component class]];
     [componentsByEntity setObject:component forKey:[entity entityId]];
 }
 
@@ -109,21 +103,14 @@
 
 -(void) removeComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity
 {
-    NSMutableDictionary *componentsByEntity = [_componentsByClass objectForKey:componentClass];
-    [componentsByEntity removeObjectForKey:[entity entityId]];
+    NSMutableDictionary *componentsByEntity = [self getComponentsByEntity:componentClass];
+	[componentsByEntity removeObjectForKey:[entity entityId]];
 }
 
 -(Component *) getComponentWithClass:(Class)componentClass fromEntity:(Entity *)entity
 {
-	NSMutableDictionary *componentsByEntity = [_componentsByClass objectForKey:componentClass];
-    if (componentsByEntity != nil)
-    {
-        return [componentsByEntity objectForKey:[entity entityId]];
-    }
-    else
-    {
-        return nil;
-    }
+	NSMutableDictionary *componentsByEntity = [self getComponentsByEntity:componentClass];
+	return [componentsByEntity objectForKey:[entity entityId]];
 }
 
 -(Entity *) getEntity:(NSNumber *)entityId
@@ -152,6 +139,17 @@
         }
     }
     return entityComponents;
+}
+
+-(NSMutableDictionary *) getComponentsByEntity:(Class)componentClass
+{
+	NSMutableDictionary *componentsByEntity = [_componentsByClass objectForKey:componentClass];
+	if (componentsByEntity == nil)
+	{
+		componentsByEntity = [NSMutableDictionary dictionary];
+		[_componentsByClass setObject:componentsByEntity forKey:componentClass];
+	}
+	return componentsByEntity;
 }
 
 @end
