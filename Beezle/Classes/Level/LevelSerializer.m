@@ -151,14 +151,24 @@
 			[type isEqualToString:@"ICE"])
 		{
 			EntityDescription *entityDescription = [[EntityDescriptionCache sharedCache] entityDescriptionByType:type];
+
+			// Missing physics body
 			NSDictionary *physicsTypeComponentDict = [[entityDescription typeComponentsDict] objectForKey:@"physics"];
 			NSString *shapesFileName = [physicsTypeComponentDict objectForKey:@"file"];
 			[[GCpShapeCache sharedShapeCache] addShapesWithFile:shapesFileName];
-
 			NSDictionary *physicsInstanceComponentDict = [instanceComponentsDict objectForKey:@"physics"];
 			NSString *overrideBodyName = [physicsInstanceComponentDict objectForKey:@"overrideBodyName"];
 			if (overrideBodyName != nil &&
 				[[GCpShapeCache sharedShapeCache] createBodyWithName:overrideBodyName] == nil)
+			{
+				continue;
+			}
+
+			// Missing image
+			NSDictionary *renderInstanceComponentDict = [instanceComponentsDict objectForKey:@"render"];
+			NSString *overrideTextureFileName = [renderInstanceComponentDict objectForKey:@"overrideTextureFile"];
+			if (overrideTextureFileName != nil &&
+				[CCSprite spriteWithFile:overrideTextureFileName] == nil)
 			{
 				continue;
 			}
