@@ -13,6 +13,9 @@
 
 @interface ShardSystem : EntityComponentSystem
 {
+	ComponentMapper *_shardComponentMapper;
+	ComponentMapper *_physicsComponentMapper;
+
 	NotificationProcessor *_notificationProcessor;
 }
 

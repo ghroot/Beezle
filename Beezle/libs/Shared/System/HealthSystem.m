@@ -33,9 +33,18 @@
 
 -(void) dealloc
 {
+	[_healthComponentMapper release];
+	[_renderComponentMapper release];
+
 	[_notificationProcessor release];
 	
 	[super dealloc];
+}
+
+-(void) initialise
+{
+	_healthComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[HealthComponent class]];
+	_renderComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[RenderComponent class]];
 }
 
 -(void) activate
@@ -59,7 +68,7 @@
 
 -(void) entityAdded:(Entity *)entity
 {
-	HealthComponent *healthComponent = [HealthComponent getFrom:entity];
+	HealthComponent *healthComponent = [_healthComponentMapper getComponentFor:entity];
 	[healthComponent resetHealthPointsLeft];
 }
 
@@ -69,14 +78,14 @@
 	if ([EntityUtil isEntityDisposed:entity] &&
 		[entity hasComponent:[HealthComponent class]])
 	{
-		HealthComponent *healthComponent = [HealthComponent getFrom:entity];
+		HealthComponent *healthComponent = [_healthComponentMapper getComponentFor:entity];
 		[healthComponent deductHealthPoint];
 		if ([healthComponent hasHealthPointsLeft])
 		{
 			[EntityUtil setEntityUndisposed:entity];
-			
-			// TODO: Change this to dispatch a notification and a system handles the animation instead
-			[[RenderComponent getFrom:entity] playDefaultHitAnimation];
+
+			RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
+			[renderComponent playDefaultHitAnimation];
 		}
 	}
 }

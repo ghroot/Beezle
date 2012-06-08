@@ -9,5 +9,9 @@
 #import "artemis.h"
 
 @interface AimPollenShooterSystem : EntityComponentSystem
+{
+	ComponentMapper *_slingerComponentMapper;
+	ComponentMapper *_trajectoryComponentMapper;
+}
 
 @end

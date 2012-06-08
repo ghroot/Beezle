@@ -33,9 +33,18 @@
 
 -(void) dealloc
 {
+	[_disposalComponentMapper release];
+	[_renderComponentMapper release];
+
 	[_notificationProcessor release];
 	
 	[super dealloc];
+}
+
+-(void) initialise
+{
+	_disposalComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[DisposableComponent class]];
+	_renderComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[RenderComponent class]];
 }
 
 -(void) activate
@@ -62,11 +71,11 @@
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
 	if ([EntityUtil isEntityDisposed:entity])
 	{
-		DisposableComponent *disposalComponent = [DisposableComponent getFrom:entity];
+		DisposableComponent *disposalComponent = [_disposalComponentMapper getComponentFor:entity];
 		if ([disposalComponent deleteEntityWhenDisposed] &&
 			![disposalComponent isAboutToBeDeleted])
 		{
-			RenderComponent *renderComponent = [RenderComponent getFrom:entity];
+			RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
 			if ([renderComponent hasDefaultDestroyAnimation])
 			{
 				if ([disposalComponent keepEntityDisabledInsteadOfDelete])

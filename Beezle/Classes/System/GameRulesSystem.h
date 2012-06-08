@@ -12,6 +12,8 @@
 
 @interface GameRulesSystem : EntitySystem
 {
+	ComponentMapper *_slingerComponentMapper;
+
     BOOL _isLevelCompleted;
     BOOL _isLevelFailed;
 	LevelSession *_levelSession;

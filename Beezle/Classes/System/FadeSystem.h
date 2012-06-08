@@ -9,5 +9,9 @@
 #import "artemis.h"
 
 @interface FadeSystem : EntityComponentSystem
+{
+	ComponentMapper *_fadeComponentMapper;
+	ComponentMapper *_renderComponentMapper;
+}
 
 @end

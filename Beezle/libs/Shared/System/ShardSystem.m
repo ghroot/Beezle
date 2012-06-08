@@ -47,6 +47,9 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 
 -(void) dealloc
 {
+	[_shardComponentMapper release];
+	[_physicsComponentMapper release];
+
 	[_notificationProcessor release];
 	
 	[super dealloc];
@@ -66,6 +69,12 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 	[_notificationProcessor deactivate];
 }
 
+-(void) initialise
+{
+	_shardComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[ShardComponent class]];
+	_physicsComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[PhysicsComponent class]];
+}
+
 -(void) begin
 {
 	[_notificationProcessor processNotifications];
@@ -73,7 +82,7 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 
 -(void) entityAdded:(Entity *)entity
 {
-	ShardComponent *shardComponent = [ShardComponent getFrom:entity];
+	ShardComponent *shardComponent = [_shardComponentMapper getComponentFor:entity];
 	if ([shardComponent cacheShardPieceEntities])
 	{
 		NSArray *shardPieceEntities = [self createShardPieceEntities:entity];
@@ -90,8 +99,8 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
 	if ([entity hasComponent:[ShardComponent class]])
 	{
-		ShardComponent *shardComponent = [ShardComponent getFrom:entity];
-		PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];	
+		ShardComponent *shardComponent = [_shardComponentMapper getComponentFor:entity];
+		PhysicsComponent *physicsComponent = [_physicsComponentMapper getComponentFor:entity];
 		
 		cpBB boundingBox = [physicsComponent boundingBox];
 		
@@ -116,7 +125,7 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 			[EntityUtil setEntityPosition:shardPieceEntity position:randomPosition];
 			
 			// Velocity
-			PhysicsComponent *shardPiecePhysicsComponent = [PhysicsComponent getFrom:shardPieceEntity];
+			PhysicsComponent *shardPiecePhysicsComponent = [_physicsComponentMapper getComponentFor:shardPieceEntity];
 			cpVect randomVelocity = [Utils createVectorWithRandomAngleAndLengthBetween:PIECES_MIN_VELOCITY and:PIECES_MAX_VELOCITY];
 			[[shardPiecePhysicsComponent body] setVel:randomVelocity];
 			
@@ -152,7 +161,7 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 
 -(NSArray *) generateShardPieceEntityTypes:(Entity *)entity
 {
-	ShardComponent *shardComponent = [ShardComponent getFrom:entity];
+	ShardComponent *shardComponent = [_shardComponentMapper getComponentFor:entity];
 	
 	int numberOfPiecesToSpawn = [self calculateNumberOfShardPiecesToSpawn:entity];
 	
@@ -174,11 +183,11 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 
 -(int) calculateNumberOfShardPiecesToSpawn:(Entity *)entity
 {
-	ShardComponent *shardComponent = [ShardComponent getFrom:entity];
+	ShardComponent *shardComponent = [_shardComponentMapper getComponentFor:entity];
 	int numberOfPiecesToSpawn = [shardComponent piecesCount];
 	if (numberOfPiecesToSpawn == 0)
 	{
-		PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];	
+		PhysicsComponent *physicsComponent = [_physicsComponentMapper getComponentFor:entity];
 		cpBB boundingBox = [physicsComponent boundingBox];
 		numberOfPiecesToSpawn = [self derivePiecesCountFromBoundingBox:boundingBox];
 	}

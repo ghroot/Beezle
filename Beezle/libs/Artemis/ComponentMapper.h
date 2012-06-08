@@ -15,5 +15,6 @@
 -(id) initWithEntityManager:(EntityManager *)entityManager componentClass:(Class)componentClass;
 
 -(id) getComponentFor:(Entity *)entity;
+-(BOOL) hasEntityComponent:(Entity *)entity;
 
 @end

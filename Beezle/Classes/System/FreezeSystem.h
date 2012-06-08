@@ -12,6 +12,9 @@
 
 @interface FreezeSystem : EntityComponentSystem
 {
+	ComponentMapper *_physicsComponentMapper;
+	ComponentMapper *_freezableComponentMapper;
+	ComponentMapper *_renderComponentMapper;
 	PhysicsSystem *_physicsSystem;
 }
 

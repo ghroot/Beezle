@@ -9,5 +9,9 @@
 #import "artemis.h"
 
 @interface SpawnSystem : EntityComponentSystem
+{
+	ComponentMapper *_spawnComponentMapper;
+	ComponentMapper *_transformComponentMapper;
+}
 
 @end

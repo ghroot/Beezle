@@ -12,6 +12,7 @@
 #import "EntityUtil.h"
 #import "MovementComponent.h"
 #import "NotificationProcessor.h"
+#import "artemis.h"
 #import "NotificationTypes.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
@@ -45,9 +46,20 @@
 
 -(void) dealloc
 {
+	[_movementComponentMapper release];
+	[_transformComponentMapper release];
+	[_physicsComponentMapper release];
+
 	[_notificationProcessor release];
 	
 	[super dealloc];
+}
+
+-(void) initialise
+{
+	_movementComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[MovementComponent class]];
+	_transformComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[TransformComponent class]];
+	_physicsComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[PhysicsComponent class]];
 }
 
 -(void) activate
@@ -66,10 +78,10 @@
 
 -(void) entityAdded:(Entity *)entity
 {
-	TransformComponent *transformComponent = [TransformComponent getFrom:entity];
-	MovementComponent *movementComponent = [MovementComponent getFrom:entity];
-    
-    EditComponent *editComponent = [EditComponent getFrom:entity];
+	TransformComponent *transformComponent = [_transformComponentMapper getComponentFor:entity];
+	MovementComponent *movementComponent = [_movementComponentMapper getComponentFor:entity];
+
+	EditComponent *editComponent = [EditComponent getFrom:entity];
     if (editComponent != nil)
     {
         // Create movement indicator entities to allow for editing
@@ -97,17 +109,17 @@
 
 -(void) processEntity:(Entity *)entity
 {
-	MovementComponent *movementComponent = [MovementComponent getFrom:entity];
-    
-    EditComponent *editComponent = [EditComponent getFrom:entity];
+	MovementComponent *movementComponent = [_movementComponentMapper getComponentFor:entity];
+
+	EditComponent *editComponent = [EditComponent getFrom:entity];
     if (editComponent != nil)
     {
         NSMutableArray *latestPositions = [NSMutableArray array];
         Entity *currentMovementIndicatorEntity = [editComponent nextMovementIndicatorEntity];
         while (currentMovementIndicatorEntity != nil)
         {
-            TransformComponent *currentTransformComponent = [TransformComponent getFrom:currentMovementIndicatorEntity];
-            EditComponent *currentEditComponent = [EditComponent getFrom:currentMovementIndicatorEntity];
+            TransformComponent *currentTransformComponent = [_transformComponentMapper getComponentFor:currentMovementIndicatorEntity];
+	        EditComponent *currentEditComponent = [EditComponent getFrom:currentMovementIndicatorEntity];
             
 			[latestPositions addObject:[NSValue valueWithCGPoint:[currentTransformComponent position]]];
             
@@ -136,13 +148,13 @@
 
 -(CGPoint) getCurrentPosition:(Entity *)entity
 {
-	TransformComponent *transformComponent = [TransformComponent getFrom:entity];
+	TransformComponent *transformComponent = [_transformComponentMapper getComponentFor:entity];
 	return [transformComponent position];
 }
 
 -(CGPoint) getNextPosition:(Entity *)entity
 {
-	MovementComponent *movementComponent = [MovementComponent getFrom:entity];
+	MovementComponent *movementComponent = [_movementComponentMapper getComponentFor:entity];
 	if ([movementComponent isMovingTowardsStartPosition])
 	{
 		return [movementComponent startPosition];
@@ -179,8 +191,8 @@
 
 -(void) updateNextPosition:(Entity *)entity
 {
-	MovementComponent *movementComponent = [MovementComponent getFrom:entity];
-	
+	MovementComponent *movementComponent = [_movementComponentMapper getComponentFor:entity];
+
 	if ([movementComponent isMovingTowardsStartPosition])
 	{
 		[movementComponent setIsMovingTowardsStartPosition:FALSE];
@@ -224,9 +236,9 @@
 
 -(void) moveTowardsNextPosition:(Entity *)entity
 {
-	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
-	MovementComponent *movementComponent = [MovementComponent getFrom:entity];
-	
+	PhysicsComponent *physicsComponent = [_physicsComponentMapper getComponentFor:entity];
+	MovementComponent *movementComponent = [_movementComponentMapper getComponentFor:entity];
+
 	CGPoint currentPosition = [self getCurrentPosition:entity];
 	CGPoint velocity = [self calculateVelocityTowardsNextPosition:entity];
 	
@@ -251,9 +263,9 @@
 -(void) handleEntityFrozen:(NSNotification *)notification
 {
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
-	if ([entity hasComponent:[MovementComponent class]])
+	if ([_movementComponentMapper hasEntityComponent:entity])
 	{
-		MovementComponent *movementComponent = [MovementComponent getFrom:entity];
+		MovementComponent *movementComponent = [_movementComponentMapper getComponentFor:entity];
 		[movementComponent setIsMovingPaused:TRUE];
 	}
 }
@@ -261,9 +273,9 @@
 -(void) handleEntityUnfrozen:(NSNotification *)notification
 {
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
-	if ([entity hasComponent:[MovementComponent class]])
+	if ([_movementComponentMapper hasEntityComponent:entity])
 	{
-		MovementComponent *movementComponent = [MovementComponent getFrom:entity];
+		MovementComponent *movementComponent = [_movementComponentMapper getComponentFor:entity];
 		[movementComponent setIsMovingPaused:FALSE];
 	}
 }

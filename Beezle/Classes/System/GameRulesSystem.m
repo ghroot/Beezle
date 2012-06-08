@@ -34,6 +34,18 @@
 	return self;
 }
 
+-(void) dealloc
+{
+	[_slingerComponentMapper release];
+
+	[super dealloc];
+}
+
+-(void) initialise
+{
+	_slingerComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[SlingerComponent class]];
+}
+
 -(void) begin
 {
     [self updateIsLevelCompleted];
@@ -50,7 +62,7 @@
 {
     TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
     Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
-    SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
+    SlingerComponent *slingerComponent = [_slingerComponentMapper getComponentFor:slingerEntity];
 	int numberOfUndisposedBees = [self countNonDisposedEntitiesInGroup:@"BEES"];
     
     _isLevelFailed = ![slingerComponent hasMoreBees] &&

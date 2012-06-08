@@ -12,6 +12,9 @@
 
 @interface DisposalSystem : EntitySystem
 {
+	ComponentMapper *_disposalComponentMapper;
+	ComponentMapper *_renderComponentMapper;
+
 	NotificationProcessor *_notificationProcessor;
 }
 

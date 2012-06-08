@@ -15,6 +15,9 @@
 
 @interface BeeQueueRenderingSystem : EntityComponentSystem
 {
+	ComponentMapper *_renderComponentMapper;
+	ComponentMapper *_transformComponentMapper;
+	ComponentMapper *_slingerComponentMapper;
 	RenderSystem *_renderSystem;
 	
 	NotificationProcessor *_notificationProcessor;

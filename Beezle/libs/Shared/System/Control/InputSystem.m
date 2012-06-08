@@ -64,8 +64,8 @@ static const int DISTANCE_FROM_EDGE_FOR_TOUCH_CANCEL = 8;
 -(InputAction *) popInputAction
 {
     InputAction *nextInputAction = [[[_inputActions objectAtIndex:0] retain] autorelease];
-    [_inputActions removeObject:nextInputAction];
-    return nextInputAction;
+    [_inputActions removeObjectAtIndex:0];
+	return nextInputAction;
 }
 
 -(BOOL) hasInputActions

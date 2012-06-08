@@ -10,5 +10,8 @@
 #import "cocos2d.h"
 
 @interface WaterWaveSystem : EntityComponentSystem
+{
+	ComponentMapper *_renderComponentMapper;
+}
 
 @end

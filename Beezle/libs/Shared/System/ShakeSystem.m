@@ -37,9 +37,18 @@
 
 -(void) dealloc
 {
+	[_shakeComponentMapper release];
+	[_renderComponentMapper release];
+
 	[_notificationProcessor release];
 	
 	[super dealloc];
+}
+
+-(void) initialise
+{
+	_shakeComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[ShakeComponent class]];
+	_renderComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[RenderComponent class]];
 }
 
 -(void) activate
@@ -64,10 +73,10 @@
 -(void) handleEntityDisposed:(NSNotification *)notification
 {
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
-	if ([entity hasComponent:[ShakeComponent class]])
+	if ([_shakeComponentMapper hasEntityComponent:entity])
 	{
-		RenderComponent *renderComponent = [RenderComponent getFrom:entity];
-		
+		RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
+
 		NSMutableArray *actions = [NSMutableArray arrayWithCapacity:NUMBER_OF_SHAKES];
 		for (int i = 0; i < NUMBER_OF_SHAKES; i++)
 		{

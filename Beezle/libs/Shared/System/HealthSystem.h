@@ -12,6 +12,9 @@
 
 @interface HealthSystem : EntityComponentSystem
 {
+	ComponentMapper *_healthComponentMapper;
+	ComponentMapper *_renderComponentMapper;
+
 	NotificationProcessor *_notificationProcessor;
 }
 

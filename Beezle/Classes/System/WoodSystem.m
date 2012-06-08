@@ -38,9 +38,18 @@
 
 -(void) dealloc
 {
+	[_woodComponentMapper release];
+	[_renderComponentMapper release];
+
 	[_notificationProcessor release];
 	
 	[super dealloc];
+}
+
+-(void) initialise
+{
+	_woodComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[WoodComponent class]];
+	_renderComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[RenderComponent class]];
 }
 
 -(void) activate
@@ -65,12 +74,13 @@
 -(void) handleEntityDisposed:(NSNotification *)notification
 {
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
-	if ([entity hasComponent:[WoodComponent class]])
+	if ([_woodComponentMapper hasEntityComponent:entity])
 	{
-		WoodComponent *woodComponent = [WoodComponent getFrom:entity];
+		WoodComponent *woodComponent = [_woodComponentMapper getComponentFor:entity];
 		if ([woodComponent shapeIndexAtSawCollision] >= 0)
 		{
-			NSArray *woodRenderSprites = [[RenderComponent getFrom:entity] renderSprites];
+			RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
+			NSArray *woodRenderSprites = [renderComponent renderSprites];
 			[self animateAndDestroyWoodPiece:woodRenderSprites atIndex:[woodComponent shapeIndexAtSawCollision] stepsFromStart:0 continueUp:TRUE continueDown:TRUE];
 			
 			// TODO: Don't just disable physics, remove at end of last animation

@@ -10,5 +10,9 @@
 
 
 @interface BeeExpiratonSystem : EntityComponentSystem
+{
+	ComponentMapper *_beeComponentMapper;
+	ComponentMapper *_physicsComponentMapper;
+}
 
 @end

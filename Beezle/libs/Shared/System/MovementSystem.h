@@ -10,9 +10,14 @@
 #import "cocos2d.h"
 
 @class NotificationProcessor;
+@class ComponentMapper;
 
 @interface MovementSystem : EntityComponentSystem
 {
+	ComponentMapper *_movementComponentMapper;
+	ComponentMapper *_transformComponentMapper;
+	ComponentMapper *_physicsComponentMapper;
+
 	NotificationProcessor *_notificationProcessor;
 }
 

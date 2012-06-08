@@ -23,13 +23,28 @@
 
 -(id) init
 {
-    self = [super initWithUsedComponentClasses:[NSArray arrayWithObject:[BeeComponent class]]];
+    self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[BeeComponent class], [PhysicsComponent class], nil]];
     return self;
+}
+
+-(void) dealloc
+{
+	[_beeComponentMapper release];
+	[_physicsComponentMapper release];
+
+	[super dealloc];
+}
+
+-(void) initialise
+{
+	_beeComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[BeeComponent class]];
+	_physicsComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[PhysicsComponent class]];
 }
 
 -(void) entityAdded:(Entity *)entity
 {
-	[[BeeComponent getFrom:entity] resetAutoDestroyCountdown];
+	BeeComponent *beeComponent = [_beeComponentMapper getComponentFor:entity];
+	[beeComponent resetAutoDestroyCountdown];
 }
 
 -(void) processEntity:(Entity *)entity
@@ -48,17 +63,23 @@
 
 -(BOOL) shouldExpireDueToDestroyCountdown:(Entity *)entity
 {
-    BeeComponent *beeComponent = [BeeComponent getFrom:entity];
+	BeeComponent *beeComponent = [_beeComponentMapper getComponentFor:entity];
     [beeComponent decreaseAutoDestroyCountdown:[_world delta]];
     return [beeComponent didAutoDestroyCountdownReachZero];
 }
 
 -(BOOL) shouldExpireDueToSleepingBody:(Entity *)entity
 {
-    BeeComponent *beeComponent = [BeeComponent getFrom:entity];
-    PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
-    return [[beeComponent type] doesExpire] &&
-        [[physicsComponent body] isSleeping];
+	BeeComponent *beeComponent = [_beeComponentMapper getComponentFor:entity];
+	if ([[beeComponent type] doesExpire])
+	{
+		PhysicsComponent *physicsComponent = [_physicsComponentMapper getComponentFor:entity];
+		return [[physicsComponent body] isSleeping];
+	}
+	else
+	{
+		return FALSE;
+	}
 }
 
 -(BOOL) shouldExpireDueToNoBeeatersLeft

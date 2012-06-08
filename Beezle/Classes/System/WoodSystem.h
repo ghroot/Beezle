@@ -9,9 +9,13 @@
 #import "EntitySystem.h"
 
 @class NotificationProcessor;
+@class ComponentMapper;
 
 @interface WoodSystem : EntitySystem
 {
+	ComponentMapper *_woodComponentMapper;
+	ComponentMapper *_renderComponentMapper;
+
 	NotificationProcessor *_notificationProcessor;
 }
 

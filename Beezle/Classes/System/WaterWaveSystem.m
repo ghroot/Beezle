@@ -18,15 +18,27 @@ static const float SPLASH_AMOUNT = 0.2f;
 
 -(id) init
 {
-	self = [super initWithUsedComponentClasses:[NSArray arrayWithObject:[WaterComponent class]]];
+	self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[WaterComponent class], [RenderComponent class], nil]];
 	return self;
+}
+
+-(void) dealloc
+{
+	[_renderComponentMapper release];
+
+	[super dealloc];
+}
+
+-(void) initialise
+{
+	_renderComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[RenderComponent class]];
 }
 
 -(void) processEntity:(Entity *)entity
 {
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	
-	RenderComponent *renderComponent = [RenderComponent getFrom:entity];
+	RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
 	RenderSprite *renderSprite = [[renderComponent renderSprites] objectAtIndex:0];
 	CCSprite *sprite = [renderSprite sprite];
 	for (Waves1DNode *wave in [sprite children])

@@ -13,6 +13,9 @@
 
 @interface ShakeSystem : EntitySystem
 {
+	ComponentMapper *_shakeComponentMapper;
+	ComponentMapper *_renderComponentMapper;
+
 	NotificationProcessor *_notificationProcessor;
 }
 

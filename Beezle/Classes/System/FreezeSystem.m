@@ -18,19 +18,31 @@
 
 -(id) init
 {
-	self = [super initWithUsedComponentClass:[FreezableComponent class]];
+	self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[FreezableComponent class], [PhysicsComponent class], nil]];
 	return self;
+}
+
+-(void) dealloc
+{
+	[_physicsComponentMapper release];
+	[_freezableComponentMapper release];
+	[_renderComponentMapper release];
+
+	[super dealloc];
 }
 
 -(void) initialise
 {
+	_physicsComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[PhysicsComponent class]];
+	_freezableComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[FreezableComponent class]];
+	_renderComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[RenderComponent class]];
 	_physicsSystem = (PhysicsSystem *)[[_world systemManager] getSystem:[PhysicsSystem class]];
 }
 
 -(void) processEntity:(Entity *)entity
 {
-	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:entity];
-	
+	PhysicsComponent *physicsComponent = [_physicsComponentMapper getComponentFor:entity];
+
 	BOOL isTouchingAtLeastOneFreezeEntity = FALSE;
 	
 	for (ChipmunkShape *shape in [physicsComponent shapes])
@@ -59,7 +71,7 @@
 		}
 	}
 	
-	FreezableComponent *freezableComponent = [FreezableComponent getFrom:entity];
+	FreezableComponent *freezableComponent = [_freezableComponentMapper getComponentFor:entity];
 	if (isTouchingAtLeastOneFreezeEntity)
 	{
 		if (![freezableComponent isFrozen])
@@ -73,7 +85,8 @@
 			}
 			else
 			{
-				[[RenderComponent getFrom:entity] playDefaultStillAnimation];
+				RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
+				[renderComponent playDefaultStillAnimation];
 			}
 		}
 	}
@@ -90,7 +103,8 @@
 			}
 			else
 			{
-				[[RenderComponent getFrom:entity] playDefaultIdleAnimation];
+				RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
+				[renderComponent playDefaultIdleAnimation];
 			}
 		}
 	}

@@ -35,9 +35,20 @@
 
 -(void) dealloc
 {
+	[_capturedComponentMapper release];
+	[_slingerComponentMapper release];
+	[_transformComponentMapper release];
+
 	[_notificationProcessor release];
 	
 	[super dealloc];
+}
+
+-(void) initialise
+{
+	_capturedComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[CapturedComponent class]];
+	_slingerComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[SlingerComponent class]];
+	_transformComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[TransformComponent class]];
 }
 
 -(void) activate
@@ -62,7 +73,7 @@
 -(void) handleEntityDisposed:(NSNotification *)notification
 {
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
-	if ([entity hasComponent:[CapturedComponent class]])
+	if ([_capturedComponentMapper hasEntityComponent:entity])
 	{
 		[self saveContainedBee:entity];
 	}
@@ -72,8 +83,8 @@
 {
 	TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
 	Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
-	CapturedComponent *capturedComponent = [CapturedComponent getFrom:capturedEntity];
-	SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
+	CapturedComponent *capturedComponent = [_capturedComponentMapper getComponentFor:capturedEntity];
+	SlingerComponent *slingerComponent = [_slingerComponentMapper getComponentFor:slingerEntity];
 	BeeType *savedBeeType = [capturedComponent containedBeeType];
 	BeeType *savingBeeType = [capturedComponent destroyedByBeeType];
 	
@@ -102,7 +113,7 @@
 	}
 	
 	// Notification
-	TransformComponent *capturedTransformComponent = [TransformComponent getFrom:capturedEntity];
+	TransformComponent *capturedTransformComponent = [_transformComponentMapper getComponentFor:capturedEntity];
 	NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
 	[notificationUserInfo setObject:[NSValue valueWithCGPoint:[capturedTransformComponent position]] forKey:@"entityPosition"];
 	[notificationUserInfo setObject:savedBeeType forKey:@"savedBeeType"];

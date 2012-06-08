@@ -26,17 +26,30 @@
 	return self;
 }
 
+-(void) dealloc
+{
+	[_fadeComponentMapper release];
+	[_renderComponentMapper release];
+
+	[super dealloc];
+}
+
+-(void) initialise
+{
+	_fadeComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[FadeComponent class]];
+	_renderComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[RenderComponent class]];
+}
+
 -(void) entityAdded:(Entity *)entity
 {
-	FadeComponent *fadeComponent = [FadeComponent getFrom:entity];
+	FadeComponent *fadeComponent = [_fadeComponentMapper getComponentFor:entity];
 	[fadeComponent resetCountdown];
 	[self ensureAnimation:entity];
 }
 
-
 -(void) processEntity:(Entity *)entity
 {
-	FadeComponent *fadeComponent = [FadeComponent getFrom:entity];
+	FadeComponent *fadeComponent = [_fadeComponentMapper getComponentFor:entity];
 	if (![fadeComponent hasCountdownReachedZero])
 	{
 		[fadeComponent decreaseCountdown:[_world delta] / 1000.0f];
@@ -53,10 +66,10 @@
 
 -(void) ensureAnimation:(Entity *)entity
 {
-	FadeComponent *fadeComponent = [FadeComponent getFrom:entity];
+	FadeComponent *fadeComponent = [_fadeComponentMapper getComponentFor:entity];
 	if (![[fadeComponent currentAnimationName] isEqualToString:[fadeComponent targetAnimationName]])
 	{
-		RenderComponent *renderComponent = [RenderComponent getFrom:entity];
+		RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
 		RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];
 		[defaultRenderSprite playAnimationLoop:[fadeComponent targetAnimationName]];
 

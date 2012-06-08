@@ -39,9 +39,20 @@
 
 -(void) dealloc
 {
+	[_beeaterComponentMapper release];
+	[_renderComponentMapper release];
+	[_capturedComponentMapper release];
+
 	[_notificationProcessor release];
 	
 	[super dealloc];
+}
+
+-(void) initialise
+{
+	_beeaterComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[BeeaterComponent class]];
+	_renderComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[RenderComponent class]];
+	_capturedComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[CapturedComponent class]];
 }
 
 -(void) activate
@@ -62,7 +73,7 @@
 {
 	[self animateBeeater:entity];
 
-	BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:entity];
+	BeeaterComponent *beeaterComponent = [_beeaterComponentMapper getComponentFor:entity];
 	if ([beeaterComponent randomSynchronisedBodyAnimationName] != nil &&
 		[beeaterComponent randomSynchronisedHeadAnimationName] != nil)
 	{
@@ -77,13 +88,13 @@
 
 -(void) processEntity:(Entity *)entity
 {
-	BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:entity];
+	BeeaterComponent *beeaterComponent = [_beeaterComponentMapper getComponentFor:entity];
 	if (![beeaterComponent hasSynchronisedAnimationCountdownReachedZero])
 	{
 		[beeaterComponent decreaseSynchronisedAnimationCountdown];
 		if ([beeaterComponent hasSynchronisedAnimationCountdownReachedZero])
 		{
-			RenderComponent *renderComponent = [RenderComponent getFrom:entity];
+			RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
 
 			RenderSprite *bodyRenderSprite = [renderComponent renderSpriteWithName:@"body"];
 			[bodyRenderSprite playAnimationOnce:[beeaterComponent randomSynchronisedBodyAnimationName] andCallBlockAtEnd:^{
@@ -99,13 +110,13 @@
 
 -(void) animateBeeater:(Entity *)beeaterEntity
 {
-	RenderComponent *renderComponent = [RenderComponent getFrom:beeaterEntity];
-	
+	RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:beeaterEntity];
+
 	RenderSprite *bodyRenderSprite = [renderComponent renderSpriteWithName:@"body"];
 	[bodyRenderSprite playDefaultIdleAnimation];
-	
-	BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:beeaterEntity];
-	CapturedComponent *capturedComponent = [CapturedComponent getFrom:beeaterEntity];
+
+	BeeaterComponent *beeaterComponent = [_beeaterComponentMapper getComponentFor:beeaterEntity];
+	CapturedComponent *capturedComponent = [_capturedComponentMapper getComponentFor:beeaterEntity];
 	RenderSprite *headRenderSprite = [renderComponent renderSpriteWithName:@"head"];
 	NSString *headAnimationName = [beeaterComponent headAnimationNameForBeeType:[capturedComponent containedBeeType] string:@"Idle"];
 	NSString *firstBetweenAnimationName = [beeaterComponent randomBetweenHeadAnimationName];
@@ -119,7 +130,7 @@
 	if ([entity hasComponent:[BeeaterComponent class]])
 	{
 		// Destroy beeater
-		RenderComponent *beeaterRenderComponent = (RenderComponent *)[entity getComponent:[RenderComponent class]];
+		RenderComponent *beeaterRenderComponent = [_renderComponentMapper getComponentFor:entity];
 		RenderSprite *beeaterBodyRenderSprite = [beeaterRenderComponent renderSpriteWithName:@"body"];
 		RenderSprite *beeaterHeadRenderSprite = [beeaterRenderComponent renderSpriteWithName:@"head"];
 		[beeaterHeadRenderSprite hide];
@@ -144,13 +155,13 @@
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
 	if ([entity hasComponent:[BeeaterComponent class]])
 	{
-		RenderComponent *renderComponent = [RenderComponent getFrom:entity];
-		
+		RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
+
 		RenderSprite *bodyRenderSprite = [renderComponent renderSpriteWithName:@"body"];
 		[bodyRenderSprite playDefaultStillAnimation];
 		
-		BeeaterComponent *beeaterComponent = [BeeaterComponent getFrom:entity];
-		CapturedComponent *capturedComponent = [CapturedComponent getFrom:entity];
+		BeeaterComponent *beeaterComponent = [_beeaterComponentMapper getComponentFor:entity];
+		CapturedComponent *capturedComponent = [_capturedComponentMapper getComponentFor:entity];
 		RenderSprite *headRenderSprite = [renderComponent renderSpriteWithName:@"head"];
 		NSString *headAnimationName = [beeaterComponent headAnimationNameForBeeType:[capturedComponent containedBeeType] string:@"Still"];
 		[headRenderSprite playAnimationLoop:headAnimationName];

@@ -24,4 +24,9 @@
 	return [_componentsByEntity objectForKey:[entity entityId]];
 }
 
+-(BOOL) hasEntityComponent:(Entity *)entity
+{
+	return [self getComponentFor:entity] != nil;
+}
+
 @end

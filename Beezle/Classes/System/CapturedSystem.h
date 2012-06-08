@@ -12,6 +12,10 @@
 
 @interface CapturedSystem : EntityComponentSystem
 {
+	ComponentMapper *_capturedComponentMapper;
+	ComponentMapper *_slingerComponentMapper;
+	ComponentMapper *_transformComponentMapper;
+
 	NotificationProcessor *_notificationProcessor;
 }
 

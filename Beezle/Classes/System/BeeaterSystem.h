@@ -12,6 +12,10 @@
 
 @interface BeeaterSystem : EntityComponentSystem
 {
+	ComponentMapper *_beeaterComponentMapper;
+	ComponentMapper *_renderComponentMapper;
+	ComponentMapper *_capturedComponentMapper;
+
 	NotificationProcessor *_notificationProcessor;
 }
 
