@@ -37,6 +37,8 @@ static const int BATCH_NODE_CAPACITY = 140;
     [_spriteSheetsByName release];
 	[_loadedAnimationsFileNames release];
 
+	[[CCSpriteFrameCache sharedSpriteFrameCache] removeUnusedSpriteFrames];
+
 	[super dealloc];
 }
 
