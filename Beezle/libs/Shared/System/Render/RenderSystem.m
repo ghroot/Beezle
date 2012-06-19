@@ -37,8 +37,6 @@ static const int BATCH_NODE_CAPACITY = 140;
     [_spriteSheetsByName release];
 	[_loadedAnimationsFileNames release];
 
-	[[CCSpriteFrameCache sharedSpriteFrameCache] removeUnusedSpriteFrames];
-
 	[super dealloc];
 }
 
@@ -76,6 +74,10 @@ static const int BATCH_NODE_CAPACITY = 140;
 		else if ([name isEqualToString:@"C"])
         {
             spriteSheetZOrder = [ZOrder Z_SHEET_C];
+        }
+        else if ([name isEqualToString:@"D"])
+        {
+            spriteSheetZOrder = [ZOrder Z_SHEET_D];
         }
         else if ([name isEqualToString:@"Boss"])
         {

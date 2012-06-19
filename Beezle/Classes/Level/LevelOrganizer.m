@@ -58,7 +58,7 @@
 
 -(NSArray *) themes
 {
-	return [_levelNamesByTheme allKeys];
+	return [[_levelNamesByTheme allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 }
 
 -(NSArray *) levelNamesInTheme:(NSString *)theme
