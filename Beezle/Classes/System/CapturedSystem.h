@@ -19,4 +19,6 @@
 	NotificationProcessor *_notificationProcessor;
 }
 
+-(void) saveContainedBee:(Entity *)capturedEntity;
+
 @end

@@ -1564,6 +1564,11 @@
 		2CF8E0F61576B45F0052F390 /* Ramp-D.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F38F /* Ramp-D.plist */; };
 		2CF8E0F61576B45F0052F392 /* Ramp-Piece-Small-D.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F391 /* Ramp-Piece-Small-D.plist */; };
 		2CF8E0F61576B45F0052F394 /* Ramp-Piece-D.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F393 /* Ramp-Piece-D.plist */; };
+		2CF8E0F61576B45F0052F397 /* PulverizableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F396 /* PulverizableComponent.m */; };
+		2CF8E0F61576B45F0052F39A /* PulverizeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F399 /* PulverizeComponent.m */; };
+		2CF8E0F61576B45F0052F39D /* PulverizeWithPulverizableCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F39C /* PulverizeWithPulverizableCollisionHandler.m */; };
+		2CF8E0F61576B45F0052F39F /* Cactus.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F39E /* Cactus.plist */; };
+		2CF8E0F61576B45F0052F3A1 /* Cactus-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3A0 /* Cactus-Animations.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3458,6 +3463,14 @@
 		2CF8E0F61576B45F0052F38F /* Ramp-D.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Ramp-D.plist"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F391 /* Ramp-Piece-Small-D.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Ramp-Piece-Small-D.plist"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F393 /* Ramp-Piece-D.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Ramp-Piece-D.plist"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F395 /* PulverizableComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulverizableComponent.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F396 /* PulverizableComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulverizableComponent.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F398 /* PulverizeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulverizeComponent.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F399 /* PulverizeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulverizeComponent.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F39B /* PulverizeWithPulverizableCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulverizeWithPulverizableCollisionHandler.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F39C /* PulverizeWithPulverizableCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulverizeWithPulverizableCollisionHandler.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F39E /* Cactus.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Cactus.plist; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F3A0 /* Cactus-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Cactus-Animations.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3760,6 +3773,10 @@
 		2C74B40B156FAD1E00596A22 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F399 /* PulverizeComponent.m */,
+				2CF8E0F61576B45F0052F398 /* PulverizeComponent.h */,
+				2CF8E0F61576B45F0052F396 /* PulverizableComponent.m */,
+				2CF8E0F61576B45F0052F395 /* PulverizableComponent.h */,
 				2CF8E0F61576B45F0052F34D /* FadeComponent.h */,
 				2CF8E0F61576B45F0052F34B /* FadeComponent.m */,
 				2CF8E0F61576B45F0052F33C /* FollowComponent.h */,
@@ -4027,6 +4044,8 @@
 		2C74B495156FAD1E00596A22 /* Handler */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F39C /* PulverizeWithPulverizableCollisionHandler.m */,
+				2CF8E0F61576B45F0052F39B /* PulverizeWithPulverizableCollisionHandler.h */,
 				2C74B496156FAD1E00596A22 /* AnythingWithVoidCollisionHandler.h */,
 				2C74B497156FAD1E00596A22 /* AnythingWithVoidCollisionHandler.m */,
 				2C74B498156FAD1E00596A22 /* AnythingWithVolatileCollisionHandler.h */,
@@ -4656,6 +4675,7 @@
 		2C84099615829AA10098BA9C /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F3A0 /* Cactus-Animations.plist */,
 				2C84099715829AA10098BA9C /* Bee */,
 				2C8409A015829AA10098BA9C /* Beeater */,
 				2C8409B515829AA10098BA9C /* Clirr-Animations.plist */,
@@ -6035,6 +6055,7 @@
 		2CE348B514DF003A00FEB492 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F39E /* Cactus.plist */,
 				2CE4F536153CC8A80023B5C6 /* Aim-Pollen.plist */,
 				2CE4F537153CC8A80023B5C6 /* Bee */,
 				2CE4F53F153CC8A80023B5C6 /* Beeater */,
@@ -7749,6 +7770,8 @@
 				2CF8E0F61576B45F0052F390 /* Ramp-D.plist in Resources */,
 				2CF8E0F61576B45F0052F392 /* Ramp-Piece-Small-D.plist in Resources */,
 				2CF8E0F61576B45F0052F394 /* Ramp-Piece-D.plist in Resources */,
+				2CF8E0F61576B45F0052F39F /* Cactus.plist in Resources */,
+				2CF8E0F61576B45F0052F3A1 /* Cactus-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8044,6 +8067,9 @@
 				2CF8E0F61576B45F0052F355 /* ComponentMapper.m in Sources */,
 				2CF8E0F61576B45F0052F358 /* ComponentType.m in Sources */,
 				2CF8E0F61576B45F0052F35B /* ComponentTypeManager.m in Sources */,
+				2CF8E0F61576B45F0052F397 /* PulverizableComponent.m in Sources */,
+				2CF8E0F61576B45F0052F39A /* PulverizeComponent.m in Sources */,
+				2CF8E0F61576B45F0052F39D /* PulverizeWithPulverizableCollisionHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

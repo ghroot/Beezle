@@ -17,12 +17,6 @@
 #import "TransformComponent.h"
 #import "WaterComponent.h"
 
-@interface EntityUtil()
-
-+(void) setEntityDisposed:(Entity *)entity sendNotification:(BOOL)sendNotification;
-
-@end
-
 @implementation EntityUtil
 
 +(void) setEntityPosition:(Entity *)entity position:(CGPoint)position

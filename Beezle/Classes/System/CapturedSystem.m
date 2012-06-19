@@ -17,7 +17,6 @@
 @interface CapturedSystem()
 
 -(void) handleEntityDisposed:(NSNotification *)notification;
--(void) saveContainedBee:(Entity *)capturedEntity;
 
 @end
 

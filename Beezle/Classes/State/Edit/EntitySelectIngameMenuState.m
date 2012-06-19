@@ -70,6 +70,7 @@
 	[self addMenuItemForEntityType:@"BEEATER-BIRD"];
 	[self addMenuItemForEntityType:@"BEEATER-FISH"];
     [self addMenuItemForEntityType:@"SUPER-BEEATER"];
+	[self addMenuItemForEntityType:@"CACTUS"];
 	[self addMenuItemForEntityType:@"CLIRR"];
 	[self addMenuItemForEntityType:@"EGG"];
 	[self addMenuItemForEntityType:@"FLOATING-BLOCK-A"];
