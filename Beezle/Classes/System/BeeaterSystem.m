@@ -94,16 +94,23 @@
 		[beeaterComponent decreaseSynchronisedAnimationCountdown];
 		if ([beeaterComponent hasSynchronisedAnimationCountdownReachedZero])
 		{
-			RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
+			if (![EntityUtil isEntityDisposed:entity])
+			{
+				RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
 
-			RenderSprite *bodyRenderSprite = [renderComponent renderSpriteWithName:@"body"];
-			[bodyRenderSprite playAnimationOnce:[beeaterComponent randomSynchronisedBodyAnimationName] andCallBlockAtEnd:^{
-				[self animateBeeater:entity];
+				RenderSprite *bodyRenderSprite = [renderComponent renderSpriteWithName:@"body"];
+				[bodyRenderSprite playAnimationOnce:[beeaterComponent randomSynchronisedBodyAnimationName] andCallBlockAtEnd:^{
+					[self animateBeeater:entity];
+					[beeaterComponent resetSynchronisedAnimationCountdown];
+				}];
+
+				RenderSprite *headRenderSprite = [renderComponent renderSpriteWithName:@"head"];
+				[headRenderSprite playAnimationOnce:[beeaterComponent randomSynchronisedHeadAnimationName]];
+			}
+			else
+			{
 				[beeaterComponent resetSynchronisedAnimationCountdown];
-			}];
-
-			RenderSprite *headRenderSprite = [renderComponent renderSpriteWithName:@"head"];
-			[headRenderSprite playAnimationOnce:[beeaterComponent randomSynchronisedHeadAnimationName]];
+			}
 		}
 	}
 }
