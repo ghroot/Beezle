@@ -19,6 +19,405 @@
 
 					<dict>
                         <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0</real>
+                        <key>friction</key>
+                        <real>0</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>fixture_type</key>
+                        <key>POLYGON</key>
+                        <key>isSensor</key>
+
+                           <false/>
+
+                        <key>polygons</key>
+						<array>
+
+							<array>
+	
+								<string>{ 240.38586,27.13828 }</string>
+	
+								<string>{ 241.47913,-159.54984 }</string>
+	
+								<string>{ 167.39551,-7.58842 }</string>
+	
+								<string>{ 166.10934,26.81673 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ 34.91962,14.27654 }</string>
+	
+								<string>{ 39.74277,-35.88424 }</string>
+	
+								<string>{ 20.12863,-12.73311 }</string>
+	
+								<string>{ 24.95178,18.45660 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ 39.74277,-35.88424 }</string>
+	
+								<string>{ 42.63666,-59.03537 }</string>
+	
+								<string>{ 14.98393,-40.38585 }</string>
+	
+								<string>{ 20.12863,-12.73311 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ 42.63666,-59.03537 }</string>
+	
+								<string>{ 48.10291,-75.43408 }</string>
+	
+								<string>{ 5.01608,-70.61093 }</string>
+	
+								<string>{ 14.98393,-40.38585 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ 48.10291,-75.43408 }</string>
+	
+								<string>{ 58.07074,-98.26366 }</string>
+	
+								<string>{ -4.63022,-90.86816 }</string>
+	
+								<string>{ 5.01608,-70.61093 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -105.91640,40.32155 }</string>
+	
+								<string>{ -240.64309,52.99036 }</string>
+	
+								<string>{ -73.11897,51.89711 }</string>
+	
+								<string>{ -72.47588,43.53699 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ 58.07074,-98.26366 }</string>
+	
+								<string>{ 73.18329,-114.01929 }</string>
+	
+								<string>{ -12.99034,-104.69453 }</string>
+	
+								<string>{ -4.63022,-90.86816 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ 73.18329,-114.01929 }</string>
+	
+								<string>{ 91.51126,-124.30868 }</string>
+	
+								<string>{ -23.60127,-116.59164 }</string>
+	
+								<string>{ -12.99034,-104.69453 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ 241.47913,-159.54984 }</string>
+	
+								<string>{ 165.78778,-38.77813 }</string>
+	
+								<string>{ 167.39551,-7.58842 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ 241.47913,-159.54984 }</string>
+	
+								<string>{ 160.00000,-71.89710 }</string>
+	
+								<string>{ 165.78778,-38.77813 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ 241.47913,-159.54984 }</string>
+	
+								<string>{ 150.67526,-97.94212 }</string>
+	
+								<string>{ 160.00000,-71.89710 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ 241.47913,-159.54984 }</string>
+	
+								<string>{ 136.52734,-114.98392 }</string>
+	
+								<string>{ 150.67526,-97.94212 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ 241.47913,-159.54984 }</string>
+	
+								<string>{ 124.95178,-123.02251 }</string>
+	
+								<string>{ 136.52734,-114.98392 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ 91.51126,-124.30868 }</string>
+	
+								<string>{ -37.10611,-126.55948 }</string>
+	
+								<string>{ -23.60127,-116.59164 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ 241.47913,-159.54984 }</string>
+	
+								<string>{ 108.55307,-125.91640 }</string>
+	
+								<string>{ 124.95178,-123.02251 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -240.00000,-160.00000 }</string>
+	
+								<string>{ -57.68488,-133.95498 }</string>
+	
+								<string>{ 91.51126,-124.30868 }</string>
+	
+								<string>{ 108.55307,-125.91640 }</string>
+	
+								<string>{ 241.47913,-159.54984 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ 91.51126,-124.30868 }</string>
+	
+								<string>{ -57.68488,-133.95498 }</string>
+	
+								<string>{ -37.10611,-126.55948 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -120.70739,37.42766 }</string>
+	
+								<string>{ -240.64309,52.99036 }</string>
+	
+								<string>{ -105.91640,40.32155 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -132.28295,32.92606 }</string>
+	
+								<string>{ -240.64309,52.99036 }</string>
+	
+								<string>{ -120.70739,37.42766 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -141.60771,28.10291 }</string>
+	
+								<string>{ -240.64309,52.99036 }</string>
+	
+								<string>{ -132.28295,32.92606 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -152.86173,21.67203 }</string>
+	
+								<string>{ -240.64309,52.99036 }</string>
+	
+								<string>{ -141.60771,28.10291 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -162.50803,13.63345 }</string>
+	
+								<string>{ -240.64309,52.99036 }</string>
+	
+								<string>{ -152.86173,21.67203 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -168.61736,6.55949 }</string>
+	
+								<string>{ -240.64309,52.99036 }</string>
+	
+								<string>{ -162.50803,13.63345 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -174.08360,-1.47910 }</string>
+	
+								<string>{ -240.64309,52.99036 }</string>
+	
+								<string>{ -168.61736,6.55949 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -177.94212,-9.83922 }</string>
+	
+								<string>{ -240.64309,52.99036 }</string>
+	
+								<string>{ -174.08360,-1.47910 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -177.94212,-9.83922 }</string>
+	
+								<string>{ -180.51447,-20.12862 }</string>
+	
+								<string>{ -240.00000,-160.00000 }</string>
+	
+								<string>{ -240.64309,52.99036 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -181.15755,-36.52733 }</string>
+	
+								<string>{ -240.00000,-160.00000 }</string>
+	
+								<string>{ -180.51447,-20.12862 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -177.62057,-52.92604 }</string>
+	
+								<string>{ -240.00000,-160.00000 }</string>
+	
+								<string>{ -181.15755,-36.52733 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -168.29581,-73.82636 }</string>
+	
+								<string>{ -240.00000,-160.00000 }</string>
+	
+								<string>{ -177.62057,-52.92604 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -150.28938,-97.29903 }</string>
+	
+								<string>{ -240.00000,-160.00000 }</string>
+	
+								<string>{ -168.29581,-73.82636 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -124.24437,-116.27010 }</string>
+	
+								<string>{ -240.00000,-160.00000 }</string>
+	
+								<string>{ -150.28938,-97.29903 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -102.37941,-126.55948 }</string>
+	
+								<string>{ -240.00000,-160.00000 }</string>
+	
+								<string>{ -124.24437,-116.27010 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -83.08681,-132.02572 }</string>
+	
+								<string>{ -240.00000,-160.00000 }</string>
+	
+								<string>{ -102.37941,-126.55948 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -71.18971,-134.59807 }</string>
+	
+								<string>{ -240.00000,-160.00000 }</string>
+	
+								<string>{ -83.08681,-132.02572 }</string>
+
+							</array>
+
+							<array>
+	
+								<string>{ -240.00000,-160.00000 }</string>
+	
+								<string>{ -71.18971,-134.59807 }</string>
+	
+								<string>{ -57.68488,-133.95498 }</string>
+
+							</array>
+
+						</array>
+					</dict>
+
+					<dict>
+                        <key>mass</key>
                         <real>2</real>
                         <key>elasticity</key>
                         <real>0</real>
@@ -43,144 +442,89 @@
 
 							<array>
 	
-								<string>{ -239.50249,-160.49751 }</string>
+								<string>{ 25.91641,74.72670 }</string>
 	
-								<string>{ -239.50249,30.24876 }</string>
+								<string>{ 47.78137,75.69133 }</string>
 	
-								<string>{ -207.16418,-160.00000 }</string>
+								<string>{ 38.13507,62.50804 }</string>
+	
+								<string>{ 26.23795,62.82959 }</string>
 
 							</array>
 
 							<array>
 	
-								<string>{ -147.96020,21.59204 }</string>
+								<string>{ -39.35690,124.05145 }</string>
 	
-								<string>{ -239.50249,30.24876 }</string>
+								<string>{ 31.38266,104.95178 }</string>
 	
-								<string>{ -87.06468,35.72139 }</string>
+								<string>{ -23.27974,112.34729 }</string>
 	
-								<string>{ -86.76617,28.05971 }</string>
+								<string>{ -39.03537,116.20581 }</string>
 
 							</array>
 
 							<array>
 	
-								<string>{ -192.23880,-4.77612 }</string>
+								<string>{ 21.73633,84.37300 }</string>
 	
-								<string>{ -239.50249,30.24876 }</string>
+								<string>{ 65.78778,81.15756 }</string>
 	
-								<string>{ -147.96020,21.59204 }</string>
+								<string>{ 47.78137,75.69133 }</string>
+	
+								<string>{ 25.91641,74.72670 }</string>
 
 							</array>
 
 							<array>
 	
-								<string>{ -217.61194,-45.57214 }</string>
+								<string>{ 13.37622,92.41159 }</string>
 	
-								<string>{ -239.50249,30.24876 }</string>
+								<string>{ 31.38266,104.95178 }</string>
 	
-								<string>{ -192.23880,-4.77612 }</string>
+								<string>{ 94.85532,80.00000 }</string>
+	
+								<string>{ 21.73633,84.37300 }</string>
 
 							</array>
 
 							<array>
 	
-								<string>{ -218.10945,-93.33334 }</string>
+								<string>{ 65.78778,81.15756 }</string>
 	
-								<string>{ -239.50249,30.24876 }</string>
+								<string>{ 94.85532,80.00000 }</string>
 	
-								<string>{ -217.61194,-45.57214 }</string>
-
-							</array>
-
-						</array>
-					</dict>
-
-					<dict>
-                        <key>mass</key>
-                        <real>0</real>
-                        <key>elasticity</key>
-                        <real>0</real>
-                        <key>friction</key>
-                        <real>0</real>
-                        <key>surface_velocity</key>
-                        <string>{ 0.00000,0.00000 }</string>
-                        <key>layers</key>
-                        <integer>0</integer>
-                        <key>group</key>
-                        <integer>0</integer>
-                        <key>collision_type</key>
-                        <integer>0</integer>
-                        <key>fixture_type</key>
-                        <key>POLYGON</key>
-                        <key>isSensor</key>
-
-                           <false/>
-
-                        <key>polygons</key>
-						<array>
-
-							<array>
-	
-								<string>{ 221.19403,-115.72139 }</string>
-	
-								<string>{ 240.09952,-160.49751 }</string>
-	
-								<string>{ 209.25372,-160.99502 }</string>
+								<string>{ 89.90353,77.29904 }</string>
 
 							</array>
 
 							<array>
 	
-								<string>{ 221.19403,-115.72139 }</string>
+								<string>{ -0.12862,101.41479 }</string>
 	
-								<string>{ 219.70151,-77.91045 }</string>
+								<string>{ 31.38266,104.95178 }</string>
 	
-								<string>{ 240.29852,-11.54228 }</string>
-	
-								<string>{ 240.09952,-160.49751 }</string>
+								<string>{ 13.37622,92.41159 }</string>
 
 							</array>
 
 							<array>
 	
-								<string>{ 207.26367,-55.02487 }</string>
+								<string>{ -10.73955,107.52414 }</string>
 	
-								<string>{ 240.29852,-11.54228 }</string>
+								<string>{ 31.38266,104.95178 }</string>
 	
-								<string>{ 219.70151,-77.91045 }</string>
+								<string>{ -0.12862,101.41479 }</string>
 
 							</array>
 
 							<array>
 	
-								<string>{ 189.85074,-38.60696 }</string>
+								<string>{ -23.27974,112.34729 }</string>
 	
-								<string>{ 240.29852,-11.54228 }</string>
+								<string>{ 31.38266,104.95178 }</string>
 	
-								<string>{ 207.26367,-55.02487 }</string>
-
-							</array>
-
-							<array>
-	
-								<string>{ 165.47263,-24.17911 }</string>
-	
-								<string>{ 240.29852,-11.54228 }</string>
-	
-								<string>{ 189.85074,-38.60696 }</string>
-
-							</array>
-
-							<array>
-	
-								<string>{ 165.47263,-24.17911 }</string>
-	
-								<string>{ 87.86069,-17.71144 }</string>
-	
-								<string>{ 86.86566,-9.05473 }</string>
-	
-								<string>{ 240.29852,-11.54228 }</string>
+								<string>{ -10.73955,107.52414 }</string>
 
 							</array>
 
