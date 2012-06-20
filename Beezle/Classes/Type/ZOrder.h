@@ -39,6 +39,8 @@
 +(ZOrder *) Z_BEES;
 +(ZOrder *) Z_SLINGER;
 
++(ZOrder *) Z_PARTICLE;
+
 +(ZOrder *) Z_BACKGROUND_FRONT;
 
 @end

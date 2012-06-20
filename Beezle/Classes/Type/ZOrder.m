@@ -36,6 +36,8 @@ GANDENUM(Z_SHEET_SHARED,            13, [NSNumber numberWithInt:7], @"z")
 GANDENUM(Z_BEES,                        14, [NSNumber numberWithInt:2], @"z")
 GANDENUM(Z_SLINGER,                     15, [NSNumber numberWithInt:3], @"z")
 
-GANDENUM(Z_BACKGROUND_FRONT,        16, [NSNumber numberWithInt:8], @"z")
+GANDENUM(Z_PARTICLE,                16, [NSNumber numberWithInt:8], @"z")
+
+GANDENUM(Z_BACKGROUND_FRONT,        17, [NSNumber numberWithInt:9], @"z")
 
 @end

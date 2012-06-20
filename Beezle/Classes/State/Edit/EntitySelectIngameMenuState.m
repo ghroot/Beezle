@@ -80,6 +80,7 @@
 	[self addMenuItemForEntityType:@"ICE"];
 	[self addMenuItemForEntityType:@"ICICLE"];
 	[self addMenuItemForEntityType:@"ICICLE-SMALL"];
+	[self addMenuItemForEntityType:@"LAVA-ERUPTION"];
 	[self addMenuItemForEntityType:@"LEAF"];
 	[self addMenuItemForEntityType:@"MUSHROOM"];
 	[self addMenuItemForEntityType:@"POLLEN-YELLOW"];
@@ -87,6 +88,7 @@
 	[self addMenuItemForEntityType:@"POLLEN-GREEN"];
 	[self addMenuItemForEntityType:@"RAMP"];
 	[self addMenuItemForEntityType:@"SLINGER"];
+	[self addMenuItemForEntityType:@"SMOKE"];
 	[self addMenuItemForEntityType:@"SMOKE-MUSHROOM"];
 	[self addMenuItemForEntityType:@"WOOD"];
 	[self addMenuItemForEntityType:@"WOOD-2"];

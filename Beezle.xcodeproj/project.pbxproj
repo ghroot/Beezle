@@ -1577,7 +1577,10 @@
 		2CF8E0F61576B45F0052F3AF /* SpikeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3AE /* SpikeComponent.m */; };
 		2CF8E0F61576B45F0052F3B2 /* ArmoredComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3B1 /* ArmoredComponent.m */; };
 		2CF8E0F61576B45F0052F3B5 /* BeeWithSpikeCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3B4 /* BeeWithSpikeCollisionHandler.m */; };
-		2CF8E0F61576B45F0052F3B7 /* Lava-Eruption.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3B6 /* Lava-Eruption.plist */; };
+		2CF8E0F61576B45F0052F3B7 /* Lava-Eruption-Particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3B6 /* Lava-Eruption-Particle.plist */; };
+		2CF8E0F61576B45F0052F3BA /* Lava-Eruption.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3B9 /* Lava-Eruption.plist */; };
+		2CF8E0F61576B45F0052F3BC /* Smoke-Particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3BB /* Smoke-Particle.plist */; };
+		2CF8E0F61576B45F0052F3BE /* Smoke.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3BD /* Smoke.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3491,7 +3494,10 @@
 		2CF8E0F61576B45F0052F3B1 /* ArmoredComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmoredComponent.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3B3 /* BeeWithSpikeCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeWithSpikeCollisionHandler.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3B4 /* BeeWithSpikeCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeWithSpikeCollisionHandler.m; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F3B6 /* Lava-Eruption.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Lava-Eruption.plist"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F3B6 /* Lava-Eruption-Particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Lava-Eruption-Particle.plist"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F3B9 /* Lava-Eruption.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Lava-Eruption.plist"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F3BB /* Smoke-Particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Smoke-Particle.plist"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F3BD /* Smoke.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Smoke.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -6100,6 +6106,7 @@
 				2CE4F59E153CC8A80023B5C6 /* Slinger.plist */,
 				2CE4F59F153CC8A80023B5C6 /* Water */,
 				2CE4F5A4153CC8A80023B5C6 /* Wood */,
+				2CF8E0F61576B45F0052F3B8 /* Particle */,
 			);
 			name = Entities;
 			path = Resources/Entities;
@@ -6445,7 +6452,8 @@
 		2CF8E0F61576B45F0052F3A2 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
-				2CF8E0F61576B45F0052F3B6 /* Lava-Eruption.plist */,
+				2CF8E0F61576B45F0052F3BB /* Smoke-Particle.plist */,
+				2CF8E0F61576B45F0052F3B6 /* Lava-Eruption-Particle.plist */,
 				2CF8E0F61576B45F0052F3AB /* Sand-Particle.plist */,
 				2CF8E0F61576B45F0052F3A9 /* Snow-Particle.plist */,
 				2CF8E0F61576B45F0052F3A7 /* Lava-Particle.plist */,
@@ -6453,6 +6461,15 @@
 				2CF8E0F61576B45F0052F3A3 /* Water-Splash-Particle.plist */,
 			);
 			path = Particles;
+			sourceTree = "<group>";
+		};
+		2CF8E0F61576B45F0052F3B8 /* Particle */ = {
+			isa = PBXGroup;
+			children = (
+				2CF8E0F61576B45F0052F3BD /* Smoke.plist */,
+				2CF8E0F61576B45F0052F3B9 /* Lava-Eruption.plist */,
+			);
+			path = Particle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -7818,7 +7835,10 @@
 				2CF8E0F61576B45F0052F3A8 /* Lava-Particle.plist in Resources */,
 				2CF8E0F61576B45F0052F3AA /* Snow-Particle.plist in Resources */,
 				2CF8E0F61576B45F0052F3AC /* Sand-Particle.plist in Resources */,
-				2CF8E0F61576B45F0052F3B7 /* Lava-Eruption.plist in Resources */,
+				2CF8E0F61576B45F0052F3B7 /* Lava-Eruption-Particle.plist in Resources */,
+				2CF8E0F61576B45F0052F3BA /* Lava-Eruption.plist in Resources */,
+				2CF8E0F61576B45F0052F3BC /* Smoke-Particle.plist in Resources */,
+				2CF8E0F61576B45F0052F3BE /* Smoke.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

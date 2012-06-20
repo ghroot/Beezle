@@ -85,6 +85,13 @@
 				NSString *textureFile = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:[spriteDict objectForKey:@"textureFile"]];
                 renderSprite = [RenderSprite renderSpriteWithFile:textureFile zOrder:zOrder];
 			}
+			else if ([spriteDict objectForKey:@"particleFile"] != nil)
+			{
+				CCParticleSystem *particleSystem = [CCParticleSystemQuad particleWithFile:[spriteDict objectForKey:@"particleFile"]];
+				CCSprite *particleSprite = [CCSprite node];
+				[particleSprite addChild:particleSystem];
+				renderSprite = [RenderSprite renderSpriteWithSprite:particleSprite zOrder:zOrder];
+			}
 			else
 			{
 				NSLog(@"WARNING: Render component must specify either 'spriteSheetName' or 'textureFile'");
