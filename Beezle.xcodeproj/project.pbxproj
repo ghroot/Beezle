@@ -1577,6 +1577,7 @@
 		2CF8E0F61576B45F0052F3AF /* SpikeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3AE /* SpikeComponent.m */; };
 		2CF8E0F61576B45F0052F3B2 /* ArmoredComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3B1 /* ArmoredComponent.m */; };
 		2CF8E0F61576B45F0052F3B5 /* BeeWithSpikeCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3B4 /* BeeWithSpikeCollisionHandler.m */; };
+		2CF8E0F61576B45F0052F3B7 /* Lava-Eruption.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3B6 /* Lava-Eruption.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3490,6 +3491,7 @@
 		2CF8E0F61576B45F0052F3B1 /* ArmoredComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmoredComponent.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3B3 /* BeeWithSpikeCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeWithSpikeCollisionHandler.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3B4 /* BeeWithSpikeCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeWithSpikeCollisionHandler.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F3B6 /* Lava-Eruption.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Lava-Eruption.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -6443,6 +6445,7 @@
 		2CF8E0F61576B45F0052F3A2 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F3B6 /* Lava-Eruption.plist */,
 				2CF8E0F61576B45F0052F3AB /* Sand-Particle.plist */,
 				2CF8E0F61576B45F0052F3A9 /* Snow-Particle.plist */,
 				2CF8E0F61576B45F0052F3A7 /* Lava-Particle.plist */,
@@ -7815,6 +7818,7 @@
 				2CF8E0F61576B45F0052F3A8 /* Lava-Particle.plist in Resources */,
 				2CF8E0F61576B45F0052F3AA /* Snow-Particle.plist in Resources */,
 				2CF8E0F61576B45F0052F3AC /* Sand-Particle.plist in Resources */,
+				2CF8E0F61576B45F0052F3B7 /* Lava-Eruption.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
