@@ -15,4 +15,6 @@
     NSArray *_alphabet;
 }
 
+-(id) initWithEntityTypes:(NSArray *)entityTypes;
+
 @end

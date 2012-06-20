@@ -1581,6 +1581,8 @@
 		2CF8E0F61576B45F0052F3BA /* Lava-Eruption.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3B9 /* Lava-Eruption.plist */; };
 		2CF8E0F61576B45F0052F3BC /* Smoke-Particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3BB /* Smoke-Particle.plist */; };
 		2CF8E0F61576B45F0052F3BE /* Smoke.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3BD /* Smoke.plist */; };
+		2CF8E0F61576B45F0052F3C1 /* EntityGroupSelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3C0 /* EntityGroupSelectIngameMenuState.m */; };
+		2CF8E0F61576B45F0052F3C4 /* EntityGroupSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3C3 /* EntityGroupSelectMenuItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3498,6 +3500,10 @@
 		2CF8E0F61576B45F0052F3B9 /* Lava-Eruption.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Lava-Eruption.plist"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3BB /* Smoke-Particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Smoke-Particle.plist"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3BD /* Smoke.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Smoke.plist; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F3BF /* EntityGroupSelectIngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityGroupSelectIngameMenuState.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F3C0 /* EntityGroupSelectIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityGroupSelectIngameMenuState.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F3C2 /* EntityGroupSelectMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityGroupSelectMenuItem.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F3C3 /* EntityGroupSelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityGroupSelectMenuItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4008,6 +4014,10 @@
 		2C74B46B156FAD1E00596A22 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F3C3 /* EntityGroupSelectMenuItem.m */,
+				2CF8E0F61576B45F0052F3C2 /* EntityGroupSelectMenuItem.h */,
+				2CF8E0F61576B45F0052F3C0 /* EntityGroupSelectIngameMenuState.m */,
+				2CF8E0F61576B45F0052F3BF /* EntityGroupSelectIngameMenuState.h */,
 				2C74B46C156FAD1E00596A22 /* EditIngameMenuState.h */,
 				2C74B46D156FAD1E00596A22 /* EditIngameMenuState.m */,
 				2C74B46E156FAD1E00596A22 /* EditState.h */,
@@ -8140,6 +8150,8 @@
 				2CF8E0F61576B45F0052F3AF /* SpikeComponent.m in Sources */,
 				2CF8E0F61576B45F0052F3B2 /* ArmoredComponent.m in Sources */,
 				2CF8E0F61576B45F0052F3B5 /* BeeWithSpikeCollisionHandler.m in Sources */,
+				2CF8E0F61576B45F0052F3C1 /* EntityGroupSelectIngameMenuState.m in Sources */,
+				2CF8E0F61576B45F0052F3C4 /* EntityGroupSelectMenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,7 +16,7 @@
 
 @interface EntitySelectIngameMenuState()
 
--(void) createEntityMenuItems;
+-(void) createEntityMenuItems:(NSArray *)entityTypes;
 -(void) addMenuItemForEntityType:(NSString *)entityType;
 -(void) addEntity:(id)sender;
 -(void) addGlassEntities:(EditState *)editState;
@@ -26,29 +26,29 @@
 -(NSArray *) generateClirrImageNamesForLevelName:(NSString *)levelName;
 -(NSArray *) getAllClirrAnimationNames;
 -(NSString *) convertToThemeSpecificEntityType:(NSString *)entityType levelName:(NSString *)levelName;
--(void) cancel:(id)sender;
+-(void) goBack:(id)sender;
 
 @end
 
 @implementation EntitySelectIngameMenuState
 
--(id) init
+-(id) initWithEntityTypes:(NSArray *)entityTypes
 {
 	if (self = [super init])
 	{
 		_menu = [CCMenu menuWithItems:nil];
 		
-		[self createEntityMenuItems];
+		[self createEntityMenuItems:entityTypes];
 		
-		CCMenuItemFont *cancelMenuItem = [CCMenuItemFont itemWithString:@"<cancel>" target:self selector:@selector(cancel:)];
-		[cancelMenuItem setFontSize:14];
-		[_menu addChild:cancelMenuItem];
-		
+		CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
+		[backMenuItem setFontSize:24];
+		[_menu addChild:backMenuItem];
+
 		int nMenuItems = [[_menu  children] count];
-		int num1 = (int)ceilf(nMenuItems / 3.0f);
-		int num2 = nMenuItems - 2 * num1;
-		[_menu alignItemsInRows:[NSNumber numberWithInt:num1], [NSNumber numberWithInt:num1], [NSNumber numberWithInt:num2], nil];
-		
+		int num1 = (int)ceilf(nMenuItems / 2.0f);
+		int num2 = nMenuItems - num1;
+		[_menu alignItemsInRows:[NSNumber numberWithInt:num1], [NSNumber numberWithInt:num2], nil];
+
 		[self addChild:_menu];
         
         _alphabet = [[NSArray alloc] initWithObjects:@"a", @"b", @"c", @"d", @"e", @"f", nil];
@@ -63,44 +63,18 @@
     [super dealloc];
 }
 
--(void) createEntityMenuItems
+-(void) createEntityMenuItems:(NSArray *)entityTypes
 {
-	[self addMenuItemForEntityType:@"BEEATER-LAND"];
-	[self addMenuItemForEntityType:@"BEEATER-HANGING"];
-	[self addMenuItemForEntityType:@"BEEATER-BIRD"];
-	[self addMenuItemForEntityType:@"BEEATER-FISH"];
-    [self addMenuItemForEntityType:@"SUPER-BEEATER"];
-	[self addMenuItemForEntityType:@"CACTUS"];
-	[self addMenuItemForEntityType:@"CLIRR"];
-	[self addMenuItemForEntityType:@"EGG"];
-	[self addMenuItemForEntityType:@"FLOATING-BLOCK-A"];
-	[self addMenuItemForEntityType:@"FROZEN-TBEE"];
-	[self addMenuItemForEntityType:@"GLASS"];
-	[self addMenuItemForEntityType:@"HANGNEST"];
-	[self addMenuItemForEntityType:@"ICE"];
-	[self addMenuItemForEntityType:@"ICICLE"];
-	[self addMenuItemForEntityType:@"ICICLE-SMALL"];
-	[self addMenuItemForEntityType:@"LAVA-ERUPTION"];
-	[self addMenuItemForEntityType:@"LEAF"];
-	[self addMenuItemForEntityType:@"MUSHROOM"];
-	[self addMenuItemForEntityType:@"POLLEN-YELLOW"];
-	[self addMenuItemForEntityType:@"POLLEN-ORANGE"];
-	[self addMenuItemForEntityType:@"POLLEN-GREEN"];
-	[self addMenuItemForEntityType:@"RAMP"];
-	[self addMenuItemForEntityType:@"SLINGER"];
-	[self addMenuItemForEntityType:@"SMOKE"];
-	[self addMenuItemForEntityType:@"SMOKE-MUSHROOM"];
-	[self addMenuItemForEntityType:@"WOOD"];
-	[self addMenuItemForEntityType:@"WOOD-2"];
-	[self addMenuItemForEntityType:@"WOOD-3"];
-	[self addMenuItemForEntityType:@"WOOD-4"];
-	[self addMenuItemForEntityType:@"WATERDROP-SPAWNER"];
+	for (NSString *entityType in entityTypes)
+	{
+		[self addMenuItemForEntityType:entityType];
+	}
 }
 
 -(void) addMenuItemForEntityType:(NSString *)entityType
 {
 	CCMenuItemFont *menuItem = [CCMenuItemFont itemWithString:entityType target:self selector:@selector(addEntity:)];
-	[menuItem setFontSize:16];
+	[menuItem setFontSize:26];
 	[menuItem setUserData:entityType];
 	[_menu addChild:menuItem];
 }
@@ -110,6 +84,7 @@
 	CCMenuItem *menuItem = sender;
 	NSString *entityType = [menuItem userData];
 	
+	[_game popState];
 	[_game popState];
 	EditState *editState = (EditState *)[_game currentState];
 	
@@ -306,7 +281,7 @@
 	return [entityType stringByAppendingFormat:@"-%@", theme];
 }
 
--(void) cancel:(id)sender
+-(void) goBack:(id)sender
 {
 	[_game popState];
 }

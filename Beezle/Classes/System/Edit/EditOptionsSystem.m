@@ -15,7 +15,6 @@
 #import "EditControlSystem.h"
 #import "EditState.h"
 #import "EntityFactory.h"
-#import "EntitySelectIngameMenuState.h"
 #import "EntityUtil.h"
 #import "Game.h"
 #import "LevelOrganizer.h"
@@ -23,6 +22,7 @@
 #import "SlingerComponent.h"
 #import "TransformComponent.h"
 #import "Utils.h"
+#import "EntityGroupSelectIngameMenuState.h"
 
 @interface EditOptionsSystem()
 
@@ -256,7 +256,7 @@
 -(void) doOptionOpenEntityMenu:(id)sender
 {
 	Game *game = [_editState game];
-	[game pushState:[EntitySelectIngameMenuState state]];
+	[game pushState:[EntityGroupSelectIngameMenuState state]];
 }
 	 
 -(void) doOptionToggleWater:(id)sender
