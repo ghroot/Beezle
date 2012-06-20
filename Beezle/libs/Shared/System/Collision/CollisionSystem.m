@@ -21,6 +21,7 @@
 #import "SolidWithWaterCollisionHandler.h"
 #import "SolidWithWobbleCollisionHandler.h"
 #import "PulverizeWithPulverizableCollisionHandler.h"
+#import "BeeWithSpikeCollisionHandler.h"
 
 @interface CollisionSystem()
 
@@ -64,6 +65,7 @@
 	[self registerCollisionHandler:[AnythingWithVoidCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[AnythingWithVolatileCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[BeeWithBeeaterCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[self registerCollisionHandler:[BeeWithSpikeCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[ConsumerWithPollenCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[DozerWithCrumbleCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[self registerCollisionHandler:[PulverizeWithPulverizableCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
