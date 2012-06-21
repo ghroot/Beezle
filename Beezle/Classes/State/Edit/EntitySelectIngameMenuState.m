@@ -9,10 +9,10 @@
 #import "EntitySelectIngameMenuState.h"
 #import "EditState.h"
 #import "EntityDescription.h"
-#import "EntityFactory.h"
 #import "Game.h"
 #import "LevelOrganizer.h"
 #import "EntityDescriptionCache.h"
+#import "EntitySelectMenuItem.h"
 
 @interface EntitySelectIngameMenuState()
 
@@ -73,7 +73,7 @@
 
 -(void) addMenuItemForEntityType:(NSString *)entityType
 {
-	CCMenuItemFont *menuItem = [CCMenuItemFont itemWithString:entityType target:self selector:@selector(addEntity:)];
+	EntitySelectMenuItem *menuItem = [[[EntitySelectMenuItem alloc] initWithEntityType:entityType target:self selector:@selector(addEntity:)] autorelease];
 	[menuItem setFontSize:26];
 	[menuItem setUserData:entityType];
 	[_menu addChild:menuItem];

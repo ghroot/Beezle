@@ -1583,6 +1583,7 @@
 		2CF8E0F61576B45F0052F3BE /* Smoke.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3BD /* Smoke.plist */; };
 		2CF8E0F61576B45F0052F3C1 /* EntityGroupSelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3C0 /* EntityGroupSelectIngameMenuState.m */; };
 		2CF8E0F61576B45F0052F3C4 /* EntityGroupSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3C3 /* EntityGroupSelectMenuItem.m */; };
+		2CF8E0F61576B45F0052F3C7 /* EntitySelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3C6 /* EntitySelectMenuItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3504,6 +3505,8 @@
 		2CF8E0F61576B45F0052F3C0 /* EntityGroupSelectIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityGroupSelectIngameMenuState.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3C2 /* EntityGroupSelectMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityGroupSelectMenuItem.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3C3 /* EntityGroupSelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityGroupSelectMenuItem.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F3C5 /* EntitySelectMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntitySelectMenuItem.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F3C6 /* EntitySelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntitySelectMenuItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4014,6 +4017,8 @@
 		2C74B46B156FAD1E00596A22 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F3C6 /* EntitySelectMenuItem.m */,
+				2CF8E0F61576B45F0052F3C5 /* EntitySelectMenuItem.h */,
 				2CF8E0F61576B45F0052F3C3 /* EntityGroupSelectMenuItem.m */,
 				2CF8E0F61576B45F0052F3C2 /* EntityGroupSelectMenuItem.h */,
 				2CF8E0F61576B45F0052F3C0 /* EntityGroupSelectIngameMenuState.m */,
@@ -8152,6 +8157,7 @@
 				2CF8E0F61576B45F0052F3B5 /* BeeWithSpikeCollisionHandler.m in Sources */,
 				2CF8E0F61576B45F0052F3C1 /* EntityGroupSelectIngameMenuState.m in Sources */,
 				2CF8E0F61576B45F0052F3C4 /* EntityGroupSelectMenuItem.m in Sources */,
+				2CF8E0F61576B45F0052F3C7 /* EntitySelectMenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
