@@ -127,23 +127,26 @@
 	[self loadLevel];
 
 	// TEMP: Particle overlays
-//	NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:_levelName];
-//	if ([theme isEqualToString:@"A"])
-//	{
-//		[_uiLayer addChild:[CCParticleSystemQuad particleWithFile:@"Rain-Particle.plist"]];
-//	}
-//	else if ([theme isEqualToString:@"B"])
-//	{
-//		[_uiLayer addChild:[CCParticleSystemQuad particleWithFile:@"Lava-Particle.plist"]];
-//	}
-//	else if ([theme isEqualToString:@"C"])
-//	{
-//		[_uiLayer addChild:[CCParticleSystemQuad particleWithFile:@"Snow-Particle.plist"]];
-//	}
-//	else if ([theme isEqualToString:@"D"])
-//	{
-//		[_uiLayer addChild:[CCParticleSystemQuad particleWithFile:@"Sand-Particle.plist"]];
-//	}
+	NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:_levelName];
+	if ([_levelName isEqualToString:[NSString stringWithFormat:@"Level-%@17", theme]])
+	{
+		if ([theme isEqualToString:@"A"])
+		{
+			[_uiLayer addChild:[CCParticleSystemQuad particleWithFile:@"Rain-Particle.plist"]];
+		}
+		else if ([theme isEqualToString:@"B"])
+		{
+			[_uiLayer addChild:[CCParticleSystemQuad particleWithFile:@"Lava-Particle.plist"]];
+		}
+		else if ([theme isEqualToString:@"C"])
+		{
+			[_uiLayer addChild:[CCParticleSystemQuad particleWithFile:@"Snow-Particle.plist"]];
+		}
+		else if ([theme isEqualToString:@"D"])
+		{
+			[_uiLayer addChild:[CCParticleSystemQuad particleWithFile:@"Sand-Particle.plist"]];
+		}
+	}
 	
 	[[SessionTracker sharedTracker] trackStartedLevel:_levelName];
 }
