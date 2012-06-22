@@ -67,6 +67,7 @@
 			nil]];
 
 	[self addMenuItemForGroup:@"Tools" andEntityTypes:[NSArray arrayWithObjects:
+			@"BRANCH",
 			@"EGG",
 			@"MUSHROOM",
 			@"POLLEN-GREEN",

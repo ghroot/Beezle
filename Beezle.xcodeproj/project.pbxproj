@@ -1584,6 +1584,8 @@
 		2CF8E0F61576B45F0052F3C1 /* EntityGroupSelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3C0 /* EntityGroupSelectIngameMenuState.m */; };
 		2CF8E0F61576B45F0052F3C4 /* EntityGroupSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3C3 /* EntityGroupSelectMenuItem.m */; };
 		2CF8E0F61576B45F0052F3C7 /* EntitySelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3C6 /* EntitySelectMenuItem.m */; };
+		2CF8E0F61576B45F0052F3C9 /* Branch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3C8 /* Branch.plist */; };
+		2CF8E0F61576B45F0052F3CB /* Branch-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3CA /* Branch-Animations.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3507,6 +3509,8 @@
 		2CF8E0F61576B45F0052F3C3 /* EntityGroupSelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityGroupSelectMenuItem.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3C5 /* EntitySelectMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntitySelectMenuItem.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3C6 /* EntitySelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntitySelectMenuItem.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F3C8 /* Branch.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Branch.plist; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F3CA /* Branch-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Branch-Animations.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4724,6 +4728,7 @@
 		2C84099615829AA10098BA9C /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F3CA /* Branch-Animations.plist */,
 				2CF8E0F61576B45F0052F3A0 /* Cactus-Animations.plist */,
 				2C84099715829AA10098BA9C /* Bee */,
 				2C8409A015829AA10098BA9C /* Beeater */,
@@ -6104,6 +6109,7 @@
 		2CE348B514DF003A00FEB492 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F3C8 /* Branch.plist */,
 				2CF8E0F61576B45F0052F39E /* Cactus.plist */,
 				2CE4F536153CC8A80023B5C6 /* Aim-Pollen.plist */,
 				2CE4F537153CC8A80023B5C6 /* Bee */,
@@ -7854,6 +7860,8 @@
 				2CF8E0F61576B45F0052F3BA /* Lava-Eruption.plist in Resources */,
 				2CF8E0F61576B45F0052F3BC /* Smoke-Particle.plist in Resources */,
 				2CF8E0F61576B45F0052F3BE /* Smoke.plist in Resources */,
+				2CF8E0F61576B45F0052F3C9 /* Branch.plist in Resources */,
+				2CF8E0F61576B45F0052F3CB /* Branch-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>BRANCH</string>
+	<key>components</key>
+	<dict>
+        <key>disposable</key>
+        <dict>
+            <key>deleteEntityWhenDisposed</key>
+            <true/>
+        </dict>
+        <key>physics</key>
+        <dict>
+            <key>body</key>
+            <dict>
+                <key>mass</key>
+                <real>0</real>
+            </dict>
+            <key>shapes</key>
+            <array>
+                <dict>
+                    <key>type</key>
+                    <string>poly</string>
+                    <key>vertices</key>
+                    <array>
+                        <string>{ -1, 0 }</string>
+                        <string>{ -1, 90 }</string>
+                        <string>{ 1, 90 }</string>
+                        <string>{ 1, 0 }</string>
+                    </array>
+                    <key>elasticity</key>
+                    <real>1.0</real>
+                    <key>friction</key>
+                    <real>0.5</real>
+                    <key>layers</key>
+                    <integer>7</integer>
+                    <key>group</key>
+                    <string>LEVEL</string>
+                </dict>
+            </array>
+        </dict>
+        <key>pulverizable</key>
+        <dict>
+            <key>pulverAnimations</key>
+            <dict>
+                <key>default</key>
+                <string>Branch-Pulver</string>
+            </dict>
+        </dict>
+		<key>render</key>
+		<dict>
+			<key>sprites</key>
+			<array>
+				<dict>
+					<key>spriteSheetName</key>
+					<string>D</string>
+					<key>animationFile</key>
+					<string>Branch-Animations.plist</string>
+                    <key>anchorPoint</key>
+                    <string>{ 0.5, 0.0 }</string>
+					<key>defaultIdleAnimation</key>
+					<string>Branch-Idle</string>
+				</dict>
+			</array>
+		</dict>
+		<key>transform</key>
+		<dict/>
+        <key>wobble</key>
+        <dict>
+            <key>wobbleAnimation</key>
+            <string>Branch-Bounce</string>
+            <key>wobbleFollowupAnimation</key>
+            <string>Branch-Idle</string>
+        </dict>
+	</dict>
+</dict>
+</plist>
