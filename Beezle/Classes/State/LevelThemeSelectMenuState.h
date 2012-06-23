@@ -8,10 +8,8 @@
 
 #import "GameState.h"
 #import "cocos2d.h"
+#import "CCScrollLayer.h"
 
 @interface LevelThemeSelectMenuState : GameState
-{
-	CCMenu *_menu;
-}
 
 @end

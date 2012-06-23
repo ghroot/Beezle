@@ -9,14 +9,13 @@
 #import "LevelThemeSelectMenuState.h"
 #import "Game.h"
 #import "LevelOrganizer.h"
+#import "LevelThemeSelectLayer.h"
 #import "LevelSelectMenuState.h"
-#import "LevelThemeSelectMenuItem.h"
 
 @interface LevelThemeSelectMenuState()
 
--(void) createLevelThemeMenuItems;
--(void) selectLevel:(id)sender;
--(void) goBack:(id)sender;
+-(void) createBackMenu;
+-(void) createScrollLayers;
 
 @end
 
@@ -25,39 +24,39 @@
 -(void) initialise
 {
 	[super initialise];
-	
-	_menu = [CCMenu menuWithItems:nil];
-	
-	[self createLevelThemeMenuItems];
-	
-	CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
-	[backMenuItem setFontSize:24];
-	[_menu addChild:backMenuItem];
-	
-	[_menu alignItemsVertically];
-	
-	[self addChild:_menu];
+
+	[self createScrollLayers];
+	[self createBackMenu];
 }
 
--(void) createLevelThemeMenuItems
+-(void) createBackMenu
 {
+	CCMenu *menu = [CCMenu menuWithItems:nil];
+	CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" block:^(id sender){
+		[_game popState];
+	}];
+	[backMenuItem setFontSize:24];
+	[backMenuItem setAnchorPoint:CGPointMake(0.0f, 0.0f)];
+	[menu addChild:backMenuItem];
+	[menu setPosition:CGPointMake(0.0f, 0.0f)];
+	[menu setAnchorPoint:CGPointMake(1.0f, 1.0f)];
+	[self addChild:menu];
+}
+
+-(void) createScrollLayers
+{
+	NSMutableArray *layers = [NSMutableArray array];
 	NSArray *themes = [[LevelOrganizer sharedOrganizer] themes];
 	for (NSString *theme in themes)
 	{
-		LevelThemeSelectMenuItem *levelThemeMenuItem = [LevelThemeSelectMenuItem itemWithTheme:theme target:self selector:@selector(selectLevel:)];
-		[_menu addChild:levelThemeMenuItem];
+		LevelThemeSelectLayer *levelThemeSelectLayer = [[[LevelThemeSelectLayer alloc] initWithTheme:theme block:^(id sender){
+			[_game pushState:[LevelSelectMenuState stateWithTheme:theme]];
+		}] autorelease];
+		[layers addObject:levelThemeSelectLayer];
 	}
-}
-
--(void) selectLevel:(id)sender
-{
-	LevelThemeSelectMenuItem *levelThemeMenuItem = (LevelThemeSelectMenuItem *)sender;
-	[_game pushState:[LevelSelectMenuState stateWithTheme:[levelThemeMenuItem theme]]];
-}
-
--(void) goBack:(id)sender
-{
-	[_game popState];
+	CCScrollLayer *scrollLayer = [CCScrollLayer nodeWithLayers:layers widthOffset:0];
+	[scrollLayer setShowPagesIndicator:FALSE];
+	[self addChild:scrollLayer];
 }
 
 @end
