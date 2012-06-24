@@ -94,7 +94,7 @@
 			}
 			else
 			{
-				NSLog(@"WARNING: Render component must specify either 'spriteSheetName' or 'textureFile'");
+				NSLog(@"WARNING: Render component must specify either 'spriteSheetName', 'textureFile' or 'particleFile'");
 			}
             
             if ([spriteDict objectForKey:@"name"] != nil)
