@@ -174,6 +174,40 @@
 			}
 		}
 
+		// TEMP: Ignore CLIRR with missing animations
+		if ([type isEqualToString:@"CLIRR"])
+		{
+			EntityDescription *entityDescription = [[EntityDescriptionCache sharedCache] entityDescriptionByType:type];
+			NSDictionary *renderTypeComponentDict = [[entityDescription typeComponentsDict] objectForKey:@"render"];
+			NSArray *sprites = [renderTypeComponentDict objectForKey:@"sprites"];
+			NSString *animationFileName = [[sprites objectAtIndex:0] objectForKey:@"animationFile"];
+			NSString *animationFilePath = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:animationFileName];
+			NSDictionary *animationsDict = [[NSDictionary dictionaryWithContentsOfFile:animationFilePath] objectForKey:@"animations"];
+
+			NSDictionary *renderInstanceComponentDict = [instanceComponentsDict objectForKey:@"render"];
+			NSString *overrideIdleAnimationName = [renderInstanceComponentDict objectForKey:@"overrideIdleAnimation"];
+
+			NSDictionary *animationDict = [animationsDict objectForKey:overrideIdleAnimationName];
+			if (animationDict != nil)
+			{
+				NSString *sheetFilename = @"C.plist";
+				NSString *sheetFilePath = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:sheetFilename];
+				NSDictionary *sheetDict = [NSDictionary dictionaryWithContentsOfFile:sheetFilePath];
+				NSDictionary *framesDict = [sheetDict objectForKey:@"frames"];
+
+				NSString *frameName = [[animationDict objectForKey:@"frames"] objectAtIndex:0];
+
+				if ([framesDict objectForKey:frameName] == nil)
+				{
+					continue;
+				}
+			}
+			else
+			{
+				continue;
+			}
+		}
+
 		[levelLayoutEntry setType:[NSString stringWithString:type]];
 		[levelLayoutEntry setInstanceComponentsDict:instanceComponentsDict];
 		
