@@ -49,7 +49,6 @@
 			@"BEEATER-HANGING",
 			@"BEEATER-LAND",
 			@"CACTUS",
-			@"CLIRR",
 			@"HANGNEST",
 			@"RAMP",
 			@"SUPER-BEEATER",
@@ -60,6 +59,7 @@
 			nil]];
 
 	[self addMenuItemForGroup:@"Glass & Ice" andEntityTypes:[NSArray arrayWithObjects:
+			@"CLIRR",
 			@"GLASS",
 			@"ICE",
 			@"ICICLE",
