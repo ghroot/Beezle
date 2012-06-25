@@ -40,7 +40,7 @@
 @property (nonatomic, retain) NSMutableArray *systems;
 
 -(EntitySystem *) setSystem:(EntitySystem *)system;
--(EntitySystem *) getSystem:(Class)systemClass;
+-(id) getSystem:(Class)systemClass;
 -(void) initialiseAll;
 -(void) processAll;
 

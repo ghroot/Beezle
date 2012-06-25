@@ -52,7 +52,7 @@
     return system;
 }
 
--(EntitySystem *) getSystem:(Class)systemClass
+-(id) getSystem:(Class)systemClass
 {
     EntitySystem *systemToReturn = NULL;
     for (EntitySystem *system in _systems)
