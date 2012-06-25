@@ -56,7 +56,7 @@
 -(void) test_givenEntityCreated_whenDeleted_cannotBeRetrieved
 {
     Entity *entity = [_world createEntity];
-    int entityId = [entity entityId];
+    NSNumber *entityId = [entity entityId];
     [entity deleteEntity];
     [_world loopStart];
     Entity *retrievedEntity = [_world getEntity:entityId];
@@ -80,7 +80,7 @@
 -(void) test_givenEntityDeleted_ifLoopStartIsNotCalled_entityCanStillBeRetrieved
 {
     Entity *entity = [_world createEntity];
-    int entityId = [entity entityId];
+    NSNumber *entityId = [entity entityId];
     [entity deleteEntity];
     Entity *retrievedEntity = [_world getEntity:entityId];
     
