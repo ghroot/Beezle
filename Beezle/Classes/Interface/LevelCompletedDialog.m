@@ -39,7 +39,7 @@
 
 -(void) loadNextLevel
 {
-#ifdef DEBUG
+#ifdef LEVEL_RATINGS
 	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:[_levelSession levelName]];
 	if ([[LevelRatings sharedRatings] hasRatedLevel:[levelLayout levelName] withVersion:[levelLayout version]])
 	{

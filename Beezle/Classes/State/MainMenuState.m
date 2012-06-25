@@ -28,11 +28,9 @@
 	
 	CCMenuItem *playMenuItem = [CCMenuItemFont itemWithString:@"Play" target:self selector:@selector(selectTheme:)];
 	[_menu addChild:playMenuItem];
-#ifdef DEBUG
 	CCMenuItem *debugMenuItem = [CCMenuItemFont itemWithString:@"Debug" target:self selector:@selector(showDebugMenu:)];
 	[_menu addChild:debugMenuItem];
-#endif
-	
+
 	[_menu alignItemsVerticallyWithPadding:20.0f];
 	
 	[self addChild:_menu];
