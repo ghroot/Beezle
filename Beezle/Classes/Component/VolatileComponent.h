@@ -9,7 +9,7 @@
 #import "artemis.h"
 
 /**
-  Destroyed on collision.
+  Destroyed on collision with anything.
  */
 @interface VolatileComponent : Component
 

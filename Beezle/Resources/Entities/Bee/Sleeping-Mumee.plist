@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>SLEEPING-MUMEE</string>
+	<key>components</key>
+	<dict>
+        <key>breakable</key>
+        <dict/>
+		<key>captured</key>
+		<dict>
+			<key>defaultContainedBeeType</key>
+			<string>MUMEE</string>
+		</dict>
+		<key>disposable</key>
+		<dict>
+			<key>deleteEntityWhenDisposed</key>
+			<true/>
+		</dict>
+		<key>physics</key>
+		<dict>
+			<key>body</key>
+			<dict>
+				<key>mass</key>
+				<real>0</real>
+			</dict>
+			<key>shapes</key>
+			<array>
+				<dict>
+					<key>type</key>
+					<string>circle</string>
+					<key>radius</key>
+					<real>12</real>
+					<key>elasticity</key>
+					<real>0</real>
+					<key>friction</key>
+					<real>0</real>
+					<key>layers</key>
+					<integer>1</integer>
+					<key>group</key>
+					<string>LEVEL</string>
+				</dict>
+			</array>
+		</dict>
+		<key>render</key>
+		<dict>
+			<key>sprites</key>
+			<array>
+				<dict>
+					<key>spriteSheetName</key>
+					<string>Shared</string>
+					<key>animationFile</key>
+					<string>Mumee-Animations.plist</string>
+					<key>defaultIdleAnimation</key>
+					<string>Mumee-Sleep</string>
+				</dict>
+			</array>
+		</dict>
+		<key>transform</key>
+		<dict/>
+        <key>void</key>
+        <dict/>
+	</dict>
+</dict>
+</plist>

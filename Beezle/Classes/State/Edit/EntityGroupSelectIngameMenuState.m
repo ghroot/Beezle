@@ -86,6 +86,7 @@
 			@"FLOATING-BLOCK-A",
 			@"FROZEN-TBEE",
 			@"LEAF",
+			@"SLEEPING-MUMEE",
 			@"WATERDROP-SPAWNER",
 			nil]];
 }

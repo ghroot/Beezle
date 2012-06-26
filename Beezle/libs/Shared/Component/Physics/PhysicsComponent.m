@@ -169,7 +169,12 @@ static const int GRAVITY = -90;
 		{
 			[_body setVelLimit:[[typeComponentDict objectForKey:@"maxVelocity"] floatValue]];
 		}
-        
+		if ([typeComponentDict objectForKey:@"lockRotation"] &&
+			[[typeComponentDict objectForKey:@"lockRotation"] boolValue])
+		{
+			[_body setAngVelLimit:0.0f];
+		}
+
         // Instance
         CGPoint position = CGPointFromString([instanceComponentDict objectForKey:@"position"]);
         [_body setPos:position];

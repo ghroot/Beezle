@@ -8,7 +8,7 @@
 
 #import "artemis.h"
 
-// Destroys entities that collide unless it is an armored entity
+// Destroys bee entities that collide unless it is an armored bee entity
 @interface SpikeComponent : Component
 
 @end
