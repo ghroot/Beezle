@@ -11,6 +11,7 @@
 
 @class Collision;
 @class LevelSession;
+@class CollisionHandler;
 
 @interface CollisionSystem : EntitySystem
 {
@@ -20,6 +21,7 @@
 
 -(id) initWithLevelSession:(LevelSession *)levelSession;
 
+-(void) registerCollisionHandler:(CollisionHandler *)handler;
 -(BOOL) handleCollision:(Collision *)collision;
 
 @end

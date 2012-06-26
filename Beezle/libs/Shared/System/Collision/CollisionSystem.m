@@ -8,27 +8,8 @@
 
 #import "CollisionSystem.h"
 #import "AnythingWithVoidCollisionHandler.h"
-#import "AnythingWithVolatileCollisionHandler.h"
-#import "BeeWithBeeaterCollisionHandler.h"
 #import "Collision.h"
-#import "ConsumerWithPollenCollisionHandler.h"
-#import "DozerWithCrumbleCollisionHandler.h"
 #import "LevelSession.h"
-#import "SawWithWoodCollisionHandler.h"
-#import "SolidWithSoundCollisionHandler.h"
-#import "SolidWithBoostCollisionHandler.h"
-#import "SolidWithBreakableCollisionHandler.h"
-#import "SolidWithWaterCollisionHandler.h"
-#import "SolidWithWobbleCollisionHandler.h"
-#import "PulverizeWithPulverizableCollisionHandler.h"
-#import "BeeWithSpikeCollisionHandler.h"
-
-@interface CollisionSystem()
-
--(void) registerCollisionHandlers;
--(void) registerCollisionHandler:(CollisionHandler *)handler;
-
-@end
 
 @implementation CollisionSystem
 
@@ -53,28 +34,6 @@
 	[_handlers release];
 	
 	[super dealloc];
-}
-
--(void) initialise
-{
-	[self registerCollisionHandlers];
-}
-
--(void) registerCollisionHandlers
-{
-	[self registerCollisionHandler:[AnythingWithVoidCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[self registerCollisionHandler:[AnythingWithVolatileCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[self registerCollisionHandler:[BeeWithBeeaterCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[self registerCollisionHandler:[BeeWithSpikeCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[self registerCollisionHandler:[ConsumerWithPollenCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[self registerCollisionHandler:[DozerWithCrumbleCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[self registerCollisionHandler:[PulverizeWithPulverizableCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[self registerCollisionHandler:[SawWithWoodCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[self registerCollisionHandler:[SolidWithSoundCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[self registerCollisionHandler:[SolidWithBoostCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[self registerCollisionHandler:[SolidWithBreakableCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[self registerCollisionHandler:[SolidWithWaterCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[self registerCollisionHandler:[SolidWithWobbleCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 }
 
 -(void) registerCollisionHandler:(CollisionHandler *)handler

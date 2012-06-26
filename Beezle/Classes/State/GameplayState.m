@@ -44,16 +44,29 @@
 #import "FollowControlSystem.h"
 #import "DestructControlSystem.h"
 #import "FadeSystem.h"
+#import "AnythingWithVoidCollisionHandler.h"
+#import "AnythingWithVolatileCollisionHandler.h"
+#import "BeeWithBeeaterCollisionHandler.h"
+#import "BeeWithSpikeCollisionHandler.h"
+#import "ConsumerWithPollenCollisionHandler.h"
+#import "DozerWithCrumbleCollisionHandler.h"
+#import "PulverizeWithPulverizableCollisionHandler.h"
+#import "SawWithWoodCollisionHandler.h"
+#import "SolidWithSoundCollisionHandler.h"
+#import "SolidWithBoostCollisionHandler.h"
+#import "SolidWithBreakableCollisionHandler.h"
+#import "SolidWithWaterCollisionHandler.h"
+#import "SolidWithWobbleCollisionHandler.h"
 
 @interface GameplayState()
 
 -(void) createUI;
 -(void) createWorldAndSystems;
+-(void) registerCollisionHandlers;
 -(void) createModes;
 -(void) loadLevel;
 -(void) enterMode:(GameMode *)mode;
 -(void) updateMode:(float)delta;
--(void) showLabel:(NSString *)labelText;
 
 @end
 
@@ -123,6 +136,7 @@
 	
 	[self createUI];
 	[self createWorldAndSystems];
+	[self registerCollisionHandlers];
 	[self createModes];
 	[self loadLevel];
 
@@ -230,6 +244,23 @@
 	[systemManager initialiseAll];
 }
 
+-(void) registerCollisionHandlers
+{
+	[_collisionSystem registerCollisionHandler:[AnythingWithVoidCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[AnythingWithVolatileCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[BeeWithBeeaterCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[BeeWithSpikeCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[ConsumerWithPollenCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[DozerWithCrumbleCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[PulverizeWithPulverizableCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[SawWithWoodCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[SolidWithSoundCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[SolidWithBoostCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[SolidWithBreakableCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[SolidWithWaterCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[SolidWithWobbleCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+}
+
 -(void) createModes
 {
     _modes = [NSMutableArray new];
@@ -318,14 +349,6 @@
 -(void) pauseGame:(id)sender
 {
 	[_game pushState:[IngameMenuState state]];
-}
-
--(void) showLabel:(NSString *)labelText
-{
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	CCLabelTTF *label = [CCLabelTTF labelWithString:labelText fontName:@"Courier" fontSize:30];
-	[label setPosition:CGPointMake(winSize.width / 2, winSize.height / 2)];
-	[_uiLayer addChild:label];
 }
 
 @end
