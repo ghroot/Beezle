@@ -14,6 +14,7 @@
 #import "EntityUtil.h"
 #import "CapturedComponent.h"
 #import "CapturedSystem.h"
+#import "DisposableComponent.h"
 
 @implementation PulverizeWithPulverizableCollisionHandler
 
@@ -34,6 +35,7 @@
 	if ([EntityUtil isEntityDisposable:pulverizableEntity])
 	{
 		[EntityUtil setEntityDisposed:pulverizableEntity sendNotification:FALSE];
+		[[DisposableComponent getFrom:pulverizableEntity] setIsAboutToBeDeleted:TRUE];
 	}
 
 	// TODO: Tight coupling with captured system/component is not good
