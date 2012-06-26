@@ -12,6 +12,8 @@
 #import "PollenComponent.h"
 #import "RenderSystem.h"
 #import "TransformComponent.h"
+#import "EntityUtil.h"
+#import "DisposableComponent.h"
 
 @interface ConsumerWithPollenCollisionHandler()
 
@@ -34,6 +36,12 @@
 -(BOOL) handleCollisionBetween:(Entity *)firstEntity and:(Entity *)secondEntity collision:(Collision *)collision
 {
 	Entity *pollenEntity = secondEntity;
+
+	if ([EntityUtil isEntityDisposable:pollenEntity] &&
+		[[DisposableComponent getFrom:pollenEntity] isAboutToBeDeleted])
+	{
+		return TRUE;
+	}
 	
 	[_levelSession consumedPollenEntity:pollenEntity];
 	
