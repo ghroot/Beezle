@@ -10,7 +10,6 @@
 #import "Collision.h"
 #import "EntityUtil.h"
 #import "VoidComponent.h"
-#import "DisposableComponent.h"
 
 @implementation AnythingWithVoidCollisionHandler
 
@@ -26,13 +25,6 @@
 -(BOOL) handleCollisionBetween:(Entity *)firstEntity and:(Entity *)secondEntity collision:(Collision *)collision
 {
 	Entity *voidEntity = secondEntity;
-
-	if ([EntityUtil isEntityDisposable:voidEntity] &&
-		[[DisposableComponent getFrom:voidEntity] isAboutToBeDeleted])
-	{
-		return TRUE;
-	}
-
 	VoidComponent *voidComponent = [VoidComponent getFrom:voidEntity];
 	[EntityUtil destroyEntity:firstEntity instant:[voidComponent instant]];
 
