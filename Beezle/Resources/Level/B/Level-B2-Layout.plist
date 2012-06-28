@@ -19,11 +19,11 @@
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 87.00, 187.00 }</string>
+					<string>{87, 187}</string>
 					<key>rotation</key>
 					<real>328</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -36,26 +36,33 @@
 				<dict>
 					<key>angle</key>
 					<real>-6.2133722305297852</real>
+					<key>overrideBodyName</key>
+					<string>B2-Glass</string>
 					<key>position</key>
-					<string>{ 325.00, 254.00 }</string>
+					<string>{325, 254}</string>
+				</dict>
+				<key>render</key>
+				<dict>
+					<key>overrideTextureFile</key>
+					<string>B2-Glass.png</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 325.00, 254.00 }</string>
+					<string>{325, 254}</string>
 					<key>rotation</key>
 					<real>356</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>GLASS-B2</string>
+			<string>GLASS-B</string>
 		</dict>
 		<dict>
 			<key>components</key>
 			<dict>
-				<key>beeater</key>
+				<key>captured</key>
 				<dict>
 					<key>containedBeeType</key>
 					<string>BEE</string>
@@ -65,16 +72,16 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 408.00, 121.00 }</string>
+					<string>{408, 121}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 408.00, 121.00 }</string>
+					<string>{408, 121}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -83,7 +90,7 @@
 		<dict>
 			<key>components</key>
 			<dict>
-				<key>beeater</key>
+				<key>captured</key>
 				<dict>
 					<key>containedBeeType</key>
 					<string>BEE</string>
@@ -93,16 +100,16 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 233.00, 24.00 }</string>
+					<string>{233, 24}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 233.00, 24.00 }</string>
+					<string>{233, 24}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -111,7 +118,7 @@
 		<dict>
 			<key>components</key>
 			<dict>
-				<key>beeater</key>
+				<key>captured</key>
 				<dict>
 					<key>containedBeeType</key>
 					<string>BOMBEE</string>
@@ -121,16 +128,16 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 60.00, 237.00 }</string>
+					<string>{60, 237}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 60.00, 237.00 }</string>
+					<string>{60, 237}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ -1.00, 1.00 }</string>
+					<string>{-1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -144,20 +151,20 @@
 					<key>angle</key>
 					<real>-6.0388393402099609</real>
 					<key>position</key>
-					<string>{ 205.00, 143.00 }</string>
+					<string>{205, 143}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 205.00, 143.00 }</string>
+					<string>{205, 143}</string>
 					<key>rotation</key>
 					<real>346</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>RAMP</string>
+			<string>RAMP-B</string>
 		</dict>
 		<dict>
 			<key>components</key>
@@ -167,20 +174,20 @@
 					<key>angle</key>
 					<real>-6.0388393402099609</real>
 					<key>position</key>
-					<string>{ 390.00, 237.00 }</string>
+					<string>{390, 237}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 390.00, 237.00 }</string>
+					<string>{390, 237}</string>
 					<key>rotation</key>
 					<real>346</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>RAMP</string>
+			<string>RAMP-B</string>
 		</dict>
 		<dict>
 			<key>components</key>
@@ -190,16 +197,16 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 447.00, 285.00 }</string>
+					<string>{447, 285}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 447.00, 285.00 }</string>
+					<string>{447, 285}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -213,20 +220,36 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 304.00, 203.00 }</string>
+					<string>{304, 203}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 304.00, 203.00 }</string>
+					<string>{304, 203}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
 			<string>POLLEN-GREEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{240, 160}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>SMOKE</string>
 		</dict>
 	</array>
 	<key>format</key>
@@ -236,6 +259,6 @@
 	<key>name</key>
 	<string>Level-B2</string>
 	<key>version</key>
-	<integer>7</integer>
+	<integer>8</integer>
 </dict>
 </plist>
