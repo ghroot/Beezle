@@ -71,6 +71,18 @@
 		<dict>
 			<key>sprites</key>
 			<array>
+                <dict>
+                    <key>name</key>
+                    <string>head</string>
+                    <key>spriteSheetName</key>
+                    <string>%renderSpriteSheetName%</string>
+                    <key>animationFile</key>
+                    <string>%renderHeadAnimationFile%</string>
+                    <key>anchorPoint</key>
+                    <string>{ 0.6, 0.4 }</string>
+                    <key>defaultIdleAnimation</key>
+                    <string>%renderHeadDefaultIdleAnimation%</string>
+                </dict>
 				<dict>
 					<key>name</key>
 					<string>body</string>
@@ -84,18 +96,6 @@
 					<string>%renderBodyDefaultIdleAnimation%</string>
 					<key>defaultDestroyAnimation</key>
 					<string>%renderBodyDefaultDestroyAnimation%</string>
-				</dict>
-				<dict>
-					<key>name</key>
-					<string>head</string>
-					<key>spriteSheetName</key>
-					<string>%renderSpriteSheetName%</string>
-					<key>animationFile</key>
-					<string>%renderHeadAnimationFile%</string>
-					<key>anchorPoint</key>
-					<string>{ 0.6, 0.4 }</string>
-					<key>defaultIdleAnimation</key>
-					<string>%renderHeadDefaultIdleAnimation%</string>
 				</dict>
 			</array>
 		</dict>
