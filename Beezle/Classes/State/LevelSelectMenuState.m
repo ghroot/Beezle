@@ -101,9 +101,6 @@
 	for (NSString *levelName in levelNames)
 	{
 		LevelSelectMenuItem *levelMenuItem = [LevelSelectMenuItem itemWithLevelName:levelName target:self selector:@selector(startGame:)];
-#ifndef DEBUG
-        [levelMenuItem setIsEnabled:[[PlayerInformation sharedInformation] canPlayLevel:levelName]];
-#endif
 		[_menu addChild:levelMenuItem];
 	}
 }
