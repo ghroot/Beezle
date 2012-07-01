@@ -38,6 +38,7 @@
 @class FollowControlSystem;
 @class DestructControlSystem;
 @class FadeSystem;
+@class SandSystem;
 
 @interface GameplayState : GameState
 {
@@ -73,6 +74,7 @@
 	FollowControlSystem *_followControlSystem;
 	SpawnSystem *_spawnSystem;
 	WoodSystem *_woodSystem;
+	SandSystem *_sandSystem;
 	ShakeSystem *_shakeSystem;
 	HealthSystem *_healthSystem;
 	DisposalSystem *_disposalSystem;
@@ -103,6 +105,7 @@
 @property (nonatomic, readonly) MovementSystem *movementSystem;
 @property (nonatomic, readonly) PhysicsSystem *physicsSystem;
 @property (nonatomic, readonly) RenderSystem *renderSystem;
+@property (nonatomic, readonly) SandSystem *sandSystem;
 @property (nonatomic, readonly) ShakeSystem *shakeSystem;
 @property (nonatomic, readonly) ShardSystem *shardSystem;
 @property (nonatomic, readonly) SlingerControlSystem *slingerControlSystem;

@@ -57,6 +57,7 @@
 #import "SolidWithBreakableCollisionHandler.h"
 #import "SolidWithWaterCollisionHandler.h"
 #import "SolidWithWobbleCollisionHandler.h"
+#import "SandSystem.h"
 
 @interface GameplayState()
 
@@ -92,6 +93,7 @@
 @synthesize movementSystem = _movementSystem;
 @synthesize physicsSystem = _physicsSystem;
 @synthesize renderSystem = _renderSystem;
+@synthesize sandSystem = _sandSystem;
 @synthesize shakeSystem = _shakeSystem;
 @synthesize shardSystem = _shardSystem;
 @synthesize slingerControlSystem = _slingerControlSystem;
@@ -99,7 +101,6 @@
 @synthesize waterWaveSystem = _waterWaveSystem;
 @synthesize woodSystem = _woodSystem;
 @synthesize followControlSystem = _followControlSystem;
-
 
 +(id) stateWithLevelName:(NSString *)levelName
 {
@@ -229,6 +230,8 @@
 	[systemManager setSystem:_spawnSystem];
 	_woodSystem = [WoodSystem system];
 	[systemManager setSystem:_woodSystem];
+	_sandSystem = [SandSystem system];
+	[systemManager setSystem:_sandSystem];
 	_shakeSystem = [ShakeSystem system];
 	[systemManager setSystem:_shakeSystem];
 	_healthSystem = [HealthSystem system];

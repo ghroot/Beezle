@@ -31,13 +31,14 @@ GANDENUM(Z_SHEET_D,					10, [NSNumber numberWithInt:5], @"z")
 
 GANDENUM(Z_GLASS,					11, [NSNumber numberWithInt:6], @"z")
 GANDENUM(Z_ICE,						12, [NSNumber numberWithInt:6], @"z")
+GANDENUM(Z_SAND,					13, [NSNumber numberWithInt:6], @"z")
 
-GANDENUM(Z_SHEET_SHARED,            13, [NSNumber numberWithInt:7], @"z")
-GANDENUM(Z_BEES,                        14, [NSNumber numberWithInt:2], @"z")
-GANDENUM(Z_SLINGER,                     15, [NSNumber numberWithInt:3], @"z")
+GANDENUM(Z_SHEET_SHARED,            14, [NSNumber numberWithInt:7], @"z")
+GANDENUM(Z_BEES,                        15, [NSNumber numberWithInt:2], @"z")
+GANDENUM(Z_SLINGER,                     16, [NSNumber numberWithInt:3], @"z")
 
-GANDENUM(Z_PARTICLE,                16, [NSNumber numberWithInt:8], @"z")
+GANDENUM(Z_PARTICLE,                17, [NSNumber numberWithInt:8], @"z")
 
-GANDENUM(Z_BACKGROUND_FRONT,        17, [NSNumber numberWithInt:9], @"z")
+GANDENUM(Z_BACKGROUND_FRONT,        18, [NSNumber numberWithInt:9], @"z")
 
 @end

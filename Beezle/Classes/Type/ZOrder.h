@@ -34,6 +34,7 @@
 
 +(ZOrder *) Z_GLASS;
 +(ZOrder *) Z_ICE;
++(ZOrder *) Z_SAND;
 
 +(ZOrder *) Z_SHEET_SHARED;
 +(ZOrder *) Z_BEES;

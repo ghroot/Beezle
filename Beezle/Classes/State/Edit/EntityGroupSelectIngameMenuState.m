@@ -58,12 +58,13 @@
 			@"WOOD-4",
 			nil]];
 
-	[self addMenuItemForGroup:@"Glass & Ice" andEntityTypes:[NSArray arrayWithObjects:
+	[self addMenuItemForGroup:@"Glass, Ice & Sand" andEntityTypes:[NSArray arrayWithObjects:
 			@"CLIRR",
 			@"GLASS",
 			@"ICE",
 			@"ICICLE",
 			@"ICICLE-SMALL",
+			@"SAND",
 			nil]];
 
 	[self addMenuItemForGroup:@"Tools" andEntityTypes:[NSArray arrayWithObjects:

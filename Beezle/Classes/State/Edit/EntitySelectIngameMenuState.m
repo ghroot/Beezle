@@ -25,6 +25,7 @@
 -(void) addClirrEntities:(EditState *)editState;
 -(NSArray *) generateClirrImageNamesForLevelName:(NSString *)levelName;
 -(NSArray *) getAllClirrAnimationNames;
+-(void) addSandEntities:(EditState *)editState;
 -(NSString *) convertToThemeSpecificEntityType:(NSString *)entityType levelName:(NSString *)levelName;
 -(void) goBack:(id)sender;
 
@@ -99,6 +100,10 @@
 	else if ([entityType isEqualToString:@"CLIRR"])
 	{
 		[self addClirrEntities:editState];
+	}
+	else if ([entityType isEqualToString:@"SAND"])
+	{
+		[self addSandEntities:editState];
 	}
 	else
 	{
@@ -273,6 +278,24 @@
 		[clirrAnimationNames addObject:animationName];
 	}
     return clirrAnimationNames;
+}
+
+-(void) addSandEntities:(EditState *)editState
+{
+	NSString *sandEntityType = @"SAND";
+	NSArray *sandImageAndBodyNames = [self generateImageAndBodyNamesWithBaseName:@"Sand" levelName:[editState levelName]];
+	for (NSArray *sandImageAndBodyName in sandImageAndBodyNames)
+	{
+		NSString *imageName = [sandImageAndBodyName objectAtIndex:0];
+
+		NSMutableDictionary *instanceComponentsDict = [NSMutableDictionary dictionary];
+
+		NSMutableDictionary *renderInstanceComponentDict = [NSMutableDictionary dictionary];
+		[renderInstanceComponentDict setObject:imageName forKey:@"overrideTextureFile"];
+		[instanceComponentsDict setObject:renderInstanceComponentDict forKey:@"render"];
+
+		[editState addEntityWithType:sandEntityType instanceComponentsDict:instanceComponentsDict];
+	}
 }
 
 -(NSString *) convertToThemeSpecificEntityType:(NSString *)entityType levelName:(NSString *)levelName
