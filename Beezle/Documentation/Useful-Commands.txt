@@ -3,3 +3,7 @@ afconvert -f caff -d aac <file>
 
 Sfx:
 afconvert -f caff -d LEI16 -c 1 <file>
+
+
+Print image info:
+find . -name "*.png" -print0 | xargs -0 file
