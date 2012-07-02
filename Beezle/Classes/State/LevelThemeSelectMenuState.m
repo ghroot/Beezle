@@ -11,6 +11,7 @@
 #import "LevelOrganizer.h"
 #import "LevelThemeSelectLayer.h"
 #import "LevelSelectMenuState.h"
+#import "CCScrollLayer.h"
 
 @interface LevelThemeSelectMenuState()
 
@@ -27,6 +28,13 @@
 
 	[self createScrollLayers];
 	[self createBackMenu];
+}
+
+-(void) dealloc
+{
+	[_scrollLayer release];
+
+	[super dealloc];
 }
 
 -(void) createBackMenu
@@ -54,9 +62,37 @@
 		}] autorelease];
 		[layers addObject:levelThemeSelectLayer];
 	}
-	CCScrollLayer *scrollLayer = [CCScrollLayer nodeWithLayers:layers widthOffset:0];
-	[scrollLayer setShowPagesIndicator:FALSE];
-	[self addChild:scrollLayer];
+	_scrollLayer =[[CCScrollLayer alloc] initWithLayers:layers widthOffset:0];
+	[_scrollLayer setShowPagesIndicator:FALSE];
+	[self addChild:_scrollLayer];
+}
+
+-(void) update:(ccTime)delta
+{
+	[super update:delta];
+
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	float scrollLayerX = [_scrollLayer position].x;
+
+	if ((int)scrollLayerX % (int)winSize.width == 0)
+	{
+		int currentLayerIndex = floorf((winSize.width / 2 - scrollLayerX) / winSize.width);
+		currentLayerIndex = max(0, currentLayerIndex);
+		currentLayerIndex = min([[_scrollLayer children] count] - 1, currentLayerIndex);
+	}
+	else
+	{
+		float centerX = winSize.width / 2 - scrollLayerX;
+		float leftX = centerX - winSize.width / 2;
+		int currentLeftLayerIndex = floorf(leftX / winSize.width);
+		currentLeftLayerIndex = max(0, currentLeftLayerIndex);
+		currentLeftLayerIndex = min([[_scrollLayer children] count] - 1, currentLeftLayerIndex);
+		int currentRightLayerIndex = currentLeftLayerIndex + 1;
+		currentRightLayerIndex = min([[_scrollLayer children] count] - 1, currentRightLayerIndex);
+		float rightWidth = centerX + winSize.width / 2 - (currentRightLayerIndex * winSize.width);
+		float rightRatio = rightWidth / winSize.width;
+		float leftRatio = 1.0f - rightRatio;
+	}
 }
 
 @end
