@@ -71,27 +71,58 @@
 {
 	[super update:delta];
 
+	[self setLayerOpacities];
+}
+
+-(void) setLayerOpacities
+{
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	float scrollLayerX = [_scrollLayer position].x;
+	float centerX = winSize.width / 2 - scrollLayerX;
+	float leftX = centerX - winSize.width / 2;
+	int currentLeftLayerIndex = floorf(leftX / winSize.width);
+	currentLeftLayerIndex = max(0, currentLeftLayerIndex);
+	currentLeftLayerIndex = min([[_scrollLayer children] count] - 1, currentLeftLayerIndex);
+	float rightX = centerX + winSize.width / 2;
+	int currentRightLayerIndex = floorf(rightX / winSize.width);
+	currentRightLayerIndex = max(0, currentRightLayerIndex);
+	currentRightLayerIndex = min([[_scrollLayer children] count] - 1, currentRightLayerIndex);
 
-	if ((int)scrollLayerX % (int)winSize.width == 0)
+	if ((int)scrollLayerX % (int)winSize.width == 0 ||
+		currentLeftLayerIndex == currentRightLayerIndex)
 	{
-		int currentLayerIndex = floorf((winSize.width / 2 - scrollLayerX) / winSize.width);
-		currentLayerIndex = max(0, currentLayerIndex);
-		currentLayerIndex = min([[_scrollLayer children] count] - 1, currentLayerIndex);
+		CCLayer *layer = [[_scrollLayer children] objectAtIndex:currentLeftLayerIndex];
+		for (CCNode *node in [layer children])
+		{
+			if ([node conformsToProtocol:@protocol(CCRGBAProtocol)])
+			{
+				[(id<CCRGBAProtocol>) node setOpacity:255];
+			}
+		}
 	}
 	else
 	{
-		float centerX = winSize.width / 2 - scrollLayerX;
-		float leftX = centerX - winSize.width / 2;
-		int currentLeftLayerIndex = floorf(leftX / winSize.width);
-		currentLeftLayerIndex = max(0, currentLeftLayerIndex);
-		currentLeftLayerIndex = min([[_scrollLayer children] count] - 1, currentLeftLayerIndex);
-		int currentRightLayerIndex = currentLeftLayerIndex + 1;
-		currentRightLayerIndex = min([[_scrollLayer children] count] - 1, currentRightLayerIndex);
 		float rightWidth = centerX + winSize.width / 2 - (currentRightLayerIndex * winSize.width);
 		float rightRatio = rightWidth / winSize.width;
 		float leftRatio = 1.0f - rightRatio;
+
+		CCLayer *leftLayer = [[_scrollLayer children] objectAtIndex:currentLeftLayerIndex];
+		for (CCNode *node in [leftLayer children])
+		{
+			if ([node conformsToProtocol:@protocol(CCRGBAProtocol)])
+			{
+				[(id<CCRGBAProtocol>) node setOpacity:255 * leftRatio];
+			}
+		}
+
+		CCLayer *rightLayer = [[_scrollLayer children] objectAtIndex:currentRightLayerIndex];
+		for (CCNode *node in [rightLayer children])
+		{
+			if ([node conformsToProtocol:@protocol(CCRGBAProtocol)])
+			{
+				[(id<CCRGBAProtocol>) node setOpacity:255 * rightRatio];
+			}
+		}
 	}
 }
 
