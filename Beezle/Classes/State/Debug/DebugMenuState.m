@@ -77,6 +77,8 @@
 	[_menu alignItemsVerticallyWithPadding:6.0f];
 	
 	[self addChild:_menu];
+
+	[[CCTextureCache sharedTextureCache] dumpCachedTextureInfo];
 }
 
 -(void) sendEditedLevels:(id)sender
