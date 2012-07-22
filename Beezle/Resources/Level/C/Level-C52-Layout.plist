@@ -18,11 +18,11 @@
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 57.00, 183.00 }</string>
+					<string>{57, 183}</string>
 					<key>rotation</key>
 					<real>326</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -41,16 +41,16 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 53.00, 11.00 }</string>
+					<string>{53, 11}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 53.00, 11.00 }</string>
+					<string>{53, 11}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ -1.00, 1.00 }</string>
+					<string>{-1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -69,16 +69,16 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 199.00, 14.00 }</string>
+					<string>{199, 14}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 199.00, 14.00 }</string>
+					<string>{199, 14}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ -1.00, 1.00 }</string>
+					<string>{-1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -97,16 +97,16 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 290.00, 12.00 }</string>
+					<string>{290, 12}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 290.00, 12.00 }</string>
+					<string>{290, 12}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -122,7 +122,7 @@
 					<key>overrideBodyName</key>
 					<string>C52-Ice</string>
 					<key>position</key>
-					<string>{ 169.00, 65.00 }</string>
+					<string>{169, 65}</string>
 				</dict>
 				<key>render</key>
 				<dict>
@@ -132,11 +132,11 @@
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 169.00, 65.00 }</string>
+					<string>{169, 65}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -150,16 +150,16 @@
 					<key>angle</key>
 					<real>-4.7472953796386719</real>
 					<key>position</key>
-					<string>{ 226.00, 156.00 }</string>
+					<string>{226, 156}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 226.00, 156.00 }</string>
+					<string>{226, 156}</string>
 					<key>rotation</key>
 					<real>272</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -173,20 +173,48 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 227.00, 185.00 }</string>
+					<string>{227, 185}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 227.00, 185.00 }</string>
+					<string>{227, 185}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
 			<string>POLLEN-ORANGE</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>captured</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>BOMBEE</string>
+				</dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{361, 249}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{361, 249}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>BEEATER-LAND-C-REFLECTION</string>
 		</dict>
 	</array>
 	<key>format</key>
@@ -196,6 +224,6 @@
 	<key>name</key>
 	<string>Level-C52</string>
 	<key>version</key>
-	<integer>17</integer>
+	<integer>20</integer>
 </dict>
 </plist>

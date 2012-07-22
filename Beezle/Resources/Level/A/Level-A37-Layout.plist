@@ -41,12 +41,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{136, 35}</string>
+					<string>{123, 36}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{136, 35}</string>
+					<string>{123, 36}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -96,7 +96,7 @@
 				<dict>
 					<key>positions</key>
 					<array>
-						<string>{295, 268.5}</string>
+						<string>{329, 262.5}</string>
 					</array>
 				</dict>
 				<key>physics</key>
@@ -104,12 +104,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{413, 268}</string>
+					<string>{330, 123}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{413, 268}</string>
+					<string>{330, 123}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -232,6 +232,41 @@
 			<key>type</key>
 			<string>EGG</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>captured</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>BEE</string>
+				</dict>
+				<key>movement</key>
+				<dict>
+					<key>positions</key>
+					<array>
+						<string>{333, 21}</string>
+					</array>
+				</dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{446, 21}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{446, 21}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>BEEATER-FISH-A</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -240,6 +275,6 @@
 	<key>name</key>
 	<string>Level-A37</string>
 	<key>version</key>
-	<integer>5</integer>
+	<integer>11</integer>
 </dict>
 </plist>

@@ -18,11 +18,11 @@
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 53.50, 238.00 }</string>
+					<string>{53.5, 238}</string>
 					<key>rotation</key>
 					<real>330</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -41,16 +41,16 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 290.50, 246.00 }</string>
+					<string>{290.5, 246}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 290.50, 246.00 }</string>
+					<string>{290.5, 246}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ -1.00, 1.00 }</string>
+					<string>{-1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -69,16 +69,16 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 268.50, 221.00 }</string>
+					<string>{268.5, 221}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 268.50, 221.00 }</string>
+					<string>{268.5, 221}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -97,16 +97,16 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 322.50, 53.00 }</string>
+					<string>{322.5, 53}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 322.50, 53.00 }</string>
+					<string>{322.5, 53}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -124,7 +124,7 @@
 				<dict>
 					<key>positions</key>
 					<array>
-						<string>{ 41.00, 21.50 }</string>
+						<string>{41, 21.5}</string>
 					</array>
 				</dict>
 				<key>physics</key>
@@ -132,16 +132,16 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{ 200.00, 18.00 }</string>
+					<string>{200, 18}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 200.00, 18.00 }</string>
+					<string>{200, 18}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -154,17 +154,70 @@
 				<dict>
 					<key>angle</key>
 					<real>0.0</real>
+					<key>overrideBodyName</key>
+					<string>A46-Glass</string>
 					<key>position</key>
-					<string>{ 202.00, 231.00 }</string>
+					<string>{164.5, 182.5}</string>
+				</dict>
+				<key>render</key>
+				<dict>
+					<key>overrideTextureFile</key>
+					<string>A46-Glass.png</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 202.00, 231.00 }</string>
+					<string>{164.5, 182.5}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>GLASS-A</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{200, 228}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{200, 228}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN-ORANGE</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{132, 86}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{132, 86}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -177,28 +230,67 @@
 				<dict>
 					<key>angle</key>
 					<real>0.0</real>
-					<key>overrideBodyName</key>
-					<string>A46-Glass</string>
 					<key>position</key>
-					<string>{ 164.50, 182.50 }</string>
-				</dict>
-				<key>render</key>
-				<dict>
-					<key>overrideTextureFile</key>
-					<string>A46-Glass.png</string>
+					<string>{133, 61}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{ 164.50, 182.50 }</string>
+					<string>{133, 61}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
-					<string>{ 1.00, 1.00 }</string>
+					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>GLASS-A</string>
+			<string>POLLEN-YELLOW</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{114, 72}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{114, 72}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN-YELLOW</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{115, 48}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{115, 48}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN-YELLOW</string>
 		</dict>
 	</array>
 	<key>format</key>
@@ -208,6 +300,6 @@
 	<key>name</key>
 	<string>Level-A46</string>
 	<key>version</key>
-	<integer>3</integer>
+	<integer>4</integer>
 </dict>
 </plist>

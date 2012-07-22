@@ -12,6 +12,7 @@
 					<key>queuedBeeTypes</key>
 					<array>
 						<string>BEE</string>
+						<string>BEE</string>
 					</array>
 				</dict>
 				<key>transform</key>
@@ -91,12 +92,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{413, 216}</string>
+					<string>{425, 216}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{413, 216}</string>
+					<string>{425, 216}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -142,12 +143,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{393, 141}</string>
+					<string>{355, 162}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{393, 141}</string>
+					<string>{355, 162}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -157,6 +158,52 @@
 			<key>type</key>
 			<string>POLLEN-ORANGE</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{343, 141}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{343, 141}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN-ORANGE</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{353, 214}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{353, 214}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>EGG</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -165,6 +212,6 @@
 	<key>name</key>
 	<string>Level-A9</string>
 	<key>version</key>
-	<integer>4</integer>
+	<integer>7</integer>
 </dict>
 </plist>

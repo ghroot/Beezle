@@ -96,12 +96,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{253, 219}</string>
+					<string>{212, 229}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{253, 219}</string>
+					<string>{212, 229}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -117,7 +117,7 @@
 				<key>captured</key>
 				<dict>
 					<key>containedBeeType</key>
-					<string>BEE</string>
+					<string>SPEEDEE</string>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -198,7 +198,7 @@
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{240, 160}</string>
+					<string>{155, 158}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -236,6 +236,57 @@
 			<key>type</key>
 			<string>BEEATER-LAND-B</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{372, 206}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{372, 206}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN-ORANGE</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>captured</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>BEE</string>
+				</dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{279, 217}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{279, 217}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>BEEATER-HANGING-B</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -244,6 +295,6 @@
 	<key>name</key>
 	<string>Level-B21</string>
 	<key>version</key>
-	<integer>6</integer>
+	<integer>9</integer>
 </dict>
 </plist>

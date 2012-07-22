@@ -61,7 +61,7 @@
 				<key>captured</key>
 				<dict>
 					<key>containedBeeType</key>
-					<string>BOMBEE</string>
+					<string>SPEEDEE</string>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -89,7 +89,7 @@
 				<key>captured</key>
 				<dict>
 					<key>containedBeeType</key>
-					<string>SPEEDEE</string>
+					<string>BOMBEE</string>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -177,12 +177,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{446, 215}</string>
+					<string>{225, 71}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{446, 215}</string>
+					<string>{225, 71}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -231,6 +231,29 @@
 			<key>type</key>
 			<string>SMOKE</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{179, 60}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{179, 60}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN-ORANGE</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -239,6 +262,6 @@
 	<key>name</key>
 	<string>Level-B28</string>
 	<key>version</key>
-	<integer>9</integer>
+	<integer>10</integer>
 </dict>
 </plist>

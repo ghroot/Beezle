@@ -35,12 +35,12 @@
 					<key>angle</key>
 					<real>-0.10471975803375244</real>
 					<key>position</key>
-					<string>{291, 170}</string>
+					<string>{291, 166}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{291, 170}</string>
+					<string>{291, 166}</string>
 					<key>rotation</key>
 					<real>6</real>
 					<key>scale</key>
@@ -193,12 +193,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{244, 271}</string>
+					<string>{247, 272}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{244, 271}</string>
+					<string>{247, 272}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -216,12 +216,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{214, 271}</string>
+					<string>{220, 272}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{214, 271}</string>
+					<string>{220, 272}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -262,75 +262,6 @@
 		<dict>
 			<key>components</key>
 			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>-0.10471975803375244</real>
-					<key>position</key>
-					<string>{298, 166}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{298, 166}</string>
-					<key>rotation</key>
-					<real>6</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>RAMP-A</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>-0.10471975803375244</real>
-					<key>position</key>
-					<string>{230, 173}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{230, 173}</string>
-					<key>rotation</key>
-					<real>6</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>RAMP-A</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>-0.10471975803375244</real>
-					<key>position</key>
-					<string>{163, 179}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{163, 179}</string>
-					<key>rotation</key>
-					<real>6</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>RAMP-A</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
 				<key>captured</key>
 				<dict>
 					<key>containedBeeType</key>
@@ -341,12 +272,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{292, 163}</string>
+					<string>{284, 155}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{292, 163}</string>
+					<string>{284, 155}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -379,6 +310,52 @@
 			<key>type</key>
 			<string>POLLEN-GREEN</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{233, 250}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{233, 250}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN-YELLOW</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{259, 250}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{259, 250}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN-YELLOW</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -387,6 +364,6 @@
 	<key>name</key>
 	<string>Level-A10</string>
 	<key>version</key>
-	<integer>10</integer>
+	<integer>14</integer>
 </dict>
 </plist>
