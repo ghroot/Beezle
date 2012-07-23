@@ -15,8 +15,10 @@
 
 @interface LevelThemeSelectMenuState()
 
+-(void) createBackgroundSprites:(NSArray *)themes;
 -(void) createBackMenu;
--(void) createScrollLayers;
+-(void) createScrollLayer:(NSArray *)themes;
+-(void) updateBackground;
 
 @end
 
@@ -26,15 +28,36 @@
 {
 	[super initialise];
 
-	[self createScrollLayers];
+	_activeBackgroundSprites = [NSMutableArray new];
+
+//	CCLayerColor *whiteBackgroundLayer = [CCLayerColor layerWithColor:ccc4(255, 255, 255, 255)];
+//	[self addChild:whiteBackgroundLayer];
+
+	NSArray *themes = [[LevelOrganizer sharedOrganizer] themes];
+
+	[self createBackgroundSprites:themes];
+	[self createScrollLayer:themes];
 	[self createBackMenu];
+	[self updateBackground];
 }
 
 -(void) dealloc
 {
+	[_backgroundSprites release];
 	[_scrollLayer release];
 
 	[super dealloc];
+}
+
+-(void) createBackgroundSprites:(NSArray *)themes
+{
+	_backgroundSprites = [NSMutableArray new];
+	for (NSString *theme in themes)
+	{
+		CCSprite *backgroundSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"Colour-%@.jpg", theme]];
+		[backgroundSprite setAnchorPoint:CGPointMake(0.0f, 0.0f)];
+		[_backgroundSprites addObject:backgroundSprite];
+	}
 }
 
 -(void) createBackMenu
@@ -51,10 +74,9 @@
 	[self addChild:menu];
 }
 
--(void) createScrollLayers
+-(void) createScrollLayer:(NSArray *)themes
 {
 	NSMutableArray *layers = [NSMutableArray array];
-	NSArray *themes = [[LevelOrganizer sharedOrganizer] themes];
 	for (NSString *theme in themes)
 	{
 		LevelThemeSelectLayer *levelThemeSelectLayer = [[[LevelThemeSelectLayer alloc] initWithTheme:theme block:^(id sender){
@@ -64,17 +86,17 @@
 	}
 	_scrollLayer =[[CCScrollLayer alloc] initWithLayers:layers widthOffset:0];
 	[_scrollLayer setShowPagesIndicator:FALSE];
-	[self addChild:_scrollLayer];
+	[self addChild:_scrollLayer z:100];
 }
 
 -(void) update:(ccTime)delta
 {
 	[super update:delta];
 
-	[self setLayerOpacities];
+	[self updateBackground];
 }
 
--(void) setLayerOpacities
+-(void) updateBackground
 {
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	float scrollLayerX = [_scrollLayer position].x;
@@ -88,17 +110,19 @@
 	currentRightLayerIndex = max(0, currentRightLayerIndex);
 	currentRightLayerIndex = min([[_scrollLayer children] count] - 1, currentRightLayerIndex);
 
+	for (CCSprite *sprite in _activeBackgroundSprites)
+	{
+		[self removeChild:sprite cleanup:TRUE];
+	}
+	[_activeBackgroundSprites removeAllObjects];
+
 	if ((int)scrollLayerX % (int)winSize.width == 0 ||
 		currentLeftLayerIndex == currentRightLayerIndex)
 	{
-		CCLayer *layer = [[_scrollLayer children] objectAtIndex:currentLeftLayerIndex];
-		for (CCNode *node in [layer children])
-		{
-			if ([node conformsToProtocol:@protocol(CCRGBAProtocol)])
-			{
-				[(id<CCRGBAProtocol>) node setOpacity:255];
-			}
-		}
+		CCSprite *sprite = [_backgroundSprites objectAtIndex:currentLeftLayerIndex];
+		[sprite setOpacity:255];
+		[self addChild:sprite z:10];
+		[_activeBackgroundSprites addObject:sprite];
 	}
 	else
 	{
@@ -106,23 +130,17 @@
 		float rightRatio = rightWidth / winSize.width;
 		float leftRatio = 1.0f - rightRatio;
 
-		CCLayer *leftLayer = [[_scrollLayer children] objectAtIndex:currentLeftLayerIndex];
-		for (CCNode *node in [leftLayer children])
-		{
-			if ([node conformsToProtocol:@protocol(CCRGBAProtocol)])
-			{
-				[(id<CCRGBAProtocol>) node setOpacity:255 * leftRatio];
-			}
-		}
+		CCSprite *leftSprite = [_backgroundSprites objectAtIndex:currentLeftLayerIndex];
+		CCSprite *rightSprite = [_backgroundSprites objectAtIndex:currentRightLayerIndex];
 
-		CCLayer *rightLayer = [[_scrollLayer children] objectAtIndex:currentRightLayerIndex];
-		for (CCNode *node in [rightLayer children])
-		{
-			if ([node conformsToProtocol:@protocol(CCRGBAProtocol)])
-			{
-				[(id<CCRGBAProtocol>) node setOpacity:255 * rightRatio];
-			}
-		}
+		[leftSprite setOpacity:255 * leftRatio];
+		[rightSprite setOpacity:255 * rightRatio];
+
+		[self addChild:leftSprite z:10];
+		[self addChild:rightSprite z:10];
+
+		[_activeBackgroundSprites addObject:leftSprite];
+		[_activeBackgroundSprites addObject:rightSprite];
 	}
 }
 
