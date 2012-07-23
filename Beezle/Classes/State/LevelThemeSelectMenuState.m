@@ -71,7 +71,7 @@
 	[menu addChild:backMenuItem];
 	[menu setPosition:CGPointMake(0.0f, 0.0f)];
 	[menu setAnchorPoint:CGPointMake(1.0f, 1.0f)];
-	[self addChild:menu];
+	[self addChild:menu z:30];
 }
 
 -(void) createScrollLayer:(NSArray *)themes
@@ -86,7 +86,7 @@
 	}
 	_scrollLayer =[[CCScrollLayer alloc] initWithLayers:layers widthOffset:0];
 	[_scrollLayer setShowPagesIndicator:FALSE];
-	[self addChild:_scrollLayer z:100];
+	[self addChild:_scrollLayer z:20];
 }
 
 -(void) update:(ccTime)delta
