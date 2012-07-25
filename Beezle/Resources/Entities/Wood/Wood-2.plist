@@ -8,8 +8,11 @@
 	<dict>
 		<key>crumble</key>
 		<dict/>
-		<key>disposable</key>
-		<dict/>
+        <key>disposable</key>
+        <dict>
+            <key>deleteEntityWhenDisposed</key>
+            <true/>
+        </dict>
 		<key>physics</key>
 		<dict>
 			<key>body</key>
@@ -85,7 +88,7 @@
 					<key>defaultIdleAnimation</key>
 					<string>Wood-Idle</string>
                     <key>defaultDestroyAnimation</key>
-                    <string>Wood-Destroy</string>
+                    <string>Wood-Split</string>
 				</dict>
 				<dict>
 					<key>name</key>
@@ -99,7 +102,7 @@
 					<key>defaultIdleAnimation</key>
 					<string>Wood-Idle</string>
                     <key>defaultDestroyAnimation</key>
-                    <string>Wood-Destroy</string>
+                    <string>Wood-Split</string>
 				</dict>
 			</array>
 		</dict>
@@ -120,7 +123,10 @@
 		<key>transform</key>
 		<dict/>
 		<key>wood</key>
-		<dict/>
+        <dict>
+            <key>sawedAnimation</key>
+            <string>Wood-Destroy</string>
+        </dict>
 	</dict>
 </dict>
 </plist>

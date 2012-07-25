@@ -62,8 +62,6 @@
                     <string>{ 0.5, 0.0 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>Branch-Idle</string>
-                    <key>defaultDestroyAnimation</key>
-                    <string>Branch-Destroy</string>
 				</dict>
 			</array>
 		</dict>
@@ -77,7 +75,10 @@
             <string>Branch-Idle</string>
         </dict>
         <key>wood</key>
-        <dict/>
+        <dict>
+            <key>sawedAnimation</key>
+            <string>Branch-Destroy</string>
+        </dict>
 	</dict>
 </dict>
 </plist>

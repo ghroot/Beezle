@@ -64,8 +64,6 @@
                     <string>{ 0.55, 0.0 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>Cactus-Idle</string>
-                    <key>defaultDestroyAnimation</key>
-                    <string>Cactus-Destroy</string>
 				</dict>
 			</array>
 		</dict>
@@ -74,7 +72,10 @@
 		<key>transform</key>
 		<dict/>
         <key>wood</key>
-        <dict/>
+        <dict>
+            <key>sawedAnimation</key>
+            <string>Cactus-Destroy</string>
+        </dict>
 	</dict>
 </dict>
 </plist>

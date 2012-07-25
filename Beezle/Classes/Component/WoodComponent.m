@@ -7,6 +7,7 @@
 //
 
 #import "WoodComponent.h"
+#import "StringCollection.h"
 
 @implementation WoodComponent
 
@@ -16,9 +17,32 @@
 {
 	if (self = [super init])
 	{
+		_sawedAnimationNames = [StringCollection new];
 		_shapeIndexAtSawCollision = -1;
 	}
 	return self;
+}
+
+-(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
+{
+	if (self = [self init])
+	{
+		// Type
+		[_sawedAnimationNames addStringsFromDictionary:typeComponentDict baseName:@"sawedAnimation"];
+	}
+	return self;
+}
+
+-(void) dealloc
+{
+	[_sawedAnimationNames release];
+
+	[super dealloc];
+}
+
+-(NSString *) randomSawedAnimationName
+{
+	return [_sawedAnimationNames randomString];
 }
 
 @end

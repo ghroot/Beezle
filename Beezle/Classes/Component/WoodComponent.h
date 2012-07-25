@@ -8,15 +8,22 @@
 
 #import "artemis.h"
 
+@class StringCollection;
+
 /**
   Wood specific.
  */
 @interface WoodComponent : Component
 {
+	// Type
+	StringCollection *_sawedAnimationNames;
+
     // Transient
 	int _shapeIndexAtSawCollision;
 }
 
 @property (nonatomic) int shapeIndexAtSawCollision;
+
+-(NSString *) randomSawedAnimationName;
 
 @end

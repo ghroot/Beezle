@@ -15,6 +15,7 @@
 {
 	ComponentMapper *_woodComponentMapper;
 	ComponentMapper *_renderComponentMapper;
+	ComponentMapper *_disposableComponentMapper;
 
 	NotificationProcessor *_notificationProcessor;
 }

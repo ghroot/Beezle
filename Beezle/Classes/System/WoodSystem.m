@@ -14,6 +14,7 @@
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 #import "WoodComponent.h"
+#import "DisposableComponent.h"
 
 #define DELAY_PER_WOOD_PIECE 0.3f
 
@@ -39,6 +40,7 @@
 {
 	[_woodComponentMapper release];
 	[_renderComponentMapper release];
+	[_disposableComponentMapper release];
 
 	[_notificationProcessor release];
 	
@@ -49,6 +51,7 @@
 {
 	_woodComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[WoodComponent class]];
 	_renderComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[RenderComponent class]];
+	_disposableComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[DisposableComponent class]];
 }
 
 -(void) activate
@@ -101,7 +104,7 @@
 				if (i == downIndexForLastStep)
 				{
 					[self performBlock:^(void){
-						[renderSprite playDefaultDestroyAnimationAndCallBlockAtEnd:^{
+						[renderSprite playAnimationOnce:[woodComponent randomSawedAnimationName] andCallBlockAtEnd:^{
 							[entity deleteEntity];
 						}];
 					} afterDelay:stepsFromStart * DELAY_PER_WOOD_PIECE];
@@ -109,7 +112,7 @@
 				else
 				{
 					[self performBlock:^(void){
-						[renderSprite playDefaultDestroyAnimation];
+						[renderSprite playAnimationOnce:[woodComponent randomSawedAnimationName]];
 					} afterDelay:stepsFromStart * DELAY_PER_WOOD_PIECE];
 				}
 			}
@@ -120,7 +123,7 @@
 				if (i == upIndexForLastStep)
 				{
 					[self performBlock:^(void){
-						[renderSprite playDefaultDestroyAnimationAndCallBlockAtEnd:^{
+						[renderSprite playAnimationOnce:[woodComponent randomSawedAnimationName] andCallBlockAtEnd:^{
 							[entity deleteEntity];
 						}];
 					} afterDelay:stepsFromStart * DELAY_PER_WOOD_PIECE];
@@ -128,17 +131,21 @@
 				else
 				{
 					[self performBlock:^(void){
-						[renderSprite playDefaultDestroyAnimation];
+						[renderSprite playAnimationOnce:[woodComponent randomSawedAnimationName]];
 					} afterDelay:stepsFromStart * DELAY_PER_WOOD_PIECE];
 				}
 			}
 
 			[EntityUtil disablePhysics:entity];
+
+			if ([_disposableComponentMapper hasEntityComponent:entity])
+			{
+				[[_disposableComponentMapper getComponentFor:entity] setIsAboutToBeDeleted:TRUE];
+			}
 		}
 		else
 		{
-			// TODO: This is for when a wood entity is destroyed by something else than a saw, for example a dozer entity
-			[EntityUtil animateAndDeleteEntity:entity animationName:@"Wood-Split"];
+			[EntityUtil destroyEntity:entity];
 		}
 	}
 }
