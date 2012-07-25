@@ -20,7 +20,6 @@
 @interface WoodSystem()
 
 -(void) handleEntityDisposed:(NSNotification *)notification;
--(void) animateAndDestroyWoodPiece:(NSArray *)renderSprites atIndex:(int)index stepsFromStart:(int)stepsFromStart continueUp:(BOOL)continueUp continueDown:(BOOL)continueDown;
 
 @end
 
@@ -81,38 +80,67 @@
 		{
 			RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
 			NSArray *woodRenderSprites = [renderComponent renderSprites];
-			[self animateAndDestroyWoodPiece:woodRenderSprites atIndex:[woodComponent shapeIndexAtSawCollision] stepsFromStart:0 continueUp:TRUE continueDown:TRUE];
-			
-			// TODO: Don't just disable physics, remove at end of last animation
+
+			int numberOfStepsDown = [woodComponent shapeIndexAtSawCollision];
+			int numberOfStepsUp = [woodRenderSprites count] - [woodComponent shapeIndexAtSawCollision] - 1;
+			int downIndexForLastStep = -1;
+			int upIndexForLastStep = -1;
+			if (numberOfStepsDown >= numberOfStepsUp)
+			{
+				downIndexForLastStep = 0;
+			}
+			else
+			{
+				upIndexForLastStep = [woodRenderSprites count] - 1;
+			}
+
+			for (int i = [woodComponent shapeIndexAtSawCollision]; i >= 0; i--)
+			{
+				RenderSprite *renderSprite = [woodRenderSprites objectAtIndex:i];
+				int stepsFromStart = [woodComponent shapeIndexAtSawCollision] - i;
+				if (i == downIndexForLastStep)
+				{
+					[self performBlock:^(void){
+						[renderSprite playDefaultDestroyAnimationAndCallBlockAtEnd:^{
+							[entity deleteEntity];
+						}];
+					} afterDelay:stepsFromStart * DELAY_PER_WOOD_PIECE];
+				}
+				else
+				{
+					[self performBlock:^(void){
+						[renderSprite playDefaultDestroyAnimation];
+					} afterDelay:stepsFromStart * DELAY_PER_WOOD_PIECE];
+				}
+			}
+			for (int i = [woodComponent shapeIndexAtSawCollision] + 1; i < [woodRenderSprites count]; i++)
+			{
+				RenderSprite *renderSprite = [woodRenderSprites objectAtIndex:i];
+				int stepsFromStart = i - [woodComponent shapeIndexAtSawCollision];
+				if (i == upIndexForLastStep)
+				{
+					[self performBlock:^(void){
+						[renderSprite playDefaultDestroyAnimationAndCallBlockAtEnd:^{
+							[entity deleteEntity];
+						}];
+					} afterDelay:stepsFromStart * DELAY_PER_WOOD_PIECE];
+				}
+				else
+				{
+					[self performBlock:^(void){
+						[renderSprite playDefaultDestroyAnimation];
+					} afterDelay:stepsFromStart * DELAY_PER_WOOD_PIECE];
+				}
+			}
+
 			[EntityUtil disablePhysics:entity];
 		}
 		else
 		{
+			// TODO: This is for when a wood entity is destroyed by something else than a saw, for example a dozer entity
 			[EntityUtil animateAndDeleteEntity:entity animationName:@"Wood-Split"];
 		}
 	}
-}
-
--(void) animateAndDestroyWoodPiece:(NSArray *)renderSprites atIndex:(int)index stepsFromStart:(int)stepsFromStart continueUp:(BOOL)continueUp continueDown:(BOOL)continueDown
-{
-    if (index >= 0 &&
-        index < [renderSprites count])
-    {
-        RenderSprite *renderSprite = [renderSprites objectAtIndex:index];
-        
-        [self performBlock:^(void){
-            [renderSprite playDefaultDestroyAnimation];
-        } afterDelay:stepsFromStart * DELAY_PER_WOOD_PIECE];
-        
-        if (continueUp)
-        {
-            [self animateAndDestroyWoodPiece:renderSprites atIndex:index + 1 stepsFromStart:stepsFromStart + 1 continueUp:TRUE continueDown:FALSE];
-        }
-        if (continueDown)
-        {
-            [self animateAndDestroyWoodPiece:renderSprites atIndex:index - 1 stepsFromStart:stepsFromStart + 1 continueUp:FALSE continueDown:TRUE];
-        }
-    }
 }
 
 @end
