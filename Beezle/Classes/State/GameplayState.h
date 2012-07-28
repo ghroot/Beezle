@@ -47,6 +47,7 @@
 	
 	CCLayer *_gameLayer;
 	CCLayer *_uiLayer;
+	CCMenuItemImage *_pauseMenuItem;
 
 	World *_world;
 	

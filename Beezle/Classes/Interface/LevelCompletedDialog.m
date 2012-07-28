@@ -16,10 +16,12 @@
 #import "LevelSession.h"
 #import "MainMenuState.h"
 #import "RateLevelState.h"
+#import "PlayerInformation.h"
 
 @interface LevelCompletedDialog()
 
 -(void) loadNextLevel;
+-(void) restartLevel;
 
 @end
 
@@ -32,7 +34,8 @@
 		_game = game;
 		_levelSession = levelSession;
 		
-		[_pollenCountLabel setString:[NSString stringWithFormat:@"%d", [levelSession totalNumberOfPollen]]];
+		[_levelPollenCountLabel setString:[NSString stringWithFormat:@"%d", [levelSession totalNumberOfPollen]]];
+		[_totalPollenCountLabel setString:[NSString stringWithFormat:@"%d", [[PlayerInformation sharedInformation] totalNumberOfPollen]]];
 	}
 	return self;
 }
@@ -68,6 +71,11 @@
 		[_game replaceState:[MainMenuState state]];
     }
 #endif
+}
+
+-(void) restartLevel
+{
+	[_game replaceState:[GameplayState stateWithLevelName:[_levelSession levelName]]];
 }
 
 @end

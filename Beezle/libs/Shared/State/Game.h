@@ -16,9 +16,12 @@
 }
 
 -(void) startWithState:(GameState *)gameState;
+-(void) replaceState:(GameState *)gameState transition:(BOOL)transition;
 -(void) replaceState:(GameState *)gameState;
+-(void) pushState:(GameState *)gameState transition:(BOOL)transition;
 -(void) pushState:(GameState *)gameState;
 -(void) popState;
+-(void) clearAndReplaceState:(GameState *)gameState transition:(BOOL)transition;
 -(void) clearAndReplaceState:(GameState *)gameState;
 -(GameState *) currentState;
 -(GameState *) previousState;

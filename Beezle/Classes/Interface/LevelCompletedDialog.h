@@ -16,7 +16,8 @@
 	Game *_game;
 	LevelSession *_levelSession;
 	
-	CCLabelTTF *_pollenCountLabel;
+	CCLabelTTF *_levelPollenCountLabel;
+	CCLabelTTF *_totalPollenCountLabel;
 }
 
 -(id) initWithGame:(Game *)game andLevelSession:(LevelSession *)levelSession;

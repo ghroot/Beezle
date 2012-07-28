@@ -46,12 +46,12 @@
 	}
 }
 
--(void) replaceState:(GameState *)gameState
+-(void) replaceState:(GameState *)gameState transition:(BOOL)transition
 {
 	if ([gameState needsLoadingState] &&
 		![gameState isInitalised])
 	{
-		[self replaceState:[LoadingState stateWithGameState:gameState]];
+		[self replaceState:[LoadingState stateWithGameState:gameState] transition:transition];
 	}
 	else
 	{
@@ -65,11 +65,23 @@
 			[gameState initialise];
 		}
 		[gameState enter];
-		[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TRANSITION_DURATION scene:gameState]];
+		if (transition)
+		{
+			[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TRANSITION_DURATION scene:gameState]];
+		}
+		else
+		{
+			[[CCDirector sharedDirector] replaceScene:gameState];
+		}
     }
 }
 
--(void) pushState:(GameState *)gameState
+-(void) replaceState:(GameState *)gameState
+{
+	[self replaceState:gameState transition:TRUE];
+}
+
+-(void) pushState:(GameState *)gameState transition:(BOOL)transition
 {
 	if ([gameState needsLoadingState] &&
 		![gameState isInitalised])
@@ -87,8 +99,20 @@
 			[gameState initialise];
 		}
 		[gameState enter];
-		[[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:TRANSITION_DURATION scene:gameState]];
+		if (transition)
+		{
+			[[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:TRANSITION_DURATION scene:gameState]];
+		}
+		else
+		{
+			[[CCDirector sharedDirector] pushScene:gameState];
+		}
 	}
+}
+
+-(void) pushState:(GameState *)gameState
+{
+	[self pushState:gameState transition:TRUE];
 }
 
 -(void) popState
@@ -99,13 +123,18 @@
 	[[CCDirector sharedDirector] popScene];
 }
 
--(void) clearAndReplaceState:(GameState *)gameState
+-(void) clearAndReplaceState:(GameState *)gameState transition:(BOOL)transition
 {
 	while ([_gameStateStack count] > 1)
 	{
 		[self popState];
 	}
-	[self replaceState:gameState];
+	[self replaceState:gameState transition:transition];
+}
+
+-(void) clearAndReplaceState:(GameState *)gameState
+{
+	[self clearAndReplaceState:gameState transition:TRUE];
 }
 
 -(GameState *) currentState

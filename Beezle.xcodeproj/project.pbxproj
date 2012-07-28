@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		2C0D500414A8CDBC00466316 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0D500314A8CDBC00466316 /* MessageUI.framework */; };
+		2C0D5E7115C486E10024C88D /* PausedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6615C486E10024C88D /* PausedDialog.ccbi */; };
+		2C0D5E7215C486E10024C88D /* Syst-Cont-Orange-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6715C486E10024C88D /* Syst-Cont-Orange-hd.png */; };
+		2C0D5E7315C486E10024C88D /* Syst-Cont-Orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6815C486E10024C88D /* Syst-Cont-Orange.png */; };
+		2C0D5E7415C486E10024C88D /* Syst-LongBox-A-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6915C486E10024C88D /* Syst-LongBox-A-hd.png */; };
+		2C0D5E7515C486E10024C88D /* Syst-LongBox-A.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6A15C486E10024C88D /* Syst-LongBox-A.png */; };
+		2C0D5E7615C486E10024C88D /* Syst-Next-White-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6B15C486E10024C88D /* Syst-Next-White-hd.png */; };
+		2C0D5E7715C486E10024C88D /* Syst-Next-White.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6C15C486E10024C88D /* Syst-Next-White.png */; };
+		2C0D5E7815C486E10024C88D /* Syst-Redo-White-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6D15C486E10024C88D /* Syst-Redo-White-hd.png */; };
+		2C0D5E7915C486E10024C88D /* Syst-Redo-White.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6E15C486E10024C88D /* Syst-Redo-White.png */; };
+		2C0D5E7A15C486E10024C88D /* Syst-Text-Pause-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6F15C486E10024C88D /* Syst-Text-Pause-hd.png */; };
+		2C0D5E7B15C486E10024C88D /* Syst-Text-Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E7015C486E10024C88D /* Syst-Text-Pause.png */; };
 		2C1147CA148B9459002E4DBD /* LICENSE_Chipmunk.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C114745148B9459002E4DBD /* LICENSE_Chipmunk.txt */; };
 		2C1147CB148B9459002E4DBD /* LICENSE_cocos2d.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C114746148B9459002E4DBD /* LICENSE_cocos2d.txt */; };
 		2C1147CC148B9459002E4DBD /* LICENSE_CocosDenshion.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C114747148B9459002E4DBD /* LICENSE_CocosDenshion.txt */; };
@@ -423,7 +434,7 @@
 		2C74B4FE156FAD1E00596A22 /* EditState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B46F156FAD1E00596A22 /* EditState.m */; };
 		2C74B4FF156FAD1E00596A22 /* EntitySelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B471156FAD1E00596A22 /* EntitySelectIngameMenuState.m */; };
 		2C74B500156FAD1E00596A22 /* GameplayState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B473156FAD1E00596A22 /* GameplayState.m */; };
-		2C74B501156FAD1E00596A22 /* IngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B475156FAD1E00596A22 /* IngameMenuState.m */; };
+		2C74B501156FAD1E00596A22 /* PausedMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B475156FAD1E00596A22 /* PausedMenuState.m */; };
 		2C74B502156FAD1E00596A22 /* LevelSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B477156FAD1E00596A22 /* LevelSelectMenuItem.m */; };
 		2C74B503156FAD1E00596A22 /* LevelSelectMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B479156FAD1E00596A22 /* LevelSelectMenuState.m */; };
 		2C74B505156FAD1E00596A22 /* LevelThemeSelectMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B47D156FAD1E00596A22 /* LevelThemeSelectMenuState.m */; };
@@ -701,6 +712,12 @@
 		2C8932F41561C3EE00089998 /* Glass-C.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8932F31561C3EE00089998 /* Glass-C.plist */; };
 		2C893389156317A500089998 /* Clirr.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C893388156317A400089998 /* Clirr.plist */; };
 		2C8B181C153391FC003F3465 /* NSObject+PWObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B181B153391FC003F3465 /* NSObject+PWObject.m */; };
+		2C932AC615C4A3E6002EF3CF /* Syst-Next-Orange-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C932AC015C4A3E6002EF3CF /* Syst-Next-Orange-hd.png */; };
+		2C932AC715C4A3E6002EF3CF /* Syst-Next-Orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C932AC115C4A3E6002EF3CF /* Syst-Next-Orange.png */; };
+		2C932AC815C4A3E6002EF3CF /* Syst-Text-Completed-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C932AC215C4A3E6002EF3CF /* Syst-Text-Completed-hd.png */; };
+		2C932AC915C4A3E6002EF3CF /* Syst-Text-Completed.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C932AC315C4A3E6002EF3CF /* Syst-Text-Completed.png */; };
+		2C932ACA15C4A3E6002EF3CF /* Syst-Text-Failed-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C932AC415C4A3E6002EF3CF /* Syst-Text-Failed-hd.png */; };
+		2C932ACB15C4A3E6002EF3CF /* Syst-Text-Failed.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C932AC515C4A3E6002EF3CF /* Syst-Text-Failed.png */; };
 		2C96EDE9156D9C2300052239 /* Ice.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDE6156D9C2300052239 /* Ice.plist */; };
 		2C96EDEA156D9C2300052239 /* Icicle-Piece.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDE7156D9C2300052239 /* Icicle-Piece.plist */; };
 		2C96EDEB156D9C2300052239 /* Icicle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDE8156D9C2300052239 /* Icicle.plist */; };
@@ -1994,6 +2011,7 @@
 		2CF8E0F61576B45F0052F48E /* Glass-Piece-Small-D.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F48D /* Glass-Piece-Small-D.plist */; };
 		2CF8E0F61576B45F0052F490 /* Glass-Piece-D-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F48F /* Glass-Piece-D-Animations.plist */; };
 		2CF8E0F61576B45F0052F492 /* D-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F491 /* D-Glass-Shapes.plist */; };
+		2CF8E0F61576B45F0052F495 /* PausedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F494 /* PausedDialog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2008,6 +2026,17 @@
 
 /* Begin PBXFileReference section */
 		2C0D500314A8CDBC00466316 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		2C0D5E6615C486E10024C88D /* PausedDialog.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = PausedDialog.ccbi; sourceTree = "<group>"; };
+		2C0D5E6715C486E10024C88D /* Syst-Cont-Orange-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Cont-Orange-hd.png"; sourceTree = "<group>"; };
+		2C0D5E6815C486E10024C88D /* Syst-Cont-Orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Cont-Orange.png"; sourceTree = "<group>"; };
+		2C0D5E6915C486E10024C88D /* Syst-LongBox-A-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-LongBox-A-hd.png"; sourceTree = "<group>"; };
+		2C0D5E6A15C486E10024C88D /* Syst-LongBox-A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-LongBox-A.png"; sourceTree = "<group>"; };
+		2C0D5E6B15C486E10024C88D /* Syst-Next-White-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Next-White-hd.png"; sourceTree = "<group>"; };
+		2C0D5E6C15C486E10024C88D /* Syst-Next-White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Next-White.png"; sourceTree = "<group>"; };
+		2C0D5E6D15C486E10024C88D /* Syst-Redo-White-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Redo-White-hd.png"; sourceTree = "<group>"; };
+		2C0D5E6E15C486E10024C88D /* Syst-Redo-White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Redo-White.png"; sourceTree = "<group>"; };
+		2C0D5E6F15C486E10024C88D /* Syst-Text-Pause-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Pause-hd.png"; sourceTree = "<group>"; };
+		2C0D5E7015C486E10024C88D /* Syst-Text-Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Pause.png"; sourceTree = "<group>"; };
 		2C114745148B9459002E4DBD /* LICENSE_Chipmunk.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE_Chipmunk.txt; path = libs/LICENSE_Chipmunk.txt; sourceTree = "<group>"; };
 		2C114746148B9459002E4DBD /* LICENSE_cocos2d.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE_cocos2d.txt; path = libs/LICENSE_cocos2d.txt; sourceTree = "<group>"; };
 		2C114747148B9459002E4DBD /* LICENSE_CocosDenshion.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE_CocosDenshion.txt; path = libs/LICENSE_CocosDenshion.txt; sourceTree = "<group>"; };
@@ -2520,8 +2549,8 @@
 		2C74B471156FAD1E00596A22 /* EntitySelectIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntitySelectIngameMenuState.m; sourceTree = "<group>"; };
 		2C74B472156FAD1E00596A22 /* GameplayState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameplayState.h; sourceTree = "<group>"; };
 		2C74B473156FAD1E00596A22 /* GameplayState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameplayState.m; sourceTree = "<group>"; };
-		2C74B474156FAD1E00596A22 /* IngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngameMenuState.h; sourceTree = "<group>"; };
-		2C74B475156FAD1E00596A22 /* IngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngameMenuState.m; sourceTree = "<group>"; };
+		2C74B474156FAD1E00596A22 /* PausedMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PausedMenuState.h; sourceTree = "<group>"; };
+		2C74B475156FAD1E00596A22 /* PausedMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PausedMenuState.m; sourceTree = "<group>"; };
 		2C74B476156FAD1E00596A22 /* LevelSelectMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectMenuItem.h; sourceTree = "<group>"; };
 		2C74B477156FAD1E00596A22 /* LevelSelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectMenuItem.m; sourceTree = "<group>"; };
 		2C74B478156FAD1E00596A22 /* LevelSelectMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectMenuState.h; sourceTree = "<group>"; };
@@ -3006,6 +3035,12 @@
 		2C893388156317A400089998 /* Clirr.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Clirr.plist; sourceTree = "<group>"; };
 		2C8B181A153391FC003F3465 /* NSObject+PWObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PWObject.h"; sourceTree = "<group>"; };
 		2C8B181B153391FC003F3465 /* NSObject+PWObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PWObject.m"; sourceTree = "<group>"; };
+		2C932AC015C4A3E6002EF3CF /* Syst-Next-Orange-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Next-Orange-hd.png"; sourceTree = "<group>"; };
+		2C932AC115C4A3E6002EF3CF /* Syst-Next-Orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Next-Orange.png"; sourceTree = "<group>"; };
+		2C932AC215C4A3E6002EF3CF /* Syst-Text-Completed-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Completed-hd.png"; sourceTree = "<group>"; };
+		2C932AC315C4A3E6002EF3CF /* Syst-Text-Completed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Completed.png"; sourceTree = "<group>"; };
+		2C932AC415C4A3E6002EF3CF /* Syst-Text-Failed-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Failed-hd.png"; sourceTree = "<group>"; };
+		2C932AC515C4A3E6002EF3CF /* Syst-Text-Failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Failed.png"; sourceTree = "<group>"; };
 		2C96EDE6156D9C2300052239 /* Ice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Ice.plist; sourceTree = "<group>"; };
 		2C96EDE7156D9C2300052239 /* Icicle-Piece.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Icicle-Piece.plist"; sourceTree = "<group>"; };
 		2C96EDE8156D9C2300052239 /* Icicle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Icicle.plist; sourceTree = "<group>"; };
@@ -4328,6 +4363,8 @@
 		2CF8E0F61576B45F0052F48D /* Glass-Piece-Small-D.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Glass-Piece-Small-D.plist"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F48F /* Glass-Piece-D-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Glass-Piece-D-Animations.plist"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F491 /* D-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "D-Glass-Shapes.plist"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F493 /* PausedDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PausedDialog.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F494 /* PausedDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PausedDialog.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4463,6 +4500,23 @@
 		2C32989815164C69009A5B83 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				2C932AC015C4A3E6002EF3CF /* Syst-Next-Orange-hd.png */,
+				2C932AC115C4A3E6002EF3CF /* Syst-Next-Orange.png */,
+				2C932AC215C4A3E6002EF3CF /* Syst-Text-Completed-hd.png */,
+				2C932AC315C4A3E6002EF3CF /* Syst-Text-Completed.png */,
+				2C932AC415C4A3E6002EF3CF /* Syst-Text-Failed-hd.png */,
+				2C932AC515C4A3E6002EF3CF /* Syst-Text-Failed.png */,
+				2C0D5E6615C486E10024C88D /* PausedDialog.ccbi */,
+				2C0D5E6715C486E10024C88D /* Syst-Cont-Orange-hd.png */,
+				2C0D5E6815C486E10024C88D /* Syst-Cont-Orange.png */,
+				2C0D5E6915C486E10024C88D /* Syst-LongBox-A-hd.png */,
+				2C0D5E6A15C486E10024C88D /* Syst-LongBox-A.png */,
+				2C0D5E6B15C486E10024C88D /* Syst-Next-White-hd.png */,
+				2C0D5E6C15C486E10024C88D /* Syst-Next-White.png */,
+				2C0D5E6D15C486E10024C88D /* Syst-Redo-White-hd.png */,
+				2C0D5E6E15C486E10024C88D /* Syst-Redo-White.png */,
+				2C0D5E6F15C486E10024C88D /* Syst-Text-Pause-hd.png */,
+				2C0D5E7015C486E10024C88D /* Syst-Text-Pause.png */,
 				2C96EDF71570450600052239 /* Bubble-hd.png */,
 				2C96EDF81570450600052239 /* Bubble.png */,
 				2C96EDF91570450600052239 /* LevelCompletedDialog.ccbi */,
@@ -5121,6 +5175,8 @@
 		2C74B44C156FAD1E00596A22 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F494 /* PausedDialog.m */,
+				2CF8E0F61576B45F0052F493 /* PausedDialog.h */,
 				2C74B44D156FAD1E00596A22 /* LevelCompletedDialog.h */,
 				2C74B44E156FAD1E00596A22 /* LevelCompletedDialog.m */,
 				2C74B44F156FAD1E00596A22 /* LevelFailedDialog.h */,
@@ -5167,8 +5223,8 @@
 				2C74B46B156FAD1E00596A22 /* Edit */,
 				2C74B472156FAD1E00596A22 /* GameplayState.h */,
 				2C74B473156FAD1E00596A22 /* GameplayState.m */,
-				2C74B474156FAD1E00596A22 /* IngameMenuState.h */,
-				2C74B475156FAD1E00596A22 /* IngameMenuState.m */,
+				2C74B474156FAD1E00596A22 /* PausedMenuState.h */,
+				2C74B475156FAD1E00596A22 /* PausedMenuState.m */,
 				2C74B476156FAD1E00596A22 /* LevelSelectMenuItem.h */,
 				2C74B477156FAD1E00596A22 /* LevelSelectMenuItem.m */,
 				2C74B478156FAD1E00596A22 /* LevelSelectMenuState.h */,
@@ -9541,6 +9597,23 @@
 				2C72191815BD800C00992852 /* Title-B-hd.png in Resources */,
 				2C72191915BD800C00992852 /* Title-C-hd.png in Resources */,
 				2C72191A15BD800C00992852 /* Title-D-hd.png in Resources */,
+				2C0D5E7115C486E10024C88D /* PausedDialog.ccbi in Resources */,
+				2C0D5E7215C486E10024C88D /* Syst-Cont-Orange-hd.png in Resources */,
+				2C0D5E7315C486E10024C88D /* Syst-Cont-Orange.png in Resources */,
+				2C0D5E7415C486E10024C88D /* Syst-LongBox-A-hd.png in Resources */,
+				2C0D5E7515C486E10024C88D /* Syst-LongBox-A.png in Resources */,
+				2C0D5E7615C486E10024C88D /* Syst-Next-White-hd.png in Resources */,
+				2C0D5E7715C486E10024C88D /* Syst-Next-White.png in Resources */,
+				2C0D5E7815C486E10024C88D /* Syst-Redo-White-hd.png in Resources */,
+				2C0D5E7915C486E10024C88D /* Syst-Redo-White.png in Resources */,
+				2C0D5E7A15C486E10024C88D /* Syst-Text-Pause-hd.png in Resources */,
+				2C0D5E7B15C486E10024C88D /* Syst-Text-Pause.png in Resources */,
+				2C932AC615C4A3E6002EF3CF /* Syst-Next-Orange-hd.png in Resources */,
+				2C932AC715C4A3E6002EF3CF /* Syst-Next-Orange.png in Resources */,
+				2C932AC815C4A3E6002EF3CF /* Syst-Text-Completed-hd.png in Resources */,
+				2C932AC915C4A3E6002EF3CF /* Syst-Text-Completed.png in Resources */,
+				2C932ACA15C4A3E6002EF3CF /* Syst-Text-Failed-hd.png in Resources */,
+				2C932ACB15C4A3E6002EF3CF /* Syst-Text-Failed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9641,7 +9714,7 @@
 				2C74B4FE156FAD1E00596A22 /* EditState.m in Sources */,
 				2C74B4FF156FAD1E00596A22 /* EntitySelectIngameMenuState.m in Sources */,
 				2C74B500156FAD1E00596A22 /* GameplayState.m in Sources */,
-				2C74B501156FAD1E00596A22 /* IngameMenuState.m in Sources */,
+				2C74B501156FAD1E00596A22 /* PausedMenuState.m in Sources */,
 				2C74B502156FAD1E00596A22 /* LevelSelectMenuItem.m in Sources */,
 				2C74B503156FAD1E00596A22 /* LevelSelectMenuState.m in Sources */,
 				2C74B505156FAD1E00596A22 /* LevelThemeSelectMenuState.m in Sources */,
@@ -9848,6 +9921,7 @@
 				2CF8E0F61576B45F0052F3D2 /* LevelThemeSelectLayer.m in Sources */,
 				2CF8E0F61576B45F0052F47D /* SandComponent.m in Sources */,
 				2CF8E0F61576B45F0052F480 /* SandSystem.m in Sources */,
+				2CF8E0F61576B45F0052F495 /* PausedDialog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

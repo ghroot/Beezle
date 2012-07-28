@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "IngameMenuState.h"
+#import "PausedMenuState.h"
 #import "EditState.h"
 #import "Game.h"
 #import "GameplayState.h"
@@ -14,38 +14,42 @@
 #import "LevelLayoutCache.h"
 #import "LevelOrganizer.h"
 #import "MainMenuState.h"
+#import "LevelSession.h"
+#import "Utils.h"
+#import "PausedDialog.h"
 
-@interface IngameMenuState()
+@interface PausedMenuState()
 
--(void) resumeGame:(id)sender;
--(void) restartGame:(id)sender;
 -(void) editGame:(id)sender;
--(void) nextLevel:(id)sender;
 -(void) gotoMainMenu:(id)sender;
 
 @end
 
-@implementation IngameMenuState
+@implementation PausedMenuState
+
+-(id) initWithBackground:(CCNode *)backgroundNode andLevelSession:(LevelSession *)levelSession
+{
+	if (self = [super init])
+	{
+		[backgroundNode setPosition:[Utils getScreenCenterPosition]];
+		[self addChild:backgroundNode];
+
+		PausedDialog *pausedDialog = [[[PausedDialog alloc] initWithState:self andLevelSession:levelSession] autorelease];
+		[self addChild:pausedDialog];
+	}
+	return self;
+}
 
 -(void) initialise
 {
 	[super initialise];
 	
 	_menu = [CCMenu menuWithItems:nil];
-	
-	CCMenuItem *resumeMenuItem = [CCMenuItemFont itemWithString:@"Resume" target:self selector:@selector(resumeGame:)];
-	[_menu addChild:resumeMenuItem];
-	CCMenuItem *restartMenuItem = [CCMenuItemFont itemWithString:@"Restart" target:self selector:@selector(restartGame:)];
-	[_menu addChild:restartMenuItem];
     CCMenuItem *editMenuItem = [CCMenuItemFont itemWithString:@"Edit" target:self selector:@selector(editGame:)];
     [_menu addChild:editMenuItem];
-    CCMenuItem *nextLevelMenuItem = [CCMenuItemFont itemWithString:@"Next level" target:self selector:@selector(nextLevel:)];
-    [_menu addChild:nextLevelMenuItem];
 	CCMenuItem *quitMenuItem = [CCMenuItemFont itemWithString:@"Quit" target:self selector:@selector(gotoMainMenu:)];
 	[_menu addChild:quitMenuItem];
-	
 	[_menu alignItemsVerticallyWithPadding:30.0f];
-	
 	[self addChild:_menu];
 	
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
@@ -58,13 +62,13 @@
 	[self addChild:levelInfoLabel];
 }
 
--(void) resumeGame:(id)sender
+-(void) resumeGame
 {
 	// This assumes the previous state was the game play state
 	[_game popState];
 }
 
--(void) restartGame:(id)sender
+-(void) restartGame
 {
 	// This assumes the previous state was the game play state
 	[_game popState];
@@ -80,7 +84,7 @@
 	[_game replaceState:[EditState stateWithLevelName:[gameplayState levelName]]];
 }
 
--(void) nextLevel:(id)sender
+-(void) nextLevel
 {
 	// This assumes the previous state was the game play state
 	[_game popState];

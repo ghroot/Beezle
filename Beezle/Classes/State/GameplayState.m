@@ -18,12 +18,10 @@
 #import "DisposalSystem.h"
 #import "CapturedSystem.h"
 #import "FreezeSystem.h"
-#import "Game.h"
 #import "GameRulesSystem.h"
 #import "ShardSystem.h"
 #import "HealthSystem.h"
 #import "HUDRenderingSystem.h"
-#import "IngameMenuState.h"
 #import "InputSystem.h"
 #import "LevelCompletedMode.h"
 #import "LevelFailedMode.h"
@@ -58,6 +56,8 @@
 #import "SolidWithWaterCollisionHandler.h"
 #import "SolidWithWobbleCollisionHandler.h"
 #import "SandSystem.h"
+#import "PausedMenuState.h"
+#import "Game.h"
 
 @interface GameplayState()
 
@@ -171,11 +171,11 @@
     _uiLayer = [CCLayer node];
     [self addChild:_uiLayer];
     
-    CCMenuItemImage *pauseMenuItem = [CCMenuItemImage itemWithNormalImage:@"PauseArrow-01.png" selectedImage:@"PauseArrow-01.png" target:self selector:@selector(pauseGame:)];
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    [pauseMenuItem setPosition:CGPointMake(winSize.width - 2.0f, winSize.height - 2.0f)];
-    [pauseMenuItem setAnchorPoint:CGPointMake(1.0f, 1.0f)];
-    CCMenu *menu = [CCMenu menuWithItems:pauseMenuItem, nil];
+	_pauseMenuItem = [[CCMenuItemImage itemWithNormalImage:@"PauseArrow-01.png" selectedImage:@"PauseArrow-01.png" target:self selector:@selector(pauseGame:)] retain];
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+    [_pauseMenuItem setPosition:CGPointMake(winSize.width - 2.0f, winSize.height - 2.0f)];
+    [_pauseMenuItem setAnchorPoint:CGPointMake(1.0f, 1.0f)];
+    CCMenu *menu = [CCMenu menuWithItems:_pauseMenuItem, nil];
     [menu setPosition:CGPointZero];
     [_uiLayer addChild:menu];
 }
@@ -301,6 +301,8 @@
     
     [_world release];
 
+	[_pauseMenuItem release];
+
 	[super dealloc];
 }
 
@@ -351,7 +353,17 @@
 
 -(void) pauseGame:(id)sender
 {
-	[_game pushState:[IngameMenuState state]];
+	[_pauseMenuItem setVisible:FALSE];
+
+	CGSize winSize = [CCDirector sharedDirector].winSize;
+	CCRenderTexture* rtx = [CCRenderTexture renderTextureWithWidth:winSize.width height:winSize.height];
+	[rtx begin];
+	[self visit];
+	[rtx end];
+
+	[_pauseMenuItem setVisible:TRUE];
+
+	[_game pushState:[[[PausedMenuState alloc] initWithBackground:rtx andLevelSession:_levelSession] autorelease] transition:FALSE];
 }
 
 @end
