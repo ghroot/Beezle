@@ -726,8 +726,6 @@
 		2C96EE021570450600052239 /* LevelCompletedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDF91570450600052239 /* LevelCompletedDialog.ccbi */; };
 		2C96EE041570450600052239 /* NextLevelButton-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDFB1570450600052239 /* NextLevelButton-hd.png */; };
 		2C96EE051570450600052239 /* NextLevelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDFC1570450600052239 /* NextLevelButton.png */; };
-		2C96EE061570450600052239 /* PauseArrow-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDFD1570450600052239 /* PauseArrow-01-hd.png */; };
-		2C96EE071570450600052239 /* PauseArrow-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDFE1570450600052239 /* PauseArrow-01.png */; };
 		2C96EE0A15704B3A00052239 /* LevelFailedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EE0915704B3A00052239 /* LevelFailedDialog.ccbi */; };
 		2C96F77715741BA400052239 /* TestMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C96F77615741BA400052239 /* TestMenuState.m */; };
 		2C96F77A15741DEA00052239 /* TestEntitySystemState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C96F77915741DE900052239 /* TestEntitySystemState.m */; };
@@ -2037,6 +2035,8 @@
 		2CF8E0F61576B45F0052F4AF /* IngameDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4AE /* IngameDialog.m */; };
 		2CF8E0F61576B45F0052F4B1 /* Syst-Text-Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4B0 /* Syst-Text-Loading.png */; };
 		2CF8E0F61576B45F0052F4B3 /* Syst-Text-Loading-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4B2 /* Syst-Text-Loading-hd.png */; };
+		2CF8E0F61576B45F0052F4B5 /* Syst-GamePause-White-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4B4 /* Syst-GamePause-White-hd.png */; };
+		2CF8E0F61576B45F0052F4B7 /* Syst-GamePause-White.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4B6 /* Syst-GamePause-White.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3074,8 +3074,6 @@
 		2C96EDF91570450600052239 /* LevelCompletedDialog.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = LevelCompletedDialog.ccbi; sourceTree = "<group>"; };
 		2C96EDFB1570450600052239 /* NextLevelButton-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NextLevelButton-hd.png"; sourceTree = "<group>"; };
 		2C96EDFC1570450600052239 /* NextLevelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NextLevelButton.png; sourceTree = "<group>"; };
-		2C96EDFD1570450600052239 /* PauseArrow-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01-hd.png"; sourceTree = "<group>"; };
-		2C96EDFE1570450600052239 /* PauseArrow-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01.png"; sourceTree = "<group>"; };
 		2C96EE0915704B3A00052239 /* LevelFailedDialog.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = LevelFailedDialog.ccbi; sourceTree = "<group>"; };
 		2C96F77515741BA400052239 /* TestMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMenuState.h; sourceTree = "<group>"; };
 		2C96F77615741BA400052239 /* TestMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMenuState.m; sourceTree = "<group>"; };
@@ -4417,6 +4415,8 @@
 		2CF8E0F61576B45F0052F4AE /* IngameDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngameDialog.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F4B0 /* Syst-Text-Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Loading.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F4B2 /* Syst-Text-Loading-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Loading-hd.png"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F4B4 /* Syst-GamePause-White-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-GamePause-White-hd.png"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F4B6 /* Syst-GamePause-White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-GamePause-White.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4456,6 +4456,8 @@
 		2C00D85014FD798B00BE5B4C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F4B6 /* Syst-GamePause-White.png */,
+				2CF8E0F61576B45F0052F4B4 /* Syst-GamePause-White-hd.png */,
 				2CF8E0F61576B45F0052F4B2 /* Syst-Text-Loading-hd.png */,
 				2CF8E0F61576B45F0052F4B0 /* Syst-Text-Loading.png */,
 				2CF8E0F61576B45F0052F49F /* numberImages.png */,
@@ -4600,8 +4602,6 @@
 				2C96EE0915704B3A00052239 /* LevelFailedDialog.ccbi */,
 				2C96EDFB1570450600052239 /* NextLevelButton-hd.png */,
 				2C96EDFC1570450600052239 /* NextLevelButton.png */,
-				2C96EDFD1570450600052239 /* PauseArrow-01-hd.png */,
-				2C96EDFE1570450600052239 /* PauseArrow-01.png */,
 			);
 			name = Interface;
 			path = Resources/Interface;
@@ -8079,8 +8079,6 @@
 				2C96EE021570450600052239 /* LevelCompletedDialog.ccbi in Resources */,
 				2C96EE041570450600052239 /* NextLevelButton-hd.png in Resources */,
 				2C96EE051570450600052239 /* NextLevelButton.png in Resources */,
-				2C96EE061570450600052239 /* PauseArrow-01-hd.png in Resources */,
-				2C96EE071570450600052239 /* PauseArrow-01.png in Resources */,
 				2C96EE0A15704B3A00052239 /* LevelFailedDialog.ccbi in Resources */,
 				2CF8E0B615751BFB0052F330 /* Bombee-Piece.plist in Resources */,
 				2CF8E0BC157563D40052F330 /* Icicle-Small.plist in Resources */,
@@ -9716,6 +9714,8 @@
 				2CB24F8415C6D5AC00898E3B /* Syst-Next2-White.png in Resources */,
 				2CF8E0F61576B45F0052F4B1 /* Syst-Text-Loading.png in Resources */,
 				2CF8E0F61576B45F0052F4B3 /* Syst-Text-Loading-hd.png in Resources */,
+				2CF8E0F61576B45F0052F4B5 /* Syst-GamePause-White-hd.png in Resources */,
+				2CF8E0F61576B45F0052F4B7 /* Syst-GamePause-White.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
