@@ -16,16 +16,8 @@
 {
 	if (self = [super init])
 	{
-//		CGSize winSize = [[CCDirector sharedDirector] winSize];
-		
-		CoverLayer *coverLayer = [CoverLayer node];
-//		[coverLayer setPosition:CGPointMake(-winSize.width / 2, -winSize.height / 2)];
-		[self addChild:coverLayer];
-		
-		CCNode *interface = [CCBReader nodeGraphFromFile:filePath owner:self];
-//		[interface setScale:0.2f];
-//		[interface runAction:[CCEaseBackOut actionWithAction:[CCScaleTo actionWithDuration:0.3f scale:1.0f]]];
-		[self addChild:interface];		
+		[self addChild:[CoverLayer node]];
+		[self addChild:[CCBReader nodeGraphFromFile:filePath owner:self]];
 	}
 	return self;
 }

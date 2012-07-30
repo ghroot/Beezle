@@ -6,19 +6,15 @@
 //Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "Dialog.h"
+#import "IngameDialog.h"
 
 @class LevelSession;
 @class Game;
 @class PausedMenuState;
 
-@interface PausedDialog : Dialog
+@interface PausedDialog : IngameDialog
 {
 	PausedMenuState *_state;
-	LevelSession *_levelSession;
-
-	CCLabelTTF *_levelPollenCountLabel;
-	CCLabelTTF *_totalPollenCountLabel;
 }
 
 -(id) initWithState:(PausedMenuState *)state andLevelSession:(LevelSession *)levelSession;

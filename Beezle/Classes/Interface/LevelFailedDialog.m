@@ -9,28 +9,26 @@
 #import "LevelFailedDialog.h"
 #import "Game.h"
 #import "GameplayState.h"
-
-@interface LevelFailedDialog()
-
--(void) restartLevel;
-
-@end
+#import "LevelSession.h"
 
 @implementation LevelFailedDialog
 
--(id) initWithGame:(Game *)game andLevelName:(NSString *)levelName
+-(id) initWithGame:(Game *)game andLevelSession:(LevelSession *)levelSession
 {
-	if (self = [super initWithInterfaceFile:@"LevelFailedDialog.ccbi"])
+	if (self = [super initWithInterfaceFile:@"LevelFailedDialog.ccbi" andLevelSession:levelSession])
 	{
 		_game = game;
-		_levelName = levelName;
+
+		[self useNoResumeButton];
+		[self useOrangeRestartButton];
+		[self useNoNextLevelButton];
 	}
 	return self;
 }
 
--(void) restartLevel
+-(void) restartGame
 {
-	[_game replaceState:[GameplayState stateWithLevelName:_levelName]];
+	[_game replaceState:[GameplayState stateWithLevelName:[_levelSession levelName]]];
 }
 
 @end

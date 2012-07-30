@@ -444,6 +444,21 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 			[beeQueueRenderSprite playAnimationOnce:@"Bee-Turn-Into-Pollen" andCallBlockAtEnd:^{
 				[self decreaseMovingBeesCount];
 			}];
+
+	        NSString *pollenString = [NSString stringWithFormat:@"%d", 20];
+	        CCLabelAtlas *label = [[CCLabelAtlas alloc] initWithString:@"0" charMapFile:@"numberImages.png" itemWidth:30 itemHeight:30 startCharMap:'/'];
+	        [label setString:pollenString];
+	        [label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
+	        [label setPosition:[[beeQueueRenderSprite sprite] position]];
+	        CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.8f scale:1.2f];
+	        CCFadeOut *fadeAction = [CCFadeOut actionWithDuration:0.8f];
+	        CCCallBlock *removeAction = [CCCallBlock actionWithBlock:^{
+		        [[_renderSystem layer] removeChild:label cleanup:TRUE];
+	        }];
+	        CCSequence *sequence = [CCSequence actionOne:fadeAction two:removeAction];
+	        [label runAction:scaleAction];
+	        [label runAction:sequence];
+	        [[_renderSystem layer] addChild:label z:[[ZOrder Z_DEFAULT] z]];
         }];
 		[[beeQueueRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
         CCAction *action = [CCSequence actions:waitAction, animateAction, nil];

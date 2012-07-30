@@ -55,12 +55,13 @@
 	RenderSystem *renderSystem = (RenderSystem *)[[_world systemManager] getSystem:[RenderSystem class]];
 	TransformComponent *transformComponent = [TransformComponent getFrom:pollenEntity];
 	PollenComponent *pollenComponent = [PollenComponent getFrom:pollenEntity];
-	
+
 	NSString *pollenString = [NSString stringWithFormat:@"%d", [pollenComponent pollenCount]];
-	CCLabelTTF *label = [CCLabelTTF labelWithString:pollenString fontName:@"Marker Felt" fontSize:20.0f];
+	CCLabelAtlas *label = [[CCLabelAtlas alloc] initWithString:@"0" charMapFile:@"numberImages.png" itemWidth:30 itemHeight:30 startCharMap:'/'];
+	[label setString:pollenString];
 	[label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
 	[label setPosition:[transformComponent position]];
-	CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.8f scale:2.0f];
+	CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.8f scale:1.2f];
 	CCFadeOut *fadeAction = [CCFadeOut actionWithDuration:0.8f];
 	CCCallBlock *removeAction = [CCCallBlock actionWithBlock:^{
 		[[renderSystem layer] removeChild:label cleanup:TRUE];

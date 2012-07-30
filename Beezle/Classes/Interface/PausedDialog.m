@@ -8,28 +8,19 @@
 
 #import "PausedDialog.h"
 #import "LevelSession.h"
-#import "PlayerInformation.h"
 #import "PausedMenuState.h"
-
-@interface PausedDialog()
-
--(void) resumeGame;
--(void) restartGame;
--(void) nextLevel;
-
-@end
 
 @implementation PausedDialog
 
 -(id) initWithState:(PausedMenuState *)state andLevelSession:(LevelSession *)levelSession
 {
-	if (self = [super initWithInterfaceFile:@"PausedDialog.ccbi"])
+	if (self = [super initWithInterfaceFile:@"PausedDialog.ccbi" andLevelSession:levelSession])
 	{
 		_state = state;
-		_levelSession = levelSession;
 
-		[_levelPollenCountLabel setString:[NSString stringWithFormat:@"%d", [levelSession totalNumberOfPollen]]];
-		[_totalPollenCountLabel setString:[NSString stringWithFormat:@"%d", [[PlayerInformation sharedInformation] totalNumberOfPollen]]];
+		[self useOrangeResumeButton];
+		[self useWhiteRestartButton];
+		[self useNoNextLevelButton];
 	}
 	return self;
 }

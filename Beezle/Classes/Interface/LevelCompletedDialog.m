@@ -16,31 +16,23 @@
 #import "LevelSession.h"
 #import "MainMenuState.h"
 #import "RateLevelState.h"
-#import "PlayerInformation.h"
-
-@interface LevelCompletedDialog()
-
--(void) loadNextLevel;
--(void) restartLevel;
-
-@end
 
 @implementation LevelCompletedDialog
 
 -(id) initWithGame:(Game *)game andLevelSession:(LevelSession *)levelSession
 {
-	if (self = [super initWithInterfaceFile:@"LevelCompletedDialog.ccbi"])
+	if (self = [super initWithInterfaceFile:@"LevelCompletedDialog.ccbi" andLevelSession:levelSession])
 	{
 		_game = game;
-		_levelSession = levelSession;
-		
-		[_levelPollenCountLabel setString:[NSString stringWithFormat:@"%d", [levelSession totalNumberOfPollen]]];
-		[_totalPollenCountLabel setString:[NSString stringWithFormat:@"%d", [[PlayerInformation sharedInformation] totalNumberOfPollen]]];
+
+		[self useNoResumeButton];
+		[self useWhiteRestartButton];
+		[self useOrangeNextLevelButton];
 	}
 	return self;
 }
 
--(void) loadNextLevel
+-(void) nextLevel
 {
 #ifdef LEVEL_RATINGS
 	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:[_levelSession levelName]];
@@ -73,7 +65,7 @@
 #endif
 }
 
--(void) restartLevel
+-(void) restartGame
 {
 	[_game replaceState:[GameplayState stateWithLevelName:[_levelSession levelName]]];
 }

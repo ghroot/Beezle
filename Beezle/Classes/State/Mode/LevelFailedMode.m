@@ -74,7 +74,7 @@ static const float DIALOG_DELAY_IN_SECONDS = 1.0f;
 
 -(void) showLevelFailedDialog
 {	
-	_levelFailedDialog = [[LevelFailedDialog alloc] initWithGame:[_gameplayState game] andLevelName:[_levelSession levelName]];
+	_levelFailedDialog = [[LevelFailedDialog alloc] initWithGame:[_gameplayState game] andLevelSession:_levelSession];
 	[_uiLayer addChild:_levelFailedDialog];
 }
 

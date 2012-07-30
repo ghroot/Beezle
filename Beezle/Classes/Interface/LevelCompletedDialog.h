@@ -6,18 +6,14 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "Dialog.h"
+#import "IngameDialog.h"
 
 @class Game;
 @class LevelSession;
 
-@interface LevelCompletedDialog : Dialog
+@interface LevelCompletedDialog : IngameDialog
 {
 	Game *_game;
-	LevelSession *_levelSession;
-	
-	CCLabelTTF *_levelPollenCountLabel;
-	CCLabelTTF *_totalPollenCountLabel;
 }
 
 -(id) initWithGame:(Game *)game andLevelSession:(LevelSession *)levelSession;
