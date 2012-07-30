@@ -724,7 +724,6 @@
 		2C96EE001570450600052239 /* Bubble-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDF71570450600052239 /* Bubble-hd.png */; };
 		2C96EE011570450600052239 /* Bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDF81570450600052239 /* Bubble.png */; };
 		2C96EE021570450600052239 /* LevelCompletedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDF91570450600052239 /* LevelCompletedDialog.ccbi */; };
-		2C96EE031570450600052239 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDFA1570450600052239 /* Loading.png */; };
 		2C96EE041570450600052239 /* NextLevelButton-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDFB1570450600052239 /* NextLevelButton-hd.png */; };
 		2C96EE051570450600052239 /* NextLevelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDFC1570450600052239 /* NextLevelButton.png */; };
 		2C96EE061570450600052239 /* PauseArrow-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDFD1570450600052239 /* PauseArrow-01-hd.png */; };
@@ -2036,6 +2035,8 @@
 		2CF8E0F61576B45F0052F4AA /* Syst-Text-Total-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4A9 /* Syst-Text-Total-hd.png */; };
 		2CF8E0F61576B45F0052F4AC /* Syst-Text-Total.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4AB /* Syst-Text-Total.png */; };
 		2CF8E0F61576B45F0052F4AF /* IngameDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4AE /* IngameDialog.m */; };
+		2CF8E0F61576B45F0052F4B1 /* Syst-Text-Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4B0 /* Syst-Text-Loading.png */; };
+		2CF8E0F61576B45F0052F4B3 /* Syst-Text-Loading-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4B2 /* Syst-Text-Loading-hd.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3071,7 +3072,6 @@
 		2C96EDF71570450600052239 /* Bubble-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bubble-hd.png"; sourceTree = "<group>"; };
 		2C96EDF81570450600052239 /* Bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bubble.png; sourceTree = "<group>"; };
 		2C96EDF91570450600052239 /* LevelCompletedDialog.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = LevelCompletedDialog.ccbi; sourceTree = "<group>"; };
-		2C96EDFA1570450600052239 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
 		2C96EDFB1570450600052239 /* NextLevelButton-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NextLevelButton-hd.png"; sourceTree = "<group>"; };
 		2C96EDFC1570450600052239 /* NextLevelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NextLevelButton.png; sourceTree = "<group>"; };
 		2C96EDFD1570450600052239 /* PauseArrow-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01-hd.png"; sourceTree = "<group>"; };
@@ -4415,6 +4415,8 @@
 		2CF8E0F61576B45F0052F4AB /* Syst-Text-Total.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Total.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F4AD /* IngameDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngameDialog.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F4AE /* IngameDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngameDialog.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F4B0 /* Syst-Text-Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Loading.png"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F4B2 /* Syst-Text-Loading-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Loading-hd.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4454,6 +4456,8 @@
 		2C00D85014FD798B00BE5B4C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F4B2 /* Syst-Text-Loading-hd.png */,
+				2CF8E0F61576B45F0052F4B0 /* Syst-Text-Loading.png */,
 				2CF8E0F61576B45F0052F49F /* numberImages.png */,
 				2CF8E0F61576B45F0052F49D /* numberImages-hd.png */,
 				2CF8E0F61576B45F0052F498 /* ShineEffectGlobes-hd.png */,
@@ -4594,7 +4598,6 @@
 				2C96EDF81570450600052239 /* Bubble.png */,
 				2C96EDF91570450600052239 /* LevelCompletedDialog.ccbi */,
 				2C96EE0915704B3A00052239 /* LevelFailedDialog.ccbi */,
-				2C96EDFA1570450600052239 /* Loading.png */,
 				2C96EDFB1570450600052239 /* NextLevelButton-hd.png */,
 				2C96EDFC1570450600052239 /* NextLevelButton.png */,
 				2C96EDFD1570450600052239 /* PauseArrow-01-hd.png */,
@@ -8074,7 +8077,6 @@
 				2C96EE001570450600052239 /* Bubble-hd.png in Resources */,
 				2C96EE011570450600052239 /* Bubble.png in Resources */,
 				2C96EE021570450600052239 /* LevelCompletedDialog.ccbi in Resources */,
-				2C96EE031570450600052239 /* Loading.png in Resources */,
 				2C96EE041570450600052239 /* NextLevelButton-hd.png in Resources */,
 				2C96EE051570450600052239 /* NextLevelButton.png in Resources */,
 				2C96EE061570450600052239 /* PauseArrow-01-hd.png in Resources */,
@@ -9712,6 +9714,8 @@
 				2CB24F8215C6D5AC00898E3B /* Syst-Next2-Orange.png in Resources */,
 				2CB24F8315C6D5AC00898E3B /* Syst-Next2-White-hd.png in Resources */,
 				2CB24F8415C6D5AC00898E3B /* Syst-Next2-White.png in Resources */,
+				2CF8E0F61576B45F0052F4B1 /* Syst-Text-Loading.png in Resources */,
+				2CF8E0F61576B45F0052F4B3 /* Syst-Text-Loading-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

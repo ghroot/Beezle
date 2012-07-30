@@ -30,7 +30,7 @@
 	[super initialise];
 	
 	CCLayer *layer = [CCLayer node];
-	CCSprite *loadingSprite = [CCSprite spriteWithFile:@"Loading.png"];
+	CCSprite *loadingSprite = [CCSprite spriteWithFile:@"Syst-Text-Loading.png"];
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	[loadingSprite setPosition:CGPointMake(winSize.width / 2, winSize.height / 2)];
 	[layer addChild:loadingSprite];
