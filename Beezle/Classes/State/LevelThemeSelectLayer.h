@@ -9,7 +9,13 @@
 #import "cocos2d.h"
 
 @interface LevelThemeSelectLayer : CCLayer
+{
+	CCNode *_container;
+	CCLayerColor *_fadeLayer;
+}
 
 -(id) initWithTheme:(NSString *)theme block:(void(^)(id sender))block;
+
+-(void) reset;
 
 @end

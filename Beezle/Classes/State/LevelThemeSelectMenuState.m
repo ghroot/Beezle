@@ -89,6 +89,16 @@
 	[self addChild:_scrollLayer z:20];
 }
 
+-(void) enter
+{
+	[super enter];
+
+	for (LevelThemeSelectLayer *layer in [_scrollLayer pages])
+	{
+		[layer reset];
+	}
+}
+
 -(void) update:(ccTime)delta
 {
 	[super update:delta];

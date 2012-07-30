@@ -2012,6 +2012,9 @@
 		2CF8E0F61576B45F0052F490 /* Glass-Piece-D-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F48F /* Glass-Piece-D-Animations.plist */; };
 		2CF8E0F61576B45F0052F492 /* D-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F491 /* D-Glass-Shapes.plist */; };
 		2CF8E0F61576B45F0052F495 /* PausedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F494 /* PausedDialog.m */; };
+		2CF8E0F61576B45F0052F497 /* ShineEffectGlobes.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F496 /* ShineEffectGlobes.png */; };
+		2CF8E0F61576B45F0052F499 /* ShineEffectGlobes-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F498 /* ShineEffectGlobes-hd.png */; };
+		2CF8E0F61576B45F0052F49C /* FullscreenTransparentMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F49B /* FullscreenTransparentMenuItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4365,6 +4368,10 @@
 		2CF8E0F61576B45F0052F491 /* D-Glass-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "D-Glass-Shapes.plist"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F493 /* PausedDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PausedDialog.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F494 /* PausedDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PausedDialog.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F496 /* ShineEffectGlobes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShineEffectGlobes.png; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F498 /* ShineEffectGlobes-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShineEffectGlobes-hd.png"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F49A /* FullscreenTransparentMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullscreenTransparentMenuItem.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F49B /* FullscreenTransparentMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullscreenTransparentMenuItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4404,6 +4411,8 @@
 		2C00D85014FD798B00BE5B4C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F498 /* ShineEffectGlobes-hd.png */,
+				2CF8E0F61576B45F0052F496 /* ShineEffectGlobes.png */,
 				2C72190B15BD800C00992852 /* Globe-A-hd.png */,
 				2C72190C15BD800C00992852 /* Globe-B-hd.png */,
 				2C72190D15BD800C00992852 /* Globe-C-hd.png */,
@@ -5217,6 +5226,8 @@
 		2C74B461156FAD1E00596A22 /* State */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F49B /* FullscreenTransparentMenuItem.m */,
+				2CF8E0F61576B45F0052F49A /* FullscreenTransparentMenuItem.h */,
 				2CF8E0F61576B45F0052F3D1 /* LevelThemeSelectLayer.m */,
 				2CF8E0F61576B45F0052F3D0 /* LevelThemeSelectLayer.h */,
 				2C74B462156FAD1E00596A22 /* Debug */,
@@ -9614,6 +9625,8 @@
 				2C932AC915C4A3E6002EF3CF /* Syst-Text-Completed.png in Resources */,
 				2C932ACA15C4A3E6002EF3CF /* Syst-Text-Failed-hd.png in Resources */,
 				2C932ACB15C4A3E6002EF3CF /* Syst-Text-Failed.png in Resources */,
+				2CF8E0F61576B45F0052F497 /* ShineEffectGlobes.png in Resources */,
+				2CF8E0F61576B45F0052F499 /* ShineEffectGlobes-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9922,6 +9935,7 @@
 				2CF8E0F61576B45F0052F47D /* SandComponent.m in Sources */,
 				2CF8E0F61576B45F0052F480 /* SandSystem.m in Sources */,
 				2CF8E0F61576B45F0052F495 /* PausedDialog.m in Sources */,
+				2CF8E0F61576B45F0052F49C /* FullscreenTransparentMenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
