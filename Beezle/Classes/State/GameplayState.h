@@ -119,5 +119,7 @@
 
 -(id) initWithLevelName:(NSString *)levelName;
 -(void) pauseGame:(id)sender;
+-(void) hidePauseButton;
+-(void) showPauseButton;
 
 @end

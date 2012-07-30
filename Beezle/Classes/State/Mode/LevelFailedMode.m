@@ -13,7 +13,7 @@
 #import "LevelSession.h"
 #import "SessionTracker.h"
 
-static const float DIALOG_DELAY_IN_SECONDS = 1.0f;
+static const float DIALOG_DELAY_IN_SECONDS = 0.5f;
 
 @interface LevelFailedMode()
 
@@ -51,7 +51,9 @@ static const float DIALOG_DELAY_IN_SECONDS = 1.0f;
 -(void) enter
 {
 	[super enter];
-	
+
+	[_gameplayState hidePauseButton];
+
 	[[SessionTracker sharedTracker] trackFailedLevel:[_levelSession levelName]];
 
 	_timeInSecondsUntilDialog = DIALOG_DELAY_IN_SECONDS;

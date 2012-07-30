@@ -55,6 +55,8 @@ static const float DIALOG_DELAY_IN_SECONDS = 0.2f;
 -(void) enter
 {
 	[super enter];
+
+	[_gameplayState hidePauseButton];
 	
 	[[SessionTracker sharedTracker] trackCompletedLevel:[_levelSession levelName]];
 

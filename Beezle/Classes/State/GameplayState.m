@@ -353,17 +353,25 @@
 
 -(void) pauseGame:(id)sender
 {
-	[_pauseMenuItem setVisible:FALSE];
-
+	[self hidePauseButton];
 	CGSize winSize = [CCDirector sharedDirector].winSize;
 	CCRenderTexture* rtx = [CCRenderTexture renderTextureWithWidth:winSize.width height:winSize.height];
 	[rtx begin];
 	[self visit];
 	[rtx end];
-
-	[_pauseMenuItem setVisible:TRUE];
+	[self showPauseButton];
 
 	[_game pushState:[[[PausedMenuState alloc] initWithBackground:rtx andLevelSession:_levelSession] autorelease] transition:FALSE];
+}
+
+-(void) hidePauseButton
+{
+	[_pauseMenuItem setVisible:FALSE];
+}
+
+-(void) showPauseButton
+{
+	[_pauseMenuItem setVisible:TRUE];
 }
 
 @end
