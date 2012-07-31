@@ -30,6 +30,7 @@
 									sharegroup:nil
 									multiSampling:NO
 									numberOfSamples:0];
+	[glView setMultipleTouchEnabled:TRUE];
 	
 	_director = (CCDirectorIOS *)[CCDirector sharedDirector];
 	[_director setWantsFullScreenLayout:TRUE];

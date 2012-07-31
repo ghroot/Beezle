@@ -435,7 +435,6 @@
 		2C74B4FF156FAD1E00596A22 /* EntitySelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B471156FAD1E00596A22 /* EntitySelectIngameMenuState.m */; };
 		2C74B500156FAD1E00596A22 /* GameplayState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B473156FAD1E00596A22 /* GameplayState.m */; };
 		2C74B501156FAD1E00596A22 /* PausedMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B475156FAD1E00596A22 /* PausedMenuState.m */; };
-		2C74B502156FAD1E00596A22 /* LevelSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B477156FAD1E00596A22 /* LevelSelectMenuItem.m */; };
 		2C74B503156FAD1E00596A22 /* LevelSelectMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B479156FAD1E00596A22 /* LevelSelectMenuState.m */; };
 		2C74B505156FAD1E00596A22 /* LevelThemeSelectMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B47D156FAD1E00596A22 /* LevelThemeSelectMenuState.m */; };
 		2C74B506156FAD1E00596A22 /* MainMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B47F156FAD1E00596A22 /* MainMenuState.m */; };
@@ -748,6 +747,16 @@
 		2CB24F8215C6D5AC00898E3B /* Syst-Next2-Orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB24F7C15C6D5AC00898E3B /* Syst-Next2-Orange.png */; };
 		2CB24F8315C6D5AC00898E3B /* Syst-Next2-White-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB24F7D15C6D5AC00898E3B /* Syst-Next2-White-hd.png */; };
 		2CB24F8415C6D5AC00898E3B /* Syst-Next2-White.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB24F7E15C6D5AC00898E3B /* Syst-Next2-White.png */; };
+		2CB75CC015C7DE4700668399 /* LevelCell-A-Bee-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB75CB715C7DE4700668399 /* LevelCell-A-Bee-hd.png */; };
+		2CB75CC115C7DE4700668399 /* LevelCell-A-Bee.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB75CB815C7DE4700668399 /* LevelCell-A-Bee.png */; };
+		2CB75CC215C7DE4700668399 /* LevelCell-A-Beeater-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB75CB915C7DE4700668399 /* LevelCell-A-Beeater-hd.png */; };
+		2CB75CC315C7DE4700668399 /* LevelCell-A-Beeater.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB75CBA15C7DE4700668399 /* LevelCell-A-Beeater.png */; };
+		2CB75CC415C7DE4700668399 /* LevelCell-A-Open-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB75CBB15C7DE4700668399 /* LevelCell-A-Open-hd.png */; };
+		2CB75CC515C7DE4700668399 /* LevelCell-A-Open.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB75CBC15C7DE4700668399 /* LevelCell-A-Open.png */; };
+		2CB75CC615C7DE4700668399 /* LevelSelect-A.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2CB75CBD15C7DE4700668399 /* LevelSelect-A.ccbi */; };
+		2CB75CC715C7DE4700668399 /* PauseArrow-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB75CBE15C7DE4700668399 /* PauseArrow-01-hd.png */; };
+		2CB75CC815C7DE4700668399 /* PauseArrow-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB75CBF15C7DE4700668399 /* PauseArrow-01.png */; };
+		2CB75CF415C8218E00668399 /* CCLayerPanZoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB75CF315C8218E00668399 /* CCLayerPanZoom.m */; };
 		2CBA326E154842AD00A85642 /* Waves1DNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA326D154842AD00A85642 /* Waves1DNode.m */; };
 		2CD1CCB115605D2B0090AFBE /* NSDictionary+Merge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD1CCB015605D2B0090AFBE /* NSDictionary+Merge.m */; };
 		2CD2C42E14D19E2A00DC0BD5 /* GandEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD2C42D14D19E2A00DC0BD5 /* GandEnum.m */; };
@@ -2576,8 +2585,6 @@
 		2C74B473156FAD1E00596A22 /* GameplayState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameplayState.m; sourceTree = "<group>"; };
 		2C74B474156FAD1E00596A22 /* PausedMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PausedMenuState.h; sourceTree = "<group>"; };
 		2C74B475156FAD1E00596A22 /* PausedMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PausedMenuState.m; sourceTree = "<group>"; };
-		2C74B476156FAD1E00596A22 /* LevelSelectMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectMenuItem.h; sourceTree = "<group>"; };
-		2C74B477156FAD1E00596A22 /* LevelSelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectMenuItem.m; sourceTree = "<group>"; };
 		2C74B478156FAD1E00596A22 /* LevelSelectMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectMenuState.h; sourceTree = "<group>"; };
 		2C74B479156FAD1E00596A22 /* LevelSelectMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectMenuState.m; sourceTree = "<group>"; };
 		2C74B47C156FAD1E00596A22 /* LevelThemeSelectMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelThemeSelectMenuState.h; sourceTree = "<group>"; };
@@ -3101,6 +3108,17 @@
 		2CB24F7C15C6D5AC00898E3B /* Syst-Next2-Orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Next2-Orange.png"; sourceTree = "<group>"; };
 		2CB24F7D15C6D5AC00898E3B /* Syst-Next2-White-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Next2-White-hd.png"; sourceTree = "<group>"; };
 		2CB24F7E15C6D5AC00898E3B /* Syst-Next2-White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Next2-White.png"; sourceTree = "<group>"; };
+		2CB75CB715C7DE4700668399 /* LevelCell-A-Bee-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LevelCell-A-Bee-hd.png"; sourceTree = "<group>"; };
+		2CB75CB815C7DE4700668399 /* LevelCell-A-Bee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LevelCell-A-Bee.png"; sourceTree = "<group>"; };
+		2CB75CB915C7DE4700668399 /* LevelCell-A-Beeater-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LevelCell-A-Beeater-hd.png"; sourceTree = "<group>"; };
+		2CB75CBA15C7DE4700668399 /* LevelCell-A-Beeater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LevelCell-A-Beeater.png"; sourceTree = "<group>"; };
+		2CB75CBB15C7DE4700668399 /* LevelCell-A-Open-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LevelCell-A-Open-hd.png"; sourceTree = "<group>"; };
+		2CB75CBC15C7DE4700668399 /* LevelCell-A-Open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LevelCell-A-Open.png"; sourceTree = "<group>"; };
+		2CB75CBD15C7DE4700668399 /* LevelSelect-A.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LevelSelect-A.ccbi"; sourceTree = "<group>"; };
+		2CB75CBE15C7DE4700668399 /* PauseArrow-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01-hd.png"; sourceTree = "<group>"; };
+		2CB75CBF15C7DE4700668399 /* PauseArrow-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseArrow-01.png"; sourceTree = "<group>"; };
+		2CB75CF215C8218E00668399 /* CCLayerPanZoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLayerPanZoom.h; sourceTree = "<group>"; };
+		2CB75CF315C8218E00668399 /* CCLayerPanZoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLayerPanZoom.m; sourceTree = "<group>"; };
 		2CBA326C154842AD00A85642 /* Waves1DNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Waves1DNode.h; sourceTree = "<group>"; };
 		2CBA326D154842AD00A85642 /* Waves1DNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Waves1DNode.m; sourceTree = "<group>"; };
 		2CD1CCAF15605D2B0090AFBE /* NSDictionary+Merge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Merge.h"; sourceTree = "<group>"; };
@@ -4560,6 +4578,15 @@
 		2C32989815164C69009A5B83 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				2CB75CB715C7DE4700668399 /* LevelCell-A-Bee-hd.png */,
+				2CB75CB815C7DE4700668399 /* LevelCell-A-Bee.png */,
+				2CB75CB915C7DE4700668399 /* LevelCell-A-Beeater-hd.png */,
+				2CB75CBA15C7DE4700668399 /* LevelCell-A-Beeater.png */,
+				2CB75CBB15C7DE4700668399 /* LevelCell-A-Open-hd.png */,
+				2CB75CBC15C7DE4700668399 /* LevelCell-A-Open.png */,
+				2CB75CBD15C7DE4700668399 /* LevelSelect-A.ccbi */,
+				2CB75CBE15C7DE4700668399 /* PauseArrow-01-hd.png */,
+				2CB75CBF15C7DE4700668399 /* PauseArrow-01.png */,
 				2CB24F7915C6D5AC00898E3B /* Syst-Cont2-Orange-hd.png */,
 				2CB24F7A15C6D5AC00898E3B /* Syst-Cont2-Orange.png */,
 				2CB24F7B15C6D5AC00898E3B /* Syst-Next2-Orange-hd.png */,
@@ -5304,8 +5331,6 @@
 				2C74B473156FAD1E00596A22 /* GameplayState.m */,
 				2C74B474156FAD1E00596A22 /* PausedMenuState.h */,
 				2C74B475156FAD1E00596A22 /* PausedMenuState.m */,
-				2C74B476156FAD1E00596A22 /* LevelSelectMenuItem.h */,
-				2C74B477156FAD1E00596A22 /* LevelSelectMenuItem.m */,
 				2C74B478156FAD1E00596A22 /* LevelSelectMenuState.h */,
 				2C74B479156FAD1E00596A22 /* LevelSelectMenuState.m */,
 				2C74B47C156FAD1E00596A22 /* LevelThemeSelectMenuState.h */,
@@ -6298,6 +6323,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2CB75CF115C8218E00668399 /* CCLayerPanZoom */ = {
+			isa = PBXGroup;
+			children = (
+				2CB75CF215C8218E00668399 /* CCLayerPanZoom.h */,
+				2CB75CF315C8218E00668399 /* CCLayerPanZoom.m */,
+			);
+			name = CCLayerPanZoom;
+			path = libs/CCLayerPanZoom;
+			sourceTree = "<group>";
+		};
 		2CBA326B154842AD00A85642 /* Waves1DNode */ = {
 			isa = PBXGroup;
 			children = (
@@ -6596,6 +6631,7 @@
 		2CEA32D5145F66F8000FF575 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				2CB75CF115C8218E00668399 /* CCLayerPanZoom */,
 				2C27E8E414D20577002165CD /* Artemis */,
 				2CF8E0F61576B45F0052F347 /* Bag */,
 				2C32988E15164527009A5B83 /* CCBReader */,
@@ -9716,6 +9752,15 @@
 				2CF8E0F61576B45F0052F4B3 /* Syst-Text-Loading-hd.png in Resources */,
 				2CF8E0F61576B45F0052F4B5 /* Syst-GamePause-White-hd.png in Resources */,
 				2CF8E0F61576B45F0052F4B7 /* Syst-GamePause-White.png in Resources */,
+				2CB75CC015C7DE4700668399 /* LevelCell-A-Bee-hd.png in Resources */,
+				2CB75CC115C7DE4700668399 /* LevelCell-A-Bee.png in Resources */,
+				2CB75CC215C7DE4700668399 /* LevelCell-A-Beeater-hd.png in Resources */,
+				2CB75CC315C7DE4700668399 /* LevelCell-A-Beeater.png in Resources */,
+				2CB75CC415C7DE4700668399 /* LevelCell-A-Open-hd.png in Resources */,
+				2CB75CC515C7DE4700668399 /* LevelCell-A-Open.png in Resources */,
+				2CB75CC615C7DE4700668399 /* LevelSelect-A.ccbi in Resources */,
+				2CB75CC715C7DE4700668399 /* PauseArrow-01-hd.png in Resources */,
+				2CB75CC815C7DE4700668399 /* PauseArrow-01.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9817,7 +9862,6 @@
 				2C74B4FF156FAD1E00596A22 /* EntitySelectIngameMenuState.m in Sources */,
 				2C74B500156FAD1E00596A22 /* GameplayState.m in Sources */,
 				2C74B501156FAD1E00596A22 /* PausedMenuState.m in Sources */,
-				2C74B502156FAD1E00596A22 /* LevelSelectMenuItem.m in Sources */,
 				2C74B503156FAD1E00596A22 /* LevelSelectMenuState.m in Sources */,
 				2C74B505156FAD1E00596A22 /* LevelThemeSelectMenuState.m in Sources */,
 				2C74B506156FAD1E00596A22 /* MainMenuState.m in Sources */,
@@ -10026,6 +10070,7 @@
 				2CF8E0F61576B45F0052F495 /* PausedDialog.m in Sources */,
 				2CF8E0F61576B45F0052F49C /* FullscreenTransparentMenuItem.m in Sources */,
 				2CF8E0F61576B45F0052F4AF /* IngameDialog.m in Sources */,
+				2CB75CF415C8218E00668399 /* CCLayerPanZoom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10103,7 +10148,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: KM Lagerstrom (SMJ33Q3Z5B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -10117,7 +10162,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				KEEP_PRIVATE_EXTERNS = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C700A858-181D-4582-92B5-25C9EDFE3A8A";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -10126,7 +10170,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: KM Lagerstrom";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
@@ -10138,7 +10182,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				KEEP_PRIVATE_EXTERNS = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C8AA4690-85C5-4A3F-B8C7-3AF5F48682BF";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -10147,7 +10190,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: KM Lagerstrom (SMJ33Q3Z5B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -10168,7 +10211,6 @@
 				);
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EAA03D4E-4CA5-4DC1-90AA-892DD801DF52";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
@@ -10179,7 +10221,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: KM Lagerstrom";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
@@ -10201,7 +10243,6 @@
 				OTHER_CFLAGS = "-DNDEBUG";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CC7F4E0F-6102-4812-9E17-CF1E1ABEBF21";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;

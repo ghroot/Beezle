@@ -9,14 +9,10 @@
 #import "LevelSelectMenuState.h"
 #import "Game.h"
 #import "GameplayState.h"
-#import "LevelOrganizer.h"
-#import "LevelSelectMenuItem.h"
-#import "PlayerInformation.h"
+#import "CCBReader.h"
 
 @interface LevelSelectMenuState()
 
--(void) createMenu;
--(void) createLevelMenuItems;
 -(void) startGame:(id)sender;
 -(void) goBack:(id)sender;
 
@@ -34,7 +30,7 @@
 {
     if (self = [super init])
     {
-		_theme = [theme retain];
+		_theme = [theme copy];
     }
     return self;
 }
@@ -47,15 +43,31 @@
 -(void) initialise
 {
 	[super initialise];
-	
-	[self createMenu];
-	
-	NSString *pollenString = [NSString stringWithFormat:@"Pollen: %d", [[PlayerInformation sharedInformation] totalNumberOfPollen]];
-	CCLabelTTF *pollenLabel = [CCLabelTTF labelWithString:pollenString fontName:@"Marker Felt" fontSize:14.0f];
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	[pollenLabel setPosition:CGPointMake(winSize.width, 0.0f)];
-	[pollenLabel setAnchorPoint:CGPointMake(1.0f, 0.0f)];
-	[self addChild:pollenLabel];
+
+	CCSprite *backgroundSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"Colour-%@.jpg", _theme]];
+	[backgroundSprite setAnchorPoint:CGPointMake(0.0f, 0.0f)];
+	[self addChild:backgroundSprite];
+
+	NSString *nodeFileName = [NSString stringWithFormat:@"LevelSelect-%@.ccbi", _theme];
+	CCNode *node = [CCBReader nodeGraphFromFile:nodeFileName owner:self];
+	for (CCNode *childNode in [node children])
+	{
+		if ([childNode isKindOfClass:[CCMenu class]])
+		{
+			for (CCNode *childNode2 in [childNode children])
+			{
+				if ([childNode2 isKindOfClass:[CCMenuItemImage class]])
+				{
+					NSString *levelString = [NSString stringWithFormat:@"%d", [childNode2 tag]];
+					CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:levelString charMapFile:@"numberImages.png" itemWidth:30 itemHeight:30 startCharMap:'/'] autorelease];
+					[label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
+					[label setPosition:[childNode2 position]];
+					[self addChild:label z:100];
+				}
+			}
+		}
+	}
+	[self addChild:node];
 }
 
 -(void) dealloc
@@ -65,50 +77,11 @@
 	[super dealloc];
 }
 
--(void) createMenu
-{
-	_menu = [CCMenu menuWithItems:nil];
-	
-    [self createLevelMenuItems];
-	
-	CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
-	[backMenuItem setFontSize:24];
-	[_menu addChild:backMenuItem];
-	
-	int nLevels = [[_menu children] count] - 1;
-	int nRows = 9;
-	int n1 = nLevels / nRows + 1;
-	int n2 = nLevels - (nRows - 1) * n1;
-	[_menu alignItemsInColumns:
-	 [NSNumber numberWithInt:n1],
-	 [NSNumber numberWithInt:n1],
-	 [NSNumber numberWithInt:n1],
-	 [NSNumber numberWithInt:n1],
-	 [NSNumber numberWithInt:n1],
-	 [NSNumber numberWithInt:n1],
-	 [NSNumber numberWithInt:n1],
-	 [NSNumber numberWithInt:n1],
-	 [NSNumber numberWithInt:n2],
-	 [NSNumber numberWithInt:1],
-	 nil];
-	
-	[self addChild:_menu];
-}
-
--(void) createLevelMenuItems
-{
-	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesInTheme:_theme];
-	for (NSString *levelName in levelNames)
-	{
-		LevelSelectMenuItem *levelMenuItem = [LevelSelectMenuItem itemWithLevelName:levelName target:self selector:@selector(startGame:)];
-		[_menu addChild:levelMenuItem];
-	}
-}
-
 -(void) startGame:(id)sender
 {
-	LevelSelectMenuItem *levelMenuItem = (LevelSelectMenuItem *)sender;
-	[_game clearAndReplaceState:[GameplayState stateWithLevelName:[levelMenuItem levelName]]];
+	CCMenuItemImage *menuItem = (CCMenuItemImage *)sender;
+	NSString *levelName = [NSString stringWithFormat:@"Level-%@%d", _theme, [menuItem tag]];
+	[_game clearAndReplaceState:[GameplayState stateWithLevelName:levelName]];
 }
 
 -(void) goBack:(id)sender
