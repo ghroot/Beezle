@@ -62,16 +62,15 @@
 
 -(void) createBackMenu
 {
-	CCMenu *menu = [CCMenu menuWithItems:nil];
-	CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" block:^(id sender){
+	CCMenu *backMenu = [CCMenu node];
+	CCMenuItemImage *backMenuItem = [CCMenuItemImage itemWithNormalImage:@"ReturnArrow.png" selectedImage:@"ReturnArrow.png" block:^(id sender){
 		[_game popState];
 	}];
-	[backMenuItem setFontSize:24];
+	[backMenuItem setPosition:CGPointMake(2.0f, 2.0f)];
 	[backMenuItem setAnchorPoint:CGPointMake(0.0f, 0.0f)];
-	[menu addChild:backMenuItem];
-	[menu setPosition:CGPointMake(0.0f, 0.0f)];
-	[menu setAnchorPoint:CGPointMake(1.0f, 1.0f)];
-	[self addChild:menu z:30];
+	[backMenu setPosition:CGPointZero];
+	[backMenu addChild:backMenuItem];
+	[self addChild:backMenu z:30];
 }
 
 -(void) createScrollLayer:(NSArray *)themes

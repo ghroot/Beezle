@@ -2045,6 +2045,9 @@
 		2CF8E0F61576B45F0052F4B3 /* Syst-Text-Loading-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4B2 /* Syst-Text-Loading-hd.png */; };
 		2CF8E0F61576B45F0052F4B5 /* Syst-GamePause-White-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4B4 /* Syst-GamePause-White-hd.png */; };
 		2CF8E0F61576B45F0052F4B7 /* Syst-GamePause-White.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4B6 /* Syst-GamePause-White.png */; };
+		2CF8E0F61576B45F0052F4B9 /* ReturnArrow-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4B8 /* ReturnArrow-hd.png */; };
+		2CF8E0F61576B45F0052F4BB /* ReturnArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4BA /* ReturnArrow.png */; };
+		2CF8E0F61576B45F0052F4BD /* LevelSelect-A-Scroll.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4BC /* LevelSelect-A-Scroll.ccbi */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4434,6 +4437,9 @@
 		2CF8E0F61576B45F0052F4B2 /* Syst-Text-Loading-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Loading-hd.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F4B4 /* Syst-GamePause-White-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-GamePause-White-hd.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F4B6 /* Syst-GamePause-White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-GamePause-White.png"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F4B8 /* ReturnArrow-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ReturnArrow-hd.png"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F4BA /* ReturnArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ReturnArrow.png; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F4BC /* LevelSelect-A-Scroll.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file.ccbi; path = "LevelSelect-A-Scroll.ccbi"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4473,6 +4479,8 @@
 		2C00D85014FD798B00BE5B4C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F4BA /* ReturnArrow.png */,
+				2CF8E0F61576B45F0052F4B8 /* ReturnArrow-hd.png */,
 				2CF8E0F61576B45F0052F4B6 /* Syst-GamePause-White.png */,
 				2CF8E0F61576B45F0052F4B4 /* Syst-GamePause-White-hd.png */,
 				2CF8E0F61576B45F0052F4B2 /* Syst-Text-Loading-hd.png */,
@@ -4577,6 +4585,7 @@
 		2C32989815164C69009A5B83 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F4BC /* LevelSelect-A-Scroll.ccbi */,
 				2CB75CB715C7DE4700668399 /* LevelCell-A-Bee-hd.png */,
 				2CB75CB815C7DE4700668399 /* LevelCell-A-Bee.png */,
 				2CB75CB915C7DE4700668399 /* LevelCell-A-Beeater-hd.png */,
@@ -9767,6 +9776,9 @@
 				2CB75CC615C7DE4700668399 /* LevelSelect-A.ccbi in Resources */,
 				2C95F8C615C869D000926A96 /* ChangeLog in Resources */,
 				2C95F8C715C869D000926A96 /* CMakeLists.txt in Resources */,
+				2CF8E0F61576B45F0052F4B9 /* ReturnArrow-hd.png in Resources */,
+				2CF8E0F61576B45F0052F4BB /* ReturnArrow.png in Resources */,
+				2CF8E0F61576B45F0052F4BD /* LevelSelect-A-Scroll.ccbi in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
