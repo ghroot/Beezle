@@ -9,10 +9,13 @@
 #import "GameState.h"
 #import "cocos2d.h"
 
-@interface LevelSelectMenuState : GameState
+@interface LevelSelectMenuState : GameState <CCTargetedTouchDelegate>
 {
 	NSString *_theme;
-    CCMenu *_menu;
+    CCNode *_draggableNode;
+    BOOL _isDragging;
+    float _startDragTouchX;
+    float _startDragNodeX;
 }
 
 +(LevelSelectMenuState *) stateWithTheme:(NSString *)theme;

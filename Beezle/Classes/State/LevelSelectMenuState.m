@@ -14,6 +14,10 @@
 
 @interface LevelSelectMenuState()
 
+-(void) addBackground;
+-(void) addInterfaceLevelsMenu;
+-(CCMenu *) getMenu:(CCNode *)node;
+-(void) createBackMenu;
 -(void) startGame:(id)sender;
 
 @end
@@ -44,43 +48,63 @@
 {
 	[super initialise];
 
-	CCSprite *backgroundSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"Colour-%@.jpg", _theme]];
+    [self addBackground];
+    [self addInterfaceLevelsMenu];
+	[self createBackMenu];
+}
+
+-(void) addBackground
+{
+    CCSprite *backgroundSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"Colour-%@.jpg", _theme]];
 	[backgroundSprite setAnchorPoint:CGPointMake(0.0f, 0.0f)];
 	[self addChild:backgroundSprite];
+}
 
-	NSString *nodeFileName = [NSString stringWithFormat:@"LevelSelect-%@.ccbi", _theme];
-	CCNode *node = [CCBReader nodeGraphFromFile:nodeFileName owner:self];
-	for (CCNode *childNode in [node children])
+-(void) addInterfaceLevelsMenu
+{
+    NSString *nodeFileName = [NSString stringWithFormat:@"LevelSelect-%@.ccbi", _theme];
+	_draggableNode = [[CCBReader nodeGraphFromFile:nodeFileName owner:self] retain];
+    CCMenu *menu = [self getMenu:_draggableNode];
+    for (CCMenuItemImage *menuItemImage in [menu children])
+    {
+        NSString *levelName = [NSString stringWithFormat:@"Level-%@%d", _theme, [menuItemImage tag]];
+        if ([[PlayerInformation sharedInformation] pollenRecord:levelName] > 0)
+        {
+            NSString *openImageName = [NSString stringWithFormat:@"LevelCell-%@-Open.png", _theme];
+            [menuItemImage setNormalImage:[CCSprite spriteWithFile:openImageName]];
+            [menuItemImage setSelectedImage:[CCSprite spriteWithFile:openImageName]];
+            [menuItemImage setDisabledImage:[CCSprite spriteWithFile:openImageName]];
+        }
+        
+        NSString *levelString = [NSString stringWithFormat:@"%d", [menuItemImage tag]];
+        CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:levelString charMapFile:@"numberImages.png" itemWidth:30 itemHeight:30 startCharMap:'/'] autorelease];
+        [label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
+        [label setPosition:[menuItemImage position]];
+        [_draggableNode addChild:label];
+    }
+	[self addChild:_draggableNode];
+}
+
+-(CCMenu *) getMenu:(CCNode *)node
+{
+    for (CCNode *childNode in [node children])
 	{
 		if ([childNode isKindOfClass:[CCMenu class]])
 		{
-			for (CCNode *childNode2 in [childNode children])
-			{
-				if ([childNode2 isKindOfClass:[CCMenuItemImage class]])
-				{
-					CCMenuItemImage *menuItemImage = (CCMenuItemImage *)childNode2;
-					NSString *levelName = [NSString stringWithFormat:@"Level-%@%d", _theme, [menuItemImage tag]];
-					if ([[PlayerInformation sharedInformation] pollenRecord:levelName] > 0)
-					{
-						NSString *openImageName = [NSString stringWithFormat:@"LevelCell-%@-Open.png", _theme];
-						[menuItemImage setNormalImage:[CCSprite spriteWithFile:openImageName]];
-						[menuItemImage setSelectedImage:[CCSprite spriteWithFile:openImageName]];
-						[menuItemImage setDisabledImage:[CCSprite spriteWithFile:openImageName]];
-					}
-
-					NSString *levelString = [NSString stringWithFormat:@"%d", [childNode2 tag]];
-					CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:levelString charMapFile:@"numberImages.png" itemWidth:30 itemHeight:30 startCharMap:'/'] autorelease];
-					[label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
-					[label setPosition:[childNode2 position]];
-					[self addChild:label z:100];
-				}
-			}
+            return (CCMenu *)childNode;
 		}
 	}
-	[self addChild:node];
+    return nil;
+}
 
-	CCMenu *backMenu = [CCMenu node];
+-(void) createBackMenu
+{
+    CCMenu *backMenu = [CCMenu node];
 	CCMenuItemImage *backMenuItem = [CCMenuItemImage itemWithNormalImage:@"ReturnArrow.png" selectedImage:@"ReturnArrow.png" block:^(id sender){
+        if (_isDragging)
+        {
+            return;
+        }
 		[_game popState];
 	}];
 	[backMenuItem setPosition:CGPointMake(2.0f, 2.0f)];
@@ -93,15 +117,54 @@
 -(void) dealloc
 {
 	[_theme release];
+    [_draggableNode release];
 	
 	[super dealloc];
 }
 
 -(void) startGame:(id)sender
 {
+    if (_isDragging)
+    {
+        return;
+    }
+    
 	CCMenuItemImage *menuItem = (CCMenuItemImage *)sender;
 	NSString *levelName = [NSString stringWithFormat:@"Level-%@%d", _theme, [menuItem tag]];
 	[_game clearAndReplaceState:[GameplayState stateWithLevelName:levelName]];
+}
+
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	CGPoint location = [touch locationInView: [touch view]];
+	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+    
+    _startDragTouchX = convertedLocation.x;
+    _startDragNodeX = [_draggableNode position].x;
+    
+	return TRUE;
+}
+
+-(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	CGPoint location = [touch locationInView: [touch view]];
+	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+    
+    _isDragging = TRUE;
+    float newX = _startDragNodeX + (convertedLocation.x - _startDragTouchX);
+    newX = min(0, newX);
+    newX = max(-600, newX);
+    [_draggableNode setPosition:CGPointMake(newX, 0)];
+}
+
+-(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    _isDragging = FALSE;
+}
+
+-(void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    [self ccTouchEnded:touch withEvent:event];
 }
 
 @end

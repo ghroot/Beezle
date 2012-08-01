@@ -386,6 +386,7 @@
 		2C72191815BD800C00992852 /* Title-B-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C72191015BD800C00992852 /* Title-B-hd.png */; };
 		2C72191915BD800C00992852 /* Title-C-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C72191115BD800C00992852 /* Title-C-hd.png */; };
 		2C72191A15BD800C00992852 /* Title-D-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C72191215BD800C00992852 /* Title-D-hd.png */; };
+		2C73B9DB15C96C2500AB2A44 /* CCMenuNoTouchSwallow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C73B9DA15C96C2500AB2A44 /* CCMenuNoTouchSwallow.m */; };
 		2C74B401156FA75200596A22 /* libObjectiveChipmunk-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74B3FF156FA75200596A22 /* libObjectiveChipmunk-iPhone.a */; };
 		2C74B4D2156FAD1E00596A22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B40A156FAD1E00596A22 /* AppDelegate.m */; };
 		2C74B4D3156FAD1E00596A22 /* BeeaterComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B40D156FAD1E00596A22 /* BeeaterComponent.m */; };
@@ -2047,7 +2048,6 @@
 		2CF8E0F61576B45F0052F4B7 /* Syst-GamePause-White.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4B6 /* Syst-GamePause-White.png */; };
 		2CF8E0F61576B45F0052F4B9 /* ReturnArrow-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4B8 /* ReturnArrow-hd.png */; };
 		2CF8E0F61576B45F0052F4BB /* ReturnArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4BA /* ReturnArrow.png */; };
-		2CF8E0F61576B45F0052F4BD /* LevelSelect-A-Scroll.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4BC /* LevelSelect-A-Scroll.ccbi */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2457,6 +2457,8 @@
 		2C72191015BD800C00992852 /* Title-B-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Title-B-hd.png"; sourceTree = "<group>"; };
 		2C72191115BD800C00992852 /* Title-C-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Title-C-hd.png"; sourceTree = "<group>"; };
 		2C72191215BD800C00992852 /* Title-D-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Title-D-hd.png"; sourceTree = "<group>"; };
+		2C73B9D915C96C2500AB2A44 /* CCMenuNoTouchSwallow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuNoTouchSwallow.h; sourceTree = "<group>"; };
+		2C73B9DA15C96C2500AB2A44 /* CCMenuNoTouchSwallow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMenuNoTouchSwallow.m; sourceTree = "<group>"; };
 		2C74B3DE156FA75200596A22 /* chipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk.h; sourceTree = "<group>"; };
 		2C74B3DF156FA75200596A22 /* chipmunk_ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_ffi.h; sourceTree = "<group>"; };
 		2C74B3E0156FA75200596A22 /* chipmunk_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_private.h; sourceTree = "<group>"; };
@@ -3170,7 +3172,7 @@
 		2CE4F619153E0DE30023B5C6 /* Water-Splash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Water-Splash.plist"; sourceTree = "<group>"; };
 		2CE4F61F153E249A0023B5C6 /* Waterdrop-Spawner.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Waterdrop-Spawner.plist"; sourceTree = "<group>"; };
 		2CE4F620153E249A0023B5C6 /* Waterdrop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Waterdrop.plist; sourceTree = "<group>"; };
-		2CEA3273145F66F7000FF575 /* Beezle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beezle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CEA3273145F66F7000FF575 /* Beezle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Beezle.app; path = "Bee Hunt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CEA3277145F66F7000FF575 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2CEA3279145F66F7000FF575 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2CEA327B145F66F7000FF575 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -4439,7 +4441,6 @@
 		2CF8E0F61576B45F0052F4B6 /* Syst-GamePause-White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-GamePause-White.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F4B8 /* ReturnArrow-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ReturnArrow-hd.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F4BA /* ReturnArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ReturnArrow.png; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F4BC /* LevelSelect-A-Scroll.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file.ccbi; path = "LevelSelect-A-Scroll.ccbi"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4585,7 +4586,6 @@
 		2C32989815164C69009A5B83 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				2CF8E0F61576B45F0052F4BC /* LevelSelect-A-Scroll.ccbi */,
 				2CB75CB715C7DE4700668399 /* LevelCell-A-Bee-hd.png */,
 				2CB75CB815C7DE4700668399 /* LevelCell-A-Bee.png */,
 				2CB75CB915C7DE4700668399 /* LevelCell-A-Beeater-hd.png */,
@@ -5063,6 +5063,16 @@
 				2C7217C615BD6D6C00992852 /* C6-Ice.png */,
 			);
 			path = C;
+			sourceTree = "<group>";
+		};
+		2C73B9D815C96C0D00AB2A44 /* CCMenuNoTouchSwallow */ = {
+			isa = PBXGroup;
+			children = (
+				2C73B9D915C96C2500AB2A44 /* CCMenuNoTouchSwallow.h */,
+				2C73B9DA15C96C2500AB2A44 /* CCMenuNoTouchSwallow.m */,
+			);
+			name = CCMenuNoTouchSwallow;
+			path = libs/CCMenuNoTouchSwallow;
 			sourceTree = "<group>";
 		};
 		2C74B3DC156FA75200596A22 /* ObjectiveChipmunk-iPhone */ = {
@@ -6651,6 +6661,7 @@
 				2CF8E0F61576B45F0052F347 /* Bag */,
 				2C32988E15164527009A5B83 /* CCBReader */,
 				2CB75CF115C8218E00668399 /* CCLayerPanZoom */,
+				2C73B9D815C96C0D00AB2A44 /* CCMenuNoTouchSwallow */,
 				2CF8E0F61576B45F0052F3CC /* CCScrollLayer */,
 				2C95F77A15C8680B00926A96 /* CCScrollView */,
 				2C95F77E15C869D000926A96 /* cocos2d */,
@@ -8000,7 +8011,7 @@
 		2CEA326A145F66F7000FF575 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 2CEA326D145F66F7000FF575 /* Build configuration list for PBXProject "Beezle" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -9778,7 +9789,6 @@
 				2C95F8C715C869D000926A96 /* CMakeLists.txt in Resources */,
 				2CF8E0F61576B45F0052F4B9 /* ReturnArrow-hd.png in Resources */,
 				2CF8E0F61576B45F0052F4BB /* ReturnArrow.png in Resources */,
-				2CF8E0F61576B45F0052F4BD /* LevelSelect-A-Scroll.ccbi in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10090,6 +10100,7 @@
 				2C95F8D115C869D000926A96 /* vec2.c in Sources */,
 				2C95F8D215C869D000926A96 /* vec3.c in Sources */,
 				2C95F8D315C869D000926A96 /* vec4.c in Sources */,
+				2C73B9DB15C96C2500AB2A44 /* CCMenuNoTouchSwallow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10176,7 +10187,7 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -10197,7 +10208,7 @@
 					"NS_BLOCK_ASSERTIONS=1",
 				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
