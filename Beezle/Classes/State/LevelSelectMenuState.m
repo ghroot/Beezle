@@ -62,7 +62,8 @@
 
 -(void) addInterfaceLevelsMenu
 {
-    NSString *nodeFileName = [NSString stringWithFormat:@"LevelSelect-%@.ccbi", _theme];
+//    NSString *nodeFileName = [NSString stringWithFormat:@"LevelSelect-%@.ccbi", _theme];
+    NSString *nodeFileName = @"LevelSelect-A.ccbi";
 	_draggableNode = [[CCBReader nodeGraphFromFile:nodeFileName owner:self] retain];
     CCMenu *menu = [self getMenu:_draggableNode];
     for (CCMenuItemImage *menuItemImage in [menu children])
@@ -75,6 +76,13 @@
             [menuItemImage setSelectedImage:[CCSprite spriteWithFile:openImageName]];
             [menuItemImage setDisabledImage:[CCSprite spriteWithFile:openImageName]];
         }
+		else
+		{
+			NSString *imageName = [NSString stringWithFormat:@"LevelCell-%@-Bee.png", _theme];
+			[menuItemImage setNormalImage:[CCSprite spriteWithFile:imageName]];
+			[menuItemImage setSelectedImage:[CCSprite spriteWithFile:imageName]];
+			[menuItemImage setDisabledImage:[CCSprite spriteWithFile:imageName]];
+		}
         
         NSString *levelString = [NSString stringWithFormat:@"%d", [menuItemImage tag]];
         CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:levelString charMapFile:@"numberImages.png" itemWidth:30 itemHeight:30 startCharMap:'/'] autorelease];
