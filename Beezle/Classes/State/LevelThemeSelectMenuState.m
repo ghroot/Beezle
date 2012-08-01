@@ -92,10 +92,8 @@
 {
 	[super enter];
 
-	for (LevelThemeSelectLayer *layer in [_scrollLayer pages])
-	{
-		[layer reset];
-	}
+	LevelThemeSelectLayer *layer = [[_scrollLayer pages] objectAtIndex:[_scrollLayer currentScreen]];
+	[layer reset];
 }
 
 -(void) update:(ccTime)delta

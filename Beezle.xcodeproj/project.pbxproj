@@ -3172,7 +3172,7 @@
 		2CE4F619153E0DE30023B5C6 /* Water-Splash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Water-Splash.plist"; sourceTree = "<group>"; };
 		2CE4F61F153E249A0023B5C6 /* Waterdrop-Spawner.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Waterdrop-Spawner.plist"; sourceTree = "<group>"; };
 		2CE4F620153E249A0023B5C6 /* Waterdrop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Waterdrop.plist; sourceTree = "<group>"; };
-		2CEA3273145F66F7000FF575 /* Beezle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Beezle.app; path = "Bee Hunt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CEA3273145F66F7000FF575 /* Bee Hunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bee Hunt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CEA3277145F66F7000FF575 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2CEA3279145F66F7000FF575 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2CEA327B145F66F7000FF575 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -6603,7 +6603,7 @@
 		2CEA3274145F66F7000FF575 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2CEA3273145F66F7000FF575 /* Beezle.app */,
+				2CEA3273145F66F7000FF575 /* Bee Hunt.app */,
 				2CADCC8314746BA100302475 /* ArtemisTests.octest */,
 			);
 			name = Products;
@@ -8002,7 +8002,7 @@
 			);
 			name = "Bee Hunt";
 			productName = Beezle;
-			productReference = 2CEA3273145F66F7000FF575 /* Beezle.app */;
+			productReference = 2CEA3273145F66F7000FF575 /* Bee Hunt.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -10222,7 +10222,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -10253,7 +10252,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;

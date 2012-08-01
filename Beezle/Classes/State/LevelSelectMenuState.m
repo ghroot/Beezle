@@ -153,7 +153,7 @@
     _isDragging = TRUE;
     float newX = _startDragNodeX + (convertedLocation.x - _startDragTouchX);
     newX = min(0, newX);
-    newX = max(-600, newX);
+    newX = max(-720, newX);
     [_draggableNode setPosition:CGPointMake(newX, 0)];
 }
 
