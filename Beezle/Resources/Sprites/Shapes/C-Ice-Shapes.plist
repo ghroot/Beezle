@@ -1874,55 +1874,6 @@
 				</array>
 			</dict>
 
-			<key>C14-Ice</key>
-			<dict>
-				<key>anchorpoint</key>
-                <string>{ 0.50000,0.50000 }</string>
-                <key>fixtures</key>
-                <array>
-
-					<dict>
-                        <key>mass</key>
-                        <real>0</real>
-                        <key>elasticity</key>
-                        <real>0.2</real>
-                        <key>friction</key>
-                        <real>0.4</real>
-                        <key>surface_velocity</key>
-                        <string>{ 0.00000,0.00000 }</string>
-                        <key>layers</key>
-                        <integer>0</integer>
-                        <key>group</key>
-                        <integer>0</integer>
-                        <key>collision_type</key>
-                        <integer>0</integer>
-                        <key>isSensor</key>
-                        <false/>
-                        <key>fixture_type</key>
-                        <string>POLYGON</string>
-                        
-						<key>polygons</key>
-						<array>
-							<array>	
-								<string>{ -2.50000,0.50000 }</string>	
-								<string>{ -9.50000,26.50000 }</string>	
-								<string>{ 10.50000,30.50000 }</string>	
-								<string>{ 24.50000,15.50000 }</string>	
-								<string>{ 35.50000,-7.50000 }</string>	
-								<string>{ 9.50000,-30.50000 }</string>
-							</array>
-							<array>	
-								<string>{ -9.50000,26.50000 }</string>	
-								<string>{ -2.50000,0.50000 }</string>	
-								<string>{ -35.50000,27.50000 }</string>
-							</array>
-						</array>
-                        
-					</dict>
-
-				</array>
-			</dict>
-
 			<key>C16-Ice</key>
 			<dict>
 				<key>anchorpoint</key>
@@ -1961,10 +1912,10 @@
 								<string>{ 1.00000,-50.00000 }</string>
 							</array>
 							<array>	
-								<string>{ -12.00000,50.00000 }</string>	
+								<string>{ -11.00000,49.00000 }</string>	
 								<string>{ 39.00000,4.00000 }</string>	
 								<string>{ -39.00000,7.00000 }</string>	
-								<string>{ -29.00000,48.00000 }</string>
+								<string>{ -32.00000,37.00000 }</string>
 							</array>
 						</array>
                         
@@ -2896,6 +2847,114 @@
 								<string>{ -76.00000,23.50000 }</string>	
 								<string>{ -64.00000,34.50000 }</string>	
 								<string>{ -49.00000,37.50000 }</string>
+							</array>
+						</array>
+                        
+					</dict>
+
+				</array>
+			</dict>
+
+			<key>C1-Ice</key>
+			<dict>
+				<key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>fixtures</key>
+                <array>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0.2</real>
+                        <key>friction</key>
+                        <real>0.4</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ -4.50000,1.50000 }</string>	
+								<string>{ -6.50000,26.50000 }</string>	
+								<string>{ 11.50000,30.50000 }</string>	
+								<string>{ 36.50000,-10.50000 }</string>	
+								<string>{ 9.50000,-30.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -6.50000,26.50000 }</string>	
+								<string>{ -4.50000,1.50000 }</string>	
+								<string>{ -36.50000,26.50000 }</string>
+							</array>
+						</array>
+                        
+					</dict>
+
+				</array>
+			</dict>
+
+			<key>C23-Ice</key>
+			<dict>
+				<key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>fixtures</key>
+                <array>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0.2</real>
+                        <key>friction</key>
+                        <real>0.4</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ -123.50000,94.00000 }</string>	
+								<string>{ -99.50000,104.00000 }</string>	
+								<string>{ -54.50000,102.00000 }</string>	
+								<string>{ -0.50000,81.00000 }</string>	
+								<string>{ -42.50000,-62.00000 }</string>	
+								<string>{ -101.50000,-7.00000 }</string>	
+								<string>{ -133.50000,55.00000 }</string>	
+								<string>{ -134.50000,76.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -0.50000,81.00000 }</string>	
+								<string>{ 56.50000,44.00000 }</string>	
+								<string>{ 105.50000,-5.00000 }</string>	
+								<string>{ 129.50000,-45.00000 }</string>	
+								<string>{ 119.50000,-105.00000 }</string>	
+								<string>{ 39.50000,-105.00000 }</string>	
+								<string>{ -42.50000,-62.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 119.50000,-105.00000 }</string>	
+								<string>{ 129.50000,-45.00000 }</string>	
+								<string>{ 134.50000,-84.00000 }</string>
 							</array>
 						</array>
                         
