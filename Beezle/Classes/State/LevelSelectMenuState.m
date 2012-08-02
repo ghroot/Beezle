@@ -88,7 +88,7 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 		}
         
         NSString *levelString = [NSString stringWithFormat:@"%d", [menuItemImage tag]];
-        CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:levelString charMapFile:@"numberImages.png" itemWidth:30 itemHeight:30 startCharMap:'/'] autorelease];
+        CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:levelString charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'] autorelease];
         [label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
         [label setPosition:[menuItemImage position]];
         [_draggableNode addChild:label];

@@ -57,7 +57,7 @@
 	PollenComponent *pollenComponent = [PollenComponent getFrom:pollenEntity];
 
 	NSString *pollenString = [NSString stringWithFormat:@"%d", [pollenComponent pollenCount]];
-	CCLabelAtlas *label = [[CCLabelAtlas alloc] initWithString:@"0" charMapFile:@"numberImages.png" itemWidth:30 itemHeight:30 startCharMap:'/'];
+	CCLabelAtlas *label = [[CCLabelAtlas alloc] initWithString:@"0" charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'];
 	[label setString:pollenString];
 	[label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
 	[label setPosition:[transformComponent position]];
