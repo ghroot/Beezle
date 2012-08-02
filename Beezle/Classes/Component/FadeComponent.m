@@ -11,13 +11,14 @@
 
 @implementation FadeComponent
 
+@synthesize introAnimationName = _introAnimationName;
 @synthesize currentAnimationName = _currentAnimationName;
 
 -(id) init
 {
 	if (self = [super init])
 	{
-		_animationNames = [StringCollection new];
+		_fadeAnimationNames = [StringCollection new];
 	}
 	return self;
 }
@@ -28,14 +29,16 @@
 	{
 		// Type
 		_duration = [[typeComponentDict objectForKey:@"duration"] floatValue];
-		[_animationNames addStringsFromDictionary:typeComponentDict baseName:@"animation"];
+		_introAnimationName = [[typeComponentDict objectForKey:@"introAnimation"] copy];
+		[_fadeAnimationNames addStringsFromDictionary:typeComponentDict baseName:@"fadeAnimation"];
 	}
 	return self;
 }
 
 -(void) dealloc
 {
-	[_animationNames release];
+	[_fadeAnimationNames release];
+	[_introAnimationName release];
 	[_currentAnimationName release];
 
 	[super dealloc];
@@ -56,11 +59,16 @@
 	return _countdown <= 0;
 }
 
+-(int) targetAnimationIndex
+{
+	float timePerAnimationName = _duration / [[_fadeAnimationNames strings] count];
+	int animationIndex = floorf((_duration - _countdown) / timePerAnimationName);
+	return animationIndex;
+}
+
 -(NSString *) targetAnimationName
 {
-	float timePerAnimationName = _duration / [[_animationNames strings] count];
-	int animationNameIndex = floorf((_duration - _countdown) / timePerAnimationName);
-	return [[_animationNames strings] objectAtIndex:animationNameIndex];
+	return [[_fadeAnimationNames strings] objectAtIndex:[self targetAnimationIndex]];
 }
 
 @end

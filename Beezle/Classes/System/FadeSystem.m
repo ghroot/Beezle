@@ -71,7 +71,15 @@
 	{
 		RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
 		RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];
-		[defaultRenderSprite playAnimationLoop:[fadeComponent targetAnimationName]];
+
+		if ([fadeComponent targetAnimationIndex] == 0)
+		{
+			[defaultRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:[fadeComponent introAnimationName], [fadeComponent targetAnimationName], nil]];
+		}
+		else
+		{
+			[defaultRenderSprite playAnimationLoop:[fadeComponent targetAnimationName]];
+		}
 
 		[fadeComponent setCurrentAnimationName:[fadeComponent targetAnimationName]];
 	}

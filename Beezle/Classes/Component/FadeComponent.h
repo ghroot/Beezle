@@ -14,18 +14,21 @@
 {
 	// Type
 	float _duration;
-	StringCollection *_animationNames;
+	NSString *_introAnimationName;
+	StringCollection *_fadeAnimationNames;
 
 	// Transient
 	float _countdown;
 	NSString *_currentAnimationName;
 }
 
+@property (nonatomic, readonly) NSString *introAnimationName;
 @property (nonatomic, copy) NSString *currentAnimationName;
 
 -(void) resetCountdown;
 -(void) decreaseCountdown:(float)delta;
 -(BOOL) hasCountdownReachedZero;
+-(int) targetAnimationIndex;
 -(NSString *) targetAnimationName;
 
 @end
