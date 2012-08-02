@@ -12,6 +12,8 @@
 #import "CCBReader.h"
 #import "PlayerInformation.h"
 
+static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
+
 @interface LevelSelectMenuState()
 
 -(void) addBackground;
@@ -109,7 +111,7 @@
 {
     CCMenu *backMenu = [CCMenu node];
 	CCMenuItemImage *backMenuItem = [CCMenuItemImage itemWithNormalImage:@"ReturnArrow.png" selectedImage:@"ReturnArrow.png" block:^(id sender){
-        if (_isDragging)
+        if (_didDragEnoughToBlockMenuItems)
         {
             return;
         }
@@ -132,7 +134,7 @@
 
 -(void) startGame:(id)sender
 {
-    if (_isDragging)
+    if (_didDragEnoughToBlockMenuItems)
     {
         return;
     }
@@ -142,27 +144,31 @@
 	[_game clearAndReplaceState:[GameplayState stateWithLevelName:levelName]];
 }
 
--(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
-{
-	CGPoint location = [touch locationInView: [touch view]];
-	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
-    
-    _startDragTouchX = convertedLocation.x;
-    _startDragNodeX = [_draggableNode position].x;
-    
-	return TRUE;
-}
-
 -(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
 	CGPoint location = [touch locationInView: [touch view]];
 	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
-    
-    _isDragging = TRUE;
-    float newX = _startDragNodeX + (convertedLocation.x - _startDragTouchX);
-    newX = min(0, newX);
-    newX = max(-720, newX);
-    [_draggableNode setPosition:CGPointMake(newX, 0)];
+
+	if (_isDragging)
+	{
+		if (!_didDragEnoughToBlockMenuItems &&
+			abs(_startDragTouchX - convertedLocation.x) >= DRAG_DISTANCE_BLOCK_MENU_ITEMS)
+		{
+			_didDragEnoughToBlockMenuItems = TRUE;
+		}
+
+		float newX = _startDragNodeX + (convertedLocation.x - _startDragTouchX);
+		newX = min(0, newX);
+		newX = max(-720, newX);
+		[_draggableNode setPosition:CGPointMake(newX, 0)];
+	}
+	else
+	{
+		_isDragging = TRUE;
+		_startDragTouchX = convertedLocation.x;
+		_startDragNodeX = [_draggableNode position].x;
+		_didDragEnoughToBlockMenuItems = FALSE;
+	}
 }
 
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event

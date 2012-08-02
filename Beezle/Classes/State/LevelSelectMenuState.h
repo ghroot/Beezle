@@ -14,6 +14,7 @@
 	NSString *_theme;
     CCNode *_draggableNode;
     BOOL _isDragging;
+	BOOL _didDragEnoughToBlockMenuItems;
     float _startDragTouchX;
     float _startDragNodeX;
 }
