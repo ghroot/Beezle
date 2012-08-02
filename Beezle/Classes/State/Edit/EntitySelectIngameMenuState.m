@@ -111,6 +111,7 @@
 			[entityType isEqualToString:@"BEEATER-HANGING"] ||
 			[entityType isEqualToString:@"BEEATER-BIRD"] ||
 			[entityType isEqualToString:@"BEEATER-FISH"] ||
+			[entityType isEqualToString:@"SUPER-BEEATER"] ||
 			[entityType isEqualToString:@"HANGNEST"] ||
 			[entityType isEqualToString:@"RAMP"])
 		{
