@@ -9,6 +9,7 @@
 #import "IngameDialog.h"
 #import "LevelSession.h"
 #import "PlayerInformation.h"
+#import "LevelOrganizer.h"
 
 @interface IngameDialog()
 
@@ -23,6 +24,24 @@
 	if (self = [super initWithInterfaceFile:filePath])
 	{
 		_levelSession = levelSession;
+
+		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:[levelSession levelName]];
+		if (![theme isEqualToString:@"A"])
+		{
+			[_longBoxSpriteA setVisible:FALSE];
+		}
+		if (![theme isEqualToString:@"B"])
+		{
+			[_longBoxSpriteB setVisible:FALSE];
+		}
+		if (![theme isEqualToString:@"C"])
+		{
+			[_longBoxSpriteC setVisible:FALSE];
+		}
+		if (![theme isEqualToString:@"D"])
+		{
+			[_longBoxSpriteD setVisible:FALSE];
+		}
 
 		CCLabelAtlas *levelPollenCountLabel = [[CCLabelAtlas alloc] initWithString:@"0" charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'];
 		[levelPollenCountLabel setPosition:[_levelPollenCountLabelPosition position]];

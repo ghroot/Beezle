@@ -14,6 +14,11 @@
 {
 	LevelSession *_levelSession;
 
+	CCSprite *_longBoxSpriteA;
+	CCSprite *_longBoxSpriteB;
+	CCSprite *_longBoxSpriteC;
+	CCSprite *_longBoxSpriteD;
+
 	CCMenuItemImage *_resumeOrangeMenuItem;
 	CCMenuItemImage *_resumeWhiteMenuItem;
 	CCMenuItemImage *_redoOrangeMenuItem;
