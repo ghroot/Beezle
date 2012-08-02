@@ -2066,6 +2066,8 @@
 		2CF8E0F61576B45F0052F4DB /* LevelCell-D-Beeater.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4DA /* LevelCell-D-Beeater.png */; };
 		2CF8E0F61576B45F0052F4DD /* LevelCell-D-Open-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4DC /* LevelCell-D-Open-hd.png */; };
 		2CF8E0F61576B45F0052F4DF /* LevelCell-D-Open.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4DE /* LevelCell-D-Open.png */; };
+		2CF8E0F61576B45F0052F4E1 /* Eyes-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4E0 /* Eyes-Animations.plist */; };
+		2CF8E0F61576B45F0052F4E3 /* Eyes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F4E2 /* Eyes.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4477,6 +4479,8 @@
 		2CF8E0F61576B45F0052F4DA /* LevelCell-D-Beeater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LevelCell-D-Beeater.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F4DC /* LevelCell-D-Open-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LevelCell-D-Open-hd.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F4DE /* LevelCell-D-Open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LevelCell-D-Open.png"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F4E0 /* Eyes-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Eyes-Animations.plist"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F4E2 /* Eyes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Eyes.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -5821,6 +5825,7 @@
 		2C84099615829AA10098BA9C /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F4E0 /* Eyes-Animations.plist */,
 				2CF8E0F61576B45F0052F3CA /* Branch-Animations.plist */,
 				2CF8E0F61576B45F0052F3A0 /* Cactus-Animations.plist */,
 				2C84099715829AA10098BA9C /* Bee */,
@@ -6466,6 +6471,7 @@
 		2CE348B514DF003A00FEB492 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F4E2 /* Eyes.plist */,
 				2CF8E0F61576B45F0052F479 /* Sand.plist */,
 				2CF8E0F61576B45F0052F3C8 /* Branch.plist */,
 				2CF8E0F61576B45F0052F39E /* Cactus.plist */,
@@ -9861,6 +9867,8 @@
 				2CF8E0F61576B45F0052F4DB /* LevelCell-D-Beeater.png in Resources */,
 				2CF8E0F61576B45F0052F4DD /* LevelCell-D-Open-hd.png in Resources */,
 				2CF8E0F61576B45F0052F4DF /* LevelCell-D-Open.png in Resources */,
+				2CF8E0F61576B45F0052F4E1 /* Eyes-Animations.plist in Resources */,
+				2CF8E0F61576B45F0052F4E3 /* Eyes.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>EYES</string>
+	<key>components</key>
+	<dict>
+		<key>render</key>
+		<dict>
+			<key>sprites</key>
+			<array>
+				<dict>
+					<key>spriteSheetName</key>
+					<string>Shared</string>
+					<key>animationFile</key>
+					<string>Eyes-Animations.plist</string>
+					<key>defaultIdleAnimations</key>
+                    <array>
+                        <string>Eyes-Idle-1</string>
+                    </array>
+				</dict>
+			</array>
+		</dict>
+		<key>transform</key>
+		<dict/>
+	</dict>
+</dict>
+</plist>

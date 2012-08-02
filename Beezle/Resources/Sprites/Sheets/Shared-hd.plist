@@ -501,7 +501,7 @@
             <key>Bees/Bombee/Bombee-Piece-6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{760,415},{6,6}}</string>
+                <string>{{897,1075},{6,6}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -605,7 +605,7 @@
             <key>Bees/Bombee/Bombee-Saved-Leap-Dust-8.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{959,232},{5,5}}</string>
+                <string>{{959,250},{5,5}}</string>
                 <key>offset</key>
                 <string>{2,0}</string>
                 <key>rotated</key>
@@ -1359,11 +1359,11 @@
             <key>Bees/Speedee/Speedee-Puff-1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{959,239},{4,3}}</string>
+                <string>{{365,144},{4,3}}</string>
                 <key>offset</key>
                 <string>{-1,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,1},{4,3}}</string>
                 <key>sourceSize</key>
@@ -1372,7 +1372,7 @@
             <key>Bees/Speedee/Speedee-Puff-2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{959,224},{6,5}}</string>
+                <string>{{959,242},{6,5}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -1385,7 +1385,7 @@
             <key>Bees/Speedee/Speedee-Puff-3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{959,216},{6,5}}</string>
+                <string>{{959,234},{6,5}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -3293,6 +3293,58 @@
                 <key>sourceSize</key>
                 <string>{92,184}</string>
             </dict>
+            <key>Other/Eyes/Eyes-01.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{760,415},{7,6}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{7,6}}</string>
+                <key>sourceSize</key>
+                <string>{7,6}</string>
+            </dict>
+            <key>Other/Eyes/Eyes-02.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{959,225},{7,5}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{7,5}}</string>
+                <key>sourceSize</key>
+                <string>{7,5}</string>
+            </dict>
+            <key>Other/Eyes/Eyes-03.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{959,216},{7,5}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{7,5}}</string>
+                <key>sourceSize</key>
+                <string>{7,5}</string>
+            </dict>
+            <key>Other/Eyes/Eyes-04.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{959,257},{7,4}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{7,4}}</string>
+                <key>sourceSize</key>
+                <string>{7,4}</string>
+            </dict>
             <key>Other/Leaf/Leaf-Idle.png</key>
             <dict>
                 <key>frame</key>
@@ -4684,19 +4736,6 @@
                 <key>sourceSize</key>
                 <string>{41,40}</string>
             </dict>
-            <key>Tools/Slinger/Slinger-Addon.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{529,676},{34,37}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{34,37}}</string>
-                <key>sourceSize</key>
-                <string>{34,37}</string>
-            </dict>
             <key>Tools/Slinger/Slinger-Idle.png</key>
             <dict>
                 <key>frame</key>
@@ -4761,6 +4800,19 @@
                 <string>{{0,11},{67,183}}</string>
                 <key>sourceSize</key>
                 <string>{73,201}</string>
+            </dict>
+            <key>Tools/Slinger/Slinger-addon.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{529,676},{34,37}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{34,37}}</string>
+                <key>sourceSize</key>
+                <string>{34,37}</string>
             </dict>
             <key>Tools/Smoke-Mushroom/Smoke-Mushroom-Destroy-1.png</key>
             <dict>
@@ -5019,7 +5071,7 @@
             <key>size</key>
             <string>{1024,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:e97bfdf983776fdcfd70d13e460bd2c3$</string>
+            <string>$TexturePacker:SmartUpdate:eaae877847e7a80a6abac8cd3bd1f10b$</string>
             <key>textureFileName</key>
             <string>Shared-hd.png</string>
         </dict>

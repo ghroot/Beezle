@@ -84,6 +84,7 @@
 			nil]];
 
 	[self addMenuItemForGroup:@"Other" andEntityTypes:[NSArray arrayWithObjects:
+			@"EYES",
 			@"FLOATING-BLOCK-A",
 			@"FROZEN-TBEE",
 			@"LEAF",
