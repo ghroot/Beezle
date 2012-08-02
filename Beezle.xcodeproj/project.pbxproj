@@ -2092,6 +2092,9 @@
 		2CF8E0F61576B45F0052F519 /* Syst-LongBox-C.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F518 /* Syst-LongBox-C.png */; };
 		2CF8E0F61576B45F0052F51B /* Syst-LongBox-D-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F51A /* Syst-LongBox-D-hd.png */; };
 		2CF8E0F61576B45F0052F51D /* Syst-LongBox-D.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F51C /* Syst-LongBox-D.png */; };
+		2CF8E0F61576B45F0052F520 /* PossessComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F51F /* PossessComponent.m */; };
+		2CF8E0F61576B45F0052F523 /* SpiritComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F522 /* SpiritComponent.m */; };
+		2CF8E0F61576B45F0052F526 /* PossessWithSpiritCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F525 /* PossessWithSpiritCollisionHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4529,6 +4532,12 @@
 		2CF8E0F61576B45F0052F518 /* Syst-LongBox-C.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-LongBox-C.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F51A /* Syst-LongBox-D-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-LongBox-D-hd.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F51C /* Syst-LongBox-D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-LongBox-D.png"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F51E /* PossessComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PossessComponent.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F51F /* PossessComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PossessComponent.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F521 /* SpiritComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiritComponent.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F522 /* SpiritComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiritComponent.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F524 /* PossessWithSpiritCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PossessWithSpiritCollisionHandler.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F525 /* PossessWithSpiritCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PossessWithSpiritCollisionHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4934,6 +4943,10 @@
 		2C74B40B156FAD1E00596A22 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F522 /* SpiritComponent.m */,
+				2CF8E0F61576B45F0052F521 /* SpiritComponent.h */,
+				2CF8E0F61576B45F0052F51F /* PossessComponent.m */,
+				2CF8E0F61576B45F0052F51E /* PossessComponent.h */,
 				2CF8E0F61576B45F0052F47C /* SandComponent.m */,
 				2CF8E0F61576B45F0052F47B /* SandComponent.h */,
 				2CF8E0F61576B45F0052F3B1 /* ArmoredComponent.m */,
@@ -5223,6 +5236,8 @@
 		2C74B495156FAD1E00596A22 /* Handler */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F525 /* PossessWithSpiritCollisionHandler.m */,
+				2CF8E0F61576B45F0052F524 /* PossessWithSpiritCollisionHandler.h */,
 				2CF8E0F61576B45F0052F3B4 /* BeeWithSpikeCollisionHandler.m */,
 				2CF8E0F61576B45F0052F3B3 /* BeeWithSpikeCollisionHandler.h */,
 				2CF8E0F61576B45F0052F39C /* PulverizeWithPulverizableCollisionHandler.m */,
@@ -10277,6 +10292,9 @@
 				2C95F8D215C869D000926A96 /* vec3.c in Sources */,
 				2C95F8D315C869D000926A96 /* vec4.c in Sources */,
 				2C73B9DB15C96C2500AB2A44 /* CCMenuNoTouchSwallow.m in Sources */,
+				2CF8E0F61576B45F0052F520 /* PossessComponent.m in Sources */,
+				2CF8E0F61576B45F0052F523 /* SpiritComponent.m in Sources */,
+				2CF8E0F61576B45F0052F526 /* PossessWithSpiritCollisionHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -58,6 +58,7 @@
 #import "SandSystem.h"
 #import "PausedMenuState.h"
 #import "Game.h"
+#import "PossessWithSpiritCollisionHandler.h"
 
 @interface GameplayState()
 
@@ -234,6 +235,7 @@
 	[_collisionSystem registerCollisionHandler:[BeeWithSpikeCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[ConsumerWithPollenCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[DozerWithCrumbleCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[PossessWithSpiritCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[SawWithWoodCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[SolidWithSoundCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[SolidWithBoostCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
