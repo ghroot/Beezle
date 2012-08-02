@@ -11,6 +11,7 @@
 #import "GameplayState.h"
 #import "CCBReader.h"
 #import "PlayerInformation.h"
+#import "LevelThemeSelectMenuState.h"
 
 static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 
@@ -115,7 +116,11 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
         {
             return;
         }
+
 		[_game popState];
+
+		LevelThemeSelectMenuState *levelThemeSelectMenuState = (LevelThemeSelectMenuState *)[_game currentState];
+		[levelThemeSelectMenuState resetCurrentLevelThemeSelectLayer];
 	}];
 	[backMenuItem setPosition:CGPointMake(2.0f, 2.0f)];
 	[backMenuItem setAnchorPoint:CGPointMake(0.0f, 0.0f)];

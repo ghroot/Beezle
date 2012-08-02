@@ -88,14 +88,6 @@
 	[self addChild:_scrollLayer z:20];
 }
 
--(void) enter
-{
-	[super enter];
-
-	LevelThemeSelectLayer *layer = [[_scrollLayer pages] objectAtIndex:[_scrollLayer currentScreen]];
-	[layer reset];
-}
-
 -(void) update:(ccTime)delta
 {
 	[super update:delta];
@@ -149,6 +141,12 @@
 		[_activeBackgroundSprites addObject:leftSprite];
 		[_activeBackgroundSprites addObject:rightSprite];
 	}
+}
+
+-(void) resetCurrentLevelThemeSelectLayer
+{
+	LevelThemeSelectLayer *layer = [[_scrollLayer pages] objectAtIndex:[_scrollLayer currentScreen]];
+	[layer reset];
 }
 
 @end

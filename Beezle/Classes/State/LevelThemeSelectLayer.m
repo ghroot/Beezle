@@ -68,13 +68,13 @@
 
 -(void) reset
 {
-	if (_container != nil)
-	{
-		[_container setScale:2.0f];
-		CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.2f scale:1.0f];
-		[_container runAction:scaleAction];
-	}
-	[_fadeLayer setOpacity:0];
+	[_container setScale:2.0f];
+	CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.2f scale:1.0f];
+	[_container runAction:scaleAction];
+
+	[_fadeLayer setOpacity:255];
+	CCFadeIn *fadeOutAction = [CCFadeOut actionWithDuration:0.2f];
+	[_fadeLayer runAction:fadeOutAction];
 }
 
 @end

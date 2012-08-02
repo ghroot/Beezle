@@ -18,4 +18,6 @@
 	CCScrollLayer *_scrollLayer;
 }
 
+-(void) resetCurrentLevelThemeSelectLayer;
+
 @end
