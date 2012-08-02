@@ -172,13 +172,13 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 		_isDragging = TRUE;
 		_startDragTouchX = convertedLocation.x;
 		_startDragNodeX = [_draggableNode position].x;
-		_didDragEnoughToBlockMenuItems = FALSE;
 	}
 }
 
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
     _isDragging = FALSE;
+	_didDragEnoughToBlockMenuItems = FALSE;
 }
 
 -(void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
