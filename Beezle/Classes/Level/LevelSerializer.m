@@ -208,6 +208,12 @@
 			}
 		}
 
+		// TEMP: Ignore SMOKE particle
+		if ([type isEqualToString:@"SMOKE"])
+		{
+			continue;
+		}
+
 		[levelLayoutEntry setType:[NSString stringWithString:type]];
 		[levelLayoutEntry setInstanceComponentsDict:instanceComponentsDict];
 		
