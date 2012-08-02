@@ -47,6 +47,8 @@
 	_menu = [CCMenu menuWithItems:nil];
     CCMenuItem *editMenuItem = [CCMenuItemFont itemWithString:@"Edit" target:self selector:@selector(editGame:)];
     [_menu addChild:editMenuItem];
+	CCMenuItem *nextLevelMenuItem = [CCMenuItemFont itemWithString:@"Next Level" target:self selector:@selector(nextLevel)];
+	[_menu addChild:nextLevelMenuItem];
 	CCMenuItem *quitMenuItem = [CCMenuItemFont itemWithString:@"Quit" target:self selector:@selector(gotoMainMenu:)];
 	[_menu addChild:quitMenuItem];
 	[_menu alignItemsVerticallyWithPadding:30.0f];
