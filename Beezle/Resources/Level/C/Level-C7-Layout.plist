@@ -34,29 +34,6 @@
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{440, 4}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{440, 4}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>EGG</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
 					<real>-6.1784653663635254</real>
 					<key>overrideBodyName</key>
 					<string>C7-Glass</string>
@@ -527,6 +504,29 @@
 			<key>type</key>
 			<string>POLLEN-ORANGE</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{440, 4}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{440, 4}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>EGG-REFLECTION</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -535,6 +535,6 @@
 	<key>name</key>
 	<string>Level-C7</string>
 	<key>version</key>
-	<integer>36</integer>
+	<integer>37</integer>
 </dict>
 </plist>

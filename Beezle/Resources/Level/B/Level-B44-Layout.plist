@@ -289,25 +289,30 @@
 		<dict>
 			<key>components</key>
 			<dict>
+				<key>captured</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>BEE</string>
+				</dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>-0.38397243618965149</real>
+					<real>0.0</real>
 					<key>position</key>
-					<string>{195, 130}</string>
+					<string>{227, 112}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{195, 130}</string>
+					<string>{227, 112}</string>
 					<key>rotation</key>
-					<real>22</real>
+					<real>0.0</real>
 					<key>scale</key>
 					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>RAMP-B</string>
+			<string>BEEATER-HANGING-B</string>
 		</dict>
 	</array>
 	<key>format</key>
@@ -317,6 +322,6 @@
 	<key>name</key>
 	<string>Level-B44</string>
 	<key>version</key>
-	<integer>15</integer>
+	<integer>17</integer>
 </dict>
 </plist>

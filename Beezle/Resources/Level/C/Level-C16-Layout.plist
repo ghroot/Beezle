@@ -109,36 +109,6 @@
 		<dict>
 			<key>components</key>
 			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>overrideBodyName</key>
-					<string>C16-Ice</string>
-					<key>position</key>
-					<string>{420, 106}</string>
-				</dict>
-				<key>render</key>
-				<dict>
-					<key>overrideTextureFile</key>
-					<string>C16-Ice.png</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{420, 106}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>ICE</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
 				<key>captured</key>
 				<dict>
 					<key>containedBeeType</key>
@@ -325,12 +295,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{427, 75}</string>
+					<string>{426, 77}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{427, 75}</string>
+					<string>{426, 77}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -363,6 +333,36 @@
 			<key>type</key>
 			<string>POLLEN-YELLOW</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>overrideBodyName</key>
+					<string>C16-Ice</string>
+					<key>position</key>
+					<string>{417, 112}</string>
+				</dict>
+				<key>render</key>
+				<dict>
+					<key>overrideTextureFile</key>
+					<string>C16-Ice.png</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{417, 112}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>ICE</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -371,6 +371,6 @@
 	<key>name</key>
 	<string>Level-C16</string>
 	<key>version</key>
-	<integer>6</integer>
+	<integer>10</integer>
 </dict>
 </plist>

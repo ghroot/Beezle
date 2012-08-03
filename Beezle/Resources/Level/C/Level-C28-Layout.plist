@@ -40,12 +40,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{79, 83}</string>
+					<string>{114, 60}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{79, 83}</string>
+					<string>{114, 60}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -224,29 +224,6 @@
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>-5.5850534439086914</real>
-					<key>position</key>
-					<string>{438, 125}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{438, 125}</string>
-					<key>rotation</key>
-					<real>320</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>RAMP-C</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
 					<real>-6.2482786178588867</real>
 					<key>position</key>
 					<string>{195, 55}</string>
@@ -293,29 +270,6 @@
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>-0.034906584769487381</real>
-					<key>position</key>
-					<string>{371, 310}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{371, 310}</string>
-					<key>rotation</key>
-					<real>2</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>RAMP-C</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
 					<string>{445, 236}</string>
@@ -333,6 +287,59 @@
 			<key>type</key>
 			<string>POLLEN-ORANGE</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>overrideBodyName</key>
+					<string>C28-Ice</string>
+					<key>position</key>
+					<string>{368, 72}</string>
+				</dict>
+				<key>render</key>
+				<dict>
+					<key>overrideTextureFile</key>
+					<string>C28-Ice.png</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{368, 72}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>ICE</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{78, 86}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{78, 86}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN-GREEN</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -341,6 +348,6 @@
 	<key>name</key>
 	<string>Level-C28</string>
 	<key>version</key>
-	<integer>24</integer>
+	<integer>26</integer>
 </dict>
 </plist>

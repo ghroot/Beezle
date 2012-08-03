@@ -85,6 +85,11 @@
 			NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:levelName];
 			type = [NSString stringWithFormat:@"RAMP-%@", theme];
 		}
+		else if ([type isEqualToString:@"SUPER-BEEATER"])
+		{
+			NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:levelName];
+			type = [NSString stringWithFormat:@"SUPER-BEEATER-%@", theme];
+		}
 		else if ([type hasPrefix:@"GLASS-"] &&
 				 [type length] >= 8)
 		{
