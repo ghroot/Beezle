@@ -38,7 +38,6 @@
 		[[DisposableComponent getFrom:pulverizableEntity] setIsAboutToBeDeleted:TRUE];
 	}
 
-	// TODO: Tight coupling with captured system/component is not good
 	if ([pulverizableEntity hasComponent:[CapturedComponent class]])
 	{
 		CapturedSystem *capturedSystem = (CapturedSystem *)[[_world systemManager] getSystem:[CapturedSystem class]];
