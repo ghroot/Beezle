@@ -11,6 +11,11 @@
 @interface LevelThemeSelectLayer : CCLayer
 {
 	CCNode *_container;
+	CCSprite *_globeSprite;
+	CCSprite *_titleSprite;
+	CCSprite *_beeSprite;
+	CCSprite *_bee2Sprite;
+
 	CCLayerColor *_fadeLayer;
 }
 
