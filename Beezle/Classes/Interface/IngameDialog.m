@@ -43,12 +43,12 @@
 			[_longBoxSpriteD setVisible:FALSE];
 		}
 
-		CCLabelAtlas *levelPollenCountLabel = [[CCLabelAtlas alloc] initWithString:@"0" charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'];
+		CCLabelAtlas *levelPollenCountLabel = [[[CCLabelAtlas alloc] initWithString:@"0" charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'] autorelease];
 		[levelPollenCountLabel setPosition:[_levelPollenCountLabelPosition position]];
 		[levelPollenCountLabel setString:[NSString stringWithFormat:@"%d", [levelSession totalNumberOfPollen]]];
 		[self addChild:levelPollenCountLabel];
 
-		CCLabelAtlas *totalPollenCountLabel = [[CCLabelAtlas alloc] initWithString:@"0" charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'];
+		CCLabelAtlas *totalPollenCountLabel = [[[CCLabelAtlas alloc] initWithString:@"0" charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'] autorelease];
 		[totalPollenCountLabel setString:[NSString stringWithFormat:@"%d", [[PlayerInformation sharedInformation] totalNumberOfPollen]]];
 		[totalPollenCountLabel setPosition:[_totalPollenCountLabelPosition position]];
 		[self addChild:totalPollenCountLabel];
