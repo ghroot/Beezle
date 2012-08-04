@@ -152,7 +152,7 @@
 		}
 
 		// TEMP: Ignore GLASS and ICE with override values that don't exist
-		if ([type isEqualToString:@"GLASS"] ||
+		if (([type hasPrefix:@"GLASS-"] && [type length] == 7) ||
 			[type isEqualToString:@"ICE"])
 		{
 			EntityDescription *entityDescription = [[EntityDescriptionCache sharedCache] entityDescriptionByType:type];
