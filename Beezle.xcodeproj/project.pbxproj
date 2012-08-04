@@ -2108,6 +2108,8 @@
 		2CF8E0F61576B45F0052F536 /* C44-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F535 /* C44-Glass.png */; };
 		2CF8E0F61576B45F0052F538 /* C60-Ice-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F537 /* C60-Ice-hd.png */; };
 		2CF8E0F61576B45F0052F53A /* C60-Ice.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F539 /* C60-Ice.png */; };
+		2CF8E0F61576B45F0052F53D /* Hangnest-D.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F53C /* Hangnest-D.plist */; };
+		2CF8E0F61576B45F0052F53F /* Hangnest-Lian-D-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F53E /* Hangnest-Lian-D-Animations.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4564,6 +4566,8 @@
 		2CF8E0F61576B45F0052F535 /* C44-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C44-Glass.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F537 /* C60-Ice-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C60-Ice-hd.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F539 /* C60-Ice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C60-Ice.png"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F53C /* Hangnest-D.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Hangnest-D.plist"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F53E /* Hangnest-Lian-D-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Hangnest-Lian-D-Animations.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -7136,6 +7140,7 @@
 		2C8409BC15829AA10098BA9C /* Hangnest */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F53E /* Hangnest-Lian-D-Animations.plist */,
 				2C8409BD15829AA10098BA9C /* Hangnest-Animations.plist */,
 				2C8409BE15829AA10098BA9C /* Hangnest-Lian-A-Animations.plist */,
 				2C8409BF15829AA10098BA9C /* Hangnest-Lian-B-Animations.plist */,
@@ -7863,6 +7868,7 @@
 				2CE4F610153CC8D90023B5C6 /* A */,
 				2CE4F612153CC8D90023B5C6 /* B */,
 				2CE4F614153CC8D90023B5C6 /* Hangnest-Template.plist */,
+				2CF8E0F61576B45F0052F53B /* D */,
 			);
 			path = Hangnest;
 			sourceTree = "<group>";
@@ -8148,6 +8154,14 @@
 				2CF8E0F61576B45F0052F48D /* Glass-Piece-Small-D.plist */,
 				2CF8E0F61576B45F0052F48B /* Glass-Piece-D.plist */,
 				2CF8E0F61576B45F0052F489 /* Glass-D.plist */,
+			);
+			path = D;
+			sourceTree = "<group>";
+		};
+		2CF8E0F61576B45F0052F53B /* D */ = {
+			isa = PBXGroup;
+			children = (
+				2CF8E0F61576B45F0052F53C /* Hangnest-D.plist */,
 			);
 			path = D;
 			sourceTree = "<group>";
@@ -10032,6 +10046,8 @@
 				2CF8E0F61576B45F0052F536 /* C44-Glass.png in Resources */,
 				2CF8E0F61576B45F0052F538 /* C60-Ice-hd.png in Resources */,
 				2CF8E0F61576B45F0052F53A /* C60-Ice.png in Resources */,
+				2CF8E0F61576B45F0052F53D /* Hangnest-D.plist in Resources */,
+				2CF8E0F61576B45F0052F53F /* Hangnest-Lian-D-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
