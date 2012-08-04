@@ -35,7 +35,7 @@
                         <key>isSensor</key>
                         <false/>
                         <key>fixture_type</key>
-                        <key>POLYGON</key>
+                        <string>POLYGON</string>
                         
 						<key>polygons</key>
 						<array>
@@ -115,7 +115,7 @@
                         <key>isSensor</key>
                         <false/>
                         <key>fixture_type</key>
-                        <key>POLYGON</key>
+                        <string>POLYGON</string>
                         
 						<key>polygons</key>
 						<array>
@@ -184,7 +184,7 @@
                         <key>isSensor</key>
                         <false/>
                         <key>fixture_type</key>
-                        <key>POLYGON</key>
+                        <string>POLYGON</string>
                         
 						<key>polygons</key>
 						<array>
@@ -271,7 +271,7 @@
                         <key>isSensor</key>
                         <false/>
                         <key>fixture_type</key>
-                        <key>POLYGON</key>
+                        <string>POLYGON</string>
                         
 						<key>polygons</key>
 						<array>
@@ -340,7 +340,7 @@
                         <key>isSensor</key>
                         <false/>
                         <key>fixture_type</key>
-                        <key>POLYGON</key>
+                        <string>POLYGON</string>
                         
 						<key>polygons</key>
 						<array>
@@ -403,7 +403,7 @@
                         <key>isSensor</key>
                         <false/>
                         <key>fixture_type</key>
-                        <key>POLYGON</key>
+                        <string>POLYGON</string>
                         
 						<key>polygons</key>
 						<array>
@@ -481,7 +481,7 @@
                         <key>isSensor</key>
                         <false/>
                         <key>fixture_type</key>
-                        <key>POLYGON</key>
+                        <string>POLYGON</string>
                         
 						<key>polygons</key>
 						<array>
@@ -551,7 +551,7 @@
                         <key>isSensor</key>
                         <false/>
                         <key>fixture_type</key>
-                        <key>POLYGON</key>
+                        <string>POLYGON</string>
                         
 						<key>polygons</key>
 						<array>
@@ -628,7 +628,7 @@
                         <key>isSensor</key>
                         <false/>
                         <key>fixture_type</key>
-                        <key>POLYGON</key>
+                        <string>POLYGON</string>
                         
 						<key>polygons</key>
 						<array>
@@ -701,7 +701,7 @@
                         <key>isSensor</key>
                         <false/>
                         <key>fixture_type</key>
-                        <key>POLYGON</key>
+                        <string>POLYGON</string>
                         
 						<key>polygons</key>
 						<array>
@@ -790,7 +790,7 @@
                         <key>isSensor</key>
                         <false/>
                         <key>fixture_type</key>
-                        <key>POLYGON</key>
+                        <string>POLYGON</string>
                         
 						<key>polygons</key>
 						<array>
@@ -869,7 +869,7 @@
                         <key>isSensor</key>
                         <false/>
                         <key>fixture_type</key>
-                        <key>POLYGON</key>
+                        <string>POLYGON</string>
                         
 						<key>polygons</key>
 						<array>
@@ -944,7 +944,7 @@
                         <key>isSensor</key>
                         <false/>
                         <key>fixture_type</key>
-                        <key>POLYGON</key>
+                        <string>POLYGON</string>
                         
 						<key>polygons</key>
 						<array>
@@ -1046,7 +1046,7 @@
                         <key>isSensor</key>
                         <false/>
                         <key>fixture_type</key>
-                        <key>POLYGON</key>
+                        <string>POLYGON</string>
                         
 						<key>polygons</key>
 						<array>
@@ -1127,7 +1127,7 @@
                         <key>isSensor</key>
                         <false/>
                         <key>fixture_type</key>
-                        <key>POLYGON</key>
+                        <string>POLYGON</string>
                         
 						<key>polygons</key>
 						<array>
@@ -1158,6 +1158,142 @@
 								<string>{ -20.50000,11.50000 }</string>	
 								<string>{ -2.50000,13.50000 }</string>	
 								<string>{ -23.50000,-24.50000 }</string>
+							</array>
+						</array>
+                        
+					</dict>
+
+				</array>
+			</dict>
+
+			<key>A24-Glass</key>
+			<dict>
+				<key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>fixtures</key>
+                <array>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0.2</real>
+                        <key>friction</key>
+                        <real>0.4</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ -2.00000,-4.00000 }</string>	
+								<string>{ -14.00000,-24.00000 }</string>	
+								<string>{ -18.00000,-12.00000 }</string>	
+								<string>{ -20.00000,3.00000 }</string>	
+								<string>{ -13.00000,15.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -42.00000,14.00000 }</string>	
+								<string>{ -30.00000,7.00000 }</string>	
+								<string>{ -29.00000,-10.00000 }</string>	
+								<string>{ -47.00000,-18.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -30.00000,7.00000 }</string>	
+								<string>{ -42.00000,14.00000 }</string>	
+								<string>{ -42.00000,31.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -20.00000,3.00000 }</string>	
+								<string>{ -18.00000,-12.00000 }</string>	
+								<string>{ -29.00000,-10.00000 }</string>	
+								<string>{ -30.00000,7.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 24.00000,-30.00000 }</string>	
+								<string>{ -7.00000,-26.00000 }</string>	
+								<string>{ -14.00000,-24.00000 }</string>	
+								<string>{ -2.00000,-4.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 24.00000,-30.00000 }</string>	
+								<string>{ 13.00000,-19.00000 }</string>	
+								<string>{ 47.00000,-26.00000 }</string>
+							</array>
+						</array>
+                        
+					</dict>
+
+				</array>
+			</dict>
+
+			<key>A54-Glass</key>
+			<dict>
+				<key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>fixtures</key>
+                <array>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0.2</real>
+                        <key>friction</key>
+                        <real>0.4</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ -22.50000,-2.00000 }</string>	
+								<string>{ -37.50000,-13.00000 }</string>	
+								<string>{ -53.50000,-5.00000 }</string>	
+								<string>{ -58.50000,7.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -37.50000,-13.00000 }</string>	
+								<string>{ -22.50000,-2.00000 }</string>	
+								<string>{ 14.50000,1.00000 }</string>	
+								<string>{ 41.50000,0.00000 }</string>	
+								<string>{ -6.50000,-25.00000 }</string>	
+								<string>{ -18.50000,-28.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -53.50000,-5.00000 }</string>	
+								<string>{ -37.50000,-13.00000 }</string>	
+								<string>{ -71.50000,-5.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 41.50000,0.00000 }</string>	
+								<string>{ 40.50000,10.00000 }</string>	
+								<string>{ 71.50000,28.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 41.50000,0.00000 }</string>	
+								<string>{ 14.50000,1.00000 }</string>	
+								<string>{ 40.50000,10.00000 }</string>
 							</array>
 						</array>
                         
