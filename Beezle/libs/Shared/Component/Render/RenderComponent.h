@@ -44,5 +44,7 @@
 -(void) playDefaultHitAnimation;
 -(BOOL) hasDefaultStillAnimation;
 -(void) playDefaultStillAnimation;
+-(void) show;
+-(void) hide;
 
 @end

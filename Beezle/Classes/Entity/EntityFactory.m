@@ -28,6 +28,7 @@
 #import "WaterComponent.h"
 #import "Waves1DNode.h"
 #import "ZOrder.h"
+#import "ArrowSprite.h"
 
 static const float BACKGROUND_FRICTION = 0.7f;
 static const float BACKGROUND_ELASTICITY = 0.7f;
@@ -379,6 +380,26 @@ static const int AIM_POLLEN_LAYERS = 2;
 	[movementIndicatorEntity refresh];
 	
 	return movementIndicatorEntity;
+}
+
++(Entity *) createTeleportOutPosition:(World *)world
+{
+	Entity *teleportOutPositionEntity = [world createEntity];
+
+	TransformComponent *transformComponent = [TransformComponent component];
+	[teleportOutPositionEntity addComponent:transformComponent];
+
+	CCSprite *sprite = [ArrowSprite node];
+	RenderSprite *renderSprite = [RenderSprite renderSpriteWithSprite:sprite];
+	RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
+	[teleportOutPositionEntity addComponent:renderComponent];
+
+	EditComponent *editComponent = [EditComponent component];
+	[teleportOutPositionEntity addComponent:editComponent];
+
+	[teleportOutPositionEntity refresh];
+
+	return teleportOutPositionEntity;
 }
 
 +(Entity *) createSimpleAnimatedEntity:(World *)world

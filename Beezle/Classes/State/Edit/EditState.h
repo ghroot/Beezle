@@ -18,6 +18,7 @@
 @class MovementSystem;
 @class RenderSystem;
 @class PhysicsSystem;
+@class TeleportSystem;
 
 @interface EditState : GameState
 {
@@ -31,6 +32,7 @@
     RenderSystem *_renderSystem;
 	PhysicsSystem *_physicsSystem;
 	MovementSystem *_movementSystem;
+	TeleportSystem *_teleportSystem;
     InputSystem *_inputSystem;
 	EditControlSystem *_editControlSystem;
 	EditOptionsSystem *_editOptionsSystem;

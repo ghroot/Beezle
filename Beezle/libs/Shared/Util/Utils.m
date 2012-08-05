@@ -8,7 +8,7 @@
 
 #import "Utils.h"
 
-#define TWO_PI 0.0174532925f
+static const float TWO_PI = 0.0174532925f;
 
 @implementation Utils
 
@@ -44,6 +44,26 @@
 		angle -= TWO_PI;
 	}
 	return angle;
+}
+
++(float) cocos2dDegreesToChipmunkDegrees:(float)cocos2dDegrees
+{
+	return [self unwindAngleDegrees:360.0f - cocos2dDegrees + 90.0f];
+}
+
++(float) cocos2dDegreesToChipmunkRadians:(float)cocos2dDegrees
+{
+	return CC_DEGREES_TO_RADIANS([self cocos2dDegreesToChipmunkDegrees:cocos2dDegrees]);
+}
+
++(float) chipmunkDegreesToCocos2dDegrees:(float)chipmunkDegrees
+{
+	return [self unwindAngleDegrees:360.0f - chipmunkDegrees + 270.0f];
+}
+
++(float) chipmunkRadiansToCocos2dDegrees:(float)chipmunkRadians
+{
+	return [self chipmunkDegreesToCocos2dDegrees:CC_RADIANS_TO_DEGREES(chipmunkRadians)];
 }
 
 +(CGPoint) getScreenCenterPosition

@@ -53,12 +53,14 @@
 #import "SolidWithSoundCollisionHandler.h"
 #import "SolidWithBoostCollisionHandler.h"
 #import "SolidWithBreakableCollisionHandler.h"
+#import "TeleportSystem.h"
 #import "SolidWithWaterCollisionHandler.h"
 #import "SolidWithWobbleCollisionHandler.h"
 #import "SandSystem.h"
 #import "PausedMenuState.h"
 #import "Game.h"
 #import "PossessWithSpiritCollisionHandler.h"
+#import "AnythingWithTeleportCollisionHandler.h"
 
 @interface GameplayState()
 
@@ -171,6 +173,8 @@
 	[systemManager setSystem:_physicsSystem];
 	_movementSystem = [MovementSystem system];
 	[systemManager setSystem:_movementSystem];
+	_teleportSystem = [TeleportSystem system];
+	[systemManager setSystem:_teleportSystem];
 	_collisionSystem = [[[CollisionSystem alloc] initWithLevelSession:_levelSession] autorelease];
 	[systemManager setSystem:_collisionSystem];
 	_waterWaveSystem = [WaterWaveSystem system];
@@ -229,6 +233,7 @@
 -(void) registerCollisionHandlers
 {
 	[_collisionSystem registerCollisionHandler:[PulverizeWithPulverizableCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[AnythingWithTeleportCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[AnythingWithVoidCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[AnythingWithVolatileCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[BeeWithBeeaterCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];

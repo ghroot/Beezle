@@ -78,7 +78,6 @@
 
 -(void) entityAdded:(Entity *)entity
 {
-	TransformComponent *transformComponent = [_transformComponentMapper getComponentFor:entity];
 	MovementComponent *movementComponent = [_movementComponentMapper getComponentFor:entity];
 
 	EditComponent *editComponent = [EditComponent getFrom:entity];
@@ -98,6 +97,7 @@
     }
     else
     {
+		TransformComponent *transformComponent = [_transformComponentMapper getComponentFor:entity];
         [movementComponent setStartPosition:[transformComponent position]];
     }
 }

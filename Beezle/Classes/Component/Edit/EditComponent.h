@@ -17,11 +17,13 @@
 	NSString *_levelLayoutType;
 	Entity *_nextMovementIndicatorEntity;
 	Entity *_mainMoveEntity;
+	Entity *_teleportOutPositionEntity;
 }
 
-@property (nonatomic, retain) NSString *levelLayoutType;
+@property (nonatomic, copy) NSString *levelLayoutType;
 @property (nonatomic, assign) Entity *nextMovementIndicatorEntity;
 @property (nonatomic, assign) Entity *mainMoveEntity;
+@property (nonatomic, assign) Entity *teleportOutPositionEntity;
 
 +(EditComponent *) componentWithLevelLayoutType:(NSString *)levelLayoutType;
 

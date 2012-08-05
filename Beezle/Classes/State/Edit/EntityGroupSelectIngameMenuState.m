@@ -89,6 +89,7 @@
 			@"FROZEN-TBEE",
 			@"LEAF",
 			@"SLEEPING-MUMEE",
+			@"TELEPORTER",
 			@"WATERDROP-SPAWNER",
 			nil]];
 }

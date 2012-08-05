@@ -39,6 +39,7 @@
 @class DestructControlSystem;
 @class FadeSystem;
 @class SandSystem;
+@class TeleportSystem;
 
 @interface GameplayState : GameState
 {
@@ -66,6 +67,7 @@
 	HUDRenderingSystem *_hudRenderingSystem;
     InputSystem *_inputSystem;
 	MovementSystem *_movementSystem;
+	TeleportSystem *_teleportSystem;
     PhysicsSystem *_physicsSystem;
     RenderSystem *_renderSystem;
 	ShardSystem *_shardSystem;
@@ -111,6 +113,7 @@
 @property (nonatomic, readonly) ShardSystem *shardSystem;
 @property (nonatomic, readonly) SlingerControlSystem *slingerControlSystem;
 @property (nonatomic, readonly) SpawnSystem *spawnSystem;
+@property (nonatomic, readonly) TeleportSystem *teleportSystem;
 @property (nonatomic, readonly) WoodSystem *woodSystem;
 @property (nonatomic, readonly) WaterWaveSystem *waterWaveSystem;
 

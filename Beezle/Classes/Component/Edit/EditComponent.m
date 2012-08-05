@@ -13,6 +13,7 @@
 @synthesize levelLayoutType = _levelLayoutType;
 @synthesize nextMovementIndicatorEntity = _nextMovementIndicatorEntity;
 @synthesize mainMoveEntity = _mainMoveEntity;
+@synthesize teleportOutPositionEntity = _teleportOutPositionEntity;
 
 +(EditComponent *) componentWithLevelLayoutType:(NSString *)levelLayoutType
 {
@@ -24,7 +25,7 @@
 {
 	if (self = [super init])
 	{
-		_levelLayoutType = [levelLayoutType retain];
+		_levelLayoutType = [levelLayoutType copy];
 	}
 	return self;
 }

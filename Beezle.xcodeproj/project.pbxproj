@@ -2116,6 +2116,12 @@
 		2CF8E0F61576B45F0052F547 /* D16-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F546 /* D16-Glass.png */; };
 		2CF8E0F61576B45F0052F549 /* D17-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F548 /* D17-Glass-hd.png */; };
 		2CF8E0F61576B45F0052F54B /* D17-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F54A /* D17-Glass.png */; };
+		2CF8E0F61576B45F0052F54E /* TeleportComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F54D /* TeleportComponent.m */; };
+		2CF8E0F61576B45F0052F551 /* TeleportSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F550 /* TeleportSystem.m */; };
+		2CF8E0F61576B45F0052F554 /* ArrowSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F553 /* ArrowSprite.m */; };
+		2CF8E0F61576B45F0052F556 /* Teleporter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F555 /* Teleporter.plist */; };
+		2CF8E0F61576B45F0052F559 /* AnythingWithTeleportCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F558 /* AnythingWithTeleportCollisionHandler.m */; };
+		2CF8E0F61576B45F0052F55C /* TeleportInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F55B /* TeleportInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4580,6 +4586,17 @@
 		2CF8E0F61576B45F0052F546 /* D16-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "D16-Glass.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F548 /* D17-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "D17-Glass-hd.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F54A /* D17-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "D17-Glass.png"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F54C /* TeleportComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeleportComponent.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F54D /* TeleportComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeleportComponent.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F54F /* TeleportSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeleportSystem.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F550 /* TeleportSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeleportSystem.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F552 /* ArrowSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrowSprite.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F553 /* ArrowSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrowSprite.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F555 /* Teleporter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Teleporter.plist; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F557 /* AnythingWithTeleportCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnythingWithTeleportCollisionHandler.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F558 /* AnythingWithTeleportCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnythingWithTeleportCollisionHandler.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F55A /* TeleportInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeleportInfo.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F55B /* TeleportInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeleportInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -6469,6 +6486,10 @@
 		2C74B40B156FAD1E00596A22 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F55B /* TeleportInfo.m */,
+				2CF8E0F61576B45F0052F55A /* TeleportInfo.h */,
+				2CF8E0F61576B45F0052F54D /* TeleportComponent.m */,
+				2CF8E0F61576B45F0052F54C /* TeleportComponent.h */,
 				2CF8E0F61576B45F0052F522 /* SpiritComponent.m */,
 				2CF8E0F61576B45F0052F521 /* SpiritComponent.h */,
 				2CF8E0F61576B45F0052F51F /* PossessComponent.m */,
@@ -6539,6 +6560,8 @@
 		2C74B41E156FAD1E00596A22 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F553 /* ArrowSprite.m */,
+				2CF8E0F61576B45F0052F552 /* ArrowSprite.h */,
 				2C74B41F156FAD1E00596A22 /* EditComponent.h */,
 				2C74B420156FAD1E00596A22 /* EditComponent.m */,
 			);
@@ -6723,6 +6746,8 @@
 		2C74B48B156FAD1E00596A22 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F550 /* TeleportSystem.m */,
+				2CF8E0F61576B45F0052F54F /* TeleportSystem.h */,
 				2CF8E0F61576B45F0052F47F /* SandSystem.m */,
 				2CF8E0F61576B45F0052F47E /* SandSystem.h */,
 				2CF8E0F61576B45F0052F350 /* FadeSystem.h */,
@@ -6762,6 +6787,8 @@
 		2C74B495156FAD1E00596A22 /* Handler */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F558 /* AnythingWithTeleportCollisionHandler.m */,
+				2CF8E0F61576B45F0052F557 /* AnythingWithTeleportCollisionHandler.h */,
 				2CF8E0F61576B45F0052F525 /* PossessWithSpiritCollisionHandler.m */,
 				2CF8E0F61576B45F0052F524 /* PossessWithSpiritCollisionHandler.h */,
 				2CF8E0F61576B45F0052F3B4 /* BeeWithSpikeCollisionHandler.m */,
@@ -7771,6 +7798,7 @@
 		2CE348B514DF003A00FEB492 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F555 /* Teleporter.plist */,
 				2CF8E0F61576B45F0052F4E2 /* Eyes.plist */,
 				2CF8E0F61576B45F0052F479 /* Sand.plist */,
 				2CF8E0F61576B45F0052F3C8 /* Branch.plist */,
@@ -10072,6 +10100,7 @@
 				2CF8E0F61576B45F0052F547 /* D16-Glass.png in Resources */,
 				2CF8E0F61576B45F0052F549 /* D17-Glass-hd.png in Resources */,
 				2CF8E0F61576B45F0052F54B /* D17-Glass.png in Resources */,
+				2CF8E0F61576B45F0052F556 /* Teleporter.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10387,6 +10416,11 @@
 				2CF8E0F61576B45F0052F520 /* PossessComponent.m in Sources */,
 				2CF8E0F61576B45F0052F523 /* SpiritComponent.m in Sources */,
 				2CF8E0F61576B45F0052F526 /* PossessWithSpiritCollisionHandler.m in Sources */,
+				2CF8E0F61576B45F0052F54E /* TeleportComponent.m in Sources */,
+				2CF8E0F61576B45F0052F551 /* TeleportSystem.m in Sources */,
+				2CF8E0F61576B45F0052F554 /* ArrowSprite.m in Sources */,
+				2CF8E0F61576B45F0052F559 /* AnythingWithTeleportCollisionHandler.m in Sources */,
+				2CF8E0F61576B45F0052F55C /* TeleportInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

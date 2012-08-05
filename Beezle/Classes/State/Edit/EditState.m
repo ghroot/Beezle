@@ -22,6 +22,7 @@
 #import "MovementSystem.h"
 #import "PhysicsSystem.h"
 #import "RenderSystem.h"
+#import "TeleportSystem.h"
 
 @interface EditState()
 
@@ -88,6 +89,8 @@
 	[systemManager setSystem:_physicsSystem];
 	_movementSystem = [MovementSystem system];
 	[systemManager setSystem:_movementSystem];
+	_teleportSystem = [TeleportSystem system];
+	[systemManager setSystem:_teleportSystem];
 	_inputSystem = [[[InputSystem alloc] init] autorelease];
 	[systemManager setSystem:_inputSystem];
 	_editControlSystem = [[[EditControlSystem alloc] init] autorelease];

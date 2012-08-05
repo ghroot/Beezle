@@ -60,7 +60,7 @@
 				{
 					CGPoint delta = ccpSub([nextInputAction touchLocation], _touchBeganLocation);
 					CGPoint newLocation = ccpAdd(_selectedStartLocation, delta);
-					
+
 					[EntityUtil setEntityPosition:_selectedEntity position:newLocation];
 					
 					if ([_selectedEntity hasComponent:[SlingerComponent class]])

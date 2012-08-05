@@ -105,7 +105,7 @@ static const float SCALE_AT_MAX_POWER = 0.5f;
 					[trajectoryComponent setPower:modifiedPower];
 					
 					// Rotation
-					float compatibleAimAngle = [Utils unwindAngleDegrees:360 - CC_RADIANS_TO_DEGREES(aimAngle) + 270];
+					float compatibleAimAngle = [Utils chipmunkRadiansToCocos2dDegrees:aimAngle];
 					[transformComponent setRotation:compatibleAimAngle];
 					
 					// Strech scale

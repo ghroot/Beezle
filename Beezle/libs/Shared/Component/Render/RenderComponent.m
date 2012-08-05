@@ -310,4 +310,20 @@
 	}
 }
 
+-(void) show
+{
+	for (RenderSprite *renderSprite in _renderSprites)
+	{
+		[renderSprite show];
+	}
+}
+
+-(void) hide
+{
+	for (RenderSprite *renderSprite in _renderSprites)
+	{
+		[renderSprite hide];
+	}
+}
+
 @end
