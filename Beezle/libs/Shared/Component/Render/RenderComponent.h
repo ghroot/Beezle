@@ -22,11 +22,10 @@
 	// Instance
 	NSString *_overrideIdleAnimationName;
 	NSString *_overrideTextureFile;
+	NSString *_overrideParticleFile;
 }
 
 @property (nonatomic, readonly) NSArray *renderSprites;
-@property (nonatomic, copy) NSString *overrideIdleAnimationName;
-@property (nonatomic, copy) NSString *overrideTextureFile;
 
 +(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite;
 

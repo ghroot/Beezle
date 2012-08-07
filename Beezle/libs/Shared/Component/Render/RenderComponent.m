@@ -22,8 +22,6 @@
 @implementation RenderComponent
 
 @synthesize renderSprites = _renderSprites;
-@synthesize overrideIdleAnimationName = _overrideIdleAnimationName;
-@synthesize overrideTextureFile = _overrideTextureFile;
 
 +(RenderComponent *) componentWithRenderSprite:(RenderSprite *)renderSprite
 {
@@ -65,6 +63,14 @@
 				_overrideTextureFile = [[instanceComponentDict objectForKey:@"overrideTextureFile"] copy];
 				NSString *overrideTextureFile = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:_overrideTextureFile];
 				renderSprite = [RenderSprite renderSpriteWithFile:overrideTextureFile zOrder:zOrder];
+			}
+			else if ([instanceComponentDict objectForKey:@"overrideParticleFile"] != nil)
+			{
+				_overrideParticleFile = [[instanceComponentDict objectForKey:@"overrideParticleFile"] copy];
+				CCParticleSystem *particleSystem = [CCParticleSystemQuad particleWithFile:_overrideParticleFile];
+				CCSprite *particleSprite = [CCSprite node];
+				[particleSprite addChild:particleSystem];
+				renderSprite = [RenderSprite renderSpriteWithSprite:particleSprite zOrder:zOrder];
 			}
 			else if ([spriteDict objectForKey:@"spriteSheetName"] != nil)
 			{

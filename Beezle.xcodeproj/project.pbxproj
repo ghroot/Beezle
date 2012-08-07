@@ -2122,6 +2122,7 @@
 		2CF8E0F61576B45F0052F556 /* Teleporter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F555 /* Teleporter.plist */; };
 		2CF8E0F61576B45F0052F559 /* AnythingWithTeleportCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F558 /* AnythingWithTeleportCollisionHandler.m */; };
 		2CF8E0F61576B45F0052F55C /* TeleportInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F55B /* TeleportInfo.m */; };
+		2CF8E0F61576B45F0052F55E /* Particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F55D /* Particle.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4597,6 +4598,7 @@
 		2CF8E0F61576B45F0052F558 /* AnythingWithTeleportCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnythingWithTeleportCollisionHandler.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F55A /* TeleportInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeleportInfo.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F55B /* TeleportInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeleportInfo.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F55D /* Particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Particle.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -7798,6 +7800,7 @@
 		2CE348B514DF003A00FEB492 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F55D /* Particle.plist */,
 				2CF8E0F61576B45F0052F555 /* Teleporter.plist */,
 				2CF8E0F61576B45F0052F4E2 /* Eyes.plist */,
 				2CF8E0F61576B45F0052F479 /* Sand.plist */,
@@ -10101,6 +10104,7 @@
 				2CF8E0F61576B45F0052F549 /* D17-Glass-hd.png in Resources */,
 				2CF8E0F61576B45F0052F54B /* D17-Glass.png in Resources */,
 				2CF8E0F61576B45F0052F556 /* Teleporter.plist in Resources */,
+				2CF8E0F61576B45F0052F55E /* Particle.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
