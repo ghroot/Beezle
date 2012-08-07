@@ -10,12 +10,16 @@
 #import "Game.h"
 #import "EntitySelectIngameMenuState.h"
 #import "EntityGroupSelectMenuItem.h"
+#import "ParticleGroupSelectMenuItem.h"
+#import "ParticleSelectIngameMenuState.h"
 
 @interface EntityGroupSelectIngameMenuState()
 
 -(void) createMenuItems;
 -(void) addMenuItemForGroup:(NSString *)groupName andEntityTypes:(NSArray *)entityTypes;
+-(void) addMenuItemForParticleNames:(NSArray *)particleNames;
 -(void) gotoGroupMenu:(id)sender;
+-(void) gotoParticlesMenu:(id)sender;
 -(void) goBack:(id)sender;
 
 @end
@@ -78,9 +82,17 @@
 			@"SMOKE-MUSHROOM",
 			nil]];
 
-	[self addMenuItemForGroup:@"Particles" andEntityTypes:[NSArray arrayWithObjects:
-			@"LAVA-ERUPTION",
-			@"SMOKE",
+	[self addMenuItemForParticleNames:[NSArray arrayWithObjects:
+			@"FireFlies",
+			@"FireFlies2",
+			@"Lava",
+			@"LavaDrops",
+			@"LavaFire",
+			@"Lavapop",
+			@"LavaSplasch",
+			@"Leaves",
+			@"Smoke-Particle",
+			@"Snow",
 			nil]];
 
 	[self addMenuItemForGroup:@"Other" andEntityTypes:[NSArray arrayWithObjects:
@@ -100,11 +112,22 @@
 	[_menu addChild:menuItem];
 }
 
+-(void) addMenuItemForParticleNames:(NSArray *)particleNames
+{
+	ParticleGroupSelectMenuItem *menuItem = [[[ParticleGroupSelectMenuItem alloc] initWithParticleNames:particleNames target:self selector:@selector(gotoParticlesMenu:)] autorelease];
+	[_menu addChild:menuItem];
+}
+
 -(void) gotoGroupMenu:(id)sender
 {
 	EntityGroupSelectMenuItem *menuItem = sender;
-
 	[_game pushState:[[[EntitySelectIngameMenuState alloc] initWithEntityTypes:[menuItem entityTypes]] autorelease]];
+}
+
+-(void) gotoParticlesMenu:(id)sender
+{
+	ParticleGroupSelectMenuItem *menuItem = sender;
+	[_game pushState:[[[ParticleSelectIngameMenuState alloc] initWithParticleNames:[menuItem particleNames]] autorelease]];
 }
 
 -(void) goBack:(id)sender

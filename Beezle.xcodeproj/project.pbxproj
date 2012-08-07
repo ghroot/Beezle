@@ -1981,17 +1981,10 @@
 		2CF8E0F61576B45F0052F39D /* PulverizeWithPulverizableCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F39C /* PulverizeWithPulverizableCollisionHandler.m */; };
 		2CF8E0F61576B45F0052F39F /* Cactus.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F39E /* Cactus.plist */; };
 		2CF8E0F61576B45F0052F3A1 /* Cactus-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3A0 /* Cactus-Animations.plist */; };
-		2CF8E0F61576B45F0052F3A4 /* Water-Splash-Particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3A3 /* Water-Splash-Particle.plist */; };
-		2CF8E0F61576B45F0052F3A6 /* Rain-Particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3A5 /* Rain-Particle.plist */; };
-		2CF8E0F61576B45F0052F3A8 /* Lava-Particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3A7 /* Lava-Particle.plist */; };
-		2CF8E0F61576B45F0052F3AA /* Snow-Particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3A9 /* Snow-Particle.plist */; };
-		2CF8E0F61576B45F0052F3AC /* Sand-Particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3AB /* Sand-Particle.plist */; };
 		2CF8E0F61576B45F0052F3AF /* SpikeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3AE /* SpikeComponent.m */; };
 		2CF8E0F61576B45F0052F3B2 /* ArmoredComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3B1 /* ArmoredComponent.m */; };
 		2CF8E0F61576B45F0052F3B5 /* BeeWithSpikeCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3B4 /* BeeWithSpikeCollisionHandler.m */; };
-		2CF8E0F61576B45F0052F3B7 /* Lava-Eruption-Particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3B6 /* Lava-Eruption-Particle.plist */; };
 		2CF8E0F61576B45F0052F3BA /* Lava-Eruption.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3B9 /* Lava-Eruption.plist */; };
-		2CF8E0F61576B45F0052F3BC /* Smoke-Particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3BB /* Smoke-Particle.plist */; };
 		2CF8E0F61576B45F0052F3BE /* Smoke.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3BD /* Smoke.plist */; };
 		2CF8E0F61576B45F0052F3C1 /* EntityGroupSelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3C0 /* EntityGroupSelectIngameMenuState.m */; };
 		2CF8E0F61576B45F0052F3C4 /* EntityGroupSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3C3 /* EntityGroupSelectMenuItem.m */; };
@@ -2123,6 +2116,19 @@
 		2CF8E0F61576B45F0052F559 /* AnythingWithTeleportCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F558 /* AnythingWithTeleportCollisionHandler.m */; };
 		2CF8E0F61576B45F0052F55C /* TeleportInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F55B /* TeleportInfo.m */; };
 		2CF8E0F61576B45F0052F55E /* Particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F55D /* Particle.plist */; };
+		2CF8E0F61576B45F0052F560 /* FireFlies.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F55F /* FireFlies.plist */; };
+		2CF8E0F61576B45F0052F562 /* FireFlies2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F561 /* FireFlies2.plist */; };
+		2CF8E0F61576B45F0052F564 /* Lava.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F563 /* Lava.plist */; };
+		2CF8E0F61576B45F0052F566 /* LavaDrops.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F565 /* LavaDrops.plist */; };
+		2CF8E0F61576B45F0052F568 /* LavaFire.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F567 /* LavaFire.plist */; };
+		2CF8E0F61576B45F0052F56A /* Lavapop.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F569 /* Lavapop.plist */; };
+		2CF8E0F61576B45F0052F56C /* LavaSplasch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F56B /* LavaSplasch.plist */; };
+		2CF8E0F61576B45F0052F56E /* Leaves.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F56D /* Leaves.plist */; };
+		2CF8E0F61576B45F0052F570 /* Smoke-Particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F56F /* Smoke-Particle.plist */; };
+		2CF8E0F61576B45F0052F572 /* Snow.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F571 /* Snow.plist */; };
+		2CF8E0F61576B45F0052F575 /* ParticleGroupSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F574 /* ParticleGroupSelectMenuItem.m */; };
+		2CF8E0F61576B45F0052F578 /* ParticleSelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F577 /* ParticleSelectIngameMenuState.m */; };
+		2CF8E0F61576B45F0052F57B /* ParticleSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F57A /* ParticleSelectMenuItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4438,20 +4444,13 @@
 		2CF8E0F61576B45F0052F39C /* PulverizeWithPulverizableCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulverizeWithPulverizableCollisionHandler.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F39E /* Cactus.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Cactus.plist; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3A0 /* Cactus-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Cactus-Animations.plist"; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F3A3 /* Water-Splash-Particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Water-Splash-Particle.plist"; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F3A5 /* Rain-Particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Rain-Particle.plist"; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F3A7 /* Lava-Particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Lava-Particle.plist"; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F3A9 /* Snow-Particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Snow-Particle.plist"; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F3AB /* Sand-Particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Sand-Particle.plist"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3AD /* SpikeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpikeComponent.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3AE /* SpikeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpikeComponent.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3B0 /* ArmoredComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmoredComponent.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3B1 /* ArmoredComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmoredComponent.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3B3 /* BeeWithSpikeCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeWithSpikeCollisionHandler.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3B4 /* BeeWithSpikeCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeWithSpikeCollisionHandler.m; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F3B6 /* Lava-Eruption-Particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Lava-Eruption-Particle.plist"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3B9 /* Lava-Eruption.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Lava-Eruption.plist"; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F3BB /* Smoke-Particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Smoke-Particle.plist"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3BD /* Smoke.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Smoke.plist; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3BF /* EntityGroupSelectIngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityGroupSelectIngameMenuState.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3C0 /* EntityGroupSelectIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityGroupSelectIngameMenuState.m; sourceTree = "<group>"; };
@@ -4599,6 +4598,22 @@
 		2CF8E0F61576B45F0052F55A /* TeleportInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeleportInfo.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F55B /* TeleportInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeleportInfo.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F55D /* Particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Particle.plist; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F55F /* FireFlies.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = FireFlies.plist; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F561 /* FireFlies2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = FireFlies2.plist; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F563 /* Lava.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Lava.plist; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F565 /* LavaDrops.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = LavaDrops.plist; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F567 /* LavaFire.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = LavaFire.plist; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F569 /* Lavapop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Lavapop.plist; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F56B /* LavaSplasch.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = LavaSplasch.plist; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F56D /* Leaves.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Leaves.plist; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F56F /* Smoke-Particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Smoke-Particle.plist"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F571 /* Snow.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Snow.plist; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F573 /* ParticleGroupSelectMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleGroupSelectMenuItem.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F574 /* ParticleGroupSelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleGroupSelectMenuItem.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F576 /* ParticleSelectIngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSelectIngameMenuState.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F577 /* ParticleSelectIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSelectIngameMenuState.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F579 /* ParticleSelectMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSelectMenuItem.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F57A /* ParticleSelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSelectMenuItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -6712,6 +6727,12 @@
 		2C74B46B156FAD1E00596A22 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F57A /* ParticleSelectMenuItem.m */,
+				2CF8E0F61576B45F0052F579 /* ParticleSelectMenuItem.h */,
+				2CF8E0F61576B45F0052F577 /* ParticleSelectIngameMenuState.m */,
+				2CF8E0F61576B45F0052F576 /* ParticleSelectIngameMenuState.h */,
+				2CF8E0F61576B45F0052F574 /* ParticleGroupSelectMenuItem.m */,
+				2CF8E0F61576B45F0052F573 /* ParticleGroupSelectMenuItem.h */,
 				2CF8E0F61576B45F0052F3C6 /* EntitySelectMenuItem.m */,
 				2CF8E0F61576B45F0052F3C5 /* EntitySelectMenuItem.h */,
 				2CF8E0F61576B45F0052F3C3 /* EntityGroupSelectMenuItem.m */,
@@ -8168,13 +8189,16 @@
 		2CF8E0F61576B45F0052F3A2 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
-				2CF8E0F61576B45F0052F3BB /* Smoke-Particle.plist */,
-				2CF8E0F61576B45F0052F3B6 /* Lava-Eruption-Particle.plist */,
-				2CF8E0F61576B45F0052F3AB /* Sand-Particle.plist */,
-				2CF8E0F61576B45F0052F3A9 /* Snow-Particle.plist */,
-				2CF8E0F61576B45F0052F3A7 /* Lava-Particle.plist */,
-				2CF8E0F61576B45F0052F3A5 /* Rain-Particle.plist */,
-				2CF8E0F61576B45F0052F3A3 /* Water-Splash-Particle.plist */,
+				2CF8E0F61576B45F0052F571 /* Snow.plist */,
+				2CF8E0F61576B45F0052F56F /* Smoke-Particle.plist */,
+				2CF8E0F61576B45F0052F56D /* Leaves.plist */,
+				2CF8E0F61576B45F0052F56B /* LavaSplasch.plist */,
+				2CF8E0F61576B45F0052F569 /* Lavapop.plist */,
+				2CF8E0F61576B45F0052F567 /* LavaFire.plist */,
+				2CF8E0F61576B45F0052F565 /* LavaDrops.plist */,
+				2CF8E0F61576B45F0052F563 /* Lava.plist */,
+				2CF8E0F61576B45F0052F561 /* FireFlies2.plist */,
+				2CF8E0F61576B45F0052F55F /* FireFlies.plist */,
 			);
 			path = Particles;
 			sourceTree = "<group>";
@@ -8518,14 +8542,7 @@
 				2CF8E0F61576B45F0052F394 /* Ramp-Piece-D.plist in Resources */,
 				2CF8E0F61576B45F0052F39F /* Cactus.plist in Resources */,
 				2CF8E0F61576B45F0052F3A1 /* Cactus-Animations.plist in Resources */,
-				2CF8E0F61576B45F0052F3A4 /* Water-Splash-Particle.plist in Resources */,
-				2CF8E0F61576B45F0052F3A6 /* Rain-Particle.plist in Resources */,
-				2CF8E0F61576B45F0052F3A8 /* Lava-Particle.plist in Resources */,
-				2CF8E0F61576B45F0052F3AA /* Snow-Particle.plist in Resources */,
-				2CF8E0F61576B45F0052F3AC /* Sand-Particle.plist in Resources */,
-				2CF8E0F61576B45F0052F3B7 /* Lava-Eruption-Particle.plist in Resources */,
 				2CF8E0F61576B45F0052F3BA /* Lava-Eruption.plist in Resources */,
-				2CF8E0F61576B45F0052F3BC /* Smoke-Particle.plist in Resources */,
 				2CF8E0F61576B45F0052F3BE /* Smoke.plist in Resources */,
 				2CF8E0F61576B45F0052F3C9 /* Branch.plist in Resources */,
 				2CF8E0F61576B45F0052F3CB /* Branch-Animations.plist in Resources */,
@@ -10105,6 +10122,16 @@
 				2CF8E0F61576B45F0052F54B /* D17-Glass.png in Resources */,
 				2CF8E0F61576B45F0052F556 /* Teleporter.plist in Resources */,
 				2CF8E0F61576B45F0052F55E /* Particle.plist in Resources */,
+				2CF8E0F61576B45F0052F560 /* FireFlies.plist in Resources */,
+				2CF8E0F61576B45F0052F562 /* FireFlies2.plist in Resources */,
+				2CF8E0F61576B45F0052F564 /* Lava.plist in Resources */,
+				2CF8E0F61576B45F0052F566 /* LavaDrops.plist in Resources */,
+				2CF8E0F61576B45F0052F568 /* LavaFire.plist in Resources */,
+				2CF8E0F61576B45F0052F56A /* Lavapop.plist in Resources */,
+				2CF8E0F61576B45F0052F56C /* LavaSplasch.plist in Resources */,
+				2CF8E0F61576B45F0052F56E /* Leaves.plist in Resources */,
+				2CF8E0F61576B45F0052F570 /* Smoke-Particle.plist in Resources */,
+				2CF8E0F61576B45F0052F572 /* Snow.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10425,6 +10452,9 @@
 				2CF8E0F61576B45F0052F554 /* ArrowSprite.m in Sources */,
 				2CF8E0F61576B45F0052F559 /* AnythingWithTeleportCollisionHandler.m in Sources */,
 				2CF8E0F61576B45F0052F55C /* TeleportInfo.m in Sources */,
+				2CF8E0F61576B45F0052F575 /* ParticleGroupSelectMenuItem.m in Sources */,
+				2CF8E0F61576B45F0052F578 /* ParticleSelectIngameMenuState.m in Sources */,
+				2CF8E0F61576B45F0052F57B /* ParticleSelectMenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

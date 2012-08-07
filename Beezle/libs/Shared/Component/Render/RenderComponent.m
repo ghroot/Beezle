@@ -152,6 +152,10 @@
 		{
 			[instanceComponentDict setObject:_overrideTextureFile forKey:@"overrideTextureFile"];
 		}
+		if (_overrideParticleFile != nil)
+		{
+			[instanceComponentDict setObject:_overrideParticleFile forKey:@"overrideParticleFile"];
+		}
 	}
 	return instanceComponentDict;
 }
