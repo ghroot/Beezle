@@ -31,8 +31,9 @@
 
 -(void) addRenderSprite:(RenderSprite *)renderSprite;
 -(RenderSprite *) renderSpriteWithName:(NSString *)name;
--(NSArray *) renderSprites;
 -(RenderSprite *) defaultRenderSprite;
+-(RenderSprite *) firstRenderSprite;
+-(RenderSprite *) lastRenderSprite;
 -(void) setAlpha:(float)alpha;
 -(BOOL) hasDefaultIdleAnimation;
 -(void) playDefaultIdleAnimation;

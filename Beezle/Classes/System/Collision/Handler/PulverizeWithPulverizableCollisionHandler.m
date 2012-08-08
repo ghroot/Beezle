@@ -46,18 +46,27 @@
 
 	PulverizableComponent *pulverizableComponent = [PulverizableComponent getFrom:pulverizableEntity];
 	RenderComponent *renderComponent = [RenderComponent getFrom:pulverizableEntity];
+	BOOL wasCallbackScheduled = FALSE;
 	for (RenderSprite *renderSprite in [renderComponent renderSprites])
 	{
 		NSString *pulverAnimationName = [pulverizableComponent pulverAnimationForRenderSpriteName:[renderSprite name]];
-		if (renderSprite == [[renderComponent renderSprites] lastObject])
+		if (pulverAnimationName != nil)
 		{
-			[renderSprite playAnimationOnce:pulverAnimationName andCallBlockAtEnd:^{
-				[pulverizableEntity deleteEntity];
-			}];
+			if (wasCallbackScheduled)
+			{
+				[renderSprite playAnimationOnce:pulverAnimationName];
+			}
+			else
+			{
+				[renderSprite playAnimationOnce:pulverAnimationName andCallBlockAtEnd:^{
+					[pulverizableEntity deleteEntity];
+				}];
+				wasCallbackScheduled = TRUE;
+			}
 		}
 		else
 		{
-			[renderSprite playAnimationOnce:pulverAnimationName];
+			[renderSprite hide];
 		}
 	}
 

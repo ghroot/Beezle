@@ -194,6 +194,15 @@
 	return [self renderSpriteWithName:@"default"];
 }
 
+-(RenderSprite *) firstRenderSprite
+{
+	return [_renderSprites objectAtIndex:0];
+}
+-(RenderSprite *) lastRenderSprite
+{
+	return [_renderSprites lastObject];
+}
+
 -(void) setAlpha:(float)alpha
 {
 	for (RenderSprite *renderSprite in _renderSprites)
