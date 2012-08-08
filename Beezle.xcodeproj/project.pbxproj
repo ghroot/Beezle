@@ -1825,8 +1825,6 @@
 		2C96EDE9156D9C2300052239 /* Ice.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDE6156D9C2300052239 /* Ice.plist */; };
 		2C96EDEA156D9C2300052239 /* Icicle-Piece.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDE7156D9C2300052239 /* Icicle-Piece.plist */; };
 		2C96EDEB156D9C2300052239 /* Icicle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDE8156D9C2300052239 /* Icicle.plist */; };
-		2C96EE001570450600052239 /* Bubble-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDF71570450600052239 /* Bubble-hd.png */; };
-		2C96EE011570450600052239 /* Bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDF81570450600052239 /* Bubble.png */; };
 		2C96EE021570450600052239 /* LevelCompletedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDF91570450600052239 /* LevelCompletedDialog.ccbi */; };
 		2C96EE041570450600052239 /* NextLevelButton-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDFB1570450600052239 /* NextLevelButton-hd.png */; };
 		2C96EE051570450600052239 /* NextLevelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDFC1570450600052239 /* NextLevelButton.png */; };
@@ -2127,6 +2125,11 @@
 		2CF8E0F61576B45F0052F575 /* ParticleGroupSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F574 /* ParticleGroupSelectMenuItem.m */; };
 		2CF8E0F61576B45F0052F578 /* ParticleSelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F577 /* ParticleSelectIngameMenuState.m */; };
 		2CF8E0F61576B45F0052F57B /* ParticleSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F57A /* ParticleSelectMenuItem.m */; };
+		2CF8E0F61576B45F0052F581 /* BubbleSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F580 /* BubbleSprite.m */; };
+		2CF8E0F61576B45F0052F583 /* Bubble-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F582 /* Bubble-hd.plist */; };
+		2CF8E0F61576B45F0052F585 /* Bubble-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F584 /* Bubble-hd.png */; };
+		2CF8E0F61576B45F0052F587 /* Bubble.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F586 /* Bubble.plist */; };
+		2CF8E0F61576B45F0052F589 /* Bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F588 /* Bubble.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4264,8 +4267,6 @@
 		2C96EDE6156D9C2300052239 /* Ice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Ice.plist; sourceTree = "<group>"; };
 		2C96EDE7156D9C2300052239 /* Icicle-Piece.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Icicle-Piece.plist"; sourceTree = "<group>"; };
 		2C96EDE8156D9C2300052239 /* Icicle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Icicle.plist; sourceTree = "<group>"; };
-		2C96EDF71570450600052239 /* Bubble-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bubble-hd.png"; sourceTree = "<group>"; };
-		2C96EDF81570450600052239 /* Bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bubble.png; sourceTree = "<group>"; };
 		2C96EDF91570450600052239 /* LevelCompletedDialog.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = LevelCompletedDialog.ccbi; sourceTree = "<group>"; };
 		2C96EDFB1570450600052239 /* NextLevelButton-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NextLevelButton-hd.png"; sourceTree = "<group>"; };
 		2C96EDFC1570450600052239 /* NextLevelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NextLevelButton.png; sourceTree = "<group>"; };
@@ -4610,6 +4611,12 @@
 		2CF8E0F61576B45F0052F577 /* ParticleSelectIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSelectIngameMenuState.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F579 /* ParticleSelectMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSelectMenuItem.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F57A /* ParticleSelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSelectMenuItem.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F57F /* BubbleSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleSprite.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F580 /* BubbleSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleSprite.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F582 /* Bubble-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Bubble-hd.plist"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F584 /* Bubble-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bubble-hd.png"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F586 /* Bubble.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Bubble.plist; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F588 /* Bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bubble.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4834,8 +4841,6 @@
 				2C0D5E6E15C486E10024C88D /* Syst-Redo-White.png */,
 				2C0D5E6F15C486E10024C88D /* Syst-Text-Pause-hd.png */,
 				2C0D5E7015C486E10024C88D /* Syst-Text-Pause.png */,
-				2C96EDF71570450600052239 /* Bubble-hd.png */,
-				2C96EDF81570450600052239 /* Bubble.png */,
 				2C96EDF91570450600052239 /* LevelCompletedDialog.ccbi */,
 				2C96EE0915704B3A00052239 /* LevelFailedDialog.ccbi */,
 				2C96EDFB1570450600052239 /* NextLevelButton-hd.png */,
@@ -6678,6 +6683,8 @@
 		2C74B461156FAD1E00596A22 /* State */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F580 /* BubbleSprite.m */,
+				2CF8E0F61576B45F0052F57F /* BubbleSprite.h */,
 				2CF8E0F61576B45F0052F49B /* FullscreenTransparentMenuItem.m */,
 				2CF8E0F61576B45F0052F49A /* FullscreenTransparentMenuItem.h */,
 				2CF8E0F61576B45F0052F3D1 /* LevelThemeSelectLayer.m */,
@@ -7262,6 +7269,10 @@
 		2C8409DC15829AA10098BA9C /* Sheets */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F588 /* Bubble.png */,
+				2CF8E0F61576B45F0052F586 /* Bubble.plist */,
+				2CF8E0F61576B45F0052F584 /* Bubble-hd.png */,
+				2CF8E0F61576B45F0052F582 /* Bubble-hd.plist */,
 				2CF8E0F61576B45F0052F50C /* Boss-D.png */,
 				2CF8E0F61576B45F0052F50A /* Boss-D.plist */,
 				2CF8E0F61576B45F0052F508 /* Boss-D-hd.png */,
@@ -8396,8 +8407,6 @@
 				2C96EDE9156D9C2300052239 /* Ice.plist in Resources */,
 				2C96EDEA156D9C2300052239 /* Icicle-Piece.plist in Resources */,
 				2C96EDEB156D9C2300052239 /* Icicle.plist in Resources */,
-				2C96EE001570450600052239 /* Bubble-hd.png in Resources */,
-				2C96EE011570450600052239 /* Bubble.png in Resources */,
 				2C96EE021570450600052239 /* LevelCompletedDialog.ccbi in Resources */,
 				2C96EE041570450600052239 /* NextLevelButton-hd.png in Resources */,
 				2C96EE051570450600052239 /* NextLevelButton.png in Resources */,
@@ -10116,6 +10125,10 @@
 				2CF8E0F61576B45F0052F56E /* Leaves.plist in Resources */,
 				2CF8E0F61576B45F0052F570 /* Smoke-Particle.plist in Resources */,
 				2CF8E0F61576B45F0052F572 /* Snow.plist in Resources */,
+				2CF8E0F61576B45F0052F583 /* Bubble-hd.plist in Resources */,
+				2CF8E0F61576B45F0052F585 /* Bubble-hd.png in Resources */,
+				2CF8E0F61576B45F0052F587 /* Bubble.plist in Resources */,
+				2CF8E0F61576B45F0052F589 /* Bubble.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10439,6 +10452,7 @@
 				2CF8E0F61576B45F0052F575 /* ParticleGroupSelectMenuItem.m in Sources */,
 				2CF8E0F61576B45F0052F578 /* ParticleSelectIngameMenuState.m in Sources */,
 				2CF8E0F61576B45F0052F57B /* ParticleSelectMenuItem.m in Sources */,
+				2CF8E0F61576B45F0052F581 /* BubbleSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
