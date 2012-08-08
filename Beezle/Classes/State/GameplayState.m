@@ -101,6 +101,7 @@
 @synthesize shardSystem = _shardSystem;
 @synthesize slingerControlSystem = _slingerControlSystem;
 @synthesize spawnSystem = _spawnSystem;
+@synthesize teleportSystem = _teleportSystem;
 @synthesize waterWaveSystem = _waterWaveSystem;
 @synthesize woodSystem = _woodSystem;
 @synthesize followControlSystem = _followControlSystem;
