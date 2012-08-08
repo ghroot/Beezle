@@ -1984,8 +1984,6 @@
 		2CF8E0F61576B45F0052F3AF /* SpikeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3AE /* SpikeComponent.m */; };
 		2CF8E0F61576B45F0052F3B2 /* ArmoredComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3B1 /* ArmoredComponent.m */; };
 		2CF8E0F61576B45F0052F3B5 /* BeeWithSpikeCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3B4 /* BeeWithSpikeCollisionHandler.m */; };
-		2CF8E0F61576B45F0052F3BA /* Lava-Eruption.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3B9 /* Lava-Eruption.plist */; };
-		2CF8E0F61576B45F0052F3BE /* Smoke.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3BD /* Smoke.plist */; };
 		2CF8E0F61576B45F0052F3C1 /* EntityGroupSelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3C0 /* EntityGroupSelectIngameMenuState.m */; };
 		2CF8E0F61576B45F0052F3C4 /* EntityGroupSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3C3 /* EntityGroupSelectMenuItem.m */; };
 		2CF8E0F61576B45F0052F3C7 /* EntitySelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F3C6 /* EntitySelectMenuItem.m */; };
@@ -4450,8 +4448,6 @@
 		2CF8E0F61576B45F0052F3B1 /* ArmoredComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmoredComponent.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3B3 /* BeeWithSpikeCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeWithSpikeCollisionHandler.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3B4 /* BeeWithSpikeCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeWithSpikeCollisionHandler.m; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F3B9 /* Lava-Eruption.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Lava-Eruption.plist"; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F3BD /* Smoke.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Smoke.plist; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3BF /* EntityGroupSelectIngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityGroupSelectIngameMenuState.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3C0 /* EntityGroupSelectIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityGroupSelectIngameMenuState.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F3C2 /* EntityGroupSelectMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityGroupSelectMenuItem.h; sourceTree = "<group>"; };
@@ -7843,7 +7839,6 @@
 				2CE4F59E153CC8A80023B5C6 /* Slinger.plist */,
 				2CE4F59F153CC8A80023B5C6 /* Water */,
 				2CE4F5A4153CC8A80023B5C6 /* Wood */,
-				2CF8E0F61576B45F0052F3B8 /* Particle */,
 			);
 			name = Entities;
 			path = Resources/Entities;
@@ -8203,15 +8198,6 @@
 			path = Particles;
 			sourceTree = "<group>";
 		};
-		2CF8E0F61576B45F0052F3B8 /* Particle */ = {
-			isa = PBXGroup;
-			children = (
-				2CF8E0F61576B45F0052F3BD /* Smoke.plist */,
-				2CF8E0F61576B45F0052F3B9 /* Lava-Eruption.plist */,
-			);
-			path = Particle;
-			sourceTree = "<group>";
-		};
 		2CF8E0F61576B45F0052F3CC /* CCScrollLayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -8542,8 +8528,6 @@
 				2CF8E0F61576B45F0052F394 /* Ramp-Piece-D.plist in Resources */,
 				2CF8E0F61576B45F0052F39F /* Cactus.plist in Resources */,
 				2CF8E0F61576B45F0052F3A1 /* Cactus-Animations.plist in Resources */,
-				2CF8E0F61576B45F0052F3BA /* Lava-Eruption.plist in Resources */,
-				2CF8E0F61576B45F0052F3BE /* Smoke.plist in Resources */,
 				2CF8E0F61576B45F0052F3C9 /* Branch.plist in Resources */,
 				2CF8E0F61576B45F0052F3CB /* Branch-Animations.plist in Resources */,
 				2CF8E0F61576B45F0052F3E6 /* (null) in Resources */,
