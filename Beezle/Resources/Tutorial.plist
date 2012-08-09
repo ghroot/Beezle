@@ -11,16 +11,14 @@
             <key>type</key>
             <string>balloon</string>
             <key>frameName</key>
-            <string>BubbleYel-A2.png</string>
-            <key>triggers</key>
-            <array>
-                <dict>
-                    <key>type</key>
-                    <string>level</string>
-                    <key>levelName</key>
-                    <string>Level-A2</string>
-                </dict>
-            </array>
+            <string>Bubble/BubbleYel-A2.png</string>
+            <key>trigger</key>
+			<dict>
+				<key>type</key>
+				<string>level</string>
+				<key>levelName</key>
+				<string>Level-A2</string>
+			</dict>
         </dict>
         <dict>
             <key>id</key>
@@ -28,16 +26,14 @@
             <key>type</key>
             <string>balloon</string>
             <key>frameName</key>
-            <string>BubbleYel-A10.png</string>
-            <key>triggers</key>
-            <array>
-                <dict>
-                    <key>type</key>
-                    <string>level</string>
-                    <key>levelName</key>
-                    <string>Level-A10</string>
-                </dict>
-            </array>
+            <string>Bubble/BubbleYel-A10.png</string>
+            <key>trigger</key>
+			<dict>
+				<key>type</key>
+				<string>level</string>
+				<key>levelName</key>
+				<string>Level-A10</string>
+			</dict>
         </dict>
         <dict>
             <key>id</key>
@@ -45,16 +41,14 @@
             <key>type</key>
             <string>balloon</string>
             <key>frameName</key>
-            <string>BubbleYel-D2.png</string>
-            <key>triggers</key>
-            <array>
-                <dict>
-                    <key>type</key>
-                    <string>level</string>
-                    <key>levelName</key>
-                    <string>Level-D2</string>
-                </dict>
-            </array>
+            <string>Bubble/BubbleYel-D2.png</string>
+            <key>trigger</key>
+			<dict>
+				<key>type</key>
+				<string>level</string>
+				<key>levelName</key>
+				<string>Level-D2</string>
+			</dict>
         </dict>
 
         <!-- Strips -->
@@ -65,15 +59,13 @@
             <string>strip</string>
             <key>fileName</key>
             <string>DescrStrip-IntroGame-A.jpg</string>
-            <key>triggers</key>
-            <array>
-                <dict>
-                    <key>type</key>
-                    <string>level</string>
-                    <key>levelName</key>
-                    <string>Level-A1</string>
-                </dict>
-            </array>
+            <key>trigger</key>
+			<dict>
+				<key>type</key>
+				<string>level</string>
+				<key>levelName</key>
+				<string>Level-A1</string>
+			</dict>
         </dict>
         <dict>
             <key>id</key>
@@ -82,15 +74,13 @@
             <string>strip</string>
             <key>fileName</key>
             <string>DescrStrip-Bombee-A.jpg</string>
-            <key>triggers</key>
-            <array>
-                <dict>
-                    <key>type</key>
-                    <string>bee</string>
-                    <key>beeType</key>
-                    <string>BOMBEE</string>
-                </dict>
-            </array>
+            <key>trigger</key>
+			<dict>
+				<key>type</key>
+				<string>bee</string>
+				<key>beeType</key>
+				<string>BOMBEE</string>
+			</dict>
         </dict>
         <dict>
             <key>id</key>
@@ -99,15 +89,13 @@
             <string>strip</string>
             <key>fileName</key>
             <string>DescrStrip-Speedee-A.jpg</string>
-            <key>triggers</key>
-            <array>
-                <dict>
-                    <key>type</key>
-                    <string>bee</string>
-                    <key>beeType</key>
-                    <string>SPEEDEE</string>
-                </dict>
-            </array>
+            <key>trigger</key>
+			<dict>
+				<key>type</key>
+				<string>bee</string>
+				<key>beeType</key>
+				<string>SPEEDEE</string>
+			</dict>
         </dict>
         <dict>
             <key>id</key>
@@ -116,15 +104,13 @@
             <string>strip</string>
             <key>fileName</key>
             <string>DescrStrip-Sawee-A.jpg</string>
-            <key>triggers</key>
-            <array>
-                <dict>
-                    <key>type</key>
-                    <string>bee</string>
-                    <key>beeType</key>
-                    <string>SAWEE</string>
-                </dict>
-            </array>
+            <key>trigger</key>
+			<dict>
+				<key>type</key>
+				<string>bee</string>
+				<key>beeType</key>
+				<string>SAWEE</string>
+			</dict>
         </dict>
     </array>
 </dict>

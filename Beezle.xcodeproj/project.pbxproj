@@ -2142,6 +2142,29 @@
 		2CF8E0F61576B45F0052F59D /* Super-Beeater-Piece-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F59C /* Super-Beeater-Piece-Template.plist */; };
 		2CF8E0F61576B45F0052F59F /* Super-Beeater-B-Piece.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F59E /* Super-Beeater-B-Piece.plist */; };
 		2CF8E0F61576B45F0052F5A1 /* Tutorial.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5A0 /* Tutorial.plist */; };
+		2CF8E0F61576B45F0052F5A4 /* TutorialOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5A3 /* TutorialOrganizer.m */; };
+		2CF8E0F61576B45F0052F5A7 /* TutorialDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5A6 /* TutorialDescription.m */; };
+		2CF8E0F61576B45F0052F5AA /* TutorialTriggerDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5A9 /* TutorialTriggerDescription.m */; };
+		2CF8E0F61576B45F0052F5AD /* TutorialBalloonDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5AC /* TutorialBalloonDescription.m */; };
+		2CF8E0F61576B45F0052F5B0 /* TutorialLevelTriggerDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5AF /* TutorialLevelTriggerDescription.m */; };
+		2CF8E0F61576B45F0052F5B3 /* TutorialBeeTypeTriggerDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5B2 /* TutorialBeeTypeTriggerDescription.m */; };
+		2CF8E0F61576B45F0052F5B6 /* TutorialEntityTypeTriggerDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5B5 /* TutorialEntityTypeTriggerDescription.m */; };
+		2CF8E0F61576B45F0052F5B9 /* TutorialStripDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5B8 /* TutorialStripDescription.m */; };
+		2CF8E0F61576B45F0052F5BC /* DescrStrip-Bombee-A-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5BB /* DescrStrip-Bombee-A-hd.jpg */; };
+		2CF8E0F61576B45F0052F5BE /* DescrStrip-Bombee-A.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5BD /* DescrStrip-Bombee-A.jpg */; };
+		2CF8E0F61576B45F0052F5C0 /* DescrStrip-IntroGame-A-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5BF /* DescrStrip-IntroGame-A-hd.jpg */; };
+		2CF8E0F61576B45F0052F5C2 /* DescrStrip-IntroGame-A.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5C1 /* DescrStrip-IntroGame-A.jpg */; };
+		2CF8E0F61576B45F0052F5C4 /* DescrStrip-Mumee-D-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5C3 /* DescrStrip-Mumee-D-hd.jpg */; };
+		2CF8E0F61576B45F0052F5C6 /* DescrStrip-Mumee-D.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5C5 /* DescrStrip-Mumee-D.jpg */; };
+		2CF8E0F61576B45F0052F5C8 /* DescrStrip-Sawee-A-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5C7 /* DescrStrip-Sawee-A-hd.jpg */; };
+		2CF8E0F61576B45F0052F5CA /* DescrStrip-Sawee-A.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5C9 /* DescrStrip-Sawee-A.jpg */; };
+		2CF8E0F61576B45F0052F5CC /* DescrStrip-Speedee-A-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5CB /* DescrStrip-Speedee-A-hd.jpg */; };
+		2CF8E0F61576B45F0052F5CE /* DescrStrip-Speedee-A.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5CD /* DescrStrip-Speedee-A.jpg */; };
+		2CF8E0F61576B45F0052F5D0 /* DescrStrip-Sumee-B-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5CF /* DescrStrip-Sumee-B-hd.jpg */; };
+		2CF8E0F61576B45F0052F5D2 /* DescrStrip-Sumee-B.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5D1 /* DescrStrip-Sumee-B.jpg */; };
+		2CF8E0F61576B45F0052F5D4 /* DescrStrip-TBee-C-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5D3 /* DescrStrip-TBee-C-hd.jpg */; };
+		2CF8E0F61576B45F0052F5D6 /* DescrStrip-TBee-C.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5D5 /* DescrStrip-TBee-C.jpg */; };
+		2CF8E0F61576B45F0052F5D9 /* TutorialStripMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5D8 /* TutorialStripMenuState.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4641,6 +4664,38 @@
 		2CF8E0F61576B45F0052F59C /* Super-Beeater-Piece-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Super-Beeater-Piece-Template.plist"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F59E /* Super-Beeater-B-Piece.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Super-Beeater-B-Piece.plist"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F5A0 /* Tutorial.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = Tutorial.plist; path = Resources/Tutorial.plist; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5A2 /* TutorialOrganizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialOrganizer.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5A3 /* TutorialOrganizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialOrganizer.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5A5 /* TutorialDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialDescription.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5A6 /* TutorialDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialDescription.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5A8 /* TutorialTriggerDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialTriggerDescription.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5A9 /* TutorialTriggerDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialTriggerDescription.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5AB /* TutorialBalloonDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialBalloonDescription.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5AC /* TutorialBalloonDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialBalloonDescription.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5AE /* TutorialLevelTriggerDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialLevelTriggerDescription.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5AF /* TutorialLevelTriggerDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialLevelTriggerDescription.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5B1 /* TutorialBeeTypeTriggerDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialBeeTypeTriggerDescription.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5B2 /* TutorialBeeTypeTriggerDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialBeeTypeTriggerDescription.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5B4 /* TutorialEntityTypeTriggerDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialEntityTypeTriggerDescription.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5B5 /* TutorialEntityTypeTriggerDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialEntityTypeTriggerDescription.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5B7 /* TutorialStripDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialStripDescription.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5B8 /* TutorialStripDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialStripDescription.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5BB /* DescrStrip-Bombee-A-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Bombee-A-hd.jpg"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5BD /* DescrStrip-Bombee-A.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Bombee-A.jpg"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5BF /* DescrStrip-IntroGame-A-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-IntroGame-A-hd.jpg"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5C1 /* DescrStrip-IntroGame-A.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-IntroGame-A.jpg"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5C3 /* DescrStrip-Mumee-D-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Mumee-D-hd.jpg"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5C5 /* DescrStrip-Mumee-D.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Mumee-D.jpg"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5C7 /* DescrStrip-Sawee-A-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Sawee-A-hd.jpg"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5C9 /* DescrStrip-Sawee-A.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Sawee-A.jpg"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5CB /* DescrStrip-Speedee-A-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Speedee-A-hd.jpg"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5CD /* DescrStrip-Speedee-A.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Speedee-A.jpg"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5CF /* DescrStrip-Sumee-B-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Sumee-B-hd.jpg"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5D1 /* DescrStrip-Sumee-B.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Sumee-B.jpg"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5D3 /* DescrStrip-TBee-C-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-TBee-C-hd.jpg"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5D5 /* DescrStrip-TBee-C.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-TBee-C.jpg"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5D7 /* TutorialStripMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialStripMenuState.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5D8 /* TutorialStripMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialStripMenuState.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4680,6 +4735,20 @@
 		2C00D85014FD798B00BE5B4C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F5D5 /* DescrStrip-TBee-C.jpg */,
+				2CF8E0F61576B45F0052F5D3 /* DescrStrip-TBee-C-hd.jpg */,
+				2CF8E0F61576B45F0052F5D1 /* DescrStrip-Sumee-B.jpg */,
+				2CF8E0F61576B45F0052F5CF /* DescrStrip-Sumee-B-hd.jpg */,
+				2CF8E0F61576B45F0052F5CD /* DescrStrip-Speedee-A.jpg */,
+				2CF8E0F61576B45F0052F5CB /* DescrStrip-Speedee-A-hd.jpg */,
+				2CF8E0F61576B45F0052F5C9 /* DescrStrip-Sawee-A.jpg */,
+				2CF8E0F61576B45F0052F5C7 /* DescrStrip-Sawee-A-hd.jpg */,
+				2CF8E0F61576B45F0052F5C5 /* DescrStrip-Mumee-D.jpg */,
+				2CF8E0F61576B45F0052F5C3 /* DescrStrip-Mumee-D-hd.jpg */,
+				2CF8E0F61576B45F0052F5C1 /* DescrStrip-IntroGame-A.jpg */,
+				2CF8E0F61576B45F0052F5BF /* DescrStrip-IntroGame-A-hd.jpg */,
+				2CF8E0F61576B45F0052F5BD /* DescrStrip-Bombee-A.jpg */,
+				2CF8E0F61576B45F0052F5BB /* DescrStrip-Bombee-A-hd.jpg */,
 				2CF8E0F61576B45F0052F4BA /* ReturnArrow.png */,
 				2CF8E0F61576B45F0052F4B8 /* ReturnArrow-hd.png */,
 				2CF8E0F61576B45F0052F4B6 /* Syst-GamePause-White.png */,
@@ -6634,6 +6703,7 @@
 				2C74B43D156FAD1E00596A22 /* Debug */,
 				2C74B442156FAD1E00596A22 /* PlayerInformation.h */,
 				2C74B443156FAD1E00596A22 /* PlayerInformation.m */,
+				2CF8E0F61576B45F0052F5BA /* Tutorial */,
 			);
 			path = Persistent;
 			sourceTree = "<group>";
@@ -6718,6 +6788,8 @@
 		2C74B461156FAD1E00596A22 /* State */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F5D8 /* TutorialStripMenuState.m */,
+				2CF8E0F61576B45F0052F5D7 /* TutorialStripMenuState.h */,
 				2CF8E0F61576B45F0052F49B /* FullscreenTransparentMenuItem.m */,
 				2CF8E0F61576B45F0052F49A /* FullscreenTransparentMenuItem.h */,
 				2CF8E0F61576B45F0052F3D1 /* LevelThemeSelectLayer.m */,
@@ -8270,6 +8342,29 @@
 				2CF8E0F61576B45F0052F53C /* Hangnest-D.plist */,
 			);
 			path = D;
+			sourceTree = "<group>";
+		};
+		2CF8E0F61576B45F0052F5BA /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				2CF8E0F61576B45F0052F5A9 /* TutorialTriggerDescription.m */,
+				2CF8E0F61576B45F0052F5A8 /* TutorialTriggerDescription.h */,
+				2CF8E0F61576B45F0052F5B8 /* TutorialStripDescription.m */,
+				2CF8E0F61576B45F0052F5B7 /* TutorialStripDescription.h */,
+				2CF8E0F61576B45F0052F5A3 /* TutorialOrganizer.m */,
+				2CF8E0F61576B45F0052F5A2 /* TutorialOrganizer.h */,
+				2CF8E0F61576B45F0052F5AF /* TutorialLevelTriggerDescription.m */,
+				2CF8E0F61576B45F0052F5AE /* TutorialLevelTriggerDescription.h */,
+				2CF8E0F61576B45F0052F5B5 /* TutorialEntityTypeTriggerDescription.m */,
+				2CF8E0F61576B45F0052F5B4 /* TutorialEntityTypeTriggerDescription.h */,
+				2CF8E0F61576B45F0052F5A6 /* TutorialDescription.m */,
+				2CF8E0F61576B45F0052F5A5 /* TutorialDescription.h */,
+				2CF8E0F61576B45F0052F5B2 /* TutorialBeeTypeTriggerDescription.m */,
+				2CF8E0F61576B45F0052F5B1 /* TutorialBeeTypeTriggerDescription.h */,
+				2CF8E0F61576B45F0052F5AC /* TutorialBalloonDescription.m */,
+				2CF8E0F61576B45F0052F5AB /* TutorialBalloonDescription.h */,
+			);
+			path = Tutorial;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -10177,6 +10272,20 @@
 				2CF8E0F61576B45F0052F59D /* Super-Beeater-Piece-Template.plist in Resources */,
 				2CF8E0F61576B45F0052F59F /* Super-Beeater-B-Piece.plist in Resources */,
 				2CF8E0F61576B45F0052F5A1 /* Tutorial.plist in Resources */,
+				2CF8E0F61576B45F0052F5BC /* DescrStrip-Bombee-A-hd.jpg in Resources */,
+				2CF8E0F61576B45F0052F5BE /* DescrStrip-Bombee-A.jpg in Resources */,
+				2CF8E0F61576B45F0052F5C0 /* DescrStrip-IntroGame-A-hd.jpg in Resources */,
+				2CF8E0F61576B45F0052F5C2 /* DescrStrip-IntroGame-A.jpg in Resources */,
+				2CF8E0F61576B45F0052F5C4 /* DescrStrip-Mumee-D-hd.jpg in Resources */,
+				2CF8E0F61576B45F0052F5C6 /* DescrStrip-Mumee-D.jpg in Resources */,
+				2CF8E0F61576B45F0052F5C8 /* DescrStrip-Sawee-A-hd.jpg in Resources */,
+				2CF8E0F61576B45F0052F5CA /* DescrStrip-Sawee-A.jpg in Resources */,
+				2CF8E0F61576B45F0052F5CC /* DescrStrip-Speedee-A-hd.jpg in Resources */,
+				2CF8E0F61576B45F0052F5CE /* DescrStrip-Speedee-A.jpg in Resources */,
+				2CF8E0F61576B45F0052F5D0 /* DescrStrip-Sumee-B-hd.jpg in Resources */,
+				2CF8E0F61576B45F0052F5D2 /* DescrStrip-Sumee-B.jpg in Resources */,
+				2CF8E0F61576B45F0052F5D4 /* DescrStrip-TBee-C-hd.jpg in Resources */,
+				2CF8E0F61576B45F0052F5D6 /* DescrStrip-TBee-C.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10501,6 +10610,15 @@
 				2CF8E0F61576B45F0052F578 /* ParticleSelectIngameMenuState.m in Sources */,
 				2CF8E0F61576B45F0052F57B /* ParticleSelectMenuItem.m in Sources */,
 				2CF8E0F61576B45F0052F581 /* BalloonDialog.m in Sources */,
+				2CF8E0F61576B45F0052F5A4 /* TutorialOrganizer.m in Sources */,
+				2CF8E0F61576B45F0052F5A7 /* TutorialDescription.m in Sources */,
+				2CF8E0F61576B45F0052F5AA /* TutorialTriggerDescription.m in Sources */,
+				2CF8E0F61576B45F0052F5AD /* TutorialBalloonDescription.m in Sources */,
+				2CF8E0F61576B45F0052F5B0 /* TutorialLevelTriggerDescription.m in Sources */,
+				2CF8E0F61576B45F0052F5B3 /* TutorialBeeTypeTriggerDescription.m in Sources */,
+				2CF8E0F61576B45F0052F5B6 /* TutorialEntityTypeTriggerDescription.m in Sources */,
+				2CF8E0F61576B45F0052F5B9 /* TutorialStripDescription.m in Sources */,
+				2CF8E0F61576B45F0052F5D9 /* TutorialStripMenuState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
