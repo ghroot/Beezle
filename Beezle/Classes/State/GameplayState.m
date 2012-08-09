@@ -61,7 +61,7 @@
 #import "Game.h"
 #import "PossessWithSpiritCollisionHandler.h"
 #import "AnythingWithTeleportCollisionHandler.h"
-#import "BubbleSprite.h"
+#import "BubbleDialog.h"
 #import "Utils.h"
 
 @interface GameplayState()
@@ -148,9 +148,8 @@
 	[self loadLevel];
 
 	// TEMP
-//	BubbleSprite *bubbleSprite = [[[BubbleSprite alloc] initWithFrameName:@"Bubble/BubbleYel-A10.png"] autorelease];
-//	[bubbleSprite setPosition:[Utils getScreenCenterPosition]];
-//	[_uiLayer addChild:bubbleSprite];
+//	BubbleDialog *bubbleDialog = [[[BubbleDialog alloc] initWithFrameName:@"Bubble/BubbleYel-A10.png"] autorelease];
+//	[_uiLayer addChild:bubbleDialog];
 	
 	[[SessionTracker sharedTracker] trackStartedLevel:_levelName];
 }

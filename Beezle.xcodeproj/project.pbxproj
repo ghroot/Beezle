@@ -2125,7 +2125,7 @@
 		2CF8E0F61576B45F0052F575 /* ParticleGroupSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F574 /* ParticleGroupSelectMenuItem.m */; };
 		2CF8E0F61576B45F0052F578 /* ParticleSelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F577 /* ParticleSelectIngameMenuState.m */; };
 		2CF8E0F61576B45F0052F57B /* ParticleSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F57A /* ParticleSelectMenuItem.m */; };
-		2CF8E0F61576B45F0052F581 /* BubbleSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F580 /* BubbleSprite.m */; };
+		2CF8E0F61576B45F0052F581 /* BubbleDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F580 /* BubbleDialog.m */; };
 		2CF8E0F61576B45F0052F583 /* Bubble-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F582 /* Bubble-hd.plist */; };
 		2CF8E0F61576B45F0052F585 /* Bubble-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F584 /* Bubble-hd.png */; };
 		2CF8E0F61576B45F0052F587 /* Bubble.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F586 /* Bubble.plist */; };
@@ -4611,8 +4611,8 @@
 		2CF8E0F61576B45F0052F577 /* ParticleSelectIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSelectIngameMenuState.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F579 /* ParticleSelectMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSelectMenuItem.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F57A /* ParticleSelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSelectMenuItem.m; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F57F /* BubbleSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleSprite.h; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F580 /* BubbleSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleSprite.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F57F /* BubbleDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleDialog.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F580 /* BubbleDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleDialog.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F582 /* Bubble-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Bubble-hd.plist"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F584 /* Bubble-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bubble-hd.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F586 /* Bubble.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Bubble.plist; sourceTree = "<group>"; };
@@ -6683,8 +6683,8 @@
 		2C74B461156FAD1E00596A22 /* State */ = {
 			isa = PBXGroup;
 			children = (
-				2CF8E0F61576B45F0052F580 /* BubbleSprite.m */,
-				2CF8E0F61576B45F0052F57F /* BubbleSprite.h */,
+				2CF8E0F61576B45F0052F580 /* BubbleDialog.m */,
+				2CF8E0F61576B45F0052F57F /* BubbleDialog.h */,
 				2CF8E0F61576B45F0052F49B /* FullscreenTransparentMenuItem.m */,
 				2CF8E0F61576B45F0052F49A /* FullscreenTransparentMenuItem.h */,
 				2CF8E0F61576B45F0052F3D1 /* LevelThemeSelectLayer.m */,
@@ -10452,7 +10452,7 @@
 				2CF8E0F61576B45F0052F575 /* ParticleGroupSelectMenuItem.m in Sources */,
 				2CF8E0F61576B45F0052F578 /* ParticleSelectIngameMenuState.m in Sources */,
 				2CF8E0F61576B45F0052F57B /* ParticleSelectMenuItem.m in Sources */,
-				2CF8E0F61576B45F0052F581 /* BubbleSprite.m in Sources */,
+				2CF8E0F61576B45F0052F581 /* BubbleDialog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

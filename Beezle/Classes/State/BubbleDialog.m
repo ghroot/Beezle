@@ -1,19 +1,25 @@
 //
-//  BubbleSprite.m
+//  BubbleDialog.m
 //  Beezle
 //
 //  Created by Marcus on 08/08/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "BubbleSprite.h"
+#import "BubbleDialog.h"
+#import "Utils.h"
 
-@implementation BubbleSprite
+@interface BubbleDialog()
+
+-(CCSprite *) createBubbleSprite:(NSString *)frameName;
+
+@end
+
+@implementation BubbleDialog
 
 -(id) initWithFrameName:(NSString *)frameName
 {
-	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Bubble.plist"];
-	if (self = [super initWithSpriteFrameName:frameName])
+	if (self = [super initWithNode:[self createBubbleSprite:frameName]])
 	{
 		CCScaleTo *scaleAction = [CCEaseSineOut actionWithAction:[CCScaleTo actionWithDuration:1.0f scale:1.0f]];
 		CCCallBlock *startSwayAction = [CCCallBlock actionWithBlock:^{
@@ -23,10 +29,18 @@
 			[self runAction:swayAction];
 		}];
 
-		[self setScale:0.1f];
-		[self runAction:[CCSequence actionOne:scaleAction two:startSwayAction]];
+		[_node setScale:0.1f];
+		[_node runAction:[CCSequence actionOne:scaleAction two:startSwayAction]];
 	}
 	return self;
+}
+
+-(CCSprite *) createBubbleSprite:(NSString *)frameName
+{
+	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Bubble.plist"];
+	CCSprite *bubbleSprite = [CCSprite spriteWithSpriteFrameName:frameName];
+	[bubbleSprite setPosition:[Utils getScreenCenterPosition]];
+	return bubbleSprite;
 }
 
 @end

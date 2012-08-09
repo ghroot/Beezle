@@ -1,5 +1,5 @@
 //
-//  BubbleSprite.h
+//  BubbleDialog.h
 //  Beezle
 //
 //  Created by Marcus on 08/08/12.
@@ -7,8 +7,9 @@
 //
 
 #import "cocos2d.h"
+#import "Dialog.h"
 
-@interface BubbleSprite : CCSprite
+@interface BubbleDialog : Dialog
 
 -(id) initWithFrameName:(NSString *)frameName;
 

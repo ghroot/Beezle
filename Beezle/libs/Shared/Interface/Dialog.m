@@ -12,14 +12,32 @@
 
 @implementation Dialog
 
--(id) initWithInterfaceFile:(NSString *)filePath
+-(id) initWithNode:(CCNode *)node
 {
 	if (self = [super init])
 	{
-		[self addChild:[CoverLayer node]];
-		[self addChild:[CCBReader nodeGraphFromFile:filePath owner:self]];
+		_coverLayer = [CoverLayer new];
+		[self addChild:_coverLayer];
+
+		_node = [node retain];
+		[self addChild:_node];
 	}
 	return self;
 }
+
+-(id) initWithInterfaceFile:(NSString *)filePath
+{
+	self = [self initWithNode:[CCBReader nodeGraphFromFile:filePath owner:self]];
+	return self;
+}
+
+-(void) dealloc
+{
+	[_coverLayer release];
+	[_node release];
+
+	[super dealloc];
+}
+
 
 @end
