@@ -1,5 +1,5 @@
 //
-//  BubbleDialog.h
+//  BalloonDialog.h
 //  Beezle
 //
 //  Created by Marcus on 08/08/12.
@@ -9,7 +9,7 @@
 #import "cocos2d.h"
 #import "Dialog.h"
 
-@interface BubbleDialog : Dialog
+@interface BalloonDialog : Dialog
 
 -(id) initWithFrameName:(NSString *)frameName;
 
