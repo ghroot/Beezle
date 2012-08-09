@@ -8,6 +8,7 @@
 
 #import "BubbleDialog.h"
 #import "Utils.h"
+#import "FullscreenTransparentMenuItem.h"
 
 @interface BubbleDialog()
 
@@ -31,13 +32,30 @@
 
 		[_node setScale:0.1f];
 		[_node runAction:[CCSequence actionOne:scaleAction two:startSwayAction]];
+
+		CCMenu *menu = [CCMenu node];
+		CCMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
+			NSArray *spriteFrames = [NSArray arrayWithObjects:
+				[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Bubble/BubbleBurst-1.png"],
+				[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Bubble/BubbleBurst-2.png"],
+				[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Bubble/BubbleBurst-3.png"],
+				nil];
+			CCAnimation *animation = [CCAnimation animationWithSpriteFrames:spriteFrames delay:0.05f];
+			CCAnimate *animateAction = [CCAnimate actionWithAnimation:animation];
+			CCCallBlock *closeAction = [CCCallBlock actionWithBlock:^{
+				[self close];
+			}];
+			[_node runAction:[CCSequence actionOne:animateAction two:closeAction]];
+		} selectedBlock:nil unselectedBlock:nil] autorelease];
+		[menu addChild:menuItem];
+		[self addChild:menu];
 	}
 	return self;
 }
 
 -(CCSprite *) createBubbleSprite:(NSString *)frameName
 {
-	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Bubble.plist"];
+	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Interface.plist"];
 	CCSprite *bubbleSprite = [CCSprite spriteWithSpriteFrameName:frameName];
 	[bubbleSprite setPosition:[Utils screenCenterPosition]];
 	return bubbleSprite;

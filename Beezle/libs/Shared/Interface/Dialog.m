@@ -39,5 +39,9 @@
 	[super dealloc];
 }
 
+-(void) close
+{
+	[self removeFromParentAndCleanup:TRUE];
+}
 
 @end

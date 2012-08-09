@@ -17,4 +17,6 @@
 -(id) initWithNode:(CCNode *)node;
 -(id) initWithInterfaceFile:(NSString *)filePath;
 
+-(void) close;
+
 @end
