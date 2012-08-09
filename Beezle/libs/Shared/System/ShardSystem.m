@@ -168,13 +168,18 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 	NSMutableArray *pieceEntityTypes = [NSMutableArray array];
 	for (int i = 0; i < numberOfPiecesToSpawn; i++)
 	{
+		NSString *pieceEntityType = nil;
 		if ([shardComponent piecesDistributionType] == SHARD_PIECES_DISTRIBUTION_RANDOM)
 		{
-			[pieceEntityTypes addObject:[shardComponent randomPiecesEntityType]];
+			pieceEntityType = [shardComponent randomPiecesEntityType];
 		}
 		else if ([shardComponent piecesDistributionType] == SHARD_PIECES_DISTRIBUTION_SEQUENTIAL)
 		{
-			[pieceEntityTypes addObject:[[shardComponent piecesEntityTypes] objectAtIndex:(i % [[shardComponent piecesEntityTypes] count])]];
+			pieceEntityType = [[shardComponent piecesEntityTypes] objectAtIndex:(i % [[shardComponent piecesEntityTypes] count])];
+		}
+		if (pieceEntityType != nil)
+		{
+			[pieceEntityTypes addObject:pieceEntityType];
 		}
 	}
 	

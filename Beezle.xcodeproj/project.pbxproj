@@ -2139,6 +2139,8 @@
 		2CF8E0F61576B45F0052F597 /* HangNestBonk.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F596 /* HangNestBonk.caf */; };
 		2CF8E0F61576B45F0052F599 /* PollenBoost.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F598 /* PollenBoost.caf */; };
 		2CF8E0F61576B45F0052F59B /* PollenCollect.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F59A /* PollenCollect.caf */; };
+		2CF8E0F61576B45F0052F59D /* Super-Beeater-Piece-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F59C /* Super-Beeater-Piece-Template.plist */; };
+		2CF8E0F61576B45F0052F59F /* Super-Beeater-B-Piece.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F59E /* Super-Beeater-B-Piece.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4635,6 +4637,8 @@
 		2CF8E0F61576B45F0052F596 /* HangNestBonk.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = HangNestBonk.caf; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F598 /* PollenBoost.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = PollenBoost.caf; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F59A /* PollenCollect.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = PollenCollect.caf; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F59C /* Super-Beeater-Piece-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Super-Beeater-Piece-Template.plist"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F59E /* Super-Beeater-B-Piece.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Super-Beeater-B-Piece.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -7904,6 +7908,7 @@
 		2CE4F53F153CC8A80023B5C6 /* Beeater */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F59C /* Super-Beeater-Piece-Template.plist */,
 				2CE4F540153CC8A80023B5C6 /* A */,
 				2CE4F546153CC8A80023B5C6 /* B */,
 				2CE4F54B153CC8A80023B5C6 /* Beeater-Bird-Template.plist */,
@@ -7938,6 +7943,7 @@
 		2CE4F546153CC8A80023B5C6 /* B */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F59E /* Super-Beeater-B-Piece.plist */,
 				2CF8E0F61576B45F0052F4E8 /* Super-Beeater-B.plist */,
 				2CE4F548153CC8A80023B5C6 /* Beeater-Bird-B.plist */,
 				2CE4F549153CC8A80023B5C6 /* Beeater-Hanging-B.plist */,
@@ -10165,6 +10171,8 @@
 				2CF8E0F61576B45F0052F597 /* HangNestBonk.caf in Resources */,
 				2CF8E0F61576B45F0052F599 /* PollenBoost.caf in Resources */,
 				2CF8E0F61576B45F0052F59B /* PollenCollect.caf in Resources */,
+				2CF8E0F61576B45F0052F59D /* Super-Beeater-Piece-Template.plist in Resources */,
+				2CF8E0F61576B45F0052F59F /* Super-Beeater-B-Piece.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
