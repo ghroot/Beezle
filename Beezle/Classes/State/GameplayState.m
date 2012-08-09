@@ -346,14 +346,10 @@
 -(void) pauseGame:(id)sender
 {
 	[self hidePauseButton];
-	CGSize winSize = [CCDirector sharedDirector].winSize;
-	CCRenderTexture* rtx = [CCRenderTexture renderTextureWithWidth:winSize.width height:winSize.height];
-	[rtx begin];
-	[self visit];
-	[rtx end];
+	CCNode *screenShotNode = [Utils takeScreenShot];
 	[self showPauseButton];
 
-	[_game pushState:[[[PausedMenuState alloc] initWithBackground:rtx andLevelSession:_levelSession] autorelease] transition:FALSE];
+	[_game pushState:[[[PausedMenuState alloc] initWithBackground:screenShotNode andLevelSession:_levelSession] autorelease] transition:FALSE];
 }
 
 -(void) hidePauseButton

@@ -31,7 +31,7 @@
 {
 	if (self = [super init])
 	{
-		[backgroundNode setPosition:[Utils getScreenCenterPosition]];
+		[backgroundNode setPosition:[Utils screenCenterPosition]];
 		[self addChild:backgroundNode];
 
 		PausedDialog *pausedDialog = [[[PausedDialog alloc] initWithState:self andLevelSession:levelSession] autorelease];

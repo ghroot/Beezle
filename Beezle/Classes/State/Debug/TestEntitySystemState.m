@@ -36,12 +36,12 @@
 	
 	_label = [CCLabelTTF labelWithString:@"0" fontName:@"Marker Felt" fontSize:30.0f];
 	[_label setAnchorPoint:CGPointMake(0.5f, 0.0f)];
-	[_label setPosition:[Utils getScreenCenterPosition]];
+	[_label setPosition:[Utils screenCenterPosition]];
 	[self addChild:_label];
 
 	_label2 = [CCLabelTTF labelWithString:@"Slow" fontName:@"Marker Felt" fontSize:30.0f];
 	[_label2 setAnchorPoint:CGPointMake(0.5f, 1.0f)];
-	[_label2 setPosition:[Utils getScreenCenterPosition]];
+	[_label2 setPosition:[Utils screenCenterPosition]];
 	[self addChild:_label2];
 
     [[_world systemManager] setSystem:[DebugSystem system]];

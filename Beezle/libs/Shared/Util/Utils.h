@@ -18,6 +18,7 @@
 +(float) cocos2dDegreesToChipmunkRadians:(float)cocos2dDegrees;
 +(float) chipmunkDegreesToCocos2dDegrees:(float)chipmunkDegrees;
 +(float) chipmunkRadiansToCocos2dDegrees:(float)chipmunkRadians;
-+(CGPoint) getScreenCenterPosition;
++(CGPoint) screenCenterPosition;
++(CCRenderTexture *) takeScreenShot;
 
 @end

@@ -66,10 +66,21 @@ static const float TWO_PI = 0.0174532925f;
 	return [self chipmunkDegreesToCocos2dDegrees:CC_RADIANS_TO_DEGREES(chipmunkRadians)];
 }
 
-+(CGPoint) getScreenCenterPosition
++(CGPoint) screenCenterPosition
 {
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	return CGPointMake(winSize.width / 2, winSize.height / 2);
+}
+
++(CCRenderTexture *) takeScreenShot
+{
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	CCRenderTexture* renderTexture = [CCRenderTexture renderTextureWithWidth:winSize.width height:winSize.height];
+	[renderTexture begin];
+	CCScene *scene = [[CCDirector sharedDirector] runningScene];
+	[scene visit];
+	[renderTexture end];
+	return renderTexture;
 }
 
 @end

@@ -39,7 +39,7 @@
 {
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Bubble.plist"];
 	CCSprite *bubbleSprite = [CCSprite spriteWithSpriteFrameName:frameName];
-	[bubbleSprite setPosition:[Utils getScreenCenterPosition]];
+	[bubbleSprite setPosition:[Utils screenCenterPosition]];
 	return bubbleSprite;
 }
 
