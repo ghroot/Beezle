@@ -35,6 +35,7 @@
 	if (self = [super init])
 	{
 		_pollenRecordByLevelName = [NSMutableDictionary new];
+		_seenTutorialIds = [NSMutableSet new];
 		[self load];
 	}
 	return self;
@@ -43,6 +44,7 @@
 -(void) dealloc
 {
 	[_pollenRecordByLevelName release];
+	[_seenTutorialIds release];
 	
 	[super dealloc];
 }
@@ -70,12 +72,14 @@
 	if (dict != nil)
 	{
 		[_pollenRecordByLevelName addEntriesFromDictionary:[dict objectForKey:@"pollenRecordByLevelName"]];
+		[_seenTutorialIds addObjectsFromArray:[dict objectForKey:@"seenTutorialIds"]];
 	}
 }
 
 -(void) reset
 {
 	[_pollenRecordByLevelName removeAllObjects];
+	[_seenTutorialIds removeAllObjects];
 	
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -88,6 +92,7 @@
 {
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	[dict setObject:[NSDictionary dictionaryWithDictionary:_pollenRecordByLevelName] forKey:@"pollenRecordByLevelName"];
+	[dict setObject:[_seenTutorialIds allObjects] forKey:@"seenTutorialIds"];
 	return dict;
 }
 
@@ -141,6 +146,22 @@
 {
 	NSString *levelNameBefore = [[LevelOrganizer sharedOrganizer] levelNameBefore:levelName];
 	return levelNameBefore == nil || [self hasCompletedLevelAtLeastOnce:levelNameBefore];
+}
+
+-(void) markTutorialIdAsSeen:(NSString *)tutorialId
+{
+	[_seenTutorialIds addObject:tutorialId];
+}
+
+-(void) markTutorialIdAsSeenAndSave:(NSString *)tutorialId
+{
+	[self markTutorialIdAsSeen:tutorialId];
+	[self save];
+}
+
+-(BOOL) hasSeenTutorialId:(NSString *)tutorialId
+{
+	return [_seenTutorialIds containsObject:tutorialId];
 }
 
 @end

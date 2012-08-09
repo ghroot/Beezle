@@ -2141,6 +2141,7 @@
 		2CF8E0F61576B45F0052F59B /* PollenCollect.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F59A /* PollenCollect.caf */; };
 		2CF8E0F61576B45F0052F59D /* Super-Beeater-Piece-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F59C /* Super-Beeater-Piece-Template.plist */; };
 		2CF8E0F61576B45F0052F59F /* Super-Beeater-B-Piece.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F59E /* Super-Beeater-B-Piece.plist */; };
+		2CF8E0F61576B45F0052F5A1 /* Tutorial.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5A0 /* Tutorial.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4639,6 +4640,7 @@
 		2CF8E0F61576B45F0052F59A /* PollenCollect.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = PollenCollect.caf; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F59C /* Super-Beeater-Piece-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Super-Beeater-Piece-Template.plist"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F59E /* Super-Beeater-B-Piece.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Super-Beeater-B-Piece.plist"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F5A0 /* Tutorial.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = Tutorial.plist; path = Resources/Tutorial.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -8095,6 +8097,7 @@
 		2CEA3288145F66F7000FF575 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F5A0 /* Tutorial.plist */,
 				2C4E920D1546ED320092B006 /* Default.png */,
 				2CE348B514DF003A00FEB492 /* Entities */,
 				2C4E91F81546EC7B0092B006 /* Icon */,
@@ -10173,6 +10176,7 @@
 				2CF8E0F61576B45F0052F59B /* PollenCollect.caf in Resources */,
 				2CF8E0F61576B45F0052F59D /* Super-Beeater-Piece-Template.plist in Resources */,
 				2CF8E0F61576B45F0052F59F /* Super-Beeater-B-Piece.plist in Resources */,
+				2CF8E0F61576B45F0052F5A1 /* Tutorial.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

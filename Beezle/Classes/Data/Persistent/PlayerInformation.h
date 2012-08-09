@@ -13,6 +13,7 @@
 @interface PlayerInformation : NSObject
 {
 	NSMutableDictionary *_pollenRecordByLevelName;
+	NSMutableSet *_seenTutorialIds;
 }
 
 +(PlayerInformation *) sharedInformation;
@@ -25,5 +26,8 @@
 -(int) pollenRecord:(NSString *)levelName;
 -(int) totalNumberOfPollen;
 -(BOOL) canPlayLevel:(NSString *)levelName;
+-(void) markTutorialIdAsSeen:(NSString *)tutorialId;
+-(void) markTutorialIdAsSeenAndSave:(NSString *)tutorialId;
+-(BOOL) hasSeenTutorialId:(NSString *)tutorialId;
 
 @end
