@@ -15,6 +15,7 @@
 #import "TransformComponent.h"
 #import "WaterComponent.h"
 #import "Waves1DNode.h"
+#import "SoundManager.h"
 
 @implementation SolidWithWaterCollisionHandler
 
@@ -50,7 +51,9 @@
 	{
 		[wave makeSplashAt:[solidTransformComponent position].x amount:3.0f];
 	}
-	
+
+	[[SoundManager sharedManager] playSound:@"BeeInWater"];
+
 	return FALSE;
 }
 
