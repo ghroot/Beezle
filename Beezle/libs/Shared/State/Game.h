@@ -20,6 +20,7 @@
 -(void) replaceState:(GameState *)gameState;
 -(void) pushState:(GameState *)gameState transition:(BOOL)transition;
 -(void) pushState:(GameState *)gameState;
+-(void) popStateWithTransition:(BOOL)transition;
 -(void) popState;
 -(void) clearAndReplaceState:(GameState *)gameState transition:(BOOL)transition;
 -(void) clearAndReplaceState:(GameState *)gameState;

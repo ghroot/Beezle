@@ -67,7 +67,7 @@
 -(void) resumeGame
 {
 	// This assumes the previous state was the game play state
-	[_game popState];
+	[_game popStateWithTransition:FALSE];
 }
 
 -(void) restartGame

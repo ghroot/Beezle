@@ -115,12 +115,24 @@
 	[self pushState:gameState transition:TRUE];
 }
 
+-(void) popStateWithTransition:(BOOL)transition
+{
+	[[self currentState] leave];
+	[_gameStateStack removeLastObject];
+	[[self currentState] enter];
+	if (transition)
+	{
+		[[CCDirector sharedDirector] popSceneWithTransition:[CCTransitionFade class] duration:TRANSITION_DURATION];
+	}
+	else
+	{
+		[[CCDirector sharedDirector] popScene];
+	}
+}
+
 -(void) popState
 {
-    [[self currentState] leave];
-    [_gameStateStack removeLastObject];
-    [[self currentState] enter];
-	[[CCDirector sharedDirector] popScene];
+    [self popStateWithTransition:TRUE];
 }
 
 -(void) clearAndReplaceState:(GameState *)gameState transition:(BOOL)transition
