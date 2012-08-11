@@ -15,6 +15,7 @@
 	BOOL _didDragEnoughToBlockMenuItems;
 	float _startDragTouchX;
 	float _startDragNodeX;
+	float _contentWidth;
 }
 
 -(id) initWithFileName:(NSString *)fileName;
