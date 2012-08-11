@@ -102,7 +102,7 @@ static const int AIM_POLLEN_LAYERS = 2;
 	RenderComponent *renderComponent = [RenderComponent component];
 	
 	CCTexture2DPixelFormat currentFormat = [CCTexture2D defaultAlphaPixelFormat];
-	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB888];
+	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
 	NSString *backImageFileName = [NSString stringWithFormat:@"%@.jpg", name];
 	RenderSprite *backRenderSprite = [RenderSprite renderSpriteWithFile:backImageFileName zOrder:[ZOrder Z_BACKGROUND_BACK]];
 	[backRenderSprite setName:@"back"];
