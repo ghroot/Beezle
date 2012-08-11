@@ -6,9 +6,10 @@
 //Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <CoreGraphics/CoreGraphics.h>
 #import "TutorialStripMenuState.h"
+#import "CCMenuNoTouchSwallow.h"
 #import "FullscreenTransparentMenuItem.h"
+#import "Game.h"
 
 static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 
@@ -22,19 +23,14 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 		[_draggableNode setAnchorPoint:CGPointZero];
 		[self addChild:_draggableNode];
 
-		CCMenu *menu = [CCMenu node];
-		CCMenuItemFont *menuItem = [CCMenuItemFont itemWithString:@"OK" block:^(id sender){
+		CCMenu *menu = [CCMenuNoTouchSwallow node];
+		FullscreenTransparentMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
 			if (_didDragEnoughToBlockMenuItems)
 			{
 				return;
 			}
-
-			NSLog(@"YO");
-		}];
-		[menuItem setAnchorPoint:CGPointMake(1.0f, 0.0f)];
-		CGSize winSize = [[CCDirector sharedDirector] winSize];
-		[menuItem setPosition:CGPointMake(winSize.width, 0.0f)];
-		[menu setPosition:CGPointZero];
+			[_game popState];
+		} selectedBlock:nil unselectedBlock:nil] autorelease];
 		[menu addChild:menuItem];
 		[self addChild:menu];
 	}

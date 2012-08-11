@@ -77,6 +77,7 @@
 #import "BeeType.h"
 #import "TutorialStripDescription.h"
 #import "TutorialStripMenuState.h"
+#import "NSObject+PWObject.h"
 
 @interface GameplayState()
 
@@ -161,7 +162,9 @@
 	[self registerCollisionHandlers];
 	[self createModes];
 	[self loadLevel];
-	[self checkTutorial];
+	[self performBlock:^{
+		[self checkTutorial];
+	} afterDelay:1.0f];
 
 	[[SessionTracker sharedTracker] trackStartedLevel:_levelName];
 }
@@ -300,14 +303,14 @@
 {
 	for (TutorialDescription *tutorialDescription in [[TutorialOrganizer sharedOrganizer] tutorialDescriptions])
 	{
-		BOOL wasTriggered = FALSE;
+		BOOL shouldTrigger = FALSE;
 		TutorialTriggerDescription *tutorialTriggerDescription = [tutorialDescription triggerDescription];
 		if ([tutorialTriggerDescription isKindOfClass:[TutorialLevelTriggerDescription class]])
 		{
 			TutorialLevelTriggerDescription *tutorialLevelTriggerDescription = (TutorialLevelTriggerDescription *)tutorialTriggerDescription;
 			if ([[tutorialLevelTriggerDescription levelName] isEqualToString:_levelName])
 			{
-				wasTriggered = TRUE;
+				shouldTrigger = TRUE;
 			}
 		}
 		else if ([tutorialTriggerDescription isKindOfClass:[TutorialEntityTypeTriggerDescription class]])
@@ -318,7 +321,7 @@
 			{
 				if ([[levelLayoutEntry type] isEqualToString:[tutorialEntityTypeTriggerDescription entityType]])
 				{
-					wasTriggered = TRUE;
+					shouldTrigger = TRUE;
 					break;
 				}
 			}
@@ -337,7 +340,7 @@
 						BeeType *beeType = [BeeType enumFromName:beeTypeAsString];
 						if ([tutorialBeeTypeTriggerDescription beeType] == beeType)
 						{
-							wasTriggered = TRUE;
+							shouldTrigger = TRUE;
 							break;
 						}
 					}
@@ -349,17 +352,17 @@
 					BeeType *capturedBeeType = [BeeType enumFromName:containedBeeTypeAsString];
 					if (capturedBeeType == [tutorialBeeTypeTriggerDescription beeType])
 					{
-						wasTriggered = TRUE;
+						shouldTrigger = TRUE;
 					}
 				}
-				if (wasTriggered)
+				if (shouldTrigger)
 				{
 					break;
 				}
 			}
 		}
 
-		if (wasTriggered &&
+		if (shouldTrigger &&
 			![[PlayerInformation sharedInformation] hasSeenTutorialId:[tutorialDescription id]])
 		{
 			if ([tutorialDescription isKindOfClass:[TutorialBalloonDescription class]])
@@ -372,10 +375,12 @@
 			{
 				TutorialStripDescription *tutorialStripDescription = (TutorialStripDescription *)tutorialDescription;
 				TutorialStripMenuState *tutorialStripMenuState = [[[TutorialStripMenuState alloc] initWithFileName:[tutorialStripDescription fileName]] autorelease];
-//				[_game pushState:tutorialStripMenuState];
+				[_game pushState:tutorialStripMenuState];
 			}
 
 			[[PlayerInformation sharedInformation] markTutorialIdAsSeenAndSave:[tutorialDescription id]];
+
+			break;
 		}
 	}
 }
