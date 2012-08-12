@@ -42,4 +42,6 @@
 
 +(ZOrder *) Z_BACKGROUND_FRONT;
 
++(ZOrder *) Z_FRONT;
+
 @end

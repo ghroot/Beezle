@@ -52,6 +52,7 @@
 		Entity *teleportOutPositionEntity = [EntityFactory createTeleportOutPosition:_world];
 		[EntityUtil setEntityPosition:teleportOutPositionEntity position:[teleportComponent outPosition]];
 		[EntityUtil setEntityRotation:teleportOutPositionEntity rotation:[teleportComponent outRotation]];
+		[[EditComponent getFrom:teleportOutPositionEntity] setMainTeleportEntity:entity];
 		[editComponent setTeleportOutPositionEntity:teleportOutPositionEntity];
 	}
 }

@@ -23,6 +23,8 @@
 #import "PhysicsSystem.h"
 #import "RenderSystem.h"
 #import "TeleportSystem.h"
+#import "TeleportComponent.h"
+#import "Utils.h"
 
 @interface EditState()
 
@@ -152,6 +154,10 @@
 		if ([type isEqualToString:@"SLINGER"])
 		{
 			[EntityUtil setEntityRotation:entity rotation:325.0f];
+		}
+		else if ([type isEqualToString:@"TELEPORTER"])
+		{
+			[[TeleportComponent getFrom:entity] setOutPosition:ccpAdd([Utils screenCenterPosition], CGPointMake(-30.0f, 30.0f))];
 		}
 		
 		[_editControlSystem selectEntity:entity];

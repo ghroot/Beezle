@@ -1,13 +1,13 @@
 //
-//  ArrowSprite.h
+//  TeleportInSprite.h
 //  Beezle
 //
-//  Created by Marcus Lagerstrom on 08/05/12.
+//  Created by Marcus Lagerstrom on 08/12/12.
 //Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "cocos2d.h"
 
-@interface ArrowSprite : CCSprite
+@interface TeleportInSprite : CCSprite
 
 @end

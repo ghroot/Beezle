@@ -2107,7 +2107,7 @@
 		2CF8E0F61576B45F0052F54B /* D17-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F54A /* D17-Glass.png */; };
 		2CF8E0F61576B45F0052F54E /* TeleportComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F54D /* TeleportComponent.m */; };
 		2CF8E0F61576B45F0052F551 /* TeleportSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F550 /* TeleportSystem.m */; };
-		2CF8E0F61576B45F0052F554 /* ArrowSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F553 /* ArrowSprite.m */; };
+		2CF8E0F61576B45F0052F554 /* TeleportOutSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F553 /* TeleportOutSprite.m */; };
 		2CF8E0F61576B45F0052F556 /* Teleporter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F555 /* Teleporter.plist */; };
 		2CF8E0F61576B45F0052F559 /* AnythingWithTeleportCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F558 /* AnythingWithTeleportCollisionHandler.m */; };
 		2CF8E0F61576B45F0052F55C /* TeleportInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F55B /* TeleportInfo.m */; };
@@ -2196,6 +2196,7 @@
 		2CF8E0F61576B45F0052F62C /* Syst-Check2-C.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F62B /* Syst-Check2-C.png */; };
 		2CF8E0F61576B45F0052F62E /* Syst-Check2-D-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F62D /* Syst-Check2-D-hd.png */; };
 		2CF8E0F61576B45F0052F630 /* Syst-Check2-D.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F62F /* Syst-Check2-D.png */; };
+		2CF8E0F61576B45F0052F633 /* TeleportInSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F632 /* TeleportInSprite.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4653,8 +4654,8 @@
 		2CF8E0F61576B45F0052F54D /* TeleportComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeleportComponent.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F54F /* TeleportSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeleportSystem.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F550 /* TeleportSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeleportSystem.m; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F552 /* ArrowSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrowSprite.h; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F553 /* ArrowSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrowSprite.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F552 /* TeleportOutSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeleportOutSprite.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F553 /* TeleportOutSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeleportOutSprite.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F555 /* Teleporter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Teleporter.plist; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F557 /* AnythingWithTeleportCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnythingWithTeleportCollisionHandler.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F558 /* AnythingWithTeleportCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnythingWithTeleportCollisionHandler.m; sourceTree = "<group>"; };
@@ -4759,6 +4760,8 @@
 		2CF8E0F61576B45F0052F62B /* Syst-Check2-C.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Check2-C.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F62D /* Syst-Check2-D-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Check2-D-hd.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F62F /* Syst-Check2-D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Check2-D.png"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F631 /* TeleportInSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeleportInSprite.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F632 /* TeleportInSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeleportInSprite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -6773,8 +6776,10 @@
 		2C74B41E156FAD1E00596A22 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
-				2CF8E0F61576B45F0052F553 /* ArrowSprite.m */,
-				2CF8E0F61576B45F0052F552 /* ArrowSprite.h */,
+				2CF8E0F61576B45F0052F632 /* TeleportInSprite.m */,
+				2CF8E0F61576B45F0052F631 /* TeleportInSprite.h */,
+				2CF8E0F61576B45F0052F553 /* TeleportOutSprite.m */,
+				2CF8E0F61576B45F0052F552 /* TeleportOutSprite.h */,
 				2C74B41F156FAD1E00596A22 /* EditComponent.h */,
 				2C74B420156FAD1E00596A22 /* EditComponent.m */,
 			);
@@ -10728,7 +10733,7 @@
 				2CF8E0F61576B45F0052F526 /* PossessWithSpiritCollisionHandler.m in Sources */,
 				2CF8E0F61576B45F0052F54E /* TeleportComponent.m in Sources */,
 				2CF8E0F61576B45F0052F551 /* TeleportSystem.m in Sources */,
-				2CF8E0F61576B45F0052F554 /* ArrowSprite.m in Sources */,
+				2CF8E0F61576B45F0052F554 /* TeleportOutSprite.m in Sources */,
 				2CF8E0F61576B45F0052F559 /* AnythingWithTeleportCollisionHandler.m in Sources */,
 				2CF8E0F61576B45F0052F55C /* TeleportInfo.m in Sources */,
 				2CF8E0F61576B45F0052F575 /* ParticleGroupSelectMenuItem.m in Sources */,
@@ -10745,6 +10750,7 @@
 				2CF8E0F61576B45F0052F5B9 /* TutorialStripDescription.m in Sources */,
 				2CF8E0F61576B45F0052F5D9 /* TutorialStripMenuState.m in Sources */,
 				2CF8E0F61576B45F0052F60C /* MemoryManager.m in Sources */,
+				2CF8E0F61576B45F0052F633 /* TeleportInSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

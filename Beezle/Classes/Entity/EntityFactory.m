@@ -13,7 +13,6 @@
 #import "EditComponent.h"
 #import "EntityDescription.h"
 #import "EntityDescriptionCache.h"
-#import "EntityDescriptionLoader.h"
 #import "EntityUtil.h"
 #import "LevelOrganizer.h"
 #import "PhysicsComponent.h"
@@ -28,7 +27,9 @@
 #import "WaterComponent.h"
 #import "Waves1DNode.h"
 #import "ZOrder.h"
-#import "ArrowSprite.h"
+#import "TeleportOutSprite.h"
+#import "TeleportComponent.h"
+#import "TeleportInSprite.h"
 
 static const float BACKGROUND_FRICTION = 0.7f;
 static const float BACKGROUND_ELASTICITY = 0.7f;
@@ -289,6 +290,12 @@ static const int AIM_POLLEN_LAYERS = 2;
 				[entity addComponent:spawnRenderComponent];
 			}
 		}
+		else if ([entity hasComponent:[TeleportComponent class]])
+		{
+			RenderSprite *renderSprite = [RenderSprite renderSpriteWithSprite:[TeleportInSprite node] zOrder:[ZOrder Z_FRONT]];
+			RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
+			[entity addComponent:renderComponent];
+		}
 	}
 	
 	GroupManager *groupManager = (GroupManager *)[world getManager:[GroupManager class]];
@@ -389,8 +396,8 @@ static const int AIM_POLLEN_LAYERS = 2;
 	TransformComponent *transformComponent = [TransformComponent component];
 	[teleportOutPositionEntity addComponent:transformComponent];
 
-	CCSprite *sprite = [ArrowSprite node];
-	RenderSprite *renderSprite = [RenderSprite renderSpriteWithSprite:sprite];
+	CCSprite *sprite = [TeleportOutSprite node];
+	RenderSprite *renderSprite = [RenderSprite renderSpriteWithSprite:sprite zOrder:[ZOrder Z_FRONT]];
 	RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
 	[teleportOutPositionEntity addComponent:renderComponent];
 

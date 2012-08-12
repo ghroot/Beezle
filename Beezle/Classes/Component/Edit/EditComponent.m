@@ -14,6 +14,7 @@
 @synthesize nextMovementIndicatorEntity = _nextMovementIndicatorEntity;
 @synthesize mainMoveEntity = _mainMoveEntity;
 @synthesize teleportOutPositionEntity = _teleportOutPositionEntity;
+@synthesize mainTeleportEntity = _mainTeleportEntity;
 
 +(EditComponent *) componentWithLevelLayoutType:(NSString *)levelLayoutType
 {

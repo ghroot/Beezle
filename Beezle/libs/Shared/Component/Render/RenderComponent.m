@@ -98,6 +98,12 @@
 				[particleSprite addChild:particleSystem];
 				renderSprite = [RenderSprite renderSpriteWithSprite:particleSprite zOrder:zOrder];
 			}
+			else if ([spriteDict objectForKey:@"spriteClass"] != nil)
+			{
+				Class spriteClass = NSClassFromString([spriteDict objectForKey:@"spriteClass"]);
+				CCSprite *sprite = [spriteClass node];
+				renderSprite = [RenderSprite renderSpriteWithSprite:sprite zOrder:zOrder];
+			}
 			else
 			{
 				NSLog(@"WARNING: Render component must specify either 'spriteSheetName', 'textureFile' or 'particleFile'");

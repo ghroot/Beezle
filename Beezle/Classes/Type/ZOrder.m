@@ -39,4 +39,6 @@ GANDENUM(Z_PARTICLE,                15, [NSNumber numberWithInt:8], @"z")
 
 GANDENUM(Z_BACKGROUND_FRONT,        16, [NSNumber numberWithInt:9], @"z")
 
+GANDENUM(Z_FRONT,        			17, [NSNumber numberWithInt:10], @"z")
+
 @end

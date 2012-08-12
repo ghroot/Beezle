@@ -23,6 +23,7 @@
 #import "TransformComponent.h"
 #import "Utils.h"
 #import "EntityGroupSelectIngameMenuState.h"
+#import "TeleportComponent.h"
 
 @interface EditOptionsSystem()
 
@@ -335,6 +336,14 @@
 			EditComponent *previousEditComponent = [EditComponent getFrom:previousEntity];
 			[previousEditComponent setNextMovementIndicatorEntity:[currentEditComponent nextMovementIndicatorEntity]];
 		}
+	}
+	if ([_entityWithOptionsDisplayed hasComponent:[TeleportComponent class]])
+	{
+		[[editComponent teleportOutPositionEntity] deleteEntity];
+	}
+	else if ([editComponent mainTeleportEntity] != nil)
+	{
+		[[editComponent mainTeleportEntity] deleteEntity];
 	}
 	
 	[_entityWithOptionsDisplayed deleteEntity];
