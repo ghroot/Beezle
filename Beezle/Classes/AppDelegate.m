@@ -8,12 +8,11 @@
 
 #import "AppDelegate.h"
 #import "EmailInfo.h"
-#import "EntityDescriptionCache.h"
 #import "Game.h"
-#import "LevelLayoutCache.h"
 #import "MainMenuState.h"
 #import "SessionTracker.h"
 #import "SoundManager.h"
+#import "MemoryManager.h"
 
 @implementation AppDelegate
 
@@ -124,9 +123,7 @@
 
 -(void) applicationDidReceiveMemoryWarning:(UIApplication *)application
 {
-	[[CCDirector sharedDirector] purgeCachedData];
-	[[LevelLayoutCache sharedLevelLayoutCache] purgeAllCachedLevelLayouts];
-	[[EntityDescriptionCache sharedCache] purgeCachedData];
+	[[MemoryManager sharedManager] purgeCachedData];
 }
 
 -(void) applicationSignificantTimeChange:(UIApplication *)application

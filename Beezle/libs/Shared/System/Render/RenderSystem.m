@@ -11,6 +11,7 @@
 #import "RenderSprite.h"
 #import "TransformComponent.h"
 #import "ZOrder.h"
+#import "MemoryManager.h"
 
 static const int BATCH_NODE_CAPACITY = 140;
 
@@ -66,18 +67,22 @@ static const int BATCH_NODE_CAPACITY = 140;
 		else if ([name isEqualToString:@"A"])
         {
             spriteSheetZOrder = [ZOrder Z_SHEET_A];
+			[[MemoryManager sharedManager] ensureThemeSpriteSheetIsUniquelyLoaded:name];
         }
 		else if ([name isEqualToString:@"B"])
         {
             spriteSheetZOrder = [ZOrder Z_SHEET_B];
+			[[MemoryManager sharedManager] ensureThemeSpriteSheetIsUniquelyLoaded:name];
         }
 		else if ([name isEqualToString:@"C"])
         {
             spriteSheetZOrder = [ZOrder Z_SHEET_C];
+			[[MemoryManager sharedManager] ensureThemeSpriteSheetIsUniquelyLoaded:name];
         }
         else if ([name isEqualToString:@"D"])
         {
             spriteSheetZOrder = [ZOrder Z_SHEET_D];
+			[[MemoryManager sharedManager] ensureThemeSpriteSheetIsUniquelyLoaded:name];
         }
         else if ([name isEqualToString:@"Boss-A"] ||
 				[name isEqualToString:@"Boss-B"] ||
@@ -85,6 +90,7 @@ static const int BATCH_NODE_CAPACITY = 140;
 				[name isEqualToString:@"Boss-D"])
         {
             spriteSheetZOrder = [ZOrder Z_SHEET_BOSS];
+			[[MemoryManager sharedManager] ensureThemeBossSpriteSheetIsUniquelyLoaded:name];
         }
         else
         {
