@@ -404,8 +404,20 @@
     [super enter];
     
     [_currentMode enter];
-	
-	NSString *musicName = [NSString stringWithFormat:@"Music%@", [[LevelOrganizer sharedOrganizer] themeForLevel:_levelName]];
+
+	NSString *musicName;
+	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:_levelName];
+	if ([levelLayout hasEntityWithType:@"SUPER-BEEATER-A"] ||
+		[levelLayout hasEntityWithType:@"SUPER-BEEATER-B"] ||
+		[levelLayout hasEntityWithType:@"SUPER-BEEATER-C"] ||
+		[levelLayout hasEntityWithType:@"SUPER-BEEATER-D"])
+	{
+		musicName = @"MusicBoss";
+	}
+	else
+	{
+		musicName = [NSString stringWithFormat:@"Music%@", [[LevelOrganizer sharedOrganizer] themeForLevel:_levelName]];
+	}
 	[[SoundManager sharedManager] playMusic:musicName loop:FALSE];
 }
 

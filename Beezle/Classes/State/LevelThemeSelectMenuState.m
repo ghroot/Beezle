@@ -12,6 +12,7 @@
 #import "LevelThemeSelectLayer.h"
 #import "LevelSelectMenuState.h"
 #import "CCScrollLayer.h"
+#import "SoundManager.h"
 
 @interface LevelThemeSelectMenuState()
 
@@ -86,6 +87,13 @@
 	_scrollLayer =[[CCScrollLayer alloc] initWithLayers:layers widthOffset:0];
 	[_scrollLayer setShowPagesIndicator:FALSE];
 	[self addChild:_scrollLayer z:20];
+}
+
+-(void) enter
+{
+	[super enter];
+
+	[[SoundManager sharedManager] playMusic:@"MusicMain"];
 }
 
 -(void) update:(ccTime)delta

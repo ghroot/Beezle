@@ -41,6 +41,7 @@
 {
 	[_soundFilePathsByName release];
 	[_soundIdsBySoundName release];
+	[_currentMusicName release];
 	
 	[super dealloc];
 }
@@ -138,8 +139,14 @@
 	if (_isFunctional &&
 		name != nil)
     {
-		NSString *musicFilePath = [_soundFilePathsByName objectForKey:name];
-		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:musicFilePath loop:loop];
+		if (_currentMusicName == nil ||
+			![name isEqualToString:_currentMusicName])
+		{
+			[_currentMusicName release];
+			_currentMusicName = [name copy];
+			NSString *musicFilePath = [_soundFilePathsByName objectForKey:name];
+			[[SimpleAudioEngine sharedEngine] playBackgroundMusic:musicFilePath loop:loop];
+		}
     }
 }
 

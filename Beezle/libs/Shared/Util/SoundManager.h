@@ -15,6 +15,7 @@
     BOOL _isFunctional;
 	NSDictionary *_soundFilePathsByName;
 	NSMutableDictionary *_soundIdsBySoundName;
+	NSString *_currentMusicName;
 }
 
 +(SoundManager *) sharedManager;

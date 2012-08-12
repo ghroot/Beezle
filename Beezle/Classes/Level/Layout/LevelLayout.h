@@ -36,5 +36,6 @@
 
 -(void) addLevelLayoutEntry:(LevelLayoutEntry *)entry;
 -(NSDictionary *) layoutAsDictionary;
+-(BOOL) hasEntityWithType:(NSString *)entityType;
 
 @end

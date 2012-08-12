@@ -12,6 +12,7 @@
 #import "CCBReader.h"
 #import "PlayerInformation.h"
 #import "LevelThemeSelectMenuState.h"
+#import "SoundManager.h"
 
 static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 
@@ -135,6 +136,13 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
     [_draggableNode release];
 	
 	[super dealloc];
+}
+
+-(void) enter
+{
+	[super enter];
+
+	[[SoundManager sharedManager] playMusic:@"MusicMain"];
 }
 
 -(void) startGame:(id)sender

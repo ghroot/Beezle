@@ -77,4 +77,16 @@
 	return [[LevelSerializer sharedSerializer] dictionaryFromLayout:self];
 }
 
+-(BOOL) hasEntityWithType:(NSString *)entityType
+{
+	for (LevelLayoutEntry *entry in _entries)
+	{
+		if ([[entry type] isEqualToString:entityType])
+		{
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+
 @end
