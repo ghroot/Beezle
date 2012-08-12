@@ -18,6 +18,6 @@
 	float _contentWidth;
 }
 
--(id) initWithFileName:(NSString *)fileName;
+-(id) initWithFileName:(NSString *)fileName theme:(NSString *)theme;
 
 @end

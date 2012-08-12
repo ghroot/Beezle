@@ -373,8 +373,9 @@
 			}
 			else if ([tutorialDescription isKindOfClass:[TutorialStripDescription class]])
 			{
+				NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:_levelName];
 				TutorialStripDescription *tutorialStripDescription = (TutorialStripDescription *)tutorialDescription;
-				TutorialStripMenuState *tutorialStripMenuState = [[[TutorialStripMenuState alloc] initWithFileName:[tutorialStripDescription fileName]] autorelease];
+				TutorialStripMenuState *tutorialStripMenuState = [[[TutorialStripMenuState alloc] initWithFileName:[tutorialStripDescription fileName] theme:theme] autorelease];
 				[_game pushState:tutorialStripMenuState];
 			}
 

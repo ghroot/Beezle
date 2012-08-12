@@ -8,14 +8,13 @@
 
 #import "TutorialStripMenuState.h"
 #import "CCMenuNoTouchSwallow.h"
-#import "FullscreenTransparentMenuItem.h"
 #import "Game.h"
 
 static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 
 @implementation TutorialStripMenuState
 
--(id) initWithFileName:(NSString *)fileName
+-(id) initWithFileName:(NSString *)fileName theme:(NSString *)theme
 {
 	if (self = [super init])
 	{
@@ -61,15 +60,21 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 		[self addChild:_draggableNode];
 
 		CCMenu *menu = [CCMenuNoTouchSwallow node];
-		FullscreenTransparentMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
+		CCMenuItemImage *menuItem = [CCMenuItemImage itemWithNormalImage:[NSString stringWithFormat:@"Syst-Check-%@.png", theme] selectedImage:[NSString stringWithFormat:@"Syst-Check2-%@.png", theme] block:^(id sender){
 			if (_didDragEnoughToBlockMenuItems)
 			{
 				return;
 			}
 			[_game popState];
-		} selectedBlock:nil unselectedBlock:nil] autorelease];
+		}];
+		[[menuItem selectedImage] setPosition:CGPointMake([menuItem contentSize].width / 2, [menuItem contentSize].height / 2)];
+		[[menuItem selectedImage] setAnchorPoint:CGPointMake(0.5f, 0.5f)];
+		[menuItem setPosition:CGPointMake(_contentWidth - 5.0f, 5.0f)];
+		[menuItem setAnchorPoint:CGPointMake(1.0f, 0.0f)];
+		[menu setPosition:CGPointZero];
+		[menu setAnchorPoint:CGPointZero];
 		[menu addChild:menuItem];
-		[self addChild:menu];
+		[_draggableNode addChild:menu];
 	}
 	return self;
 }
