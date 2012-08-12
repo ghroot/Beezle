@@ -79,7 +79,10 @@ static const int BATCH_NODE_CAPACITY = 140;
         {
             spriteSheetZOrder = [ZOrder Z_SHEET_D];
         }
-        else if ([name isEqualToString:@"Boss"])
+        else if ([name isEqualToString:@"Boss-A"] ||
+				[name isEqualToString:@"Boss-B"] ||
+				[name isEqualToString:@"Boss-C"] ||
+				[name isEqualToString:@"Boss-D"])
         {
             spriteSheetZOrder = [ZOrder Z_SHEET_BOSS];
         }

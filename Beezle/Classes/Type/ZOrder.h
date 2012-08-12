@@ -24,8 +24,6 @@
 +(ZOrder *) Z_WATER;
 
 +(ZOrder *) Z_SHEET_BOSS;
-+(ZOrder *) Z_SUPER_BEEATER_BODY;
-+(ZOrder *) Z_SUPER_BEEATER_HEAD;
 
 +(ZOrder *) Z_SHEET_A;
 +(ZOrder *) Z_SHEET_B;
