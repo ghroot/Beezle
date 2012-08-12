@@ -13,6 +13,8 @@
 #import "PlayerInformation.h"
 #import "LevelThemeSelectMenuState.h"
 #import "SoundManager.h"
+#import "LevelLayout.h"
+#import "LevelLayoutCache.h"
 
 static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 
@@ -82,7 +84,19 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
         }
 		else
 		{
-			NSString *imageName = [NSString stringWithFormat:@"LevelCell-%@-Bee.png", _theme];
+			NSString *imageName;
+			LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+			if ([levelLayout hasEntityWithType:@"SUPER-BEEATER-A"] ||
+				[levelLayout hasEntityWithType:@"SUPER-BEEATER-B"] ||
+				[levelLayout hasEntityWithType:@"SUPER-BEEATER-C"] ||
+				[levelLayout hasEntityWithType:@"SUPER-BEEATER-D"])
+			{
+				imageName = [NSString stringWithFormat:@"LevelCell-%@-Beeater.png", _theme];
+			}
+			else
+			{
+				imageName = [NSString stringWithFormat:@"LevelCell-%@-Bee.png", _theme];
+			}
 			[menuItemImage setNormalImage:[CCSprite spriteWithFile:imageName]];
 			[menuItemImage setSelectedImage:[CCSprite spriteWithFile:imageName]];
 			[menuItemImage setDisabledImage:[CCSprite spriteWithFile:imageName]];
