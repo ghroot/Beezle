@@ -11,6 +11,8 @@
 #import "cocos2d.h"
 #import "ObjectiveChipmunk.h"
 
+static const int GRAVITY = -90;
+
 /**
   Lets the entity be simulated in a physics world.
  */

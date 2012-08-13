@@ -12,8 +12,11 @@
 @implementation ShardComponent
 
 @synthesize piecesCount = _piecesCount;
-@synthesize piecesSpawnType = _piecesSpawnType;
 @synthesize piecesDistributionType = _piecesDistributionType;
+@synthesize piecesSpriteSheetName = _piecesSpriteSheetName;
+@synthesize piecesAnimationFileName = _piecesAnimationFileName;
+@synthesize piecesAnimations = _piecesAnimations;
+@synthesize piecesSpawnType = _piecesSpawnType;
 @synthesize cacheShardPieceEntities = _cacheShardPieceEntities;
 @synthesize cachedShardPieceEntities = _cachedShardPieceEntities;
 
@@ -31,10 +34,35 @@
 	if (self = [self init])
 	{
         // Type
-        [_piecesEntityTypes addStringsFromDictionary:typeComponentDict baseName:@"piecesEntityType"];
-		if ([typeComponentDict objectForKey:@"piecesCount"] != nil)
+		if ([typeComponentDict objectForKey:@"piecesAnimations"] != nil)
 		{
-			_piecesCount = [[typeComponentDict objectForKey:@"piecesCount"] intValue];
+			_piecesSpriteSheetName = [[typeComponentDict objectForKey:@"piecesSpriteSheet"] copy];
+			_piecesAnimationFileName = [[typeComponentDict objectForKey:@"piecesAnimationFile"] copy];
+			_piecesAnimations = [[NSArray alloc] initWithArray:[typeComponentDict objectForKey:@"piecesAnimations"]];
+		}
+		else
+		{
+			[_piecesEntityTypes addStringsFromDictionary:typeComponentDict baseName:@"piecesEntityType"];
+			if ([typeComponentDict objectForKey:@"piecesCount"] != nil)
+			{
+				_piecesCount = [[typeComponentDict objectForKey:@"piecesCount"] intValue];
+			}
+			if ([typeComponentDict objectForKey:@"piecesDistributionType"] != nil)
+			{
+				NSString *piecesDistributionTypeAsString = [typeComponentDict objectForKey:@"piecesDistributionType"];
+				if ([piecesDistributionTypeAsString isEqualToString:@"SHARD_PIECES_DISTRIBUTION_RANDOM"])
+				{
+					_piecesDistributionType = SHARD_PIECES_DISTRIBUTION_RANDOM;
+				}
+				else if ([piecesDistributionTypeAsString isEqualToString:@"SHARD_PIECES_DISTRIBUTION_SEQUENTIAL"])
+				{
+					_piecesDistributionType = SHARD_PIECES_DISTRIBUTION_SEQUENTIAL;
+				}
+			}
+			else
+			{
+				_piecesDistributionType = SHARD_PIECES_DISTRIBUTION_RANDOM;
+			}
 		}
         if ([typeComponentDict objectForKey:@"piecesSpawnType"] != nil)
 		{
@@ -52,22 +80,6 @@
         {
             _piecesSpawnType = SHARD_PIECES_SPAWN_NORMAL;
         }
-        if ([typeComponentDict objectForKey:@"piecesDistributionType"] != nil)
-        {
-            NSString *piecesDistributionTypeAsString = [typeComponentDict objectForKey:@"piecesDistributionType"];
-            if ([piecesDistributionTypeAsString isEqualToString:@"SHARD_PIECES_DISTRIBUTION_RANDOM"])
-            {
-                _piecesDistributionType = SHARD_PIECES_DISTRIBUTION_RANDOM;
-            }
-            else if ([piecesDistributionTypeAsString isEqualToString:@"SHARD_PIECES_DISTRIBUTION_SEQUENTIAL"])
-            {
-                _piecesDistributionType = SHARD_PIECES_DISTRIBUTION_SEQUENTIAL;
-            }
-        }
-        else
-        {
-            _piecesDistributionType = SHARD_PIECES_DISTRIBUTION_RANDOM;
-        }
 		if ([typeComponentDict objectForKey:@"cacheShardPieceEntities"] != nil)
 		{
 			_cacheShardPieceEntities = [[typeComponentDict objectForKey:@"cacheShardPieceEntities"] boolValue];
@@ -79,6 +91,9 @@
 -(void) dealloc
 {
 	[_piecesEntityTypes release];
+	[_piecesSpriteSheetName release];
+	[_piecesAnimationFileName release];
+	[_piecesAnimations release];
 	[_cachedShardPieceEntities release];
 	
 	[super dealloc];

@@ -31,8 +31,11 @@ typedef enum
     // Type
 	StringCollection *_piecesEntityTypes;
 	int _piecesCount;
-    ShardPiecesSpawnType _piecesSpawnType;
     ShardPiecesDistributionType _piecesDistributionType;
+	NSString *_piecesSpriteSheetName;
+	NSString *_piecesAnimationFileName;
+	NSArray *_piecesAnimations;
+	ShardPiecesSpawnType _piecesSpawnType;
 	BOOL _cacheShardPieceEntities;
 	
 	// Transient
@@ -40,8 +43,11 @@ typedef enum
 }
 
 @property (nonatomic, readonly) int piecesCount;
-@property (nonatomic, readonly) ShardPiecesSpawnType piecesSpawnType;
 @property (nonatomic, readonly) ShardPiecesDistributionType piecesDistributionType;
+@property (nonatomic, copy) NSString *piecesSpriteSheetName;
+@property (nonatomic, copy) NSString *piecesAnimationFileName;
+@property (nonatomic, retain) NSArray *piecesAnimations;
+@property (nonatomic, assign) ShardPiecesSpawnType piecesSpawnType;
 @property (nonatomic, readonly) BOOL cacheShardPieceEntities;
 @property (nonatomic, retain) NSArray *cachedShardPieceEntities;
 

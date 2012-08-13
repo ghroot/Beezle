@@ -11,8 +11,6 @@
 #import "CollisionGroup.h"
 #import "PhysicsSystem.h"
 
-static const int GRAVITY = -90;
-
 @implementation PhysicsComponent
 
 @synthesize body = _body;

@@ -30,6 +30,9 @@
 #import "TeleportOutSprite.h"
 #import "TeleportComponent.h"
 #import "TeleportInSprite.h"
+#import "ShardComponent.h"
+#import "VolatileComponent.h"
+#import "DisposableComponent.h"
 
 static const float BACKGROUND_FRICTION = 0.7f;
 static const float BACKGROUND_ELASTICITY = 0.7f;
@@ -428,6 +431,77 @@ static const int AIM_POLLEN_LAYERS = 2;
 	
 	[entity refresh];
 	
+	return entity;
+}
+
++(Entity *) createShardPieceEntity:(World *)world animationName:(NSString *)animationName smallAnimationNames:(NSArray *)smallAnimationNames spriteSheetName:(NSString *)spriteSheetName animationFile:(NSString *)animationFile
+{
+	Entity *entity = [world createEntity];
+
+	// Transform
+	TransformComponent *transformComponent = [TransformComponent component];
+	[entity addComponent:transformComponent];
+
+	// Render
+	RenderSystem *renderSystem = (RenderSystem *)[[world systemManager] getSystem:[RenderSystem class]];
+	RenderSprite *renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:spriteSheetName animationFile:animationFile zOrder:[ZOrder Z_DEFAULT]];
+	[renderSprite playAnimationLoop:animationName];
+	RenderComponent *renderComponent = [RenderComponent componentWithRenderSprite:renderSprite];
+	[entity addComponent:renderComponent];
+
+	// Physics
+	ChipmunkBody *body = [ChipmunkBody bodyWithMass:1.0f andMoment:1.0f];
+	float force = [body mass] * GRAVITY;
+	[body applyForce:CGPointMake(0.0f, force) offset:CGPointZero];
+	NSMutableArray *shapes = [NSMutableArray array];
+	int numVerts = 4;
+	CGPoint verts[] = {
+		cpv(-10.0f, -6.0f),
+		cpv(-10.0f, 6.0f),
+		cpv(10.0f, 6.0f),
+		cpv(10.0f, -6.0f)
+	};
+	for (int i = 0; i < numVerts; i++)
+	{
+		ChipmunkShape *shape = [ChipmunkPolyShape polyWithBody:body count:numVerts verts:verts offset:CGPointZero];
+		[shape setFriction:0.6];
+		[shape setElasticity:0.5f];
+		[shape setLayers:2];
+		[shape setGroup:[CollisionGroup OBJECT]];
+		[shapes addObject:shape];
+	}
+	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShapes:shapes];
+	[entity addComponent:physicsComponent];
+
+	if (smallAnimationNames != nil)
+	{
+		// Disposable
+		DisposableComponent *disposableComponent = [DisposableComponent component];
+		[disposableComponent setDeleteEntityWhenDisposed:TRUE];
+		[entity addComponent:disposableComponent];
+
+		// Shard
+		ShardComponent *shardComponent = [ShardComponent component];
+		[shardComponent setPiecesSpriteSheetName:spriteSheetName];
+		[shardComponent setPiecesAnimationFileName:animationFile];
+		NSMutableArray *smallPiecesAnimations = [NSMutableArray array];
+		for (NSString *smallAnimationName in smallAnimationNames)
+		{
+			NSMutableDictionary *smallPieceAnimation = [NSMutableDictionary dictionary];
+			[smallPieceAnimation setObject:smallAnimationName forKey:@"pieceAnimation"];
+			[smallPiecesAnimations addObject:smallPieceAnimation];
+		}
+		[shardComponent setPiecesAnimations:smallPiecesAnimations];
+		[shardComponent setPiecesSpawnType:SHARD_PIECES_SPAWN_FADEOUT];
+		[entity addComponent:shardComponent];
+
+		// Volatile
+		VolatileComponent *volatileComponent = [VolatileComponent component];
+		[entity addComponent:volatileComponent];
+	}
+
+	[entity refresh];
+
 	return entity;
 }
 

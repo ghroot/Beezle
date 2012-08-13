@@ -150,11 +150,23 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 -(NSArray *) createShardPieceEntities:(Entity *)entity
 {
 	NSMutableArray *shardPieceEntities = [NSMutableArray array];
-	NSArray *shardPieceEntityTypes = [self generateShardPieceEntityTypes:entity];
-	for (NSString *shardPieceEntityType in shardPieceEntityTypes)
+	ShardComponent *shardComponent = [_shardComponentMapper getComponentFor:entity];
+	if ([shardComponent piecesAnimations] != nil)
 	{
-		Entity *shardPieceEntity = [EntityFactory createEntity:shardPieceEntityType world:_world];
-		[shardPieceEntities addObject:shardPieceEntity];
+		for (NSDictionary *pieceAnimationDict in [shardComponent piecesAnimations])
+		{
+			Entity *shardPieceEntity = [EntityFactory createShardPieceEntity:_world animationName:[pieceAnimationDict objectForKey:@"pieceAnimation"] smallAnimationNames:[pieceAnimationDict objectForKey:@"smallPiecesAnimations"] spriteSheetName:[shardComponent piecesSpriteSheetName] animationFile:[shardComponent piecesAnimationFileName]];
+			[shardPieceEntities addObject:shardPieceEntity];
+		}
+	}
+	else
+	{
+		NSArray *shardPieceEntityTypes = [self generateShardPieceEntityTypes:entity];
+		for (NSString *shardPieceEntityType in shardPieceEntityTypes)
+		{
+			Entity *shardPieceEntity = [EntityFactory createEntity:shardPieceEntityType world:_world];
+			[shardPieceEntities addObject:shardPieceEntity];
+		}
 	}
 	return shardPieceEntities;
 }
