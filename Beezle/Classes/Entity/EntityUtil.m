@@ -16,6 +16,7 @@
 #import "SoundManager.h"
 #import "TransformComponent.h"
 #import "WaterComponent.h"
+#import "HealthComponent.h"
 
 @implementation EntityUtil
 
@@ -131,6 +132,23 @@
 
 +(void) destroyEntity:(Entity *)entity instant:(BOOL)instant
 {
+	if ([entity hasComponent:[HealthComponent class]])
+	{
+		HealthComponent *healthComponent = [HealthComponent getFrom:entity];
+		[healthComponent deductHealthPoint];
+		if ([healthComponent hasHealthPointsLeft])
+		{
+			RenderComponent *renderComponent = [RenderComponent getFrom:entity];
+			for (RenderSprite *renderSprite in [renderComponent renderSprites])
+			{
+				NSString *hitAnimationName = [healthComponent hitAnimationNameForRenderSpriteName:[renderSprite name]];
+				NSString *idleAnimationName = [renderSprite randomDefaultIdleAnimationName];
+				[renderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:hitAnimationName, idleAnimationName, nil]];
+			}
+			return;
+		}
+	}
+
 	if ([self isEntityDisposable:entity])
 	{
 		if (instant)

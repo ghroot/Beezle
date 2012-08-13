@@ -26,7 +26,6 @@
 @synthesize scale = _scale;
 @synthesize offset = _offset;
 @synthesize defaultIdleAnimationNames = _defaultIdleAnimationNames;
-@synthesize defaultHitAnimationNames = _defaultHitAnimationNames;
 @synthesize defaultDestroyAnimationNames = _defaultDestroyAnimationNames;
 @synthesize defaultStillAnimationNames = _defaultStillAnimationNames;
 
@@ -68,7 +67,6 @@
         _scale = CGPointMake(1.0f, 1.0f);
 		_offset = CGPointZero;
 		_defaultIdleAnimationNames = [StringCollection new];
-		_defaultHitAnimationNames = [StringCollection new];
 		_defaultDestroyAnimationNames = [StringCollection new];
 		_defaultStillAnimationNames = [StringCollection new];
 	}
@@ -111,7 +109,6 @@
     [_sprite release];
     [_name release];
 	[_defaultIdleAnimationNames release];
-	[_defaultHitAnimationNames release];
 	[_defaultDestroyAnimationNames release];
 	[_defaultStillAnimationNames release];
     
@@ -264,24 +261,6 @@
 -(void) playDefaultDestroyAnimationAndCallBlockAtEnd:(void(^)())block
 {
 	[self playAnimationOnce:[self randomDefaultDestroyAnimationName] andCallBlockAtEnd:block];
-}
-
--(BOOL) hasDefaultHitAnimation
-{
-	return [_defaultHitAnimationNames hasStrings];
-}
-
--(NSString *) randomDefaultHitAnimationName
-{
-	return [_defaultHitAnimationNames randomString];
-}
-
--(void) playDefaultHitAnimation
-{
-	if ([self hasDefaultHitAnimation])
-	{
-		[self playAnimationsLoopLast:[NSArray arrayWithObjects:[self randomDefaultHitAnimationName], [self randomDefaultIdleAnimationName], nil]];
-	}
 }
 
 -(BOOL) hasDefaultStillAnimation

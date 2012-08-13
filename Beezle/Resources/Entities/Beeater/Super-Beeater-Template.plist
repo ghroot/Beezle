@@ -19,6 +19,19 @@
 		<dict>
 			<key>totalHealthPoints</key>
 			<string>%healthTotalHealthPoints%</string>
+            <key>hitAnimations</key>
+            <dict>
+                <key>tail</key>
+                <string>%healthHitAnimationTail%</string>
+                <key>headBack</key>
+                <string>%healthHitAnimationHeadBack%</string>
+                <key>bees</key>
+                <string>%healthHitAnimationBees%</string>
+                <key>headFront</key>
+                <string>%healthHitAnimationHeadFront%</string>
+                <key>wing</key>
+                <string>%healthHitAnimationWing%</string>
+            </dict>
 		</dict>
 		<key>movement</key>
 		<dict/>
@@ -69,8 +82,6 @@
 					<string>{ 0.2, 0.75 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>%renderDefaultIdleAnimationTail%</string>
-					<key>defaultHitAnimation</key>
-					<string>%renderDefaultHitAnimationTail%</string>
 					<key>defaultDestroyAnimation</key>
 					<string>%renderDefaultDestroyAnimationTail%</string>
 				</dict>
@@ -85,8 +96,6 @@
 					<string>{ 0.5, 0.5 }</string>
                     <key>defaultIdleAnimation</key>
                     <string>%renderDefaultIdleAnimationHeadBack%</string>
-                    <key>defaultHitAnimation</key>
-                    <string>%renderDefaultHitAnimationHeadBack%</string>
                     <key>defaultDestroyAnimation</key>
                     <string>%renderDefaultDestroyAnimationHeadBack%</string>
 				</dict>
@@ -100,8 +109,6 @@
                     <key>anchorPoint</key>
                     <string>{ 1.8, 0.8 }</string>
                     <key>defaultIdleAnimation</key>
-                    <string>%renderDefaultAnimationsBees%</string>
-                    <key>defaultHitAnimation</key>
                     <string>%renderDefaultAnimationsBees%</string>
                     <key>defaultDestroyAnimation</key>
                     <string>%renderDefaultAnimationsBees%</string>
@@ -117,8 +124,6 @@
 					<string>{ 0.5, 0.5 }</string>
                     <key>defaultIdleAnimation</key>
                     <string>%renderDefaultIdleAnimationHeadFront%</string>
-                    <key>defaultHitAnimation</key>
-                    <string>%renderDefaultHitAnimationHeadFront%</string>
                     <key>defaultDestroyAnimation</key>
                     <string>%renderDefaultDestroyAnimationHeadFront%</string>
 				</dict>
@@ -133,8 +138,6 @@
 					<string>{ 0.5, 0.5 }</string>
                     <key>defaultIdleAnimation</key>
                     <string>%renderDefaultIdleAnimationWing%</string>
-                    <key>defaultHitAnimation</key>
-                    <string>%renderDefaultHitAnimationWing%</string>
                     <key>defaultDestroyAnimation</key>
                     <string>%renderDefaultDestroyAnimationWing%</string>
 				</dict>

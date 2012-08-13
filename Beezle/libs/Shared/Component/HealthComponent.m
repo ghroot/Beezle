@@ -16,9 +16,18 @@
 	{
         // Type
         _totalHealthPoints = [[typeComponentDict objectForKey:@"totalHealthPoints"] intValue];
+		_hitAnimationNamesByRenderSpriteName = [[NSDictionary alloc] initWithDictionary:[typeComponentDict objectForKey:@"hitAnimations"]];
 	}
 	return self;
 }
+
+-(void) dealloc
+{
+	[_hitAnimationNamesByRenderSpriteName release];
+
+	[super dealloc];
+}
+
 
 -(void) resetHealthPointsLeft
 {
@@ -33,6 +42,11 @@
 -(BOOL) hasHealthPointsLeft
 {
 	return _healthPointsLeft > 0;
+}
+
+-(NSString *) hitAnimationNameForRenderSpriteName:(NSString *)renderSpriteName
+{
+	return [_hitAnimationNamesByRenderSpriteName objectForKey:renderSpriteName];
 }
 
 @end

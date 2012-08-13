@@ -13,8 +13,9 @@
  */
 @interface HealthComponent : Component
 {
-    // Instance
+    // Type
 	int _totalHealthPoints;
+	NSDictionary *_hitAnimationNamesByRenderSpriteName;
     
     // Transient
 	int _healthPointsLeft;
@@ -23,5 +24,6 @@
 -(void) resetHealthPointsLeft;
 -(void) deductHealthPoint;
 -(BOOL) hasHealthPointsLeft;
+-(NSString *) hitAnimationNameForRenderSpriteName:(NSString *)renderSpriteName;
 
 @end

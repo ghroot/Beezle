@@ -8,14 +8,9 @@
 
 #import "artemis.h"
 
-@class NotificationProcessor;
-
 @interface HealthSystem : EntityComponentSystem
 {
 	ComponentMapper *_healthComponentMapper;
-	ComponentMapper *_renderComponentMapper;
-
-	NotificationProcessor *_notificationProcessor;
 }
 
 @end

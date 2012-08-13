@@ -21,7 +21,6 @@
     CGPoint _scale;
 	CGPoint _offset;
 	StringCollection *_defaultIdleAnimationNames;
-	StringCollection *_defaultHitAnimationNames;
     StringCollection *_defaultDestroyAnimationNames;
 	StringCollection *_defaultStillAnimationNames;
 }
@@ -33,7 +32,6 @@
 @property (nonatomic) CGPoint scale;
 @property (nonatomic) CGPoint offset;
 @property (nonatomic, readonly) StringCollection *defaultIdleAnimationNames;
-@property (nonatomic, readonly) StringCollection *defaultHitAnimationNames;
 @property (nonatomic, readonly) StringCollection *defaultDestroyAnimationNames;
 @property (nonatomic, readonly) StringCollection *defaultStillAnimationNames;
 
@@ -64,9 +62,6 @@
 -(NSString *) randomDefaultDestroyAnimationName;
 -(void) playDefaultDestroyAnimation;
 -(void) playDefaultDestroyAnimationAndCallBlockAtEnd:(void(^)())block;
--(BOOL) hasDefaultHitAnimation;
--(NSString *) randomDefaultHitAnimationName;
--(void) playDefaultHitAnimation;
 -(BOOL) hasDefaultStillAnimation;
 -(NSString *) randomDefaultStillAnimationName;
 -(void) playDefaultStillAnimation;
