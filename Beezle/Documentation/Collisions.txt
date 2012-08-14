@@ -1,0 +1,55 @@
+* AnythingWithTeleport (false)
+Adds anything entity to teleport component.
+Hides sprite and disables physics.
+
+* AnythingWithVoid (false) DF
+Destroys anything entity, can be instant or not.
+
+* AnythingWithVolatile (true) DS
+Destroys volatile entity.
+
+* BeeWithBeeater (true) DF, DS
+Destroys bee entity if out of beeater kills.
+Destroys beeater entity.
+
+* BeeWithSpike (true) DF
+Destroys bee entity unless armored.
+
+* ConsumerWithPollen (true)
+[Ignored if isAboutToBeDeleted]
+Adds pollen.
+Spawns pollen text label.
+
+* DozerWithCrumble (false) DS
+Destroys crumble entity.
+
+* PossessWithSpirit (false) DF, DS
+Destroys possess entity instantly.
+Destroys spirit entity.
+
+* PulverizeWithPulverizable (false) AS
+[Marks isAboutToBeDeleted]
+Saves captured bee.
+Plays pulver animation.
+
+* SawWithWood (false) DF, DS
+Destroys saw entity instantly.
+Destroys wood entity (after storing shape index).
+
+* SolidWithBoost (true)
+Applies physics impulse to solid entity.
+
+* SolidWithBreakable (true) DS
+Destroys breakable entity.
+
+* SolidWithSound (true)
+Plays collision sound.
+
+* SolidWithWater (false) DF
+Destroys solid entity instantly.
+Spawns splash entity.
+Makes wave in water.
+Plays splash sound.
+
+* SolidWithWobble (true) AS
+Plays wobble animation.
