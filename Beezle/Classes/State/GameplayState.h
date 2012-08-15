@@ -34,7 +34,6 @@
 @class SlingerControlSystem;
 @class SpawnSystem;
 @class WaterWaveSystem;
-@class WoodSystem;
 @class FollowControlSystem;
 @class DestructControlSystem;
 @class FadeSystem;
@@ -76,7 +75,6 @@
 	DestructControlSystem *_destructControlSystem;
 	FollowControlSystem *_followControlSystem;
 	SpawnSystem *_spawnSystem;
-	WoodSystem *_woodSystem;
 	SandSystem *_sandSystem;
 	ShakeSystem *_shakeSystem;
 	HealthSystem *_healthSystem;
@@ -114,7 +112,6 @@
 @property (nonatomic, readonly) SlingerControlSystem *slingerControlSystem;
 @property (nonatomic, readonly) SpawnSystem *spawnSystem;
 @property (nonatomic, readonly) TeleportSystem *teleportSystem;
-@property (nonatomic, readonly) WoodSystem *woodSystem;
 @property (nonatomic, readonly) WaterWaveSystem *waterWaveSystem;
 
 

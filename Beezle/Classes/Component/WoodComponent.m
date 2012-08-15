@@ -11,14 +11,11 @@
 
 @implementation WoodComponent
 
-@synthesize shapeIndexAtSawCollision = _shapeIndexAtSawCollision;
-
 -(id) init
 {
 	if (self = [super init])
 	{
 		_sawedAnimationNames = [StringCollection new];
-		_shapeIndexAtSawCollision = -1;
 	}
 	return self;
 }

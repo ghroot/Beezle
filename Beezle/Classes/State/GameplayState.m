@@ -38,7 +38,6 @@
 #import "SoundManager.h"
 #import "SpawnSystem.h"
 #import "WaterWaveSystem.h"
-#import "WoodSystem.h"
 #import "FollowControlSystem.h"
 #import "DestructControlSystem.h"
 #import "FadeSystem.h"
@@ -121,7 +120,6 @@
 @synthesize spawnSystem = _spawnSystem;
 @synthesize teleportSystem = _teleportSystem;
 @synthesize waterWaveSystem = _waterWaveSystem;
-@synthesize woodSystem = _woodSystem;
 @synthesize followControlSystem = _followControlSystem;
 
 +(id) stateWithLevelName:(NSString *)levelName
@@ -233,8 +231,6 @@
 	[systemManager setSystem:_shardSystem];
 	_spawnSystem = [SpawnSystem system];
 	[systemManager setSystem:_spawnSystem];
-	_woodSystem = [WoodSystem system];
-	[systemManager setSystem:_woodSystem];
 	_sandSystem = [SandSystem system];
 	[systemManager setSystem:_sandSystem];
 	_shakeSystem = [ShakeSystem system];
@@ -263,12 +259,12 @@
 	[_collisionSystem registerCollisionHandler:[ConsumerWithPollenCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[DozerWithCrumbleCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[PossessWithSpiritCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[_collisionSystem registerCollisionHandler:[SawWithWoodCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[SolidWithSoundCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[SolidWithBoostCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[SolidWithBreakableCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[SolidWithWaterCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[SolidWithWobbleCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[SawWithWoodCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 }
 
 -(void) createModes

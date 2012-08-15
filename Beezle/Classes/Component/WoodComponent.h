@@ -17,12 +17,7 @@
 {
 	// Type
 	StringCollection *_sawedAnimationNames;
-
-    // Transient
-	int _shapeIndexAtSawCollision;
 }
-
-@property (nonatomic) int shapeIndexAtSawCollision;
 
 -(NSString *) randomSawedAnimationName;
 

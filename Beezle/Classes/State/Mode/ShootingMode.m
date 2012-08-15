@@ -43,7 +43,6 @@
 		[_systems addObject:[gameplayState capturedSystem]];
 		[_systems addObject:[gameplayState beeQueueRenderingSystem]];
 		[_systems addObject:[gameplayState shardSystem]];
-		[_systems addObject:[gameplayState woodSystem]];
 		[_systems addObject:[gameplayState sandSystem]];
 		[_systems addObject:[gameplayState spawnSystem]];
 		[_systems addObject:[gameplayState shakeSystem]];
