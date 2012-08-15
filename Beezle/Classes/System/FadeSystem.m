@@ -11,6 +11,7 @@
 #import "EntityUtil.h"
 #import "RenderComponent.h"
 #import "RenderSprite.h"
+#import "DisposableComponent.h"
 
 @interface FadeSystem()
 
@@ -38,6 +39,7 @@
 {
 	_fadeComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[FadeComponent class]];
 	_renderComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[RenderComponent class]];
+	_disposableComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[DisposableComponent class]];
 }
 
 -(void) entityAdded:(Entity *)entity
@@ -49,6 +51,13 @@
 
 -(void) processEntity:(Entity *)entity
 {
+	if ([_disposableComponentMapper hasEntityComponent:entity] &&
+		[[_disposableComponentMapper getComponentFor:entity] isAboutToBeDeleted])
+	{
+		// We don't want to interrupt a destroy animation
+		return;
+	}
+
 	FadeComponent *fadeComponent = [_fadeComponentMapper getComponentFor:entity];
 	if (![fadeComponent hasCountdownReachedZero])
 	{

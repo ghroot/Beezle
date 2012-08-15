@@ -12,6 +12,7 @@
 {
 	ComponentMapper *_fadeComponentMapper;
 	ComponentMapper *_renderComponentMapper;
+	ComponentMapper *_disposableComponentMapper;
 }
 
 @end
