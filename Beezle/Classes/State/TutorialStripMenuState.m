@@ -9,6 +9,7 @@
 #import "TutorialStripMenuState.h"
 #import "CCMenuNoTouchSwallow.h"
 #import "Game.h"
+#import "ScrollView.h"
 
 static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 
@@ -20,10 +21,12 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 	{
 		NSString *filePath = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:fileName];
 		CCSprite *singleSprite = [CCSprite spriteWithFile:filePath];
+		CCNode *draggableNode;
+		float contentWidth;
 		if (singleSprite != nil)
 		{
-			_contentWidth = [singleSprite contentSize].width;
-			_draggableNode = [singleSprite retain];
+			draggableNode = singleSprite;
+			contentWidth = [singleSprite contentSize].width;
 		}
 		else
 		{
@@ -53,15 +56,16 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 				}
 			}
 
-			_contentWidth = currentX;
-			_draggableNode = [multiSprite retain];
+			contentWidth = currentX;
+			draggableNode = multiSprite;
 		}
-		[_draggableNode setAnchorPoint:CGPointZero];
-		[self addChild:_draggableNode];
+		[draggableNode setAnchorPoint:CGPointZero];
+		CGSize winSize = [[CCDirector sharedDirector] winSize];
+		[draggableNode setContentSize:CGSizeMake(contentWidth, winSize.height)];
 
 		CCMenu *menu = [CCMenuNoTouchSwallow node];
 		CCMenuItemImage *menuItem = [CCMenuItemImage itemWithNormalImage:[NSString stringWithFormat:@"Syst-Check-%@.png", theme] selectedImage:[NSString stringWithFormat:@"Syst-Check2-%@.png", theme] block:^(id sender){
-			if (_didDragEnoughToBlockMenuItems)
+			if ([_scrollView didDragSignificantDistance])
 			{
 				return;
 			}
@@ -69,59 +73,25 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 		}];
 		[[menuItem selectedImage] setPosition:CGPointMake([menuItem contentSize].width / 2, [menuItem contentSize].height / 2)];
 		[[menuItem selectedImage] setAnchorPoint:CGPointMake(0.5f, 0.5f)];
-		[menuItem setPosition:CGPointMake(_contentWidth - 5.0f, 5.0f)];
+		[menuItem setPosition:CGPointMake(contentWidth - 5.0f, 5.0f)];
 		[menuItem setAnchorPoint:CGPointMake(1.0f, 0.0f)];
 		[menu setPosition:CGPointZero];
 		[menu setAnchorPoint:CGPointZero];
 		[menu addChild:menuItem];
-		[_draggableNode addChild:menu];
+		[draggableNode addChild:menu];
+
+		_scrollView = [[ScrollView alloc] initWithContent:draggableNode];
+		[self addChild:_scrollView];
 	}
 	return self;
 }
 
 -(void) dealloc
 {
-	[_draggableNode release];
+	[_scrollView release];
 
 	[super dealloc];
 }
 
--(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
-{
-	CGPoint location = [touch locationInView: [touch view]];
-	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
-
-	if (_isDragging)
-	{
-		if (!_didDragEnoughToBlockMenuItems &&
-			abs(_startDragTouchX - convertedLocation.x) >= DRAG_DISTANCE_BLOCK_MENU_ITEMS)
-		{
-			_didDragEnoughToBlockMenuItems = TRUE;
-		}
-
-		CGSize winSize = [[CCDirector sharedDirector] winSize];
-		float newX = _startDragNodeX + (convertedLocation.x - _startDragTouchX);
-		newX = min(0, newX);
-		newX = max(-(_contentWidth - winSize.width), newX);
-		[_draggableNode setPosition:CGPointMake(newX, 0)];
-	}
-	else
-	{
-		_isDragging = TRUE;
-		_startDragTouchX = convertedLocation.x;
-		_startDragNodeX = [_draggableNode position].x;
-	}
-}
-
--(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
-{
-	_isDragging = FALSE;
-	_didDragEnoughToBlockMenuItems = FALSE;
-}
-
--(void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
-{
-	[self ccTouchEnded:touch withEvent:event];
-}
 
 @end

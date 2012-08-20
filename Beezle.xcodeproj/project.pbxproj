@@ -2194,6 +2194,7 @@
 		2CF8E0F61576B45F0052F62E /* Syst-Check2-D-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F62D /* Syst-Check2-D-hd.png */; };
 		2CF8E0F61576B45F0052F630 /* Syst-Check2-D.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F62F /* Syst-Check2-D.png */; };
 		2CF8E0F61576B45F0052F633 /* TeleportInSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F632 /* TeleportInSprite.m */; };
+		2CF8E0F61576B45F0052F636 /* ScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F635 /* ScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4755,6 +4756,8 @@
 		2CF8E0F61576B45F0052F62F /* Syst-Check2-D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Check2-D.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F631 /* TeleportInSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeleportInSprite.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F632 /* TeleportInSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeleportInSprite.m; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F634 /* ScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollView.h; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F635 /* ScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -7177,6 +7180,8 @@
 		2C74B54C156FAD3900596A22 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F635 /* ScrollView.m */,
+				2CF8E0F61576B45F0052F634 /* ScrollView.h */,
 				2C74B54D156FAD3900596A22 /* CoverLayer.h */,
 				2C74B54E156FAD3900596A22 /* CoverLayer.m */,
 				2C74B54F156FAD3900596A22 /* Dialog.h */,
@@ -10737,6 +10742,7 @@
 				2CF8E0F61576B45F0052F5D9 /* TutorialStripMenuState.m in Sources */,
 				2CF8E0F61576B45F0052F60C /* MemoryManager.m in Sources */,
 				2CF8E0F61576B45F0052F633 /* TeleportInSprite.m in Sources */,
+				2CF8E0F61576B45F0052F636 /* ScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

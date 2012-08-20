@@ -12,11 +12,11 @@
 #import "CCBReader.h"
 #import "PlayerInformation.h"
 #import "LevelThemeSelectMenuState.h"
+#import "ScrollView.h"
 #import "SoundManager.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
-
-static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
+#import "ScrollView.h"
 
 @interface LevelSelectMenuState()
 
@@ -70,8 +70,8 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 {
 //    NSString *nodeFileName = [NSString stringWithFormat:@"LevelSelect-%@.ccbi", _theme];
     NSString *nodeFileName = @"LevelSelect-A.ccbi";
-	_draggableNode = [[CCBReader nodeGraphFromFile:nodeFileName owner:self] retain];
-    CCMenu *menu = [self getMenu:_draggableNode];
+	CCNode *draggableNode = [CCBReader nodeGraphFromFile:nodeFileName owner:self];
+    CCMenu *menu = [self getMenu:draggableNode];
     for (CCMenuItemImage *menuItemImage in [menu children])
     {
         NSString *levelName = [NSString stringWithFormat:@"Level-%@%d", _theme, [menuItemImage tag]];
@@ -106,9 +106,13 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
         CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:levelString charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'] autorelease];
         [label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
         [label setPosition:[menuItemImage position]];
-        [_draggableNode addChild:label];
+        [draggableNode addChild:label];
+		CGSize winSize = [[CCDirector sharedDirector] winSize];
+		[draggableNode setContentSize:CGSizeMake(1200.0f, winSize.height)];
     }
-	[self addChild:_draggableNode];
+
+	_scrollView = [[ScrollView alloc] initWithContent:draggableNode];
+	[self addChild:_scrollView];
 }
 
 -(CCMenu *) getMenu:(CCNode *)node
@@ -127,7 +131,7 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 {
     CCMenu *backMenu = [CCMenu node];
 	CCMenuItemImage *backMenuItem = [CCMenuItemImage itemWithNormalImage:@"ReturnArrow.png" selectedImage:@"ReturnArrow.png" block:^(id sender){
-        if (_didDragEnoughToBlockMenuItems)
+        if ([_scrollView didDragSignificantDistance])
         {
             return;
         }
@@ -147,7 +151,7 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 -(void) dealloc
 {
 	[_theme release];
-    [_draggableNode release];
+	[_scrollView release];
 	
 	[super dealloc];
 }
@@ -161,7 +165,7 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 
 -(void) startGame:(id)sender
 {
-    if (_didDragEnoughToBlockMenuItems)
+    if ([_scrollView didDragSignificantDistance])
     {
         return;
     }
@@ -169,43 +173,6 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 	CCMenuItemImage *menuItem = (CCMenuItemImage *)sender;
 	NSString *levelName = [NSString stringWithFormat:@"Level-%@%d", _theme, [menuItem tag]];
 	[_game clearAndReplaceState:[GameplayState stateWithLevelName:levelName]];
-}
-
--(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
-{
-	CGPoint location = [touch locationInView: [touch view]];
-	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
-
-	if (_isDragging)
-	{
-		if (!_didDragEnoughToBlockMenuItems &&
-			abs(_startDragTouchX - convertedLocation.x) >= DRAG_DISTANCE_BLOCK_MENU_ITEMS)
-		{
-			_didDragEnoughToBlockMenuItems = TRUE;
-		}
-
-		float newX = _startDragNodeX + (convertedLocation.x - _startDragTouchX);
-		newX = min(0, newX);
-		newX = max(-720, newX);
-		[_draggableNode setPosition:CGPointMake(newX, 0)];
-	}
-	else
-	{
-		_isDragging = TRUE;
-		_startDragTouchX = convertedLocation.x;
-		_startDragNodeX = [_draggableNode position].x;
-	}
-}
-
--(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
-{
-    _isDragging = FALSE;
-	_didDragEnoughToBlockMenuItems = FALSE;
-}
-
--(void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
-{
-    [self ccTouchEnded:touch withEvent:event];
 }
 
 @end

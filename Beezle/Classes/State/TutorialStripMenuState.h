@@ -8,14 +8,11 @@
 
 #import "GameState.h"
 
+@class ScrollView;
+
 @interface TutorialStripMenuState : GameState
 {
-	CCNode *_draggableNode;
-	BOOL _isDragging;
-	BOOL _didDragEnoughToBlockMenuItems;
-	float _startDragTouchX;
-	float _startDragNodeX;
-	float _contentWidth;
+	ScrollView *_scrollView;
 }
 
 -(id) initWithFileName:(NSString *)fileName theme:(NSString *)theme;

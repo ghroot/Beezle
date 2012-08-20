@@ -9,14 +9,12 @@
 #import "GameState.h"
 #import "cocos2d.h"
 
+@class ScrollView;
+
 @interface LevelSelectMenuState : GameState <CCTargetedTouchDelegate>
 {
 	NSString *_theme;
-    CCNode *_draggableNode;
-    BOOL _isDragging;
-	BOOL _didDragEnoughToBlockMenuItems;
-    float _startDragTouchX;
-    float _startDragNodeX;
+	ScrollView *_scrollView;
 }
 
 +(LevelSelectMenuState *) stateWithTheme:(NSString *)theme;
