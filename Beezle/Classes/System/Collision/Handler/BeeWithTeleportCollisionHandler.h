@@ -1,5 +1,5 @@
 //
-//  AnythingWithTeleportCollisionHandler.h
+//  BeeWithTeleportCollisionHandler.h
 //  Beezle
 //
 //  Created by Marcus Lagerstrom on 08/05/12.
@@ -8,6 +8,6 @@
 
 #import "CollisionHandler.h"
 
-@interface AnythingWithTeleportCollisionHandler : CollisionHandler
+@interface BeeWithTeleportCollisionHandler : CollisionHandler
 
 @end

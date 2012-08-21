@@ -59,7 +59,6 @@
 #import "PausedMenuState.h"
 #import "Game.h"
 #import "PossessWithSpiritCollisionHandler.h"
-#import "AnythingWithTeleportCollisionHandler.h"
 #import "BalloonDialog.h"
 #import "Utils.h"
 #import "TutorialDescription.h"
@@ -77,6 +76,7 @@
 #import "TutorialStripDescription.h"
 #import "TutorialStripMenuState.h"
 #import "NSObject+PWObject.h"
+#import "BeeWithTeleportCollisionHandler.h"
 
 @interface GameplayState()
 
@@ -251,7 +251,7 @@
 -(void) registerCollisionHandlers
 {
 	[_collisionSystem registerCollisionHandler:[PulverizeWithPulverizableCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[_collisionSystem registerCollisionHandler:[AnythingWithTeleportCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[BeeWithTeleportCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[AnythingWithVoidCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[AnythingWithVolatileCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[BeeWithBeeaterCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
