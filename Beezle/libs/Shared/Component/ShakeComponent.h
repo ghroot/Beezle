@@ -9,7 +9,7 @@
 #import "artemis.h"
 
 /**
-  Shakes on disposal.
+  Shakes the entity when hit or destroyed.
  */
 @interface ShakeComponent : Component
 

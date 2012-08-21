@@ -20,6 +20,8 @@
 @interface ShakeSystem()
 
 -(void) handleEntityDisposed:(NSNotification *)notification;
+-(void) handleEntityHit:(NSNotification *)notification;
+-(void) shakeEntity:(Entity *)entity;
 
 @end
 
@@ -31,6 +33,7 @@
 	{
 		_notificationProcessor = [[NotificationProcessor alloc] initWithTarget:self];
 		[_notificationProcessor registerNotification:GAME_NOTIFICATION_ENTITY_DISPOSED withSelector:@selector(handleEntityDisposed:)];
+		[_notificationProcessor registerNotification:GAME_NOTIFICATION_ENTITY_HIT withSelector:@selector(handleEntityHit:)];
 	}
 	return self;
 }
@@ -75,37 +78,51 @@
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
 	if ([_shakeComponentMapper hasEntityComponent:entity])
 	{
-		RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
+		[self shakeEntity:entity];;
+	}
+}
 
-		NSMutableArray *actions = [NSMutableArray arrayWithCapacity:NUMBER_OF_SHAKES];
-		for (int i = 0; i < NUMBER_OF_SHAKES; i++)
-		{
-			CCCallBlock *callBlockAction1 = [CCCallBlock actionWithBlock:^{
-				CGPoint offset;
-				offset.x = -SHAKE_MAX_DISTANCE + rand() % (2 * SHAKE_MAX_DISTANCE);
-				offset.y = -SHAKE_MAX_DISTANCE + rand() % (2 * SHAKE_MAX_DISTANCE);
-				for (RenderSprite *renderSprite in [renderComponent renderSprites])
-				{
-					[renderSprite setOffset:offset];
-				}
-			}];
-			[actions addObject:callBlockAction1];
-			
-			CCDelayTime *delayTimeAction = [CCDelayTime actionWithDuration:DELAY_BETWEEN_SHAKES];
-			[actions addObject:delayTimeAction];
-		}
-		
-		CCCallBlock *callBlockAction2 = [CCCallBlock actionWithBlock:^{
+-(void) handleEntityHit:(NSNotification *)notification
+{
+	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
+	if ([_shakeComponentMapper hasEntityComponent:entity])
+	{
+		[self shakeEntity:entity];;
+	}
+}
+
+-(void) shakeEntity:(Entity *)entity
+{
+	RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
+
+	NSMutableArray *actions = [NSMutableArray arrayWithCapacity:NUMBER_OF_SHAKES];
+	for (int i = 0; i < NUMBER_OF_SHAKES; i++)
+	{
+		CCCallBlock *callBlockAction1 = [CCCallBlock actionWithBlock:^{
+			CGPoint offset;
+			offset.x = -SHAKE_MAX_DISTANCE + rand() % (2 * SHAKE_MAX_DISTANCE);
+			offset.y = -SHAKE_MAX_DISTANCE + rand() % (2 * SHAKE_MAX_DISTANCE);
 			for (RenderSprite *renderSprite in [renderComponent renderSprites])
 			{
-				[renderSprite setOffset:CGPointZero];
+				[renderSprite setOffset:offset];
 			}
 		}];
-		[actions addObject:callBlockAction2];
-		
-		CCSequence *sequenceAction = [CCSequence actionWithArray:actions];
-		[[[CCDirector sharedDirector] actionManager] addAction:sequenceAction target:self paused:FALSE];
+		[actions addObject:callBlockAction1];
+
+		CCDelayTime *delayTimeAction = [CCDelayTime actionWithDuration:DELAY_BETWEEN_SHAKES];
+		[actions addObject:delayTimeAction];
 	}
+
+	CCCallBlock *callBlockAction2 = [CCCallBlock actionWithBlock:^{
+		for (RenderSprite *renderSprite in [renderComponent renderSprites])
+		{
+			[renderSprite setOffset:CGPointZero];
+		}
+	}];
+	[actions addObject:callBlockAction2];
+
+	CCSequence *sequenceAction = [CCSequence actionWithArray:actions];
+	[[[CCDirector sharedDirector] actionManager] addAction:sequenceAction target:self paused:FALSE];
 }
 
 @end

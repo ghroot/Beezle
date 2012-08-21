@@ -145,6 +145,11 @@
 				NSString *idleAnimationName = [renderSprite randomDefaultIdleAnimationName];
 				[renderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:hitAnimationName, idleAnimationName, nil]];
 			}
+
+			NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
+			[notificationUserInfo setObject:entity forKey:@"entity"];
+			[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_HIT object:self userInfo:notificationUserInfo];
+
 			return;
 		}
 	}
