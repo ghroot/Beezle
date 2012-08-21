@@ -15,6 +15,7 @@
 #import "RenderComponent.h"
 #import "NSObject+PWObject.h"
 #import "RenderSprite.h"
+#import "SoundManager.h"
 
 static const float DELAY_PER_WOOD_PIECE = 0.3f;
 
@@ -86,7 +87,9 @@ static const float DELAY_PER_WOOD_PIECE = 0.3f;
 	{
 		[EntityUtil destroyEntity:woodEntity];
 	}
-	
+
+	[[SoundManager sharedManager] playSound:@"WoodDestroy"];
+
 	return FALSE;
 }
 
