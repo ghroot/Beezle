@@ -117,16 +117,11 @@
 	[self setEntityDisposed:entity sendNotification:TRUE];
 }
 
-+(void) setEntityUndisposed:(Entity *)entity
++(void) setEntityIsAboutToBeDeleted:(Entity *)entity
 {
-	DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
-    if (disposableComponent == nil)
-    {
-        NSLog(@"WARNING: Trying to undispose an entity that is not disposable");
-    }
-	if ([disposableComponent isDisposed])
+	if ([self isEntityDisposable:entity])
 	{
-		[disposableComponent setIsDisposed:FALSE];
+		[[DisposableComponent getFrom:entity] setIsAboutToBeDeleted:TRUE];
 	}
 }
 

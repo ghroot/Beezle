@@ -19,7 +19,7 @@
 +(BOOL) isEntityDisposed:(Entity *)entity;
 +(void) setEntityDisposed:(Entity *)entity sendNotification:(BOOL)sendNotification;
 +(void) setEntityDisposed:(Entity *)entity;
-+(void) setEntityUndisposed:(Entity *)entity;
++(void) setEntityIsAboutToBeDeleted:(Entity *)entity;
 +(void) destroyEntity:(Entity *)entity instant:(BOOL)instant;
 +(void) destroyEntity:(Entity *)entity;
 +(void) disablePhysics:(Entity *)entity;

@@ -48,8 +48,6 @@ static const float DELAY_PER_WOOD_PIECE = 0.3f;
 	PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:woodEntity];
 	int shapeIndexAtCollision = [[physicsComponent shapes] indexOfObject:[collision secondShape]];
 
-	[EntityUtil destroyEntity:secondEntity];
-
 	if (shapeIndexAtCollision >= 0)
 	{
 		RenderComponent *renderComponent = [RenderComponent getFrom:woodEntity];
@@ -87,6 +85,8 @@ static const float DELAY_PER_WOOD_PIECE = 0.3f;
 	{
 		[EntityUtil destroyEntity:woodEntity];
 	}
+
+	[EntityUtil setEntityIsAboutToBeDeleted:woodEntity];
 
 	[[SoundManager sharedManager] playSound:@"WoodDestroy"];
 

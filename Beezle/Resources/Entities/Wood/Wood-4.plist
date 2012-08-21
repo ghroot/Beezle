@@ -9,7 +9,10 @@
         <key>crumble</key>
         <dict/>
         <key>disposable</key>
-        <dict/>
+        <dict>
+            <key>deleteEntityWhenDisposed</key>
+            <true/>
+        </dict>
         <key>physics</key>
         <dict>
             <key>body</key>
