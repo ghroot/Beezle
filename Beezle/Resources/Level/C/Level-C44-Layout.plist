@@ -12,12 +12,13 @@
 					<key>queuedBeeTypes</key>
 					<array>
 						<string>SPEEDEE</string>
+						<string>BOMBEE</string>
 					</array>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{76, 282}</string>
+					<string>{74, 281}</string>
 					<key>rotation</key>
 					<real>324</real>
 					<key>scale</key>
@@ -63,7 +64,7 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{110, 156}</string>
+					<string>{110, 158}</string>
 				</dict>
 				<key>render</key>
 				<dict>
@@ -73,7 +74,7 @@
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{110, 156}</string>
+					<string>{110, 158}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -91,7 +92,7 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{119, 172}</string>
+					<string>{119, 173}</string>
 				</dict>
 				<key>render</key>
 				<dict>
@@ -101,7 +102,7 @@
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{119, 172}</string>
+					<string>{119, 173}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -198,34 +199,6 @@
 		<dict>
 			<key>components</key>
 			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{174, 200}</string>
-				</dict>
-				<key>render</key>
-				<dict>
-					<key>overrideIdleAnimation</key>
-					<string>C44-Clirr-2-7</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{174, 200}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>CLIRR</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
 				<key>captured</key>
 				<dict>
 					<key>containedBeeType</key>
@@ -257,19 +230,19 @@
 				<key>captured</key>
 				<dict>
 					<key>containedBeeType</key>
-					<string>SPEEDEE</string>
+					<string>BEE</string>
 				</dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{340, 200}</string>
+					<string>{356, 205}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{340, 200}</string>
+					<string>{356, 205}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -292,12 +265,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{62, 12}</string>
+					<string>{63, 9}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{62, 12}</string>
+					<string>{63, 9}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -320,12 +293,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{367, 17}</string>
+					<string>{317, 10}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{367, 17}</string>
+					<string>{317, 10}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -334,129 +307,6 @@
 			</dict>
 			<key>type</key>
 			<string>BEEATER-LAND-C-REFLECTION</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>overrideBodyName</key>
-					<string>C44a-Glass</string>
-					<key>position</key>
-					<string>{219, 142}</string>
-				</dict>
-				<key>render</key>
-				<dict>
-					<key>overrideTextureFile</key>
-					<string>C44a-Glass.png</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{219, 142}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>GLASS-C</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>-0.034906584769487381</real>
-					<key>overrideBodyName</key>
-					<string>C44b-Glass</string>
-					<key>position</key>
-					<string>{313, 263}</string>
-				</dict>
-				<key>render</key>
-				<dict>
-					<key>overrideTextureFile</key>
-					<string>C44b-Glass.png</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{313, 263}</string>
-					<key>rotation</key>
-					<real>2</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>GLASS-C</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>captured</key>
-				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
-				</dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{237, 13}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{237, 13}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{-1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>BEEATER-LAND-C-REFLECTION</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>captured</key>
-				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
-				</dict>
-				<key>movement</key>
-				<dict>
-					<key>positions</key>
-					<array>
-						<string>{303, 29}</string>
-					</array>
-				</dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{301, 101}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{301, 101}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>BEEATER-BIRD-C</string>
 		</dict>
 		<dict>
 			<key>components</key>
@@ -526,6 +376,94 @@
 			</dict>
 			<key>type</key>
 			<string>POLLEN-ORANGE</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{176, 201}</string>
+				</dict>
+				<key>render</key>
+				<dict>
+					<key>overrideIdleAnimation</key>
+					<string>C44-Clirr-2-7</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{176, 201}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>CLIRR</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>overrideBodyName</key>
+					<string>C44-Ice</string>
+					<key>position</key>
+					<string>{313, 263}</string>
+				</dict>
+				<key>render</key>
+				<dict>
+					<key>overrideTextureFile</key>
+					<string>C44-Ice.png</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{313, 263}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>ICE</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>overrideBodyName</key>
+					<string>C44-Glass</string>
+					<key>position</key>
+					<string>{217, 142}</string>
+				</dict>
+				<key>render</key>
+				<dict>
+					<key>overrideTextureFile</key>
+					<string>C44-Glass.png</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{217, 142}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>GLASS-C</string>
 		</dict>
 	</array>
 	<key>format</key>
@@ -535,6 +473,6 @@
 	<key>name</key>
 	<string>Level-C44</string>
 	<key>version</key>
-	<integer>15</integer>
+	<integer>20</integer>
 </dict>
 </plist>

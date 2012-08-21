@@ -38,7 +38,7 @@
 				<key>captured</key>
 				<dict>
 					<key>containedBeeType</key>
-					<string>BEE</string>
+					<string>BOMBEE</string>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -154,12 +154,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{215, 103}</string>
+					<string>{280, 83}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{215, 103}</string>
+					<string>{280, 83}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -172,25 +172,30 @@
 		<dict>
 			<key>components</key>
 			<dict>
+				<key>captured</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>BEE</string>
+				</dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>-1.0471975803375244</real>
+					<real>0.0</real>
 					<key>position</key>
-					<string>{209, 75}</string>
+					<string>{357, 247}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{209, 75}</string>
+					<string>{357, 247}</string>
 					<key>rotation</key>
-					<real>60.000003814697266</real>
+					<real>0.0</real>
 					<key>scale</key>
 					<string>{1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>RAMP-D</string>
+			<string>BEEATER-HANGING-D</string>
 		</dict>
 	</array>
 	<key>format</key>
@@ -200,6 +205,6 @@
 	<key>name</key>
 	<string>Level-D38</string>
 	<key>version</key>
-	<integer>5</integer>
+	<integer>8</integer>
 </dict>
 </plist>

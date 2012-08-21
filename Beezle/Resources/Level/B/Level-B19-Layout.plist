@@ -12,7 +12,7 @@
 					<key>queuedBeeTypes</key>
 					<array>
 						<string>SAWEE</string>
-						<string>SPEEDEE</string>
+						<string>BEE</string>
 					</array>
 				</dict>
 				<key>transform</key>
@@ -189,10 +189,22 @@
 		<dict>
 			<key>components</key>
 			<dict>
+				<key>captured</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>SPEEDEE</string>
+				</dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{162, 234}</string>
+				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{240, 160}</string>
+					<string>{162, 234}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -200,7 +212,7 @@
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>SMOKE</string>
+			<string>BEEATER-LAND-B</string>
 		</dict>
 	</array>
 	<key>format</key>
@@ -210,6 +222,6 @@
 	<key>name</key>
 	<string>Level-B19</string>
 	<key>version</key>
-	<integer>3</integer>
+	<integer>4</integer>
 </dict>
 </plist>

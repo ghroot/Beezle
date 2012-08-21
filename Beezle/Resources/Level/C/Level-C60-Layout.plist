@@ -12,15 +12,14 @@
 					<key>queuedBeeTypes</key>
 					<array>
 						<string>BEE</string>
-						<string>BOMBEE</string>
 					</array>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{66.5, 247.5}</string>
+					<string>{82, 265}</string>
 					<key>rotation</key>
-					<real>330</real>
+					<real>325</real>
 					<key>scale</key>
 					<string>{1, 1}</string>
 				</dict>
@@ -31,52 +30,22 @@
 		<dict>
 			<key>components</key>
 			<dict>
-				<key>movement</key>
-				<dict>
-					<key>positions</key>
-					<array>
-						<string>{233, 105}</string>
-					</array>
-				</dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{233, 216}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{233, 216}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>HANGNEST-A</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
 				<key>captured</key>
 				<dict>
 					<key>containedBeeType</key>
-					<string>BEE</string>
+					<string>BOMBEE</string>
 				</dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{142, 79}</string>
+					<string>{44, 126}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{142, 79}</string>
+					<string>{44, 126}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -84,7 +53,7 @@
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>BEEATER-LAND-A</string>
+			<string>BEEATER-HANGING-C-REFLECTION</string>
 		</dict>
 		<dict>
 			<key>components</key>
@@ -99,12 +68,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{427, 224.5}</string>
+					<string>{390, 259}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{427, 224.5}</string>
+					<string>{390, 259}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -112,7 +81,7 @@
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>BEEATER-LAND-A</string>
+			<string>BEEATER-LAND-C-REFLECTION</string>
 		</dict>
 		<dict>
 			<key>components</key>
@@ -120,19 +89,47 @@
 				<key>captured</key>
 				<dict>
 					<key>containedBeeType</key>
-					<string>BEE</string>
+					<string>TBEE</string>
+				</dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>-2.4434611797332764</real>
+					<key>position</key>
+					<string>{426, 247}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{426, 247}</string>
+					<key>rotation</key>
+					<real>140.00001525878906</real>
+					<key>scale</key>
+					<string>{-1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>FROZEN-TBEE</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>captured</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>BOMBEE</string>
 				</dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{363, 143.5}</string>
+					<string>{342, 228}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{363, 143.5}</string>
+					<string>{342, 228}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -140,7 +137,89 @@
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>BEEATER-LAND-A</string>
+			<string>BEEATER-HANGING-C-REFLECTION</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{223, 6}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{223, 6}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>EGG-REFLECTION</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>movement</key>
+				<dict>
+					<key>positions</key>
+					<array>
+						<string>{209, 220}</string>
+						<string>{152, 108}</string>
+					</array>
+				</dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{318, 132}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{318, 132}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>SUPER-BEEATER-C</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>captured</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>BOMBEE</string>
+				</dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{381, 196}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{381, 196}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>BEEATER-HANGING-C-REFLECTION</string>
 		</dict>
 		<dict>
 			<key>components</key>
@@ -150,19 +229,19 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>overrideBodyName</key>
-					<string>A53-Glass</string>
+					<string>C60-Ice</string>
 					<key>position</key>
-					<string>{311, 182}</string>
+					<string>{259, 134}</string>
 				</dict>
 				<key>render</key>
 				<dict>
 					<key>overrideTextureFile</key>
-					<string>A53-Glass.png</string>
+					<string>C60-Ice.png</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{311, 182}</string>
+					<string>{259, 134}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -170,85 +249,16 @@
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>GLASS-A</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{257, 153}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{257, 153}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>POLLEN-ORANGE</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{304, 154}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{304, 154}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>POLLEN-ORANGE</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{208, 153}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{208, 153}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>POLLEN-ORANGE</string>
+			<string>ICE</string>
 		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
 	<key>hasWater</key>
-	<true/>
+	<false/>
 	<key>name</key>
-	<string>Level-A53</string>
+	<string>Level-C60</string>
 	<key>version</key>
-	<integer>8</integer>
+	<integer>3</integer>
 </dict>
 </plist>

@@ -17,7 +17,7 @@
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{57, 176}</string>
+					<string>{55, 174}</string>
 					<key>rotation</key>
 					<real>325</real>
 					<key>scale</key>
@@ -241,6 +241,36 @@
 			<key>type</key>
 			<string>BRANCH</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>overrideBodyName</key>
+					<string>D4-Glass</string>
+					<key>position</key>
+					<string>{192, 254}</string>
+				</dict>
+				<key>render</key>
+				<dict>
+					<key>overrideTextureFile</key>
+					<string>D4-Glass.png</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{192, 254}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>GLASS-D</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -249,6 +279,6 @@
 	<key>name</key>
 	<string>Level-D4</string>
 	<key>version</key>
-	<integer>5</integer>
+	<integer>7</integer>
 </dict>
 </plist>

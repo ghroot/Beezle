@@ -269,6 +269,36 @@
 			<key>type</key>
 			<string>BEEATER-HANGING-C-REFLECTION</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>overrideBodyName</key>
+					<string>C23-Ice</string>
+					<key>position</key>
+					<string>{181, 100}</string>
+				</dict>
+				<key>render</key>
+				<dict>
+					<key>overrideTextureFile</key>
+					<string>C23-Ice.png</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{181, 100}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>ICE</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -277,6 +307,6 @@
 	<key>name</key>
 	<string>Level-C23</string>
 	<key>version</key>
-	<integer>21</integer>
+	<integer>22</integer>
 </dict>
 </plist>

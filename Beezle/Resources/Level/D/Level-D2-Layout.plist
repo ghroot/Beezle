@@ -12,13 +12,13 @@
 					<key>queuedBeeTypes</key>
 					<array>
 						<string>SAWEE</string>
-						<string>BEE</string>
+						<string>SPEEDEE</string>
 					</array>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{58, 218}</string>
+					<string>{60, 219}</string>
 					<key>rotation</key>
 					<real>325</real>
 					<key>scale</key>
@@ -57,16 +57,16 @@
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>-5.9341192245483398</real>
+					<real>-5.7595863342285156</real>
 					<key>position</key>
-					<string>{473, 210}</string>
+					<string>{467, 212}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{473, 210}</string>
+					<string>{467, 212}</string>
 					<key>rotation</key>
-					<real>340</real>
+					<real>330</real>
 					<key>scale</key>
 					<string>{1, 1}</string>
 				</dict>
@@ -115,12 +115,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{201, 5}</string>
+					<string>{177, 8}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{201, 5}</string>
+					<string>{177, 8}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -143,12 +143,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{239, 5}</string>
+					<string>{250, 5}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{239, 5}</string>
+					<string>{250, 5}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -164,7 +164,7 @@
 				<key>captured</key>
 				<dict>
 					<key>containedBeeType</key>
-					<string>SAWEE</string>
+					<string>BEE</string>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -177,6 +177,34 @@
 				<dict>
 					<key>position</key>
 					<string>{439, 97}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>BEEATER-HANGING-D</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>captured</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>SAWEE</string>
+				</dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{452, 186}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{452, 186}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -193,34 +221,6 @@
 				<dict>
 					<key>containedBeeType</key>
 					<string>SPEEDEE</string>
-				</dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{457, 186}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{457, 186}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>BEEATER-HANGING-D</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>captured</key>
-				<dict>
-					<key>containedBeeType</key>
-					<string>BOMBEE</string>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -250,12 +250,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{436, 108}</string>
+					<string>{436, 97}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{436, 108}</string>
+					<string>{436, 97}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -311,6 +311,52 @@
 			<key>type</key>
 			<string>CACTUS</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{214, -1}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{214, -1}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>EGG</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>-3.4557521343231201</real>
+					<key>position</key>
+					<string>{476, 190}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{476, 190}</string>
+					<key>rotation</key>
+					<real>198.00001525878906</real>
+					<key>scale</key>
+					<string>{-1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>BRANCH</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -319,6 +365,6 @@
 	<key>name</key>
 	<string>Level-D2</string>
 	<key>version</key>
-	<integer>13</integer>
+	<integer>19</integer>
 </dict>
 </plist>

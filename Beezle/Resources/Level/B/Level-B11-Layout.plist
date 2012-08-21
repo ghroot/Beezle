@@ -246,22 +246,6 @@
 		<dict>
 			<key>components</key>
 			<dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{240, 160}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>SMOKE</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
@@ -327,6 +311,27 @@
 			</dict>
 			<key>type</key>
 			<string>POLLEN-YELLOW</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>render</key>
+				<dict>
+					<key>overrideParticleFile</key>
+					<string>LavaSplasch.plist</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{255, 89}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>PARTICLE</string>
 		</dict>
 	</array>
 	<key>format</key>
@@ -336,6 +341,6 @@
 	<key>name</key>
 	<string>Level-B11</string>
 	<key>version</key>
-	<integer>4</integer>
+	<integer>5</integer>
 </dict>
 </plist>

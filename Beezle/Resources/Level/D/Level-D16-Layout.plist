@@ -61,7 +61,7 @@
 				<key>captured</key>
 				<dict>
 					<key>containedBeeType</key>
-					<string>BOMBEE</string>
+					<string>BEE</string>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -117,7 +117,7 @@
 				<key>captured</key>
 				<dict>
 					<key>containedBeeType</key>
-					<string>BEE</string>
+					<string>BOMBEE</string>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -222,29 +222,6 @@
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>-1.5009831190109253</real>
-					<key>position</key>
-					<string>{360, 54}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{360, 54}</string>
-					<key>rotation</key>
-					<real>86</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>RAMP-D</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
 					<string>{260, 239}</string>
@@ -262,6 +239,36 @@
 			<key>type</key>
 			<string>EGG</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>overrideBodyName</key>
+					<string>D16-Glass</string>
+					<key>position</key>
+					<string>{360, 45}</string>
+				</dict>
+				<key>render</key>
+				<dict>
+					<key>overrideTextureFile</key>
+					<string>D16-Glass.png</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{360, 45}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>GLASS-D</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -270,6 +277,6 @@
 	<key>name</key>
 	<string>Level-D16</string>
 	<key>version</key>
-	<integer>7</integer>
+	<integer>10</integer>
 </dict>
 </plist>

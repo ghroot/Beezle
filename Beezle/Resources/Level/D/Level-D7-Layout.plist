@@ -17,7 +17,7 @@
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{66, 80}</string>
+					<string>{65, 78}</string>
 					<key>rotation</key>
 					<real>325</real>
 					<key>scale</key>
@@ -196,37 +196,21 @@
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>-5.4105205535888672</real>
-					<key>position</key>
-					<string>{245, 119}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{245, 119}</string>
-					<key>rotation</key>
-					<real>310</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>RAMP-D</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
 					<real>0.0</real>
+					<key>overrideBodyName</key>
+					<string>D7-Glass</string>
 					<key>position</key>
-					<string>{192, 316}</string>
+					<string>{245, 116}</string>
+				</dict>
+				<key>render</key>
+				<dict>
+					<key>overrideTextureFile</key>
+					<string>D7-Glass.png</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{192, 316}</string>
+					<string>{245, 116}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -234,7 +218,7 @@
 				</dict>
 			</dict>
 			<key>type</key>
-			<string>RAMP-D</string>
+			<string>GLASS-D</string>
 		</dict>
 	</array>
 	<key>format</key>
@@ -244,6 +228,6 @@
 	<key>name</key>
 	<string>Level-D7</string>
 	<key>version</key>
-	<integer>14</integer>
+	<integer>18</integer>
 </dict>
 </plist>

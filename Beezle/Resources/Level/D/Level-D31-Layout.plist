@@ -251,7 +251,7 @@
 				<dict>
 					<key>positions</key>
 					<array>
-						<string>{412, 149}</string>
+						<string>{382, 146}</string>
 					</array>
 				</dict>
 				<key>physics</key>
@@ -259,12 +259,47 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{412, 268}</string>
+					<string>{379, 278}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{412, 268}</string>
+					<string>{379, 278}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>BEEATER-BIRD-D</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>captured</key>
+				<dict>
+					<key>containedBeeType</key>
+					<string>BEE</string>
+				</dict>
+				<key>movement</key>
+				<dict>
+					<key>positions</key>
+					<array>
+						<string>{433, 195}</string>
+					</array>
+				</dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{431, 79}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{431, 79}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -282,6 +317,6 @@
 	<key>name</key>
 	<string>Level-D31</string>
 	<key>version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>

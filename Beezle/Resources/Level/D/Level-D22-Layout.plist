@@ -17,7 +17,7 @@
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{60, 185}</string>
+					<string>{58, 184}</string>
 					<key>rotation</key>
 					<real>325</real>
 					<key>scale</key>
@@ -252,29 +252,6 @@
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>-4.3284163475036621</real>
-					<key>position</key>
-					<string>{149, 282}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{149, 282}</string>
-					<key>rotation</key>
-					<real>247.99998474121094</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>RAMP-D</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
 					<string>{251, 66}</string>
@@ -292,6 +269,36 @@
 			<key>type</key>
 			<string>CACTUS</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>overrideBodyName</key>
+					<string>D22-Glass</string>
+					<key>position</key>
+					<string>{156, 270}</string>
+				</dict>
+				<key>render</key>
+				<dict>
+					<key>overrideTextureFile</key>
+					<string>D22-Glass.png</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{156, 270}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>GLASS-D</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -300,6 +307,6 @@
 	<key>name</key>
 	<string>Level-D22</string>
 	<key>version</key>
-	<integer>8</integer>
+	<integer>11</integer>
 </dict>
 </plist>
