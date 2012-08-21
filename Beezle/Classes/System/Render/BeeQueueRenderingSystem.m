@@ -426,8 +426,9 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 
 -(CCAction *) createSwayAction:(CGPoint)position
 {
-	CCMoveTo *moveUpAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:0.5f position:CGPointMake(position.x, position.y + (QUEUE_SWAY_Y / 2))]];
-	CCMoveTo *moveDownAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:0.5f position:CGPointMake(position.x, position.y - (QUEUE_SWAY_Y / 2))]];
+	float randomSwayDuration = 0.4f + ((rand() % 200) / 1000.0f);
+	CCMoveTo *moveUpAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:randomSwayDuration position:CGPointMake(position.x, position.y + (QUEUE_SWAY_Y / 2))]];
+	CCMoveTo *moveDownAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:randomSwayDuration position:CGPointMake(position.x, position.y - (QUEUE_SWAY_Y / 2))]];
 	CCAction *swayAction = [CCRepeat actionWithAction:[CCSequence actions:moveUpAction, moveDownAction, nil] times:INT_MAX];
 	return swayAction;
 }
