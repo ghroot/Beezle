@@ -2196,6 +2196,8 @@
 		2CF8E0F61576B45F0052F633 /* TeleportInSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F632 /* TeleportInSprite.m */; };
 		2CF8E0F61576B45F0052F636 /* ScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F635 /* ScrollView.m */; };
 		2CF8E0F61576B45F0052F638 /* BeeYahoo.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F637 /* BeeYahoo.caf */; };
+		2CF8E0F61576B45F0052F63A /* Bee-D-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F639 /* Bee-D-hd.png */; };
+		2CF8E0F61576B45F0052F63C /* Bee-D.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F63B /* Bee-D.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4760,6 +4762,8 @@
 		2CF8E0F61576B45F0052F634 /* ScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollView.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F635 /* ScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollView.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F637 /* BeeYahoo.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = BeeYahoo.caf; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F639 /* Bee-D-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bee-D-hd.png"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F63B /* Bee-D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bee-D.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4921,6 +4925,8 @@
 		2C32989815164C69009A5B83 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F63B /* Bee-D.png */,
+				2CF8E0F61576B45F0052F639 /* Bee-D-hd.png */,
 				2CF8E0F61576B45F0052F531 /* Colour-D.jpg */,
 				2CF8E0F61576B45F0052F52F /* Colour-D-hd.jpg */,
 				2CF8E0F61576B45F0052F52D /* Colour-C.jpg */,
@@ -10412,6 +10418,8 @@
 				2CE9983315E42A7000575249 /* Level-D9.jpg in Resources */,
 				2CE9983415E42A7000575249 /* Levels.plist in Resources */,
 				2CF8E0F61576B45F0052F638 /* BeeYahoo.caf in Resources */,
+				2CF8E0F61576B45F0052F63A /* Bee-D-hd.png in Resources */,
+				2CF8E0F61576B45F0052F63C /* Bee-D.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
