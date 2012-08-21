@@ -16,14 +16,17 @@
 	BeeType *_defaultContainedBeeType;
 	
     // Instance
-	BeeType *_containedBeeType;
+	NSMutableArray *_containedBeeTypes;
 	
 	// Transient
 	BeeType *_destroyedByBeeType;
 }
 
 @property (nonatomic, assign) BeeType *defaultContainedBeeType;
-@property (nonatomic, assign) BeeType *containedBeeType;
+@property (nonatomic, readonly) NSArray *containedBeeTypes;
 @property (nonatomic, assign) BeeType *destroyedByBeeType;
+
+-(BeeType *) containedBeeType;
+-(void) setContainedBeeType:(BeeType *)containedBeeType;
 
 @end

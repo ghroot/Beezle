@@ -13,6 +13,8 @@
 
 @property (nonatomic, readonly) NSArray *strings;
 
++(id) collectionFromDictionary:(NSDictionary *)dict baseName:(NSString *)baseName;
+
 -(id) initFromDictionary:(NSDictionary *)dict baseName:(NSString *)baseName;
 -(void) addStringsFromDictionary:(NSDictionary *)dict baseName:(NSString *)baseName;
 -(void) addString:(NSString *)string;

@@ -1,5 +1,5 @@
 //
-//  FrozenSystem.m
+//  CapturedSystem.m
 //  Beezle
 //
 //  Created by KM Lagerstrom on 08/05/2012.
@@ -17,6 +17,7 @@
 @interface CapturedSystem()
 
 -(void) handleEntityDisposed:(NSNotification *)notification;
+-(void) saveContainedBee:(Entity *)capturedEntity savedBeeType:(BeeType *)savedBeeType;
 
 @end
 
@@ -74,17 +75,25 @@
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
 	if ([_capturedComponentMapper hasEntityComponent:entity])
 	{
-		[self saveContainedBee:entity];
+		[self saveContainedBees:entity];
 	}
 }
 
--(void) saveContainedBee:(Entity *)capturedEntity
+-(void) saveContainedBees:(Entity *)capturedEntity
+{
+	CapturedComponent *capturedComponent = [_capturedComponentMapper getComponentFor:capturedEntity];
+	for (BeeType *containedBeeType in [capturedComponent containedBeeTypes])
+	{
+		[self saveContainedBee:capturedEntity savedBeeType:containedBeeType];
+	}
+}
+
+-(void) saveContainedBee:(Entity *)capturedEntity savedBeeType:(BeeType *)savedBeeType
 {
 	TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
 	Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
 	CapturedComponent *capturedComponent = [_capturedComponentMapper getComponentFor:capturedEntity];
 	SlingerComponent *slingerComponent = [_slingerComponentMapper getComponentFor:slingerEntity];
-	BeeType *savedBeeType = [capturedComponent containedBeeType];
 	BeeType *savingBeeType = [capturedComponent destroyedByBeeType];
 	
 	if ([savedBeeType canBeReused] &&

@@ -12,6 +12,11 @@
 
 @synthesize strings = _strings;
 
++(id) collectionFromDictionary:(NSDictionary *)dict baseName:(NSString *)baseName
+{
+	return [[[self alloc] initFromDictionary:dict baseName:baseName] autorelease];
+}
+
 -(id) initFromDictionary:(NSDictionary *)dict baseName:(NSString *)baseName
 {
     if (self = [self init])

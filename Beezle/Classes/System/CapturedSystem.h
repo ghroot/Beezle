@@ -1,5 +1,5 @@
 //
-//  FrozenSystem.h
+//  CapturedSystem.h
 //  Beezle
 //
 //  Created by KM Lagerstrom on 08/05/2012.
@@ -19,6 +19,6 @@
 	NotificationProcessor *_notificationProcessor;
 }
 
--(void) saveContainedBee:(Entity *)capturedEntity;
+-(void) saveContainedBees:(Entity *)capturedEntity;
 
 @end

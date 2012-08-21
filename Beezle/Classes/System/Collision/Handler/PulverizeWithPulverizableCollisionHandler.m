@@ -41,7 +41,7 @@
 	if ([pulverizableEntity hasComponent:[CapturedComponent class]])
 	{
 		CapturedSystem *capturedSystem = (CapturedSystem *)[[_world systemManager] getSystem:[CapturedSystem class]];
-		[capturedSystem saveContainedBee:pulverizableEntity];
+		[capturedSystem saveContainedBees:pulverizableEntity];
 	}
 
 	PulverizableComponent *pulverizableComponent = [PulverizableComponent getFrom:pulverizableEntity];

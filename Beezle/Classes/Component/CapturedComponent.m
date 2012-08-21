@@ -8,36 +8,77 @@
 
 #import "CapturedComponent.h"
 #import "BeeType.h"
+#import "StringCollection.h"
 
 @implementation CapturedComponent
 
 @synthesize defaultContainedBeeType = _defaultContainedBeeType;
-@synthesize containedBeeType = _containedBeeType;
+@synthesize containedBeeTypes = _containedBeeTypes;
 @synthesize destroyedByBeeType = _destroyedByBeeType;
 
 -(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
-	if (self = [super init])
+	if (self = [self init])
 	{
 		// Type
-		NSString *defaultContainedBeeTypeAsString = [typeComponentDict objectForKey:@"defaultContainedBeeType"];
-		_containedBeeType = [BeeType enumFromName:defaultContainedBeeTypeAsString];
+		StringCollection *defaultContainedBeeTypesAsStrings = [StringCollection collectionFromDictionary:typeComponentDict baseName:@"defaultContainedBeeType"];
+		[_containedBeeTypes removeAllObjects];
+		for (NSString *defaultContainedBeeTypeAsString in [defaultContainedBeeTypesAsStrings strings])
+		{
+			[_containedBeeTypes addObject:[BeeType enumFromName:defaultContainedBeeTypeAsString]];
+		}
 		
         // Instance
 		if (instanceComponentDict != nil)
 		{
-			NSString *containedBeeTypeAsString = [instanceComponentDict objectForKey:@"containedBeeType"];
-			_containedBeeType = [BeeType enumFromName:containedBeeTypeAsString];
+			StringCollection *containedBeeTypesAsStrings = [StringCollection collectionFromDictionary:instanceComponentDict baseName:@"containedBeeType"];
+			[_containedBeeTypes removeAllObjects];
+			for (NSString *containedBeeTypeAsString in [containedBeeTypesAsStrings strings])
+			{
+				[_containedBeeTypes addObject:[BeeType enumFromName:containedBeeTypeAsString]];
+			}
 		}
 	}
 	return self;
 }
 
+-(id) init
+{
+	if (self = [super init])
+	{
+		_containedBeeTypes = [NSMutableArray new];
+	}
+	return self;
+}
+
+-(void) dealloc
+{
+	[_containedBeeTypes release];
+
+	[super dealloc];
+}
+
 -(NSDictionary *) getInstanceComponentDict
 {
 	NSMutableDictionary *instanceComponentDict = [NSMutableDictionary dictionary];
-	[instanceComponentDict setObject:[_containedBeeType name] forKey:@"containedBeeType"];
+	NSMutableArray *containedBeeTypesAsStrings = [NSMutableArray array];
+	for (BeeType *containedBeeType in _containedBeeTypes)
+	{
+		[containedBeeTypesAsStrings addObject:[containedBeeType name]];
+	}
+	[instanceComponentDict setObject:containedBeeTypesAsStrings forKey:@"containedBeeTypes"];
 	return instanceComponentDict;
+}
+
+-(BeeType *) containedBeeType
+{
+	return [_containedBeeTypes objectAtIndex:0];
+}
+
+-(void) setContainedBeeType:(BeeType *)containedBeeType
+{
+	[_containedBeeTypes removeAllObjects];
+	[_containedBeeTypes addObject:containedBeeType];
 }
 
 @end
