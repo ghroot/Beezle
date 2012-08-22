@@ -11,7 +11,7 @@
 #import "GameplayState.h"
 #import "LevelOrganizer.h"
 #import "LevelRatings.h"
-#import "MainMenuState.h"
+#import "PlayState.h"
 
 @interface RateLevelState()
 
@@ -139,7 +139,7 @@
     }
     else
     {
-		[_game replaceState:[MainMenuState state]];
+		[_game replaceState:[PlayState state]];
     }
 }
 

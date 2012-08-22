@@ -16,6 +16,7 @@
 #import "LevelSender.h"
 #import "PlayerInformation.h"
 #import "TestMenuState.h"
+#import "PlayState.h"
 
 @interface DebugMenuState()
 
@@ -167,7 +168,7 @@
 
 -(void) goBack:(id)sender
 {
-	[_game popState];
+	[_game replaceState:[PlayState state]];
 }
 
 @end

@@ -14,8 +14,8 @@
 #import "LevelOrganizer.h"
 #import "LevelRatings.h"
 #import "LevelSession.h"
-#import "MainMenuState.h"
 #import "RateLevelState.h"
+#import "PlayState.h"
 
 @implementation LevelCompletedDialog
 
@@ -45,7 +45,7 @@
 		}
 		else
 		{
-			[_game replaceState:[MainMenuState state]];
+			[_game replaceState:[PlayState state]];
 		}
 	}
 	else
@@ -60,7 +60,7 @@
     }
     else
     {
-		[_game replaceState:[MainMenuState state]];
+		[_game replaceState:[PlayState state]];
     }
 #endif
 }

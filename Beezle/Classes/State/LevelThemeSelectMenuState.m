@@ -13,6 +13,7 @@
 #import "LevelSelectMenuState.h"
 #import "CCScrollLayer.h"
 #import "SoundManager.h"
+#import "PlayState.h"
 
 @interface LevelThemeSelectMenuState()
 
@@ -65,7 +66,7 @@
 {
 	CCMenu *backMenu = [CCMenu node];
 	CCMenuItemImage *backMenuItem = [CCMenuItemImage itemWithNormalImage:@"ReturnArrow.png" selectedImage:@"ReturnArrow.png" block:^(id sender){
-		[_game popState];
+		[_game replaceState:[PlayState state]];
 	}];
 	[backMenuItem setPosition:CGPointMake(2.0f, 2.0f)];
 	[backMenuItem setAnchorPoint:CGPointMake(0.0f, 0.0f)];

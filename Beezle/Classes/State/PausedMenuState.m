@@ -13,10 +13,10 @@
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "LevelOrganizer.h"
-#import "MainMenuState.h"
 #import "LevelSession.h"
 #import "Utils.h"
 #import "PausedDialog.h"
+#import "PlayState.h"
 
 @interface PausedMenuState()
 
@@ -98,13 +98,13 @@
     }
     else
     {
-		[_game replaceState:[MainMenuState state]];
+		[_game replaceState:[PlayState state]];
     }
 }
 
 -(void) gotoMainMenu:(id)sender
 {
-	[_game clearAndReplaceState:[MainMenuState state]];
+	[_game clearAndReplaceState:[PlayState state]];
 }
 
 @end

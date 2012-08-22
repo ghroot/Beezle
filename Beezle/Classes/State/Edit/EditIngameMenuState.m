@@ -12,7 +12,7 @@
 #import "GameplayState.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
-#import "MainMenuState.h"
+#import "PlayState.h"
 
 @implementation EditIngameMenuState
 
@@ -122,7 +122,7 @@
 
 -(void) gotoMainMenu:(id)sender
 {
-	[_game clearAndReplaceState:[MainMenuState state]];
+	[_game clearAndReplaceState:[PlayState state]];
 }
 
 @end

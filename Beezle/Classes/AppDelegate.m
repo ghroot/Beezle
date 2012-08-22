@@ -9,10 +9,10 @@
 #import "AppDelegate.h"
 #import "EmailInfo.h"
 #import "Game.h"
-#import "MainMenuState.h"
 #import "SessionTracker.h"
 #import "SoundManager.h"
 #import "MemoryManager.h"
+#import "PlayState.h"
 
 @implementation AppDelegate
 
@@ -66,7 +66,7 @@
 	
 	// Boot
 	_game = [[Game alloc] init];
-	[_game startWithState:[MainMenuState state]];
+	[_game startWithState:[PlayState state]];
 }
 
 -(void) dealloc
