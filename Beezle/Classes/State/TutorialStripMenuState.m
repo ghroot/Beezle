@@ -15,7 +15,7 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 
 @implementation TutorialStripMenuState
 
--(id) initWithFileName:(NSString *)fileName theme:(NSString *)theme
+-(id) initWithFileName:(NSString *)fileName theme:(NSString *)theme block:(void(^)())block
 {
 	if (self = [super init])
 	{
@@ -69,7 +69,7 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 			{
 				return;
 			}
-			[_game popState];
+			_block();
 		}];
 		[[menuItem selectedImage] setPosition:CGPointMake([menuItem contentSize].width / 2, [menuItem contentSize].height / 2)];
 		[[menuItem selectedImage] setAnchorPoint:CGPointMake(0.5f, 0.5f)];
@@ -82,6 +82,8 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 
 		_scrollView = [[ScrollView alloc] initWithContent:draggableNode];
 		[self addChild:_scrollView];
+
+		_block = [block copy];
 	}
 	return self;
 }
@@ -89,6 +91,7 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 -(void) dealloc
 {
 	[_scrollView release];
+	[_block release];
 
 	[super dealloc];
 }

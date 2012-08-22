@@ -16,7 +16,10 @@
 #import "SoundManager.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
-#import "ScrollView.h"
+#import "TutorialStripDescription.h"
+#import "TutorialOrganizer.h"
+#import "LevelOrganizer.h"
+#import "TutorialStripMenuState.h"
 
 @interface LevelSelectMenuState()
 
@@ -169,10 +172,26 @@
     {
         return;
     }
-    
+
 	CCMenuItemImage *menuItem = (CCMenuItemImage *)sender;
 	NSString *levelName = [NSString stringWithFormat:@"Level-%@%d", _theme, [menuItem tag]];
-	[_game clearAndReplaceState:[GameplayState stateWithLevelName:levelName]];
+
+	TutorialStripDescription *tutorialStripDescription = [[TutorialOrganizer sharedOrganizer] tutorialStripDescriptionForLevel:levelName];
+	if (tutorialStripDescription != nil &&
+		![[PlayerInformation sharedInformation] hasSeenTutorialId:[tutorialStripDescription id]])
+	{
+		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:levelName];
+		TutorialStripMenuState *tutorialStripMenuState = [[[TutorialStripMenuState alloc] initWithFileName:[tutorialStripDescription fileName] theme:theme block:^{
+			[_game clearAndReplaceState:[GameplayState stateWithLevelName:levelName]];
+		}] autorelease];
+		[_game pushState:tutorialStripMenuState];
+
+		[[PlayerInformation sharedInformation] markTutorialIdAsSeenAndSave:[tutorialStripDescription id]];
+	}
+    else
+	{
+		[_game clearAndReplaceState:[GameplayState stateWithLevelName:levelName]];
+	}
 }
 
 @end

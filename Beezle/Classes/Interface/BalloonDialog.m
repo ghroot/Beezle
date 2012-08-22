@@ -23,6 +23,8 @@
 {
 	if (self = [super initWithNode:[self createBubbleSprite:frameName]])
 	{
+		_balloonCanBeClosed = FALSE;
+
 		CCScaleTo *scaleAction = [CCEaseSineOut actionWithAction:[CCScaleTo actionWithDuration:0.8f scale:1.0f]];
 		CCCallBlock *startSwayAction = [CCCallBlock actionWithBlock:^{
 			CCMoveTo *moveUpAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([self position].x, [self position].y + 2.0f)]];
@@ -30,13 +32,21 @@
 			CCAction *swayAction = [CCRepeat actionWithAction:[CCSequence actions:moveUpAction, moveDownAction, nil] times:INT_MAX];
 			[self runAction:swayAction];
 		}];
+		CCCallBlock *enableMenuAction = [CCCallBlock actionWithBlock:^{
+			_balloonCanBeClosed = TRUE;
+		}];
 
 		[_node setScale:0.1f];
-		[_node runAction:[CCSequence actionOne:scaleAction two:startSwayAction]];
+		[_node runAction:[CCSequence actions:scaleAction, startSwayAction, enableMenuAction, nil]];
 		[[SoundManager sharedManager] playSound:@"BlowUpBalloon"];
 
 		CCMenu *menu = [CCMenu node];
 		CCMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
+			if (!_balloonCanBeClosed)
+			{
+				return;
+			}
+
 			NSArray *spriteFrames = [NSArray arrayWithObjects:
 				[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Bubble/BubbleBurst-1.png"],
 				[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Bubble/BubbleBurst-2.png"],

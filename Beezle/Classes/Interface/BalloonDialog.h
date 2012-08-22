@@ -10,6 +10,9 @@
 #import "Dialog.h"
 
 @interface BalloonDialog : Dialog
+{
+	BOOL _balloonCanBeClosed;
+}
 
 -(id) initWithFrameName:(NSString *)frameName;
 

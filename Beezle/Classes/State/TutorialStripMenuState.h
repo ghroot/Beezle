@@ -13,8 +13,9 @@
 @interface TutorialStripMenuState : GameState
 {
 	ScrollView *_scrollView;
+	void (^_block)();
 }
 
--(id) initWithFileName:(NSString *)fileName theme:(NSString *)theme;
+-(id) initWithFileName:(NSString *)fileName theme:(NSString *)theme block:(void(^)())block;
 
 @end

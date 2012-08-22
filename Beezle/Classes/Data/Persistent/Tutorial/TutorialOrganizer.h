@@ -6,6 +6,9 @@
 //Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+@class TutorialBalloonDescription;
+@class TutorialStripDescription;
+
 @interface TutorialOrganizer : NSObject
 {
 	NSMutableArray *_tutorialDescriptions;
@@ -17,5 +20,8 @@
 
 -(void) addTutorialsWithDictionary:(NSDictionary *)dict;
 -(void) addTutorialsWithFile:(NSString *)fileName;
+
+-(TutorialBalloonDescription *) tutorialBalloonDescriptionForLevel:(NSString *)levelName;
+-(TutorialStripDescription *) tutorialStripDescriptionForLevel:(NSString *)levelName;
 
 @end

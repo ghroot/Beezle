@@ -63,18 +63,10 @@
 #import "Utils.h"
 #import "TutorialDescription.h"
 #import "TutorialOrganizer.h"
-#import "TutorialTriggerDescription.h"
-#import "TutorialLevelTriggerDescription.h"
-#import "TutorialEntityTypeTriggerDescription.h"
-#import "TutorialBeeTypeTriggerDescription.h"
 #import "PlayerInformation.h"
 #import "TutorialBalloonDescription.h"
 #import "LevelLayoutCache.h"
-#import "LevelLayoutEntry.h"
 #import "LevelLayout.h"
-#import "BeeType.h"
-#import "TutorialStripDescription.h"
-#import "TutorialStripMenuState.h"
 #import "NSObject+PWObject.h"
 #import "BeeWithTeleportCollisionHandler.h"
 
@@ -162,7 +154,7 @@
 	[self loadLevel];
 	[self performBlock:^{
 		[self checkTutorial];
-	} afterDelay:1.0f];
+	} afterDelay:0.4f];
 
 	[[SessionTracker sharedTracker] trackStartedLevel:_levelName];
 }
@@ -297,88 +289,14 @@
 
 -(void) checkTutorial
 {
-	for (TutorialDescription *tutorialDescription in [[TutorialOrganizer sharedOrganizer] tutorialDescriptions])
+	TutorialBalloonDescription *tutorialBalloonDescription = [[TutorialOrganizer sharedOrganizer] tutorialBalloonDescriptionForLevel:_levelName];
+	if (tutorialBalloonDescription != nil &&
+		![[PlayerInformation sharedInformation] hasSeenTutorialId:[tutorialBalloonDescription id]])
 	{
-		BOOL shouldTrigger = FALSE;
-		TutorialTriggerDescription *tutorialTriggerDescription = [tutorialDescription triggerDescription];
-		if ([tutorialTriggerDescription isKindOfClass:[TutorialLevelTriggerDescription class]])
-		{
-			TutorialLevelTriggerDescription *tutorialLevelTriggerDescription = (TutorialLevelTriggerDescription *)tutorialTriggerDescription;
-			if ([[tutorialLevelTriggerDescription levelName] isEqualToString:_levelName])
-			{
-				shouldTrigger = TRUE;
-			}
-		}
-		else if ([tutorialTriggerDescription isKindOfClass:[TutorialEntityTypeTriggerDescription class]])
-		{
-			TutorialEntityTypeTriggerDescription *tutorialEntityTypeTriggerDescription = (TutorialEntityTypeTriggerDescription *)tutorialTriggerDescription;
-			LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:_levelName];
-			for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
-			{
-				if ([[levelLayoutEntry type] isEqualToString:[tutorialEntityTypeTriggerDescription entityType]])
-				{
-					shouldTrigger = TRUE;
-					break;
-				}
-			}
-		}
-		else if ([tutorialTriggerDescription isKindOfClass:[TutorialBeeTypeTriggerDescription class]])
-		{
-			TutorialBeeTypeTriggerDescription *tutorialBeeTypeTriggerDescription = (TutorialBeeTypeTriggerDescription *)tutorialTriggerDescription;
-			LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:_levelName];
-			for (LevelLayoutEntry *levelLayoutEntry in [levelLayout entries])
-			{
-				if ([[levelLayoutEntry type] isEqualToString:@"SLINGER"])
-				{
-					NSDictionary *slingerComponentDictionary = [[levelLayoutEntry instanceComponentsDict] objectForKey:@"slinger"];
-					for (NSString *beeTypeAsString in [slingerComponentDictionary objectForKey:@"queuedBeeTypes"])
-					{
-						BeeType *beeType = [BeeType enumFromName:beeTypeAsString];
-						if ([tutorialBeeTypeTriggerDescription beeType] == beeType)
-						{
-							shouldTrigger = TRUE;
-							break;
-						}
-					}
-				}
-				else if ([[levelLayoutEntry instanceComponentsDict] objectForKey:@"captured"] != nil)
-				{
-					NSDictionary *capturedInstanceComponentDict = [[levelLayoutEntry instanceComponentsDict] objectForKey:@"captured"];
-					NSString *containedBeeTypeAsString = [capturedInstanceComponentDict objectForKey:@"containedBeeType"];
-					BeeType *capturedBeeType = [BeeType enumFromName:containedBeeTypeAsString];
-					if (capturedBeeType == [tutorialBeeTypeTriggerDescription beeType])
-					{
-						shouldTrigger = TRUE;
-					}
-				}
-				if (shouldTrigger)
-				{
-					break;
-				}
-			}
-		}
+		BalloonDialog *balloonDialog = [[[BalloonDialog alloc] initWithFrameName:[tutorialBalloonDescription frameName]] autorelease];
+		[_uiLayer addChild:balloonDialog];
 
-		if (shouldTrigger &&
-			![[PlayerInformation sharedInformation] hasSeenTutorialId:[tutorialDescription id]])
-		{
-			if ([tutorialDescription isKindOfClass:[TutorialBalloonDescription class]])
-			{
-				TutorialBalloonDescription *tutorialBalloonDescription = (TutorialBalloonDescription *)tutorialDescription;
-				BalloonDialog *balloonDialog = [[[BalloonDialog alloc] initWithFrameName:[tutorialBalloonDescription frameName]] autorelease];
-				[_uiLayer addChild:balloonDialog];
-			}
-			else if ([tutorialDescription isKindOfClass:[TutorialStripDescription class]])
-			{
-				NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:_levelName];
-				TutorialStripDescription *tutorialStripDescription = (TutorialStripDescription *)tutorialDescription;
-				TutorialStripMenuState *tutorialStripMenuState = [[[TutorialStripMenuState alloc] initWithFileName:[tutorialStripDescription fileName] theme:theme] autorelease];
-				[_game pushState:tutorialStripMenuState];
-			}
-
-			[[PlayerInformation sharedInformation] markTutorialIdAsSeenAndSave:[tutorialDescription id]];
-
-			break;
-		}
+		[[PlayerInformation sharedInformation] markTutorialIdAsSeenAndSave:[tutorialBalloonDescription id]];
 	}
 }
 
