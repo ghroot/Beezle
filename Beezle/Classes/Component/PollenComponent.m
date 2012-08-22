@@ -11,6 +11,7 @@
 @implementation PollenComponent
 
 @synthesize pollenCount = _pollenCount;
+@synthesize pickupLabelOffset = _pickupLabelOffset;
 
 -(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
@@ -18,6 +19,14 @@
 	{
         // Type
         _pollenCount = [[typeComponentDict objectForKey:@"pollenCount"] intValue];
+		if ([typeComponentDict objectForKey:@"pickupLabelOffset"] != nil)
+		{
+			_pickupLabelOffset = CGPointFromString([typeComponentDict objectForKey:@"pickupLabelOffset"]);
+		}
+		else
+		{
+			_pickupLabelOffset = CGPointZero;
+		}
 	}
 	return self;
 }

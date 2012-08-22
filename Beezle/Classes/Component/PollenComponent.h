@@ -16,8 +16,10 @@
 {
     // Type
 	int _pollenCount;
+	CGPoint _pickupLabelOffset;
 }
 
 @property (nonatomic, readonly) int pollenCount;
+@property (nonatomic, readonly) CGPoint pickupLabelOffset;
 
 @end

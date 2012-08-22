@@ -448,7 +448,7 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 			}];
 
 	        NSString *pollenString = [NSString stringWithFormat:@"%d", 20];
-	        CCLabelAtlas *label = [[CCLabelAtlas alloc] initWithString:@"0" charMapFile:@"numberImages-s.png" itemWidth:12 itemHeight:15 startCharMap:'/'];
+	        CCLabelAtlas *label = [[CCLabelAtlas alloc] initWithString:@"0" charMapFile:@"numberImages-s.png" itemWidth:15 itemHeight:18 startCharMap:'/'];
 	        [label setString:pollenString];
 	        [label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
 	        [label setPosition:[[beeQueueRenderSprite sprite] position]];

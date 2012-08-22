@@ -11,9 +11,9 @@
 #import "LevelSession.h"
 #import "PollenComponent.h"
 #import "RenderSystem.h"
-#import "TransformComponent.h"
 #import "EntityUtil.h"
 #import "DisposableComponent.h"
+#import "TransformComponent.h"
 
 @interface ConsumerWithPollenCollisionHandler()
 
@@ -57,10 +57,10 @@
 	PollenComponent *pollenComponent = [PollenComponent getFrom:pollenEntity];
 
 	NSString *pollenString = [NSString stringWithFormat:@"%d", [pollenComponent pollenCount]];
-	CCLabelAtlas *label = [[CCLabelAtlas alloc] initWithString:@"0" charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'];
+	CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:@"0" charMapFile:@"numberImages-s.png" itemWidth:15 itemHeight:18 startCharMap:'/'] autorelease];
 	[label setString:pollenString];
 	[label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
-	[label setPosition:[transformComponent position]];
+	[label setPosition:CGPointMake([transformComponent position].x + [pollenComponent pickupLabelOffset].x, [transformComponent position].y + [pollenComponent pickupLabelOffset].y)];
 	CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.8f scale:1.2f];
 	CCFadeOut *fadeAction = [CCFadeOut actionWithDuration:0.8f];
 	CCCallBlock *removeAction = [CCCallBlock actionWithBlock:^{
