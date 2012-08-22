@@ -77,17 +77,12 @@
 		if (![freezableComponent isFrozen])
 		{
 			[freezableComponent setIsFrozen:TRUE];
-			
-			if ([freezableComponent deferFreezeHandling])
-			{
-				NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
-				[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_FROZEN object:self userInfo:notificationUserInfo];
-			}
-			else
-			{
-				RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
-				[renderComponent playDefaultStillAnimation];
-			}
+
+			RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
+			[renderComponent playDefaultStillAnimation];
+
+			NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
+			[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_FROZEN object:self userInfo:notificationUserInfo];
 		}
 	}
 	else
@@ -95,17 +90,12 @@
 		if ([freezableComponent isFrozen])
 		{
 			[freezableComponent setIsFrozen:FALSE];
-			
-			if ([freezableComponent deferFreezeHandling])
-			{
-				NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
-				[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_UNFROZEN object:self userInfo:notificationUserInfo];
-			}
-			else
-			{
-				RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
-				[renderComponent playDefaultIdleAnimation];
-			}
+
+			RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
+			[renderComponent playDefaultIdleAnimation];
+
+			NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObject:entity forKey:@"entity"];
+			[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_ENTITY_UNFROZEN object:self userInfo:notificationUserInfo];
 		}
 	}
 }

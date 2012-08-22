@@ -13,14 +13,10 @@
  */
 @interface FreezableComponent : Component
 {
-	// Type
-	BOOL _deferFreezeHandling;
-	
     // Transient
 	BOOL _isFrozen;
 }
 
-@property (nonatomic) BOOL deferFreezeHandling;
 @property (nonatomic) BOOL isFrozen;
 
 @end
