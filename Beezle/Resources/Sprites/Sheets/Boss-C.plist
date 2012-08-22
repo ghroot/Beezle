@@ -7,7 +7,7 @@
             <key>Bees/Bee-x5/C/Bee-x5-1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{40,575},{36,33}}</string>
+                <string>{{257,330},{36,33}}</string>
                 <key>offset</key>
                 <string>{0,-1}</string>
                 <key>rotated</key>
@@ -20,24 +20,24 @@
             <key>Bees/Bee-x5/C/Bee-x5-2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,575},{36,35}}</string>
+                <string>{{257,433},{35,35}}</string>
                 <key>offset</key>
-                <string>{-1,0}</string>
+                <string>{-0.5,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{1,1},{36,35}}</string>
+                <string>{{2,1},{35,35}}</string>
                 <key>sourceSize</key>
                 <string>{40,37}</string>
             </dict>
             <key>Bees/Bee-x5/C/Bee-x5-3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{410,246},{36,33}}</string>
+                <string>{{257,295},{36,33}}</string>
                 <key>offset</key>
                 <string>{0,-1}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{2,3},{36,33}}</string>
                 <key>sourceSize</key>
@@ -46,59 +46,332 @@
             <key>Bees/Bee-x5/C/Bee-x5-4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{331,496},{38,35}}</string>
+                <string>{{257,394},{37,35}}</string>
                 <key>offset</key>
-                <string>{-1,0}</string>
+                <string>{-0.5,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{1,1},{37,35}}</string>
+                <key>sourceSize</key>
+                <string>{40,37}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Hair-1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{279,170},{15,41}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,1},{38,35}}</string>
+                <string>{{0,0},{15,41}}</string>
                 <key>sourceSize</key>
-                <string>{40,37}</string>
+                <string>{15,41}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Hair-2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{399,409},{22,31}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{22,31}}</string>
+                <key>sourceSize</key>
+                <string>{22,31}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Hair-3.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{257,249},{20,44}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{20,44}}</string>
+                <key>sourceSize</key>
+                <string>{20,44}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Hair-4.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,731},{43,38}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{43,38}}</string>
+                <key>sourceSize</key>
+                <string>{43,38}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Hair-5.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{279,213},{14,37}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{14,37}}</string>
+                <key>sourceSize</key>
+                <string>{14,37}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Head-Bottom.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,374},{109,72}}</string>
+                <key>offset</key>
+                <string>{0.5,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{2,2},{109,72}}</string>
+                <key>sourceSize</key>
+                <string>{112,76}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Head-Part-1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,602},{74,39}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{74,39}}</string>
+                <key>sourceSize</key>
+                <string>{74,39}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Head-Part-2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{153,643},{69,59}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{69,59}}</string>
+                <key>sourceSize</key>
+                <string>{69,59}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Head-Part-3.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{73,683},{49,58}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{49,58}}</string>
+                <key>sourceSize</key>
+                <string>{49,58}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Head-Part-4.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{443,237},{61,37}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{61,37}}</string>
+                <key>sourceSize</key>
+                <string>{61,37}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Head-Part-5.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{228,600},{55,60}}</string>
+                <key>offset</key>
+                <string>{-1,1}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{55,60}}</string>
+                <key>sourceSize</key>
+                <string>{57,62}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Head-Part-6.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,643},{43,69}}</string>
+                <key>offset</key>
+                <string>{0,1.5}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{3,0},{43,69}}</string>
+                <key>sourceSize</key>
+                <string>{49,72}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Head-Top.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{443,2},{100,67}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{100,67}}</string>
+                <key>sourceSize</key>
+                <string>{100,67}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Tail-1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,688},{41,54}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{41,54}}</string>
+                <key>sourceSize</key>
+                <string>{41,54}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Tail-2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{399,369},{22,38}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{22,38}}</string>
+                <key>sourceSize</key>
+                <string>{22,38}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Tail-3.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{202,588},{24,26}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{24,26}}</string>
+                <key>sourceSize</key>
+                <string>{24,26}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Tail-4.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{153,610},{45,31}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{45,31}}</string>
+                <key>sourceSize</key>
+                <string>{45,31}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Tail-5.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{489,499},{20,25}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{20,25}}</string>
+                <key>sourceSize</key>
+                <string>{20,25}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Tail-6.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{489,526},{18,27}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{18,27}}</string>
+                <key>sourceSize</key>
+                <string>{18,27}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Wing-1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{108,490},{40,20}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{40,20}}</string>
+                <key>sourceSize</key>
+                <string>{40,20}</string>
+            </dict>
+            <key>Obstacles/Super-Beeater/C/Pieces/Super-Beeater-C-Ending-Wing-2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{387,561},{30,31}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{30,31}}</string>
+                <key>sourceSize</key>
+                <string>{30,31}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Head-Back-1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{386,480},{104,50}}</string>
+                <string>{{2,501},{104,49}}</string>
                 <key>offset</key>
-                <string>{-41,-13}</string>
+                <string>{-41,-13.5}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{13,77},{104,50}}</string>
+                <string>{{13,78},{104,49}}</string>
                 <key>sourceSize</key>
                 <string>{212,178}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Head-Back-2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{386,426},{105,52}}</string>
+                <string>{{2,448},{104,51}}</string>
                 <key>offset</key>
-                <string>{-41,-14}</string>
+                <string>{-40.5,-14.5}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{13,77},{105,52}}</string>
+                <string>{{14,78},{104,51}}</string>
                 <key>sourceSize</key>
                 <string>{213,178}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Head-Back-3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{410,294},{100,56}}</string>
+                <string>{{397,442},{100,55}}</string>
                 <key>offset</key>
-                <string>{-39,-16}</string>
+                <string>{-39,-16.5}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{17,77},{100,56}}</string>
+                <string>{{17,78},{100,55}}</string>
                 <key>sourceSize</key>
                 <string>{212,178}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Head-Back-4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{446,101},{96,60}}</string>
+                <string>{{229,502},{96,60}}</string>
                 <key>offset</key>
                 <string>{-37,-19}</string>
                 <key>rotated</key>
@@ -111,11 +384,11 @@
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Head-Back-5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{446,2},{97,60}}</string>
+                <string>{{390,499},{97,60}}</string>
                 <key>offset</key>
                 <string>{-37,-19}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{21,78},{97,60}}</string>
                 <key>sourceSize</key>
@@ -124,150 +397,150 @@
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Head-Front-1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{259,372},{125,122}}</string>
+                <string>{{131,373},{124,122}}</string>
                 <key>offset</key>
-                <string>{-35,6}</string>
+                <string>{-34.5,6}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{9,22},{125,122}}</string>
+                <string>{{10,22},{124,122}}</string>
                 <key>sourceSize</key>
                 <string>{213,178}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Head-Front-2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,251},{124,128}}</string>
+                <string>{{2,249},{123,127}}</string>
                 <key>offset</key>
-                <string>{-34,8}</string>
+                <string>{-33.5,7.5}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{10,17},{124,128}}</string>
+                <string>{{11,18},{123,127}}</string>
                 <key>sourceSize</key>
                 <string>{212,178}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Head-Front-3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{142,127},{122,136}}</string>
+                <string>{{141,126},{121,136}}</string>
                 <key>offset</key>
-                <string>{-32,9}</string>
+                <string>{-31.5,9}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{13,12},{122,136}}</string>
+                <string>{{14,12},{121,136}}</string>
                 <key>sourceSize</key>
                 <string>{212,178}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Head-Front-4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{150,2},{123,146}}</string>
+                <string>{{149,2},{122,145}}</string>
                 <key>offset</key>
-                <string>{-29,12}</string>
+                <string>{-28.5,11.5}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{16,4},{123,146}}</string>
+                <string>{{17,5},{122,145}}</string>
                 <key>sourceSize</key>
                 <string>{213,178}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Head-Front-5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{298,124},{120,146}}</string>
+                <string>{{296,123},{119,145}}</string>
                 <key>offset</key>
-                <string>{-30,12}</string>
+                <string>{-29.5,11.5}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{16,4},{120,146}}</string>
+                <string>{{17,5},{119,145}}</string>
                 <key>sourceSize</key>
                 <string>{212,178}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Head-Front-Blue-1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{132,251},{125,122}}</string>
+                <string>{{131,249},{124,122}}</string>
                 <key>offset</key>
-                <string>{-35,6}</string>
+                <string>{-34.5,6}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{9,22},{125,122}}</string>
+                <string>{{10,22},{124,122}}</string>
                 <key>sourceSize</key>
                 <string>{213,178}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Head-Front-Blue-2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{280,246},{124,128}}</string>
+                <string>{{295,244},{123,127}}</string>
                 <key>offset</key>
-                <string>{-34,8}</string>
+                <string>{-33.5,7.5}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{10,17},{124,128}}</string>
+                <string>{{11,18},{123,127}}</string>
                 <key>sourceSize</key>
                 <string>{212,178}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Head-Front-Blue-3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,127},{122,138}}</string>
+                <string>{{2,126},{121,137}}</string>
                 <key>offset</key>
-                <string>{-32,10}</string>
+                <string>{-31.5,9.5}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{13,10},{122,138}}</string>
+                <string>{{14,11},{121,137}}</string>
                 <key>sourceSize</key>
                 <string>{212,178}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Head-Front-Blue-4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{123,146}}</string>
+                <string>{{2,2},{122,145}}</string>
                 <key>offset</key>
-                <string>{-29,12}</string>
+                <string>{-28.5,11.5}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{16,4},{123,146}}</string>
+                <string>{{17,5},{122,145}}</string>
                 <key>sourceSize</key>
                 <string>{213,178}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Head-Front-Blue-5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{298,2},{120,146}}</string>
+                <string>{{296,2},{119,145}}</string>
                 <key>offset</key>
-                <string>{-30,12}</string>
+                <string>{-29.5,11.5}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{16,4},{120,146}}</string>
+                <string>{{17,5},{119,145}}</string>
                 <key>sourceSize</key>
                 <string>{212,178}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Tail-1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{85,562},{71,67}}</string>
+                <string>{{443,104},{70,66}}</string>
                 <key>offset</key>
-                <string>{-28,7}</string>
+                <string>{-27.5,6.5}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
-                <string>{{2,23},{71,67}}</string>
+                <string>{{3,24},{70,66}}</string>
                 <key>sourceSize</key>
                 <string>{131,127}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Tail-10.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{105,426},{97,49}}</string>
+                <string>{{130,497},{97,49}}</string>
                 <key>offset</key>
                 <string>{14,15}</string>
                 <key>rotated</key>
@@ -280,20 +553,20 @@
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Tail-11.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{204,426},{92,49}}</string>
+                <string>{{2,552},{91,48}}</string>
                 <key>offset</key>
-                <string>{11,25}</string>
+                <string>{11.5,24.5}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{31,14},{92,49}}</string>
+                <string>{{32,15},{91,48}}</string>
                 <key>sourceSize</key>
                 <string>{132,127}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Tail-12.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{187,520},{65,59}}</string>
+                <string>{{443,176},{65,59}}</string>
                 <key>offset</key>
                 <string>{-1,33}</string>
                 <key>rotated</key>
@@ -306,59 +579,59 @@
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Tail-2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{255,496},{74,71}}</string>
+                <string>{{78,610},{73,71}}</string>
                 <key>offset</key>
-                <string>{-29,4}</string>
+                <string>{-28.5,4}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,24},{74,71}}</string>
+                <string>{{1,24},{73,71}}</string>
                 <key>sourceSize</key>
                 <string>{132,127}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Tail-3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,502},{71,81}}</string>
+                <string>{{424,360},{70,80}}</string>
                 <key>offset</key>
-                <string>{-27,0}</string>
+                <string>{-26.5,-0.5}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{3,23},{71,81}}</string>
+                <string>{{4,24},{70,80}}</string>
                 <key>sourceSize</key>
                 <string>{131,127}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Tail-4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{446,199},{60,93}}</string>
+                <string>{{108,548},{60,92}}</string>
                 <key>offset</key>
-                <string>{-20,-5}</string>
+                <string>{-20,-5.5}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
-                <string>{{16,22},{60,93}}</string>
+                <string>{{16,23},{60,92}}</string>
                 <key>sourceSize</key>
                 <string>{132,127}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Tail-5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{132,375},{49,103}}</string>
+                <string>{{295,369},{49,102}}</string>
                 <key>offset</key>
-                <string>{-10,-11}</string>
+                <string>{-10,-11.5}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{31,23},{49,103}}</string>
+                <string>{{31,24},{49,102}}</string>
                 <key>sourceSize</key>
                 <string>{131,127}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Tail-6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,377},{52,101}}</string>
+                <string>{{294,420},{52,101}}</string>
                 <key>offset</key>
                 <string>{-8,-11}</string>
                 <key>rotated</key>
@@ -371,46 +644,46 @@
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Tail-7.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{410,352},{72,97}}</string>
+                <string>{{291,474},{71,97}}</string>
                 <key>offset</key>
-                <string>{1,-9}</string>
+                <string>{1.5,-9}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{31,24},{72,97}}</string>
+                <string>{{32,24},{71,97}}</string>
                 <key>sourceSize</key>
                 <string>{132,127}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Tail-8.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{98,477},{83,87}}</string>
+                <string>{{424,276},{82,86}}</string>
                 <key>offset</key>
-                <string>{7,-3}</string>
+                <string>{7.5,-3.5}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{31,23},{83,87}}</string>
+                <string>{{32,24},{82,86}}</string>
                 <key>sourceSize</key>
                 <string>{131,127}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Tail-9.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,431},{94,69}}</string>
+                <string>{{291,547},{94,68}}</string>
                 <key>offset</key>
-                <string>{13,6}</string>
+                <string>{13,5.5}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{32,23},{94,69}}</string>
+                <string>{{32,24},{94,68}}</string>
                 <key>sourceSize</key>
                 <string>{132,127}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Wing-1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{105,377},{38,24}}</string>
+                <string>{{202,548},{38,24}}</string>
                 <key>offset</key>
                 <string>{-2,9}</string>
                 <key>rotated</key>
@@ -423,33 +696,33 @@
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Wing-2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{280,127},{42,16}}</string>
+                <string>{{279,126},{42,15}}</string>
                 <key>offset</key>
-                <string>{0,0}</string>
+                <string>{0,-0.5}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{0,19},{42,16}}</string>
+                <string>{{0,20},{42,15}}</string>
                 <key>sourceSize</key>
                 <string>{42,54}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Wing-3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{40,610},{36,28}}</string>
+                <string>{{257,365},{36,27}}</string>
                 <key>offset</key>
-                <string>{-3,-13}</string>
+                <string>{-3,-13.5}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,26},{36,28}}</string>
+                <string>{{0,27},{36,27}}</string>
                 <key>sourceSize</key>
                 <string>{42,54}</string>
             </dict>
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Wing-4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{386,372},{40,20}}</string>
+                <string>{{108,448},{40,20}}</string>
                 <key>offset</key>
                 <string>{0,-1}</string>
                 <key>rotated</key>
@@ -462,7 +735,7 @@
             <key>Obstacles/Super-Beeater/C/Super-Beeater-C-Wing-5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,612},{30,32}}</string>
+                <string>{{257,470},{30,32}}</string>
                 <key>offset</key>
                 <string>{-6,11}</string>
                 <key>rotated</key>
@@ -482,7 +755,7 @@
             <key>size</key>
             <string>{512,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:48b7549516ed21638469aff29d4dda06$</string>
+            <string>$TexturePacker:SmartUpdate:3aab004116c686a20803e1b92d7fc14d$</string>
             <key>textureFileName</key>
             <string>Boss-C.png</string>
         </dict>

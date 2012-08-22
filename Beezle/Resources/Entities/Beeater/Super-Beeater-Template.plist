@@ -10,6 +10,17 @@
 	<dict>
 		<key>brittle</key>
 		<dict/>
+        <key>captured</key>
+        <dict>
+            <key>defaultContainedBeeTypes</key>
+            <array>
+                <string>BEE</string>
+                <string>BEE</string>
+                <string>BEE</string>
+                <string>BEE</string>
+                <string>BEE</string>
+            </array>
+        </dict>
 		<key>disposable</key>
 		<dict>
 			<key>deleteEntityWhenDisposed</key>
@@ -84,8 +95,6 @@
 					<string>{ 0.2, 0.75 }</string>
 					<key>defaultIdleAnimation</key>
 					<string>%renderDefaultIdleAnimationTail%</string>
-					<key>defaultDestroyAnimation</key>
-					<string>%renderDefaultDestroyAnimationTail%</string>
                     <key>defaultStillAnimation</key>
                     <string>%renderDefaultStillAnimationTail%</string>
 				</dict>
@@ -100,8 +109,6 @@
 					<string>{ 0.5, 0.5 }</string>
                     <key>defaultIdleAnimation</key>
                     <string>%renderDefaultIdleAnimationHeadBack%</string>
-                    <key>defaultDestroyAnimation</key>
-                    <string>%renderDefaultDestroyAnimationHeadBack%</string>
                     <key>defaultStillAnimation</key>
                     <string>%renderDefaultStillAnimationHeadBack%</string>
 				</dict>
@@ -115,8 +122,6 @@
                     <key>anchorPoint</key>
                     <string>{ 1.8, 0.8 }</string>
                     <key>defaultIdleAnimation</key>
-                    <string>%renderDefaultAnimationsBees%</string>
-                    <key>defaultDestroyAnimation</key>
                     <string>%renderDefaultAnimationsBees%</string>
                     <key>defaultStillAnimation</key>
                     <string>%renderDefaultStillAnimationBees%</string>
@@ -132,8 +137,6 @@
 					<string>{ 0.5, 0.5 }</string>
                     <key>defaultIdleAnimation</key>
                     <string>%renderDefaultIdleAnimationHeadFront%</string>
-                    <key>defaultDestroyAnimation</key>
-                    <string>%renderDefaultDestroyAnimationHeadFront%</string>
                     <key>defaultStillAnimation</key>
                     <string>%renderDefaultStillAnimationHeadFront%</string>
 				</dict>
@@ -148,8 +151,6 @@
 					<string>{ 0.5, 0.5 }</string>
                     <key>defaultIdleAnimation</key>
                     <string>%renderDefaultIdleAnimationWing%</string>
-                    <key>defaultDestroyAnimation</key>
-                    <string>%renderDefaultDestroyAnimationWing%</string>
                     <key>defaultStillAnimation</key>
                     <string>%renderDefaultStillAnimationWing%</string>
 				</dict>
@@ -157,6 +158,90 @@
 		</dict>
 		<key>shake</key>
 		<dict/>
+        <key>shard</key>
+        <dict>
+            <key>piecesSpriteSheet</key>
+            <string>%renderSpriteSheetName%</string>
+            <key>piecesAnimationFile</key>
+            <string>%renderAnimationFile%</string>
+            <key>piecesAnimations</key>
+            <array>
+                <dict>
+                    <key>pieceAnimation</key>
+                    <string>%shardPieceAnimationHeadTop%</string>
+                    <key>smallPiecesAnimations</key>
+                    <array>
+                        <string>%shardSmallPiecesAnimationHeadTop1%</string>
+                        <string>%shardSmallPiecesAnimationHeadTop2%</string>
+                        <string>%shardSmallPiecesAnimationHeadTop3%</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>pieceAnimation</key>
+                    <string>%shardPieceAnimationHeadBottom%</string>
+                    <key>smallPiecesAnimations</key>
+                    <array>
+                        <string>%shardSmallPiecesAnimationHeadBottom1%</string>
+                        <string>%shardSmallPiecesAnimationHeadBottom2%</string>
+                        <string>%shardSmallPiecesAnimationHeadBottom3%</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>pieceAnimation</key>
+                    <string>%shardPieceAnimationTail1%</string>
+                </dict>
+                <dict>
+                    <key>pieceAnimation</key>
+                    <string>%shardPieceAnimationTail2%</string>
+                </dict>
+                <dict>
+                    <key>pieceAnimation</key>
+                    <string>%shardPieceAnimationTail3%</string>
+                </dict>
+                <dict>
+                    <key>pieceAnimation</key>
+                    <string>%shardPieceAnimationTail4%</string>
+                </dict>
+                <dict>
+                    <key>pieceAnimation</key>
+                    <string>%shardPieceAnimationTail5%</string>
+                </dict>
+                <dict>
+                    <key>pieceAnimation</key>
+                    <string>%shardPieceAnimationTail6%</string>
+                </dict>
+                <dict>
+                    <key>pieceAnimation</key>
+                    <string>%shardPieceAnimationHair1%</string>
+                </dict>
+                <dict>
+                    <key>pieceAnimation</key>
+                    <string>%shardPieceAnimationHair2%</string>
+                </dict>
+                <dict>
+                    <key>pieceAnimation</key>
+                    <string>%shardPieceAnimationHair3%</string>
+                </dict>
+                <dict>
+                    <key>pieceAnimation</key>
+                    <string>%shardPieceAnimationHair4%</string>
+                </dict>
+                <dict>
+                    <key>pieceAnimation</key>
+                    <string>%shardPieceAnimationHair5%</string>
+                </dict>
+                <dict>
+                    <key>pieceAnimation</key>
+                    <string>%shardPieceAnimationWing1%</string>
+                </dict>
+                <dict>
+                    <key>pieceAnimation</key>
+                    <string>%shardPieceAnimationWing2%</string>
+                </dict>
+            </array>
+            <key>piecesSpawnType</key>
+            <string>SHARD_PIECES_SPAWN_NORMAL</string>
+        </dict>
 		<key>sound</key>
 		<dict>
 			<key>defaultDestroySound</key>
