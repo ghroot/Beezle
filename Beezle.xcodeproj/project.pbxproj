@@ -2200,6 +2200,7 @@
 		2CF8E0F61576B45F0052F651 /* GamePause.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F650 /* GamePause.caf */; };
 		2CF8E0F61576B45F0052F653 /* numberImages-s-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F652 /* numberImages-s-hd.png */; };
 		2CF8E0F61576B45F0052F655 /* numberImages-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F654 /* numberImages-s.png */; };
+		BF8C78F980AE484781D48042 /* GameStateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8C757BAFF2AED20DFF798E /* GameStateUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4776,6 +4777,8 @@
 		2CF8E0F61576B45F0052F650 /* GamePause.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = GamePause.caf; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F652 /* numberImages-s-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "numberImages-s-hd.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F654 /* numberImages-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "numberImages-s.png"; sourceTree = "<group>"; };
+		BF8C70CF79430BED3F4395F8 /* GameStateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStateUtils.h; sourceTree = "<group>"; };
+		BF8C757BAFF2AED20DFF798E /* GameStateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStateUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -5818,6 +5821,8 @@
 		2C74B461156FAD1E00596A22 /* State */ = {
 			isa = PBXGroup;
 			children = (
+				BF8C757BAFF2AED20DFF798E /* GameStateUtils.m */,
+				BF8C70CF79430BED3F4395F8 /* GameStateUtils.h */,
 				2CF8E0F61576B45F0052F63E /* PlayState.m */,
 				2CF8E0F61576B45F0052F63D /* PlayState.h */,
 				2CF8E0F61576B45F0052F5D8 /* TutorialStripMenuState.m */,
@@ -10779,6 +10784,7 @@
 				2CF8E0F61576B45F0052F633 /* TeleportInSprite.m in Sources */,
 				2CF8E0F61576B45F0052F636 /* ScrollView.m in Sources */,
 				2CF8E0F61576B45F0052F63F /* PlayState.m in Sources */,
+				BF8C78F980AE484781D48042 /* GameStateUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

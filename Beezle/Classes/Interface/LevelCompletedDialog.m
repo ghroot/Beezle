@@ -16,6 +16,7 @@
 #import "LevelSession.h"
 #import "RateLevelState.h"
 #import "PlayState.h"
+#import "GameStateUtils.h"
 
 @implementation LevelCompletedDialog
 
@@ -41,7 +42,7 @@
 		NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:[_levelSession levelName]];
 		if (nextLevelName != nil)
 		{
-			[_game replaceState:[GameplayState stateWithLevelName:nextLevelName]];
+			[GameStateUtils replaceWithGameplayState:nextLevelName game:_game];
 		}
 		else
 		{
@@ -56,7 +57,7 @@
     NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:[_levelSession levelName]];
     if (nextLevelName != nil)
     {
-        [_game replaceState:[GameplayState stateWithLevelName:nextLevelName]];
+        [GameStateUtils replaceWithGameplayState:nextLevelName game:_game];
     }
     else
     {

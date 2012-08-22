@@ -8,10 +8,10 @@
 
 #import "RateLevelState.h"
 #import "Game.h"
-#import "GameplayState.h"
 #import "LevelOrganizer.h"
 #import "LevelRatings.h"
 #import "PlayState.h"
+#import "GameStateUtils.h"
 
 @interface RateLevelState()
 
@@ -135,7 +135,7 @@
 	NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:_levelName];
     if (nextLevelName != nil)
     {
-        [_game replaceState:[GameplayState stateWithLevelName:nextLevelName]];
+		[GameStateUtils replaceWithGameplayState:nextLevelName game:_game];
     }
     else
     {

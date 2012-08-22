@@ -8,7 +8,6 @@
 
 #import "LevelSelectMenuState.h"
 #import "Game.h"
-#import "GameplayState.h"
 #import "CCBReader.h"
 #import "PlayerInformation.h"
 #import "LevelThemeSelectMenuState.h"
@@ -16,10 +15,7 @@
 #import "SoundManager.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
-#import "TutorialStripDescription.h"
-#import "TutorialOrganizer.h"
-#import "LevelOrganizer.h"
-#import "TutorialStripMenuState.h"
+#import "GameStateUtils.h"
 
 @interface LevelSelectMenuState()
 
@@ -176,22 +172,7 @@
 	CCMenuItemImage *menuItem = (CCMenuItemImage *)sender;
 	NSString *levelName = [NSString stringWithFormat:@"Level-%@%d", _theme, [menuItem tag]];
 
-	TutorialStripDescription *tutorialStripDescription = [[TutorialOrganizer sharedOrganizer] tutorialStripDescriptionForLevel:levelName];
-	if (tutorialStripDescription != nil &&
-		![[PlayerInformation sharedInformation] hasSeenTutorialId:[tutorialStripDescription id]])
-	{
-		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:levelName];
-		TutorialStripMenuState *tutorialStripMenuState = [[[TutorialStripMenuState alloc] initWithFileName:[tutorialStripDescription fileName] theme:theme block:^{
-			[_game clearAndReplaceState:[GameplayState stateWithLevelName:levelName]];
-		}] autorelease];
-		[_game pushState:tutorialStripMenuState];
-
-		[[PlayerInformation sharedInformation] markTutorialIdAsSeenAndSave:[tutorialStripDescription id]];
-	}
-    else
-	{
-		[_game clearAndReplaceState:[GameplayState stateWithLevelName:levelName]];
-	}
+	[GameStateUtils replaceWithGameplayState:levelName game:_game];
 }
 
 @end

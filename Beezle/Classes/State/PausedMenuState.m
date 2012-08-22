@@ -18,6 +18,7 @@
 #import "PausedDialog.h"
 #import "PlayState.h"
 #import "SoundManager.h"
+#import "GameStateUtils.h"
 
 @interface PausedMenuState()
 
@@ -97,7 +98,7 @@
 	NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:[gameplayState levelName]];
     if (nextLevelName != nil)
     {
-        [_game replaceState:[GameplayState stateWithLevelName:nextLevelName]];
+		[GameStateUtils replaceWithGameplayState:nextLevelName game:_game];
     }
     else
     {
