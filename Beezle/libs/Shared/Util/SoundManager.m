@@ -159,6 +159,8 @@
 {
 	if (_isFunctional)
 	{
+		[_currentMusicName release];
+		_currentMusicName = nil;
 		[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 	}
 }

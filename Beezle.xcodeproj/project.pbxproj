@@ -2197,6 +2197,9 @@
 		2CF8E0F61576B45F0052F649 /* Play.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F648 /* Play.ccbi */; };
 		2CF8E0F61576B45F0052F64B /* Settings-symbol-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F64A /* Settings-symbol-hd.png */; };
 		2CF8E0F61576B45F0052F64D /* Settings-symbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F64C /* Settings-symbol.png */; };
+		2CF8E0F61576B45F0052F651 /* GamePause.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F650 /* GamePause.caf */; };
+		2CF8E0F61576B45F0052F653 /* numberImages-s-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F652 /* numberImages-s-hd.png */; };
+		2CF8E0F61576B45F0052F655 /* numberImages-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F654 /* numberImages-s.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4770,6 +4773,9 @@
 		2CF8E0F61576B45F0052F648 /* Play.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file.ccbi; path = Play.ccbi; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F64A /* Settings-symbol-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-symbol-hd.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F64C /* Settings-symbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-symbol.png"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F650 /* GamePause.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = GamePause.caf; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F652 /* numberImages-s-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "numberImages-s-hd.png"; sourceTree = "<group>"; };
+		2CF8E0F61576B45F0052F654 /* numberImages-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "numberImages-s.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4809,6 +4815,8 @@
 		2C00D85014FD798B00BE5B4C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F654 /* numberImages-s.png */,
+				2CF8E0F61576B45F0052F652 /* numberImages-s-hd.png */,
 				2CF8E0F61576B45F0052F62F /* Syst-Check2-D.png */,
 				2CF8E0F61576B45F0052F62D /* Syst-Check2-D-hd.png */,
 				2CF8E0F61576B45F0052F62B /* Syst-Check2-C.png */,
@@ -5538,6 +5546,7 @@
 		2C5C9CE6154DDBBD00FF6F57 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8E0F61576B45F0052F650 /* GamePause.caf */,
 				2CF8E0F61576B45F0052F60F /* Main-Music.caf */,
 				2CF8E0F61576B45F0052F60D /* Boss-Music.caf */,
 				2CF8E0F61576B45F0052F486 /* D-Level-Music.caf */,
@@ -10432,6 +10441,9 @@
 				2CF8E0F61576B45F0052F649 /* Play.ccbi in Resources */,
 				2CF8E0F61576B45F0052F64B /* Settings-symbol-hd.png in Resources */,
 				2CF8E0F61576B45F0052F64D /* Settings-symbol.png in Resources */,
+				2CF8E0F61576B45F0052F651 /* GamePause.caf in Resources */,
+				2CF8E0F61576B45F0052F653 /* numberImages-s-hd.png in Resources */,
+				2CF8E0F61576B45F0052F655 /* numberImages-s.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

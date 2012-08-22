@@ -12,6 +12,7 @@
 #import "LevelFailedDialog.h"
 #import "LevelSession.h"
 #import "SessionTracker.h"
+#import "SoundManager.h"
 
 static const float DIALOG_DELAY_IN_SECONDS = 0.5f;
 
@@ -78,6 +79,8 @@ static const float DIALOG_DELAY_IN_SECONDS = 0.5f;
 {	
 	_levelFailedDialog = [[LevelFailedDialog alloc] initWithGame:[_gameplayState game] andLevelSession:_levelSession];
 	[_uiLayer addChild:_levelFailedDialog];
+
+	[[SoundManager sharedManager] playMusic:@"GamePause" loop:FALSE];
 }
 
 @end

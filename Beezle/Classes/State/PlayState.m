@@ -12,6 +12,7 @@
 #import "LevelThemeSelectMenuState.h"
 #import "DebugMenuState.h"
 #import "CCBReader.h"
+#import "SoundManager.h"
 
 @implementation PlayState
 
@@ -22,6 +23,13 @@
 		[self addChild:[CCBReader nodeGraphFromFile:@"Play.ccbi" owner:self]];
 	}
 	return self;
+}
+
+-(void) enter
+{
+	[super enter];
+
+	[[SoundManager sharedManager] playMusic:@"MusicMain"];
 }
 
 -(void) play
@@ -51,6 +59,8 @@
 		[_game replaceState:[LevelThemeSelectMenuState state]];
 	}];
 	[pollenCatchSprite runAction:[CCSequence actionOne:animateAction two:gotoThemeSelectAction]];
+
+	[[SoundManager sharedManager] playSound:@"PollenCollect"];
 }
 
 -(void) gotoSettings

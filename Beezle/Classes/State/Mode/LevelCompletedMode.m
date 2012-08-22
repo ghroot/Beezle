@@ -15,6 +15,7 @@
 #import "PlayerInformation.h"
 #import "SessionTracker.h"
 #import "SlingerComponent.h"
+#import "SoundManager.h"
 
 static const float DIALOG_DELAY_IN_SECONDS = 0.2f;
 
@@ -102,6 +103,8 @@ static const float DIALOG_DELAY_IN_SECONDS = 0.2f;
 {
 	_levelCompletedDialog = [[LevelCompletedDialog alloc] initWithGame:[_gameplayState game] andLevelSession:_levelSession];
 	[_uiLayer addChild:_levelCompletedDialog];
+
+	[[SoundManager sharedManager] playMusic:@"GamePause" loop:FALSE];
 }
 
 @end

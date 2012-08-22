@@ -19,6 +19,7 @@
 #import "SlingerComponent.h"
 #import "TransformComponent.h"
 #import "ZOrder.h"
+#import "SoundManager.h"
 
 static const float QUEUE_START_OFFSET_X = -30.0f;
 static const float QUEUE_START_OFFSET_Y = 0.0f;
@@ -447,19 +448,22 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 			}];
 
 	        NSString *pollenString = [NSString stringWithFormat:@"%d", 20];
-	        CCLabelAtlas *label = [[CCLabelAtlas alloc] initWithString:@"0" charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'];
+	        CCLabelAtlas *label = [[CCLabelAtlas alloc] initWithString:@"0" charMapFile:@"numberImages-s.png" itemWidth:12 itemHeight:15 startCharMap:'/'];
 	        [label setString:pollenString];
 	        [label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
 	        [label setPosition:[[beeQueueRenderSprite sprite] position]];
-	        CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.8f scale:1.2f];
-	        CCFadeOut *fadeAction = [CCFadeOut actionWithDuration:0.8f];
+	        CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:1.0f scale:1.2f];
+	        CCDelayTime *waitAction = [CCDelayTime actionWithDuration:0.4f];
+	        CCFadeOut *fadeAction = [CCFadeOut actionWithDuration:0.6f];
 	        CCCallBlock *removeAction = [CCCallBlock actionWithBlock:^{
 		        [[_renderSystem layer] removeChild:label cleanup:TRUE];
 	        }];
-	        CCSequence *sequence = [CCSequence actionOne:fadeAction two:removeAction];
+	        CCSequence *sequence = [CCSequence actions:waitAction, fadeAction, removeAction, nil];
 	        [label runAction:scaleAction];
 	        [label runAction:sequence];
 	        [[_renderSystem layer] addChild:label z:[[ZOrder Z_DEFAULT] z]];
+
+	        [[SoundManager sharedManager] playSound:@"PollenCollect"];
         }];
 		[[beeQueueRenderSprite sprite] stopActionByTag:ACTION_TAG_BEE_QUEUE];
         CCAction *action = [CCSequence actions:waitAction, animateAction, nil];
