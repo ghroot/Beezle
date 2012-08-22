@@ -21,6 +21,11 @@
 	if (self = [super init])
 	{
 		[self addChild:[CCBReader nodeGraphFromFile:@"Play.ccbi" owner:self]];
+
+		CCMoveTo *moveUpAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([_menuItemPlay position].x, [_menuItemPlay position].y + 2.0f)]];
+		CCMoveTo *moveDownAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([_menuItemPlay position].x, [_menuItemPlay position].y - 2.0f)]];
+		CCAction *swayAction = [CCRepeat actionWithAction:[CCSequence actions:moveUpAction, moveDownAction, nil] times:INT_MAX];
+		[_menuItemPlay runAction:swayAction];
 	}
 	return self;
 }

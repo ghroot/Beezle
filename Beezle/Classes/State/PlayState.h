@@ -11,6 +11,7 @@
 @interface PlayState : GameState
 {
 	CCMenu *_menu;
+	CCMenuItemImage *_menuItemPlay;
 }
 
 -(void) play;
