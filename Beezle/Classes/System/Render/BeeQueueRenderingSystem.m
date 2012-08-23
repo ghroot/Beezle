@@ -440,7 +440,7 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 	{
 		RenderSprite *beeQueueRenderSprite = [_beeQueueRenderSprites objectAtIndex:i];
 		[self increaseMovingBeesCount];
-        CCDelayTime *waitAction = [CCDelayTime actionWithDuration:(i * 0.8f)];
+        CCDelayTime *waitAction = [CCDelayTime actionWithDuration:(i * 0.3f)];
         CCCallBlock *animateAction = [CCCallBlock actionWithBlock:^(){
             [[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Bees-Animations.plist"];
 			[beeQueueRenderSprite playAnimationOnce:@"Bee-Turn-Into-Pollen" andCallBlockAtEnd:^{
