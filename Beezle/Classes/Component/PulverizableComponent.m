@@ -10,6 +10,8 @@
 
 @implementation PulverizableComponent
 
+@synthesize pulverSoundName = _pulverSoundName;
+
 -(id) init
 {
 	if (self = [super init])
@@ -25,6 +27,10 @@
 	{
 		// Type
 		_pulverAnimationNamesByRenderSpriteName = [[NSDictionary alloc] initWithDictionary:[typeComponentDict objectForKey:@"pulverAnimations"]];
+		if ([typeComponentDict objectForKey:@"pulverSound"] != nil)
+		{
+			_pulverSoundName = [[typeComponentDict objectForKey:@"pulverSound"] copy];
+		}
 	}
 	return self;
 }
@@ -32,6 +38,7 @@
 -(void) dealloc
 {
 	[_pulverAnimationNamesByRenderSpriteName release];
+	[_pulverSoundName release];
 
 	[super dealloc];
 }

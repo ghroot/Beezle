@@ -15,6 +15,7 @@
 #import "CapturedComponent.h"
 #import "CapturedSystem.h"
 #import "DisposableComponent.h"
+#import "SoundManager.h"
 
 @implementation PulverizeWithPulverizableCollisionHandler
 
@@ -68,6 +69,11 @@
 		{
 			[renderSprite hide];
 		}
+	}
+
+	if ([pulverizableComponent pulverSoundName] != nil)
+	{
+		[[SoundManager sharedManager] playSound:[pulverizableComponent pulverSoundName]];
 	}
 
 	return FALSE;

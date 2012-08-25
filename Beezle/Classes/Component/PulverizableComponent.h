@@ -11,7 +11,10 @@
 @interface PulverizableComponent : Component
 {
 	NSDictionary *_pulverAnimationNamesByRenderSpriteName;
+	NSString *_pulverSoundName;
 }
+
+@property (nonatomic, readonly) NSString *pulverSoundName;
 
 -(NSString *) pulverAnimationForRenderSpriteName:(NSString *)renderSpriteName;
 
