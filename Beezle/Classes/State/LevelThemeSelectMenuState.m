@@ -18,6 +18,7 @@
 @interface LevelThemeSelectMenuState()
 
 -(void) createBackgroundSprites:(NSArray *)themes;
+-(void) createForegroundSprites;
 -(void) createBackMenu;
 -(void) createScrollLayer:(NSArray *)themes;
 -(void) updateBackground;
@@ -38,6 +39,7 @@
 	NSArray *themes = [[LevelOrganizer sharedOrganizer] themes];
 
 	[self createBackgroundSprites:themes];
+	[self createForegroundSprites];
 	[self createScrollLayer:themes];
 	[self createBackMenu];
 	[self updateBackground];
@@ -56,10 +58,21 @@
 	_backgroundSprites = [NSMutableArray new];
 	for (NSString *theme in themes)
 	{
-		CCSprite *backgroundSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"Colour-%@.jpg", theme]];
+		CCSprite *backgroundSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"Level-%@1.jpg", theme]];
 		[backgroundSprite setAnchorPoint:CGPointMake(0.0f, 0.0f)];
 		[_backgroundSprites addObject:backgroundSprite];
 	}
+}
+
+-(void) createForegroundSprites
+{
+	CCSprite *beeNestSprite1 = [CCSprite spriteWithFile:@"BeeNestScreen-Background.png"];
+	[beeNestSprite1 setAnchorPoint:CGPointZero];
+	[self addChild:beeNestSprite1 z:25];
+
+	CCSprite *beeNestSprite2 = [CCSprite spriteWithFile:@"BeeNestScreen-Front.png"];
+	[beeNestSprite2 setAnchorPoint:CGPointZero];
+	[self addChild:beeNestSprite2 z:25];
 }
 
 -(void) createBackMenu
@@ -72,7 +85,7 @@
 	[backMenuItem setAnchorPoint:CGPointMake(0.0f, 0.0f)];
 	[backMenu setPosition:CGPointZero];
 	[backMenu addChild:backMenuItem];
-	[self addChild:backMenu z:30];
+	[self addChild:backMenu z:40];
 }
 
 -(void) createScrollLayer:(NSArray *)themes
@@ -87,7 +100,7 @@
 	}
 	_scrollLayer =[[CCScrollLayer alloc] initWithLayers:layers widthOffset:0];
 	[_scrollLayer setShowPagesIndicator:FALSE];
-	[self addChild:_scrollLayer z:20];
+	[self addChild:_scrollLayer z:30];
 }
 
 -(void) enter

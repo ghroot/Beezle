@@ -9,6 +9,8 @@
 #import "LevelThemeSelectLayer.h"
 #import "FullscreenTransparentMenuItem.h"
 #import "CCBReader.h"
+#import "PlayerInformation.h"
+#import "LevelOrganizer.h"
 
 @implementation LevelThemeSelectLayer
 
@@ -16,12 +18,8 @@
 {
 	if (self = [super init])
 	{
-		NSString *interfaceFileName = [NSString stringWithFormat:@"ThemeSelect-%@.ccbi", theme];
+		NSString *interfaceFileName = [NSString stringWithFormat:@"ThemeSelect-%@-New.ccbi", theme];
 		[self addChild:[CCBReader nodeGraphFromFile:interfaceFileName owner:self]];
-
-		CCRotateBy *rotateAction = [CCRotateBy actionWithDuration:20.0f angle:360.0f];
-		CCRepeatForever *repeatAction = [CCRepeatForever actionWithAction:rotateAction];
-		[_globeSprite runAction:repeatAction];
 
 		CCMoveTo *moveUpAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([_titleSprite position].x, [_titleSprite position].y + 2.0f)]];
 		CCMoveTo *moveDownAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([_titleSprite position].x, [_titleSprite position].y - 2.0f)]];
@@ -57,6 +55,14 @@
 			}];
 			[_bee2Sprite runAction:[CCSequence actionOne:scaleAction two:startWiggleAction]];
 		}
+
+		int flowerRecordForTheme = [[PlayerInformation sharedInformation] flowerRecordForTheme:theme];
+		int totalFlowersInTheme = [[[LevelOrganizer sharedOrganizer] levelNamesInTheme:theme] count] * 3;
+		NSString *flowersString = [NSString stringWithFormat:@"%d/%d", flowerRecordForTheme, totalFlowersInTheme];
+		CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:flowersString charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'] autorelease];
+		[label setAnchorPoint:CGPointZero];
+		[label setPosition:[_flowerLabelPosition position]];
+		[self addChild:label];
 
 		CCMenu *menu = [CCMenu node];
 		FullscreenTransparentMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){

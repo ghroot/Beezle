@@ -137,6 +137,47 @@
 	return total;
 }
 
+-(int) flowerRecordForLevel:(NSString *)levelName
+{
+	int pollenRecord = [self pollenRecord:levelName];
+	if (pollenRecord >= 30)
+	{
+		return 3;
+	}
+	else if (pollenRecord >= 15)
+	{
+		return 2;
+	}
+	else if (pollenRecord > 0)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+-(int) flowerRecordForTheme:(NSString *)theme
+{
+	int total = 0;
+	for (NSString *levelName in [[LevelOrganizer sharedOrganizer] levelNamesInTheme:theme])
+	{
+		total += [self flowerRecordForLevel:levelName];
+	}
+	return total;
+}
+
+-(int) totalNumberOfFlowers
+{
+	int total = 0;
+	for (NSString *levelName in [_pollenRecordByLevelName allKeys])
+	{
+		total += [self flowerRecordForLevel:levelName];
+	}
+	return total;
+}
+
 -(BOOL) hasCompletedLevelAtLeastOnce:(NSString *)levelName
 {
     return [_pollenRecordByLevelName objectForKey:levelName] != nil;

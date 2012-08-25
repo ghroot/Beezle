@@ -25,6 +25,9 @@
 -(BOOL) isPollenRecord:(LevelSession *)levelSession;
 -(int) pollenRecord:(NSString *)levelName;
 -(int) totalNumberOfPollen;
+-(int) flowerRecordForLevel:(NSString *)levelName;
+-(int) flowerRecordForTheme:(NSString *)theme;
+-(int) totalNumberOfFlowers;
 -(BOOL) canPlayLevel:(NSString *)levelName;
 -(void) markTutorialIdAsSeen:(NSString *)tutorialId;
 -(void) markTutorialIdAsSeenAndSave:(NSString *)tutorialId;
