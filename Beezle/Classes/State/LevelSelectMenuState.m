@@ -96,10 +96,17 @@
 			[menuItemImage setDisabledImage:[CCSprite spriteWithFile:imageName]];
 		}
 
+		CGPoint position = [menuItemImage position];
+
+#ifdef DEBUG
+		NSString *levelString = [NSString stringWithFormat:@"%d", [menuItemImage tag]];
+		CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:levelString charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'] autorelease];
+		[label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
+		[label setPosition:position];
+		[draggableNode addChild:label];
+#else
 		if ([[PlayerInformation sharedInformation] hasPlayedLevel:levelName])
 		{
-			CGPoint position = [menuItemImage position];
-
 			NSString *levelString = [NSString stringWithFormat:@"%d", [menuItemImage tag]];
 			CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:levelString charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'] autorelease];
 			[label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
@@ -116,8 +123,8 @@
 			CCSprite *flowerSprite3 = [CCSprite spriteWithFile:(flowerRecord == 3 ? @"Flower-Cell-full.png" : @"Flower-Cell-dim.png")];
 			[flowerSprite3 setPosition:CGPointMake(position.x + 12.0f, position.y - 18.0f)];
 			[draggableNode addChild:flowerSprite3];
-
 		}
+#endif
     }
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	[draggableNode setContentSize:CGSizeMake(1200.0f, winSize.height)];
