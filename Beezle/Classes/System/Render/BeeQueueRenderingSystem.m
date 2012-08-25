@@ -25,7 +25,7 @@ static const float QUEUE_START_OFFSET_X = -30.0f;
 static const float QUEUE_START_OFFSET_Y = 0.0f;
 static const float QUEUE_SPACING_X = 30.0f;
 static const float QUEUE_SWAY_Y = 4.0f;
-static const float LOADED_BEE_MIN_ANIMATION_DURATION = 0.4f;
+static const float LOADED_BEE_MIN_ANIMATION_DURATION = 0.6f;
 static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 
 @interface BeeQueueRenderingSystem()
@@ -440,7 +440,7 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 	{
 		RenderSprite *beeQueueRenderSprite = [_beeQueueRenderSprites objectAtIndex:i];
 		[self increaseMovingBeesCount];
-        CCDelayTime *waitAction = [CCDelayTime actionWithDuration:(i * 0.8f)];
+        CCDelayTime *waitAction = [CCDelayTime actionWithDuration:(i * 0.3f)];
         CCCallBlock *animateAction = [CCCallBlock actionWithBlock:^(){
             [[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Bees-Animations.plist"];
 			[beeQueueRenderSprite playAnimationOnce:@"Bee-Turn-Into-Pollen" andCallBlockAtEnd:^{

@@ -6,8 +6,11 @@
 	<string>WOOD-3</string>
 	<key>components</key>
 	<dict>
-		<key>crumble</key>
-		<dict/>
+        <key>crumble</key>
+        <dict>
+            <key>crumbleSound</key>
+            <string>WoodCrack</string>
+        </dict>
         <key>disposable</key>
         <dict>
             <key>deleteEntityWhenDisposed</key>

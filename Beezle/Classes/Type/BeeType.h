@@ -15,6 +15,7 @@
 	int _autoDestroyDelay;
 	float _slingerShootSpeedModifier;
 	BOOL _doesExpire;
+	NSString *_soundName;
 }
 
 @property (nonatomic) int beeaterHits;
@@ -22,6 +23,7 @@
 @property (nonatomic) int autoDestroyDelay;
 @property (nonatomic) float slingerShootSpeedModifier;
 @property (nonatomic) BOOL doesExpire;
+@property (nonatomic) NSString *soundName;
 
 +(BeeType *) BEE;
 +(BeeType *) SAWEE;

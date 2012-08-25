@@ -88,7 +88,7 @@ static const float DELAY_PER_WOOD_PIECE = 0.3f;
 
 	[EntityUtil setEntityIsAboutToBeDeleted:woodEntity];
 
-	[[SoundManager sharedManager] playSound:@"WoodDestroy"];
+	[[SoundManager sharedManager] playSound:@"WoodSaw"];
 
 	return FALSE;
 }

@@ -10,6 +10,7 @@
 #import "CrumbleComponent.h"
 #import "DozerComponent.h"
 #import "EntityUtil.h"
+#import "SoundManager.h"
 
 @implementation DozerWithCrumbleCollisionHandler
 
@@ -26,7 +27,15 @@
 -(BOOL) handleCollisionBetween:(Entity *)firstEntity and:(Entity *)secondEntity collision:(Collision *)collision
 {
 	Entity *crumbleEntity = secondEntity;
+
 	[EntityUtil destroyEntity:crumbleEntity];
+
+	CrumbleComponent *crumbleComponent = [CrumbleComponent getFrom:crumbleEntity];
+	if ([crumbleComponent hasCrumbleSound])
+	{
+		[[SoundManager sharedManager] playSound:[crumbleComponent crumbleSoundName]];
+	}
+
 	return FALSE;
 }
 

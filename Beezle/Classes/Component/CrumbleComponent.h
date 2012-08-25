@@ -12,5 +12,12 @@
   Destroyed on collision with dozer entities.
  */
 @interface CrumbleComponent : Component
+{
+	NSString *_crumbleSoundName;
+}
+
+@property (nonatomic, readonly) NSString *crumbleSoundName;
+
+-(BOOL) hasCrumbleSound;
 
 @end

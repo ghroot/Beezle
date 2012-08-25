@@ -295,7 +295,8 @@
 	if ([action isKindOfClass:[CCAnimate class]])
 	{
 		CCAnimate *animationAction = (CCAnimate *)action;
-		[animationAction setDuration:speed];
+		float animationDuration = [[animationAction animation] duration];
+		[animationAction setDuration:(speed * animationDuration)];
 	}
 	else if ([action isKindOfClass:[CCRepeatForever class]])
 	{
