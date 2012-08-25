@@ -183,6 +183,11 @@
     return [_pollenRecordByLevelName objectForKey:levelName] != nil;
 }
 
+-(BOOL) hasPlayedLevel:(NSString *)levelName
+{
+	return [self pollenRecord:levelName] > 0;
+}
+
 -(BOOL) canPlayLevel:(NSString *)levelName
 {
 	NSString *levelNameBefore = [[LevelOrganizer sharedOrganizer] levelNameBefore:levelName];
