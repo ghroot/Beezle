@@ -2698,7 +2698,7 @@
 			<key>C59b-Ice</key>
 			<dict>
 				<key>anchorpoint</key>
-                <string>{ 0.51691,0.51210 }</string>
+                <string>{ 0.50000,0.50000 }</string>
                 <key>fixtures</key>
                 <array>
 
@@ -2725,38 +2725,38 @@
 						<key>polygons</key>
 						<array>
 							<array>	
-								<string>{ 83.00000,-13.50000 }</string>	
-								<string>{ 53.00000,-22.50000 }</string>	
-								<string>{ 2.00000,48.50000 }</string>	
-								<string>{ 44.00000,31.50000 }</string>	
-								<string>{ 80.00000,7.50000 }</string>	
-								<string>{ 94.00000,-6.50000 }</string>
+								<string>{ 86.50000,-12.00000 }</string>	
+								<string>{ 56.50000,-21.00000 }</string>	
+								<string>{ 5.50000,50.00000 }</string>	
+								<string>{ 47.50000,33.00000 }</string>	
+								<string>{ 83.50000,9.00000 }</string>	
+								<string>{ 97.50000,-5.00000 }</string>
 							</array>
 							<array>	
-								<string>{ -40.00000,-43.50000 }</string>	
-								<string>{ -83.00000,-14.50000 }</string>	
-								<string>{ 9.00000,-44.50000 }</string>	
-								<string>{ 0.00000,-58.50000 }</string>
+								<string>{ -36.50000,-42.00000 }</string>	
+								<string>{ -79.50000,-13.00000 }</string>	
+								<string>{ 12.50000,-43.00000 }</string>	
+								<string>{ 3.50000,-57.00000 }</string>
 							</array>
 							<array>	
-								<string>{ 26.00000,-32.50000 }</string>	
-								<string>{ -83.00000,-14.50000 }</string>	
-								<string>{ -101.00000,9.50000 }</string>	
-								<string>{ -105.00000,25.50000 }</string>	
-								<string>{ -80.00000,56.50000 }</string>	
-								<string>{ -36.00000,58.50000 }</string>	
-								<string>{ 2.00000,48.50000 }</string>	
-								<string>{ 53.00000,-22.50000 }</string>
+								<string>{ 29.50000,-31.00000 }</string>	
+								<string>{ -79.50000,-13.00000 }</string>	
+								<string>{ -97.50000,11.00000 }</string>	
+								<string>{ -101.50000,27.00000 }</string>	
+								<string>{ -76.50000,58.00000 }</string>	
+								<string>{ -32.50000,60.00000 }</string>	
+								<string>{ 5.50000,50.00000 }</string>	
+								<string>{ 56.50000,-21.00000 }</string>
 							</array>
 							<array>	
-								<string>{ -80.00000,56.50000 }</string>	
-								<string>{ -105.00000,25.50000 }</string>	
-								<string>{ -103.00000,41.50000 }</string>
+								<string>{ -76.50000,58.00000 }</string>	
+								<string>{ -101.50000,27.00000 }</string>	
+								<string>{ -99.50000,43.00000 }</string>
 							</array>
 							<array>	
-								<string>{ -83.00000,-14.50000 }</string>	
-								<string>{ 26.00000,-32.50000 }</string>	
-								<string>{ 9.00000,-44.50000 }</string>
+								<string>{ -79.50000,-13.00000 }</string>	
+								<string>{ 29.50000,-31.00000 }</string>	
+								<string>{ 12.50000,-43.00000 }</string>
 							</array>
 						</array>
                         
@@ -3133,6 +3133,115 @@
 								<string>{ -54.00000,-76.50000 }</string>	
 								<string>{ 26.00000,53.50000 }</string>	
 								<string>{ 45.00000,32.50000 }</string>
+							</array>
+						</array>
+                        
+					</dict>
+
+				</array>
+			</dict>
+
+			<key>C30a-Ice</key>
+			<dict>
+				<key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>fixtures</key>
+                <array>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0.2</real>
+                        <key>friction</key>
+                        <real>0.4</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ -13.00000,35.00000 }</string>	
+								<string>{ -32.00000,-81.00000 }</string>	
+								<string>{ -85.00000,-5.00000 }</string>	
+								<string>{ -82.00000,42.00000 }</string>	
+								<string>{ -44.00000,81.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 52.00000,-67.00000 }</string>	
+								<string>{ -1.00000,-80.00000 }</string>	
+								<string>{ -32.00000,-81.00000 }</string>	
+								<string>{ -13.00000,35.00000 }</string>	
+								<string>{ 43.00000,5.00000 }</string>	
+								<string>{ 80.00000,-22.00000 }</string>	
+								<string>{ 87.00000,-55.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -1.00000,-80.00000 }</string>	
+								<string>{ 52.00000,-67.00000 }</string>	
+								<string>{ 45.00000,-80.00000 }</string>
+							</array>
+						</array>
+                        
+					</dict>
+
+				</array>
+			</dict>
+
+			<key>C30b-Ice</key>
+			<dict>
+				<key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>fixtures</key>
+                <array>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0.2</real>
+                        <key>friction</key>
+                        <real>0.4</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ -19.00000,43.50000 }</string>	
+								<string>{ 12.00000,43.50000 }</string>	
+								<string>{ 40.00000,32.50000 }</string>	
+								<string>{ 52.00000,13.50000 }</string>	
+								<string>{ 18.00000,-42.50000 }</string>	
+								<string>{ -9.00000,-32.50000 }</string>	
+								<string>{ -51.00000,6.50000 }</string>	
+								<string>{ -55.00000,32.50000 }</string>
+							</array>
+							<array>	
+								<string>{ 18.00000,-42.50000 }</string>	
+								<string>{ 52.00000,13.50000 }</string>	
+								<string>{ 55.00000,-17.50000 }</string>	
+								<string>{ 40.00000,-41.50000 }</string>
 							</array>
 						</array>
                         
