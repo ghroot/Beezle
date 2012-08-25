@@ -28,32 +28,22 @@
 
 		if (_beeSprite != nil)
 		{
-			[_beeSprite setScale:0.1f];
-			CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.4f scale:1.0f];
-			CCCallBlock *startWiggleAction = [CCCallBlock actionWithBlock:^{
-				CCMoveTo *moveUpAction2 = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:0.4f position:CGPointMake([_beeSprite position].x, [_beeSprite position].y + 1.0f)]];
-				CCMoveTo *moveDownAction2 = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:0.4f position:CGPointMake([_beeSprite position].x, [_beeSprite position].y - 1.0f)]];
-				CCAction *swayAction2 = [CCRepeat actionWithAction:[CCSequence actions:moveUpAction2, moveDownAction2, nil] times:INT_MAX];
-				[_beeSprite runAction:swayAction2];
-				CCScaleTo *scaleUpAction = [CCScaleTo actionWithDuration:2.0f scale:1.2f];
-				CCScaleTo *scaleDownAction = [CCScaleTo actionWithDuration:2.0f scale:0.8f];
-				[_beeSprite runAction:[CCRepeatForever actionWithAction:[CCSequence actionOne:scaleUpAction two:scaleDownAction]]];
-				CCRotateTo *rotateRightAction = [CCRotateTo actionWithDuration:0.3f angle:5.0f];
-				CCRotateTo *rotateLeftAction = [CCRotateTo actionWithDuration:0.3f angle:-5.0f];
-				[_beeSprite runAction:[CCRepeatForever actionWithAction:[CCSequence actionOne:rotateRightAction two:rotateLeftAction]]];
-			}];
-			[_beeSprite runAction:[CCSequence actionOne:scaleAction two:startWiggleAction]];
+			CCMoveTo *moveUpAction2 = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:0.4f position:CGPointMake([_beeSprite position].x, [_beeSprite position].y + 1.0f)]];
+			CCMoveTo *moveDownAction2 = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:0.4f position:CGPointMake([_beeSprite position].x, [_beeSprite position].y - 1.0f)]];
+			CCAction *swayAction2 = [CCRepeat actionWithAction:[CCSequence actions:moveUpAction2, moveDownAction2, nil] times:INT_MAX];
+			[_beeSprite runAction:swayAction2];
+			CCScaleTo *scaleUpAction = [CCScaleTo actionWithDuration:2.0f scale:1.2f];
+			CCScaleTo *scaleDownAction = [CCScaleTo actionWithDuration:2.0f scale:0.8f];
+			[_beeSprite runAction:[CCRepeatForever actionWithAction:[CCSequence actionOne:scaleUpAction two:scaleDownAction]]];
+			CCRotateTo *rotateRightAction = [CCRotateTo actionWithDuration:0.3f angle:5.0f];
+			CCRotateTo *rotateLeftAction = [CCRotateTo actionWithDuration:0.3f angle:-5.0f];
+			[_beeSprite runAction:[CCRepeatForever actionWithAction:[CCSequence actionOne:rotateRightAction two:rotateLeftAction]]];
 		}
 		if (_bee2Sprite != nil)
 		{
-			[_bee2Sprite setScale:0.1f];
-			CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.4f scale:1.0f];
-			CCCallBlock *startWiggleAction = [CCCallBlock actionWithBlock:^{
-				CCRotateTo *rotateRightAction = [CCRotateTo actionWithDuration:0.6f angle:3.0f];
-				CCRotateTo *rotateLeftAction = [CCRotateTo actionWithDuration:0.6f angle:-3.0f];
-				[_bee2Sprite runAction:[CCRepeatForever actionWithAction:[CCSequence actionOne:rotateRightAction two:rotateLeftAction]]];
-			}];
-			[_bee2Sprite runAction:[CCSequence actionOne:scaleAction two:startWiggleAction]];
+			CCRotateTo *rotateRightAction = [CCRotateTo actionWithDuration:0.6f angle:3.0f];
+			CCRotateTo *rotateLeftAction = [CCRotateTo actionWithDuration:0.6f angle:-3.0f];
+			[_bee2Sprite runAction:[CCRepeatForever actionWithAction:[CCSequence actionOne:rotateRightAction two:rotateLeftAction]]];
 		}
 
 		int flowerRecordForTheme = [[PlayerInformation sharedInformation] flowerRecordForTheme:theme];
