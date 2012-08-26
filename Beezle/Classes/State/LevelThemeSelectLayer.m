@@ -54,7 +54,7 @@
 		[label setPosition:[_flowerLabelPosition position]];
 		[self addChild:label];
 
-		CCMenu *menu = [CCMenu node];
+		_menu = [CCMenu new];
 		FullscreenTransparentMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
 			CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.2f scale:3.0f];
 			CCCallBlockO *callBlockAction = [CCCallBlockO actionWithBlock:block object:sender];
@@ -62,9 +62,11 @@
 
 			CCFadeIn *fadeInAction = [CCFadeIn actionWithDuration:0.2f];
 			[_fadeLayer runAction:fadeInAction];
+
+			[_menu setEnabled:FALSE];
 		} selectedBlock:nil unselectedBlock:nil] autorelease];
-		[menu addChild:menuItem];
-		[self addChild:menu];
+		[_menu addChild:menuItem];
+		[self addChild:_menu];
 
 		_fadeLayer = [[CCLayerColor alloc] initWithColor:ccc4(0, 0, 0, 0)];
 		[self addChild:_fadeLayer];
@@ -74,6 +76,7 @@
 
 -(void) dealloc
 {
+	[_menu release];
 	[_fadeLayer release];
 
 	[super dealloc];
@@ -84,6 +87,8 @@
 	[_container setScale:2.0f];
 	CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.2f scale:1.0f];
 	[_container runAction:scaleAction];
+
+	[_menu setEnabled:TRUE];
 
 	[_fadeLayer setOpacity:255];
 	CCFadeIn *fadeOutAction = [CCFadeOut actionWithDuration:0.2f];

@@ -17,6 +17,7 @@
 
 	CCNode *_flowerLabelPosition;
 
+	CCMenu *_menu;
 	CCLayerColor *_fadeLayer;
 }
 
