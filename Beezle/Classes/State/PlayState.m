@@ -44,17 +44,17 @@
 
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Interface.plist"];
 	NSArray *spriteFrames = [NSArray arrayWithObjects:
-			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/PollenCatchPlay-1.png"],
-			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/PollenCatchPlay-2.png"],
-			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/PollenCatchPlay-3.png"],
-			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/PollenCatchPlay-4.png"],
-			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/PollenCatchPlay-5.png"],
-			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/PollenCatchPlay-6.png"],
-			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/PollenCatchPlay-7.png"],
-			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/PollenCatchPlay-8.png"],
+			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/PlayButtonPollen-1.png"],
+			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/PlayButtonPollen-2.png"],
+			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/PlayButtonPollen-3.png"],
+			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/PlayButtonPollen-4.png"],
+			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/PlayButtonPollen-5.png"],
+			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/PlayButtonPollen-6.png"],
+			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/PlayButtonPollen-7.png"],
+			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/PlayButtonPollen-8.png"],
 			nil];
 
-	CCSprite *pollenCatchSprite = [CCSprite spriteWithSpriteFrameName:@"Play/PollenCatchPlay-1.png"];
+	CCSprite *pollenCatchSprite = [CCSprite spriteWithSpriteFrameName:@"Play/PlayButtonPollen-1.png"];
 	[pollenCatchSprite setPosition:[Utils screenCenterPosition]];
 	[self addChild:pollenCatchSprite];
 
