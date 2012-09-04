@@ -87,8 +87,6 @@
 	{
 		[self saveContainedBee:capturedEntity savedBeeType:containedBeeType];
 	}
-
-	[[SoundManager sharedManager] playSound:[[[capturedComponent containedBeeTypes] lastObject] soundName]];
 }
 
 -(void) saveContainedBee:(Entity *)capturedEntity savedBeeType:(BeeType *)savedBeeType
