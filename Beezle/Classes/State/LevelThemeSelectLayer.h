@@ -21,7 +21,7 @@
 	CCLayerColor *_fadeLayer;
 }
 
--(id) initWithTheme:(NSString *)theme block:(void(^)(id sender))block;
+-(id) initWithTheme:(NSString *)theme startBlock:(void(^)(id sender))startBlock endBlock:(void(^)(id sender))endBlock;
 
 -(void) reset;
 

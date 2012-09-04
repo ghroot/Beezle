@@ -16,6 +16,7 @@
 	NSMutableArray *_backgroundSprites;
 	NSMutableArray *_activeBackgroundSprites;
 	CCScrollLayer *_scrollLayer;
+	CCSprite *_foregroundSprite;
 }
 
 -(void) resetCurrentLevelThemeSelectLayer;

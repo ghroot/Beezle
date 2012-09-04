@@ -14,6 +14,7 @@
 #import "CCScrollLayer.h"
 #import "SoundManager.h"
 #import "PlayState.h"
+#import "Utils.h"
 
 @interface LevelThemeSelectMenuState()
 
@@ -33,9 +34,6 @@
 
 	_activeBackgroundSprites = [NSMutableArray new];
 
-//	CCLayerColor *whiteBackgroundLayer = [CCLayerColor layerWithColor:ccc4(255, 255, 255, 255)];
-//	[self addChild:whiteBackgroundLayer];
-
 	NSArray *themes = [[LevelOrganizer sharedOrganizer] themes];
 
 	[self createBackgroundSprites:themes];
@@ -49,6 +47,7 @@
 {
 	[_backgroundSprites release];
 	[_scrollLayer release];
+	[_foregroundSprite release];
 
 	[super dealloc];
 }
@@ -66,9 +65,9 @@
 
 -(void) createForegroundSprite
 {
-	CCSprite *foregroundSprite = [CCSprite spriteWithFile:@"Chooser-Screen.png"];
-	[foregroundSprite setAnchorPoint:CGPointZero];
-	[self addChild:foregroundSprite z:25];
+	_foregroundSprite = [[CCSprite alloc] initWithFile:@"Chooser-Screen.png"];
+	[_foregroundSprite setPosition:[Utils screenCenterPosition]];
+	[self addChild:_foregroundSprite z:25];
 }
 
 -(void) createBackMenu
@@ -89,7 +88,10 @@
 	NSMutableArray *layers = [NSMutableArray array];
 	for (NSString *theme in themes)
 	{
-		LevelThemeSelectLayer *levelThemeSelectLayer = [[[LevelThemeSelectLayer alloc] initWithTheme:theme block:^(id sender){
+		LevelThemeSelectLayer *levelThemeSelectLayer = [[[LevelThemeSelectLayer alloc] initWithTheme:theme startBlock:^(id sender){
+			CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.2f scale:4.0f];
+			[_foregroundSprite runAction:scaleAction];
+		} endBlock:^(id sender){
 			[_game pushState:[LevelSelectMenuState stateWithTheme:theme]];
 		}] autorelease];
 		[layers addObject:levelThemeSelectLayer];
@@ -138,6 +140,7 @@
 	{
 		CCSprite *sprite = [_backgroundSprites objectAtIndex:currentLeftLayerIndex];
 		[sprite setOpacity:255];
+		[sprite setPosition:CGPointZero];
 		[self addChild:sprite z:10];
 		[_activeBackgroundSprites addObject:sprite];
 	}
@@ -152,6 +155,9 @@
 
 		[leftSprite setOpacity:255 * leftRatio];
 		[rightSprite setOpacity:255 * rightRatio];
+		float positionRatio = 0.45f;
+		[leftSprite setPosition:CGPointMake(-winSize.width * positionRatio * rightRatio, 0.0f)];
+		[rightSprite setPosition:CGPointMake(winSize.width * positionRatio * leftRatio, 0.0f)];
 
 		[self addChild:leftSprite z:10];
 		[self addChild:rightSprite z:10];
@@ -163,6 +169,8 @@
 
 -(void) resetCurrentLevelThemeSelectLayer
 {
+	[_foregroundSprite setScale:1.0f];
+
 	LevelThemeSelectLayer *layer = [[_scrollLayer pages] objectAtIndex:[_scrollLayer currentScreen]];
 	[layer reset];
 }

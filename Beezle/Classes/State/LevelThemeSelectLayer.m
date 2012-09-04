@@ -14,7 +14,7 @@
 
 @implementation LevelThemeSelectLayer
 
--(id) initWithTheme:(NSString *)theme block:(void(^)(id sender))block
+-(id) initWithTheme:(NSString *)theme startBlock:(void(^)(id sender))startBlock endBlock:(void(^)(id sender))endBlock
 {
 	if (self = [super init])
 	{
@@ -57,13 +57,14 @@
 		_menu = [CCMenu new];
 		FullscreenTransparentMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
 			CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.2f scale:3.0f];
-			CCCallBlockO *callBlockAction = [CCCallBlockO actionWithBlock:block object:sender];
+			CCCallBlockO *callBlockAction = [CCCallBlockO actionWithBlock:endBlock object:sender];
 			[_container runAction:[CCSequence actionOne:scaleAction two:callBlockAction]];
 
 			CCFadeIn *fadeInAction = [CCFadeIn actionWithDuration:0.2f];
 			[_fadeLayer runAction:fadeInAction];
 
 			[_menu setEnabled:FALSE];
+			startBlock(sender);
 		} selectedBlock:nil unselectedBlock:nil] autorelease];
 		[_menu addChild:menuItem];
 		[self addChild:_menu];
