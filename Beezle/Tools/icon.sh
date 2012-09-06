@@ -1,4 +1,4 @@
-#!/bin/bash\
+#!/bin/bash
 cp aaa.png iTunesArtwork.png
 cp iTunesArtwork.png Icon.png
 cp Icon.png Icon@2x.png
