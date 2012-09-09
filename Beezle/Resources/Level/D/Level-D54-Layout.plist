@@ -33,8 +33,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>MUMEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>MUMEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -61,8 +63,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
 				</dict>
 				<key>movement</key>
 				<dict>
@@ -96,14 +100,16 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BOMBEE</string>
+					</array>
 				</dict>
 				<key>movement</key>
 				<dict>
 					<key>positions</key>
 					<array>
-						<string>{392, 189}</string>
+						<string>{391, 183}</string>
 					</array>
 				</dict>
 				<key>physics</key>
@@ -111,12 +117,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{184, 189}</string>
+					<string>{184, 184}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{184, 189}</string>
+					<string>{184, 184}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -131,8 +137,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
 				</dict>
 				<key>movement</key>
 				<dict>
@@ -166,8 +174,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
 				</dict>
 				<key>movement</key>
 				<dict>
@@ -201,8 +211,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
 				</dict>
 				<key>movement</key>
 				<dict>
@@ -236,8 +248,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BOMBEE</string>
+					</array>
 				</dict>
 				<key>movement</key>
 				<dict>
@@ -271,8 +285,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
 				</dict>
 				<key>movement</key>
 				<dict>
@@ -306,8 +322,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BOMBEE</string>
+					</array>
 				</dict>
 				<key>movement</key>
 				<dict>
@@ -367,6 +385,6 @@
 	<key>name</key>
 	<string>Level-D54</string>
 	<key>version</key>
-	<integer>9</integer>
+	<integer>11</integer>
 </dict>
 </plist>

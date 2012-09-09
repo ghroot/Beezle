@@ -12,6 +12,7 @@
 					<key>queuedBeeTypes</key>
 					<array>
 						<string>BEE</string>
+						<string>BOMBEE</string>
 					</array>
 				</dict>
 				<key>transform</key>
@@ -32,8 +33,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BOMBEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BOMBEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -60,8 +63,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>SPEEDEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>SPEEDEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -88,8 +93,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>TBEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>TBEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -116,8 +123,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BOMBEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BOMBEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -165,12 +174,23 @@
 		<dict>
 			<key>components</key>
 			<dict>
+				<key>captured</key>
+				<dict>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+						<string>BEE</string>
+						<string>BEE</string>
+						<string>BEE</string>
+						<string>BEE</string>
+					</array>
+				</dict>
 				<key>movement</key>
 				<dict>
 					<key>positions</key>
 					<array>
 						<string>{209, 220}</string>
-						<string>{152, 108}</string>
+						<string>{197, 92}</string>
 					</array>
 				</dict>
 				<key>physics</key>
@@ -198,8 +218,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BOMBEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BOMBEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -259,6 +281,6 @@
 	<key>name</key>
 	<string>Level-C60</string>
 	<key>version</key>
-	<integer>3</integer>
+	<integer>5</integer>
 </dict>
 </plist>
