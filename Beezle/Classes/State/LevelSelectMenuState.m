@@ -58,9 +58,9 @@
 
 -(void) addInterfaceLevelsMenu
 {
-	CCSprite *chooserScreenSprite = [CCSprite spriteWithFile:@"Chooser-Screen.png"];
-	[chooserScreenSprite setAnchorPoint:CGPointZero];
-	[self addChild:chooserScreenSprite];
+	CCSprite *chooserScreenBackSprite = [CCSprite spriteWithFile:@"Chooser-Screen-back.png"];
+	[chooserScreenBackSprite setAnchorPoint:CGPointZero];
+	[self addChild:chooserScreenBackSprite];
 
 //    NSString *nodeFileName = [NSString stringWithFormat:@"LevelSelect-%@.ccbi", _theme];
     NSString *nodeFileName = @"LevelSelect-A.ccbi";
@@ -131,6 +131,10 @@
 
 	_scrollView = [[ScrollView alloc] initWithContent:draggableNode];
 	[self addChild:_scrollView];
+
+	CCSprite *chooserScreenFrontSprite = [CCSprite spriteWithFile:@"Chooser-Screen-front.png"];
+	[chooserScreenFrontSprite setAnchorPoint:CGPointZero];
+	[self addChild:chooserScreenFrontSprite];
 }
 
 -(CCMenu *) getMenu:(CCNode *)node

@@ -18,8 +18,7 @@
 
 @interface LevelThemeSelectMenuState()
 
--(void) createBackgroundSprites:(NSArray *)themes;
--(void) createForegroundSprite;
+-(void) createBackgroundSprite;
 -(void) createBackMenu;
 -(void) createScrollLayer:(NSArray *)themes;
 -(void) updateBackground;
@@ -32,42 +31,50 @@
 {
 	[super initialise];
 
-	_activeBackgroundSprites = [NSMutableArray new];
+	[self createBackgroundSprite];
+
+	_chooserScreenBackSprite = [[CCSprite alloc] initWithFile:@"Chooser-Screen-back.png"];
+	[_chooserScreenBackSprite setPosition:[Utils screenCenterPosition]];
+	[self addChild:_chooserScreenBackSprite z:25];
 
 	NSArray *themes = [[LevelOrganizer sharedOrganizer] themes];
-
-	[self createBackgroundSprites:themes];
-	[self createForegroundSprite];
 	[self createScrollLayer:themes];
+
+	CCSprite *chooserScreenFrontSprite = [CCSprite spriteWithFile:@"Chooser-Screen-front.png"];
+	[chooserScreenFrontSprite setPosition:[Utils screenCenterPosition]];
+	[self addChild:chooserScreenFrontSprite z:31];
+
 	[self createBackMenu];
 	[self updateBackground];
 }
 
 -(void) dealloc
 {
-	[_backgroundSprites release];
+	[_backgroundSprite release];
 	[_scrollLayer release];
-	[_foregroundSprite release];
+	[_chooserScreenBackSprite release];
 
 	[super dealloc];
 }
 
--(void) createBackgroundSprites:(NSArray *)themes
+-(void) createBackgroundSprite
 {
-	_backgroundSprites = [NSMutableArray new];
-	for (NSString *theme in themes)
-	{
-		CCSprite *backgroundSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"Level-%@1.jpg", theme]];
-		[backgroundSprite setAnchorPoint:CGPointMake(0.0f, 0.0f)];
-		[_backgroundSprites addObject:backgroundSprite];
-	}
-}
+	_backgroundSprite = [CCSprite new];
 
--(void) createForegroundSprite
-{
-	_foregroundSprite = [[CCSprite alloc] initWithFile:@"Chooser-Screen.png"];
-	[_foregroundSprite setPosition:[Utils screenCenterPosition]];
-	[self addChild:_foregroundSprite z:25];
+	CCSprite *backgroundSprite1 = [CCSprite spriteWithFile:@"ChooserSlingerBackground-1.jpg"];
+	[backgroundSprite1 setAnchorPoint:CGPointZero];
+	[_backgroundSprite addChild:backgroundSprite1];
+
+	CCSprite *backgroundSprite2 = [CCSprite spriteWithFile:@"ChooserSlingerBackground-2.jpg"];
+	[backgroundSprite2 setAnchorPoint:CGPointZero];
+	[backgroundSprite2 setPosition:CGPointMake([backgroundSprite1 contentSize].width, 0.0f)];
+	[_backgroundSprite addChild:backgroundSprite2];
+
+	_backgroundSpriteWidth = [backgroundSprite1 contentSize].width + [backgroundSprite2 contentSize].width;
+
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	[_backgroundSprite setPosition:CGPointMake(0.0f, (winSize.height - [backgroundSprite1 contentSize].height) / 2)];
+	[self addChild:_backgroundSprite];
 }
 
 -(void) createBackMenu
@@ -90,7 +97,7 @@
 	{
 		LevelThemeSelectLayer *levelThemeSelectLayer = [[[LevelThemeSelectLayer alloc] initWithTheme:theme startBlock:^(id sender){
 			CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.2f scale:4.0f];
-			[_foregroundSprite runAction:scaleAction];
+			[_chooserScreenBackSprite runAction:scaleAction];
 		} endBlock:^(id sender){
 			[_game pushState:[LevelSelectMenuState stateWithTheme:theme]];
 		}] autorelease];
@@ -118,58 +125,19 @@
 -(void) updateBackground
 {
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
+
 	float scrollLayerX = [_scrollLayer position].x;
-	float centerX = winSize.width / 2 - scrollLayerX;
-	float leftX = centerX - winSize.width / 2;
-	int currentLeftLayerIndex = floorf(leftX / winSize.width);
-	currentLeftLayerIndex = max(0, currentLeftLayerIndex);
-	currentLeftLayerIndex = min([[_scrollLayer children] count] - 1, currentLeftLayerIndex);
-	float rightX = centerX + winSize.width / 2;
-	int currentRightLayerIndex = floorf(rightX / winSize.width);
-	currentRightLayerIndex = max(0, currentRightLayerIndex);
-	currentRightLayerIndex = min([[_scrollLayer children] count] - 1, currentRightLayerIndex);
-
-	for (CCSprite *sprite in _activeBackgroundSprites)
-	{
-		[self removeChild:sprite cleanup:TRUE];
-	}
-	[_activeBackgroundSprites removeAllObjects];
-
-	if ((int)scrollLayerX % (int)winSize.width == 0 ||
-		currentLeftLayerIndex == currentRightLayerIndex)
-	{
-		CCSprite *sprite = [_backgroundSprites objectAtIndex:currentLeftLayerIndex];
-		[sprite setOpacity:255];
-		[sprite setPosition:CGPointZero];
-		[self addChild:sprite z:10];
-		[_activeBackgroundSprites addObject:sprite];
-	}
-	else
-	{
-		float rightWidth = centerX + winSize.width / 2 - (currentRightLayerIndex * winSize.width);
-		float rightRatio = rightWidth / winSize.width;
-		float leftRatio = 1.0f - rightRatio;
-
-		CCSprite *leftSprite = [_backgroundSprites objectAtIndex:currentLeftLayerIndex];
-		CCSprite *rightSprite = [_backgroundSprites objectAtIndex:currentRightLayerIndex];
-
-		[leftSprite setOpacity:255 * leftRatio];
-		[rightSprite setOpacity:255 * rightRatio];
-		float positionRatio = 0.45f;
-		[leftSprite setPosition:CGPointMake(-winSize.width * positionRatio * rightRatio, 0.0f)];
-		[rightSprite setPosition:CGPointMake(winSize.width * positionRatio * leftRatio, 0.0f)];
-
-		[self addChild:leftSprite z:10];
-		[self addChild:rightSprite z:10];
-
-		[_activeBackgroundSprites addObject:leftSprite];
-		[_activeBackgroundSprites addObject:rightSprite];
-	}
+	float percent = -scrollLayerX / (([[_scrollLayer pages] count] - 1) * winSize.width);
+	percent = min(percent, 1.0f);
+	percent = max(percent, 0.0f);
+	float backgroundSpritePadding = 120.0f;
+	float backgroundSpriteX = backgroundSpritePadding - percent * (_backgroundSpriteWidth - winSize.width + 2 * backgroundSpritePadding);
+	[_backgroundSprite setPosition:CGPointMake(backgroundSpriteX, [_backgroundSprite position].y)];
 }
 
 -(void) resetCurrentLevelThemeSelectLayer
 {
-	[_foregroundSprite setScale:1.0f];
+	[_chooserScreenBackSprite setScale:1.0f];
 
 	LevelThemeSelectLayer *layer = [[_scrollLayer pages] objectAtIndex:[_scrollLayer currentScreen]];
 	[layer reset];

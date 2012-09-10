@@ -13,10 +13,10 @@
 
 @interface LevelThemeSelectMenuState : GameState
 {
-	NSMutableArray *_backgroundSprites;
-	NSMutableArray *_activeBackgroundSprites;
+	CCSprite *_backgroundSprite;
+	float _backgroundSpriteWidth;
 	CCScrollLayer *_scrollLayer;
-	CCSprite *_foregroundSprite;
+	CCSprite *_chooserScreenBackSprite;
 }
 
 -(void) resetCurrentLevelThemeSelectLayer;
