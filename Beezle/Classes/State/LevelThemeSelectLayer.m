@@ -49,7 +49,7 @@
 		int flowerRecordForTheme = [[PlayerInformation sharedInformation] flowerRecordForTheme:theme];
 		int totalFlowersInTheme = [[[LevelOrganizer sharedOrganizer] levelNamesInTheme:theme] count] * 3;
 		NSString *flowersString = [NSString stringWithFormat:@"%d/%d", flowerRecordForTheme, totalFlowersInTheme];
-		CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:flowersString charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'] autorelease];
+		CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:flowersString charMapFile:@"numberImages-red-s.png" itemWidth:12 itemHeight:14 startCharMap:'/'] autorelease];
 		[label setAnchorPoint:CGPointZero];
 		[label setPosition:[_flowerLabelPosition position]];
 		[self addChild:label];
