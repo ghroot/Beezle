@@ -14,13 +14,9 @@
 
 -(id) initWithState:(PausedMenuState *)state andLevelSession:(LevelSession *)levelSession
 {
-	if (self = [super initWithInterfaceFile:@"PausedDialog.ccbi" andLevelSession:levelSession])
+	if (self = [super initWithInterfaceFile:@"PausedDialog.ccbi"])
 	{
 		_state = state;
-
-		[self useOrangeResumeButton];
-		[self useWhiteRestartButton];
-		[self useNoNextLevelButton];
 	}
 	return self;
 }
@@ -33,6 +29,11 @@
 -(void) restartGame
 {
 	[_state restartGame];
+}
+
+-(void) exitGame
+{
+    [_state exitGame];
 }
 
 -(void) nextLevel

@@ -6,16 +6,21 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "IngameDialog.h"
+#import "Dialog.h"
 
 @class Game;
 @class LevelSession;
 
-@interface LevelCompletedDialog : IngameDialog
+@interface LevelCompletedDialog : Dialog
 {
 	Game *_game;
+    LevelSession *_levelSession;
 }
 
 -(id) initWithGame:(Game *)game andLevelSession:(LevelSession *)levelSession;
+
+-(void) nextLevel;
+-(void) restartGame;
+-(void) exitGame;
 
 @end

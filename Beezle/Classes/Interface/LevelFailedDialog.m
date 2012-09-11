@@ -10,18 +10,16 @@
 #import "Game.h"
 #import "GameplayState.h"
 #import "LevelSession.h"
+#import "PlayState.h"
 
 @implementation LevelFailedDialog
 
 -(id) initWithGame:(Game *)game andLevelSession:(LevelSession *)levelSession
 {
-	if (self = [super initWithInterfaceFile:@"LevelFailedDialog.ccbi" andLevelSession:levelSession])
+	if (self = [super initWithInterfaceFile:@"LevelFailedDialog.ccbi"])
 	{
 		_game = game;
-
-		[self useNoResumeButton];
-		[self useOrangeRestartButton];
-		[self useNoNextLevelButton];
+        _levelSession = levelSession;
 	}
 	return self;
 }
@@ -29,6 +27,11 @@
 -(void) restartGame
 {
 	[_game replaceState:[GameplayState stateWithLevelName:[_levelSession levelName]]];
+}
+
+-(void) exitGame
+{
+    [_game clearAndReplaceState:[PlayState state]];
 }
 
 @end

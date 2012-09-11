@@ -22,13 +22,10 @@
 
 -(id) initWithGame:(Game *)game andLevelSession:(LevelSession *)levelSession
 {
-	if (self = [super initWithInterfaceFile:@"LevelCompletedDialog.ccbi" andLevelSession:levelSession])
+	if (self = [super initWithInterfaceFile:@"LevelCompletedDialog.ccbi"])
 	{
 		_game = game;
-
-		[self useNoResumeButton];
-		[self useWhiteRestartButton];
-		[self useOrangeNextLevelButton];
+        _levelSession = levelSession;
 	}
 	return self;
 }
@@ -69,6 +66,11 @@
 -(void) restartGame
 {
 	[_game replaceState:[GameplayState stateWithLevelName:[_levelSession levelName]]];
+}
+
+-(void) exitGame
+{
+    [_game clearAndReplaceState:[PlayState state]];
 }
 
 @end

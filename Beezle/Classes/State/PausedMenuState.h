@@ -14,12 +14,14 @@
 @interface PausedMenuState : GameState
 {
     CCMenu *_menu;
+    NSString *_theme;
 }
 
 -(id) initWithBackground:(CCNode *)backgroundNode andLevelSession:(LevelSession *)levelSession;
 
 -(void) resumeGame;
 -(void) restartGame;
+-(void) exitGame;
 -(void) nextLevel;
 
 @end

@@ -23,7 +23,6 @@
 @interface PausedMenuState()
 
 -(void) editGame:(id)sender;
--(void) gotoMainMenu:(id)sender;
 
 @end
 
@@ -33,13 +32,22 @@
 {
 	if (self = [super init])
 	{
-		[backgroundNode setPosition:[Utils screenCenterPosition]];
+        _theme = [[[LevelOrganizer sharedOrganizer] themeForLevel:[levelSession levelName]] copy];
+
+        [backgroundNode setPosition:[Utils screenCenterPosition]];
 		[self addChild:backgroundNode];
 
 		PausedDialog *pausedDialog = [[[PausedDialog alloc] initWithState:self andLevelSession:levelSession] autorelease];
 		[self addChild:pausedDialog];
 	}
 	return self;
+}
+
+-(void) dealloc
+{
+    [_theme release];
+
+    [super dealloc];
 }
 
 -(void) initialise
@@ -51,8 +59,6 @@
     [_menu addChild:editMenuItem];
 	CCMenuItem *nextLevelMenuItem = [CCMenuItemFont itemWithString:@"Next Level" target:self selector:@selector(nextLevel)];
 	[_menu addChild:nextLevelMenuItem];
-	CCMenuItem *quitMenuItem = [CCMenuItemFont itemWithString:@"Quit" target:self selector:@selector(gotoMainMenu:)];
-	[_menu addChild:quitMenuItem];
 	[_menu alignItemsVerticallyWithPadding:30.0f];
 	[self addChild:_menu];
 	
@@ -82,6 +88,11 @@
 	[_game replaceState:[GameplayState stateWithLevelName:[gameplayState levelName]]];
 }
 
+-(void) exitGame
+{
+    [_game clearAndReplaceState:[PlayState state]];
+}
+
 -(void) editGame:(id)sender
 {
 	// This assumes the previous state was the game play state
@@ -104,11 +115,6 @@
     {
 		[_game replaceState:[PlayState state]];
     }
-}
-
--(void) gotoMainMenu:(id)sender
-{
-	[_game clearAndReplaceState:[PlayState state]];
 }
 
 @end
