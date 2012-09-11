@@ -79,7 +79,7 @@
 				[EntityUtil setEntityPosition:[teleportInfo entity] position:[teleportComponent outPosition]];
 
 				PhysicsComponent *physicsComponent = [PhysicsComponent getFrom:[teleportInfo entity]];
-				float velocityLength = ccpLength([[physicsComponent body] vel]);
+				float velocityLength = /*ccpLength([[physicsComponent body] vel])*/500.0f;
 				float angle = [Utils cocos2dDegreesToChipmunkRadians:[teleportComponent outRotation]];
 				cpVect newVelocity;
 				newVelocity.x = velocityLength * cosf(angle);
