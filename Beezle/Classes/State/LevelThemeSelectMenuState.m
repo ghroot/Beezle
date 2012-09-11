@@ -22,10 +22,20 @@
 -(void) createBackMenu;
 -(void) createScrollLayer:(NSArray *)themes;
 -(void) updateBackground;
+-(void) updatePageDots:(int)page;
 
 @end
 
 @implementation LevelThemeSelectMenuState
+
+-(id) init
+{
+	if (self = [super init])
+	{
+		_pageDotSprites = [NSMutableArray new];
+	}
+	return self;
+}
 
 -(void) initialise
 {
@@ -46,12 +56,14 @@
 
 	[self createBackMenu];
 	[self updateBackground];
+    [self updatePageDots:0];
 }
 
 -(void) dealloc
 {
 	[_backgroundSprite release];
 	[_scrollLayer release];
+	[_pageDotSprites release];
 	[_chooserScreenBackSprite release];
 
 	[super dealloc];
@@ -103,8 +115,9 @@
 		}] autorelease];
 		[layers addObject:levelThemeSelectLayer];
 	}
-	_scrollLayer =[[CCScrollLayer alloc] initWithLayers:layers widthOffset:0];
+	_scrollLayer = [[CCScrollLayer alloc] initWithLayers:layers widthOffset:0];
 	[_scrollLayer setShowPagesIndicator:FALSE];
+    [_scrollLayer setDelegate:self];
 	[self addChild:_scrollLayer z:30];
 }
 
@@ -141,6 +154,38 @@
 
 	LevelThemeSelectLayer *layer = [[_scrollLayer pages] objectAtIndex:[_scrollLayer currentScreen]];
 	[layer reset];
+}
+
+-(void) scrollLayer:(CCScrollLayer *)sender scrolledToPageNumber:(int)page
+{
+    NSLog(@"Scrolled to page %d", page);
+
+    [self updatePageDots:page];
+}
+
+-(void) updatePageDots:(int)page
+{
+	for (CCSprite *pageDotSprite in _pageDotSprites)
+	{
+		[self removeChild:pageDotSprite cleanup:TRUE];
+	}
+	[_pageDotSprites removeAllObjects];
+
+	for (int i = 0; i < [[_scrollLayer pages] count]; i++)
+	{
+		CCSprite *pageDotSprite = nil;
+		if (i == page)
+		{
+			pageDotSprite = [CCSprite spriteWithFile:@"PageDot-full.png"];
+		}
+		else
+		{
+			pageDotSprite = [CCSprite spriteWithFile:@"PageDot-diff.png"];
+		}
+		[pageDotSprite setPosition:CGPointMake(220.0f + i * 10.0f, 20.0f)];
+		[_pageDotSprites addObject:pageDotSprite];
+		[self addChild:pageDotSprite z:35];
+	}
 }
 
 @end

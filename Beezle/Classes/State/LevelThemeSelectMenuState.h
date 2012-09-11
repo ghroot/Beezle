@@ -8,14 +8,16 @@
 
 #import "GameState.h"
 #import "cocos2d.h"
+#import "CCScrollLayer.h"
 
 @class CCScrollLayer;
 
-@interface LevelThemeSelectMenuState : GameState
+@interface LevelThemeSelectMenuState : GameState <CCScrollLayerDelegate>
 {
 	CCSprite *_backgroundSprite;
 	float _backgroundSpriteWidth;
 	CCScrollLayer *_scrollLayer;
+	NSMutableArray *_pageDotSprites;
 	CCSprite *_chooserScreenBackSprite;
 }
 
