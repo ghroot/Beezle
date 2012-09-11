@@ -96,7 +96,7 @@
 	for (NSString *theme in themes)
 	{
 		LevelThemeSelectLayer *levelThemeSelectLayer = [[[LevelThemeSelectLayer alloc] initWithTheme:theme startBlock:^(id sender){
-			CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.2f scale:4.0f];
+			CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.2f scale:1.5f];
 			[_chooserScreenBackSprite runAction:scaleAction];
 		} endBlock:^(id sender){
 			[_game pushState:[LevelSelectMenuState stateWithTheme:theme]];
