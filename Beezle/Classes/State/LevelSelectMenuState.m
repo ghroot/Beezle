@@ -58,6 +58,36 @@
 
 -(void) addInterfaceLevelsMenu
 {
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+
+	CCSprite *backgroundSprite = [CCSprite node];
+	CCSprite *backgroundSprite1 = [CCSprite spriteWithFile:@"ChooserSlingerBackground-1.jpg"];
+	[backgroundSprite1 setAnchorPoint:CGPointZero];
+	[backgroundSprite addChild:backgroundSprite1];
+	CCSprite *backgroundSprite2 = [CCSprite spriteWithFile:@"ChooserSlingerBackground-2.jpg"];
+	[backgroundSprite2 setAnchorPoint:CGPointZero];
+	[backgroundSprite2 setPosition:CGPointMake([backgroundSprite1 contentSize].width, 0.0f)];
+	[backgroundSprite addChild:backgroundSprite2];
+	float backgroundSpriteX;
+	if ([_theme isEqualToString:@"A"])
+	{
+		backgroundSpriteX = 0.0f;
+	}
+	else if ([_theme isEqualToString:@"B"])
+	{
+		backgroundSpriteX = -500.0f;
+	}
+	else if ([_theme isEqualToString:@"C"])
+	{
+		backgroundSpriteX = -1000.0f;
+	}
+	else
+	{
+		backgroundSpriteX = -1500.0f;
+	}
+	[backgroundSprite setPosition:CGPointMake(backgroundSpriteX, (winSize.height - [backgroundSprite1 contentSize].height) / 2)];
+	[self addChild:backgroundSprite];
+
 	CCSprite *chooserScreenBackSprite = [CCSprite spriteWithFile:@"Chooser-Screen-back.png"];
 	[chooserScreenBackSprite setAnchorPoint:CGPointZero];
 	[self addChild:chooserScreenBackSprite];
@@ -126,7 +156,6 @@
 		}
 #endif
     }
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	[draggableNode setContentSize:CGSizeMake(1200.0f, winSize.height)];
 
 	_scrollView = [[ScrollView alloc] initWithContent:draggableNode];
