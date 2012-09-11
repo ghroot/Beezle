@@ -146,6 +146,11 @@ static const float SCALE_AT_MAX_POWER = 0.5f;
 						[[SoundManager sharedManager] stopSound:@"SlingerStretch"];
 						[[SoundManager sharedManager] playSound:@"SlingerShoot"];
 
+                        if ([[slingerComponent loadedBeeType] shootSoundName] != nil)
+                        {
+                            [[SoundManager sharedManager] playSound:[[slingerComponent loadedBeeType] shootSoundName]];
+                        }
+
 						[slingerComponent clearLoadedBee];
 						
 						[trajectoryComponent reset];

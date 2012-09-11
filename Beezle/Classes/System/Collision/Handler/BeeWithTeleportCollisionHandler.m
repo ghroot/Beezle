@@ -37,8 +37,6 @@
 	[[PhysicsComponent getFrom:beeEntity] disable];
 	[firstEntity refresh];
 
-	[[SoundManager sharedManager] playSound:@"BeeYahoo"];
-
 	return FALSE;
 }
 
