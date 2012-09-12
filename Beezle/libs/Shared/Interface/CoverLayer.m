@@ -17,7 +17,7 @@
 	{
 //		[self setIsTouchEnabled:TRUE];
 		
-		[self runAction:[CCFadeTo actionWithDuration:0.2f opacity:100]];
+		[self runAction:[CCFadeTo actionWithDuration:0.2f opacity:120]];
     }
     return self;
 }

@@ -15,6 +15,16 @@
 {
 	Game *_game;
     LevelSession *_levelSession;
+
+	CCSprite *_pollenSprite;
+	CCNode *_pollenLabelPosition;
+	CCNode *_flowerSprite1Position;
+	CCNode *_flowerSprite2Position;
+	CCNode *_flowerSprite3Position;
+
+	CCSprite *_flowerSprite1;
+	CCSprite *_flowerSprite2;
+	CCSprite *_flowerSprite3;
 }
 
 -(id) initWithGame:(Game *)game andLevelSession:(LevelSession *)levelSession;

@@ -23,5 +23,6 @@
 
 -(void) consumedPollenEntity:(Entity *)pollenEntity;
 -(int) totalNumberOfPollen;
+-(int) totalNumberOfFlowers;
 
 @end

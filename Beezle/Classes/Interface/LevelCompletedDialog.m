@@ -18,6 +18,12 @@
 #import "PlayState.h"
 #import "GameStateUtils.h"
 
+@interface LevelCompletedDialog()
+
+-(void) createFlowerSprites;
+
+@end
+
 @implementation LevelCompletedDialog
 
 -(id) initWithGame:(Game *)game andLevelSession:(LevelSession *)levelSession
@@ -26,8 +32,70 @@
 	{
 		_game = game;
         _levelSession = levelSession;
+
+		[self createFlowerSprites];
 	}
 	return self;
+}
+
+-(void) dealloc
+{
+	[_flowerSprite1 release];
+	[_flowerSprite2 release];
+	[_flowerSprite3 release];
+
+	[super dealloc];
+}
+
+-(void) createFlowerSprites
+{
+	LevelLayout *layout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:[_levelSession levelName]];
+
+	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Interface.plist"];
+
+	_flowerSprite1 = [[CCSprite alloc] initWithSpriteFrameName:@"Flower/Flower-Screen-full.png"];
+	[_flowerSprite1 setPosition:[_flowerSprite1Position position]];
+	[self addChild:_flowerSprite1];
+
+	_flowerSprite2 = [[CCSprite alloc] initWithSpriteFrameName:@"Flower/Flower-Screen-full.png"];
+	[_flowerSprite2 setPosition:[_flowerSprite2Position position]];
+	[self addChild:_flowerSprite2];
+	float percentFlower2 = (float)[_levelSession totalNumberOfPollen] / [layout pollenForTwoFlowers];
+	if (percentFlower2 == 0.0f)
+	{
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Flower/Flower-Screen-dim.png"];
+		[_flowerSprite2 setDisplayFrame:frame];
+	}
+	else if (percentFlower2 < 1.0f)
+	{
+		int numberOfPetalsFlower2 = (int)(percentFlower2 * 7);
+		if (numberOfPetalsFlower2 == 0)
+		{
+			numberOfPetalsFlower2 = 1;
+		}
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"Flower/Flower-Screen-%d.png", numberOfPetalsFlower2]];
+		[_flowerSprite2 setDisplayFrame:frame];
+	}
+
+	_flowerSprite3 = [[CCSprite alloc] initWithSpriteFrameName:@"Flower/Flower-Screen-full.png"];
+	[_flowerSprite3 setPosition:[_flowerSprite3Position position]];
+	[self addChild:_flowerSprite3];
+	float percentFlower3 = (float)([_levelSession totalNumberOfPollen] - [layout pollenForTwoFlowers]) / ([layout pollenForThreeFlowers] - [layout pollenForTwoFlowers]);
+	if (percentFlower3 == 0.0f)
+	{
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Flower/Flower-Screen-dim.png"];
+		[_flowerSprite3 setDisplayFrame:frame];
+	}
+	else if (percentFlower3 < 1.0f)
+	{
+		int numberOfPetalsFlower3 = (int)(percentFlower3 * 7);
+		if (numberOfPetalsFlower3 == 0)
+		{
+			numberOfPetalsFlower3 = 1;
+		}
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"Flower/Flower-Screen-%d.png", numberOfPetalsFlower3]];
+		[_flowerSprite3 setDisplayFrame:frame];
+	}
 }
 
 -(void) nextLevel

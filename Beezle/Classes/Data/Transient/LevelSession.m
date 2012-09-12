@@ -8,8 +8,10 @@
 
 #import "LevelSession.h"
 #import "PollenComponent.h"
+#import "LevelLayout.h"
+#import "LevelLayoutCache.h"
 
-#define POLLEN_PER_UNUSED_BEE 20
+static int POLLEN_PER_UNUSED_BEE = 20;
 
 @implementation LevelSession
 
@@ -41,6 +43,24 @@
 -(int) totalNumberOfPollen
 {
 	return _numberOfCollectedPollen + POLLEN_PER_UNUSED_BEE * _numberOfUnusedBees;
+}
+
+-(int)totalNumberOfFlowers
+{
+	int totalNumberOfPollen = [self totalNumberOfPollen];
+	LevelLayout *layout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:_levelName];
+	if (totalNumberOfPollen >= [layout pollenForThreeFlowers])
+	{
+		return 3;
+	}
+	else if (totalNumberOfPollen >= [layout pollenForTwoFlowers])
+	{
+		return 2;
+	}
+	else
+	{
+		return 1;
+	}
 }
 
 @end

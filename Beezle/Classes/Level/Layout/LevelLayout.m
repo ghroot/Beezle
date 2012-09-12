@@ -15,6 +15,8 @@
 @synthesize levelName = _levelName;
 @synthesize format = _format;
 @synthesize version = _version;
+@synthesize pollenForTwoFlowers = _pollenForTwoFlowers;
+@synthesize pollenForThreeFlowers = _pollenForThreeFlowers;
 @synthesize hasWater = _hasWater;
 @synthesize entries = _entries;
 @synthesize isEdited = _isEdited;
@@ -47,6 +49,8 @@
 		_levelName = [levelName retain];
 		_format = 0;
 		_version = 0;
+		_pollenForTwoFlowers = 20;
+		_pollenForThreeFlowers = 50;
 		_hasWater = FALSE;
         _entries = [[NSMutableArray alloc] init];
 		_isEdited = FALSE;
