@@ -9,6 +9,8 @@
 #import "PlayerInformation.h"
 #import "LevelOrganizer.h"
 #import "LevelSession.h"
+#import "LevelLayout.h"
+#import "LevelLayoutCache.h"
 
 @interface PlayerInformation()
 
@@ -139,12 +141,13 @@
 
 -(int) flowerRecordForLevel:(NSString *)levelName
 {
+	LevelLayout *layout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
 	int pollenRecord = [self pollenRecord:levelName];
-	if (pollenRecord >= 30)
+	if (pollenRecord >= [layout pollenForThreeFlowers])
 	{
 		return 3;
 	}
-	else if (pollenRecord >= 15)
+	else if (pollenRecord >= [layout pollenForTwoFlowers])
 	{
 		return 2;
 	}

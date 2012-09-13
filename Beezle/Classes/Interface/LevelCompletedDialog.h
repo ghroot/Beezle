@@ -16,6 +16,8 @@
 	Game *_game;
     LevelSession *_levelSession;
 
+	CCSprite *_titleSprite;
+
 	CCSprite *_pollenSprite;
 	CCNode *_pollenLabelPosition;
 	CCNode *_flowerSprite1Position;
@@ -25,6 +27,7 @@
 	CCSprite *_flowerSprite1;
 	CCSprite *_flowerSprite2;
 	CCSprite *_flowerSprite3;
+	CCLabelAtlas *_pollenLabel;
 }
 
 -(id) initWithGame:(Game *)game andLevelSession:(LevelSession *)levelSession;

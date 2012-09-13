@@ -134,6 +134,17 @@
 		[label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
 		[label setPosition:position];
 		[draggableNode addChild:label];
+
+		int flowerRecord = [[PlayerInformation sharedInformation] flowerRecordForLevel:levelName];
+		CCSprite *flowerSprite1 = [CCSprite spriteWithFile:(flowerRecord >= 1 ? @"Flower-Cell-full.png" : @"Flower-Cell-dim.png")];
+		[flowerSprite1 setPosition:CGPointMake(position.x - 12.0f, position.y - 18.0f)];
+		[draggableNode addChild:flowerSprite1];
+		CCSprite *flowerSprite2 = [CCSprite spriteWithFile:(flowerRecord >= 2 ? @"Flower-Cell-full.png" : @"Flower-Cell-dim.png")];
+		[flowerSprite2 setPosition:CGPointMake(position.x, position.y - 18.0f)];
+		[draggableNode addChild:flowerSprite2];
+		CCSprite *flowerSprite3 = [CCSprite spriteWithFile:(flowerRecord == 3 ? @"Flower-Cell-full.png" : @"Flower-Cell-dim.png")];
+		[flowerSprite3 setPosition:CGPointMake(position.x + 12.0f, position.y - 18.0f)];
+		[draggableNode addChild:flowerSprite3];
 #else
 		if ([[PlayerInformation sharedInformation] hasPlayedLevel:levelName])
 		{
