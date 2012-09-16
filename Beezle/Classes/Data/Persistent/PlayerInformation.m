@@ -143,7 +143,11 @@
 {
 	LevelLayout *layout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
 	int pollenRecord = [self pollenRecord:levelName];
-	if (pollenRecord >= [layout pollenForThreeFlowers])
+	if (pollenRecord == 0)
+	{
+		return 0;
+	}
+	else if (pollenRecord >= [layout pollenForThreeFlowers])
 	{
 		return 3;
 	}
@@ -151,13 +155,9 @@
 	{
 		return 2;
 	}
-	else if (pollenRecord > 0)
-	{
-		return 1;
-	}
 	else
 	{
-		return 0;
+		return 1;
 	}
 }
 

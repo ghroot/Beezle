@@ -25,6 +25,8 @@
 #import "TeleportSystem.h"
 #import "TeleportComponent.h"
 #import "Utils.h"
+#import "LevelLayout.h"
+#import "LevelLayoutCache.h"
 
 @interface EditState()
 
@@ -36,6 +38,8 @@
 @implementation EditState
 
 @synthesize levelName = _levelName;
+@synthesize pollenForTwoFlowers = _pollenForTwoFlowers;
+@synthesize pollenForThreeFlowers = _pollenForThreeFlowers;
 @synthesize world = _world;
 
 +(id) stateWithLevelName:(NSString *)levelName
@@ -49,7 +53,11 @@
     if (self = [super init])
     {
 		_levelName = [levelName retain];
-		
+
+		LevelLayout *layout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+		_pollenForTwoFlowers = [layout pollenForTwoFlowers];
+		_pollenForThreeFlowers = [layout pollenForThreeFlowers];
+
 		_gameLayer = [CCLayer node];
 		[self addChild:_gameLayer];
 		

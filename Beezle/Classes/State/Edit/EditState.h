@@ -23,7 +23,10 @@
 @interface EditState : GameState
 {
 	NSString *_levelName;
-	
+
+	int _pollenForTwoFlowers;
+	int _pollenForThreeFlowers;
+
 	CCLayer *_gameLayer;
 	CCLayer *_uiLayer;
 	
@@ -42,7 +45,10 @@
 }
 
 @property (nonatomic, readonly) NSString *levelName;
+@property (nonatomic) int pollenForTwoFlowers;
+@property (nonatomic) int pollenForThreeFlowers;
 @property (nonatomic, readonly) World *world;
+
 
 +(id) stateWithLevelName:(NSString *)levelName;
 

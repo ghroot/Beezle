@@ -33,6 +33,7 @@
 	if (self = [super init])
 	{
 		_pageDotSprites = [NSMutableArray new];
+		_needsLoadingState = TRUE;
 	}
 	return self;
 }

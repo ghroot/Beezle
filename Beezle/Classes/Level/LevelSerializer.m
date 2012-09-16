@@ -17,7 +17,7 @@
 #import "EntityDescription.h"
 #import "EntityDescriptionCache.h"
 
-#define LEVEL_LAYOUT_FORMAT 2
+static const int LEVEL_LAYOUT_FORMAT = 2;
 
 @interface LevelSerializer()
 
@@ -64,7 +64,10 @@
 	
 	int version = [[dict objectForKey:@"version"] intValue];
 	[levelLayout setVersion:version];
-	
+
+	[levelLayout setPollenForTwoFlowers:[[dict objectForKey:@"pollenForTwoFlowers"] intValue]];
+	[levelLayout setPollenForThreeFlowers:[[dict objectForKey:@"pollenForThreeFlowers"] intValue]];
+
 	[levelLayout setHasWater:[[dict objectForKey:@"hasWater"] boolValue]];
 	
 	NSArray *entities = [dict objectForKey:@"entities"];
@@ -235,7 +238,10 @@
 	[dict setObject:[layout levelName] forKey:@"name"];
 	[dict setObject:[NSNumber numberWithInt:[layout version]] forKey:@"version"];
 	[dict setObject:[NSNumber numberWithInt:[layout format]] forKey:@"format"];
-	
+
+	[dict setObject:[NSNumber numberWithInt:[layout pollenForTwoFlowers]] forKey:@"pollenForTwoFlowers"];
+	[dict setObject:[NSNumber numberWithInt:[layout pollenForThreeFlowers]] forKey:@"pollenForThreeFlowers"];
+
 	[dict setObject:[NSNumber numberWithBool:[layout hasWater]] forKey:@"hasWater"];
 	
 	NSMutableArray *entities = [NSMutableArray array];

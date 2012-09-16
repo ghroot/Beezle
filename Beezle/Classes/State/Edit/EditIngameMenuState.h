@@ -12,6 +12,9 @@
 @interface EditIngameMenuState : GameState
 {
     CCMenu *_menu;
+	CCMenu *_flowerPollenMenu;
+	CCMenuItemFont *_pollenForTwoFlowersLabel;
+	CCMenuItemFont *_pollenForThreeFlowersLabel;
 }
 
 -(void) resumeGame:(id)sender;
