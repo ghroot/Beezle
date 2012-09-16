@@ -27,10 +27,10 @@
 
 		CCScaleTo *scaleAction = [CCEaseSineOut actionWithAction:[CCScaleTo actionWithDuration:0.8f scale:1.0f]];
 		CCCallBlock *startSwayAction = [CCCallBlock actionWithBlock:^{
-			CCMoveTo *moveUpAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([self position].x, [self position].y + 2.0f)]];
-			CCMoveTo *moveDownAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([self position].x, [self position].y - 2.0f)]];
+			CCMoveTo *moveUpAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([_node position].x, [_node position].y + 2.0f)]];
+			CCMoveTo *moveDownAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([_node position].x, [_node position].y - 2.0f)]];
 			CCAction *swayAction = [CCRepeat actionWithAction:[CCSequence actions:moveUpAction, moveDownAction, nil] times:INT_MAX];
-			[self runAction:swayAction];
+			[_node runAction:swayAction];
 		}];
 		CCCallBlock *enableMenuAction = [CCCallBlock actionWithBlock:^{
 			_balloonCanBeClosed = TRUE;
