@@ -22,6 +22,7 @@
 @interface LevelCompletedDialog()
 
 -(void) createFlowerSprites;
+-(float) calculateNumberOfFlowers;
 
 @end
 
@@ -79,7 +80,30 @@
 	[_flowerSprite3 setScale:0.8f];
 	[self addChild:_flowerSprite3];
 
-	int pollenForOneFlower = [layout pollenForTwoFlowers] / 3;
+	if ([layout pollenForTwoFlowers] == 0 ||
+		[layout pollenForThreeFlowers] == 0)
+	{
+		return;
+	}
+
+	float numberOfFlowers = [self calculateNumberOfFlowers];
+	float totalPercentFlower1 = min(1.0f, numberOfFlowers);
+	float totalPercentFlower2 = min(1.0f, max(0.0f, numberOfFlowers - 1.0f));
+	float totalPercentFlower3 = min(1.0f, max(0.0f, numberOfFlowers - 2.0f));
+	float pollenPerFlower = [_levelSession totalNumberOfPollen] / numberOfFlowers;
+	int pollenForFlower1 = (int)pollenPerFlower;
+	int pollenForFlower2;
+	int pollenForFlower3 = 0;
+	if (numberOfFlowers < 2.0f)
+	{
+		pollenForFlower2 = [_levelSession totalNumberOfPollen] - pollenForFlower1;
+	}
+	else
+	{
+		pollenForFlower2 = (int)pollenPerFlower;
+		pollenForFlower3 = [_levelSession totalNumberOfPollen] - pollenForFlower2 - pollenForFlower1;
+	}
+
 	for (int i = 0; i < [_levelSession totalNumberOfPollen]; i++)
 	{
 		CCSprite *flyingPollenSprite = [CCSprite spriteWithFile:@"Symbol-Pollen.png"];
@@ -89,11 +113,11 @@
 		[self addChild:flyingPollenSprite];
 
 		int flowerIndex;
-		if (i < pollenForOneFlower)
+		if (i < pollenForFlower1)
 		{
 			flowerIndex = 0;
 		}
-		else if (i < [layout pollenForTwoFlowers])
+		else if (i - pollenForFlower1 < pollenForFlower2)
 		{
 			flowerIndex = 1;
 		}
@@ -129,7 +153,7 @@
 
 				if (flowerIndex == 0)
 				{
-					float percentFlower1 = (float)(i + 1) / pollenForOneFlower;
+					float percentFlower1 = (float)(i + 1) / pollenForFlower1 * totalPercentFlower1;
 					int numberOfPetalsFlower1 = (int)(percentFlower1 * 7);
 					NSString *frameName;
 					if (numberOfPetalsFlower1 == 0)
@@ -157,7 +181,7 @@
 				}
 				else if (flowerIndex == 1)
 				{
-					float percentFlower2 = (float)(i + 1 - pollenForOneFlower) / ([layout pollenForTwoFlowers] - pollenForOneFlower);
+					float percentFlower2 = (float)(i + 1 - pollenForFlower1) / pollenForFlower2 * totalPercentFlower2;
 					int numberOfPetalsFlower2 = (int)(percentFlower2 * 7);
 					NSString *frameName;
 					if (numberOfPetalsFlower2 == 0)
@@ -185,9 +209,9 @@
 				}
 				else if (flowerIndex == 2)
 				{
-					float percentFlower3 = (float)(i + 1 - [layout pollenForTwoFlowers]) / ([layout pollenForThreeFlowers] - [layout pollenForTwoFlowers]);
+					float percentFlower3 = (float)(i + 1 - pollenForFlower2 - pollenForFlower1) / pollenForFlower3 * totalPercentFlower3;
 					int numberOfPetalsFlower3 = (int)(percentFlower3 * 7);
-					NSString *frameName;
+					NSString *frameName = nil;
 					if (numberOfPetalsFlower3 == 0)
 					{
 						frameName = @"Flower/Flower-Screen-dim.png";
@@ -200,7 +224,7 @@
 
 						[[SoundManager sharedManager] playSound:@"FlowerCompleted"];
 					}
-					else
+					else if (numberOfPetalsFlower3 < 7)
 					{
 						frameName = [NSString stringWithFormat:@"Flower/Flower-Screen-%d.png", numberOfPetalsFlower3];
 
@@ -208,8 +232,11 @@
 						CCScaleTo *scaleDownAction = [CCScaleTo actionWithDuration:0.05f scale:0.8f];
 						[_flowerSprite3 runAction:[CCSequence actionOne:scaleUpAction two:scaleDownAction]];
 					}
-					CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
-					[_flowerSprite3 setDisplayFrame:frame];
+					if (frameName != nil)
+					{
+						CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
+						[_flowerSprite3 setDisplayFrame:frame];
+					}
 				}
 			}];
 			[flyingPollenSprite runAction:[CCSequence actionOne:moveAction two:removeAction]];
@@ -223,6 +250,43 @@
 		}];
 		[flyingPollenSprite runAction:[CCSequence actionOne:delayAction two:flyAction]];
 	}
+}
+
+-(float) calculateNumberOfFlowers
+{
+	LevelLayout *layout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:[_levelSession levelName]];
+
+	int totalNumberOfPollen = [_levelSession totalNumberOfPollen];
+	int pollenForTwoFlowers = [layout pollenForTwoFlowers];
+	int pollenForThreeFlowers = [layout pollenForThreeFlowers];
+
+	float numberOfFlowers = 1.0f;
+
+	if (totalNumberOfPollen >= pollenForTwoFlowers)
+	{
+		numberOfFlowers += 1.0f;
+
+		if (totalNumberOfPollen >= pollenForThreeFlowers)
+		{
+			numberOfFlowers += 1.0f;
+		}
+		else
+		{
+			float percentOfThirdFlower = (float)(totalNumberOfPollen - pollenForTwoFlowers)/(pollenForThreeFlowers - pollenForTwoFlowers);
+			if (percentOfThirdFlower > 1.0f)
+			{
+				percentOfThirdFlower = 1.0f;
+			}
+			numberOfFlowers += percentOfThirdFlower;
+		}
+	}
+	else
+	{
+		float percentOfSecondFlower = (float)totalNumberOfPollen / pollenForTwoFlowers;
+		numberOfFlowers += percentOfSecondFlower;
+	}
+
+	return numberOfFlowers;
 }
 
 -(void) nextLevel

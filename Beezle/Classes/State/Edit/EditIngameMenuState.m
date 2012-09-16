@@ -124,6 +124,10 @@
 	// Create new layout from world
 	LevelLayout *newLevelLayout = [LevelLayout layoutWithContentsOfWorld:[editState world] levelName:levelName version:currentVersion];
 	[newLevelLayout setIsEdited:TRUE];
+
+	// Flower pollen requirements
+	[newLevelLayout setPollenForTwoFlowers:[editState pollenForTwoFlowers]];
+	[newLevelLayout setPollenForThreeFlowers:[editState pollenForThreeFlowers]];
 	
 	// Replace cached version of level layout
 	[[LevelLayoutCache sharedLevelLayoutCache] addLevelLayout:newLevelLayout];

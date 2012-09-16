@@ -47,13 +47,7 @@
 	if (self = [super init])
     {
 		_levelName = [levelName retain];
-		_format = 0;
-		_version = 0;
-		_pollenForTwoFlowers = 10;
-		_pollenForThreeFlowers = 20;
-		_hasWater = FALSE;
         _entries = [[NSMutableArray alloc] init];
-		_isEdited = FALSE;
     }
     return self;
 }
