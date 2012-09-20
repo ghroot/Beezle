@@ -333,7 +333,7 @@
 	{
 		musicName = [NSString stringWithFormat:@"Music%@", [[LevelOrganizer sharedOrganizer] themeForLevel:_levelName]];
 	}
-	[[SoundManager sharedManager] playMusic:musicName loop:FALSE];
+	[[SoundManager sharedManager] playMusic:musicName loop:TRUE];
 }
 
 -(void) leave
