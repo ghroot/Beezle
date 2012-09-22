@@ -197,6 +197,26 @@
 	return levelNameBefore == nil || [self hasCompletedLevelAtLeastOnce:levelNameBefore];
 }
 
+-(BOOL) canPlayTheme:(NSString *)theme
+{
+#ifdef DEBUG
+	return TRUE;
+#else
+	NSArray *themes = [[LevelOrganizer sharedOrganizer] themes];
+	int themeIndex = [themes indexOfObject:theme];
+	if (themeIndex == 0)
+	{
+		return TRUE;
+	}
+	else
+	{
+		NSString *previousTheme = [themes objectAtIndex:themeIndex - 1];
+		NSString *lastLevelNameInPreviousTheme = [[[LevelOrganizer sharedOrganizer] levelNamesInTheme:previousTheme] lastObject];
+		return [self hasPlayedLevel:lastLevelNameInPreviousTheme];
+	}
+#endif
+}
+
 -(void) markTutorialIdAsSeen:(NSString *)tutorialId
 {
 	[_seenTutorialIds addObject:tutorialId];

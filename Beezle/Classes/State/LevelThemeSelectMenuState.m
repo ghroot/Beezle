@@ -15,6 +15,7 @@
 #import "SoundManager.h"
 #import "PlayState.h"
 #import "Utils.h"
+#import "PlayerInformation.h"
 
 @interface LevelThemeSelectMenuState()
 
@@ -113,7 +114,7 @@
 			[_chooserScreenBackSprite runAction:scaleAction];
 		} endBlock:^(id sender){
 			[_game pushState:[LevelSelectMenuState stateWithTheme:theme]];
-		}] autorelease];
+		} locked:![[PlayerInformation sharedInformation] canPlayTheme:theme]] autorelease];
 		[layers addObject:levelThemeSelectLayer];
 	}
 	_scrollLayer = [[CCScrollLayer alloc] initWithLayers:layers widthOffset:0];
@@ -159,8 +160,6 @@
 
 -(void) scrollLayer:(CCScrollLayer *)sender scrolledToPageNumber:(int)page
 {
-    NSLog(@"Scrolled to page %d", page);
-
     [self updatePageDots:page];
 }
 

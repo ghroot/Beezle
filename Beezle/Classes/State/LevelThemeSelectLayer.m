@@ -14,12 +14,14 @@
 
 @implementation LevelThemeSelectLayer
 
--(id) initWithTheme:(NSString *)theme startBlock:(void(^)(id sender))startBlock endBlock:(void(^)(id sender))endBlock
+-(id) initWithTheme:(NSString *)theme startBlock:(void(^)(id sender))startBlock endBlock:(void(^)(id sender))endBlock locked:(BOOL)locked
 {
 	if (self = [super init])
 	{
 		NSString *interfaceFileName = [NSString stringWithFormat:@"ThemeSelect-%@-New.ccbi", theme];
 		[self addChild:[CCBReader nodeGraphFromFile:interfaceFileName owner:self]];
+
+		[_lockSprite setVisible:locked];
 
 		CCMoveTo *moveUpAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([_titleSprite position].x, [_titleSprite position].y + 2.0f)]];
 		CCMoveTo *moveDownAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([_titleSprite position].x, [_titleSprite position].y - 2.0f)]];
@@ -55,18 +57,21 @@
 		[self addChild:label];
 
 		_menu = [CCMenu new];
-		FullscreenTransparentMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
-			CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.2f scale:3.0f];
-			CCCallBlockO *callBlockAction = [CCCallBlockO actionWithBlock:endBlock object:sender];
-			[_container runAction:[CCSequence actionOne:scaleAction two:callBlockAction]];
+		if (!locked)
+		{
+			FullscreenTransparentMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
+				CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.2f scale:3.0f];
+				CCCallBlockO *callBlockAction = [CCCallBlockO actionWithBlock:endBlock object:sender];
+				[_container runAction:[CCSequence actionOne:scaleAction two:callBlockAction]];
 
-			CCFadeIn *fadeInAction = [CCFadeIn actionWithDuration:0.2f];
-			[_fadeLayer runAction:fadeInAction];
+				CCFadeIn *fadeInAction = [CCFadeIn actionWithDuration:0.2f];
+				[_fadeLayer runAction:fadeInAction];
 
-			[_menu setEnabled:FALSE];
-			startBlock(sender);
-		} selectedBlock:nil unselectedBlock:nil] autorelease];
-		[_menu addChild:menuItem];
+				[_menu setEnabled:FALSE];
+				startBlock(sender);
+			} selectedBlock:nil unselectedBlock:nil] autorelease];
+			[_menu addChild:menuItem];
+		}
 		[self addChild:_menu];
 
 		_fadeLayer = [[CCLayerColor alloc] initWithColor:ccc4(0, 0, 0, 0)];

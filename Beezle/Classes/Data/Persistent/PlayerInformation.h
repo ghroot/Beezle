@@ -30,6 +30,7 @@
 -(int) totalNumberOfFlowers;
 -(BOOL) hasPlayedLevel:(NSString *)levelName;
 -(BOOL) canPlayLevel:(NSString *)levelName;
+-(BOOL) canPlayTheme:(NSString *)theme;
 -(void) markTutorialIdAsSeen:(NSString *)tutorialId;
 -(void) markTutorialIdAsSeenAndSave:(NSString *)tutorialId;
 -(BOOL) hasSeenTutorialId:(NSString *)tutorialId;
