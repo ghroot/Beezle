@@ -12,9 +12,13 @@
 {
 	CCMenu *_menu;
 	CCMenuItemImage *_menuItemPlay;
+	CCMenuItemImage *_soundOnMenuItem;
+	CCMenuItemImage *_soundOffMenuItem;
 }
 
 -(void) play;
 -(void) gotoSettings;
+-(void) muteSound;
+-(void) unMuteSound;
 
 @end

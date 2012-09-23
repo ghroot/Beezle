@@ -16,7 +16,10 @@
 	NSDictionary *_soundFilePathsByName;
 	NSMutableDictionary *_soundIdsBySoundName;
 	NSString *_currentMusicName;
+	BOOL _isMuted;
 }
+
+@property (nonatomic, readonly) BOOL isMuted;
 
 +(SoundManager *) sharedManager;
 
@@ -26,5 +29,7 @@
 -(void) playMusic:(NSString *)name loop:(BOOL)loop;
 -(void) playMusic:(NSString *)name;
 -(void) stopMusic;
+-(void) mute;
+-(void) unMute;
 
 @end

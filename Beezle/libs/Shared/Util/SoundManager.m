@@ -18,6 +18,8 @@
 
 @implementation SoundManager
 
+@synthesize isMuted = _isMuted;
+
 +(SoundManager *) sharedManager
 {
     static SoundManager *manager = 0;
@@ -163,6 +165,20 @@
 		_currentMusicName = nil;
 		[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 	}
+}
+
+-(void) mute
+{
+	[[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.0f];
+	[[SimpleAudioEngine sharedEngine] setEffectsVolume:0.0f];
+	_isMuted = TRUE;
+}
+
+-(void) unMute
+{
+	[[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:1.0f];
+	[[SimpleAudioEngine sharedEngine] setEffectsVolume:1.0f];
+	_isMuted = FALSE;
 }
 
 @end

@@ -14,6 +14,12 @@
 #import "CCBReader.h"
 #import "SoundManager.h"
 
+@interface PlayState()
+
+-(void) updateSoundMenuItemsVisibility;
+
+@end
+
 @implementation PlayState
 
 -(id) init
@@ -26,6 +32,8 @@
 		CCMoveTo *moveDownAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([_menuItemPlay position].x, [_menuItemPlay position].y - 2.0f)]];
 		CCAction *swayAction = [CCRepeat actionWithAction:[CCSequence actions:moveUpAction, moveDownAction, nil] times:INT_MAX];
 		[_menuItemPlay runAction:swayAction];
+
+		[self updateSoundMenuItemsVisibility];
 	}
 	return self;
 }
@@ -71,6 +79,32 @@
 -(void) gotoSettings
 {
 	[_game replaceState:[DebugMenuState state]];
+}
+
+-(void) muteSound
+{
+	[[SoundManager sharedManager] mute];
+	[self updateSoundMenuItemsVisibility];
+}
+
+-(void) unMuteSound
+{
+	[[SoundManager sharedManager] unMute];
+	[self updateSoundMenuItemsVisibility];
+}
+
+-(void) updateSoundMenuItemsVisibility
+{
+	if ([[SoundManager sharedManager] isMuted])
+	{
+		[_soundOnMenuItem setVisible:FALSE];
+		[_soundOffMenuItem setVisible:TRUE];
+	}
+	else
+	{
+		[_soundOnMenuItem setVisible:TRUE];
+		[_soundOffMenuItem setVisible:FALSE];
+	}
 }
 
 @end
