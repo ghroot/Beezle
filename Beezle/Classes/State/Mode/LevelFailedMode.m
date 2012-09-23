@@ -80,7 +80,6 @@ static const float DIALOG_DELAY_IN_SECONDS = 0.5f;
 	_levelFailedDialog = [[LevelFailedDialog alloc] initWithGame:[_gameplayState game] andLevelSession:_levelSession];
 	[_uiLayer addChild:_levelFailedDialog];
 
-	[[SoundManager sharedManager] stopMusic];
 	[[SoundManager sharedManager] playSound:@"LevelFailed"];
 }
 

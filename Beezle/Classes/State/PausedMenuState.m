@@ -18,6 +18,7 @@
 #import "PausedDialog.h"
 #import "PlayState.h"
 #import "GameStateUtils.h"
+#import "SoundManager.h"
 
 @interface PausedMenuState()
 
@@ -70,6 +71,14 @@
 	[levelInfoLabel setAnchorPoint:CGPointMake(1.0f, 0.0f)];
 	[self addChild:levelInfoLabel];
 }
+
+-(void) enter
+{
+	[super enter];
+
+	[[SoundManager sharedManager] stopMusic];
+}
+
 
 -(void) resumeGame
 {

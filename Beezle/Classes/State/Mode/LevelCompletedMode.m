@@ -104,7 +104,6 @@ static const float DIALOG_DELAY_IN_SECONDS = 0.2f;
 	_levelCompletedDialog = [[LevelCompletedDialog alloc] initWithGame:[_gameplayState game] andLevelSession:_levelSession];
 	[_uiLayer addChild:_levelCompletedDialog];
 
-	[[SoundManager sharedManager] stopMusic];
 	[[SoundManager sharedManager] playSound:@"LevelCompleted"];
 }
 
