@@ -19,8 +19,14 @@
 	CCScrollLayer *_scrollLayer;
 	NSMutableArray *_pageDotSprites;
 	CCSprite *_chooserScreenBackSprite;
+	NSString *_theme;
+	BOOL _zoomOut;
 }
 
--(void) resetCurrentLevelThemeSelectLayer;
++(id) stateWithPreselectedTheme:(NSString *)theme zoomOut:(BOOL)zoomOut;
+
+-(id) initWithPreselectedTheme:(NSString *)theme zoomOut:(BOOL)zoomOut;
+
+-(void) zoomOut;
 
 @end

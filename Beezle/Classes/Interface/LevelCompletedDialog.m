@@ -18,6 +18,7 @@
 #import "PlayState.h"
 #import "GameStateUtils.h"
 #import "SoundManager.h"
+#import "LevelSelectMenuState.h"
 
 @interface LevelCompletedDialog()
 
@@ -297,7 +298,8 @@
 
 -(void) exitGame
 {
-    [_game clearAndReplaceState:[PlayState state]];
+	NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:[_levelSession levelName]];
+	[_game clearAndReplaceState:[LevelSelectMenuState stateWithTheme:theme]];
 }
 
 @end

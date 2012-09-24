@@ -11,11 +11,12 @@
 #import "LevelOrganizer.h"
 #import "LevelThemeSelectLayer.h"
 #import "LevelSelectMenuState.h"
-#import "CCScrollLayer.h"
 #import "SoundManager.h"
 #import "PlayState.h"
 #import "Utils.h"
 #import "PlayerInformation.h"
+
+static BOOL isFirstLoad = TRUE;
 
 @interface LevelThemeSelectMenuState()
 
@@ -29,14 +30,30 @@
 
 @implementation LevelThemeSelectMenuState
 
--(id) init
++(id) stateWithPreselectedTheme:(NSString *)theme zoomOut:(BOOL)zoomOut
+{
+	return [[[self alloc] initWithPreselectedTheme:theme zoomOut:zoomOut] autorelease];
+}
+
+-(id) initWithPreselectedTheme:(NSString *)theme  zoomOut:(BOOL)zoomOut
 {
 	if (self = [super init])
 	{
+		_theme = [theme copy];
+		_zoomOut = zoomOut;
 		_pageDotSprites = [NSMutableArray new];
-		_needsLoadingState = TRUE;
+		if (isFirstLoad)
+		{
+			_needsLoadingState = TRUE;
+			isFirstLoad = FALSE;
+		}
 	}
 	return self;
+}
+
+-(id) init
+{
+	return [self initWithPreselectedTheme:[[[LevelOrganizer sharedOrganizer] themes] objectAtIndex:0] zoomOut:FALSE];
 }
 
 -(void) initialise
@@ -57,8 +74,17 @@
 	[self addChild:chooserScreenFrontSprite z:31];
 
 	[self createBackMenu];
+
+	int index = [[[LevelOrganizer sharedOrganizer] themes] indexOfObject:_theme];
+	[_scrollLayer selectPage:index];
+
 	[self updateBackground];
     [self updatePageDots:0];
+
+	if (_zoomOut)
+	{
+		[self zoomOut];
+	}
 }
 
 -(void) dealloc
@@ -67,6 +93,7 @@
 	[_scrollLayer release];
 	[_pageDotSprites release];
 	[_chooserScreenBackSprite release];
+	[_theme release];
 
 	[super dealloc];
 }
@@ -150,14 +177,6 @@
 	[_backgroundSprite setPosition:CGPointMake(backgroundSpriteX, [_backgroundSprite position].y)];
 }
 
--(void) resetCurrentLevelThemeSelectLayer
-{
-	[_chooserScreenBackSprite setScale:1.0f];
-
-	LevelThemeSelectLayer *layer = [[_scrollLayer pages] objectAtIndex:[_scrollLayer currentScreen]];
-	[layer reset];
-}
-
 -(void) scrollLayer:(CCScrollLayer *)sender scrolledToPageNumber:(int)page
 {
     [self updatePageDots:page];
@@ -186,6 +205,13 @@
 		[_pageDotSprites addObject:pageDotSprite];
 		[self addChild:pageDotSprite z:35];
 	}
+}
+
+-(void) zoomOut
+{
+	[_chooserScreenBackSprite setScale:1.0f];
+	LevelThemeSelectLayer *layer = [[_scrollLayer pages] objectAtIndex:[_scrollLayer currentScreen]];
+	[layer reset];
 }
 
 @end

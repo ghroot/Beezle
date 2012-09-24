@@ -10,7 +10,8 @@
 #import "Game.h"
 #import "GameplayState.h"
 #import "LevelSession.h"
-#import "PlayState.h"
+#import "LevelOrganizer.h"
+#import "LevelSelectMenuState.h"
 
 @implementation LevelFailedDialog
 
@@ -31,7 +32,8 @@
 
 -(void) exitGame
 {
-    [_game clearAndReplaceState:[PlayState state]];
+	NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:[_levelSession levelName]];
+	[_game clearAndReplaceState:[LevelSelectMenuState stateWithTheme:theme]];
 }
 
 @end

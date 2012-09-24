@@ -19,6 +19,7 @@
 #import "PlayState.h"
 #import "GameStateUtils.h"
 #import "SoundManager.h"
+#import "LevelSelectMenuState.h"
 
 @interface PausedMenuState()
 
@@ -96,7 +97,7 @@
 
 -(void) exitGame
 {
-    [_game clearAndReplaceState:[PlayState state]];
+    [_game clearAndReplaceState:[LevelSelectMenuState stateWithTheme:_theme]];
 }
 
 -(void) editGame:(id)sender
