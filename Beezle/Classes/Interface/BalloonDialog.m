@@ -13,16 +13,18 @@
 
 @interface BalloonDialog ()
 
--(CCSprite *) createBubbleSprite:(NSString *)frameName;
+-(CCSprite *) createBubbleSprite:(NSString *)fileName;
 
 @end
 
 @implementation BalloonDialog
 
--(id) initWithFrameName:(NSString *)frameName
+-(id) initWithFileName:(NSString *)fileName
 {
-	if (self = [super initWithNode:[self createBubbleSprite:frameName]])
+	if (self = [super initWithNode:[self createBubbleSprite:fileName]])
 	{
+		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Interface.plist"];
+
 		_balloonCanBeClosed = FALSE;
 
 		CCScaleTo *scaleAction = [CCEaseSineOut actionWithAction:[CCScaleTo actionWithDuration:0.8f scale:1.0f]];
@@ -66,10 +68,9 @@
 	return self;
 }
 
--(CCSprite *) createBubbleSprite:(NSString *)frameName
+-(CCSprite *) createBubbleSprite:(NSString *)fileName
 {
-	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Interface.plist"];
-	CCSprite *bubbleSprite = [CCSprite spriteWithSpriteFrameName:frameName];
+	CCSprite *bubbleSprite = [CCSprite spriteWithFile:fileName];
 	[bubbleSprite setPosition:[Utils screenCenterPosition]];
 	return bubbleSprite;
 }

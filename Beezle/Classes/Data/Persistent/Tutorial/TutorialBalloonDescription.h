@@ -10,11 +10,11 @@
 
 @interface TutorialBalloonDescription : TutorialDescription
 {
-	NSString *_frameName;
+	NSString *_fileName;
 }
 
-@property (nonatomic, readonly) NSString *frameName;
+@property (nonatomic, readonly) NSString *fileName;
 
--(id) initWithId:(NSString *)id trigger:(TutorialTriggerDescription *)triggerDescription andFrameName:(NSString *)frameName;
+-(id) initWithId:(NSString *)id trigger:(TutorialTriggerDescription *)triggerDescription andFileName:(NSString *)fileName;
 
 @end

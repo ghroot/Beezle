@@ -10,20 +10,20 @@
 
 @implementation TutorialBalloonDescription
 
-@synthesize frameName = _frameName;
+@synthesize fileName = _fileName;
 
--(id) initWithId:(NSString *)id trigger:(TutorialTriggerDescription *)triggerDescription andFrameName:(NSString *)frameName
+-(id) initWithId:(NSString *)id trigger:(TutorialTriggerDescription *)triggerDescription andFileName:(NSString *)fileName
 {
 	if (self = [super initWithId:id andTrigger:triggerDescription])
 	{
-		_frameName = [frameName copy];
+		_fileName = [fileName copy];
 	}
 	return self;
 }
 
 -(void) dealloc
 {
-	[_frameName release];
+	[_fileName release];
 
 	[super dealloc];
 }

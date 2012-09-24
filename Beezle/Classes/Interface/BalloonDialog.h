@@ -14,6 +14,6 @@
 	BOOL _balloonCanBeClosed;
 }
 
--(id) initWithFrameName:(NSString *)frameName;
+-(id) initWithFileName:(NSString *)fileName;
 
 @end

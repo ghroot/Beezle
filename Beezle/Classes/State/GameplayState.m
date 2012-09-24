@@ -293,7 +293,7 @@
 	if (tutorialBalloonDescription != nil &&
 		![[PlayerInformation sharedInformation] hasSeenTutorialId:[tutorialBalloonDescription id]])
 	{
-		BalloonDialog *balloonDialog = [[[BalloonDialog alloc] initWithFrameName:[tutorialBalloonDescription frameName]] autorelease];
+		BalloonDialog *balloonDialog = [[[BalloonDialog alloc] initWithFileName:[tutorialBalloonDescription fileName]] autorelease];
 		[_uiLayer addChild:balloonDialog];
 
 		[[PlayerInformation sharedInformation] markTutorialIdAsSeenAndSave:[tutorialBalloonDescription id]];

@@ -88,8 +88,8 @@
 		NSString *type = [tutorialDict objectForKey:@"type"];
 		if ([type isEqualToString:@"balloon"])
 		{
-			NSString *frameName = [tutorialDict objectForKey:@"frameName"];
-			tutorialDescription = [[[TutorialBalloonDescription alloc] initWithId:id trigger:triggerDescription andFrameName:frameName] autorelease];
+			NSString *fileName = [tutorialDict objectForKey:@"fileName"];
+			tutorialDescription = [[[TutorialBalloonDescription alloc] initWithId:id trigger:triggerDescription andFileName:fileName] autorelease];
 		}
 		else if ([type isEqualToString:@"strip"])
 		{
