@@ -2182,6 +2182,7 @@
 		BF8C7102B914EF7CB959EDD1 /* PageDot-diff-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7F6C13EBB6800BCEB8AA /* PageDot-diff-hd.png */; };
 		BF8C7141C2FA8BBB7A40C18C /* Level-C1-front.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7C2D7191BD2DA46468B8 /* Level-C1-front.png */; };
 		BF8C714FC1A015F86BAF42D0 /* Symbol-Continue-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C788FC252A15EF6A95375 /* Symbol-Continue-hd.png */; };
+		BF8C7159AF2458F6BE2A1AC0 /* TweenableSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8C7ECFD84794F0605BB6F8 /* TweenableSprite.m */; };
 		BF8C717A8DEF0848006633F3 /* Symbol-Pollen.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7178E4EE711DF7E5D7CA /* Symbol-Pollen.png */; };
 		BF8C717DD57B22BFD95E1FAA /* PageDot-diff.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C74E9FEE13EE2748C0F17 /* PageDot-diff.png */; };
 		BF8C718412857487D6788627 /* Level-Failed.caf in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7F5B0614EA78D9FBA507 /* Level-Failed.caf */; };
@@ -4867,6 +4868,7 @@
 		BF8C750AB45E46E081DB9823 /* B60-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "B60-Glass-hd.png"; sourceTree = "<group>"; };
 		BF8C75348F7F3F62116F174C /* C58b-Ice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C58b-Ice.png"; sourceTree = "<group>"; };
 		BF8C75504B541BF22DFE17D3 /* Title-s-C.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Title-s-C.png"; sourceTree = "<group>"; };
+		BF8C755DD82468FA796B3574 /* TweenableSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweenableSprite.h; sourceTree = "<group>"; };
 		BF8C756FB594287559856439 /* BubbleYel-A7-.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-A7-.png"; sourceTree = "<group>"; };
 		BF8C757BAFF2AED20DFF798E /* GameStateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStateUtils.m; sourceTree = "<group>"; };
 		BF8C757EAEAD6F1BC8C1BDED /* C14-Ice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C14-Ice.png"; sourceTree = "<group>"; };
@@ -4923,6 +4925,7 @@
 		BF8C7E8E046590F7194A4C0E /* Flower-Cell-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Flower-Cell-full.png"; sourceTree = "<group>"; };
 		BF8C7EA4F0FF615C3549691C /* PageDot-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PageDot-full.png"; sourceTree = "<group>"; };
 		BF8C7EAFC6651451D6CD4B20 /* PulverCactus.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = PulverCactus.caf; sourceTree = "<group>"; };
+		BF8C7ECFD84794F0605BB6F8 /* TweenableSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweenableSprite.m; sourceTree = "<group>"; };
 		BF8C7ED6EB1E285561B27EE7 /* BubbleYel-D4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-D4.png"; sourceTree = "<group>"; };
 		BF8C7EEC9E168D6C4BB3877E /* Chooser-Screen-front-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chooser-Screen-front-hd.png"; sourceTree = "<group>"; };
 		BF8C7F2971F6F1380A058C6C /* Lock-Chooser-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lock-Chooser-hd.png"; sourceTree = "<group>"; };
@@ -7426,6 +7429,8 @@
 		2C74B54C156FAD3900596A22 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				BF8C755DD82468FA796B3574 /* TweenableSprite.h */,
+				BF8C7ECFD84794F0605BB6F8 /* TweenableSprite.m */,
 				2CF8E0F61576B45F0052F635 /* ScrollView.m */,
 				2CF8E0F61576B45F0052F634 /* ScrollView.h */,
 				2C74B54D156FAD3900596A22 /* CoverLayer.h */,
@@ -11099,6 +11104,7 @@
 				2CF8E0F61576B45F0052F636 /* ScrollView.m in Sources */,
 				2CF8E0F61576B45F0052F63F /* PlayState.m in Sources */,
 				BF8C78F980AE484781D48042 /* GameStateUtils.m in Sources */,
+				BF8C7159AF2458F6BE2A1AC0 /* TweenableSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
