@@ -55,8 +55,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -83,8 +85,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -111,8 +115,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -187,7 +193,11 @@
 	<true/>
 	<key>name</key>
 	<string>Level-A3</string>
+	<key>pollenForThreeFlowers</key>
+	<integer>35</integer>
+	<key>pollenForTwoFlowers</key>
+	<integer>30</integer>
 	<key>version</key>
-	<integer>6</integer>
+	<integer>7</integer>
 </dict>
 </plist>

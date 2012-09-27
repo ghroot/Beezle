@@ -291,29 +291,6 @@
 			<key>type</key>
 			<string>GLASS-D</string>
 		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>-5.9341192245483398</real>
-					<key>position</key>
-					<string>{321, 129}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{321, 129}</string>
-					<key>rotation</key>
-					<real>340</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>RAMP-D</string>
-		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -321,7 +298,11 @@
 	<false/>
 	<key>name</key>
 	<string>Level-D17</string>
+	<key>pollenForThreeFlowers</key>
+	<integer>0</integer>
+	<key>pollenForTwoFlowers</key>
+	<integer>0</integer>
 	<key>version</key>
-	<integer>36</integer>
+	<integer>37</integer>
 </dict>
 </plist>
