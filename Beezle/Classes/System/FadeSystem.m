@@ -31,6 +31,7 @@
 {
 	[_fadeComponentMapper release];
 	[_renderComponentMapper release];
+	[_disposableComponentMapper release];
 
 	[super dealloc];
 }
