@@ -23,7 +23,7 @@
 
 -(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
-	if (self = [self init])
+	if (self = [super init])
 	{
 		// Type
 		_pulverAnimationNamesByRenderSpriteName = [[NSDictionary alloc] initWithDictionary:[typeComponentDict objectForKey:@"pulverAnimations"]];
