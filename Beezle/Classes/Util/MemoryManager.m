@@ -28,6 +28,14 @@
 	return manager;
 }
 
+-(void) dealloc
+{
+	[_loadedThemeSpriteSheetName release];
+	[_loadedThemeBossSpriteSheetName release];
+
+	[super dealloc];
+}
+
 -(void) purgeCachedData
 {
 	[[CCDirector sharedDirector] purgeCachedData];
@@ -37,10 +45,12 @@
 
 -(void) ensureThemeSpriteSheetIsUniquelyLoaded:(NSString *)spriteSheetName
 {
-	if (_loadedThemeSpriteSheetName != nil &&
-		![_loadedThemeSpriteSheetName isEqualToString:spriteSheetName])
+	if (_loadedThemeSpriteSheetName != nil)
 	{
-		[self unloadSpriteSheet:_loadedThemeSpriteSheetName];
+		if (![_loadedThemeSpriteSheetName isEqualToString:spriteSheetName])
+		{
+			[self unloadSpriteSheet:_loadedThemeSpriteSheetName];
+		}
 		[_loadedThemeSpriteSheetName release];
 	}
 	_loadedThemeSpriteSheetName = [spriteSheetName copy];
@@ -48,10 +58,12 @@
 
 -(void) ensureThemeBossSpriteSheetIsUniquelyLoaded:(NSString *)spriteSheetName
 {
-	if (_loadedThemeBossSpriteSheetName != nil &&
-		![_loadedThemeBossSpriteSheetName isEqualToString:spriteSheetName])
+	if (_loadedThemeBossSpriteSheetName != nil)
 	{
-		[self unloadSpriteSheet:_loadedThemeBossSpriteSheetName];
+		if (![_loadedThemeBossSpriteSheetName isEqualToString:spriteSheetName])
+		{
+			[self unloadSpriteSheet:_loadedThemeBossSpriteSheetName];
+		}
 		[_loadedThemeBossSpriteSheetName release];
 	}
 	_loadedThemeBossSpriteSheetName = [spriteSheetName copy];
