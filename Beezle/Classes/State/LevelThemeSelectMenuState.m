@@ -79,7 +79,7 @@ static BOOL isFirstLoad = TRUE;
 	[_scrollLayer selectPage:index];
 
 	[self updateBackground];
-    [self updatePageDots:0];
+    [self updatePageDots:[themes indexOfObject:_theme]];
 
 	if (_zoomOut)
 	{
@@ -140,7 +140,7 @@ static BOOL isFirstLoad = TRUE;
 			CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.2f scale:1.5f];
 			[_chooserScreenBackSprite runAction:scaleAction];
 		} endBlock:^(id sender){
-			[_game pushState:[LevelSelectMenuState stateWithTheme:theme]];
+			[_game replaceState:[LevelSelectMenuState stateWithTheme:theme]];
 		} locked:![[PlayerInformation sharedInformation] canPlayTheme:theme]] autorelease];
 		[layers addObject:levelThemeSelectLayer];
 	}

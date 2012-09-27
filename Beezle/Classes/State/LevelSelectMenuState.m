@@ -201,16 +201,7 @@
             return;
         }
 
-		if ([_game previousState] != nil)
-		{
-			[_game popState];
-			LevelThemeSelectMenuState *levelThemeSelectMenuState = (LevelThemeSelectMenuState *)[_game currentState];
-			[levelThemeSelectMenuState zoomOut];
-		}
-		else
-		{
-			[_game replaceState:[LevelThemeSelectMenuState stateWithPreselectedTheme:_theme zoomOut:TRUE]];
-		}
+		[_game replaceState:[LevelThemeSelectMenuState stateWithPreselectedTheme:_theme zoomOut:TRUE]];
 	}];
 	[backMenuItem setPosition:CGPointMake(2.0f, 2.0f)];
 	[backMenuItem setAnchorPoint:CGPointMake(0.0f, 0.0f)];
