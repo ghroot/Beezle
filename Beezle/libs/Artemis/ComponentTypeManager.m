@@ -41,7 +41,7 @@
 	if (componentType == nil)
 	{
 		componentType = [[ComponentType new] autorelease];
-		[_componentTypes setObject:componentType forKey:componentClass];
+		[_componentTypes setObject:componentType forKey:(id)componentClass];
 	}
 	return componentType;
 }

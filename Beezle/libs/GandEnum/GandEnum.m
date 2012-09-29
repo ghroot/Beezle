@@ -108,9 +108,9 @@
 - (NSString *) debugDescription
 {
     if ([properties count]) {
-	return [NSString stringWithFormat: @"<%@:%x %@=%d %@>",NSStringFromClass([self class]), self, name, ordinal, properties];
+	return [NSString stringWithFormat: @"<%@:%@ %@=%d %@>",NSStringFromClass([self class]), self, name, ordinal, properties];
     } else {
-	return [NSString stringWithFormat: @"<%@:%x %@=%d>",NSStringFromClass([self class]), self, name, ordinal];
+	return [NSString stringWithFormat: @"<%@:%@ %@=%d>",NSStringFromClass([self class]), self, name, ordinal];
     }
 }
 - (NSUInteger) hash
@@ -144,7 +144,7 @@ static NSMutableDictionary *gAllEnums = nil;
     if (retval)
 	return retval;
     retval = [NSMutableArray array];
-    [gAllEnums setObject:retval forKey:self];
+    [gAllEnums setObject:retval forKey:(id)self];
     // walk the class methods 
     unsigned int methodCount = 0;
     Method *mlist = class_copyMethodList(object_getClass(self), &methodCount);

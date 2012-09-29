@@ -147,7 +147,7 @@
 	if (componentsByEntity == nil)
 	{
 		componentsByEntity = [NSMutableDictionary dictionary];
-		[_componentsByClass setObject:componentsByEntity forKey:componentClass];
+		[_componentsByClass setObject:componentsByEntity forKey:(id)componentClass];
 	}
 	return componentsByEntity;
 }

@@ -79,7 +79,7 @@
 
 -(void) setManager:(Manager *)manager
 {
-	[_managersByClass setObject:manager forKey:[manager class]];
+	[_managersByClass setObject:manager forKey:(id)[manager class]];
 }
 
 -(Manager *) getManager:(Class)managerClass

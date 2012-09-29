@@ -53,7 +53,7 @@
 	[_navigationController setNavigationBarHidden:TRUE];
 	
 	// Set the Navigation Controller as the root view controller
-	[_window addSubview:_navigationController.view];
+//	[_window addSubview:_navigationController.view];
     [_window setRootViewController:_navigationController];
 	
 	// Show
