@@ -36,6 +36,12 @@
 		[self swaySprite:bombeeSprite speed:0.9f];
 		[self addChild:bombeeSprite];
 
+		CCSprite *speedeeSprite = [CCSprite spriteWithSpriteFrameName:@"Chooser/Chooser-Speedee-1.png"];
+		[speedeeSprite setPosition:CGPointMake(310.0f, 80.0f)];
+		[self animateSprite:speedeeSprite animationName:@"Chooser-Speedee"];
+		[self swaySprite:speedeeSprite speed:0.6f];
+		[self addChild:speedeeSprite];
+
 		CCSprite *beeSprite = [CCSprite spriteWithSpriteFrameName:@"Chooser/Chooser-Bee-1.png"];
 		[beeSprite setPosition:CGPointMake(350.0f, 80.0f)];
 		[self animateSprite:beeSprite animationName:@"Chooser-Bee"];

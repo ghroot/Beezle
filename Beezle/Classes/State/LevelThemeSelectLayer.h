@@ -11,14 +11,8 @@
 @interface LevelThemeSelectLayer : CCLayer
 {
 	CCNode *_container;
-	CCSprite *_titleSprite;
-	CCSprite *_beeSprite;
-	CCSprite *_bee2Sprite;
-
 	CCNode *_flowerLabelPosition;
-
 	CCSprite *_lockSprite;
-
 	CCMenu *_menu;
 }
 
