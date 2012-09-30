@@ -12,6 +12,7 @@
 {
 	CCMenu *_menu;
 	CCMenuItemImage *_menuItemPlay;
+	CCSprite *_pollenExplodeSprite;
 	CCMenuItemImage *_soundOnMenuItem;
 	CCMenuItemImage *_soundOffMenuItem;
 }
