@@ -23,11 +23,6 @@
 
 		[_lockSprite setVisible:locked];
 
-		CCMoveTo *moveUpAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([_titleSprite position].x, [_titleSprite position].y + 2.0f)]];
-		CCMoveTo *moveDownAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([_titleSprite position].x, [_titleSprite position].y - 2.0f)]];
-		CCAction *swayAction = [CCRepeat actionWithAction:[CCSequence actions:moveUpAction, moveDownAction, nil] times:INT_MAX];
-		[_titleSprite runAction:swayAction];
-
 		if (_beeSprite != nil)
 		{
 			CCMoveTo *moveUpAction2 = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:0.4f position:CGPointMake([_beeSprite position].x, [_beeSprite position].y + 1.0f)]];
@@ -64,18 +59,12 @@
 				CCCallBlockO *callBlockAction = [CCCallBlockO actionWithBlock:endBlock object:sender];
 				[_container runAction:[CCSequence actionOne:scaleAction two:callBlockAction]];
 
-				CCFadeIn *fadeInAction = [CCFadeIn actionWithDuration:0.2f];
-				[_fadeLayer runAction:fadeInAction];
-
 				[_menu setEnabled:FALSE];
 				startBlock(sender);
 			} selectedBlock:nil unselectedBlock:nil] autorelease];
 			[_menu addChild:menuItem];
 		}
 		[self addChild:_menu];
-
-		_fadeLayer = [[CCLayerColor alloc] initWithColor:ccc4(0, 0, 0, 0)];
-		[self addChild:_fadeLayer];
 	}
 	return self;
 }
@@ -83,7 +72,6 @@
 -(void) dealloc
 {
 	[_menu release];
-	[_fadeLayer release];
 
 	[super dealloc];
 }
@@ -95,10 +83,6 @@
 	[_container runAction:scaleAction];
 
 	[_menu setEnabled:TRUE];
-
-	[_fadeLayer setOpacity:255];
-	CCFadeIn *fadeOutAction = [CCFadeOut actionWithDuration:0.2f];
-	[_fadeLayer runAction:fadeOutAction];
 }
 
 @end

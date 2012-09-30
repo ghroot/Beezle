@@ -16,6 +16,7 @@
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "GameStateUtils.h"
+#import "BeesFrontNode.h"
 
 @interface LevelSelectMenuState()
 
@@ -175,9 +176,7 @@
 	_scrollView = [[ScrollView alloc] initWithContent:draggableNode];
 	[self addChild:_scrollView];
 
-	CCSprite *chooserScreenFrontSprite = [CCSprite spriteWithFile:@"Chooser-Screen-front.png"];
-	[chooserScreenFrontSprite setAnchorPoint:CGPointZero];
-	[self addChild:chooserScreenFrontSprite];
+	[self addChild:[BeesFrontNode node]];
 }
 
 -(CCMenu *) getMenu:(CCNode *)node

@@ -20,7 +20,6 @@
 	CCSprite *_lockSprite;
 
 	CCMenu *_menu;
-	CCLayerColor *_fadeLayer;
 }
 
 -(id) initWithTheme:(NSString *)theme startBlock:(void(^)(id sender))startBlock endBlock:(void(^)(id sender))endBlock locked:(BOOL)locked;

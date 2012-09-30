@@ -21,6 +21,7 @@
 	CCSprite *_chooserScreenBackSprite;
 	NSString *_theme;
 	BOOL _zoomOut;
+	CCLayerColor *_fadeLayer;
 }
 
 +(id) stateWithPreselectedTheme:(NSString *)theme zoomOut:(BOOL)zoomOut;

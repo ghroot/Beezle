@@ -2119,8 +2119,8 @@
 		BF8C717DD57B22BFD95E1FAA /* PageDot-diff.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C74E9FEE13EE2748C0F17 /* PageDot-diff.png */; };
 		BF8C718412857487D6788627 /* Level-Failed.caf in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7F5B0614EA78D9FBA507 /* Level-Failed.caf */; };
 		BF8C72131566EBC705712AD3 /* B60-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C750AB45E46E081DB9823 /* B60-Glass-hd.png */; };
-		BF8C7213883DC067CADF4AA6 /* Chooser-Screen-front-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7EEC9E168D6C4BB3877E /* Chooser-Screen-front-hd.png */; };
 		BF8C724D50FD4CB454D82910 /* Symbol-Redo-White-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7A925CA30E9A80AB8997 /* Symbol-Redo-White-hd.png */; };
+		BF8C72671D66349302C098F2 /* BeesFrontNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8C7809DE0790FB18CED4E4 /* BeesFrontNode.m */; };
 		BF8C726845953B8936C4B13A /* DescrStrip-Bombee-A-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8C78063DAC90828944421E /* DescrStrip-Bombee-A-2.jpg */; };
 		BF8C726BE8AA92DB6F6D289A /* DescrStrip-Mumee-D-2-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8C74293576D2C3C897BBC2 /* DescrStrip-Mumee-D-2-hd.jpg */; };
 		BF8C72930F80564775C52B76 /* DescrStrip-Speedee-A-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8C75E5E15CDAE611A5905E /* DescrStrip-Speedee-A-hd.jpg */; };
@@ -2173,7 +2173,6 @@
 		BF8C78F6653A63B0C73ACD21 /* Title-s-D.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7F4533C2A73891DAC159 /* Title-s-D.png */; };
 		BF8C78F766DBE39FD07C8981 /* BubbleYel-D4.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7ED6EB1E285561B27EE7 /* BubbleYel-D4.png */; };
 		BF8C78F980AE484781D48042 /* GameStateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8C757BAFF2AED20DFF798E /* GameStateUtils.m */; };
-		BF8C7928C38CD2815D0B9843 /* Chooser-Screen-front.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C713E49ABC818C30CF2CC /* Chooser-Screen-front.png */; };
 		BF8C7935517B7419120BE914 /* WoodCrack.caf in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7766C9FA281047AA481D /* WoodCrack.caf */; };
 		BF8C7936613D9EC14B516633 /* BubbleYel-A10-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7FC5C738B7A5681643E9 /* BubbleYel-A10-hd.png */; };
 		BF8C79509BFCEB6CB6A09939 /* Flower-Cell-dim.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7A215A42CC996E31CACA /* Flower-Cell-dim.png */; };
@@ -2196,6 +2195,7 @@
 		BF8C7B1FC0BA5C4FB09AA101 /* PageDot-full.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7EA4F0FF615C3549691C /* PageDot-full.png */; };
 		BF8C7B22C3073B1A703C2A36 /* SlingerBee.caf in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7392F799934688EE8D2A /* SlingerBee.caf */; };
 		BF8C7B3576912A70C67A206C /* ThemeSelect-C-New.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = BF8C711D8C34EF4537DADD15 /* ThemeSelect-C-New.ccbi */; };
+		BF8C7B6BA770B4AFA74C4ACE /* Interface-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF8C790BE4095577E62A3BC2 /* Interface-Animations.plist */; };
 		BF8C7B85E345C18528EA477F /* ChooserSlingerBackground-2-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8C74171953B5183CF59143 /* ChooserSlingerBackground-2-hd.jpg */; };
 		BF8C7B8C998BA74AD23A8ABD /* C59-Ice-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C76476C3BDAF334EF56E6 /* C59-Ice-hd.png */; };
 		BF8C7BA6B3093C863C3A2D38 /* BubbleYel-A13.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C77ED371308B85F0821D4 /* BubbleYel-A13.png */; };
@@ -4712,7 +4712,6 @@
 		BF8C710146056DE75DF84327 /* BubbleYel-A22-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-A22-hd.png"; sourceTree = "<group>"; };
 		BF8C711D8C34EF4537DADD15 /* ThemeSelect-C-New.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file.ccbi; path = "ThemeSelect-C-New.ccbi"; sourceTree = "<group>"; };
 		BF8C7123AE6472AD47580295 /* DescrStrip-TBee-C-2-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-TBee-C-2-hd.jpg"; sourceTree = "<group>"; };
-		BF8C713E49ABC818C30CF2CC /* Chooser-Screen-front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chooser-Screen-front.png"; sourceTree = "<group>"; };
 		BF8C71642D12183F2B7307C7 /* SoundButton-on-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SoundButton-on-hd.png"; sourceTree = "<group>"; };
 		BF8C716DE09D973974378666 /* Level-B-Music.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = "Level-B-Music.caf"; sourceTree = "<group>"; };
 		BF8C7178E4EE711DF7E5D7CA /* Symbol-Pollen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Symbol-Pollen.png"; sourceTree = "<group>"; };
@@ -4773,6 +4772,7 @@
 		BF8C76DE44E45EB2E617DF74 /* C2-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C2-Glass-hd.png"; sourceTree = "<group>"; };
 		BF8C76F18C9D4CE4BEFCE8C4 /* C2-Ice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C2-Ice.png"; sourceTree = "<group>"; };
 		BF8C76F6AD5407C94E2CC559 /* BubbleYel-A7-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-A7-hd.png"; sourceTree = "<group>"; };
+		BF8C7727AAE7B4AAB0124C74 /* BeesFrontNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeesFrontNode.h; sourceTree = "<group>"; };
 		BF8C7728A5C135EA9F92EDF7 /* C58b-Ice-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C58b-Ice-hd.png"; sourceTree = "<group>"; };
 		BF8C773CCE5BFE6D126D4015 /* Flower-Chooser-fullred-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Flower-Chooser-fullred-hd.png"; sourceTree = "<group>"; };
 		BF8C7748658930A3A3102979 /* Level-C1-front-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level-C1-front-hd.png"; sourceTree = "<group>"; };
@@ -4780,6 +4780,7 @@
 		BF8C77B731F28FE3E4712625 /* ChooserSlingerBackground-1-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ChooserSlingerBackground-1-hd.jpg"; sourceTree = "<group>"; };
 		BF8C77ED371308B85F0821D4 /* BubbleYel-A13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-A13.png"; sourceTree = "<group>"; };
 		BF8C78063DAC90828944421E /* DescrStrip-Bombee-A-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Bombee-A-2.jpg"; sourceTree = "<group>"; };
+		BF8C7809DE0790FB18CED4E4 /* BeesFrontNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeesFrontNode.m; sourceTree = "<group>"; };
 		BF8C780C573E35D711076876 /* DescrStrip-Sumee-B-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Sumee-B-1.jpg"; sourceTree = "<group>"; };
 		BF8C7837B934D655A71CDCBD /* Symbol-Exit-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Symbol-Exit-hd.png"; sourceTree = "<group>"; };
 		BF8C7843B775CD7A5A2CA583 /* ChooserSlingerBackground-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ChooserSlingerBackground-2.jpg"; sourceTree = "<group>"; };
@@ -4792,6 +4793,7 @@
 		BF8C78CD63AD4884B5F74532 /* BubbleYel-A2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-A2.png"; sourceTree = "<group>"; };
 		BF8C78DF82395819A542F7AA /* Symbol-Redo-White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Symbol-Redo-White.png"; sourceTree = "<group>"; };
 		BF8C7905743726903F974514 /* Title-s-A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Title-s-A.png"; sourceTree = "<group>"; };
+		BF8C790BE4095577E62A3BC2 /* Interface-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Interface-Animations.plist"; sourceTree = "<group>"; };
 		BF8C790CCDE7577C4620E12F /* ThemeSelect-A-New.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file.ccbi; path = "ThemeSelect-A-New.ccbi"; sourceTree = "<group>"; };
 		BF8C793732A64068E65AC3E6 /* SpeedeeSound.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = SpeedeeSound.caf; sourceTree = "<group>"; };
 		BF8C79512FAB5E46547F1C64 /* Symbol-Continue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Symbol-Continue.png"; sourceTree = "<group>"; };
@@ -4829,7 +4831,6 @@
 		BF8C7EAFC6651451D6CD4B20 /* PulverCactus.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = PulverCactus.caf; sourceTree = "<group>"; };
 		BF8C7ECFD84794F0605BB6F8 /* TweenableSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweenableSprite.m; sourceTree = "<group>"; };
 		BF8C7ED6EB1E285561B27EE7 /* BubbleYel-D4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-D4.png"; sourceTree = "<group>"; };
-		BF8C7EEC9E168D6C4BB3877E /* Chooser-Screen-front-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chooser-Screen-front-hd.png"; sourceTree = "<group>"; };
 		BF8C7F2971F6F1380A058C6C /* Lock-Chooser-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lock-Chooser-hd.png"; sourceTree = "<group>"; };
 		BF8C7F4533C2A73891DAC159 /* Title-s-D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Title-s-D.png"; sourceTree = "<group>"; };
 		BF8C7F5B0614EA78D9FBA507 /* Level-Failed.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = "Level-Failed.caf"; sourceTree = "<group>"; };
@@ -4889,8 +4890,6 @@
 				BF8C74171953B5183CF59143 /* ChooserSlingerBackground-2-hd.jpg */,
 				BF8C73589E4967CF8A22F981 /* ChooserSlingerBackground-1.jpg */,
 				BF8C77B731F28FE3E4712625 /* ChooserSlingerBackground-1-hd.jpg */,
-				BF8C713E49ABC818C30CF2CC /* Chooser-Screen-front.png */,
-				BF8C7EEC9E168D6C4BB3877E /* Chooser-Screen-front-hd.png */,
 				BF8C730699FDAB1211D1D8CF /* Chooser-Screen-back.png */,
 				BF8C70F040AED2550200589A /* Chooser-Screen-back-hd.png */,
 				BF8C7E8E046590F7194A4C0E /* Flower-Cell-full.png */,
@@ -6917,6 +6916,8 @@
 		2C74B44C156FAD1E00596A22 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				BF8C7727AAE7B4AAB0124C74 /* BeesFrontNode.h */,
+				BF8C7809DE0790FB18CED4E4 /* BeesFrontNode.m */,
 				2CF8E0F61576B45F0052F580 /* BalloonDialog.m */,
 				2CF8E0F61576B45F0052F57F /* BalloonDialog.h */,
 				2CF8E0F61576B45F0052F494 /* PausedDialog.m */,
@@ -7411,6 +7412,7 @@
 		2C84099615829AA10098BA9C /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				BF8C790BE4095577E62A3BC2 /* Interface-Animations.plist */,
 				2CF8E0F61576B45F0052F4E0 /* Eyes-Animations.plist */,
 				2CF8E0F61576B45F0052F3CA /* Branch-Animations.plist */,
 				2CF8E0F61576B45F0052F3A0 /* Cactus-Animations.plist */,
@@ -10476,8 +10478,6 @@
 				BF8C70104E6BBF19066F0CB7 /* FreedTBee.caf in Resources */,
 				BF8C7B05E4B2997A278F56C6 /* Chooser-Screen-back-hd.png in Resources */,
 				BF8C7F92D31C8F1AC8FA7359 /* Chooser-Screen-back.png in Resources */,
-				BF8C7213883DC067CADF4AA6 /* Chooser-Screen-front-hd.png in Resources */,
-				BF8C7928C38CD2815D0B9843 /* Chooser-Screen-front.png in Resources */,
 				BF8C704B93AFDE6D8BD781FA /* ChooserSlingerBackground-1-hd.jpg in Resources */,
 				BF8C73012AE207C66905004B /* ChooserSlingerBackground-1.jpg in Resources */,
 				BF8C7B85E345C18528EA477F /* ChooserSlingerBackground-2-hd.jpg in Resources */,
@@ -10579,6 +10579,7 @@
 				BF8C79F70BCB0F7AE8BC62A2 /* DescrStrip-TBee-C-1.jpg in Resources */,
 				BF8C7BE376BDA42FFBBF685E /* DescrStrip-TBee-C-2-hd.jpg in Resources */,
 				BF8C74A1CD3DE480A25CCC99 /* DescrStrip-TBee-C-2.jpg in Resources */,
+				BF8C7B6BA770B4AFA74C4ACE /* Interface-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10914,6 +10915,7 @@
 				2CF8E0F61576B45F0052F63F /* PlayState.m in Sources */,
 				BF8C78F980AE484781D48042 /* GameStateUtils.m in Sources */,
 				BF8C7159AF2458F6BE2A1AC0 /* TweenableSprite.m in Sources */,
+				BF8C72671D66349302C098F2 /* BeesFrontNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,7 @@
 #import "PlayState.h"
 #import "Utils.h"
 #import "PlayerInformation.h"
+#import "BeesFrontNode.h"
 
 static BOOL isFirstLoad = TRUE;
 
@@ -69,11 +70,12 @@ static BOOL isFirstLoad = TRUE;
 	NSArray *themes = [[LevelOrganizer sharedOrganizer] themes];
 	[self createScrollLayer:themes];
 
-	CCSprite *chooserScreenFrontSprite = [CCSprite spriteWithFile:@"Chooser-Screen-front.png"];
-	[chooserScreenFrontSprite setPosition:[Utils screenCenterPosition]];
-	[self addChild:chooserScreenFrontSprite z:31];
+	[self addChild:[BeesFrontNode node] z:31];
 
 	[self createBackMenu];
+
+	_fadeLayer = [[CCLayerColor alloc] initWithColor:ccc4(0, 0, 0, 0)];
+	[self addChild:_fadeLayer z:32];
 
 	int index = [[[LevelOrganizer sharedOrganizer] themes] indexOfObject:_theme];
 	[_scrollLayer selectPage:index];
@@ -94,6 +96,7 @@ static BOOL isFirstLoad = TRUE;
 	[_pageDotSprites release];
 	[_chooserScreenBackSprite release];
 	[_theme release];
+	[_fadeLayer release];
 
 	[super dealloc];
 }
@@ -139,6 +142,9 @@ static BOOL isFirstLoad = TRUE;
 		LevelThemeSelectLayer *levelThemeSelectLayer = [[[LevelThemeSelectLayer alloc] initWithTheme:theme startBlock:^(id sender){
 			CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.2f scale:1.5f];
 			[_chooserScreenBackSprite runAction:scaleAction];
+
+			CCFadeIn *fadeInAction = [CCFadeIn actionWithDuration:0.2f];
+			[_fadeLayer runAction:fadeInAction];
 		} endBlock:^(id sender){
 			[_game replaceState:[LevelSelectMenuState stateWithTheme:theme]];
 		} locked:![[PlayerInformation sharedInformation] canPlayTheme:theme]] autorelease];
@@ -210,6 +216,11 @@ static BOOL isFirstLoad = TRUE;
 -(void) zoomOut
 {
 	[_chooserScreenBackSprite setScale:1.0f];
+
+	[_fadeLayer setOpacity:255];
+	CCFadeIn *fadeOutAction = [CCFadeOut actionWithDuration:0.2f];
+	[_fadeLayer runAction:fadeOutAction];
+
 	LevelThemeSelectLayer *layer = [[_scrollLayer pages] objectAtIndex:[_scrollLayer currentScreen]];
 	[layer reset];
 }
