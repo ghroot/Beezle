@@ -10,11 +10,15 @@
 #import "cocos2d.h"
 
 @class ScrollView;
+@class BeesFrontNode;
 
 @interface LevelSelectMenuState : GameState <CCTargetedTouchDelegate>
 {
 	NSString *_theme;
 	ScrollView *_scrollView;
+	CCSprite *_chooserScreenBackSprite;
+	BeesFrontNode *_beesFrontNode;
+	CCLayer *_fadeLayer;
 }
 
 +(LevelSelectMenuState *) stateWithTheme:(NSString *)theme;

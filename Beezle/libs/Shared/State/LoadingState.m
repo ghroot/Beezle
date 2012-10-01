@@ -58,6 +58,7 @@
 		_initialiseAndReplaceSceneCountdown--;
 		if (_initialiseAndReplaceSceneCountdown == 0)
 		{
+			[_gameStateToLoad setGame:_game];
 			[_gameStateToLoad initialise];
 			[_game replaceState:_gameStateToLoad];
 		}

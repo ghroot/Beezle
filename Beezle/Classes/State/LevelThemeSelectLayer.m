@@ -11,6 +11,8 @@
 #import "CCBReader.h"
 #import "PlayerInformation.h"
 #import "LevelOrganizer.h"
+#import "Game.h"
+#import "LevelSelectMenuState.h"
 
 @interface LevelThemeSelectLayer()
 
@@ -21,7 +23,7 @@
 
 @implementation LevelThemeSelectLayer
 
--(id) initWithTheme:(NSString *)theme startBlock:(void(^)(id sender))startBlock endBlock:(void(^)(id sender))endBlock locked:(BOOL)locked
+-(id) initWithTheme:(NSString *)theme game:(Game *)game locked:(BOOL)locked
 {
 	if (self = [super init])
 	{
@@ -85,12 +87,7 @@
 		if (!locked)
 		{
 			FullscreenTransparentMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
-				CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.2f scale:3.0f];
-				CCCallBlockO *callBlockAction = [CCCallBlockO actionWithBlock:endBlock object:sender];
-				[_container runAction:[CCSequence actionOne:scaleAction two:callBlockAction]];
-
-				[_menu setEnabled:FALSE];
-				startBlock(sender);
+				[game replaceState:[LevelSelectMenuState stateWithTheme:theme]];
 			} selectedBlock:nil unselectedBlock:nil] autorelease];
 			[_menu addChild:menuItem];
 		}
@@ -104,15 +101,6 @@
 	[_menu release];
 
 	[super dealloc];
-}
-
--(void) reset
-{
-	[_container setScale:2.0f];
-	CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.2f scale:1.0f];
-	[_container runAction:scaleAction];
-
-	[_menu setEnabled:TRUE];
 }
 
 -(void) animateSprite:(CCSprite *)sprite animationName:(NSString *)animationName

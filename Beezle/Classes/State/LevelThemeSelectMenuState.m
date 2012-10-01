@@ -31,17 +31,16 @@ static BOOL isFirstLoad = TRUE;
 
 @implementation LevelThemeSelectMenuState
 
-+(id) stateWithPreselectedTheme:(NSString *)theme zoomOut:(BOOL)zoomOut
++(id) stateWithPreselectedTheme:(NSString *)theme
 {
-	return [[[self alloc] initWithPreselectedTheme:theme zoomOut:zoomOut] autorelease];
+	return [[[self alloc] initWithPreselectedTheme:theme] autorelease];
 }
 
--(id) initWithPreselectedTheme:(NSString *)theme  zoomOut:(BOOL)zoomOut
+-(id) initWithPreselectedTheme:(NSString *)theme
 {
 	if (self = [super init])
 	{
 		_theme = [theme copy];
-		_zoomOut = zoomOut;
 		_pageDotSprites = [NSMutableArray new];
 		if (isFirstLoad)
 		{
@@ -54,7 +53,7 @@ static BOOL isFirstLoad = TRUE;
 
 -(id) init
 {
-	return [self initWithPreselectedTheme:[[[LevelOrganizer sharedOrganizer] themes] objectAtIndex:0] zoomOut:FALSE];
+	return [self initWithPreselectedTheme:[[[LevelOrganizer sharedOrganizer] themes] objectAtIndex:0]];
 }
 
 -(void) initialise
@@ -74,19 +73,11 @@ static BOOL isFirstLoad = TRUE;
 
 	[self createBackMenu];
 
-	_fadeLayer = [[CCLayerColor alloc] initWithColor:ccc4(0, 0, 0, 0)];
-	[self addChild:_fadeLayer z:32];
-
 	int index = [[[LevelOrganizer sharedOrganizer] themes] indexOfObject:_theme];
 	[_scrollLayer selectPage:index];
 
 	[self updateBackground];
     [self updatePageDots:[themes indexOfObject:_theme]];
-
-	if (_zoomOut)
-	{
-		[self zoomOut];
-	}
 }
 
 -(void) dealloc
@@ -96,7 +87,6 @@ static BOOL isFirstLoad = TRUE;
 	[_pageDotSprites release];
 	[_chooserScreenBackSprite release];
 	[_theme release];
-	[_fadeLayer release];
 
 	[super dealloc];
 }
@@ -139,15 +129,7 @@ static BOOL isFirstLoad = TRUE;
 	NSMutableArray *layers = [NSMutableArray array];
 	for (NSString *theme in themes)
 	{
-		LevelThemeSelectLayer *levelThemeSelectLayer = [[[LevelThemeSelectLayer alloc] initWithTheme:theme startBlock:^(id sender){
-			CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.2f scale:1.5f];
-			[_chooserScreenBackSprite runAction:scaleAction];
-
-			CCFadeIn *fadeInAction = [CCFadeIn actionWithDuration:0.2f];
-			[_fadeLayer runAction:fadeInAction];
-		} endBlock:^(id sender){
-			[_game replaceState:[LevelSelectMenuState stateWithTheme:theme]];
-		} locked:![[PlayerInformation sharedInformation] canPlayTheme:theme]] autorelease];
+		LevelThemeSelectLayer *levelThemeSelectLayer = [[[LevelThemeSelectLayer alloc] initWithTheme:theme game:_game locked:![[PlayerInformation sharedInformation] canPlayTheme:theme]] autorelease];
 		[layers addObject:levelThemeSelectLayer];
 	}
 	_scrollLayer = [[CCScrollLayer alloc] initWithLayers:layers widthOffset:0];
@@ -211,18 +193,6 @@ static BOOL isFirstLoad = TRUE;
 		[_pageDotSprites addObject:pageDotSprite];
 		[self addChild:pageDotSprite z:35];
 	}
-}
-
--(void) zoomOut
-{
-	[_chooserScreenBackSprite setScale:1.0f];
-
-	[_fadeLayer setOpacity:255];
-	CCFadeIn *fadeOutAction = [CCFadeOut actionWithDuration:0.2f];
-	[_fadeLayer runAction:fadeOutAction];
-
-	LevelThemeSelectLayer *layer = [[_scrollLayer pages] objectAtIndex:[_scrollLayer currentScreen]];
-	[layer reset];
 }
 
 @end

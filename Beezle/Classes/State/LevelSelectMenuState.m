@@ -15,8 +15,10 @@
 #import "SoundManager.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
-#import "GameStateUtils.h"
 #import "BeesFrontNode.h"
+#import "BeesFrontNode.h"
+#import "Utils.h"
+#import "GameStateUtils.h"
 
 @interface LevelSelectMenuState()
 
@@ -89,9 +91,9 @@
 	[backgroundSprite setPosition:CGPointMake(backgroundSpriteX, (winSize.height - [backgroundSprite1 contentSize].height) / 2)];
 	[self addChild:backgroundSprite];
 
-	CCSprite *chooserScreenBackSprite = [CCSprite spriteWithFile:@"Chooser-Screen-back.png"];
-	[chooserScreenBackSprite setAnchorPoint:CGPointZero];
-	[self addChild:chooserScreenBackSprite];
+	_chooserScreenBackSprite = [[CCSprite alloc] initWithFile:@"Chooser-Screen-back.png"];
+	[_chooserScreenBackSprite setPosition:[Utils screenCenterPosition]];
+	[self addChild:_chooserScreenBackSprite];
 
 //    NSString *nodeFileName = [NSString stringWithFormat:@"LevelSelect-%@.ccbi", _theme];
     NSString *nodeFileName = @"LevelSelect-A.ccbi";
@@ -176,7 +178,11 @@
 	_scrollView = [[ScrollView alloc] initWithContent:draggableNode];
 	[self addChild:_scrollView];
 
-	[self addChild:[BeesFrontNode node]];
+	_beesFrontNode = [BeesFrontNode new];
+	[self addChild:_beesFrontNode];
+
+	_fadeLayer = [[CCLayerColor alloc] initWithColor:ccc4(0, 0, 0, 0)];
+	[self addChild:_fadeLayer z:32];
 }
 
 -(CCMenu *) getMenu:(CCNode *)node
@@ -200,7 +206,7 @@
             return;
         }
 
-		[_game replaceState:[LevelThemeSelectMenuState stateWithPreselectedTheme:_theme zoomOut:TRUE]];
+		[_game replaceState:[LevelThemeSelectMenuState stateWithPreselectedTheme:_theme]];
 	}];
 	[backMenuItem setPosition:CGPointMake(2.0f, 2.0f)];
 	[backMenuItem setAnchorPoint:CGPointMake(0.0f, 0.0f)];
@@ -213,6 +219,9 @@
 {
 	[_theme release];
 	[_scrollView release];
+	[_chooserScreenBackSprite release];
+	[_beesFrontNode release];
+	[_fadeLayer release];
 	
 	[super dealloc];
 }
@@ -234,7 +243,20 @@
 	CCMenuItemImage *menuItem = (CCMenuItemImage *)sender;
 	NSString *levelName = [NSString stringWithFormat:@"Level-%@%d", _theme, [menuItem tag]];
 
-	[GameStateUtils replaceWithGameplayState:levelName game:_game];
+	// TODO: Fade out
+	[self removeChild:_scrollView cleanup:TRUE];
+
+	CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.45f scale:1.5f];
+	CCCallBlock *gotoGameAction = [CCCallBlock actionWithBlock:^{
+		[GameStateUtils replaceWithGameplayState:levelName game:_game];
+	}];
+	[_chooserScreenBackSprite runAction:[CCSequence actionOne:scaleAction two:gotoGameAction]];
+
+	CCMoveTo *moveAction = [CCMoveTo actionWithDuration:0.4f position:CGPointMake(0.0f, -20.0f)];
+	[_beesFrontNode runAction:moveAction];
+
+	CCFadeIn *fadeInAction = [CCFadeIn actionWithDuration:0.4f];
+	[_fadeLayer runAction:fadeInAction];
 }
 
 @end

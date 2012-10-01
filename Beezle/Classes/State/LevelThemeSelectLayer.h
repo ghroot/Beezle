@@ -8,16 +8,15 @@
 
 #import "cocos2d.h"
 
+@class Game;
+
 @interface LevelThemeSelectLayer : CCLayer
 {
-	CCNode *_container;
 	CCNode *_flowerLabelPosition;
 	CCSprite *_lockSprite;
 	CCMenu *_menu;
 }
 
--(id) initWithTheme:(NSString *)theme startBlock:(void(^)(id sender))startBlock endBlock:(void(^)(id sender))endBlock locked:(BOOL)locked;
-
--(void) reset;
+-(id) initWithTheme:(NSString *)theme game:(Game *)game locked:(BOOL)locked;
 
 @end

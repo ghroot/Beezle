@@ -20,14 +20,10 @@
 	NSMutableArray *_pageDotSprites;
 	CCSprite *_chooserScreenBackSprite;
 	NSString *_theme;
-	BOOL _zoomOut;
-	CCLayerColor *_fadeLayer;
 }
 
-+(id) stateWithPreselectedTheme:(NSString *)theme zoomOut:(BOOL)zoomOut;
++(id) stateWithPreselectedTheme:(NSString *)theme;
 
--(id) initWithPreselectedTheme:(NSString *)theme zoomOut:(BOOL)zoomOut;
-
--(void) zoomOut;
+-(id) initWithPreselectedTheme:(NSString *)theme;
 
 @end
