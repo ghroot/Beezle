@@ -28,6 +28,7 @@
 +(ZOrder *) Z_SHEET_A;
 +(ZOrder *) Z_SHEET_B;
 +(ZOrder *) Z_SHEET_C;
++(ZOrder *) Z_CLIRR;
 +(ZOrder *) Z_SHEET_D;
 
 +(ZOrder *) Z_GLASS;

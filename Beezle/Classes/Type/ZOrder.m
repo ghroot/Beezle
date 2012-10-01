@@ -25,20 +25,21 @@ GANDENUM(Z_SHEET_BOSS,              4, [NSNumber numberWithInt:4], @"z")
 GANDENUM(Z_SHEET_A,					5, [NSNumber numberWithInt:5], @"z")
 GANDENUM(Z_SHEET_B,					6, [NSNumber numberWithInt:5], @"z")
 GANDENUM(Z_SHEET_C,					7, [NSNumber numberWithInt:5], @"z")
-GANDENUM(Z_SHEET_D,					8, [NSNumber numberWithInt:5], @"z")
+GANDENUM(Z_CLIRR,						8, [NSNumber numberWithInt:2], @"z")
+GANDENUM(Z_SHEET_D,					9, [NSNumber numberWithInt:5], @"z")
 
-GANDENUM(Z_GLASS,					9, [NSNumber numberWithInt:6], @"z")
-GANDENUM(Z_ICE,						10, [NSNumber numberWithInt:6], @"z")
-GANDENUM(Z_SAND,					11, [NSNumber numberWithInt:6], @"z")
+GANDENUM(Z_GLASS,					10, [NSNumber numberWithInt:6], @"z")
+GANDENUM(Z_ICE,						11, [NSNumber numberWithInt:6], @"z")
+GANDENUM(Z_SAND,					12, [NSNumber numberWithInt:6], @"z")
 
-GANDENUM(Z_SHEET_SHARED,            12, [NSNumber numberWithInt:7], @"z")
-GANDENUM(Z_BEES,                        13, [NSNumber numberWithInt:2], @"z")
-GANDENUM(Z_SLINGER,                     14, [NSNumber numberWithInt:3], @"z")
+GANDENUM(Z_SHEET_SHARED,            13, [NSNumber numberWithInt:7], @"z")
+GANDENUM(Z_BEES,                        14, [NSNumber numberWithInt:2], @"z")
+GANDENUM(Z_SLINGER,                     15, [NSNumber numberWithInt:3], @"z")
 
-GANDENUM(Z_PARTICLE,                15, [NSNumber numberWithInt:8], @"z")
+GANDENUM(Z_PARTICLE,                16, [NSNumber numberWithInt:8], @"z")
 
-GANDENUM(Z_BACKGROUND_FRONT,        16, [NSNumber numberWithInt:9], @"z")
+GANDENUM(Z_BACKGROUND_FRONT,        17, [NSNumber numberWithInt:9], @"z")
 
-GANDENUM(Z_FRONT,        			17, [NSNumber numberWithInt:10], @"z")
+GANDENUM(Z_FRONT,        			18, [NSNumber numberWithInt:10], @"z")
 
 @end
