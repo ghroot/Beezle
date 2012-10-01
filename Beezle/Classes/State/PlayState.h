@@ -13,6 +13,7 @@
 	CCMenu *_menu;
 	CCMenuItemImage *_menuItemPlay;
 	CCSprite *_pollenExplodeSprite;
+	CCSprite *_soundButtonExplosionSprite;
 	CCMenuItemImage *_soundOnMenuItem;
 	CCMenuItemImage *_soundOffMenuItem;
 }

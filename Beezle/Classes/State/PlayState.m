@@ -17,6 +17,7 @@
 @interface PlayState()
 
 -(void) updateSoundMenuItemsVisibility;
+-(void) createSoundButtonExplosionSprite:(NSString *)animationName;
 -(void) createBee;
 -(void) createSawee;
 -(void) createBombee;
@@ -41,6 +42,9 @@
 
 		_pollenExplodeSprite = [[CCSprite alloc] initWithSpriteFrameName:@"Play/PlayButtonPollen-1.png"];
 		[_pollenExplodeSprite setPosition:[_menuItemPlay position]];
+
+		_soundButtonExplosionSprite = [[CCSprite alloc] initWithSpriteFrameName:@"Play/SoundButton-pollen-1.png"];
+		[_soundButtonExplosionSprite setPosition:[_soundOffMenuItem position]];
 
 		[self updateSoundMenuItemsVisibility];
 
@@ -104,14 +108,18 @@
 
 -(void) muteSound
 {
+	[_menu setEnabled:FALSE];
 	[[SoundManager sharedManager] mute];
-	[self updateSoundMenuItemsVisibility];
+	[_soundOffMenuItem setVisible:FALSE];
+	[self createSoundButtonExplosionSprite:@"Sound-Button-Mute"];
 }
 
 -(void) unMuteSound
 {
+	[_menu setEnabled:FALSE];
 	[[SoundManager sharedManager] unMute];
-	[self updateSoundMenuItemsVisibility];
+	[_soundOnMenuItem setVisible:FALSE];
+	[self createSoundButtonExplosionSprite:@"Sound-Button-Unmute"];
 }
 
 -(void) updateSoundMenuItemsVisibility
@@ -126,6 +134,19 @@
 		[_soundOnMenuItem setVisible:TRUE];
 		[_soundOffMenuItem setVisible:FALSE];
 	}
+}
+
+-(void) createSoundButtonExplosionSprite:(NSString *)animationName
+{
+	[self addChild:_soundButtonExplosionSprite];
+	CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:animationName];
+	CCAnimate *animateAction = [CCAnimate actionWithAnimation:animation];
+	CCCallBlock *removeAction = [CCCallBlock actionWithBlock:^{
+		[self removeChild:_soundButtonExplosionSprite cleanup:TRUE];
+		[self updateSoundMenuItemsVisibility];
+		[_menu setEnabled:TRUE];
+	}];
+	[_soundButtonExplosionSprite runAction:[CCSequence actionOne:animateAction two:removeAction]];
 }
 
 -(void) createBee
