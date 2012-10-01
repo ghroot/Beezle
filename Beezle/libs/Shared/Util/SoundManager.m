@@ -12,7 +12,7 @@
 
 -(void) asynchronousSetup;
 -(void) loadSoundMappings;
--(void) preloadSounds;
+-(void) preloadSoundEffects;
 
 @end
 
@@ -41,9 +41,11 @@
 
 -(void) dealloc
 {
-	[_soundFilePathsByName release];
+	[_musicFilePathsByName release];
+	[_sfxFilePathsByName release];
 	[_soundIdsBySoundName release];
 	[_currentMusicName release];
+	[_lastRequestedMusicNameWhileNonFunctinal release];
 	
 	[super dealloc];
 }
@@ -81,9 +83,16 @@
         [audioManager setResignBehavior:kAMRBStopPlay autoHandle:TRUE];
         [SimpleAudioEngine sharedEngine];
 		[self loadSoundMappings];
-        [self preloadSounds];
-        
+		[self preloadSoundEffects];
+
         _isFunctional = TRUE;
+
+		if (_lastRequestedMusicNameWhileNonFunctinal != nil)
+		{
+			[self playMusic:_lastRequestedMusicNameWhileNonFunctinal];
+			[_lastRequestedMusicNameWhileNonFunctinal release];
+			_lastRequestedMusicNameWhileNonFunctinal = nil;
+		}
     }
 }
 
@@ -92,12 +101,13 @@
 	NSString *fileName = @"Sounds.plist";
 	NSString *filePath = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:fileName];
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
-	_soundFilePathsByName = [[NSDictionary dictionaryWithDictionary:[dict objectForKey:@"sounds"]] retain];
+	_musicFilePathsByName = [[NSDictionary dictionaryWithDictionary:[dict objectForKey:@"music"]] retain];
+	_sfxFilePathsByName = [[NSDictionary dictionaryWithDictionary:[dict objectForKey:@"sfx"]] retain];
 }
 
--(void) preloadSounds
+-(void) preloadSoundEffects
 {
-	for (NSString *soundFilePath in [_soundFilePathsByName allValues])
+	for (NSString *soundFilePath in [_sfxFilePathsByName allValues])
 	{
 		[[SimpleAudioEngine sharedEngine] preloadEffect:soundFilePath];
 	}
@@ -108,18 +118,13 @@
     if (_isFunctional &&
 		name != nil)
     {
-		NSString *soundFilePath = [_soundFilePathsByName objectForKey:name];
+		NSString *soundFilePath = [_sfxFilePathsByName objectForKey:name];
 		ALuint soundId;
 		if (soundFilePath != nil)
 		{
 			soundId = [[SimpleAudioEngine sharedEngine] playEffect:soundFilePath];
+			[_soundIdsBySoundName setObject:[NSNumber numberWithInt:soundId] forKey:name];
 		}
-		else
-		{
-			// TEMP
-			soundId = [[SimpleAudioEngine sharedEngine] playEffect:name];
-		}
-		[_soundIdsBySoundName setObject:[NSNumber numberWithInt:soundId] forKey:name];
     }
 }
 
@@ -138,18 +143,28 @@
 
 -(void) playMusic:(NSString *)name loop:(BOOL)loop
 {
-	if (_isFunctional &&
-		name != nil)
-    {
-		if (_currentMusicName == nil ||
-			![name isEqualToString:_currentMusicName])
+	if (name != nil)
+	{
+		if (_isFunctional)
 		{
-			[_currentMusicName release];
-			_currentMusicName = [name copy];
-			NSString *musicFilePath = [_soundFilePathsByName objectForKey:name];
-			[[SimpleAudioEngine sharedEngine] playBackgroundMusic:musicFilePath loop:loop];
+			if (_currentMusicName == nil ||
+					![name isEqualToString:_currentMusicName])
+			{
+				[_currentMusicName release];
+				_currentMusicName = [name copy];
+				NSString *musicFilePath = [_musicFilePathsByName objectForKey:name];
+				[[SimpleAudioEngine sharedEngine] playBackgroundMusic:musicFilePath loop:loop];
+			}
 		}
-    }
+		else
+		{
+			if (_lastRequestedMusicNameWhileNonFunctinal != nil)
+			{
+				[_lastRequestedMusicNameWhileNonFunctinal release];
+			}
+			_lastRequestedMusicNameWhileNonFunctinal = [name copy];
+		}
+	}
 }
 
 -(void) playMusic:(NSString *)name
@@ -164,6 +179,14 @@
 		[_currentMusicName release];
 		_currentMusicName = nil;
 		[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+	}
+	else
+	{
+		if (_lastRequestedMusicNameWhileNonFunctinal != nil)
+		{
+			[_lastRequestedMusicNameWhileNonFunctinal release];
+			_lastRequestedMusicNameWhileNonFunctinal = nil;
+		}
 	}
 }
 
