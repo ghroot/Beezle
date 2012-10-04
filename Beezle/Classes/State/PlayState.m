@@ -16,6 +16,8 @@
 
 @interface PlayState()
 
+-(void) createGotoDebugMenu;
+-(void) gotoDebugMenu;
 -(void) updateSoundMenuItemsVisibility;
 -(void) createSoundButtonExplosionSprite:(NSString *)animationName;
 -(void) createBee;
@@ -47,6 +49,10 @@
 		[_soundButtonExplosionSprite setPosition:[_soundOffMenuItem position]];
 
 		[self updateSoundMenuItemsVisibility];
+
+#ifdef DEBUG
+		[self createGotoDebugMenu];
+#endif
 
 		CCDelayTime *waitAction = [CCDelayTime actionWithDuration:4.0f];
 		CCCallBlock *createBeeAction = [CCCallBlock actionWithBlock:^{
@@ -101,7 +107,17 @@
 	[[SoundManager sharedManager] playSound:@"PollenCollect"];
 }
 
--(void) gotoSettings
+-(void) createGotoDebugMenu
+{
+	CCMenuItemFont *gotoDebugMenuItem = [CCMenuItemFont itemWithString:@"Debug" target:self selector:@selector(gotoDebugMenu)];
+	[gotoDebugMenuItem setAnchorPoint:CGPointZero];
+	[gotoDebugMenuItem setPosition:CGPointZero];
+	CCMenu *gotoDebugMenu = [CCMenu menuWithItems:gotoDebugMenuItem, nil];
+	[gotoDebugMenu setPosition:CGPointZero];
+	[self addChild:gotoDebugMenu];
+}
+
+-(void) gotoDebugMenu
 {
 	[_game replaceState:[DebugMenuState state]];
 }

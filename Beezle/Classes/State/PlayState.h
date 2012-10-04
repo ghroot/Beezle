@@ -19,7 +19,6 @@
 }
 
 -(void) play;
--(void) gotoSettings;
 -(void) muteSound;
 -(void) unMuteSound;
 
