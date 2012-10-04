@@ -8,10 +8,14 @@
 
 #import "artemis.h"
 
+@class NotificationProcessor;
+
 @interface SpawnSystem : EntityComponentSystem
 {
 	ComponentMapper *_spawnComponentMapper;
 	ComponentMapper *_transformComponentMapper;
+
+	NotificationProcessor *_notificationProcessor;
 }
 
 @end

@@ -20,6 +20,8 @@
 	BOOL _autoDestroy;
 	float _interval;
 	float _intervalRandomDeviation;
+	BOOL _spawnWhenDestroyed;
+	BOOL _keepRotation;
     
     // Transient
 	float _countdown;
@@ -30,10 +32,13 @@
 @property (nonatomic, readonly) BOOL autoDestroy;
 @property (nonatomic, readonly) float interval;
 @property (nonatomic, readonly) float intervalRandomDeviation;
+@property (nonatomic, readonly) BOOL spawnWhenDestroyed;
+@property (nonatomic, readonly) BOOL keepRotation;
 @property (nonatomic) float countdown;
 
+-(BOOL) hasCountdown;
 -(void) resetCountdown;
--(void) decreaseAutoDestroyCountdown:(float)time;
--(BOOL) didAutoDestroyCountdownReachZero;
+-(void) decreaseCountdown:(float)time;
+-(BOOL) didCountdownReachZero;
 
 @end

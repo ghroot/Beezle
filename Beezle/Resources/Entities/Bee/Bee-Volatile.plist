@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>BEE-VOLATILE</string>
+	<key>groups</key>
+	<array>
+		<string>BEES</string>
+	</array>
+	<key>components</key>
+	<dict>
+		<key>bee</key>
+		<dict>
+			<key>type</key>
+			<string>BEE</string>
+		</dict>
+		<key>consumer</key>
+		<dict/>
+        <key>destruct</key>
+        <dict/>
+        <key>disposable</key>
+        <dict>
+            <key>deleteEntityWhenDisposed</key>
+            <true/>
+        </dict>
+		<key>physics</key>
+		<dict>
+			<key>file</key>
+			<string>Bee-Shapes.plist</string>
+			<key>bodyName</key>
+			<string>Bee</string>
+			<key>layers</key>
+			<real>1</real>
+			<key>group</key>
+			<string>OBJECT</string>
+		</dict>
+        <key>possess</key>
+        <dict/>
+		<key>render</key>
+		<dict>
+			<key>sprites</key>
+			<array>
+				<dict>
+					<key>spriteSheetName</key>
+					<string>Shared</string>
+					<key>animationFile</key>
+					<string>Bee-Animations.plist</string>
+                    <key>z</key>
+                    <string>Z_BEES</string>
+					<key>defaultIdleAnimation</key>
+					<string>Bee-Idle</string>
+					<key>defaultDestroyAnimation</key>
+					<string>Bee-Destroy</string>
+				</dict>
+			</array>
+		</dict>
+		<key>solid</key>
+		<dict/>
+		<key>transform</key>
+		<dict/>
+        <key>volatile</key>
+        <dict/>
+	</dict>
+</dict>
+</plist>

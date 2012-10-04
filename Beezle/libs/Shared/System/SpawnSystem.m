@@ -11,12 +11,25 @@
 #import "EntityUtil.h"
 #import "SpawnComponent.h"
 #import "TransformComponent.h"
+#import "NotificationProcessor.h"
+#import "NotificationTypes.h"
+
+@interface SpawnSystem()
+
+-(void) handleEntityDisposed:(NSNotification *)notification;
+-(void) spawn:(Entity *)entity;
+
+@end
 
 @implementation SpawnSystem
 
 -(id) init
 {
-	self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[SpawnComponent class], [TransformComponent class], nil]];
+	if (self = [super initWithUsedComponentClasses:[NSArray arrayWithObjects:[SpawnComponent class], [TransformComponent class], nil]])
+	{
+		_notificationProcessor = [[NotificationProcessor alloc] initWithTarget:self];
+		[_notificationProcessor registerNotification:GAME_NOTIFICATION_ENTITY_DISPOSED withSelector:@selector(handleEntityDisposed:)];
+	}
 	return self;
 }
 
@@ -24,6 +37,8 @@
 {
 	[_spawnComponentMapper release];
 	[_transformComponentMapper release];
+
+	[_notificationProcessor release];
 
 	[super dealloc];
 }
@@ -34,32 +49,81 @@
 	_transformComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[TransformComponent class]];
 }
 
+-(void) activate
+{
+	[super activate];
+
+	[_notificationProcessor activate];
+}
+
+-(void) deactivate
+{
+	[super deactivate];
+
+	[_notificationProcessor deactivate];
+}
+
+-(void) begin
+{
+	[_notificationProcessor processNotifications];
+}
+
 -(void) entityAdded:(Entity *)entity
 {
 	SpawnComponent *spawnComponent = [_spawnComponentMapper getComponentFor:entity];
-	[spawnComponent resetCountdown];
+	if ([spawnComponent hasCountdown])
+	{
+		[spawnComponent resetCountdown];
+	}
 }
 
 -(void) processEntity:(Entity *)entity
 {
 	SpawnComponent *spawnComponent = [_spawnComponentMapper getComponentFor:entity];
-	[spawnComponent decreaseAutoDestroyCountdown:[_world delta] / 1000.0f];
-	if ([spawnComponent didAutoDestroyCountdownReachZero])
+	if ([spawnComponent hasCountdown])
 	{
-		Entity *spawnedEntity = [EntityFactory createEntity:[spawnComponent entityType] world:_world];
-		
-		TransformComponent *transformComponent = [_transformComponentMapper getComponentFor:entity];
-		CGPoint spawnPosition = [transformComponent position];
-		spawnPosition.x += [spawnComponent offset].x;
-		spawnPosition.y += [spawnComponent offset].y;
-		[EntityUtil setEntityPosition:spawnedEntity position:spawnPosition];
-		
-		if ([spawnComponent autoDestroy])
+		[spawnComponent decreaseCountdown:[_world delta] / 1000.0f];
+		if ([spawnComponent didCountdownReachZero])
 		{
-			[EntityUtil animateAndDeleteEntity:spawnedEntity];
+			[self spawn:entity];
+			[spawnComponent resetCountdown];
 		}
-		
-		[spawnComponent resetCountdown];
+	}
+}
+
+-(void) handleEntityDisposed:(NSNotification *)notification
+{
+	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
+	if ([_spawnComponentMapper hasEntityComponent:entity])
+	{
+		SpawnComponent *spawnComponent = [_spawnComponentMapper getComponentFor:entity];
+		if ([spawnComponent spawnWhenDestroyed])
+		{
+			[self spawn:entity];
+		}
+	}
+}
+
+-(void) spawn:(Entity *)entity
+{
+	SpawnComponent *spawnComponent = [_spawnComponentMapper getComponentFor:entity];
+
+	Entity *spawnedEntity = [EntityFactory createEntity:[spawnComponent entityType] world:_world];
+
+	TransformComponent *transformComponent = [_transformComponentMapper getComponentFor:entity];
+	CGPoint spawnPosition = [transformComponent position];
+	spawnPosition.x += [spawnComponent offset].x;
+	spawnPosition.y += [spawnComponent offset].y;
+	[EntityUtil setEntityPosition:spawnedEntity position:spawnPosition];
+
+	if ([spawnComponent keepRotation])
+	{
+		[EntityUtil setEntityRotation:spawnedEntity rotation:[transformComponent rotation]];
+	}
+
+	if ([spawnComponent autoDestroy])
+	{
+		[EntityUtil animateAndDeleteEntity:spawnedEntity];
 	}
 }
 

@@ -15,6 +15,8 @@
 @synthesize autoDestroy = _autoDestroy;
 @synthesize interval = _interval;
 @synthesize intervalRandomDeviation = _intervalRandomDeviation;
+@synthesize spawnWhenDestroyed = _spawnWhenDestroyed;
+@synthesize keepRotation = _keepRotation;
 @synthesize countdown = _countdown;
 
 -(id) init
@@ -44,10 +46,21 @@
 		{
 			_autoDestroy = [[typeComponentDict objectForKey:@"autoDestroy"] boolValue];
 		}
-        _interval = [[typeComponentDict objectForKey:@"interval"] floatValue];
+		if ([typeComponentDict objectForKey:@"interval"] != nil)
+		{
+        	_interval = [[typeComponentDict objectForKey:@"interval"] floatValue];
+		}
 		if ([typeComponentDict objectForKey:@"intervalRandomDeviation"] != nil)
 		{
 			_intervalRandomDeviation = [[typeComponentDict objectForKey:@"intervalRandomDeviation"] floatValue];
+		}
+		if ([typeComponentDict objectForKey:@"spawnWhenDestroyed"] != nil)
+		{
+			_spawnWhenDestroyed = [[typeComponentDict objectForKey:@"spawnWhenDestroyed"] boolValue];
+		}
+		if ([typeComponentDict objectForKey:@"keepRotation"] != nil)
+		{
+			_keepRotation = [[typeComponentDict objectForKey:@"keepRotation"] boolValue];
 		}
 	}
 	return self;
@@ -60,17 +73,22 @@
 	[super dealloc];
 }
 
+-(BOOL) hasCountdown
+{
+	return _interval > 0;
+}
+
 -(void) resetCountdown
 {
 	_countdown = _interval + CCRANDOM_MINUS1_1() * _intervalRandomDeviation;
 }
 
--(void) decreaseAutoDestroyCountdown:(float)time
+-(void) decreaseCountdown:(float)time
 {
 	_countdown -= time;
 }
 
--(BOOL) didAutoDestroyCountdownReachZero
+-(BOOL) didCountdownReachZero
 {
 	return _countdown <= 0;
 }

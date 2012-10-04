@@ -2106,6 +2106,7 @@
 		BF8C717A8DEF0848006633F3 /* Symbol-Pollen.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7178E4EE711DF7E5D7CA /* Symbol-Pollen.png */; };
 		BF8C717DD57B22BFD95E1FAA /* PageDot-diff.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C74E9FEE13EE2748C0F17 /* PageDot-diff.png */; };
 		BF8C718412857487D6788627 /* Level-Failed.caf in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7F5B0614EA78D9FBA507 /* Level-Failed.caf */; };
+		BF8C71D3FBB464BAC033A5A5 /* Bee-Volatile.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF8C757C4AAF8B4465BE9B06 /* Bee-Volatile.plist */; };
 		BF8C72131566EBC705712AD3 /* B60-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C750AB45E46E081DB9823 /* B60-Glass-hd.png */; };
 		BF8C724D50FD4CB454D82910 /* Symbol-Redo-White-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7A925CA30E9A80AB8997 /* Symbol-Redo-White-hd.png */; };
 		BF8C72671D66349302C098F2 /* BeesFrontNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8C7809DE0790FB18CED4E4 /* BeesFrontNode.m */; };
@@ -4730,6 +4731,7 @@
 		BF8C755DD82468FA796B3574 /* TweenableSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweenableSprite.h; sourceTree = "<group>"; };
 		BF8C756FB594287559856439 /* BubbleYel-A7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-A7.png"; sourceTree = "<group>"; };
 		BF8C757BAFF2AED20DFF798E /* GameStateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStateUtils.m; sourceTree = "<group>"; };
+		BF8C757C4AAF8B4465BE9B06 /* Bee-Volatile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Bee-Volatile.plist"; sourceTree = "<group>"; };
 		BF8C757EAEAD6F1BC8C1BDED /* C14-Ice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C14-Ice.png"; sourceTree = "<group>"; };
 		BF8C7591983936343EC54D51 /* C2-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C2-Glass.png"; sourceTree = "<group>"; };
 		BF8C75E5E15CDAE611A5905E /* DescrStrip-Speedee-A-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Speedee-A-hd.jpg"; sourceTree = "<group>"; };
@@ -8092,6 +8094,7 @@
 		2CE4F537153CC8A80023B5C6 /* Bee */ = {
 			isa = PBXGroup;
 			children = (
+				BF8C757C4AAF8B4465BE9B06 /* Bee-Volatile.plist */,
 				2CF8E0F61576B45F0052F40D /* Sleeping-Mumee.plist */,
 				2CF8E0F61576B45F0052F33D /* Mumee.plist */,
 				2CE4F538153CC8A80023B5C6 /* Bee.plist */,
@@ -10524,6 +10527,7 @@
 				BF8C7B6BA770B4AFA74C4ACE /* Interface-Animations.plist in Resources */,
 				BF8C7958BD77DDF7ABDE97DD /* Level-C38-front-hd.png in Resources */,
 				BF8C793190E3E6D9BA41151B /* Level-C38-front.png in Resources */,
+				BF8C71D3FBB464BAC033A5A5 /* Bee-Volatile.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

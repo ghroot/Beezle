@@ -44,7 +44,6 @@
                 <string>Mumee-Fade-10</string>
                 <string>Mumee-Fade-11</string>
                 <string>Mumee-Fade-12</string>
-                <string>Mumee-Fade-13</string>
             </array>
         </dict>
         <key>follow</key>
@@ -86,6 +85,15 @@
 				</dict>
 			</array>
 		</dict>
+        <key>spawn</key>
+        <dict>
+            <key>entityType</key>
+            <string>BEE-VOLATILE</string>
+            <key>spawnWhenDestroyed</key>
+            <true/>
+            <key>keepRotation</key>
+            <true/>
+        </dict>
 		<key>transform</key>
 		<dict/>
 	</dict>
