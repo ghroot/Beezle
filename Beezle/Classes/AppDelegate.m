@@ -13,6 +13,7 @@
 #import "SoundManager.h"
 #import "MemoryManager.h"
 #import "PlayState.h"
+#import "iRate.h"
 
 @implementation AppDelegate
 
@@ -61,7 +62,10 @@
 	
 	// Tracking
 	[[SessionTracker sharedTracker] start];
-	
+
+	// iRate
+	[[iRate sharedInstance] setPreviewMode:TRUE];
+
 	// Setup sound
 	[[SoundManager sharedManager] setup];
 	

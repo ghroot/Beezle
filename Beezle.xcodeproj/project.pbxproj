@@ -2181,6 +2181,7 @@
 		BF8C7A9A6D99F8D5A4846631 /* DescrStrip-Bombee-A-1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8C797C36D0C5904A6857BB /* DescrStrip-Bombee-A-1-hd.jpg */; };
 		BF8C7AC5B36661E7AEB23840 /* C2-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7591983936343EC54D51 /* C2-Glass.png */; };
 		BF8C7B05E4B2997A278F56C6 /* Chooser-Screen-back-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C70F040AED2550200589A /* Chooser-Screen-back-hd.png */; };
+		BF8C7B113269DE0449CEE63A /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8C7C8C6A3E7EBC1BFF6799 /* iRate.m */; };
 		BF8C7B1FC0BA5C4FB09AA101 /* PageDot-full.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7EA4F0FF615C3549691C /* PageDot-full.png */; };
 		BF8C7B22C3073B1A703C2A36 /* SlingerBee.caf in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7392F799934688EE8D2A /* SlingerBee.caf */; };
 		BF8C7B6BA770B4AFA74C4ACE /* Interface-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF8C790BE4095577E62A3BC2 /* Interface-Animations.plist */; };
@@ -4733,6 +4734,7 @@
 		BF8C757BAFF2AED20DFF798E /* GameStateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStateUtils.m; sourceTree = "<group>"; };
 		BF8C757C4AAF8B4465BE9B06 /* Bee-Volatile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Bee-Volatile.plist"; sourceTree = "<group>"; };
 		BF8C757EAEAD6F1BC8C1BDED /* C14-Ice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C14-Ice.png"; sourceTree = "<group>"; };
+		BF8C758A339CC633959670A0 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iRate.h; path = libs/iRate/iRate.h; sourceTree = "<group>"; };
 		BF8C7591983936343EC54D51 /* C2-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C2-Glass.png"; sourceTree = "<group>"; };
 		BF8C75E5E15CDAE611A5905E /* DescrStrip-Speedee-A-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Speedee-A-hd.jpg"; sourceTree = "<group>"; };
 		BF8C75EA7B7E5525F12E2C71 /* BubbleYel-D4-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-D4-hd.png"; sourceTree = "<group>"; };
@@ -4789,6 +4791,7 @@
 		BF8C7C2D7191BD2DA46468B8 /* Level-C1-front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level-C1-front.png"; sourceTree = "<group>"; };
 		BF8C7C54E8C452F1157E7446 /* DescrStrip-Mumee-D-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Mumee-D-1.jpg"; sourceTree = "<group>"; };
 		BF8C7C87884A40AE53C327CC /* BubbleYel-A1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-A1.png"; sourceTree = "<group>"; };
+		BF8C7C8C6A3E7EBC1BFF6799 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iRate.m; path = libs/iRate/iRate.m; sourceTree = "<group>"; };
 		BF8C7CA3224E3E8C5159E113 /* SlingerSawee.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = SlingerSawee.caf; sourceTree = "<group>"; };
 		BF8C7CBA8357FA063B07A6B0 /* C58a-Ice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C58a-Ice.png"; sourceTree = "<group>"; };
 		BF8C7CC7CA0080BB942B4F09 /* SlingerTBee.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = SlingerTBee.caf; sourceTree = "<group>"; };
@@ -8339,6 +8342,7 @@
 				2C74B402156FA7A400596A22 /* Shared */,
 				2C5C9A36154A0D8800FF6F57 /* TestFlight */,
 				2CBA326B154842AD00A85642 /* Waves1DNode */,
+				BF8C7FF970A282442BFC89DD /* iRate */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -8556,6 +8560,15 @@
 				BF8C797C36D0C5904A6857BB /* DescrStrip-Bombee-A-1-hd.jpg */,
 			);
 			path = Strips;
+			sourceTree = "<group>";
+		};
+		BF8C7FF970A282442BFC89DD /* iRate */ = {
+			isa = PBXGroup;
+			children = (
+				BF8C7C8C6A3E7EBC1BFF6799 /* iRate.m */,
+				BF8C758A339CC633959670A0 /* iRate.h */,
+			);
+			name = iRate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -10864,6 +10877,7 @@
 				BF8C78F980AE484781D48042 /* GameStateUtils.m in Sources */,
 				BF8C7159AF2458F6BE2A1AC0 /* TweenableSprite.m in Sources */,
 				BF8C72671D66349302C098F2 /* BeesFrontNode.m in Sources */,
+				BF8C7B113269DE0449CEE63A /* iRate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
