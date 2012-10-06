@@ -112,6 +112,7 @@
 	CCMenuItemFont *gotoDebugMenuItem = [CCMenuItemFont itemWithString:@"Debug" target:self selector:@selector(gotoDebugMenu)];
 	[gotoDebugMenuItem setAnchorPoint:CGPointZero];
 	[gotoDebugMenuItem setPosition:CGPointZero];
+	[gotoDebugMenuItem setFontSize:20];
 	CCMenu *gotoDebugMenu = [CCMenu menuWithItems:gotoDebugMenuItem, nil];
 	[gotoDebugMenu setPosition:CGPointZero];
 	[self addChild:gotoDebugMenu];
