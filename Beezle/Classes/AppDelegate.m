@@ -64,7 +64,8 @@
 	[[SessionTracker sharedTracker] start];
 
 	// iRate
-	[[iRate sharedInstance] setPreviewMode:TRUE];
+//	[[iRate sharedInstance] setPreviewMode:TRUE];
+	[[iRate sharedInstance] setPromptAtLaunch:FALSE];
 
 	// Setup sound
 	[[SoundManager sharedManager] setup];
