@@ -193,8 +193,15 @@
 
 -(BOOL) canPlayLevel:(NSString *)levelName
 {
-	NSString *levelNameBefore = [[LevelOrganizer sharedOrganizer] levelNameBefore:levelName];
-	return levelNameBefore == nil || [self hasCompletedLevelAtLeastOnce:levelNameBefore];
+	if ([self hasCompletedLevelAtLeastOnce:levelName])
+	{
+		return true;
+	}
+	else
+	{
+		NSString *levelNameBefore = [[LevelOrganizer sharedOrganizer] levelNameBefore:levelName];
+		return levelNameBefore == nil || [self hasCompletedLevelAtLeastOnce:levelNameBefore];
+	}
 }
 
 -(BOOL) canPlayTheme:(NSString *)theme

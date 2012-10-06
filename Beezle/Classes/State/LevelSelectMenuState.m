@@ -102,7 +102,7 @@
     for (CCMenuItemImage *menuItemImage in [menu children])
     {
         NSString *levelName = [NSString stringWithFormat:@"Level-%@%d", _theme, [menuItemImage tag]];
-        if ([[PlayerInformation sharedInformation] canPlayLevel:levelName] > 0)
+        if ([[PlayerInformation sharedInformation] canPlayLevel:levelName])
         {
             NSString *openImageName = [NSString stringWithFormat:@"LevelCell-%@-Open.png", _theme];
             [menuItemImage setNormalImage:[CCSprite spriteWithFile:openImageName]];

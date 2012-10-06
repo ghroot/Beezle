@@ -16,6 +16,8 @@
 #import "SessionTracker.h"
 #import "SlingerComponent.h"
 #import "SoundManager.h"
+#import "LevelLayoutCache.h"
+#import "LevelLayout.h"
 
 static const float DIALOG_DELAY_IN_SECONDS = 0.2f;
 
@@ -104,7 +106,21 @@ static const float DIALOG_DELAY_IN_SECONDS = 0.2f;
 	_levelCompletedDialog = [[LevelCompletedDialog alloc] initWithGame:[_gameplayState game] andLevelSession:_levelSession];
 	[_uiLayer addChild:_levelCompletedDialog];
 
-	[[SoundManager sharedManager] playSound:@"LevelCompleted"];
+	NSString *soundName;
+	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:[_levelSession levelName]];
+	if ([levelLayout hasEntityWithType:@"SUPER-BEEATER-A"] ||
+			[levelLayout hasEntityWithType:@"SUPER-BEEATER-B"] ||
+			[levelLayout hasEntityWithType:@"SUPER-BEEATER-C"] ||
+			[levelLayout hasEntityWithType:@"SUPER-BEEATER-D"])
+	{
+		[[SoundManager sharedManager] stopMusic];
+		soundName = @"BossCompleted";
+	}
+	else
+	{
+		soundName = @"LevelCompleted";
+	}
+	[[SoundManager sharedManager] playSound:soundName];
 }
 
 @end
