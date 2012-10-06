@@ -322,10 +322,7 @@
 
 	NSString *musicName;
 	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:_levelName];
-	if ([levelLayout hasEntityWithType:@"SUPER-BEEATER-A"] ||
-		[levelLayout hasEntityWithType:@"SUPER-BEEATER-B"] ||
-		[levelLayout hasEntityWithType:@"SUPER-BEEATER-C"] ||
-		[levelLayout hasEntityWithType:@"SUPER-BEEATER-D"])
+	if ([levelLayout isBossLevel])
 	{
 		musicName = @"MusicBoss";
 	}

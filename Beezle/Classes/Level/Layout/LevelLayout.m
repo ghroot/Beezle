@@ -87,4 +87,12 @@
 	return FALSE;
 }
 
+-(BOOL) isBossLevel
+{
+	return [self hasEntityWithType:@"SUPER-BEEATER-A"] ||
+			[self hasEntityWithType:@"SUPER-BEEATER-B"] ||
+			[self hasEntityWithType:@"SUPER-BEEATER-C"] ||
+			[self hasEntityWithType:@"SUPER-BEEATER-D"];
+}
+
 @end

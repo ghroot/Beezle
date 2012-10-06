@@ -113,10 +113,7 @@
 		{
 			NSString *imageName;
 			LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
-			if ([levelLayout hasEntityWithType:@"SUPER-BEEATER-A"] ||
-				[levelLayout hasEntityWithType:@"SUPER-BEEATER-B"] ||
-				[levelLayout hasEntityWithType:@"SUPER-BEEATER-C"] ||
-				[levelLayout hasEntityWithType:@"SUPER-BEEATER-D"])
+			if ([levelLayout isBossLevel])
 			{
 				imageName = [NSString stringWithFormat:@"LevelCell-%@-Beeater.png", _theme];
 			}

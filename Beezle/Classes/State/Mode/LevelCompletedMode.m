@@ -108,10 +108,7 @@ static const float DIALOG_DELAY_IN_SECONDS = 0.2f;
 
 	NSString *soundName;
 	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:[_levelSession levelName]];
-	if ([levelLayout hasEntityWithType:@"SUPER-BEEATER-A"] ||
-			[levelLayout hasEntityWithType:@"SUPER-BEEATER-B"] ||
-			[levelLayout hasEntityWithType:@"SUPER-BEEATER-C"] ||
-			[levelLayout hasEntityWithType:@"SUPER-BEEATER-D"])
+	if ([levelLayout isBossLevel])
 	{
 		[[SoundManager sharedManager] stopMusic];
 		soundName = @"BossCompleted";
