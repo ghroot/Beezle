@@ -95,6 +95,8 @@
 	[_chooserScreenBackSprite setPosition:[Utils screenCenterPosition]];
 	[self addChild:_chooserScreenBackSprite];
 
+	float lastCanPlayCellX = 0.0f;
+
 //    NSString *nodeFileName = [NSString stringWithFormat:@"LevelSelect-%@.ccbi", _theme];
     NSString *nodeFileName = @"LevelSelect-A.ccbi";
 	CCNode *draggableNode = [CCBReader nodeGraphFromFile:nodeFileName owner:self];
@@ -108,6 +110,8 @@
             [menuItemImage setNormalImage:[CCSprite spriteWithFile:openImageName]];
             [menuItemImage setSelectedImage:[CCSprite spriteWithFile:openImageName]];
             [menuItemImage setDisabledImage:[CCSprite spriteWithFile:openImageName]];
+
+			lastCanPlayCellX = [menuItemImage position].x;
         }
 		else
 		{
@@ -149,7 +153,9 @@
 		}
 		else
 		{
+#ifndef DEBUG
 			[menuItemImage setIsEnabled:FALSE];
+#endif
 		}
 
 #ifdef DEBUG
@@ -164,6 +170,7 @@
 #endif
     }
 	[draggableNode setContentSize:CGSizeMake(1200.0f, winSize.height)];
+	[draggableNode setPosition:CGPointMake(max(winSize.width - 1200.0f, min(0.0f, winSize.width / 2 - lastCanPlayCellX)), 0.0f)];
 
 	_scrollView = [[ScrollView alloc] initWithContent:draggableNode];
 	[self addChild:_scrollView];
