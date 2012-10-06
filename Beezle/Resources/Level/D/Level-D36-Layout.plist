@@ -43,12 +43,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{194, 201}</string>
+					<string>{223, 191}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{194, 201}</string>
+					<string>{223, 191}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -73,12 +73,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{176, 180}</string>
+					<string>{148, 178}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{176, 180}</string>
+					<string>{148, 178}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -224,7 +224,7 @@
 				<dict>
 					<key>containedBeeTypes</key>
 					<array>
-						<string>BEE</string>
+						<string>BOMBEE</string>
 					</array>
 				</dict>
 				<key>physics</key>
@@ -232,12 +232,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{110, 171}</string>
+					<string>{92, 171}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{110, 171}</string>
+					<string>{92, 171}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -291,7 +291,7 @@
 				<dict>
 					<key>containedBeeTypes</key>
 					<array>
-						<string>BEE</string>
+						<string>BOMBEE</string>
 					</array>
 				</dict>
 				<key>movement</key>
@@ -344,6 +344,59 @@
 			<key>type</key>
 			<string>WOOD</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>-1.5707963705062866</real>
+					<key>position</key>
+					<string>{225, 147}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{225, 147}</string>
+					<key>rotation</key>
+					<real>90</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>RAMP-D</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>captured</key>
+				<dict>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
+				</dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{245, 90}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{245, 90}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{-1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>BEEATER-HANGING-D</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -351,7 +404,11 @@
 	<false/>
 	<key>name</key>
 	<string>Level-D36</string>
+	<key>pollenForThreeFlowers</key>
+	<integer>0</integer>
+	<key>pollenForTwoFlowers</key>
+	<integer>0</integer>
 	<key>version</key>
-	<integer>9</integer>
+	<integer>15</integer>
 </dict>
 </plist>
