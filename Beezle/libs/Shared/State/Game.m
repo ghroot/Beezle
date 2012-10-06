@@ -42,7 +42,7 @@
 		[gameState setGame:self];
 		[gameState initialise];
 		[gameState enter];
-		[[CCDirector sharedDirector] pushScene:gameState];
+		[[CCDirector sharedDirector] runWithScene:gameState];
 	}
 }
 

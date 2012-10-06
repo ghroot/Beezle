@@ -178,8 +178,8 @@ enum
 		
 		// Set GL Values
 //		glEnable(GL_POINT_SMOOTH);
-		ccGLEnable(CC_GL_BLEND);
-		        
+//		ccGLEnable(CC_GL_BLEND);
+
 		glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
 		ccPointSize( 6.0 * CC_CONTENT_SCALE_FACTOR() );
 		

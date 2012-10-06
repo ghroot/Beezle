@@ -18,7 +18,7 @@
 
 @implementation AppDelegate
 
--(void) applicationDidFinishLaunching:(UIApplication *)application
+-(BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	// Create the main window
 	_window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -55,7 +55,6 @@
 	[_navigationController setNavigationBarHidden:TRUE];
 	
 	// Set the Navigation Controller as the root view controller
-//	[_window addSubview:_navigationController.view];
     [_window setRootViewController:_navigationController];
 	
 	// Show
@@ -75,9 +74,7 @@
 	}
 	[[SoundManager sharedManager] setup];
 
-	// Boot
-	_game = [[Game alloc] init];
-	[_game startWithState:[PlayState state]];
+	return TRUE;
 }
 
 -(void) dealloc
@@ -88,6 +85,15 @@
 	[_game release];
 	
 	[super dealloc];
+}
+
+-(void) directorDidReshapeProjection:(CCDirector*)director
+{
+	if (director.runningScene == nil)
+	{
+		_game = [[Game alloc] init];
+		[_game startWithState:[PlayState state]];
+	}
 }
 
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

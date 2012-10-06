@@ -1,47 +1,60 @@
-/*
- * cocos2d for iPhone: http://www.cocos2d-iphone.org
- *
- * Copyright (c) 2008-2010 Ricardo Quesada
- * Copyright (c) 2011 Zynga Inc.
- *
+/* Copyright (c) 2012 Scott Lembcke and Howling Moon Software
+ * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * 
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
+ * 
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
  */
 
+#import "ccConfig.h"
 
-#import "CCNode.h"
+#if CC_ENABLE_CHIPMUNK_INTEGRATION
 
-/** CCScene is a subclass of CCNode that is used only as an abstract concept.
+#ifdef CP_ALLOW_PRIVATE_ACCESS
+#undef CP_ALLOW_PRIVATE_ACCESS
+#endif
 
- CCScene an CCNode are almost identical with the difference that CCScene has its
- anchor point (by default) at the center of the screen.
+#define CP_ALLOW_PRIVATE_ACCESS 1
+#import "chipmunk.h"
 
- For the moment CCScene has no other logic than that, but in future releases it might have
- additional logic.
+#import "CCDrawNode.h"
 
- It is a good practice to use and CCScene as the parent of all your nodes.
-*/
-@interface CCScene : CCNode
+@class ChipmunkSpace;
+
+/**
+ A Node that draws the components of a physics engine.
+ 
+ Supported physics engines:
+	- Chipmunk
+	- Objective-Chipmunk
+ 
+ @since v2.1
+ */
+@interface CCPhysicsDebugNode : CCDrawNode
 {
 }
-/** initializes a node.
- The node will be created as "autorelease".
+
+/** Create a debug node for an Objective-Chipmunk space.
  */
--(id) init;
++ (id) debugNodeForChipmunkSpace:(ChipmunkSpace *)space;
+
+/** Create a debug node for a regular Chipmunk space.
+ */
++ (id) debugNodeForCPSpace:(cpSpace *)space;
+
 @end
+
+#endif // CC_ENABLE_CHIPMUNK_INTEGRATION
