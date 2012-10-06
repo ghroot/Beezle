@@ -114,11 +114,12 @@ static BOOL isFirstLoad = TRUE;
 -(void) createBackMenu
 {
 	CCMenu *backMenu = [CCMenu node];
-	CCMenuItemImage *backMenuItem = [CCMenuItemImage itemWithNormalImage:@"ReturnArrow.png" selectedImage:@"ReturnArrow.png" block:^(id sender){
+	CCMenuItemImage *backMenuItem = [CCMenuItemImage itemWithNormalImage:@"Symbol-Next-White.png" selectedImage:@"Symbol-Next-White.png" block:^(id sender){
 		[_game replaceState:[PlayState state]];
 	}];
+	[backMenuItem setScaleX:-1.0f];
 	[backMenuItem setPosition:CGPointMake(2.0f, 2.0f)];
-	[backMenuItem setAnchorPoint:CGPointMake(0.0f, 0.0f)];
+	[backMenuItem setAnchorPoint:CGPointMake(1.0f, 0.0f)];
 	[backMenu setPosition:CGPointZero];
 	[backMenu addChild:backMenuItem];
 	[self addChild:backMenu z:40];
