@@ -89,7 +89,7 @@
 
 -(void) directorDidReshapeProjection:(CCDirector*)director
 {
-	if (director.runningScene == nil)
+	if ([director runningScene] == nil)
 	{
 		_game = [[Game alloc] init];
 		[_game startWithState:[PlayState state]];
