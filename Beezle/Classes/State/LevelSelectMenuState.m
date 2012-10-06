@@ -128,39 +128,14 @@
 
 		CGPoint position = [menuItemImage position];
 
-#ifdef DEBUG
-		NSString *levelString = [NSString stringWithFormat:@"%d", [menuItemImage tag]];
-		CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:levelString charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'] autorelease];
-		[label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
-		[label setPosition:CGPointMake(position.x, position.y + 6)];
-		[draggableNode addChild:label];
-
-		int flowerRecord = [[PlayerInformation sharedInformation] flowerRecordForLevel:levelName];
-		CCSprite *flowerSprite1 = [CCSprite spriteWithFile:(flowerRecord >= 1 ? @"Flower-Cell-full.png" : @"Flower-Cell-dim.png")];
-		[flowerSprite1 setPosition:CGPointMake(position.x - 12.0f, position.y - 18.0f)];
-		[draggableNode addChild:flowerSprite1];
-		CCSprite *flowerSprite2 = [CCSprite spriteWithFile:(flowerRecord >= 2 ? @"Flower-Cell-full.png" : @"Flower-Cell-dim.png")];
-		[flowerSprite2 setPosition:CGPointMake(position.x, position.y - 18.0f)];
-		[draggableNode addChild:flowerSprite2];
-		CCSprite *flowerSprite3 = [CCSprite spriteWithFile:(flowerRecord == 3 ? @"Flower-Cell-full.png" : @"Flower-Cell-dim.png")];
-		[flowerSprite3 setPosition:CGPointMake(position.x + 12.0f, position.y - 18.0f)];
-		[draggableNode addChild:flowerSprite3];
-#else
 		if ([[PlayerInformation sharedInformation] canPlayLevel:levelName])
 		{
 			NSString *levelString = [NSString stringWithFormat:@"%d", [menuItemImage tag]];
-			CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:levelString charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'] autorelease];
+			CCLabelAtlas *label = [CCLabelAtlas labelWithString:levelString charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'];
 			[label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
 			[label setPosition:CGPointMake(position.x, position.y + 6)];
 			[draggableNode addChild:label];
-		}
-		else
-		{
-			[menuItemImage setIsEnabled:FALSE];
-		}
 
-		if ([[PlayerInformation sharedInformation] canPlayLevel:levelName])
-		{
 			int flowerRecord = [[PlayerInformation sharedInformation] flowerRecordForLevel:levelName];
 			CCSprite *flowerSprite1 = [CCSprite spriteWithFile:(flowerRecord >= 1 ? @"Flower-Cell-full.png" : @"Flower-Cell-dim.png")];
 			[flowerSprite1 setPosition:CGPointMake(position.x - 12.0f, position.y - 18.0f)];
@@ -171,6 +146,20 @@
 			CCSprite *flowerSprite3 = [CCSprite spriteWithFile:(flowerRecord == 3 ? @"Flower-Cell-full.png" : @"Flower-Cell-dim.png")];
 			[flowerSprite3 setPosition:CGPointMake(position.x + 12.0f, position.y - 18.0f)];
 			[draggableNode addChild:flowerSprite3];
+		}
+		else
+		{
+			[menuItemImage setIsEnabled:FALSE];
+		}
+
+#ifdef DEBUG
+		if (![[PlayerInformation sharedInformation] canPlayLevel:levelName])
+		{
+			NSString *levelString = [NSString stringWithFormat:@"%d", [menuItemImage tag]];
+			CCLabelTTF *debugLabel = [CCLabelTTF labelWithString:levelString fontName:@"Marker Felt" fontSize:24];
+			[debugLabel setAnchorPoint:CGPointMake(0.5f, 0.5f)];
+			[debugLabel setPosition:position];
+			[draggableNode addChild:debugLabel];
 		}
 #endif
     }
