@@ -192,13 +192,17 @@
 
 -(void) mute
 {
-	[[SimpleAudioEngine sharedEngine] setMute:TRUE];
+//	[[SimpleAudioEngine sharedEngine] setMute:TRUE];
+	[[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.0f];
+	[[SimpleAudioEngine sharedEngine] setEffectsVolume:0.0f];
 	_isMuted = TRUE;
 }
 
 -(void) unMute
 {
-	[[SimpleAudioEngine sharedEngine] setMute:FALSE];
+//	[[SimpleAudioEngine sharedEngine] setMute:FALSE];
+	[[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:1.0f];
+	[[SimpleAudioEngine sharedEngine] setEffectsVolume:1.0f];
 	_isMuted = FALSE;
 }
 

@@ -14,6 +14,7 @@
 #import "MemoryManager.h"
 #import "PlayState.h"
 #import "iRate.h"
+#import "PlayerInformation.h"
 
 @implementation AppDelegate
 
@@ -68,8 +69,12 @@
 	[[iRate sharedInstance] setPromptAtLaunch:FALSE];
 
 	// Setup sound
+	if ([[PlayerInformation sharedInformation] isSoundMuted])
+	{
+		[[SoundManager sharedManager] mute];
+	}
 	[[SoundManager sharedManager] setup];
-	
+
 	// Boot
 	_game = [[Game alloc] init];
 	[_game startWithState:[PlayState state]];

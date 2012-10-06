@@ -13,6 +13,7 @@
 #import "CCBReader.h"
 #import "SoundManager.h"
 #import "TweenableSprite.h"
+#import "PlayerInformation.h"
 
 @interface PlayState()
 
@@ -127,6 +128,8 @@
 {
 	[_menu setEnabled:FALSE];
 	[[SoundManager sharedManager] mute];
+	[[PlayerInformation sharedInformation] setIsSoundMuted:TRUE];
+	[[PlayerInformation sharedInformation] save];
 	[_soundOffMenuItem setVisible:FALSE];
 	[self createSoundButtonExplosionSprite:@"Sound-Button-Mute"];
 }
@@ -135,6 +138,8 @@
 {
 	[_menu setEnabled:FALSE];
 	[[SoundManager sharedManager] unMute];
+	[[PlayerInformation sharedInformation] setIsSoundMuted:FALSE];
+	[[PlayerInformation sharedInformation] save];
 	[_soundOnMenuItem setVisible:FALSE];
 	[self createSoundButtonExplosionSprite:@"Sound-Button-Unmute"];
 }

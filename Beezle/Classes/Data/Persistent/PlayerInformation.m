@@ -22,6 +22,8 @@
 
 @implementation PlayerInformation
 
+@synthesize isSoundMuted = _isSoundMuted;
+
 +(PlayerInformation *) sharedInformation
 {
     static PlayerInformation *information = 0;
@@ -75,6 +77,7 @@
 	{
 		[_pollenRecordByLevelName addEntriesFromDictionary:[dict objectForKey:@"pollenRecordByLevelName"]];
 		[_seenTutorialIds addObjectsFromArray:[dict objectForKey:@"seenTutorialIds"]];
+		_isSoundMuted = [[dict objectForKey:@"isSoundMuted"] boolValue];
 	}
 }
 
@@ -82,6 +85,7 @@
 {
 	[_pollenRecordByLevelName removeAllObjects];
 	[_seenTutorialIds removeAllObjects];
+	_isSoundMuted = FALSE;
 	
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -95,6 +99,7 @@
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	[dict setObject:[NSDictionary dictionaryWithDictionary:_pollenRecordByLevelName] forKey:@"pollenRecordByLevelName"];
 	[dict setObject:[_seenTutorialIds allObjects] forKey:@"seenTutorialIds"];
+	[dict setObject:[NSNumber numberWithBool:_isSoundMuted] forKey:@"isSoundMuted"];
 	return dict;
 }
 
