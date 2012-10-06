@@ -211,9 +211,6 @@
 
 -(BOOL) canPlayTheme:(NSString *)theme
 {
-#ifdef DEBUG
-	return TRUE;
-#else
 	NSArray *themes = [[LevelOrganizer sharedOrganizer] themes];
 	int themeIndex = [themes indexOfObject:theme];
 	if (themeIndex == 0)
@@ -226,7 +223,6 @@
 		NSString *lastLevelNameInPreviousTheme = [[[LevelOrganizer sharedOrganizer] levelNamesInTheme:previousTheme] lastObject];
 		return [self hasPlayedLevel:lastLevelNameInPreviousTheme];
 	}
-#endif
 }
 
 -(void) markTutorialIdAsSeen:(NSString *)tutorialId

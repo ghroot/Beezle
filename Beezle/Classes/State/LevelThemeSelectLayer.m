@@ -84,14 +84,17 @@
 		[self addChild:label];
 
 		_menu = [CCMenu new];
-		if (!locked)
-		{
-			FullscreenTransparentMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
-				[game replaceState:[LevelSelectMenuState stateWithTheme:theme]];
-			} selectedBlock:nil unselectedBlock:nil] autorelease];
-			[_menu addChild:menuItem];
-		}
+		FullscreenTransparentMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
+			[game replaceState:[LevelSelectMenuState stateWithTheme:theme]];
+		} selectedBlock:nil unselectedBlock:nil] autorelease];
+		[_menu addChild:menuItem];
 		[self addChild:_menu];
+#ifndef DEBUG
+		if (locked)
+		{
+			[_menu setEnabled:FALSE];
+		}
+#endif
 	}
 	return self;
 }
