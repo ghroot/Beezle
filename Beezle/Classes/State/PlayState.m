@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import <CoreGraphics/CoreGraphics.h>
 #import "PlayState.h"
 #import "Game.h"
 #import "LevelThemeSelectMenuState.h"
@@ -13,14 +14,12 @@
 #import "CCBReader.h"
 #import "SoundManager.h"
 #import "TweenableSprite.h"
-#import "PlayerInformation.h"
+#import "SoundButton.h"
 
 @interface PlayState()
 
 -(void) createGotoDebugMenu;
 -(void) gotoDebugMenu;
--(void) updateSoundMenuItemsVisibility;
--(void) createSoundButtonExplosionSprite:(NSString *)animationName;
 -(void) createBee;
 -(void) createSawee;
 -(void) createBombee;
@@ -46,15 +45,6 @@
 		_pollenExplodeSprite = [[CCSprite alloc] initWithSpriteFrameName:@"Play/PlayButtonPollen-1.png"];
 		[_pollenExplodeSprite setPosition:[_menuItemPlay position]];
 
-		_soundButtonExplosionSprite = [[CCSprite alloc] initWithSpriteFrameName:@"Play/SoundButton-pollen-1.png"];
-		[_soundButtonExplosionSprite setPosition:[_soundOffMenuItem position]];
-
-		[self updateSoundMenuItemsVisibility];
-
-#ifdef DEBUG
-		[self createGotoDebugMenu];
-#endif
-
 		CCDelayTime *waitAction = [CCDelayTime actionWithDuration:4.0f];
 		CCCallBlock *createBeeAction = [CCCallBlock actionWithBlock:^{
 			int randomBee = rand() % 3;
@@ -73,6 +63,15 @@
 		}];
 		CCRepeatForever *createBeesAction = [CCRepeatForever actionWithAction:[CCSequence actionOne:waitAction two:createBeeAction]];
 		[[[CCDirector sharedDirector] actionManager] addAction:createBeesAction target:self paused:FALSE];
+
+		CGSize winSize = [[CCDirector sharedDirector] winSize];
+		SoundButton *soundButton = [SoundButton node];
+		[soundButton setPosition:CGPointMake(winSize.width / 2, 40.0f)];
+		[self addChild:soundButton];
+
+#ifdef DEBUG
+		[self createGotoDebugMenu];
+#endif
 	}
 	return self;
 }
@@ -122,53 +121,6 @@
 -(void) gotoDebugMenu
 {
 	[_game replaceState:[DebugMenuState state]];
-}
-
--(void) muteSound
-{
-	[_menu setEnabled:FALSE];
-	[[SoundManager sharedManager] mute];
-	[[PlayerInformation sharedInformation] setIsSoundMuted:TRUE];
-	[[PlayerInformation sharedInformation] save];
-	[_soundOffMenuItem setVisible:FALSE];
-	[self createSoundButtonExplosionSprite:@"Sound-Button-Mute"];
-}
-
--(void) unMuteSound
-{
-	[_menu setEnabled:FALSE];
-	[[SoundManager sharedManager] unMute];
-	[[PlayerInformation sharedInformation] setIsSoundMuted:FALSE];
-	[[PlayerInformation sharedInformation] save];
-	[_soundOnMenuItem setVisible:FALSE];
-	[self createSoundButtonExplosionSprite:@"Sound-Button-Unmute"];
-}
-
--(void) updateSoundMenuItemsVisibility
-{
-	if ([[SoundManager sharedManager] isMuted])
-	{
-		[_soundOnMenuItem setVisible:FALSE];
-		[_soundOffMenuItem setVisible:TRUE];
-	}
-	else
-	{
-		[_soundOnMenuItem setVisible:TRUE];
-		[_soundOffMenuItem setVisible:FALSE];
-	}
-}
-
--(void) createSoundButtonExplosionSprite:(NSString *)animationName
-{
-	[self addChild:_soundButtonExplosionSprite];
-	CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:animationName];
-	CCAnimate *animateAction = [CCAnimate actionWithAnimation:animation];
-	CCCallBlock *removeAction = [CCCallBlock actionWithBlock:^{
-		[self removeChild:_soundButtonExplosionSprite cleanup:TRUE];
-		[self updateSoundMenuItemsVisibility];
-		[_menu setEnabled:TRUE];
-	}];
-	[_soundButtonExplosionSprite runAction:[CCSequence actionOne:animateAction two:removeAction]];
 }
 
 -(void) createBee

@@ -13,7 +13,6 @@
 
 @interface PausedMenuState : GameState
 {
-    CCMenu *_menu;
     NSString *_theme;
 }
 

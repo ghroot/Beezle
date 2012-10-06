@@ -20,6 +20,7 @@
 #import "GameStateUtils.h"
 #import "SoundManager.h"
 #import "LevelSelectMenuState.h"
+#import "SoundButton.h"
 
 @interface PausedMenuState()
 
@@ -55,15 +56,20 @@
 {
 	[super initialise];
 	
-	_menu = [CCMenu menuWithItems:nil];
-    CCMenuItem *editMenuItem = [CCMenuItemFont itemWithString:@"Edit" target:self selector:@selector(editGame:)];
-    [_menu addChild:editMenuItem];
-	CCMenuItem *nextLevelMenuItem = [CCMenuItemFont itemWithString:@"Next Level" target:self selector:@selector(nextLevel)];
-	[_menu addChild:nextLevelMenuItem];
-	[_menu alignItemsVerticallyWithPadding:30.0f];
-	[self addChild:_menu];
-	
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	SoundButton *soundButton = [SoundButton node];
+	[soundButton setPosition:CGPointMake(winSize.width / 2, 40.0f)];
+	[self addChild:soundButton];
+
+#ifdef DEBUG
+	CCMenu *menu = [CCMenu menuWithItems:nil];
+	CCMenuItem *editMenuItem = [CCMenuItemFont itemWithString:@"Edit" target:self selector:@selector(editGame:)];
+	[menu addChild:editMenuItem];
+	CCMenuItem *nextLevelMenuItem = [CCMenuItemFont itemWithString:@"Next Level" target:self selector:@selector(nextLevel)];
+	[menu addChild:nextLevelMenuItem];
+	[menu alignItemsVerticallyWithPadding:30.0f];
+	[self addChild:menu];
+
 	GameplayState *gameplayState = (GameplayState *)[_game previousState];
 	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:[gameplayState levelName]];
 	NSString *levelInfoString = [NSString stringWithFormat:@"%@v%d%@", [levelLayout levelName], [levelLayout version], ([levelLayout isEdited] ? @" (edited)" : @"")];
@@ -71,6 +77,7 @@
 	[levelInfoLabel setPosition:CGPointMake(winSize.width, 0.0f)];
 	[levelInfoLabel setAnchorPoint:CGPointMake(1.0f, 0.0f)];
 	[self addChild:levelInfoLabel];
+#endif
 }
 
 -(void) enter
