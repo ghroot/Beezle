@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <CoreGraphics/CoreGraphics.h>
 #import "PlayState.h"
 #import "Game.h"
 #import "LevelThemeSelectMenuState.h"
@@ -16,6 +15,8 @@
 #import "TweenableSprite.h"
 #import "SoundButton.h"
 
+static int nextBeeIndex = 0;
+
 @interface PlayState()
 
 -(void) createGotoDebugMenu;
@@ -23,6 +24,7 @@
 -(void) createBee;
 -(void) createSawee;
 -(void) createBombee;
+-(void) createBeeaters;
 
 @end
 
@@ -47,12 +49,11 @@
 
 		CCDelayTime *waitAction = [CCDelayTime actionWithDuration:4.0f];
 		CCCallBlock *createBeeAction = [CCCallBlock actionWithBlock:^{
-			int randomBee = rand() % 3;
-			if (randomBee == 0)
+			if (nextBeeIndex == 0)
 			{
 				[self createBee];
 			}
-			else if (randomBee == 1)
+			else if (nextBeeIndex == 1)
 			{
 				[self createSawee];
 			}
@@ -60,9 +61,16 @@
 			{
 				[self createBombee];
 			}
+			nextBeeIndex++;
+			if (nextBeeIndex > 2)
+			{
+				nextBeeIndex = 0;
+			}
 		}];
 		CCRepeatForever *createBeesAction = [CCRepeatForever actionWithAction:[CCSequence actionOne:waitAction two:createBeeAction]];
 		[[[CCDirector sharedDirector] actionManager] addAction:createBeesAction target:self paused:FALSE];
+
+		[self createBeeaters];
 
 		CGSize winSize = [[CCDirector sharedDirector] winSize];
 		SoundButton *soundButton = [SoundButton node];
@@ -130,26 +138,48 @@
 	[beeSprite setScale:0.1f];
 	[self addChild:beeSprite];
 
-	NSArray *beeSpriteFrames = [NSArray arrayWithObjects:
-			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/Play-Bee-1.png"],
-			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/Play-Bee-2.png"],
-			nil];
-	CCAnimation *beeAnimation = [CCAnimation animationWithSpriteFrames:beeSpriteFrames delay:0.08f];
+	CCAnimation *beeAnimation = [[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Bee"];
 	CCAnimate *animateAction = [CCAnimate actionWithAnimation:beeAnimation];
 	[beeSprite runAction:[CCRepeatForever actionWithAction:animateAction]];
 
 	float duration = 2.2f;
 
-	CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:duration scale:1.0f];
-	id moveBeeLeftAction = [CCActionTween actionWithDuration:duration key:@"tweenableX" from:410.0f to:-50.0f];
-	id removeAction = [CCCallBlock actionWithBlock:^{
-		[self removeChild:beeSprite cleanup:TRUE];
-	}];
-	id moveBeeUpAction = [CCEaseSineOut actionWithAction:[CCActionTween actionWithDuration:(duration / 2) key:@"tweenableY" from:160.0f to:250.0f]];
-	id moveBeeDownAction = [CCEaseSineIn actionWithAction:[CCActionTween actionWithDuration:(duration / 2) key:@"tweenableY" from:250.0f to:50.0f]];
-	[beeSprite runAction:scaleAction];
-	[beeSprite runAction:[CCSequence actionOne:moveBeeLeftAction two:removeAction]];
-	[beeSprite runAction:[CCSequence actionOne:moveBeeUpAction two:moveBeeDownAction]];
+	if (rand() % 2 == 0)
+	{
+		CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:duration scale:1.0f];
+		id moveBeeLeftAction = [CCActionTween actionWithDuration:duration key:@"tweenableX" from:410.0f to:-50.0f];
+		id removeAction = [CCCallBlock actionWithBlock:^{
+			[self removeChild:beeSprite cleanup:TRUE];
+		}];
+		id moveBeeUpAction = [CCEaseSineOut actionWithAction:[CCActionTween actionWithDuration:(duration / 2) key:@"tweenableY" from:160.0f to:250.0f]];
+		id moveBeeDownAction = [CCEaseSineIn actionWithAction:[CCActionTween actionWithDuration:(duration / 2) key:@"tweenableY" from:250.0f to:50.0f]];
+		[beeSprite runAction:scaleAction];
+		[beeSprite runAction:[CCSequence actionOne:moveBeeLeftAction two:removeAction]];
+		[beeSprite runAction:[CCSequence actionOne:moveBeeUpAction two:moveBeeDownAction]];
+	}
+	else
+	{
+		CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:duration scale:1.0f];
+		id moveBeeLeftAction = [CCActionTween actionWithDuration:duration key:@"tweenableX" from:410.0f to:100.0f];
+		id hitAction = [CCCallBlock actionWithBlock:^{
+			[beeSprite stopAllActions];
+			CCAnimate *hitAnimationAction = [CCAnimate actionWithAnimation:[[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Bee-Hit"]];
+			CCAnimate *glideAnimationAction = [CCAnimate actionWithAnimation:[[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Bee-Glide"]];
+			id glideDownAction = [CCEaseSineIn actionWithAction:[CCMoveTo actionWithDuration:3.0f position:CGPointMake(100.0f, -50.0f)]];
+			CCCallBlock *removeAction = [CCCallBlock actionWithBlock:^{
+				[self removeChild:beeSprite cleanup:TRUE];
+			}];
+			id glideAndAnimate = [CCSpawn actionOne:[CCRepeat actionWithAction:glideAnimationAction times:INT_MAX] two:[CCSequence actionOne:glideDownAction two:removeAction]];
+			[beeSprite runAction:[CCSequence actionOne:hitAnimationAction two:glideAndAnimate]];
+
+			[[SoundManager sharedManager] playSound:@"BeeHitGlass"];
+		}];
+		id moveBeeUpAction = [CCEaseSineOut actionWithAction:[CCActionTween actionWithDuration:(duration / 2) key:@"tweenableY" from:160.0f to:240.0f]];
+		id moveBeeDownAction = [CCEaseSineIn actionWithAction:[CCActionTween actionWithDuration:(duration / 2) key:@"tweenableY" from:240.0f to:50.0f]];
+		[beeSprite runAction:scaleAction];
+		[beeSprite runAction:[CCSequence actionOne:moveBeeLeftAction two:hitAction]];
+		[beeSprite runAction:[CCSequence actionOne:moveBeeUpAction two:moveBeeDownAction]];
+	}
 }
 
 -(void) createSawee
@@ -159,11 +189,7 @@
 	[saweeSprite setScale:0.1f];
 	[self addChild:saweeSprite];
 
-	NSArray *saweeSpriteFrames = [NSArray arrayWithObjects:
-			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/Play-Sawee-1.png"],
-			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/Play-Sawee-2.png"],
-			nil];
-	CCAnimation *saweeAnimation = [CCAnimation animationWithSpriteFrames:saweeSpriteFrames delay:0.08f];
+	CCAnimation *saweeAnimation = [[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Sawee"];
 	CCAnimate *animateAction = [CCAnimate actionWithAnimation:saweeAnimation];
 	[saweeSprite runAction:[CCRepeatForever actionWithAction:animateAction]];
 
@@ -207,6 +233,19 @@
 	[bombeeSprite runAction:scaleAction];
 	[bombeeSprite runAction:[CCSequence actionOne:moveBeeRightAction two:removeAction]];
 	[bombeeSprite runAction:[CCSequence actionOne:moveBeeUpAction two:moveBeeDownAction]];
+}
+
+-(void) createBeeaters
+{
+	CCSprite *beeaterMediumSprite = [CCSprite spriteWithSpriteFrameName:@"Play/Play-Beeater-m-1.png"];
+	[beeaterMediumSprite setPosition:CGPointMake(436.0f, 63.0f)];
+	[beeaterMediumSprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:[[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Beeater-Medium"]]]];
+	[self addChild:beeaterMediumSprite];
+
+	CCSprite *beeaterSmallSprite = [CCSprite spriteWithSpriteFrameName:@"Play/Play-Beeater-s-1.png"];
+	[beeaterSmallSprite setPosition:CGPointMake(140.0f, 96.0f)];
+	[beeaterSmallSprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:[[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Beeater-Small"]]]];
+	[self addChild:beeaterSmallSprite];
 }
 
 @end
