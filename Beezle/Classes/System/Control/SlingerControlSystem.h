@@ -18,6 +18,7 @@
     CGPoint _startLocation;
     float _startAngle;
 	float _currentAngle;
+	float _currentPower;
     
 	BOOL _stretchSoundPlayed;
 }

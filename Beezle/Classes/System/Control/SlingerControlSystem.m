@@ -73,9 +73,10 @@ static const float SCALE_AT_MAX_POWER = 0.5f;
 					_startLocation = [nextInputAction touchLocation];
                     _startAngle = [transformComponent rotation];
 					_currentAngle = CC_DEGREES_TO_RADIANS(360 - [transformComponent rotation] + 270);
-					
+					_currentPower = [trajectoryComponent power];
+
 					_stretchSoundPlayed = FALSE;
-					
+
 					[slingerComponent setState:SLINGER_STATE_AIMING];
 				}
                 break;
@@ -129,71 +130,54 @@ static const float SCALE_AT_MAX_POWER = 0.5f;
             {
 				if ([slingerComponent state] == SLINGER_STATE_AIMING)
 				{
-					if (![trajectoryComponent isZero])
+					if (ccpDistance(_startLocation, [nextInputAction touchLocation]) <= 3)
 					{
 						// Create bee
 						Entity *beeEntity = [EntityFactory createBee:_world withBeeType:[slingerComponent loadedBeeType] andVelocity:[trajectoryComponent startVelocity]];
 						[EntityUtil setEntityPosition:beeEntity position:[trajectoryComponent startPoint]];
 						[EntityUtil setEntityRotation:beeEntity rotation:[transformComponent rotation] + 90];
-						
-                        RenderSprite *mainRenderSprite = [renderComponent renderSpriteWithName:@"main"];
-                        [mainRenderSprite setScale:CGPointMake(1.0f, 1.0f)];
+
+						RenderSprite *mainRenderSprite = [renderComponent renderSpriteWithName:@"main"];
+						[mainRenderSprite setScale:CGPointMake(1.0f, 1.0f)];
 						NSString *slingShootAnimationName = ccpLength([trajectoryComponent startVelocity]) >= 100.0f ? @"Sling-Shoot-Fast" : @"Sling-Shoot-Slow";
-                        [mainRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:slingShootAnimationName, @"Sling-Idle", nil]];
-                        RenderSprite *addonRenderSprite = [renderComponent renderSpriteWithName:@"addon"];
-                        [addonRenderSprite setScale:CGPointMake(1.0f, 0.1f)];
-                        
+						[mainRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:slingShootAnimationName, @"Sling-Idle", nil]];
+						RenderSprite *addonRenderSprite = [renderComponent renderSpriteWithName:@"addon"];
+						[addonRenderSprite setScale:CGPointMake(1.0f, 0.1f)];
+
 						[[SoundManager sharedManager] stopSound:@"SlingerStretch"];
 						[[SoundManager sharedManager] playSound:@"SlingerShoot"];
 
-                        if ([[slingerComponent loadedBeeType] shootSoundName] != nil)
-                        {
-                            [[SoundManager sharedManager] playSound:[[slingerComponent loadedBeeType] shootSoundName]];
-                        }
+						if ([[slingerComponent loadedBeeType] shootSoundName] != nil)
+						{
+							[[SoundManager sharedManager] playSound:[[slingerComponent loadedBeeType] shootSoundName]];
+						}
 
 						[slingerComponent clearLoadedBee];
-						
+
 						[trajectoryComponent reset];
-						
+
 						BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
 						RenderComponent *beeRenderComponent = [RenderComponent getFrom:beeEntity];
 						NSString *shootAnimationName = [NSString stringWithFormat:@"%@-Shoot", [[beeComponent type] capitalizedString]];
 						NSString *idleAnimationName = [NSString stringWithFormat:@"%@-Idle", [[beeComponent type] capitalizedString]];
 						RenderSprite *beeDefaultRenderSprite = [beeRenderComponent defaultRenderSprite];
 						[beeDefaultRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:shootAnimationName, idleAnimationName, nil]];
-						
+
 						// Game notification
 						[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_FIRED object:self];
-						
+
 						[_inputSystem clearInputActions];
 					}
-					
+
 					[slingerComponent setState:SLINGER_STATE_IDLE];
                 }
                 break;
             }
             case TOUCH_CANCELLED:
             {
-                if ([slingerComponent hasLoadedBee])
+				if ([slingerComponent state] == SLINGER_STATE_AIMING)
                 {
-                    RenderSprite *mainRenderSprite = [renderComponent renderSpriteWithName:@"main"];
-                    [mainRenderSprite setScale:CGPointMake(1.0f, 1.0f)];
-                    RenderSprite *addonRenderSprite = [renderComponent renderSpriteWithName:@"addon"];
-                    [addonRenderSprite setScale:CGPointMake(1.0f, 0.1f)];
-                    
-                    [transformComponent setRotation:_startAngle];
-                    
-                    [[SoundManager sharedManager] stopSound:@"SlingerStretch"];
-                    
-                    [slingerComponent revertLoadedBee];
-                    
-                    [trajectoryComponent reset];
-                    
-                    // Game notification
-                    [[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_REVERTED object:self];
-                    
                     [_inputSystem clearInputActions];
-                    
                     [slingerComponent setState:SLINGER_STATE_IDLE];
                 }
                 break;
@@ -223,8 +207,7 @@ static const float SCALE_AT_MAX_POWER = 0.5f;
 	float slingerToStartVectorLength = sqrtf(slingerToStartVector.x * slingerToStartVector.x + slingerToStartVector.y * slingerToStartVector.y);
 	float slingerToTouchVectorLength = sqrtf(slingerToTouchVector.x * slingerToTouchVector.x + slingerToTouchVector.y * slingerToTouchVector.y);
 	float vectorLengthDifference = slingerToStartVectorLength - slingerToTouchVectorLength;
-	float power = vectorLengthDifference; 
-	power *= SLINGER_POWER_SENSITIVITY;
+	float power = _currentPower + SLINGER_POWER_SENSITIVITY * vectorLengthDifference;
 	power = max(power, SLINGER_MIN_POWER);
 	power = min(power, SLINGER_MAX_POWER);
 	

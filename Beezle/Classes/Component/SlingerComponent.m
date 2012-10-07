@@ -101,12 +101,6 @@ static const int AIM_POLLEN_INTERVAL = 16;
 	_loadedBeeType = nil;
 }
 
--(void) revertLoadedBee
-{
-    [_queuedBeeTypes insertObject:_loadedBeeType atIndex:0];
-    [self clearLoadedBee];
-}
-
 -(BOOL) hasLoadedBee
 {
 	return _loadedBeeType != nil;

@@ -41,7 +41,6 @@ typedef enum
 -(void) clearBeeTypes;
 -(void) loadNextBee;
 -(void) clearLoadedBee;
--(void) revertLoadedBee;
 -(BOOL) hasLoadedBee;
 -(void) resetAimPollenCountdown;
 -(void) decreaseAimPollenCountdown;

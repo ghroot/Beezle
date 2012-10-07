@@ -48,9 +48,10 @@
 
 -(void) processEntity:(Entity *)entity
 {
-	SlingerComponent *slingerComponent = [_slingerComponentMapper getComponentFor:entity];
-	if ([slingerComponent state] == SLINGER_STATE_AIMING)
+	TrajectoryComponent *trajectoryComponent = [_trajectoryComponentMapper getComponentFor:entity];
+	if (![trajectoryComponent isZero])
 	{
+		SlingerComponent *slingerComponent = [_slingerComponentMapper getComponentFor:entity];
 		[slingerComponent decreaseAimPollenCountdown];
 		if ([slingerComponent hasAimPollenCountdownReachedZero])
 		{

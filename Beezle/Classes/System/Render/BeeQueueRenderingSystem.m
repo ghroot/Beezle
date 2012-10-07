@@ -31,7 +31,6 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 @interface BeeQueueRenderingSystem()
 
 -(void) handleBeeLoaded:(NSNotification *)notification;
--(void) handleBeeReverted:(NSNotification *)notification;
 -(void) handleBeeFired:(NSNotification *)notification;
 -(void) handleBeeSaved:(NSNotification *)notification;
 -(Entity *) getSlingerEntity;
@@ -53,7 +52,6 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 	{
 		_notificationProcessor = [[NotificationProcessor alloc] initWithTarget:self];
 		[_notificationProcessor registerNotification:GAME_NOTIFICATION_BEE_LOADED withSelector:@selector(handleBeeLoaded:)];
-		[_notificationProcessor registerNotification:GAME_NOTIFICATION_BEE_REVERTED withSelector:@selector(handleBeeReverted:)];
 		[_notificationProcessor registerNotification:GAME_NOTIFICATION_BEE_FIRED withSelector:@selector(handleBeeFired:)];
 		[_notificationProcessor registerNotification:GAME_NOTIFICATION_BEE_SAVED withSelector:@selector(handleBeeSaved:)];
 		
@@ -167,11 +165,6 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 	CCFadeIn *fadeInAction = [CCFadeIn actionWithDuration:0.3f];
 	[fadeInAction setTag:ACTION_TAG_BEE_QUEUE];
 	[[_beeLoadedRenderSprite sprite] runAction:fadeInAction];
-}
-
--(void) handleBeeReverted:(NSNotification *)notification
-{
-    [self refreshSprites];
 }
 
 -(void) updateLoadedBee
