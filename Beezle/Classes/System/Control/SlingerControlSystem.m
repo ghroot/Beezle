@@ -28,7 +28,7 @@ static const float SLINGER_AIM_SENSITIVITY = 7.0f;
 static const float SLINGER_STRETCH_SOUND_SCALE = 0.8f;
 static const float SCALE_AT_MIN_POWER = 1.0f;
 static const float SCALE_AT_MAX_POWER = 0.5f;
-static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SHOT = 3;
+static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SHOT = 9;
 static const float SLINGER_MAX_TOUCH_TIME_FOR_SHOT = 0.3f;
 
 @interface SlingerControlSystem()
@@ -78,6 +78,7 @@ static const float SLINGER_MAX_TOUCH_TIME_FOR_SHOT = 0.3f;
 					_currentPower = [trajectoryComponent power];
 					_touchBeganTime = [[NSDate date] timeIntervalSince1970];
 
+					[[SoundManager sharedManager] stopSound:@"SlingerStretch"];
 					_stretchSoundPlayed = FALSE;
 
 					[slingerComponent setState:SLINGER_STATE_AIMING];
@@ -135,7 +136,7 @@ static const float SLINGER_MAX_TOUCH_TIME_FOR_SHOT = 0.3f;
 				{
 					NSTimeInterval touchEndedTime = [[NSDate date] timeIntervalSince1970];
 					if (ccpDistance(_startLocation, [nextInputAction touchLocation]) <= SLINGER_MAX_TOUCH_DISTANCE_FOR_SHOT &&
-							touchEndedTime - _touchBeganTime < SLINGER_MAX_TOUCH_TIME_FOR_SHOT &&
+							touchEndedTime - _touchBeganTime <= SLINGER_MAX_TOUCH_TIME_FOR_SHOT &&
 							![trajectoryComponent isZero])
 					{
 						// Create bee
