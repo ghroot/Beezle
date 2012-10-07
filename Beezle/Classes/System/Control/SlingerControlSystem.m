@@ -28,6 +28,8 @@ static const float SLINGER_AIM_SENSITIVITY = 7.0f;
 static const float SLINGER_STRETCH_SOUND_SCALE = 0.8f;
 static const float SCALE_AT_MIN_POWER = 1.0f;
 static const float SCALE_AT_MAX_POWER = 0.5f;
+static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SHOT = 3;
+static const float SLINGER_MAX_TOUCH_TIME_FOR_SHOT = 0.3f;
 
 @interface SlingerControlSystem()
 
@@ -74,6 +76,7 @@ static const float SCALE_AT_MAX_POWER = 0.5f;
                     _startAngle = [transformComponent rotation];
 					_currentAngle = CC_DEGREES_TO_RADIANS(360 - [transformComponent rotation] + 270);
 					_currentPower = [trajectoryComponent power];
+					_touchBeganTime = [[NSDate date] timeIntervalSince1970];
 
 					_stretchSoundPlayed = FALSE;
 
@@ -130,7 +133,10 @@ static const float SCALE_AT_MAX_POWER = 0.5f;
             {
 				if ([slingerComponent state] == SLINGER_STATE_AIMING)
 				{
-					if (ccpDistance(_startLocation, [nextInputAction touchLocation]) <= 3)
+					NSTimeInterval touchEndedTime = [[NSDate date] timeIntervalSince1970];
+					if (ccpDistance(_startLocation, [nextInputAction touchLocation]) <= SLINGER_MAX_TOUCH_DISTANCE_FOR_SHOT &&
+							touchEndedTime - _touchBeganTime < SLINGER_MAX_TOUCH_TIME_FOR_SHOT &&
+							![trajectoryComponent isZero])
 					{
 						// Create bee
 						Entity *beeEntity = [EntityFactory createBee:_world withBeeType:[slingerComponent loadedBeeType] andVelocity:[trajectoryComponent startVelocity]];

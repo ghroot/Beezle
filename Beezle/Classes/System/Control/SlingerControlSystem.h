@@ -19,6 +19,7 @@
     float _startAngle;
 	float _currentAngle;
 	float _currentPower;
+	NSTimeInterval _touchBeganTime;
     
 	BOOL _stretchSoundPlayed;
 }
