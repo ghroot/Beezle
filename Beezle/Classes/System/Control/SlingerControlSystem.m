@@ -26,6 +26,7 @@ static const int SLINGER_MIN_POWER = 100;
 static const int SLINGER_MAX_POWER = 400;
 static const float SLINGER_AIM_SENSITIVITY = 7.0f;
 static const float SLINGER_STRETCH_SOUND_SCALE = 0.8f;
+static const float SLINGER_HEIGHT = 28.0f;
 static const float SCALE_AT_MIN_POWER = 1.0f;
 static const float SCALE_AT_MAX_POWER = 0.5f;
 static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SHOT = 9;
@@ -75,7 +76,7 @@ static const float SLINGER_MAX_TOUCH_TIME_FOR_SHOT = 0.3f;
 					_startLocation = [nextInputAction touchLocation];
                     _startAngle = [transformComponent rotation];
 					_currentAngle = CC_DEGREES_TO_RADIANS(360 - [transformComponent rotation] + 270);
-					_currentPower = [trajectoryComponent power];
+					_startPower = _currentPower;
 					_touchBeganTime = [[NSDate date] timeIntervalSince1970];
 
 					_stretchSoundPlayed = FALSE;
@@ -98,11 +99,11 @@ static const float SLINGER_MAX_TOUCH_TIME_FOR_SHOT = 0.3f;
 					
 					float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
 					float power = [self calculatePower:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
+					_currentPower = power;
 					float modifiedPower = power * [[slingerComponent loadedBeeType] slingerShootSpeedModifier];
 
 					// Trajectory
-					float slingerHeight = 28.0f;
-					CGPoint slingerTipVector = CGPointMake(cosf(aimAngle) * slingerHeight, sinf(aimAngle) * slingerHeight);
+					CGPoint slingerTipVector = CGPointMake(cosf(aimAngle) * SLINGER_HEIGHT, sinf(aimAngle) * SLINGER_HEIGHT);
 					CGPoint tipPosition = CGPointMake([transformComponent position].x + slingerTipVector.x, [transformComponent position].y + slingerTipVector.y);
 					[trajectoryComponent setStartPoint:tipPosition];
 					[trajectoryComponent setAngle:aimAngle];
@@ -214,7 +215,7 @@ static const float SLINGER_MAX_TOUCH_TIME_FOR_SHOT = 0.3f;
 	float slingerToStartVectorLength = sqrtf(slingerToStartVector.x * slingerToStartVector.x + slingerToStartVector.y * slingerToStartVector.y);
 	float slingerToTouchVectorLength = sqrtf(slingerToTouchVector.x * slingerToTouchVector.x + slingerToTouchVector.y * slingerToTouchVector.y);
 	float vectorLengthDifference = slingerToStartVectorLength - slingerToTouchVectorLength;
-	float power = _currentPower + SLINGER_POWER_SENSITIVITY * vectorLengthDifference;
+	float power = _startPower + SLINGER_POWER_SENSITIVITY * vectorLengthDifference;
 	power = max(power, SLINGER_MIN_POWER);
 	power = min(power, SLINGER_MAX_POWER);
 	
