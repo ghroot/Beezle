@@ -20,6 +20,8 @@
 #import "SoundManager.h"
 #import "LevelSelectMenuState.h"
 
+static const int POLLEN_COUNT_PER_FLYING_POLLEN = 4;
+
 @interface LevelCompletedDialog()
 
 -(void) createFlowerSprites;
@@ -65,20 +67,6 @@
 
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Interface.plist"];
 
-	int numberOfFlowers;
-	if ([_levelSession totalNumberOfPollen] >= [layout pollenForThreeFlowers])
-	{
-		numberOfFlowers = 3;
-	}
-	else if ([_levelSession totalNumberOfPollen] >= [layout pollenForTwoFlowers])
-	{
-		numberOfFlowers = 2;
-	}
-	else
-	{
-		numberOfFlowers = 1;
-	}
-
 	_flowerSprite1 = [[CCSprite alloc] initWithSpriteFrameName:@"Flower/Flower-Screen-dim.png"];
 	[_flowerSprite1 setPosition:[_flowerSprite1Position position]];
 	[self addChild:_flowerSprite1];
@@ -97,6 +85,7 @@
 		return;
 	}
 
+	int numberOfFlowers = [_levelSession totalNumberOfFlowers];
 	int pollenForFlower1 = 0;
 	int pollenForFlower2 = 0;
 	int pollenForFlower3 = 0;
@@ -107,43 +96,63 @@
 	else if (numberOfFlowers == 2)
 	{
 		pollenForFlower1 = (int)([_levelSession totalNumberOfPollen] / 2.0f);
-		pollenForFlower2 = [_levelSession totalNumberOfPollen] - pollenForFlower1;
+		pollenForFlower2 = [_levelSession totalNumberOfPollen];
 	}
 	else
 	{
 		pollenForFlower1 = (int)([_levelSession totalNumberOfPollen] / 3.0f);
-		pollenForFlower2 = pollenForFlower1;
-		pollenForFlower3 = [_levelSession totalNumberOfPollen] - pollenForFlower2 - pollenForFlower1;
+		pollenForFlower2 = 2 * pollenForFlower1;
+		pollenForFlower3 = [_levelSession totalNumberOfPollen];
 	}
 
-	for (int i = 0; i < [_levelSession totalNumberOfPollen]; i++)
+	int i = 0;
+	int currentPollenCount = 0;
+	while (currentPollenCount < [_levelSession totalNumberOfPollen])
 	{
-		CCSprite *flyingPollenSprite = [CCSprite spriteWithFile:@"Symbol-Pollen.png"];
-		[flyingPollenSprite setPosition:[_pollenSprite position]];
-		[flyingPollenSprite setScale:0.8f];
-		[flyingPollenSprite setVisible:FALSE];
-		[self addChild:flyingPollenSprite];
-
 		int flowerIndex;
-		if (i < pollenForFlower1)
+		if (currentPollenCount < pollenForFlower1)
 		{
+			if (pollenForFlower1 - currentPollenCount < POLLEN_COUNT_PER_FLYING_POLLEN)
+			{
+				currentPollenCount = pollenForFlower1;
+			}
+			else
+			{
+				currentPollenCount += POLLEN_COUNT_PER_FLYING_POLLEN;
+			}
 			flowerIndex = 0;
 		}
-		else if (i - pollenForFlower1 < pollenForFlower2)
+		else if (currentPollenCount < pollenForFlower2)
 		{
+			if (pollenForFlower2 - currentPollenCount < POLLEN_COUNT_PER_FLYING_POLLEN)
+			{
+				currentPollenCount = pollenForFlower2;
+			}
+			else
+			{
+				currentPollenCount += POLLEN_COUNT_PER_FLYING_POLLEN;
+			}
 			flowerIndex = 1;
 		}
 		else
 		{
+			if (pollenForFlower3 - currentPollenCount < POLLEN_COUNT_PER_FLYING_POLLEN)
+			{
+				currentPollenCount = pollenForFlower3;
+			}
+			else
+			{
+				currentPollenCount += POLLEN_COUNT_PER_FLYING_POLLEN;
+			}
 			flowerIndex = 2;
 		}
 
-		CCDelayTime *delayAction = [CCDelayTime actionWithDuration:(0.8f + i * 0.1f)];
+		CCDelayTime *delayAction = [CCDelayTime actionWithDuration:(0.8f + i * 0.08f)];
 		CCCallBlock *flyAction = [CCCallBlock actionWithBlock:^{
 
-			[_pollenSprite runAction:[CCSequence actionOne:[CCScaleTo actionWithDuration:0.05f scale:1.2f] two:[CCScaleTo actionWithDuration:0.05f scale:1.0f]]];
-
-			[flyingPollenSprite setVisible:TRUE];
+			CCSprite *flyingPollenSprite = [CCSprite spriteWithFile:@"Symbol-Pollen.png"];
+			[flyingPollenSprite setPosition:[_pollenSprite position]];
+			[self addChild:flyingPollenSprite];
 
 			CGPoint targetPosition;
 			if (flowerIndex == 0)
@@ -159,13 +168,13 @@
 				targetPosition = [_flowerSprite3Position position];
 			}
 
-			CCMoveTo *moveAction = [CCMoveTo actionWithDuration:0.2f position:targetPosition];
+			CCMoveTo *moveAction = [CCMoveTo actionWithDuration:0.15f position:targetPosition];
 			CCCallBlock *removeAction = [CCCallBlock actionWithBlock:^{
 				[self removeChild:flyingPollenSprite cleanup:TRUE];
 
 				if (flowerIndex == 0)
 				{
-					float percentFlower1 = (float)(i + 1) / pollenForFlower1;
+					float percentFlower1 = (float)(currentPollenCount) / pollenForFlower1;
 					int numberOfPetalsFlower1 = (int)(percentFlower1 * 7);
 					NSString *frameName;
 					if (numberOfPetalsFlower1 == 0)
@@ -176,22 +185,22 @@
 					{
 						frameName = @"Flower/Flower-Screen-full.png";
 
+						CCScaleTo *scaleUpAction = [CCScaleTo actionWithDuration:0.1f scale:1.1f];
+						CCScaleTo *scaleDownAction = [CCScaleTo actionWithDuration:0.1f scale:1.0f];
+						[_flowerSprite1 runAction:[CCSequence actionOne:scaleUpAction two:scaleDownAction]];
+
 						[[SoundManager sharedManager] playSound:@"FlowerCompleted"];
 					}
 					else
 					{
 						frameName = [NSString stringWithFormat:@"Flower/Flower-Screen-%d.png", numberOfPetalsFlower1];
-
-						CCScaleTo *scaleUpAction = [CCScaleTo actionWithDuration:0.05f scale:1.1f];
-						CCScaleTo *scaleDownAction = [CCScaleTo actionWithDuration:0.05f scale:1.0f];
-						[_flowerSprite1 runAction:[CCSequence actionOne:scaleUpAction two:scaleDownAction]];
 					}
 					CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
 					[_flowerSprite1 setDisplayFrame:frame];
 				}
 				else if (flowerIndex == 1)
 				{
-					float percentFlower2 = (float)(i + 1 - pollenForFlower1) / pollenForFlower2;
+					float percentFlower2 = (float)(currentPollenCount - pollenForFlower1) / (pollenForFlower2 - pollenForFlower1);
 					int numberOfPetalsFlower2 = (int)(percentFlower2 * 7);
 					NSString *frameName;
 					if (numberOfPetalsFlower2 == 0)
@@ -202,22 +211,22 @@
 					{
 						frameName = @"Flower/Flower-Screen-full.png";
 
+						CCScaleTo *scaleUpAction = [CCScaleTo actionWithDuration:0.1f scale:1.1f];
+						CCScaleTo *scaleDownAction = [CCScaleTo actionWithDuration:0.1f scale:1.0f];
+						[_flowerSprite2 runAction:[CCSequence actionOne:scaleUpAction two:scaleDownAction]];
+
 						[[SoundManager sharedManager] playSound:@"FlowerCompleted"];
 					}
 					else
 					{
 						frameName = [NSString stringWithFormat:@"Flower/Flower-Screen-%d.png", numberOfPetalsFlower2];
-
-						CCScaleTo *scaleUpAction = [CCScaleTo actionWithDuration:0.05f scale:1.1f];
-						CCScaleTo *scaleDownAction = [CCScaleTo actionWithDuration:0.05f scale:1.0f];
-						[_flowerSprite2 runAction:[CCSequence actionOne:scaleUpAction two:scaleDownAction]];
 					}
 					CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
 					[_flowerSprite2 setDisplayFrame:frame];
 				}
 				else if (flowerIndex == 2)
 				{
-					float percentFlower3 = (float)(i + 1 - pollenForFlower2 - pollenForFlower1) / pollenForFlower3;
+					float percentFlower3 = (float)(currentPollenCount - pollenForFlower2) / (pollenForFlower3 - pollenForFlower2);
 					int numberOfPetalsFlower3 = (int)(percentFlower3 * 7);
 					NSString *frameName = nil;
 					if (numberOfPetalsFlower3 == 0)
@@ -228,15 +237,15 @@
 					{
 						frameName = @"Flower/Flower-Screen-full.png";
 
+						CCScaleTo *scaleUpAction = [CCScaleTo actionWithDuration:0.1f scale:1.1f];
+						CCScaleTo *scaleDownAction = [CCScaleTo actionWithDuration:0.1f scale:1.0f];
+						[_flowerSprite3 runAction:[CCSequence actionOne:scaleUpAction two:scaleDownAction]];
+
 						[[SoundManager sharedManager] playSound:@"FlowerCompleted"];
 					}
 					else if (numberOfPetalsFlower3 < 7)
 					{
 						frameName = [NSString stringWithFormat:@"Flower/Flower-Screen-%d.png", numberOfPetalsFlower3];
-
-						CCScaleTo *scaleUpAction = [CCScaleTo actionWithDuration:0.05f scale:1.1f];
-						CCScaleTo *scaleDownAction = [CCScaleTo actionWithDuration:0.05f scale:1.0f];
-						[_flowerSprite3 runAction:[CCSequence actionOne:scaleUpAction two:scaleDownAction]];
 					}
 					if (frameName != nil)
 					{
@@ -247,14 +256,12 @@
 			}];
 			[flyingPollenSprite runAction:[CCSequence actionOne:moveAction two:removeAction]];
 
-			CCScaleTo *scaleUpAction = [CCEaseSineOut actionWithAction:[CCScaleTo actionWithDuration:0.2f scale:1.5f]];
-			CCScaleTo *scaleDownAction = [CCEaseSineIn actionWithAction:[CCScaleTo actionWithDuration:0.2f scale:1.0f]];
-			[flyingPollenSprite runAction:[CCSequence actionOne:scaleUpAction two:scaleDownAction]];
-
-			NSString *pollenString = [NSString stringWithFormat:@"%d", ([_levelSession totalNumberOfPollen] - (i + 1))];
+			NSString *pollenString = [NSString stringWithFormat:@"%d", ([_levelSession totalNumberOfPollen] - currentPollenCount)];
 			[_pollenLabel setString:pollenString];
 		}];
-		[flyingPollenSprite runAction:[CCSequence actionOne:delayAction two:flyAction]];
+		[[[CCDirector sharedDirector] actionManager] addAction:[CCSequence actionOne:delayAction two:flyAction] target:self paused:FALSE];
+
+		i++;
 	}
 }
 

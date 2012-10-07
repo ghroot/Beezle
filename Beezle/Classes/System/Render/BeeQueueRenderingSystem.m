@@ -461,7 +461,7 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 	        CCSequence *sequence = [CCSequence actions:waitAction, fadeAction, removeAction, nil];
 	        [label runAction:scaleAction];
 	        [label runAction:sequence];
-	        [[_renderSystem layer] addChild:label z:[[ZOrder Z_DEFAULT] z]];
+	        [[_renderSystem layer] addChild:label z:100];
 
 	        [[SoundManager sharedManager] playSound:@"PollenCollect"];
         }];
