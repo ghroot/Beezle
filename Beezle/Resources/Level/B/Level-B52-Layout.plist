@@ -33,16 +33,16 @@
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>0.0</real>
+					<real>-0.45378559827804565</real>
 					<key>position</key>
-					<string>{253, 152}</string>
+					<string>{238, 159}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{253, 152}</string>
+					<string>{238, 159}</string>
 					<key>rotation</key>
-					<real>0.0</real>
+					<real>26</real>
 					<key>scale</key>
 					<string>{1, 1}</string>
 				</dict>
@@ -55,8 +55,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>SPEEDEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>SPEEDEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -83,8 +85,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>SAWEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>SAWEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -111,8 +115,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -139,8 +145,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>SPEEDEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>SPEEDEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -165,26 +173,12 @@
 		<dict>
 			<key>components</key>
 			<dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{240, 160}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>SMOKE</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -328,7 +322,11 @@
 	<true/>
 	<key>name</key>
 	<string>Level-B52</string>
+	<key>pollenForThreeFlowers</key>
+	<integer>0</integer>
+	<key>pollenForTwoFlowers</key>
+	<integer>0</integer>
 	<key>version</key>
-	<integer>5</integer>
+	<integer>6</integer>
 </dict>
 </plist>

@@ -12,12 +12,13 @@
 					<key>queuedBeeTypes</key>
 					<array>
 						<string>BEE</string>
+						<string>BEE</string>
 					</array>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{50, 205}</string>
+					<string>{48, 203}</string>
 					<key>rotation</key>
 					<real>330</real>
 					<key>scale</key>
@@ -32,8 +33,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>SPEEDEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>SPEEDEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -60,8 +63,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -88,8 +93,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -116,8 +123,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -188,22 +197,6 @@
 		<dict>
 			<key>components</key>
 			<dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{240, 160}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>SMOKE</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
@@ -269,6 +262,29 @@
 			</dict>
 			<key>type</key>
 			<string>POLLEN-YELLOW</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{184, 259}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{184, 259}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>EGG</string>
 		</dict>
 	</array>
 	<key>format</key>
@@ -277,7 +293,11 @@
 	<true/>
 	<key>name</key>
 	<string>Level-B31</string>
+	<key>pollenForThreeFlowers</key>
+	<integer>0</integer>
+	<key>pollenForTwoFlowers</key>
+	<integer>0</integer>
 	<key>version</key>
-	<integer>4</integer>
+	<integer>5</integer>
 </dict>
 </plist>

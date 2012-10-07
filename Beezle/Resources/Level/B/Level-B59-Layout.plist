@@ -18,7 +18,7 @@
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{78, 268}</string>
+					<string>{75, 267}</string>
 					<key>rotation</key>
 					<real>320</real>
 					<key>scale</key>
@@ -33,8 +33,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -61,8 +63,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>SPEEDEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>SPEEDEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -89,8 +93,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -117,8 +123,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -139,22 +147,6 @@
 			</dict>
 			<key>type</key>
 			<string>BEEATER-HANGING-B</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{240, 160}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>SMOKE</string>
 		</dict>
 		<dict>
 			<key>components</key>
@@ -230,8 +222,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>SAWEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>SAWEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -260,7 +254,11 @@
 	<true/>
 	<key>name</key>
 	<string>Level-B59</string>
+	<key>pollenForThreeFlowers</key>
+	<integer>0</integer>
+	<key>pollenForTwoFlowers</key>
+	<integer>0</integer>
 	<key>version</key>
-	<integer>9</integer>
+	<integer>11</integer>
 </dict>
 </plist>
