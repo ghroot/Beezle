@@ -244,16 +244,16 @@
 	// TODO: Fade out
 	[self removeChild:_scrollView cleanup:TRUE];
 
-	CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.45f scale:1.5f];
+	CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.35f scale:1.5f];
 	CCCallBlock *gotoGameAction = [CCCallBlock actionWithBlock:^{
 		[GameStateUtils replaceWithGameplayState:levelName game:_game];
 	}];
 	[_chooserScreenBackSprite runAction:[CCSequence actionOne:scaleAction two:gotoGameAction]];
 
-	CCMoveTo *moveAction = [CCMoveTo actionWithDuration:0.4f position:CGPointMake(0.0f, -20.0f)];
+	CCMoveTo *moveAction = [CCMoveTo actionWithDuration:0.3f position:CGPointMake(0.0f, -20.0f)];
 	[_beesFrontNode runAction:moveAction];
 
-	CCFadeIn *fadeInAction = [CCFadeIn actionWithDuration:0.4f];
+	CCFadeIn *fadeInAction = [CCFadeIn actionWithDuration:0.3f];
 	[_fadeLayer runAction:fadeInAction];
 }
 
