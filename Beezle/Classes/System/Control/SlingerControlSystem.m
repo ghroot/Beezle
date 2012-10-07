@@ -78,7 +78,6 @@ static const float SLINGER_MAX_TOUCH_TIME_FOR_SHOT = 0.3f;
 					_currentPower = [trajectoryComponent power];
 					_touchBeganTime = [[NSDate date] timeIntervalSince1970];
 
-					[[SoundManager sharedManager] stopSound:@"SlingerStretch"];
 					_stretchSoundPlayed = FALSE;
 
 					[slingerComponent setState:SLINGER_STATE_AIMING];
@@ -100,7 +99,7 @@ static const float SLINGER_MAX_TOUCH_TIME_FOR_SHOT = 0.3f;
 					float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
 					float power = [self calculatePower:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
 					float modifiedPower = power * [[slingerComponent loadedBeeType] slingerShootSpeedModifier];
-					
+
 					// Trajectory
 					float slingerHeight = 28.0f;
 					CGPoint slingerTipVector = CGPointMake(cosf(aimAngle) * slingerHeight, sinf(aimAngle) * slingerHeight);
@@ -151,7 +150,6 @@ static const float SLINGER_MAX_TOUCH_TIME_FOR_SHOT = 0.3f;
 						RenderSprite *addonRenderSprite = [renderComponent renderSpriteWithName:@"addon"];
 						[addonRenderSprite setScale:CGPointMake(1.0f, 0.1f)];
 
-						[[SoundManager sharedManager] stopSound:@"SlingerStretch"];
 						[[SoundManager sharedManager] playSound:@"SlingerShoot"];
 
 						if ([[slingerComponent loadedBeeType] shootSoundName] != nil)
@@ -175,6 +173,8 @@ static const float SLINGER_MAX_TOUCH_TIME_FOR_SHOT = 0.3f;
 
 						[_inputSystem clearInputActions];
 					}
+
+					[[SoundManager sharedManager] stopSound:@"SlingerStretch"];
 
 					[slingerComponent setState:SLINGER_STATE_IDLE];
                 }
