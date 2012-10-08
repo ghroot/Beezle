@@ -160,6 +160,8 @@ static const float SLINGER_MAX_TOUCH_TIME_FOR_SHOT = 0.3f;
 
 						[slingerComponent clearLoadedBee];
 
+						_currentPower = 0.0f;
+
 						[trajectoryComponent reset];
 
 						BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
@@ -186,6 +188,9 @@ static const float SLINGER_MAX_TOUCH_TIME_FOR_SHOT = 0.3f;
 				if ([slingerComponent state] == SLINGER_STATE_AIMING)
                 {
                     [_inputSystem clearInputActions];
+
+					[[SoundManager sharedManager] stopSound:@"SlingerStretch"];
+
                     [slingerComponent setState:SLINGER_STATE_IDLE];
                 }
                 break;
