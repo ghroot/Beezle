@@ -10,6 +10,7 @@
 #import "EntityUtil.h"
 #import "GameplayState.h"
 #import "ShootingMode.h"
+#import "PlayerInformation.h"
 
 @implementation AimingMode
 
@@ -27,7 +28,14 @@
 		[_systems addObject:[gameplayState renderSystem]];
 		[_systems addObject:[gameplayState hudRenderingSystem]];
 		[_systems addObject:[gameplayState inputSystem]];
-		[_systems addObject:[gameplayState slingerControlSystem]];
+		if ([[PlayerInformation sharedInformation] usingAdvancedControlScheme])
+		{
+			[_systems addObject:[gameplayState advancedSlingerControlSystem]];
+		}
+		else
+		{
+			[_systems addObject:[gameplayState simpleSlingerControlSystem]];
+		}
 		[_systems addObject:[gameplayState aimPollenShooterSystem]];
 		[_systems addObject:[gameplayState freezeSystem]];
 		[_systems addObject:[gameplayState beeaterSystem]];

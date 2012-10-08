@@ -20,10 +20,10 @@ typedef enum
  */
 @interface SlingerComponent : Component
 {
-    // Instance
-    NSMutableArray *_queuedBeeTypes;
-    
-    // Transient
+	// Instance
+	NSMutableArray *_queuedBeeTypes;
+
+	// Transient
 	SlingerState _state;
 	BeeType *_loadedBeeType;
 	int _aimPollenCountdown;
@@ -41,6 +41,7 @@ typedef enum
 -(void) clearBeeTypes;
 -(void) loadNextBee;
 -(void) clearLoadedBee;
+-(void) revertLoadedBee;
 -(BOOL) hasLoadedBee;
 -(void) resetAimPollenCountdown;
 -(void) decreaseAimPollenCountdown;

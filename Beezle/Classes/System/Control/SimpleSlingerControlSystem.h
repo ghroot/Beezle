@@ -1,5 +1,5 @@
 //
-//  SlingerControlSystem.h
+//  SimpleSlingerControlSystem.h
 //  Beezle
 //
 //  Created by Me on 13/11/2011.
@@ -11,7 +11,7 @@
 
 @class InputSystem;
 
-@interface SlingerControlSystem : EntityComponentSystem
+@interface SimpleSlingerControlSystem : EntityComponentSystem
 {
 	InputSystem *_inputSystem;
 	

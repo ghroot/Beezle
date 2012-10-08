@@ -31,7 +31,7 @@
 @class RenderSystem;
 @class ShakeSystem;
 @class ShardSystem;
-@class SlingerControlSystem;
+@class SimpleSlingerControlSystem;
 @class SpawnSystem;
 @class WaterWaveSystem;
 @class FollowControlSystem;
@@ -39,6 +39,7 @@
 @class FadeSystem;
 @class SandSystem;
 @class TeleportSystem;
+@class AdvancedSlingerControlSystem;
 
 @interface GameplayState : GameState
 {
@@ -70,7 +71,8 @@
     PhysicsSystem *_physicsSystem;
     RenderSystem *_renderSystem;
 	ShardSystem *_shardSystem;
-    SlingerControlSystem *_slingerControlSystem;
+    SimpleSlingerControlSystem *_simpleSlingerControlSystem;
+    AdvancedSlingerControlSystem *_advancedSlingerControlSystem;
 	AimPollenShooterSystem *_aimPollenShooterSystem;
 	DestructControlSystem *_destructControlSystem;
 	FollowControlSystem *_followControlSystem;
@@ -109,11 +111,11 @@
 @property (nonatomic, readonly) SandSystem *sandSystem;
 @property (nonatomic, readonly) ShakeSystem *shakeSystem;
 @property (nonatomic, readonly) ShardSystem *shardSystem;
-@property (nonatomic, readonly) SlingerControlSystem *slingerControlSystem;
+@property (nonatomic, readonly) SimpleSlingerControlSystem *simpleSlingerControlSystem;
+@property (nonatomic, readonly) AdvancedSlingerControlSystem *advancedSlingerControlSystem;
 @property (nonatomic, readonly) SpawnSystem *spawnSystem;
 @property (nonatomic, readonly) TeleportSystem *teleportSystem;
 @property (nonatomic, readonly) WaterWaveSystem *waterWaveSystem;
-
 
 +(id) stateWithLevelName:(NSString *)levelName;
 

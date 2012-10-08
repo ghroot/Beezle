@@ -24,6 +24,8 @@
 -(void) sendEditedLevels:(id)sender;
 -(void) sendLevelRatings:(id)sender;
 -(void) showTestMenu:(id)sender;
+-(void) toggleControlScheme:(id)sender;
+-(void) updateControlSchemeMenuItemString;
 -(void) toggleStats:(id)sender;
 -(void) resetPlayerInformation:(id)sender;
 -(void) resetLevelRatings:(id)sender;
@@ -52,8 +54,11 @@
 	CCMenuItemFont *sendLevelRatingsMenuItem = [CCMenuItemFont itemWithString:@"Send Level Ratings" target:self selector:@selector(sendLevelRatings:)];
 	[_menu addChild:sendLevelRatingsMenuItem];
 #endif
-	CCMenuItemFont *testMenuItem = [CCMenuItemFont itemWithString:@"Test" target:self selector:@selector(showTestMenu:)];
-	[_menu addChild:testMenuItem];
+//	CCMenuItemFont *testMenuItem = [CCMenuItemFont itemWithString:@"Test" target:self selector:@selector(showTestMenu:)];
+//	[_menu addChild:testMenuItem];
+	_toggleControlSchemeMenuItem = [CCMenuItemFont itemWithString:@"Control: Tap To Shoot" target:self selector:@selector(toggleControlScheme:)];
+	[_menu addChild:_toggleControlSchemeMenuItem];
+	[self updateControlSchemeMenuItemString];
     CCMenuItemFont *toggleStatsMenuItem = [CCMenuItemFont itemWithString:@"Toggle stats" target:self selector:@selector(toggleStats:)];
 	[_menu addChild:toggleStatsMenuItem];
 	CCMenuItemFont *resetInfoMenuItem = [CCMenuItemFont itemWithString:@"Reset player information" target:self selector:@selector(resetPlayerInformation:)];
@@ -95,6 +100,24 @@
 -(void) showTestMenu:(id)sender
 {
     [_game pushState:[TestMenuState state]];
+}
+
+-(void) toggleControlScheme:(id)sender
+{
+	[[PlayerInformation sharedInformation] setUsingAdvancedControlScheme:![[PlayerInformation sharedInformation] usingAdvancedControlScheme]];
+	[self updateControlSchemeMenuItemString];
+}
+
+-(void) updateControlSchemeMenuItemString
+{
+	if ([[PlayerInformation sharedInformation] usingAdvancedControlScheme])
+	{
+		[_toggleControlSchemeMenuItem setString:@"Control: Release To Shoot"];
+	}
+	else
+	{
+		[_toggleControlSchemeMenuItem setString:@"Control: Tap To Shoot"];
+	}
 }
 
 -(void) toggleStats:(id)sender

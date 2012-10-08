@@ -15,9 +15,11 @@
 	NSMutableDictionary *_pollenRecordByLevelName;
 	NSMutableSet *_seenTutorialIds;
 	BOOL _isSoundMuted;
+	BOOL _usingAdvancedControlScheme;
 }
 
 @property (nonatomic) BOOL isSoundMuted;
+@property (nonatomic) BOOL usingAdvancedControlScheme;
 
 +(PlayerInformation *) sharedInformation;
 

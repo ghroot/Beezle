@@ -1603,7 +1603,7 @@
 		2C74B519156FAD1E00596A22 /* SolidWithWaterCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B4A9156FAD1E00596A22 /* SolidWithWaterCollisionHandler.m */; };
 		2C74B51A156FAD1E00596A22 /* SolidWithWobbleCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B4AB156FAD1E00596A22 /* SolidWithWobbleCollisionHandler.m */; };
 		2C74B51B156FAD1E00596A22 /* ExplodeControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B4AE156FAD1E00596A22 /* ExplodeControlSystem.m */; };
-		2C74B51C156FAD1E00596A22 /* SlingerControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B4B0156FAD1E00596A22 /* SlingerControlSystem.m */; };
+		2C74B51C156FAD1E00596A22 /* SimpleSlingerControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B4B0156FAD1E00596A22 /* SimpleSlingerControlSystem.m */; };
 		2C74B51D156FAD1E00596A22 /* EditControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B4B3156FAD1E00596A22 /* EditControlSystem.m */; };
 		2C74B51E156FAD1E00596A22 /* EditOptionsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B4B5156FAD1E00596A22 /* EditOptionsSystem.m */; };
 		2C74B51F156FAD1E00596A22 /* FreezeSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B4B7156FAD1E00596A22 /* FreezeSystem.m */; };
@@ -2108,6 +2108,7 @@
 		BF8C718412857487D6788627 /* Level-Failed.caf in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7F5B0614EA78D9FBA507 /* Level-Failed.caf */; };
 		BF8C71D3FBB464BAC033A5A5 /* Bee-Volatile.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF8C757C4AAF8B4465BE9B06 /* Bee-Volatile.plist */; };
 		BF8C72131566EBC705712AD3 /* B60-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C750AB45E46E081DB9823 /* B60-Glass-hd.png */; };
+		BF8C7226F66CA22BEAE0C2D5 /* AdvancedSlingerControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8C70200982BD9EB44EB616 /* AdvancedSlingerControlSystem.m */; };
 		BF8C724D50FD4CB454D82910 /* Symbol-Redo-White-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7A925CA30E9A80AB8997 /* Symbol-Redo-White-hd.png */; };
 		BF8C72671D66349302C098F2 /* BeesFrontNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8C7809DE0790FB18CED4E4 /* BeesFrontNode.m */; };
 		BF8C726845953B8936C4B13A /* DescrStrip-Bombee-A-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8C78063DAC90828944421E /* DescrStrip-Bombee-A-2.jpg */; };
@@ -4034,8 +4035,8 @@
 		2C74B4AB156FAD1E00596A22 /* SolidWithWobbleCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SolidWithWobbleCollisionHandler.m; sourceTree = "<group>"; };
 		2C74B4AD156FAD1E00596A22 /* ExplodeControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplodeControlSystem.h; sourceTree = "<group>"; };
 		2C74B4AE156FAD1E00596A22 /* ExplodeControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExplodeControlSystem.m; sourceTree = "<group>"; };
-		2C74B4AF156FAD1E00596A22 /* SlingerControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlingerControlSystem.h; sourceTree = "<group>"; };
-		2C74B4B0156FAD1E00596A22 /* SlingerControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlingerControlSystem.m; sourceTree = "<group>"; };
+		2C74B4AF156FAD1E00596A22 /* SimpleSlingerControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleSlingerControlSystem.h; sourceTree = "<group>"; };
+		2C74B4B0156FAD1E00596A22 /* SimpleSlingerControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleSlingerControlSystem.m; sourceTree = "<group>"; };
 		2C74B4B2156FAD1E00596A22 /* EditControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditControlSystem.h; sourceTree = "<group>"; };
 		2C74B4B3156FAD1E00596A22 /* EditControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditControlSystem.m; sourceTree = "<group>"; };
 		2C74B4B4156FAD1E00596A22 /* EditOptionsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditOptionsSystem.h; sourceTree = "<group>"; };
@@ -4685,6 +4686,7 @@
 		2CF8E0F61576B45F0052F648 /* Play.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file.ccbi; path = Play.ccbi; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F652 /* numberImages-s-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "numberImages-s-hd.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F654 /* numberImages-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "numberImages-s.png"; sourceTree = "<group>"; };
+		BF8C70200982BD9EB44EB616 /* AdvancedSlingerControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedSlingerControlSystem.m; sourceTree = "<group>"; };
 		BF8C7038B59C3ED9C41D39BC /* SlingerSumee.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = SlingerSumee.caf; sourceTree = "<group>"; };
 		BF8C703C0D78E0737D3DC294 /* SlingerMumee.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = SlingerMumee.caf; sourceTree = "<group>"; };
 		BF8C70594C25BB94F8EE15B4 /* BubbleYel-A10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-A10.png"; sourceTree = "<group>"; };
@@ -4789,6 +4791,7 @@
 		BF8C797C36D0C5904A6857BB /* DescrStrip-Bombee-A-1-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Bombee-A-1-hd.jpg"; sourceTree = "<group>"; };
 		BF8C798C1E1A10FAA34185A7 /* SoundButton-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SoundButton-off.png"; sourceTree = "<group>"; };
 		BF8C79D9CCC70EF8F8DA6C05 /* Title-s-B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Title-s-B.png"; sourceTree = "<group>"; };
+		BF8C79E5C8851B0DD727851F /* AdvancedSlingerControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedSlingerControlSystem.h; sourceTree = "<group>"; };
 		BF8C79F57B6215389332786C /* DescrStrip-TBee-C-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-TBee-C-1.jpg"; sourceTree = "<group>"; };
 		BF8C7A0DBDE5259B9C4E51C5 /* DescrStrip-IntroGame-A-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-IntroGame-A-2.jpg"; sourceTree = "<group>"; };
 		BF8C7A1160ABF12D0F14883F /* SoundButton-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SoundButton-on.png"; sourceTree = "<group>"; };
@@ -7347,12 +7350,14 @@
 		2C74B4AC156FAD1E00596A22 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				BF8C79E5C8851B0DD727851F /* AdvancedSlingerControlSystem.h */,
+				BF8C70200982BD9EB44EB616 /* AdvancedSlingerControlSystem.m */,
 				2CF8E0F61576B45F0052F336 /* FollowControlSystem.h */,
 				2CF8E0F61576B45F0052F334 /* FollowControlSystem.m */,
 				2C74B4AD156FAD1E00596A22 /* ExplodeControlSystem.h */,
 				2C74B4AE156FAD1E00596A22 /* ExplodeControlSystem.m */,
-				2C74B4AF156FAD1E00596A22 /* SlingerControlSystem.h */,
-				2C74B4B0156FAD1E00596A22 /* SlingerControlSystem.m */,
+				2C74B4AF156FAD1E00596A22 /* SimpleSlingerControlSystem.h */,
+				2C74B4B0156FAD1E00596A22 /* SimpleSlingerControlSystem.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -10689,7 +10694,7 @@
 				2C74B519156FAD1E00596A22 /* SolidWithWaterCollisionHandler.m in Sources */,
 				2C74B51A156FAD1E00596A22 /* SolidWithWobbleCollisionHandler.m in Sources */,
 				2C74B51B156FAD1E00596A22 /* ExplodeControlSystem.m in Sources */,
-				2C74B51C156FAD1E00596A22 /* SlingerControlSystem.m in Sources */,
+				2C74B51C156FAD1E00596A22 /* SimpleSlingerControlSystem.m in Sources */,
 				2C74B51D156FAD1E00596A22 /* EditControlSystem.m in Sources */,
 				2C74B51E156FAD1E00596A22 /* EditOptionsSystem.m in Sources */,
 				2C74B51F156FAD1E00596A22 /* FreezeSystem.m in Sources */,
@@ -10906,6 +10911,7 @@
 				2C60D16D1620D56700FEDB51 /* TGAlib.m in Sources */,
 				2C60D16E1620D56700FEDB51 /* TransformUtils.m in Sources */,
 				2C60D16F1620D56700FEDB51 /* ZipUtils.m in Sources */,
+				BF8C7226F66CA22BEAE0C2D5 /* AdvancedSlingerControlSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

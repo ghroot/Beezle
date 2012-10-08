@@ -27,23 +27,23 @@ static const int AIM_POLLEN_INTERVAL = 16;
 
 -(id) initWithTypeComponentDict:(NSDictionary *)typeComponentDict andInstanceComponentDict:(NSDictionary *)instanceComponentDict world:(World *)world
 {
-    if (self = [self init])
-    {
-        // Instance
-        NSArray *queuedBeeTypesAsStrings = [instanceComponentDict objectForKey:@"queuedBeeTypes"];
+	if (self = [self init])
+	{
+		// Instance
+		NSArray *queuedBeeTypesAsStrings = [instanceComponentDict objectForKey:@"queuedBeeTypes"];
 		for (NSString *queuedBeeTypeAsString in queuedBeeTypesAsStrings)
 		{
 			BeeType *queuedBeeType = [BeeType enumFromName:queuedBeeTypeAsString];
 			[self pushBeeType:queuedBeeType];
 		}
-    }
-    return self;
+	}
+	return self;
 }
 
 -(void) dealloc
 {
 	[_queuedBeeTypes release];
-	
+
 	[super dealloc];
 }
 
@@ -99,6 +99,12 @@ static const int AIM_POLLEN_INTERVAL = 16;
 -(void) clearLoadedBee
 {
 	_loadedBeeType = nil;
+}
+
+-(void) revertLoadedBee
+{
+	[_queuedBeeTypes insertObject:_loadedBeeType atIndex:0];
+	[self clearLoadedBee];
 }
 
 -(BOOL) hasLoadedBee

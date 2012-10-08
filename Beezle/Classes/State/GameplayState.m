@@ -34,7 +34,7 @@
 #import "SessionTracker.h"
 #import "ShakeSystem.h"
 #import "ShootingMode.h"
-#import "SlingerControlSystem.h"
+#import "SimpleSlingerControlSystem.h"
 #import "SoundManager.h"
 #import "SpawnSystem.h"
 #import "WaterWaveSystem.h"
@@ -59,6 +59,7 @@
 #import "PausedMenuState.h"
 #import "Game.h"
 #import "PossessWithSpiritCollisionHandler.h"
+#import "AdvancedSlingerControlSystem.h"
 #import "BalloonDialog.h"
 #import "Utils.h"
 #import "TutorialDescription.h"
@@ -108,7 +109,8 @@
 @synthesize sandSystem = _sandSystem;
 @synthesize shakeSystem = _shakeSystem;
 @synthesize shardSystem = _shardSystem;
-@synthesize slingerControlSystem = _slingerControlSystem;
+@synthesize simpleSlingerControlSystem = _simpleSlingerControlSystem;
+@synthesize advancedSlingerControlSystem = _advancedSlingerControlSystem;
 @synthesize spawnSystem = _spawnSystem;
 @synthesize teleportSystem = _teleportSystem;
 @synthesize waterWaveSystem = _waterWaveSystem;
@@ -197,8 +199,10 @@
 	[systemManager setSystem:_hudRenderingSystem];
 	_inputSystem = [InputSystem system];
 	[systemManager setSystem:_inputSystem];
-	_slingerControlSystem = [SlingerControlSystem system];
-	[systemManager setSystem:_slingerControlSystem];
+	_simpleSlingerControlSystem = [SimpleSlingerControlSystem system];
+	[systemManager setSystem:_simpleSlingerControlSystem];
+	_advancedSlingerControlSystem = [AdvancedSlingerControlSystem system];
+	[systemManager setSystem:_advancedSlingerControlSystem];
 	_aimPollenShooterSystem = [AimPollenShooterSystem system];
 	[systemManager setSystem:_aimPollenShooterSystem];
 	_destructControlSystem = [DestructControlSystem system];

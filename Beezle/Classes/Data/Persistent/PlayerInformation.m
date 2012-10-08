@@ -23,6 +23,7 @@
 @implementation PlayerInformation
 
 @synthesize isSoundMuted = _isSoundMuted;
+@synthesize usingAdvancedControlScheme = _usingAdvancedControlScheme;
 
 +(PlayerInformation *) sharedInformation
 {
@@ -78,6 +79,7 @@
 		[_pollenRecordByLevelName addEntriesFromDictionary:[dict objectForKey:@"pollenRecordByLevelName"]];
 		[_seenTutorialIds addObjectsFromArray:[dict objectForKey:@"seenTutorialIds"]];
 		_isSoundMuted = [[dict objectForKey:@"isSoundMuted"] boolValue];
+		_usingAdvancedControlScheme = [[dict objectForKey:@"usingAdvancedControlScheme"] boolValue];
 	}
 }
 
@@ -86,6 +88,7 @@
 	[_pollenRecordByLevelName removeAllObjects];
 	[_seenTutorialIds removeAllObjects];
 	_isSoundMuted = FALSE;
+	_usingAdvancedControlScheme = FALSE;
 	
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -100,6 +103,7 @@
 	[dict setObject:[NSDictionary dictionaryWithDictionary:_pollenRecordByLevelName] forKey:@"pollenRecordByLevelName"];
 	[dict setObject:[_seenTutorialIds allObjects] forKey:@"seenTutorialIds"];
 	[dict setObject:[NSNumber numberWithBool:_isSoundMuted] forKey:@"isSoundMuted"];
+	[dict setObject:[NSNumber numberWithBool:_usingAdvancedControlScheme] forKey:@"usingAdvancedControlScheme"];
 	return dict;
 }
 
