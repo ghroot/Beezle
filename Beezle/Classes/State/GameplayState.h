@@ -31,7 +31,6 @@
 @class RenderSystem;
 @class ShakeSystem;
 @class ShardSystem;
-@class SimpleSlingerControlSystem;
 @class SpawnSystem;
 @class WaterWaveSystem;
 @class FollowControlSystem;
@@ -39,7 +38,7 @@
 @class FadeSystem;
 @class SandSystem;
 @class TeleportSystem;
-@class AdvancedSlingerControlSystem;
+@class SlingerControlSystem;
 
 @interface GameplayState : GameState
 {
@@ -71,8 +70,7 @@
     PhysicsSystem *_physicsSystem;
     RenderSystem *_renderSystem;
 	ShardSystem *_shardSystem;
-    SimpleSlingerControlSystem *_simpleSlingerControlSystem;
-    AdvancedSlingerControlSystem *_advancedSlingerControlSystem;
+    SlingerControlSystem *_slingerControlSystem;
 	AimPollenShooterSystem *_aimPollenShooterSystem;
 	DestructControlSystem *_destructControlSystem;
 	FollowControlSystem *_followControlSystem;
@@ -111,8 +109,7 @@
 @property (nonatomic, readonly) SandSystem *sandSystem;
 @property (nonatomic, readonly) ShakeSystem *shakeSystem;
 @property (nonatomic, readonly) ShardSystem *shardSystem;
-@property (nonatomic, readonly) SimpleSlingerControlSystem *simpleSlingerControlSystem;
-@property (nonatomic, readonly) AdvancedSlingerControlSystem *advancedSlingerControlSystem;
+@property (nonatomic, readonly) SlingerControlSystem *slingerControlSystem;
 @property (nonatomic, readonly) SpawnSystem *spawnSystem;
 @property (nonatomic, readonly) TeleportSystem *teleportSystem;
 @property (nonatomic, readonly) WaterWaveSystem *waterWaveSystem;

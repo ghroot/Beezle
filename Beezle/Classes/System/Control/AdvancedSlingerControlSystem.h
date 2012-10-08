@@ -8,10 +8,11 @@
 
 #import "artemis.h"
 #import "cocos2d.h"
+#import "SlingerControlSystem.h"
 
 @class InputSystem;
 
-@interface AdvancedSlingerControlSystem : EntityComponentSystem
+@interface AdvancedSlingerControlSystem : SlingerControlSystem
 {
 	InputSystem *_inputSystem;
 

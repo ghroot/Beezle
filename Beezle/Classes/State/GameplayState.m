@@ -109,8 +109,7 @@
 @synthesize sandSystem = _sandSystem;
 @synthesize shakeSystem = _shakeSystem;
 @synthesize shardSystem = _shardSystem;
-@synthesize simpleSlingerControlSystem = _simpleSlingerControlSystem;
-@synthesize advancedSlingerControlSystem = _advancedSlingerControlSystem;
+@synthesize slingerControlSystem = _slingerControlSystem;
 @synthesize spawnSystem = _spawnSystem;
 @synthesize teleportSystem = _teleportSystem;
 @synthesize waterWaveSystem = _waterWaveSystem;
@@ -199,10 +198,15 @@
 	[systemManager setSystem:_hudRenderingSystem];
 	_inputSystem = [InputSystem system];
 	[systemManager setSystem:_inputSystem];
-	_simpleSlingerControlSystem = [SimpleSlingerControlSystem system];
-	[systemManager setSystem:_simpleSlingerControlSystem];
-	_advancedSlingerControlSystem = [AdvancedSlingerControlSystem system];
-	[systemManager setSystem:_advancedSlingerControlSystem];
+	if ([[PlayerInformation sharedInformation] usingAdvancedControlScheme])
+	{
+		_slingerControlSystem = [AdvancedSlingerControlSystem system];
+	}
+	else
+	{
+		_slingerControlSystem = [SimpleSlingerControlSystem system];
+	}
+	[systemManager setSystem:_slingerControlSystem];
 	_aimPollenShooterSystem = [AimPollenShooterSystem system];
 	[systemManager setSystem:_aimPollenShooterSystem];
 	_destructControlSystem = [DestructControlSystem system];

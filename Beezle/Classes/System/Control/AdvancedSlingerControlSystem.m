@@ -26,6 +26,7 @@ static const int SLINGER_MIN_POWER = 100;
 static const int SLINGER_MAX_POWER = 400;
 static const float SLINGER_AIM_SENSITIVITY = 7.0f;
 static const float SLINGER_STRETCH_SOUND_SCALE = 0.8f;
+static const float SLINGER_HEIGHT = 28.0f;
 static const float SCALE_AT_MIN_POWER = 1.0f;
 static const float SCALE_AT_MAX_POWER = 0.5f;
 
@@ -37,12 +38,6 @@ static const float SCALE_AT_MAX_POWER = 0.5f;
 @end
 
 @implementation AdvancedSlingerControlSystem
-
--(id) init
-{
-	self = [super initWithUsedComponentClasses:[NSArray arrayWithObject:[SlingerComponent class]]];
-	return self;
-}
 
 -(void) initialise
 {
@@ -97,8 +92,7 @@ static const float SCALE_AT_MAX_POWER = 0.5f;
 					float modifiedPower = power * [[slingerComponent loadedBeeType] slingerShootSpeedModifier];
 
 					// Trajectory
-					float slingerHeight = 28.0f;
-					CGPoint slingerTipVector = CGPointMake(cosf(aimAngle) * slingerHeight, sinf(aimAngle) * slingerHeight);
+					CGPoint slingerTipVector = CGPointMake(cosf(aimAngle) * SLINGER_HEIGHT, sinf(aimAngle) * SLINGER_HEIGHT);
 					CGPoint tipPosition = CGPointMake([transformComponent position].x + slingerTipVector.x, [transformComponent position].y + slingerTipVector.y);
 					[trajectoryComponent setStartPoint:tipPosition];
 					[trajectoryComponent setAngle:aimAngle];

@@ -2154,6 +2154,7 @@
 		BF8C77DC1161AE7666D112A6 /* SlingerMumee.caf in Resources */ = {isa = PBXBuildFile; fileRef = BF8C703C0D78E0737D3DC294 /* SlingerMumee.caf */; };
 		BF8C77E133671377409999BA /* B30-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7D29CFA25C7F06F57BD6 /* B30-Glass-hd.png */; };
 		BF8C781A1007127560707617 /* C2-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C76DE44E45EB2E617DF74 /* C2-Glass-hd.png */; };
+		BF8C7837C2936D33FB6C0D8C /* SlingerControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8C78B268D72D725D8479D3 /* SlingerControlSystem.m */; };
 		BF8C783BBAA381398328753F /* BubbleYel-A1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C74F029CCBD89D6EBAE01 /* BubbleYel-A1-hd.png */; };
 		BF8C788403300527F80155CC /* DescrStrip-Sawee-A-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8C79764D4EC73B65900387 /* DescrStrip-Sawee-A-1.jpg */; };
 		BF8C78B59CE3C9CE7D7B5817 /* Symbol-Exit.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C75072F9A3CE7D1D031AB /* Symbol-Exit.png */; };
@@ -4691,6 +4692,7 @@
 		BF8C703C0D78E0737D3DC294 /* SlingerMumee.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = SlingerMumee.caf; sourceTree = "<group>"; };
 		BF8C70594C25BB94F8EE15B4 /* BubbleYel-A10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-A10.png"; sourceTree = "<group>"; };
 		BF8C705C4EE431B1A1FBEF8E /* BubbleYel-D11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-D11.png"; sourceTree = "<group>"; };
+		BF8C705F8F23BF4367A32A94 /* SlingerControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlingerControlSystem.h; sourceTree = "<group>"; };
 		BF8C7065B283DB985C04A09F /* BubbleYel-C7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-C7.png"; sourceTree = "<group>"; };
 		BF8C70B0F5D2EB6950A71931 /* FlowerCompleted.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = FlowerCompleted.caf; sourceTree = "<group>"; };
 		BF8C70C051A974805200E849 /* numberImages-red-s-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "numberImages-red-s-hd.png"; sourceTree = "<group>"; };
@@ -4778,6 +4780,7 @@
 		BF8C788FC252A15EF6A95375 /* Symbol-Continue-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Symbol-Continue-hd.png"; sourceTree = "<group>"; };
 		BF8C789504173B9716708FD6 /* Flower-Cell-dim-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Flower-Cell-dim-hd.png"; sourceTree = "<group>"; };
 		BF8C78995F2BA9FCF4A8DBCA /* Title-s-C-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Title-s-C-hd.png"; sourceTree = "<group>"; };
+		BF8C78B268D72D725D8479D3 /* SlingerControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlingerControlSystem.m; sourceTree = "<group>"; };
 		BF8C78CD63AD4884B5F74532 /* BubbleYel-A2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-A2.png"; sourceTree = "<group>"; };
 		BF8C78DF82395819A542F7AA /* Symbol-Redo-White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Symbol-Redo-White.png"; sourceTree = "<group>"; };
 		BF8C78E8798C314DE0AD5A10 /* SoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundButton.m; sourceTree = "<group>"; };
@@ -7350,6 +7353,8 @@
 		2C74B4AC156FAD1E00596A22 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				BF8C705F8F23BF4367A32A94 /* SlingerControlSystem.h */,
+				BF8C78B268D72D725D8479D3 /* SlingerControlSystem.m */,
 				BF8C79E5C8851B0DD727851F /* AdvancedSlingerControlSystem.h */,
 				BF8C70200982BD9EB44EB616 /* AdvancedSlingerControlSystem.m */,
 				2CF8E0F61576B45F0052F336 /* FollowControlSystem.h */,
@@ -10912,6 +10917,7 @@
 				2C60D16E1620D56700FEDB51 /* TransformUtils.m in Sources */,
 				2C60D16F1620D56700FEDB51 /* ZipUtils.m in Sources */,
 				BF8C7226F66CA22BEAE0C2D5 /* AdvancedSlingerControlSystem.m in Sources */,
+				BF8C7837C2936D33FB6C0D8C /* SlingerControlSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

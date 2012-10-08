@@ -41,12 +41,6 @@ static const float SLINGER_MAX_TOUCH_TIME_FOR_SHOT = 0.3f;
 
 @implementation SimpleSlingerControlSystem
 
--(id) init
-{
-    self = [super initWithUsedComponentClasses:[NSArray arrayWithObject:[SlingerComponent class]]];
-    return self;
-}
-
 -(void) initialise
 {
 	_inputSystem = (InputSystem *)[[_world systemManager] getSystem:[InputSystem class]];
