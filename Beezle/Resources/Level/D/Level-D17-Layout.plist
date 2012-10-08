@@ -71,16 +71,16 @@
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>-0.73303830623626709</real>
+					<real>-1.2915436029434204</real>
 					<key>position</key>
-					<string>{325, 24}</string>
+					<string>{328, 27}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{325, 24}</string>
+					<string>{328, 27}</string>
 					<key>rotation</key>
-					<real>42</real>
+					<real>74</real>
 					<key>scale</key>
 					<string>{1, 1}</string>
 				</dict>
@@ -211,36 +211,6 @@
 		<dict>
 			<key>components</key>
 			<dict>
-				<key>captured</key>
-				<dict>
-					<key>containedBeeTypes</key>
-					<array>
-						<string>BEE</string>
-					</array>
-				</dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{62, 11}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{62, 11}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{-1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>BEEATER-LAND-D</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
@@ -291,6 +261,36 @@
 			<key>type</key>
 			<string>GLASS-D</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>captured</key>
+				<dict>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
+				</dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{60, 9}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{60, 9}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{-1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>BEEATER-LAND-D</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -303,6 +303,6 @@
 	<key>pollenForTwoFlowers</key>
 	<integer>0</integer>
 	<key>version</key>
-	<integer>37</integer>
+	<integer>39</integer>
 </dict>
 </plist>
