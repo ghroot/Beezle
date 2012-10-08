@@ -36,19 +36,28 @@
 
 		_pollenForTwoFlowersLabel = [CCLabelTTF labelWithString:@"2 flowers:" fontName:@"Marker Felt" fontSize:20];
 		[_pollenForTwoFlowersLabel setAnchorPoint:CGPointMake(0.0f, 0.5f)];
-		[_pollenForTwoFlowersLabel setPosition:CGPointMake(5.0f, 200.0f)];
+		[_pollenForTwoFlowersLabel setPosition:CGPointMake(5.0f, 230.0f)];
 		[self addChild:_pollenForTwoFlowersLabel];
 
-		CCMenuItemFont *increasePollenForTwoFlowersMenuItem = [CCMenuItemFont itemWithString:@"Increase" block:^(id sender){
+		CCMenuItemFont *increasePollen5ForTwoFlowersMenuItem = [CCMenuItemFont itemWithString:@"Increase 5" block:^(id sender){
+			EditState *editState = (EditState *)[_game previousState];
+			[editState setPollenForTwoFlowers:[editState pollenForTwoFlowers] + 5];
+			[_pollenForTwoFlowersLabel setString:[NSString stringWithFormat:@"2 flowers: %d", [editState pollenForTwoFlowers]]];
+		}];
+		[increasePollen5ForTwoFlowersMenuItem setFontSize:20];
+		[increasePollen5ForTwoFlowersMenuItem setAnchorPoint:CGPointMake(0.0f, 0.5f)];
+		[increasePollen5ForTwoFlowersMenuItem setPosition:CGPointMake(5.0f, 270.0f)];
+
+		CCMenuItemFont *increasePollenForTwoFlowersMenuItem = [CCMenuItemFont itemWithString:@"Increase 1" block:^(id sender){
 			EditState *editState = (EditState *)[_game previousState];
 			[editState setPollenForTwoFlowers:[editState pollenForTwoFlowers] + 1];
 			[_pollenForTwoFlowersLabel setString:[NSString stringWithFormat:@"2 flowers: %d", [editState pollenForTwoFlowers]]];
 		}];
 		[increasePollenForTwoFlowersMenuItem setFontSize:20];
 		[increasePollenForTwoFlowersMenuItem setAnchorPoint:CGPointMake(0.0f, 0.5f)];
-		[increasePollenForTwoFlowersMenuItem setPosition:CGPointMake(5.0f, 220.0f)];
+		[increasePollenForTwoFlowersMenuItem setPosition:CGPointMake(5.0f, 250.0f)];
 
-		CCMenuItemFont *decreasePollenForTwoFlowersMenuItem = [CCMenuItemFont itemWithString:@"Decrease" block:^(id sender){
+		CCMenuItemFont *decreasePollenForTwoFlowersMenuItem = [CCMenuItemFont itemWithString:@"Decrease 1" block:^(id sender){
 			EditState *editState = (EditState *)[_game previousState];
 			if ([editState pollenForTwoFlowers] > 0)
 			{
@@ -58,23 +67,44 @@
 		}];
 		[decreasePollenForTwoFlowersMenuItem setFontSize:20];
 		[decreasePollenForTwoFlowersMenuItem setAnchorPoint:CGPointMake(0.0f, 0.5f)];
-		[decreasePollenForTwoFlowersMenuItem setPosition:CGPointMake(5.0f, 180.0f)];
+		[decreasePollenForTwoFlowersMenuItem setPosition:CGPointMake(5.0f, 210.0f)];
+
+		CCMenuItemFont *decreasePollen5ForTwoFlowersMenuItem = [CCMenuItemFont itemWithString:@"Decrease 5" block:^(id sender){
+			EditState *editState = (EditState *)[_game previousState];
+			if ([editState pollenForTwoFlowers] >= 5)
+			{
+				[editState setPollenForTwoFlowers:[editState pollenForTwoFlowers] - 5];
+				[_pollenForTwoFlowersLabel setString:[NSString stringWithFormat:@"2 flowers: %d", [editState pollenForTwoFlowers]]];
+			}
+		}];
+		[decreasePollen5ForTwoFlowersMenuItem setFontSize:20];
+		[decreasePollen5ForTwoFlowersMenuItem setAnchorPoint:CGPointMake(0.0f, 0.5f)];
+		[decreasePollen5ForTwoFlowersMenuItem setPosition:CGPointMake(5.0f, 190.0f)];
 
 		_pollenForThreeFlowersLabel = [CCLabelTTF labelWithString:@"3 flowers:" fontName:@"Marker Felt" fontSize:20];
 		[_pollenForThreeFlowersLabel setAnchorPoint:CGPointMake(0.0f, 0.5f)];
-		[_pollenForThreeFlowersLabel setPosition:CGPointMake(5.0f, 120.0f)];
+		[_pollenForThreeFlowersLabel setPosition:CGPointMake(5.0f, 90.0f)];
 		[self addChild:_pollenForThreeFlowersLabel];
 
-		CCMenuItemFont *increasePollenForThreeFlowersMenuItem = [CCMenuItemFont itemWithString:@"Increase" block:^(id sender){
+		CCMenuItemFont *increasePollen5ForThreeFlowersMenuItem = [CCMenuItemFont itemWithString:@"Increase 5" block:^(id sender){
+			EditState *editState = (EditState *)[_game previousState];
+			[editState setPollenForThreeFlowers:[editState pollenForThreeFlowers] + 5];
+			[_pollenForThreeFlowersLabel setString:[NSString stringWithFormat:@"3 flowers: %d", [editState pollenForThreeFlowers]]];
+		}];
+		[increasePollen5ForThreeFlowersMenuItem setFontSize:20];
+		[increasePollen5ForThreeFlowersMenuItem setAnchorPoint:CGPointMake(0.0f, 0.5f)];
+		[increasePollen5ForThreeFlowersMenuItem setPosition:CGPointMake(5.0f, 130.0f)];
+
+		CCMenuItemFont *increasePollenForThreeFlowersMenuItem = [CCMenuItemFont itemWithString:@"Increase 1" block:^(id sender){
 			EditState *editState = (EditState *)[_game previousState];
 			[editState setPollenForThreeFlowers:[editState pollenForThreeFlowers] + 1];
 			[_pollenForThreeFlowersLabel setString:[NSString stringWithFormat:@"3 flowers: %d", [editState pollenForThreeFlowers]]];
 		}];
 		[increasePollenForThreeFlowersMenuItem setFontSize:20];
 		[increasePollenForThreeFlowersMenuItem setAnchorPoint:CGPointMake(0.0f, 0.5f)];
-		[increasePollenForThreeFlowersMenuItem setPosition:CGPointMake(5.0f, 140.0f)];
+		[increasePollenForThreeFlowersMenuItem setPosition:CGPointMake(5.0f, 110.0f)];
 
-		CCMenuItemFont *decreasePollenForThreeFlowersMenuItem = [CCMenuItemFont itemWithString:@"Decrease" block:^(id sender){
+		CCMenuItemFont *decreasePollenForThreeFlowersMenuItem = [CCMenuItemFont itemWithString:@"Decrease 1" block:^(id sender){
 			EditState *editState = (EditState *)[_game previousState];
 			if ([editState pollenForThreeFlowers] > 0)
 			{
@@ -84,9 +114,23 @@
 		}];
 		[decreasePollenForThreeFlowersMenuItem setFontSize:20];
 		[decreasePollenForThreeFlowersMenuItem setAnchorPoint:CGPointMake(0.0f, 0.5f)];
-		[decreasePollenForThreeFlowersMenuItem setPosition:CGPointMake(5.0f, 100.0f)];
+		[decreasePollenForThreeFlowersMenuItem setPosition:CGPointMake(5.0f, 70.0f)];
 
-		_flowerPollenMenu = [CCMenu menuWithItems:increasePollenForTwoFlowersMenuItem, decreasePollenForTwoFlowersMenuItem, increasePollenForThreeFlowersMenuItem, decreasePollenForThreeFlowersMenuItem, nil];
+		CCMenuItemFont *decreasePollen5ForThreeFlowersMenuItem = [CCMenuItemFont itemWithString:@"Decrease 5" block:^(id sender){
+			EditState *editState = (EditState *)[_game previousState];
+			if ([editState pollenForThreeFlowers] >= 5)
+			{
+				[editState setPollenForThreeFlowers:[editState pollenForThreeFlowers] - 5];
+				[_pollenForThreeFlowersLabel setString:[NSString stringWithFormat:@"3 flowers: %d", [editState pollenForThreeFlowers]]];
+			}
+		}];
+		[decreasePollen5ForThreeFlowersMenuItem setFontSize:20];
+		[decreasePollen5ForThreeFlowersMenuItem setAnchorPoint:CGPointMake(0.0f, 0.5f)];
+		[decreasePollen5ForThreeFlowersMenuItem setPosition:CGPointMake(5.0f, 50.0f)];
+
+		_flowerPollenMenu = [CCMenu menuWithItems:increasePollen5ForTwoFlowersMenuItem, increasePollenForTwoFlowersMenuItem,
+						decreasePollenForTwoFlowersMenuItem, decreasePollen5ForTwoFlowersMenuItem, increasePollen5ForThreeFlowersMenuItem,
+						increasePollenForThreeFlowersMenuItem, decreasePollenForThreeFlowersMenuItem, decreasePollen5ForThreeFlowersMenuItem, nil];
 		[_flowerPollenMenu setAnchorPoint:CGPointZero];
 		[_flowerPollenMenu setPosition:CGPointZero];
 		[self addChild:_flowerPollenMenu];
