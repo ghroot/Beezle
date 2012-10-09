@@ -57,8 +57,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>SPEEDEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>SPEEDEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -85,14 +87,17 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
 				</dict>
 				<key>movement</key>
 				<dict>
 					<key>positions</key>
 					<array>
-						<string>{28, 21}</string>
+						<string>{35, 22}</string>
+						<string>{72, 20}</string>
 					</array>
 				</dict>
 				<key>physics</key>
@@ -120,8 +125,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>BOMBEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BOMBEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -201,8 +208,10 @@
 			<dict>
 				<key>captured</key>
 				<dict>
-					<key>containedBeeType</key>
-					<string>SPEEDEE</string>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>SPEEDEE</string>
+					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
@@ -323,7 +332,11 @@
 	<true/>
 	<key>name</key>
 	<string>Level-A34</string>
+	<key>pollenForThreeFlowers</key>
+	<integer>273</integer>
+	<key>pollenForTwoFlowers</key>
+	<integer>243</integer>
 	<key>version</key>
-	<integer>29</integer>
+	<integer>33</integer>
 </dict>
 </plist>

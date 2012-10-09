@@ -12,6 +12,7 @@
 					<key>queuedBeeTypes</key>
 					<array>
 						<string>BEE</string>
+						<string>BEE</string>
 					</array>
 				</dict>
 				<key>transform</key>
@@ -33,7 +34,7 @@
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>-0.034906584769487381</real>
+					<real>0.0</real>
 					<key>position</key>
 					<string>{288, 170}</string>
 				</dict>
@@ -42,7 +43,7 @@
 					<key>position</key>
 					<string>{288, 170}</string>
 					<key>rotation</key>
-					<real>2</real>
+					<real>0.0</real>
 					<key>scale</key>
 					<string>{1, 1}</string>
 				</dict>
@@ -345,6 +346,75 @@
 			<key>type</key>
 			<string>POLLEN-YELLOW</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>-0.10471975803375244</real>
+					<key>position</key>
+					<string>{442, 242}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{442, 242}</string>
+					<key>rotation</key>
+					<real>6</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>EGG</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{233, 294}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{233, 294}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN-YELLOW</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{258, 294}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{258, 294}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN-YELLOW</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -352,7 +422,11 @@
 	<true/>
 	<key>name</key>
 	<string>Level-A10</string>
+	<key>pollenForThreeFlowers</key>
+	<integer>357</integer>
+	<key>pollenForTwoFlowers</key>
+	<integer>351</integer>
 	<key>version</key>
-	<integer>19</integer>
+	<integer>22</integer>
 </dict>
 </plist>
