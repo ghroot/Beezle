@@ -49,18 +49,10 @@
 				return;
 			}
 
-			NSArray *spriteFrames = [NSArray arrayWithObjects:
-				[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Bubble/BubbleBurst-1.png"],
-				[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Bubble/BubbleBurst-2.png"],
-				[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Bubble/BubbleBurst-3.png"],
-				nil];
-			CCAnimation *animation = [CCAnimation animationWithSpriteFrames:spriteFrames delay:0.05f];
-			CCAnimate *animateAction = [CCAnimate actionWithAnimation:animation];
-			CCCallBlock *closeAction = [CCCallBlock actionWithBlock:^{
-				[self close];
-			}];
-			[_node runAction:[CCSequence actionOne:animateAction two:closeAction]];
+			[self close];
+
 			[[SoundManager sharedManager] playSound:@"BalloonBurst"];
+
 		} selectedBlock:nil unselectedBlock:nil] autorelease];
 		[menu addChild:menuItem];
 		[self addChild:menu];
