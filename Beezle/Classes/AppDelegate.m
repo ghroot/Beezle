@@ -15,6 +15,7 @@
 #import "PlayState.h"
 #import "iRate.h"
 #import "PlayerInformation.h"
+#import "NotificationTypes.h"
 
 @implementation AppDelegate
 
@@ -107,6 +108,8 @@
 	{
 		[_director pause];
 	}
+
+	[[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PAUSE object:self];
 }
 
 -(void) applicationDidBecomeActive:(UIApplication *)application

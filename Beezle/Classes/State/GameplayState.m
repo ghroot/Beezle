@@ -70,6 +70,7 @@
 #import "LevelLayout.h"
 #import "NSObject+PWObject.h"
 #import "BeeWithTeleportCollisionHandler.h"
+#import "NotificationTypes.h"
 
 @interface GameplayState()
 
@@ -81,6 +82,7 @@
 -(void) checkTutorial;
 -(void) enterMode:(GameMode *)mode;
 -(void) updateMode:(float)delta;
+-(void) handlePauseNotification:(NSNotification *)notification;
 
 @end
 
@@ -156,6 +158,8 @@
 	[self performBlock:^{
 		[self checkTutorial];
 	} afterDelay:0.4f];
+
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handlePauseNotification:) name:NOTIFICATION_PAUSE object:nil];
 
 	[[SessionTracker sharedTracker] trackStartedLevel:_levelName];
 }
@@ -393,6 +397,11 @@
 -(void) showPauseButton
 {
 	[_pauseMenuItem setVisible:TRUE];
+}
+
+-(void) handlePauseNotification:(NSNotification *)notification
+{
+	[self pauseGame:nil];
 }
 
 @end
