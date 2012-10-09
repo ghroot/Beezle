@@ -82,19 +82,6 @@
 			@"SMOKE-MUSHROOM",
 			nil]];
 
-	[self addMenuItemForParticleNames:[NSArray arrayWithObjects:
-			@"FireFlies",
-			@"FireFlies2",
-			@"Lava",
-			@"LavaDrops",
-			@"LavaFire",
-			@"Lavapop",
-			@"LavaSplasch",
-			@"Leaves",
-			@"Smoke-Particle",
-			@"Snow",
-			nil]];
-
 	[self addMenuItemForGroup:@"Other" andEntityTypes:[NSArray arrayWithObjects:
 			@"EYES",
 			@"FLOATING-BLOCK-A",
