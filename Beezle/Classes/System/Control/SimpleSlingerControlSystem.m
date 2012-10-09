@@ -29,7 +29,7 @@ static const float SLINGER_STRETCH_SOUND_SCALE = 0.8f;
 static const float SLINGER_HEIGHT = 28.0f;
 static const float SCALE_AT_MIN_POWER = 1.0f;
 static const float SCALE_AT_MAX_POWER = 0.5f;
-static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SHOT = 9;
+static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SHOT = 15;
 static const float SLINGER_MAX_TOUCH_TIME_FOR_SHOT = 0.3f;
 
 @interface SimpleSlingerControlSystem ()
