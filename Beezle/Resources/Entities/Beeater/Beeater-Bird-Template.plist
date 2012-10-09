@@ -135,8 +135,12 @@
 		</dict>
 		<key>sound</key>
 		<dict>
-			<key>defaultDestroySound</key>
-			<string>BeeaterKill</string>
+			<key>defaultDestroySounds</key>
+            <array>
+                <string>BeeaterKill1</string>
+                <string>BeeaterKill2</string>
+                <string>BeeaterKill3</string>
+            </array>
 		</dict>
 		<key>transform</key>
 		<dict/>
