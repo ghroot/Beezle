@@ -24,6 +24,7 @@ static int nextBeeIndex = 0;
 -(void) createBee;
 -(void) createSawee;
 -(void) createBombee;
+-(void) createSpeedee;
 -(void) createBeeaters;
 
 @end
@@ -57,12 +58,16 @@ static int nextBeeIndex = 0;
 			{
 				[self createSawee];
 			}
-			else
+			else if (nextBeeIndex == 2)
 			{
 				[self createBombee];
 			}
+			else
+			{
+				[self createSpeedee];
+			}
 			nextBeeIndex++;
-			if (nextBeeIndex > 2)
+			if (nextBeeIndex > 3)
 			{
 				nextBeeIndex = 0;
 			}
@@ -238,12 +243,7 @@ static int nextBeeIndex = 0;
 	[bombeeSprite setPosition:CGPointMake(80.0f, 50.0f)];
 	[self addChild:bombeeSprite];
 
-	NSArray *bombeeSpriteFrames = [NSArray arrayWithObjects:
-			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/Play-Bombee-1.png"],
-			[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Play/Play-Bombee-2.png"],
-			nil];
-	CCAnimation *bombeeAnimation = [CCAnimation animationWithSpriteFrames:bombeeSpriteFrames delay:0.08f];
-	CCAnimate *animateAction = [CCAnimate actionWithAnimation:bombeeAnimation];
+	CCAnimate *animateAction = [CCAnimate actionWithAnimation:[[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Bombee"]];
 	[bombeeSprite runAction:[CCRepeatForever actionWithAction:animateAction]];
 
 	float duration = 2.0f;
@@ -258,6 +258,36 @@ static int nextBeeIndex = 0;
 	[bombeeSprite runAction:scaleAction];
 	[bombeeSprite runAction:[CCSequence actionOne:moveBeeRightAction two:removeAction]];
 	[bombeeSprite runAction:[CCSequence actionOne:moveBeeUpAction two:moveBeeDownAction]];
+}
+
+-(void) createSpeedee
+{
+	CCSprite *speedeeSprite = [CCSprite spriteWithSpriteFrameName:@"Play/Play-Speedee-1.png"];
+	[speedeeSprite setPosition:CGPointMake(-20.0f, 264.0f)];
+	[self addChild:speedeeSprite];
+
+	CCAnimate *animateAction = [CCAnimate actionWithAnimation:[[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Speedee"]];
+	[speedeeSprite runAction:[CCRepeatForever actionWithAction:animateAction]];
+
+	float duration = 1.2f;
+
+	id moveBeeRightAction = [CCMoveTo actionWithDuration:duration position:CGPointMake(500.0f, 237.0f)];
+	id removeAction = [CCCallBlock actionWithBlock:^{
+		[self removeChild:speedeeSprite cleanup:TRUE];
+	}];
+	id waitAction = [CCDelayTime actionWithDuration:0.2f];
+	id spawnSmokeAction = [CCCallBlock actionWithBlock:^{
+		CCSprite *smokeSprite = [CCSprite spriteWithSpriteFrameName:@"Play/Play-Speedee-Cloud-1.png"];
+		[smokeSprite setPosition:CGPointMake([speedeeSprite position].x - 30.0f, [speedeeSprite position].y)];
+		[self addChild:smokeSprite];
+		CCAnimate *animateSmokeAction = [CCAnimate actionWithAnimation:[[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Speedee-Cloud"]];
+		id removeSmokeAction = [CCCallBlock actionWithBlock:^{
+			[self removeChild:smokeSprite cleanup:TRUE];
+		}];
+		[smokeSprite runAction:[CCSequence actionOne:animateSmokeAction two:removeSmokeAction]];
+	}];
+	[speedeeSprite runAction:[CCSequence actionOne:moveBeeRightAction two:removeAction]];
+	[speedeeSprite runAction:[CCRepeat actionWithAction:[CCSequence actionOne:waitAction two:spawnSmokeAction] times:INT_MAX]];
 }
 
 -(void) createBeeaters
