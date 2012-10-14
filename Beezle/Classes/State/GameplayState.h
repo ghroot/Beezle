@@ -39,6 +39,7 @@
 @class SandSystem;
 @class TeleportSystem;
 @class SlingerControlSystem;
+@class PollenSystem;
 
 @interface GameplayState : GameState
 {
@@ -70,6 +71,7 @@
     PhysicsSystem *_physicsSystem;
     RenderSystem *_renderSystem;
 	ShardSystem *_shardSystem;
+	PollenSystem *_pollenSystem;
     SlingerControlSystem *_slingerControlSystem;
 	AimPollenShooterSystem *_aimPollenShooterSystem;
 	DestructControlSystem *_destructControlSystem;
@@ -105,6 +107,7 @@
 @property (nonatomic, readonly) InputSystem *inputSystem;
 @property (nonatomic, readonly) MovementSystem *movementSystem;
 @property (nonatomic, readonly) PhysicsSystem *physicsSystem;
+@property (nonatomic, readonly) PollenSystem *pollenSystem;
 @property (nonatomic, readonly) RenderSystem *renderSystem;
 @property (nonatomic, readonly) SandSystem *sandSystem;
 @property (nonatomic, readonly) ShakeSystem *shakeSystem;

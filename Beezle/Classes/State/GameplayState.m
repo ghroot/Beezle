@@ -45,7 +45,6 @@
 #import "AnythingWithVolatileCollisionHandler.h"
 #import "BeeWithBeeaterCollisionHandler.h"
 #import "BeeWithSpikeCollisionHandler.h"
-#import "ConsumerWithPollenCollisionHandler.h"
 #import "DozerWithCrumbleCollisionHandler.h"
 #import "PulverizeWithPulverizableCollisionHandler.h"
 #import "SawWithWoodCollisionHandler.h"
@@ -56,6 +55,7 @@
 #import "SolidWithWaterCollisionHandler.h"
 #import "SolidWithWobbleCollisionHandler.h"
 #import "SandSystem.h"
+#import "PollenSystem.h"
 #import "PausedMenuState.h"
 #import "Game.h"
 #import "PossessWithSpiritCollisionHandler.h"
@@ -107,6 +107,7 @@
 @synthesize inputSystem = _inputSystem;
 @synthesize movementSystem = _movementSystem;
 @synthesize physicsSystem = _physicsSystem;
+@synthesize pollenSystem = _pollenSystem;
 @synthesize renderSystem = _renderSystem;
 @synthesize sandSystem = _sandSystem;
 @synthesize shakeSystem = _shakeSystem;
@@ -235,6 +236,8 @@
 	[systemManager setSystem:_shardSystem];
 	_spawnSystem = [SpawnSystem system];
 	[systemManager setSystem:_spawnSystem];
+	_pollenSystem = [[[PollenSystem alloc] initWithLevelSession:_levelSession] autorelease];
+	[systemManager setSystem:_pollenSystem];
 	_sandSystem = [SandSystem system];
 	[systemManager setSystem:_sandSystem];
 	_shakeSystem = [ShakeSystem system];
@@ -260,7 +263,6 @@
 	[_collisionSystem registerCollisionHandler:[AnythingWithVolatileCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[BeeWithBeeaterCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[BeeWithSpikeCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
-	[_collisionSystem registerCollisionHandler:[ConsumerWithPollenCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[DozerWithCrumbleCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[PossessWithSpiritCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[SolidWithSoundCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];

@@ -1539,7 +1539,6 @@
 		2C74B4D6156FAD1E00596A22 /* BreakableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B413156FAD1E00596A22 /* BreakableComponent.m */; };
 		2C74B4D7156FAD1E00596A22 /* BrittleComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B415156FAD1E00596A22 /* BrittleComponent.m */; };
 		2C74B4D8156FAD1E00596A22 /* CapturedComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B417156FAD1E00596A22 /* CapturedComponent.m */; };
-		2C74B4D9156FAD1E00596A22 /* ConsumerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B419156FAD1E00596A22 /* ConsumerComponent.m */; };
 		2C74B4DA156FAD1E00596A22 /* CrumbleComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B41B156FAD1E00596A22 /* CrumbleComponent.m */; };
 		2C74B4DB156FAD1E00596A22 /* DozerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B41D156FAD1E00596A22 /* DozerComponent.m */; };
 		2C74B4DC156FAD1E00596A22 /* EditComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B420156FAD1E00596A22 /* EditComponent.m */; };
@@ -1594,7 +1593,6 @@
 		2C74B510156FAD1E00596A22 /* AnythingWithVoidCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B497156FAD1E00596A22 /* AnythingWithVoidCollisionHandler.m */; };
 		2C74B511156FAD1E00596A22 /* AnythingWithVolatileCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B499156FAD1E00596A22 /* AnythingWithVolatileCollisionHandler.m */; };
 		2C74B512156FAD1E00596A22 /* BeeWithBeeaterCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B49B156FAD1E00596A22 /* BeeWithBeeaterCollisionHandler.m */; };
-		2C74B513156FAD1E00596A22 /* ConsumerWithPollenCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B49D156FAD1E00596A22 /* ConsumerWithPollenCollisionHandler.m */; };
 		2C74B514156FAD1E00596A22 /* DozerWithCrumbleCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B49F156FAD1E00596A22 /* DozerWithCrumbleCollisionHandler.m */; };
 		2C74B515156FAD1E00596A22 /* SawWithWoodCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B4A1156FAD1E00596A22 /* SawWithWoodCollisionHandler.m */; };
 		2C74B516156FAD1E00596A22 /* SolidWithBoostCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B4A3156FAD1E00596A22 /* SolidWithBoostCollisionHandler.m */; };
@@ -2133,6 +2131,7 @@
 		BF8C76261B669E5AF5E024D3 /* Title-s-A-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C71EF084E21FB532DC2BF /* Title-s-A-hd.png */; };
 		BF8C76298328E43DB947BF49 /* C58b-Ice.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C75348F7F3F62116F174C /* C58b-Ice.png */; };
 		BF8C76A0E053338FF615A632 /* DescrStrip-IntroGame-A-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7975BC272DAC52AE705F /* DescrStrip-IntroGame-A-1.jpg */; };
+		BF8C76E6895BF79120A9E6E0 /* PollenSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8C78167568B2557BD8B0A4 /* PollenSystem.m */; };
 		BF8C76E6CD975458479B1C25 /* Level-D-Music.caf in Resources */ = {isa = PBXBuildFile; fileRef = BF8C766D1F918F75A40E98D6 /* Level-D-Music.caf */; };
 		BF8C76F3B0148FB5C6C9A703 /* PulverWood.caf in Resources */ = {isa = PBXBuildFile; fileRef = BF8C73D167A827D8E6CC6CFE /* PulverWood.caf */; };
 		BF8C771BE4C574914F460D7A /* PulverBeeater.caf in Resources */ = {isa = PBXBuildFile; fileRef = BF8C734B0BC911DD0A6DEA37 /* PulverBeeater.caf */; };
@@ -3899,8 +3898,6 @@
 		2C74B415156FAD1E00596A22 /* BrittleComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrittleComponent.m; sourceTree = "<group>"; };
 		2C74B416156FAD1E00596A22 /* CapturedComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapturedComponent.h; sourceTree = "<group>"; };
 		2C74B417156FAD1E00596A22 /* CapturedComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapturedComponent.m; sourceTree = "<group>"; };
-		2C74B418156FAD1E00596A22 /* ConsumerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsumerComponent.h; sourceTree = "<group>"; };
-		2C74B419156FAD1E00596A22 /* ConsumerComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsumerComponent.m; sourceTree = "<group>"; };
 		2C74B41A156FAD1E00596A22 /* CrumbleComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbleComponent.h; sourceTree = "<group>"; };
 		2C74B41B156FAD1E00596A22 /* CrumbleComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbleComponent.m; sourceTree = "<group>"; };
 		2C74B41C156FAD1E00596A22 /* DozerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DozerComponent.h; sourceTree = "<group>"; };
@@ -4009,8 +4006,6 @@
 		2C74B499156FAD1E00596A22 /* AnythingWithVolatileCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnythingWithVolatileCollisionHandler.m; sourceTree = "<group>"; };
 		2C74B49A156FAD1E00596A22 /* BeeWithBeeaterCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeWithBeeaterCollisionHandler.h; sourceTree = "<group>"; };
 		2C74B49B156FAD1E00596A22 /* BeeWithBeeaterCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeWithBeeaterCollisionHandler.m; sourceTree = "<group>"; };
-		2C74B49C156FAD1E00596A22 /* ConsumerWithPollenCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsumerWithPollenCollisionHandler.h; sourceTree = "<group>"; };
-		2C74B49D156FAD1E00596A22 /* ConsumerWithPollenCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsumerWithPollenCollisionHandler.m; sourceTree = "<group>"; };
 		2C74B49E156FAD1E00596A22 /* DozerWithCrumbleCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DozerWithCrumbleCollisionHandler.h; sourceTree = "<group>"; };
 		2C74B49F156FAD1E00596A22 /* DozerWithCrumbleCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DozerWithCrumbleCollisionHandler.m; sourceTree = "<group>"; };
 		2C74B4A0156FAD1E00596A22 /* SawWithWoodCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SawWithWoodCollisionHandler.h; sourceTree = "<group>"; };
@@ -4692,6 +4687,7 @@
 		BF8C7283C3865B8ECA77E5B8 /* Flower-Chooser-fullred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Flower-Chooser-fullred.png"; sourceTree = "<group>"; };
 		BF8C730699FDAB1211D1D8CF /* Chooser-Screen-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chooser-Screen-back.png"; sourceTree = "<group>"; };
 		BF8C734B0BC911DD0A6DEA37 /* PulverBeeater.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = PulverBeeater.caf; sourceTree = "<group>"; };
+		BF8C734F70008116065C48AC /* PollenSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollenSystem.h; sourceTree = "<group>"; };
 		BF8C73589E4967CF8A22F981 /* ChooserSlingerBackground-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ChooserSlingerBackground-1.jpg"; sourceTree = "<group>"; };
 		BF8C7366B441A1D893C1CC8C /* C59-Ice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C59-Ice.png"; sourceTree = "<group>"; };
 		BF8C738AD178AEF1EAB19B1D /* BubbleYel-D11-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-D11-hd.png"; sourceTree = "<group>"; };
@@ -4752,6 +4748,7 @@
 		BF8C78063DAC90828944421E /* DescrStrip-Bombee-A-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Bombee-A-2.jpg"; sourceTree = "<group>"; };
 		BF8C7809DE0790FB18CED4E4 /* BeesFrontNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeesFrontNode.m; sourceTree = "<group>"; };
 		BF8C780C573E35D711076876 /* DescrStrip-Sumee-B-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Sumee-B-1.jpg"; sourceTree = "<group>"; };
+		BF8C78167568B2557BD8B0A4 /* PollenSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PollenSystem.m; sourceTree = "<group>"; };
 		BF8C7837B934D655A71CDCBD /* Symbol-Exit-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Symbol-Exit-hd.png"; sourceTree = "<group>"; };
 		BF8C7843B775CD7A5A2CA583 /* ChooserSlingerBackground-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ChooserSlingerBackground-2.jpg"; sourceTree = "<group>"; };
 		BF8C784D8EBF33163A1849B4 /* C14-Ice-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C14-Ice-hd.png"; sourceTree = "<group>"; };
@@ -7018,8 +7015,6 @@
 				2C74B415156FAD1E00596A22 /* BrittleComponent.m */,
 				2C74B416156FAD1E00596A22 /* CapturedComponent.h */,
 				2C74B417156FAD1E00596A22 /* CapturedComponent.m */,
-				2C74B418156FAD1E00596A22 /* ConsumerComponent.h */,
-				2C74B419156FAD1E00596A22 /* ConsumerComponent.m */,
 				2C74B41A156FAD1E00596A22 /* CrumbleComponent.h */,
 				2C74B41B156FAD1E00596A22 /* CrumbleComponent.m */,
 				2C74B41C156FAD1E00596A22 /* DozerComponent.h */,
@@ -7261,6 +7256,8 @@
 		2C74B48B156FAD1E00596A22 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				BF8C78167568B2557BD8B0A4 /* PollenSystem.m */,
+				BF8C734F70008116065C48AC /* PollenSystem.h */,
 				2CF8E0F61576B45F0052F550 /* TeleportSystem.m */,
 				2CF8E0F61576B45F0052F54F /* TeleportSystem.h */,
 				2CF8E0F61576B45F0052F47F /* SandSystem.m */,
@@ -7314,8 +7311,6 @@
 				2C74B499156FAD1E00596A22 /* AnythingWithVolatileCollisionHandler.m */,
 				2C74B49A156FAD1E00596A22 /* BeeWithBeeaterCollisionHandler.h */,
 				2C74B49B156FAD1E00596A22 /* BeeWithBeeaterCollisionHandler.m */,
-				2C74B49C156FAD1E00596A22 /* ConsumerWithPollenCollisionHandler.h */,
-				2C74B49D156FAD1E00596A22 /* ConsumerWithPollenCollisionHandler.m */,
 				2C74B49E156FAD1E00596A22 /* DozerWithCrumbleCollisionHandler.h */,
 				2C74B49F156FAD1E00596A22 /* DozerWithCrumbleCollisionHandler.m */,
 				2C74B4A0156FAD1E00596A22 /* SawWithWoodCollisionHandler.h */,
@@ -10591,7 +10586,6 @@
 				2C74B4D6156FAD1E00596A22 /* BreakableComponent.m in Sources */,
 				2C74B4D7156FAD1E00596A22 /* BrittleComponent.m in Sources */,
 				2C74B4D8156FAD1E00596A22 /* CapturedComponent.m in Sources */,
-				2C74B4D9156FAD1E00596A22 /* ConsumerComponent.m in Sources */,
 				2C74B4DA156FAD1E00596A22 /* CrumbleComponent.m in Sources */,
 				2C74B4DB156FAD1E00596A22 /* DozerComponent.m in Sources */,
 				2C74B4DC156FAD1E00596A22 /* EditComponent.m in Sources */,
@@ -10646,7 +10640,6 @@
 				2C74B510156FAD1E00596A22 /* AnythingWithVoidCollisionHandler.m in Sources */,
 				2C74B511156FAD1E00596A22 /* AnythingWithVolatileCollisionHandler.m in Sources */,
 				2C74B512156FAD1E00596A22 /* BeeWithBeeaterCollisionHandler.m in Sources */,
-				2C74B513156FAD1E00596A22 /* ConsumerWithPollenCollisionHandler.m in Sources */,
 				2C74B514156FAD1E00596A22 /* DozerWithCrumbleCollisionHandler.m in Sources */,
 				2C74B515156FAD1E00596A22 /* SawWithWoodCollisionHandler.m in Sources */,
 				2C74B516156FAD1E00596A22 /* SolidWithBoostCollisionHandler.m in Sources */,
@@ -10874,6 +10867,7 @@
 				2C60D16F1620D56700FEDB51 /* ZipUtils.m in Sources */,
 				BF8C7226F66CA22BEAE0C2D5 /* AdvancedSlingerControlSystem.m in Sources */,
 				BF8C7837C2936D33FB6C0D8C /* SlingerControlSystem.m in Sources */,
+				BF8C76E6895BF79120A9E6E0 /* PollenSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
