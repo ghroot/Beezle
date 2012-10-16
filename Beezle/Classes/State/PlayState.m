@@ -10,7 +10,6 @@
 #import "Game.h"
 #import "LevelThemeSelectMenuState.h"
 #import "DebugMenuState.h"
-#import "CCBReader.h"
 #import "SoundManager.h"
 #import "TweenableSprite.h"
 #import "SoundButton.h"
@@ -35,18 +34,26 @@ static int nextBeeIndex = 0;
 {
 	if (self = [super init])
 	{
-		[self addChild:[CCBReader nodeGraphFromFile:@"Play.ccbi" owner:self]];
+		CGSize winSize = [[CCDirector sharedDirector] winSize];
+
+		CCSprite *backgroundSprite = [CCSprite spriteWithFile:@"PlayScene.jpg"];
+		[backgroundSprite setAnchorPoint:CGPointZero];
+		[self addChild:backgroundSprite];
 
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Interface.plist"];
 		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Interface-Animations.plist"];
 
+		_menuItemPlay = [CCMenuItemImage itemWithNormalImage:@"PlayButton.png" selectedImage:@"PlayButton.png" target:self selector:@selector(play)];
+		[_menuItemPlay setPosition:CGPointMake(0.0f, -35.0f)];
+		_menu = [CCMenu menuWithItems:_menuItemPlay, nil];
+		[self addChild:_menu z:50];
 		CCMoveTo *moveUpAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([_menuItemPlay position].x, [_menuItemPlay position].y + 2.0f)]];
 		CCMoveTo *moveDownAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([_menuItemPlay position].x, [_menuItemPlay position].y - 2.0f)]];
 		CCAction *swayAction = [CCRepeat actionWithAction:[CCSequence actions:moveUpAction, moveDownAction, nil] times:INT_MAX];
 		[_menuItemPlay runAction:swayAction];
 
 		_pollenExplodeSprite = [[CCSprite alloc] initWithSpriteFrameName:@"Play/PlayButtonPollen-1.png"];
-		[_pollenExplodeSprite setPosition:[_menuItemPlay position]];
+		[_pollenExplodeSprite setPosition:CGPointMake(winSize.width / 2, winSize.height / 2 - 35.0f)];
 
 		CCDelayTime *waitAction = [CCDelayTime actionWithDuration:4.0f];
 		CCCallBlock *createBeeAction = [CCCallBlock actionWithBlock:^{
@@ -56,15 +63,15 @@ static int nextBeeIndex = 0;
 			}
 			else if (nextBeeIndex == 1)
 			{
-				[self createSawee];
+				[self createSpeedee];
 			}
 			else if (nextBeeIndex == 2)
 			{
-				[self createBombee];
+				[self createSawee];
 			}
 			else
 			{
-				[self createSpeedee];
+				[self createBombee];
 			}
 			nextBeeIndex++;
 			if (nextBeeIndex > 3)
@@ -77,7 +84,6 @@ static int nextBeeIndex = 0;
 
 		[self createBeeaters];
 
-		CGSize winSize = [[CCDirector sharedDirector] winSize];
 		SoundButton *soundButton = [SoundButton node];
 		[soundButton setPosition:CGPointMake(winSize.width / 2, 40.0f)];
 		[self addChild:soundButton];
@@ -109,7 +115,7 @@ static int nextBeeIndex = 0;
 	[_menu setEnabled:FALSE];
 	[_menu setVisible:FALSE];
 
-	[self addChild:_pollenExplodeSprite];
+	[self addChild:_pollenExplodeSprite z:50];
 	CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Button-Explode"];
 	CCAnimate *animateAction = [CCAnimate actionWithAnimation:animation];
 	CCCallBlock *gotoThemeSelectAction = [CCCallBlock actionWithBlock:^{
@@ -141,7 +147,7 @@ static int nextBeeIndex = 0;
 	TweenableSprite *beeSprite = [TweenableSprite spriteWithSpriteFrameName:@"Play/Play-Bee-1.png"];
 	[beeSprite setPosition:CGPointMake(456.0f, 158.0f)];
 	[beeSprite setScale:0.1f];
-	[self addChild:beeSprite];
+	[self addChild:beeSprite z:40];
 
 	CCAnimation *beeAnimation = [[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Bee"];
 	CCAnimate *animateAction = [CCAnimate actionWithAnimation:beeAnimation];
@@ -202,7 +208,7 @@ static int nextBeeIndex = 0;
 	TweenableSprite *saweeSprite = [TweenableSprite spriteWithSpriteFrameName:@"Play/Play-Sawee-1.png"];
 	[saweeSprite setPosition:CGPointMake(245.0f, 141.0f)];
 	[saweeSprite setScale:0.1f];
-	[self addChild:saweeSprite];
+	[self addChild:saweeSprite z:40];
 
 	CCAnimation *saweeAnimation = [[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Sawee"];
 	CCAnimate *animateAction = [CCAnimate actionWithAnimation:saweeAnimation];
@@ -241,7 +247,7 @@ static int nextBeeIndex = 0;
 {
 	TweenableSprite *bombeeSprite = [TweenableSprite spriteWithSpriteFrameName:@"Play/Play-Bombee-1.png"];
 	[bombeeSprite setPosition:CGPointMake(80.0f, 50.0f)];
-	[self addChild:bombeeSprite];
+	[self addChild:bombeeSprite z:40];
 
 	CCAnimate *animateAction = [CCAnimate actionWithAnimation:[[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Bombee"]];
 	[bombeeSprite runAction:[CCRepeatForever actionWithAction:animateAction]];
@@ -264,12 +270,12 @@ static int nextBeeIndex = 0;
 {
 	CCSprite *speedeeSprite = [CCSprite spriteWithSpriteFrameName:@"Play/Play-Speedee-1.png"];
 	[speedeeSprite setPosition:CGPointMake(-20.0f, 264.0f)];
-	[self addChild:speedeeSprite];
+	[self addChild:speedeeSprite z:40];
 
 	CCAnimate *animateAction = [CCAnimate actionWithAnimation:[[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Speedee"]];
 	[speedeeSprite runAction:[CCRepeatForever actionWithAction:animateAction]];
 
-	float duration = 1.2f;
+	float duration = 1.0f;
 
 	id moveBeeRightAction = [CCMoveTo actionWithDuration:duration position:CGPointMake(500.0f, 237.0f)];
 	id removeAction = [CCCallBlock actionWithBlock:^{
@@ -295,12 +301,12 @@ static int nextBeeIndex = 0;
 	CCSprite *beeaterMediumSprite = [CCSprite spriteWithSpriteFrameName:@"Play/Play-Beeater-m-1.png"];
 	[beeaterMediumSprite setPosition:CGPointMake(436.0f, 63.0f)];
 	[beeaterMediumSprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:[[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Beeater-Medium"]]]];
-	[self addChild:beeaterMediumSprite];
+	[self addChild:beeaterMediumSprite z:30];
 
 	CCSprite *beeaterSmallSprite = [CCSprite spriteWithSpriteFrameName:@"Play/Play-Beeater-s-1.png"];
 	[beeaterSmallSprite setPosition:CGPointMake(140.0f, 96.0f)];
 	[beeaterSmallSprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:[[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Beeater-Small"]]]];
-	[self addChild:beeaterSmallSprite];
+	[self addChild:beeaterSmallSprite z:30];
 }
 
 @end
