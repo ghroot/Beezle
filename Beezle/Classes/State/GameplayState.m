@@ -315,7 +315,9 @@
 }
 
 -(void) dealloc
-{	
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+
 	[_levelName release];
 	[_levelSession release];
 	
