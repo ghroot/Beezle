@@ -76,7 +76,7 @@
 
 -(void) updateSoundMenuItemsVisibility
 {
-	if ([[SoundManager sharedManager] isMuted])
+	if ([[PlayerInformation sharedInformation] isSoundMuted])
 	{
 		[_soundOnMenuItem setVisible:FALSE];
 		[_soundOffMenuItem setVisible:TRUE];
