@@ -34,7 +34,6 @@
 #import "SessionTracker.h"
 #import "ShakeSystem.h"
 #import "ShootingMode.h"
-#import "SimpleSlingerControlSystem.h"
 #import "SoundManager.h"
 #import "SpawnSystem.h"
 #import "WaterWaveSystem.h"
@@ -59,7 +58,6 @@
 #import "PausedMenuState.h"
 #import "Game.h"
 #import "PossessWithSpiritCollisionHandler.h"
-#import "AdvancedSlingerControlSystem.h"
 #import "BalloonDialog.h"
 #import "Utils.h"
 #import "TutorialDescription.h"
@@ -71,6 +69,7 @@
 #import "NSObject+PWObject.h"
 #import "BeeWithTeleportCollisionHandler.h"
 #import "NotificationTypes.h"
+#import "SlingerControlSystem.h"
 
 @interface GameplayState()
 
@@ -203,14 +202,7 @@
 	[systemManager setSystem:_hudRenderingSystem];
 	_inputSystem = [InputSystem system];
 	[systemManager setSystem:_inputSystem];
-	if ([[PlayerInformation sharedInformation] usingAdvancedControlScheme])
-	{
-		_slingerControlSystem = [AdvancedSlingerControlSystem system];
-	}
-	else
-	{
-		_slingerControlSystem = [SimpleSlingerControlSystem system];
-	}
+	_slingerControlSystem = [SlingerControlSystem system];
 	[systemManager setSystem:_slingerControlSystem];
 	_aimPollenShooterSystem = [AimPollenShooterSystem system];
 	[systemManager setSystem:_aimPollenShooterSystem];

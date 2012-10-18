@@ -12,7 +12,6 @@
 @interface DebugMenuState : GameState
 {
     CCMenu *_menu;
-	CCMenuItemFont *_toggleControlSchemeMenuItem;
 }
 
 @end
