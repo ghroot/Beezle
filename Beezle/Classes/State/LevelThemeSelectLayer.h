@@ -14,6 +14,7 @@
 {
 	CCNode *_flowerLabelPosition;
 	CCSprite *_lockSprite;
+	CCSprite *_playSprite;
 	CCMenu *_menu;
 }
 

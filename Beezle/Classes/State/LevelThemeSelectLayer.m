@@ -31,6 +31,7 @@
 		[self addChild:[CCBReader nodeGraphFromFile:interfaceFileName owner:self]];
 
 		[_lockSprite setVisible:locked];
+		[_playSprite setVisible:!locked];
 
 		NSString *frameName;
 		NSString *animationName;
