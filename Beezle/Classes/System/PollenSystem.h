@@ -26,4 +26,6 @@
 
 -(id) initWithLevelSession:(LevelSession *)levelSession;
 
+-(void) collectPollen:(Entity *)entity;
+
 @end

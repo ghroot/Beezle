@@ -77,9 +77,14 @@
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
 	if ([entity hasComponent:[PollenComponent class]])
 	{
-		[_levelSession consumedPollenEntity:entity];
-		[self spawnPollenPickupLabel:entity];
+		[self collectPollen:entity];
 	}
+}
+
+-(void) collectPollen:(Entity *)entity
+{
+	[_levelSession consumedPollenEntity:entity];
+	[self spawnPollenPickupLabel:entity];
 }
 
 -(void) spawnPollenPickupLabel:(Entity *)pollenEntity

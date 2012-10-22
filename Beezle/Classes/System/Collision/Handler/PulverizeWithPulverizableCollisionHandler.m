@@ -16,6 +16,8 @@
 #import "CapturedSystem.h"
 #import "DisposableComponent.h"
 #import "SoundManager.h"
+#import "PollenComponent.h"
+#import "PollenSystem.h"
 
 @implementation PulverizeWithPulverizableCollisionHandler
 
@@ -43,6 +45,12 @@
 	{
 		CapturedSystem *capturedSystem = (CapturedSystem *)[[_world systemManager] getSystem:[CapturedSystem class]];
 		[capturedSystem saveContainedBees:pulverizableEntity];
+	}
+
+	if ([pulverizableEntity hasComponent:[PollenComponent class]])
+	{
+		PollenSystem *pollenSystem = (PollenSystem *) [[_world systemManager] getSystem:[PollenSystem class]];
+		[pollenSystem collectPollen:pulverizableEntity];
 	}
 
 	PulverizableComponent *pulverizableComponent = [PulverizableComponent getFrom:pulverizableEntity];
