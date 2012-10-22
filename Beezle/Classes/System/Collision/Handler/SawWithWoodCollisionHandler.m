@@ -79,14 +79,14 @@ static const float DELAY_PER_WOOD_PIECE = 0.3f;
 			[self playWoodPieceAnimation:woodEntity renderSprite:renderSprite animationName:[woodComponent randomSawedAnimationName] delete:(i == upIndexForLastStep) delay:(stepsFromStart * DELAY_PER_WOOD_PIECE)];
 		}
 
+		[EntityUtil setEntityIsAboutToBeDeleted:woodEntity];
+		[EntityUtil setEntityDisposed:woodEntity];
 		[EntityUtil disablePhysics:woodEntity];
 	}
 	else
 	{
 		[EntityUtil destroyEntity:woodEntity];
 	}
-
-	[EntityUtil setEntityIsAboutToBeDeleted:woodEntity];
 
 	[[SoundManager sharedManager] playSound:@"WoodSaw"];
 
