@@ -119,6 +119,7 @@
 	if ([spawnComponent keepRotation])
 	{
 		[EntityUtil setEntityRotation:spawnedEntity rotation:[transformComponent rotation]];
+		[EntityUtil setEntityMirrored:spawnedEntity mirrored:[transformComponent scale].x == -1.0f];
 	}
 
 	if ([spawnComponent autoDestroy])
