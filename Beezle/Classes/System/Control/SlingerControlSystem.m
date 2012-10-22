@@ -463,7 +463,8 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 	}
 
 	_controlChangeTextSprite = [[CCSprite alloc] initWithFile:fileName];
-	[_controlChangeTextSprite setPosition:[transformComponent position]];
+	float textX = max(65.0f, [transformComponent position].x);
+	[_controlChangeTextSprite setPosition:CGPointMake(textX, [transformComponent position].y)];
 	[[_renderSystem layer] addChild:_controlChangeTextSprite z:200];
 
 	id moveUpAction = [CCEaseSineOut actionWithAction:[CCMoveBy actionWithDuration:1.5f position:CGPointMake(0.0f, 20.0f)]];
