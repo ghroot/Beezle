@@ -435,6 +435,8 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 	[[PlayerInformation sharedInformation] save];
 
 	[self createControlChangeText:entity fileName:@"Text-TapToShoot.png"];
+
+	[[SoundManager sharedManager] playSound:@"PollenCollect"];
 }
 
 -(void) changeToAdvancedMode:(Entity *)entity
@@ -445,6 +447,8 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 	[[PlayerInformation sharedInformation] save];
 
 	[self createControlChangeText:entity fileName:@"Text-ReleaseToShoot.png"];
+
+	[[SoundManager sharedManager] playSound:@"PollenCollect"];
 }
 
 -(void) createControlChangeText:(Entity *)entity fileName:(NSString *)fileName
