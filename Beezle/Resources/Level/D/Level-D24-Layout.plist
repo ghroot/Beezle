@@ -12,6 +12,7 @@
 					<key>queuedBeeTypes</key>
 					<array>
 						<string>BOMBEE</string>
+						<string>BEE</string>
 					</array>
 				</dict>
 				<key>transform</key>
@@ -350,6 +351,29 @@
 			<key>type</key>
 			<string>BEEATER-LAND-D</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{282, 254}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{282, 254}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>EGG</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -357,7 +381,11 @@
 	<false/>
 	<key>name</key>
 	<string>Level-D24</string>
+	<key>pollenForThreeFlowers</key>
+	<integer>360</integer>
+	<key>pollenForTwoFlowers</key>
+	<integer>330</integer>
 	<key>version</key>
-	<integer>20</integer>
+	<integer>22</integer>
 </dict>
 </plist>

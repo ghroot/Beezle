@@ -147,7 +147,7 @@
 				<dict>
 					<key>containedBeeTypes</key>
 					<array>
-						<string>BEE</string>
+						<string>SPEEDEE</string>
 					</array>
 				</dict>
 				<key>physics</key>
@@ -337,12 +337,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{432, 203}</string>
+					<string>{391, 223}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{432, 203}</string>
+					<string>{391, 223}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -467,6 +467,29 @@
 			<key>type</key>
 			<string>POLLEN-YELLOW</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>-0.34906584024429321</real>
+					<key>position</key>
+					<string>{430, 198}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{430, 198}</string>
+					<key>rotation</key>
+					<real>20</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>EGG-REFLECTION</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -475,10 +498,10 @@
 	<key>name</key>
 	<string>Level-C19</string>
 	<key>pollenForThreeFlowers</key>
-	<integer>0</integer>
+	<integer>355</integer>
 	<key>pollenForTwoFlowers</key>
-	<integer>0</integer>
+	<integer>315</integer>
 	<key>version</key>
-	<integer>17</integer>
+	<integer>19</integer>
 </dict>
 </plist>
