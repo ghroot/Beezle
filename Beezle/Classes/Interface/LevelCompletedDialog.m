@@ -105,13 +105,22 @@ static const int POLLEN_COUNT_PER_FLYING_POLLEN = 4;
 		pollenForFlower3 = [_levelSession totalNumberOfPollen];
 	}
 
+	[[SoundManager sharedManager] playSound:@"FlowerFill"];
+
+	float durationPerFlower = 1.2f / numberOfFlowers;
+
 	int i = 0;
 	int currentPollenCount = 0;
+	float currentTime = 0.0f;
 	while (currentPollenCount < [_levelSession totalNumberOfPollen])
 	{
+		float waitTime;
+
 		int flowerIndex;
 		if (currentPollenCount < pollenForFlower1)
 		{
+			waitTime = durationPerFlower / (pollenForFlower1 / POLLEN_COUNT_PER_FLYING_POLLEN);
+
 			if (pollenForFlower1 - currentPollenCount < POLLEN_COUNT_PER_FLYING_POLLEN)
 			{
 				currentPollenCount = pollenForFlower1;
@@ -124,6 +133,8 @@ static const int POLLEN_COUNT_PER_FLYING_POLLEN = 4;
 		}
 		else if (currentPollenCount < pollenForFlower2)
 		{
+			waitTime = durationPerFlower / ((pollenForFlower2 - pollenForFlower1) / POLLEN_COUNT_PER_FLYING_POLLEN);
+
 			if (pollenForFlower2 - currentPollenCount < POLLEN_COUNT_PER_FLYING_POLLEN)
 			{
 				currentPollenCount = pollenForFlower2;
@@ -136,6 +147,8 @@ static const int POLLEN_COUNT_PER_FLYING_POLLEN = 4;
 		}
 		else
 		{
+			waitTime = durationPerFlower / ((pollenForFlower3 - pollenForFlower2) / POLLEN_COUNT_PER_FLYING_POLLEN);
+
 			if (pollenForFlower3 - currentPollenCount < POLLEN_COUNT_PER_FLYING_POLLEN)
 			{
 				currentPollenCount = pollenForFlower3;
@@ -147,7 +160,8 @@ static const int POLLEN_COUNT_PER_FLYING_POLLEN = 4;
 			flowerIndex = 2;
 		}
 
-		CCDelayTime *delayAction = [CCDelayTime actionWithDuration:(0.8f + i * 0.08f)];
+		CCDelayTime *delayAction = [CCDelayTime actionWithDuration:(currentTime)];
+		currentTime += waitTime;
 		CCCallBlock *flyAction = [CCCallBlock actionWithBlock:^{
 
 			CCSprite *flyingPollenSprite = [CCSprite spriteWithFile:@"Symbol-Pollen.png"];
@@ -168,7 +182,7 @@ static const int POLLEN_COUNT_PER_FLYING_POLLEN = 4;
 				targetPosition = [_flowerSprite3Position position];
 			}
 
-			CCMoveTo *moveAction = [CCMoveTo actionWithDuration:0.15f position:targetPosition];
+			CCMoveTo *moveAction = [CCMoveTo actionWithDuration:waitTime position:targetPosition];
 			CCCallBlock *removeAction = [CCCallBlock actionWithBlock:^{
 				[self removeChild:flyingPollenSprite cleanup:TRUE];
 
@@ -189,7 +203,7 @@ static const int POLLEN_COUNT_PER_FLYING_POLLEN = 4;
 						CCScaleTo *scaleDownAction = [CCScaleTo actionWithDuration:0.1f scale:1.0f];
 						[_flowerSprite1 runAction:[CCSequence actionOne:scaleUpAction two:scaleDownAction]];
 
-						[[SoundManager sharedManager] playSound:@"FlowerCompleted"];
+//						[[SoundManager sharedManager] playSound:@"FlowerCompleted"];
 					}
 					else
 					{
@@ -215,7 +229,7 @@ static const int POLLEN_COUNT_PER_FLYING_POLLEN = 4;
 						CCScaleTo *scaleDownAction = [CCScaleTo actionWithDuration:0.1f scale:1.0f];
 						[_flowerSprite2 runAction:[CCSequence actionOne:scaleUpAction two:scaleDownAction]];
 
-						[[SoundManager sharedManager] playSound:@"FlowerCompleted"];
+//						[[SoundManager sharedManager] playSound:@"FlowerCompleted"];
 					}
 					else
 					{
@@ -241,7 +255,7 @@ static const int POLLEN_COUNT_PER_FLYING_POLLEN = 4;
 						CCScaleTo *scaleDownAction = [CCScaleTo actionWithDuration:0.1f scale:1.0f];
 						[_flowerSprite3 runAction:[CCSequence actionOne:scaleUpAction two:scaleDownAction]];
 
-						[[SoundManager sharedManager] playSound:@"FlowerCompleted"];
+//						[[SoundManager sharedManager] playSound:@"FlowerCompleted"];
 					}
 					else if (numberOfPetalsFlower3 < 7)
 					{
