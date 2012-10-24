@@ -37,6 +37,8 @@
 	[[PhysicsComponent getFrom:beeEntity] disable];
 	[firstEntity refresh];
 
+	[[SoundManager sharedManager] playSound:@"TransporterBee"];
+
 	return FALSE;
 }
 
