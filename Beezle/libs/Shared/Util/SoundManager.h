@@ -14,7 +14,7 @@
     BOOL _setupHasRun;
     BOOL _isFunctional;
 	NSDictionary *_musicFilePathsByName;
-	NSDictionary *_sfxFilePathsByName;
+	NSDictionary *_sfxInfoDictsByName;
 	NSMutableDictionary *_soundIdsBySoundName;
 	NSString *_currentMusicName;
 	NSString *_lastRequestedMusicNameWhileNonFunctinal;

@@ -8,6 +8,9 @@
 
 #import "SoundManager.h"
 
+static const float MUSIC_VOLUME = 1.0f;
+static const float SFX_VOLUME = 0.5f;
+
 @interface SoundManager()
 
 -(void) asynchronousSetup;
@@ -42,7 +45,7 @@
 -(void) dealloc
 {
 	[_musicFilePathsByName release];
-	[_sfxFilePathsByName release];
+	[_sfxInfoDictsByName release];
 	[_soundIdsBySoundName release];
 	[_currentMusicName release];
 	[_lastRequestedMusicNameWhileNonFunctinal release];
@@ -87,6 +90,9 @@
 
         _isFunctional = TRUE;
 
+		[[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:MUSIC_VOLUME];
+		[[SimpleAudioEngine sharedEngine] setEffectsVolume:SFX_VOLUME];
+
 		if (_lastRequestedMusicNameWhileNonFunctinal != nil)
 		{
 			[self playMusic:_lastRequestedMusicNameWhileNonFunctinal];
@@ -102,30 +108,28 @@
 	NSString *filePath = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:fileName];
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
 	_musicFilePathsByName = [[NSDictionary dictionaryWithDictionary:[dict objectForKey:@"music"]] retain];
-	_sfxFilePathsByName = [[NSDictionary dictionaryWithDictionary:[dict objectForKey:@"sfx"]] retain];
+	_sfxInfoDictsByName = [[NSDictionary dictionaryWithDictionary:[dict objectForKey:@"sfx"]] retain];
 }
 
 -(void) preloadSoundEffects
 {
-	for (NSString *soundFilePath in [_sfxFilePathsByName allValues])
+	for (NSDictionary *soundInfoDict in [_sfxInfoDictsByName allValues])
 	{
-		[[SimpleAudioEngine sharedEngine] preloadEffect:soundFilePath];
+		[[SimpleAudioEngine sharedEngine] preloadEffect:[soundInfoDict objectForKey:@"fileName"]];
 	}
 }
 
 -(void) playSound:(NSString *)name
 {
-    if (_isFunctional &&
-		name != nil)
-    {
-		NSString *soundFilePath = [_sfxFilePathsByName objectForKey:name];
-		ALuint soundId;
-		if (soundFilePath != nil)
-		{
-			soundId = [[SimpleAudioEngine sharedEngine] playEffect:soundFilePath];
-			[_soundIdsBySoundName setObject:[NSNumber numberWithInt:soundId] forKey:name];
-		}
-    }
+	if (_isFunctional &&
+			name != nil)
+	{
+		NSDictionary *soundInfoDict = [_sfxInfoDictsByName objectForKey:name];
+		NSString *soundFilePath = [soundInfoDict objectForKey:@"fileName"];
+		float volume = [[soundInfoDict objectForKey:@"volume"] floatValue];
+		ALuint soundId = [[SimpleAudioEngine sharedEngine] playEffect:soundFilePath pitch:1.0f pan:0.0f gain:volume];
+		[_soundIdsBySoundName setObject:[NSNumber numberWithInt:soundId] forKey:name];
+	}
 }
 
 -(void) stopSound:(NSString *)name
@@ -201,8 +205,8 @@
 -(void) unMute
 {
 //	[[SimpleAudioEngine sharedEngine] setMute:FALSE];
-	[[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:1.0f];
-	[[SimpleAudioEngine sharedEngine] setEffectsVolume:1.0f];
+	[[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:MUSIC_VOLUME];
+	[[SimpleAudioEngine sharedEngine] setEffectsVolume:SFX_VOLUME];
 	_isMuted = FALSE;
 }
 
