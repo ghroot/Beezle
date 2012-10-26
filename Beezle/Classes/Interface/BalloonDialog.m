@@ -23,8 +23,6 @@
 {
 	if (self = [super initWithNode:[self createBubbleSprite:fileName]])
 	{
-		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Interface.plist"];
-
 		_balloonCanBeClosed = FALSE;
 
 		CCScaleTo *scaleAction = [CCEaseSineOut actionWithAction:[CCScaleTo actionWithDuration:0.8f scale:1.0f]];
@@ -48,6 +46,20 @@
 			{
 				return;
 			}
+
+			CCSpriteFrame *frame1 = [CCSpriteFrame frameWithTextureFilename:@"BubbleBurst-1.png" rect:CGRectMake(0.0f, 0.0f, 703.0f, 564.0f)];
+			CCSpriteFrame *frame2 = [CCSpriteFrame frameWithTextureFilename:@"BubbleBurst-2.png" rect:CGRectMake(0.0f, 0.0f, 703.0f, 564.0f)];
+			CCSpriteFrame *frame3 = [CCSpriteFrame frameWithTextureFilename:@"BubbleBurst-3.png" rect:CGRectMake(0.0f, 0.0f, 703.0f, 564.0f)];
+			NSArray *spriteFrames = [NSArray arrayWithObjects:frame1, frame2, frame3, nil];
+			CCAnimation *burstAnimation = [CCAnimation animationWithSpriteFrames:spriteFrames delay:0.08f];
+			CCAnimate *animationAction = [CCAnimate actionWithAnimation:burstAnimation];
+			CCSprite *burstSprite = [CCSprite spriteWithSpriteFrame:frame1];
+			CCCallBlock *removeAction = [CCCallBlock actionWithBlock:^{
+				[burstSprite removeFromParentAndCleanup:TRUE];
+			}];
+			[burstSprite setPosition:[Utils screenCenterPosition]];
+			[parent_ addChild:burstSprite];
+			[burstSprite runAction:[CCSequence actionOne:animationAction two:removeAction]];
 
 			[self close];
 
