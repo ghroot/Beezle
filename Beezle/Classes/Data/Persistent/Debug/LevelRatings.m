@@ -99,9 +99,6 @@
 {
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	
-	NSString *udid = [[UIDevice currentDevice] uniqueIdentifier];
-	[dict setObject:udid forKey:@"udid"];
-	
 	NSMutableArray *array = [NSMutableArray array];
 	for (LevelRating *rating in _ratings)
 	{

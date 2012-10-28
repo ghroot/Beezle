@@ -99,7 +99,7 @@ diffuse(float diff, float damp, float prev, float curr, float next){
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	
     [shader_ use];
-    [shader_ setUniformForModelViewProjectionMatrix];
+    [shader_ setUniformsForBuiltins];
     [shader_ setUniformLocation:colorLocation_ with4fv:(GLfloat*) &_color.r count:1];
 	
     ccGLEnableVertexAttribs(kCCVertexAttribFlag_Position);

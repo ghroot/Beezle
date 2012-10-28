@@ -9,6 +9,7 @@
 #import "AimingMode.h"
 #import "EntityUtil.h"
 #import "GameplayState.h"
+#import "ShootingMode.h"
 
 @implementation AimingMode
 

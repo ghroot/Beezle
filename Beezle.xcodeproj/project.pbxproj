@@ -15442,6 +15442,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
 					"COCOS2D_DEBUG=1",
+					LEVEL_RATINGS,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -15465,6 +15466,7 @@
 					DEBUG,
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
+					LEVEL_RATINGS,
 				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = "";
@@ -15529,7 +15531,6 @@
 					"\"$(SRCROOT)/Beezle/libs/FlurryAnalytics\"",
 					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
 				);
-				OTHER_CFLAGS = "-DNDEBUG";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
