@@ -90,9 +90,6 @@ static const float SFX_VOLUME = 0.5f;
 
         _isFunctional = TRUE;
 
-		[[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:MUSIC_VOLUME];
-		[[SimpleAudioEngine sharedEngine] setEffectsVolume:SFX_VOLUME];
-
 		if (_lastRequestedMusicNameWhileNonFunctinal != nil)
 		{
 			[self playMusic:_lastRequestedMusicNameWhileNonFunctinal];
@@ -196,7 +193,6 @@ static const float SFX_VOLUME = 0.5f;
 
 -(void) mute
 {
-//	[[SimpleAudioEngine sharedEngine] setMute:TRUE];
 	[[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.0f];
 	[[SimpleAudioEngine sharedEngine] setEffectsVolume:0.0f];
 	_isMuted = TRUE;
@@ -204,7 +200,6 @@ static const float SFX_VOLUME = 0.5f;
 
 -(void) unMute
 {
-//	[[SimpleAudioEngine sharedEngine] setMute:FALSE];
 	[[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:MUSIC_VOLUME];
 	[[SimpleAudioEngine sharedEngine] setEffectsVolume:SFX_VOLUME];
 	_isMuted = FALSE;

@@ -73,6 +73,10 @@
 	{
 		[[SoundManager sharedManager] mute];
 	}
+	else
+	{
+		[[SoundManager sharedManager] unMute];
+	}
 	[[SoundManager sharedManager] setup];
 
 	return TRUE;
