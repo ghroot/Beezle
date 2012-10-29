@@ -68,8 +68,9 @@
 	[[SessionTracker sharedTracker] start];
 
 	// iRate
-//	[[iRate sharedInstance] setPreviewMode:TRUE];
-	[[iRate sharedInstance] setPromptAtLaunch:FALSE];
+#ifdef DEBUG
+	[[iRate sharedInstance] setPreviewMode:TRUE];
+#endif
 
 	// Setup sound
 	if ([[PlayerInformation sharedInformation] isSoundMuted])
