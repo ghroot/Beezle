@@ -16,9 +16,10 @@
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "BeesFrontNode.h"
-#import "BeesFrontNode.h"
 #import "Utils.h"
 #import "GameStateUtils.h"
+#import "LevelRatings.h"
+#import "LevelRating.h"
 
 @interface LevelSelectMenuState()
 
@@ -104,6 +105,7 @@
     for (CCMenuItemImage *menuItemImage in [menu children])
     {
         NSString *levelName = [NSString stringWithFormat:@"Level-%@%d", _theme, [menuItemImage tag]];
+		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
         if ([[PlayerInformation sharedInformation] canPlayLevel:levelName])
         {
             NSString *openImageName = [NSString stringWithFormat:@"LevelCell-%@-Open.png", _theme];
@@ -116,7 +118,6 @@
 		else
 		{
 			NSString *imageName;
-			LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
 			if ([levelLayout isBossLevel])
 			{
 				imageName = [NSString stringWithFormat:@"LevelCell-%@-Beeater.png", _theme];
@@ -159,14 +160,27 @@
 		}
 
 #ifdef DEBUG
-		if (![[PlayerInformation sharedInformation] canPlayLevel:levelName])
+		NSString *levelString = [NSString stringWithFormat:@"%d", [menuItemImage tag]];
+		CCLabelTTF *debugLabel = [CCLabelTTF labelWithString:levelString fontName:@"Marker Felt" fontSize:24];
+		[debugLabel setAnchorPoint:CGPointMake(0.5f, 0.5f)];
+		[debugLabel setPosition:position];
+		if ([[LevelRatings sharedRatings] hasRatedLevel:levelName withVersion:[levelLayout version]])
 		{
-			NSString *levelString = [NSString stringWithFormat:@"%d", [menuItemImage tag]];
-			CCLabelTTF *debugLabel = [CCLabelTTF labelWithString:levelString fontName:@"Marker Felt" fontSize:24];
-			[debugLabel setAnchorPoint:CGPointMake(0.5f, 0.5f)];
-			[debugLabel setPosition:position];
-			[draggableNode addChild:debugLabel];
+			LevelRating *rating = [[LevelRatings sharedRatings] ratingForLevel:levelName];
+			if ([rating numberOfStars] == 1)
+			{
+				[debugLabel setColor:ccc3(255, 0, 0)];
+			}
+			else if ([rating numberOfStars] == 2)
+			{
+				[debugLabel setColor:ccc3(255, 255, 0)];
+			}
+			else if ([rating numberOfStars] == 3)
+			{
+				[debugLabel setColor:ccc3(0, 255, 0)];
+			}
 		}
+		[draggableNode addChild:debugLabel];
 #endif
     }
 	[draggableNode setContentSize:CGSizeMake(1200.0f, winSize.height)];
