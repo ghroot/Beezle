@@ -19,7 +19,7 @@
 
 @implementation BalloonDialog
 
--(id) initWithFileName:(NSString *)fileName
+-(id) initWithFileName:(NSString *)fileName andOffset:(CGPoint)offset
 {
 	if (self = [super initWithNode:[self createBubbleSprite:fileName]])
 	{
@@ -36,6 +36,7 @@
 			_balloonCanBeClosed = TRUE;
 		}];
 
+		[_node setPosition:ccpAdd([Utils screenCenterPosition], offset)];
 		[_node setScale:0.1f];
 		[_node runAction:[CCSequence actions:scaleAction, startSwayAction, enableMenuAction, nil]];
 		[[SoundManager sharedManager] playSound:@"BlowUpBalloon"];

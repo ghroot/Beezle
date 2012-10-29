@@ -89,7 +89,8 @@
 		if ([type isEqualToString:@"balloon"])
 		{
 			NSString *fileName = [tutorialDict objectForKey:@"fileName"];
-			tutorialDescription = [[[TutorialBalloonDescription alloc] initWithId:id trigger:triggerDescription andFileName:fileName] autorelease];
+			CGPoint offset = CGPointFromString([tutorialDict objectForKey:@"offset"]);
+			tutorialDescription = [[[TutorialBalloonDescription alloc] initWithId:id trigger:triggerDescription andFileName:fileName andOffset:offset] autorelease];
 		}
 		else if ([type isEqualToString:@"strip"])
 		{

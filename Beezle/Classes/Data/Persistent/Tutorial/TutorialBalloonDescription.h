@@ -11,10 +11,12 @@
 @interface TutorialBalloonDescription : TutorialDescription
 {
 	NSString *_fileName;
+	CGPoint _offset;
 }
 
 @property (nonatomic, readonly) NSString *fileName;
+@property (nonatomic, readonly) CGPoint offset;
 
--(id) initWithId:(NSString *)id trigger:(TutorialTriggerDescription *)triggerDescription andFileName:(NSString *)fileName;
+-(id) initWithId:(NSString *)id trigger:(TutorialTriggerDescription *)triggerDescription andFileName:(NSString *)fileName andOffset:(CGPoint)offset;
 
 @end

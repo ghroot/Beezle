@@ -14,6 +14,6 @@
 	BOOL _balloonCanBeClosed;
 }
 
--(id) initWithFileName:(NSString *)fileName;
+-(id) initWithFileName:(NSString *)fileName andOffset:(CGPoint)offset;
 
 @end
