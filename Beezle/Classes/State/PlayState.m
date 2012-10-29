@@ -324,7 +324,7 @@ static int nextBeeIndex = 0;
 	[self addChild:beeaterMediumSprite z:30];
 
 	CCSprite *beeaterSmallSprite = [CCSprite spriteWithSpriteFrameName:@"Play/Play-Beeater-s-1.png"];
-	[beeaterSmallSprite setPosition:CGPointMake(140.0f, 96.0f)];
+	[beeaterSmallSprite setPosition:CGPointMake(140.0f, 92.0f)];
 	[beeaterSmallSprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:[[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Beeater-Small"]]]];
 	[self addChild:beeaterSmallSprite z:30];
 }
