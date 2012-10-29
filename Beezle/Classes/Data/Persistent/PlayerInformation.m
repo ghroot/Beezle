@@ -14,6 +14,7 @@
 
 @interface PlayerInformation()
 
+-(void) cloudDataDidChange:(NSNotification *)notification;
 -(void) load;
 -(NSDictionary *) getInformationAsDictionary;
 -(BOOL) hasCompletedLevelAtLeastOnce:(NSString *)levelName;
@@ -41,39 +42,90 @@
 	{
 		_pollenRecordByLevelName = [NSMutableDictionary new];
 		_seenTutorialIds = [NSMutableSet new];
-		[self load];
 	}
 	return self;
 }
 
 -(void) dealloc
 {
+#ifdef ICLOUD
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+#endif
+
 	[_pollenRecordByLevelName release];
 	[_seenTutorialIds release];
 	
 	[super dealloc];
 }
 
+-(void) initialise
+{
+	[self load];
+
+#ifdef ICLOUD
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cloudDataDidChange:) name:NSUbiquitousKeyValueStoreDidChangeExternallyNotification object:[NSUbiquitousKeyValueStore defaultStore]];
+	[[NSUbiquitousKeyValueStore defaultStore] synchronize];
+#endif
+}
+
+-(void) cloudDataDidChange:(NSNotification *)notification
+{
+	NSDictionary *cloudDict = [notification userInfo];
+
+	NSDictionary *cloudPollenRecordByLevelName = [cloudDict objectForKey:@"pollenRecordByLevelName"];
+	for (NSString *levelName in [cloudPollenRecordByLevelName allKeys])
+	{
+		int localRecord = [[_pollenRecordByLevelName objectForKey:levelName] intValue];
+		int cloudRecord = [[cloudPollenRecordByLevelName objectForKey:levelName] intValue];
+		if (cloudRecord > localRecord)
+		{
+			[_pollenRecordByLevelName setObject:[NSNumber numberWithInt:cloudRecord] forKey:levelName];
+		}
+	}
+	NSArray *cloudSeenTutorialIds = [cloudDict objectForKey:@"seenTutorialIds"];
+	for (NSString *cloudSeenTutorialId in cloudSeenTutorialIds)
+	{
+		if (![_seenTutorialIds containsObject:cloudSeenTutorialId])
+		{
+			[_seenTutorialIds addObject:cloudSeenTutorialId];
+		}
+	}
+	_isSoundMuted = [[cloudDict objectForKey:@"isSoundMuted"] boolValue];
+	_usingAdvancedControlScheme = [[cloudDict objectForKey:@"usingAdvancedControlScheme"] boolValue];
+}
+
 -(void) save
 {
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
-	NSString *documentsDirectory = [paths objectAtIndex:0];
-	NSString *fileName = @"Player-Information.plist";
-	NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
-	BOOL success = [[self getInformationAsDictionary] writeToFile:filePath atomically:TRUE];
-	if (!success)
-	{
-		NSLog(@"Player information failed to save...");
-	}
+//	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
+//	NSString *documentsDirectory = [paths objectAtIndex:0];
+//	NSString *fileName = @"Player-Information.plist";
+//	NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+//	BOOL success = [[self getInformationAsDictionary] writeToFile:filePath atomically:TRUE];
+//	if (!success)
+//	{
+//		NSLog(@"Player information failed to save...");
+//	}
+
+	NSDictionary *dict = [self getInformationAsDictionary];
+
+	[[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"playerInformation"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+
+#ifdef ICLOUD
+	[[NSUbiquitousKeyValueStore defaultStore] setObject:dict forKey:@"playerInformation"];
+#endif
 }
 
 -(void) load
 {
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
-	NSString *documentsDirectory = [paths objectAtIndex:0];
-	NSString *fileName = @"Player-Information.plist";
-	NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
-	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
+//	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
+//	NSString *documentsDirectory = [paths objectAtIndex:0];
+//	NSString *fileName = @"Player-Information.plist";
+//	NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+//	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
+
+	NSDictionary *dict = [[NSUserDefaults standardUserDefaults] objectForKey:@"playerInformation"];
+
 	if (dict != nil)
 	{
 		[_pollenRecordByLevelName addEntriesFromDictionary:[dict objectForKey:@"pollenRecordByLevelName"]];
@@ -90,11 +142,18 @@
 	_isSoundMuted = FALSE;
 	_usingAdvancedControlScheme = FALSE;
 	
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
-	NSString *documentsDirectory = [paths objectAtIndex:0];
-	NSString *fileName = @"Player-Information.plist";
-	NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
-	[[NSFileManager defaultManager] removeItemAtPath:filePath error:NULL];
+//	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
+//	NSString *documentsDirectory = [paths objectAtIndex:0];
+//	NSString *fileName = @"Player-Information.plist";
+//	NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+//	[[NSFileManager defaultManager] removeItemAtPath:filePath error:NULL];
+
+	[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"playerInformation"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+
+#ifdef ICLOUD
+    [[NSUbiquitousKeyValueStore defaultStore] removeObjectForKey:@"playerInformation"];
+#endif
 }
 
 -(NSDictionary *) getInformationAsDictionary

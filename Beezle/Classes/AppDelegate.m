@@ -60,7 +60,10 @@
 	
 	// Show
 	[_window makeKeyAndVisible];
-	
+
+	// Player information
+	[[PlayerInformation sharedInformation] initialise];
+
 	// Tracking
 	[[SessionTracker sharedTracker] start];
 

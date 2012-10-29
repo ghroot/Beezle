@@ -6570,6 +6570,7 @@
 		2CEA329B145F66F7000FF575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
 		2CEA3476145F66F9000FF575 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		2CEA3477145F66F9000FF575 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2CF7ADF8163DE85B00AE18B3 /* Busy Bees.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Busy Bees.entitlements"; sourceTree = "<group>"; };
 		2CF7C6A615CAA436006C2F0C /* Super-Beeater-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Super-Beeater-Template.plist"; sourceTree = "<group>"; };
 		2CF7C6A815CAA442006C2F0C /* Super-Beeater-A.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Super-Beeater-A.plist"; sourceTree = "<group>"; };
 		2CF8E0B515751BFB0052F330 /* Bombee-Piece.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bombee-Piece.plist"; sourceTree = "<group>"; };
@@ -10476,6 +10477,7 @@
 		2CEA3268145F66F7000FF575 = {
 			isa = PBXGroup;
 			children = (
+				2CF7ADF8163DE85B00AE18B3 /* Busy Bees.entitlements */,
 				2CD4A10E16171C92002F23F7 /* Default@2x.png */,
 				2CD4A10C16171C83002F23F7 /* Default.png */,
 				2CEA3287145F66F7000FF575 /* Beezle */,
@@ -15450,7 +15452,7 @@
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				KEEP_PRIVATE_EXTERNS = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -15474,7 +15476,7 @@
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				KEEP_PRIVATE_EXTERNS = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -15485,6 +15487,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_ENTITLEMENTS = "Busy Bees.entitlements";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -15515,6 +15518,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_ENTITLEMENTS = "Busy Bees.entitlements";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;

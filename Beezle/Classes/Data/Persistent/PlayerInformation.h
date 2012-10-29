@@ -23,6 +23,7 @@
 
 +(PlayerInformation *) sharedInformation;
 
+-(void) initialise;
 -(void) save;
 -(void) reset;
 -(void) store:(LevelSession *)levelSession;
