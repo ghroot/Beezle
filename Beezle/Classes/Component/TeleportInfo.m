@@ -8,7 +8,7 @@
 
 #import "TeleportInfo.h"
 
-static const int TELEPORT_DURATION = 70;
+static const int TELEPORT_DURATION = 130;
 
 @implementation TeleportInfo
 
