@@ -70,6 +70,7 @@
 	// iRate
 #ifdef DEBUG
 	[[iRate sharedInstance] setPreviewMode:TRUE];
+	[[iRate sharedInstance] setPromptAtLaunch:FALSE];
 #endif
 
 	// Setup sound
