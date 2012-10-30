@@ -16,6 +16,7 @@
 #import "iRate.h"
 #import "PlayerInformation.h"
 #import "NotificationTypes.h"
+#import "AnimationSoundMediator.h"
 
 @implementation AppDelegate
 
@@ -63,6 +64,9 @@
 
 	// Player information
 	[[PlayerInformation sharedInformation] initialise];
+
+	// Animation sound trigger
+	[[AnimationSoundMediator sharedMediator] initialise];
 
 	// Tracking
 	[[SessionTracker sharedTracker] start];

@@ -16,7 +16,7 @@
 
 @interface LevelThemeSelectLayer()
 
--(void) animateSprite:(CCSprite *)sprite animationName:(NSString *)animationName;
+-(void) animateSprite:(CCSprite *)sprite animationNames:(NSArray *)animationNames;
 -(void) swaySprite:(CCSprite *)sprite speed:(float)speed;
 
 @end
@@ -33,32 +33,82 @@
 		[_lockSprite setVisible:locked];
 		[_playSprite setVisible:!locked];
 
-		NSString *frameName;
-		NSString *animationName;
+		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Interface.plist"];
+		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Chooser-Animations.plist"];
+
+		NSMutableArray *animationNames = [NSMutableArray array];
 		if ([theme isEqualToString:@"A"])
 		{
-			frameName = @"Chooser/Title-Bee-1.png";
-			animationName = @"Title-Bee";
+			[animationNames addObject:@"Title-Bee-Idle"];
+			[animationNames addObject:@"Title-Bee-Idle"];
+			[animationNames addObject:@"Title-Bee-Idle"];
+			[animationNames addObject:@"Title-Bee-Idle"];
+			[animationNames addObject:@"Title-Bee-Idle"];
+			[animationNames addObject:@"Title-Bee-Idle"];
+			[animationNames addObject:@"Title-Bee-Idle"];
+			[animationNames addObject:@"Title-Bee-Idle"];
+			[animationNames addObject:@"Title-Bee-Blink"];
 		}
 		else if ([theme isEqualToString:@"B"])
 		{
-			frameName = @"Chooser/Title-Sumee-1.png";
-			animationName = @"Title-Sumee";
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Fart"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Idle"];
+			[animationNames addObject:@"Title-Sumee-Blink"];
 		}
 		else if ([theme isEqualToString:@"C"])
 		{
-			frameName = @"Chooser/Title-TBee-1.png";
-			animationName = @"Title-TBee";
+			[animationNames addObject:@"Title-TBee-Idle"];
+			[animationNames addObject:@"Title-TBee-Idle"];
+			[animationNames addObject:@"Title-TBee-Idle"];
+			[animationNames addObject:@"Title-TBee-Idle"];
+			[animationNames addObject:@"Title-TBee-Idle"];
+			[animationNames addObject:@"Title-TBee-Idle"];
+			[animationNames addObject:@"Title-TBee-Idle"];
+			[animationNames addObject:@"Title-TBee-Idle"];
+			[animationNames addObject:@"Title-TBee-Blink"];
 		}
 		else
 		{
-			frameName = @"Chooser/Title-Mumee-1.png";
-			animationName = @"Title-Mumee";
+			[animationNames addObject:@"Title-Mumee-Idle"];
+			[animationNames addObject:@"Title-Mumee-Idle"];
+			[animationNames addObject:@"Title-Mumee-Idle"];
+			[animationNames addObject:@"Title-Mumee-Idle"];
+			[animationNames addObject:@"Title-Mumee-Idle"];
+			[animationNames addObject:@"Title-Mumee-Idle"];
+			[animationNames addObject:@"Title-Mumee-Idle"];
+			[animationNames addObject:@"Title-Mumee-Idle"];
+			[animationNames addObject:@"Title-Mumee-Blink"];
 		}
 
-		CCSprite *beeSprite = [CCSprite spriteWithSpriteFrameName:frameName];
+		CCSprite *beeSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
 		[beeSprite setPosition:CGPointMake(180.0f, 180.0f)];
-		[self animateSprite:beeSprite animationName:animationName];
+		[self animateSprite:beeSprite animationNames:animationNames];
 		[self swaySprite:beeSprite speed:0.4f];
 		CCScaleTo *scaleUpAction = [CCScaleTo actionWithDuration:2.0f scale:1.2f];
 		CCScaleTo *scaleDownAction = [CCScaleTo actionWithDuration:2.0f scale:0.8f];
@@ -68,9 +118,9 @@
 		[beeSprite runAction:[CCRepeatForever actionWithAction:[CCSequence actionOne:rotateRightAction two:rotateLeftAction]]];
 		[self addChild:beeSprite];
 
-		CCSprite *beeBackSprite = [CCSprite spriteWithSpriteFrameName:@"Chooser/Title-BeeBack-1.png"];
+		CCSprite *beeBackSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
 		[beeBackSprite setPosition:CGPointMake(280.0f, 140.0f)];
-		[self animateSprite:beeBackSprite animationName:@"Title-BeeBack"];
+		[self animateSprite:beeBackSprite animationNames:[NSArray arrayWithObject:@"Title-BeeBack-Idle"]];
 		rotateRightAction = [CCRotateTo actionWithDuration:0.6f angle:3.0f];
 		rotateLeftAction = [CCRotateTo actionWithDuration:0.6f angle:-3.0f];
 		[beeBackSprite runAction:[CCRepeatForever actionWithAction:[CCSequence actionOne:rotateRightAction two:rotateLeftAction]]];
@@ -107,11 +157,19 @@
 	[super dealloc];
 }
 
--(void) animateSprite:(CCSprite *)sprite animationName:(NSString *)animationName
+-(void) animateSprite:(CCSprite *)sprite animationNames:(NSArray *)animationNames
 {
-	CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:animationName];
-	CCAnimate *animateActon = [CCAnimate actionWithAnimation:animation];
-	[sprite runAction:[CCRepeatForever actionWithAction:animateActon]];
+	NSMutableArray *animationActions = [NSMutableArray array];
+	for (NSString *animationName in animationNames)
+	{
+		CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:animationName];
+		CCAnimate *animationAction = [CCAnimate actionWithAnimation:animation];
+		[animationActions addObject:animationAction];
+	}
+	[sprite setDisplayFrameWithAnimationName:[animationNames objectAtIndex:0] index:0];
+	CCSequence *sequenceAction = [CCSequence actionWithArray:animationActions];
+	CCRepeatForever *repeatForeverAction = [CCRepeatForever actionWithAction:sequenceAction];
+	[sprite runAction:repeatForeverAction];
 }
 
 -(void) swaySprite:(CCSprite *)sprite speed:(float)speed

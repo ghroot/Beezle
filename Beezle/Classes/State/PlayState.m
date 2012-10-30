@@ -41,7 +41,7 @@ static int nextBeeIndex = 0;
 		[self addChild:backgroundSprite];
 
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Interface.plist"];
-		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Interface-Animations.plist"];
+		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Play-Animations.plist"];
 
 		_menuItemPlay = [CCMenuItemImage itemWithNormalImage:@"PlayButton.png" selectedImage:@"PlayButton.png" target:self selector:@selector(play)];
 		[_menuItemPlay setPosition:CGPointMake(0.0f, -35.0f)];

@@ -25,7 +25,7 @@
 	if (self = [super init])
 	{
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Interface.plist"];
-		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Interface-Animations.plist"];
+		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Chooser-Animations.plist"];
 
 		_soundOnMenuItem = [CCMenuItemImage itemWithNormalImage:@"SoundButton-on.png" selectedImage:@"SoundButton-on.png" target:self selector:@selector(muteSound)];
 		[_soundOnMenuItem setAnchorPoint:CGPointMake(0.5f, 0.5f)];
