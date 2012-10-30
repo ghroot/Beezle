@@ -10,16 +10,22 @@
 
 @implementation CoverLayer
 
--(id) init
+-(id) initWithOpacity:(GLubyte)opacity
 {
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
     if (self = [super initWithColor:ccc4(0, 0, 0, 0) width:winSize.width height:winSize.height])
 	{
 //		[self setIsTouchEnabled:TRUE];
 		
-		[self runAction:[CCFadeTo actionWithDuration:0.2f opacity:120]];
+		[self runAction:[CCFadeTo actionWithDuration:0.2f opacity:opacity]];
     }
     return self;
+}
+
+-(id) init
+{
+	self = [self initWithOpacity:120];
+	return self;
 }
 
 //-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event

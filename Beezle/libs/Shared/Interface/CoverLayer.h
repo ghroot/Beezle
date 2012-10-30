@@ -10,4 +10,6 @@
 
 @interface CoverLayer : CCLayerColor
 
+-(id) initWithOpacity:(GLubyte)opacity;
+
 @end

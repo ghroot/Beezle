@@ -14,6 +14,7 @@
 	CCNode *_node;
 }
 
+-(id) initWithNode:(CCNode *)node coverOpacity:(GLubyte)opacity;
 -(id) initWithNode:(CCNode *)node;
 -(id) initWithInterfaceFile:(NSString *)filePath;
 
