@@ -26,6 +26,7 @@ static BOOL isFirstLoad = TRUE;
 -(void) createScrollLayer:(NSArray *)themes;
 -(void) updateBackground;
 -(void) updatePageDots:(int)page;
+-(void) updateArrows:(int)page;
 
 @end
 
@@ -69,15 +70,31 @@ static BOOL isFirstLoad = TRUE;
 	NSArray *themes = [[LevelOrganizer sharedOrganizer] themes];
 	[self createScrollLayer:themes];
 
+	_numberOfPages = [themes count];
+
 	[self addChild:[BeesFrontNode node] z:31];
+
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+
+	_arrowLeftSprite = [CCSprite spriteWithFile:@"Symbol-Scroll-White.png"];
+	[_arrowLeftSprite setScaleX:-1.0f];
+	[_arrowLeftSprite setAnchorPoint:CGPointMake(1.0f, 0.5f)];
+	[_arrowLeftSprite setPosition:CGPointMake(5.0f, winSize.height / 2)];
+	[self addChild:_arrowLeftSprite z:32];
+
+	_arrowRightSprite = [CCSprite spriteWithFile:@"Symbol-Scroll-White.png"];
+	[_arrowRightSprite setAnchorPoint:CGPointMake(1.0f, 0.5f)];
+	[_arrowRightSprite setPosition:CGPointMake(winSize.width - 5.0f, winSize.height / 2)];
+	[self addChild:_arrowRightSprite z:32];
 
 	[self createBackMenu];
 
-	int index = [[[LevelOrganizer sharedOrganizer] themes] indexOfObject:_theme];
+	int index = [themes indexOfObject:_theme];
 	[_scrollLayer selectPage:index];
 
 	[self updateBackground];
-    [self updatePageDots:[themes indexOfObject:_theme]];
+    [self updatePageDots:index];
+    [self updateArrows:index];
 }
 
 -(void) dealloc
@@ -169,6 +186,7 @@ static BOOL isFirstLoad = TRUE;
 -(void) scrollLayer:(CCScrollLayer *)sender scrolledToPageNumber:(int)page
 {
     [self updatePageDots:page];
+	[self updateArrows:page];
 }
 
 -(void) updatePageDots:(int)page
@@ -194,6 +212,12 @@ static BOOL isFirstLoad = TRUE;
 		[_pageDotSprites addObject:pageDotSprite];
 		[self addChild:pageDotSprite z:35];
 	}
+}
+
+-(void) updateArrows:(int)page
+{
+	[_arrowLeftSprite setVisible:page > 0];
+	[_arrowRightSprite setVisible:page < _numberOfPages - 1];
 }
 
 @end

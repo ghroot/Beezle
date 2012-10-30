@@ -265,4 +265,11 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 	[self ccTouchEnded:touch withEvent:event];
 }
 
+-(float) distanceLeftToScrollRight
+{
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	float minX = winSize.width - [_draggableNode contentSize].width;
+	return [_draggableNode position].x - minX;
+}
+
 @end

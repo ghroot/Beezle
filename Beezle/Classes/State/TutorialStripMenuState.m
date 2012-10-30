@@ -83,6 +83,11 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 		_scrollView = [[ScrollView alloc] initWithContent:draggableNode];
 		[self addChild:_scrollView];
 
+		_arrowSprite = [CCSprite spriteWithFile:@"Symbol-Scroll-White.png"];
+		[_arrowSprite setAnchorPoint:CGPointMake(1.0f, 0.5f)];
+		[_arrowSprite setPosition:CGPointMake(winSize.width - 5.0f, winSize.height / 2)];
+		[self addChild:_arrowSprite];
+
 		_block = [block copy];
 	}
 	return self;
@@ -94,6 +99,13 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 	[_block release];
 
 	[super dealloc];
+}
+
+-(void) update:(ccTime)delta
+{
+	[super update:delta];
+
+	[_arrowSprite setVisible:[_scrollView distanceLeftToScrollRight] >= 15.0f];
 }
 
 

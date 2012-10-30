@@ -26,4 +26,6 @@
 
 -(id) initWithContent:(CCNode *)node;
 
+-(float) distanceLeftToScrollRight;
+
 @end

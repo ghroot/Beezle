@@ -13,6 +13,7 @@
 @interface TutorialStripMenuState : GameState
 {
 	ScrollView *_scrollView;
+	CCSprite *_arrowSprite;
 	void (^_block)();
 }
 
