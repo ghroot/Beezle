@@ -7,15 +7,15 @@
 //
 
 #import "SessionTracker.h"
-#import "FlurryAnalytics.h"
 #import "TestFlight.h"
+#import "Flurry.h"
 
-static NSString *FLURRY_ANALYTICS_TOKEN = @"2GF435EGU2HN2KIKLCGG";
+static NSString *FLURRY_ANALYTICS_TOKEN = @"R5JM67WQ5K522SHSW925";
 static NSString *TEST_FLIGHT_TOKEN = @"ae396bc6dbee18a35a1087713acb890b_ODQ5NTEyMDEyLTA0LTI2IDE5OjE0OjM3LjYyMDc3NQ";
 
 void uncaughtExceptionHandler(NSException *exception)
 {
-    [FlurryAnalytics logError:@"Uncaught" message:@"Crash!" exception:exception];
+    [Flurry logError:@"Uncaught" message:@"Crash!" exception:exception];
 }
 
 @implementation SessionTracker
@@ -34,7 +34,7 @@ void uncaughtExceptionHandler(NSException *exception)
 {
 	// Flurry
 	NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
-    [FlurryAnalytics startSession:FLURRY_ANALYTICS_TOKEN];
+    [Flurry startSession:FLURRY_ANALYTICS_TOKEN];
 	
 	// TestFlight
 	[TestFlight takeOff:TEST_FLIGHT_TOKEN];
@@ -44,21 +44,21 @@ void uncaughtExceptionHandler(NSException *exception)
 {
 	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
 	[parameters setObject:levelName forKey:@"levelName"];
-	[FlurryAnalytics logEvent:@"LEVEL_STARTED" withParameters:parameters];
+	[Flurry logEvent:@"LEVEL_STARTED" withParameters:parameters];
 }
 
 -(void) trackCompletedLevel:(NSString *)levelName
 {
 	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
 	[parameters setObject:levelName forKey:@"levelName"];
-	[FlurryAnalytics logEvent:@"LEVEL_COMPLETED" withParameters:parameters];
+	[Flurry logEvent:@"LEVEL_COMPLETED" withParameters:parameters];
 }
 
 -(void) trackFailedLevel:(NSString *)levelName
 {
 	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
 	[parameters setObject:levelName forKey:@"levelName"];
-	[FlurryAnalytics logEvent:@"LEVEL_FAILED" withParameters:parameters];
+	[Flurry logEvent:@"LEVEL_FAILED" withParameters:parameters];
 }
 
 @end

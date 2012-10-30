@@ -28,7 +28,6 @@
 		2C27E90A14D20577002165CD /* TagEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FB14D20577002165CD /* TagEntitySystem.m */; };
 		2C27E90B14D20577002165CD /* TagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FD14D20577002165CD /* TagManager.m */; };
 		2C27E90C14D20577002165CD /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FF14D20577002165CD /* World.m */; };
-		2C2FB66B14FE800100D115AF /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		2C32989115164527009A5B83 /* CCBReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C32989015164527009A5B83 /* CCBReader.m */; };
 		2C403FD915FD3FB000A2124A /* Level-A1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C403BBD15FD3FB000A2124A /* Level-A1-hd.jpg */; };
 		2C403FDA15FD3FB000A2124A /* Level-A1-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C403BBE15FD3FB000A2124A /* Level-A1-Layout.plist */; };
@@ -2100,7 +2099,6 @@
 		2CBFC62D162CC5E50086EAF8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3283145F66F7000FF575 /* Foundation.framework */; };
 		2CBFC62E162CC5E50086EAF8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3285145F66F7000FF575 /* CoreGraphics.framework */; };
 		2CBFC62F162CC5E50086EAF8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0D500314A8CDBC00466316 /* MessageUI.framework */; };
-		2CBFC630162CC5E50086EAF8 /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		2CBFC631162CC5E50086EAF8 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5C9A37154A0D8800FF6F57 /* libTestFlight.a */; };
 		2CBFC632162CC5E50086EAF8 /* libObjectiveChipmunk-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C95F92215CC87D500926A96 /* libObjectiveChipmunk-iPhone.a */; };
 		2CBFC634162CC5E50086EAF8 /* LICENSE_Chipmunk.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C114745148B9459002E4DBD /* LICENSE_Chipmunk.txt */; };
@@ -4020,6 +4018,7 @@
 		2CEA3284145F66F7000FF575 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3283145F66F7000FF575 /* Foundation.framework */; };
 		2CEA3286145F66F7000FF575 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3285145F66F7000FF575 /* CoreGraphics.framework */; };
 		2CEA3478145F66F9000FF575 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA3477145F66F9000FF575 /* main.m */; };
+		2CF7AE541640963A00AE18B3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF7AE531640963A00AE18B3 /* SystemConfiguration.framework */; };
 		2CF7C6A715CAA436006C2F0C /* Super-Beeater-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF7C6A615CAA436006C2F0C /* Super-Beeater-Template.plist */; };
 		2CF7C6A915CAA442006C2F0C /* Super-Beeater-A.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF7C6A815CAA442006C2F0C /* Super-Beeater-A.plist */; };
 		2CF8E0B615751BFB0052F330 /* Bombee-Piece.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0B515751BFB0052F330 /* Bombee-Piece.plist */; };
@@ -4266,6 +4265,7 @@
 		BF8C71D864CAC50E99F25754 /* Text-ReleaseToShoot.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C73E994CE95F8A6B249BE /* Text-ReleaseToShoot.png */; };
 		BF8C72131566EBC705712AD3 /* B60-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C750AB45E46E081DB9823 /* B60-Glass-hd.png */; };
 		BF8C7214AD7C422A4E2631D1 /* BubbleYel-A3-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C713FEE7AC48F7C463E71 /* BubbleYel-A3-hd.png */; };
+		BF8C7230C53737AD96BFF25A /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8C739BB13E582AF07D5C6F /* libFlurry.a */; };
 		BF8C723AED359EE270E258C5 /* BubbleBurst-3.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7874B2C1E00BCDDE3B97 /* BubbleBurst-3.png */; };
 		BF8C724D50FD4CB454D82910 /* Symbol-Redo-White-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7A925CA30E9A80AB8997 /* Symbol-Redo-White-hd.png */; };
 		BF8C72671D66349302C098F2 /* BeesFrontNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8C7809DE0790FB18CED4E4 /* BeesFrontNode.m */; };
@@ -4459,8 +4459,6 @@
 		2C27E8FD14D20577002165CD /* TagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagManager.m; sourceTree = "<group>"; };
 		2C27E8FE14D20577002165CD /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		2C27E8FF14D20577002165CD /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
-		2C2FB66914FE800100D115AF /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAnalytics.h; sourceTree = "<group>"; };
-		2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryAnalytics.a; sourceTree = "<group>"; };
 		2C32988F15164527009A5B83 /* CCBReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBReader.h; sourceTree = "<group>"; };
 		2C32989015164527009A5B83 /* CCBReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBReader.m; sourceTree = "<group>"; };
 		2C403BBD15FD3FB000A2124A /* Level-A1-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-A1-hd.jpg"; sourceTree = "<group>"; };
@@ -6576,6 +6574,7 @@
 		2CEA3476145F66F9000FF575 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		2CEA3477145F66F9000FF575 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2CF7ADF8163DE85B00AE18B3 /* Busy Bees.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Busy Bees.entitlements"; sourceTree = "<group>"; };
+		2CF7AE531640963A00AE18B3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2CF7C6A615CAA436006C2F0C /* Super-Beeater-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Super-Beeater-Template.plist"; sourceTree = "<group>"; };
 		2CF7C6A815CAA442006C2F0C /* Super-Beeater-A.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Super-Beeater-A.plist"; sourceTree = "<group>"; };
 		2CF8E0B515751BFB0052F330 /* Bombee-Piece.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bombee-Piece.plist"; sourceTree = "<group>"; };
@@ -6867,6 +6866,7 @@
 		BF8C71B6C7E93739CABBEFDC /* BubbleYel-C7-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-C7-hd.png"; sourceTree = "<group>"; };
 		BF8C71D3A389D5A8F81B9F67 /* numberImages-red-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "numberImages-red-s.png"; sourceTree = "<group>"; };
 		BF8C71EF084E21FB532DC2BF /* Title-s-A-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Title-s-A-hd.png"; sourceTree = "<group>"; };
+		BF8C7200C4E1B1DC1807F32E /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = libs/Flurry/Flurry.h; sourceTree = "<group>"; };
 		BF8C722149DAF348CBFDD0CF /* Title-s-D-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Title-s-D-hd.png"; sourceTree = "<group>"; };
 		BF8C72224F9D165161FBAA44 /* BubbleYel-D2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-D2-hd.png"; sourceTree = "<group>"; };
 		BF8C7239A07AD0EBF3ADD5D8 /* C58c-Ice-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C58c-Ice-hd.png"; sourceTree = "<group>"; };
@@ -6882,6 +6882,7 @@
 		BF8C73965D6EB7030D9ED7FD /* BubbleYel-A13-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-A13-hd.png"; sourceTree = "<group>"; };
 		BF8C7396FEF30F1810BF06AC /* FreedMumee.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = FreedMumee.caf; sourceTree = "<group>"; };
 		BF8C739A4CF21A370CF60469 /* ThemeSelect-Shared.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file.ccbi; path = "ThemeSelect-Shared.ccbi"; sourceTree = "<group>"; };
+		BF8C739BB13E582AF07D5C6F /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry.a; path = libs/Flurry/libFlurry.a; sourceTree = "<group>"; };
 		BF8C739EFC6CEF76D54E0556 /* Lock-Chooser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lock-Chooser.png"; sourceTree = "<group>"; };
 		BF8C73A49791F692FF3F2BA0 /* PlayScene.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PlayScene.jpg; sourceTree = "<group>"; };
 		BF8C73D167A827D8E6CC6CFE /* PulverWood.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = PulverWood.caf; sourceTree = "<group>"; };
@@ -7052,7 +7053,6 @@
 				2CBFC62D162CC5E50086EAF8 /* Foundation.framework in Frameworks */,
 				2CBFC62E162CC5E50086EAF8 /* CoreGraphics.framework in Frameworks */,
 				2CBFC62F162CC5E50086EAF8 /* MessageUI.framework in Frameworks */,
-				2CBFC630162CC5E50086EAF8 /* libFlurryAnalytics.a in Frameworks */,
 				2CBFC631162CC5E50086EAF8 /* libTestFlight.a in Frameworks */,
 				2CBFC632162CC5E50086EAF8 /* libObjectiveChipmunk-iPhone.a in Frameworks */,
 			);
@@ -7062,6 +7062,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CF7AE541640963A00AE18B3 /* SystemConfiguration.framework in Frameworks */,
 				2C5C9A3B154A0E2A00FF6F57 /* libz.dylib in Frameworks */,
 				2CEA3278145F66F7000FF575 /* QuartzCore.framework in Frameworks */,
 				2CEA327A145F66F7000FF575 /* OpenGLES.framework in Frameworks */,
@@ -7072,9 +7073,9 @@
 				2CEA3284145F66F7000FF575 /* Foundation.framework in Frameworks */,
 				2CEA3286145F66F7000FF575 /* CoreGraphics.framework in Frameworks */,
 				2C0D500414A8CDBC00466316 /* MessageUI.framework in Frameworks */,
-				2C2FB66B14FE800100D115AF /* libFlurryAnalytics.a in Frameworks */,
 				2C5C9A39154A0D8800FF6F57 /* libTestFlight.a in Frameworks */,
 				2C95F92415CC87D500926A96 /* libObjectiveChipmunk-iPhone.a in Frameworks */,
+				BF8C7230C53737AD96BFF25A /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7187,16 +7188,6 @@
 			);
 			name = Artemis;
 			path = libs/Artemis;
-			sourceTree = "<group>";
-		};
-		2C2FB66814FE800100D115AF /* FlurryAnalytics */ = {
-			isa = PBXGroup;
-			children = (
-				2C2FB66914FE800100D115AF /* FlurryAnalytics.h */,
-				2C2FB66A14FE800100D115AF /* libFlurryAnalytics.a */,
-			);
-			name = FlurryAnalytics;
-			path = libs/FlurryAnalytics;
 			sourceTree = "<group>";
 		};
 		2C32988E15164527009A5B83 /* CCBReader */ = {
@@ -10493,6 +10484,7 @@
 		2CEA3268145F66F7000FF575 = {
 			isa = PBXGroup;
 			children = (
+				2CF7AE531640963A00AE18B3 /* SystemConfiguration.framework */,
 				2CF7ADF8163DE85B00AE18B3 /* Busy Bees.entitlements */,
 				2CD4A10E16171C92002F23F7 /* Default@2x.png */,
 				2CD4A10C16171C83002F23F7 /* Default.png */,
@@ -10570,7 +10562,6 @@
 				2C95F77A15C8680B00926A96 /* CCScrollView */,
 				2C60D04F1620D56700FEDB51 /* cocos2d */,
 				2C95F84115C869D000926A96 /* CocosDenshion */,
-				2C2FB66814FE800100D115AF /* FlurryAnalytics */,
 				2CD2C42B14D19E2A00DC0BD5 /* GandEnum */,
 				BF8C7FF970A282442BFC89DD /* iRate */,
 				2C95F84B15C869D000926A96 /* kazmath */,
@@ -10584,6 +10575,7 @@
 				2C74B402156FA7A400596A22 /* Shared */,
 				2C5C9A36154A0D8800FF6F57 /* TestFlight */,
 				2CBA326B154842AD00A85642 /* Waves1DNode */,
+				BF8C7795C0B67150EBA26F63 /* Flurry */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -10724,6 +10716,15 @@
 				2CF8E0F61576B45F0052F5AB /* TutorialBalloonDescription.h */,
 			);
 			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		BF8C7795C0B67150EBA26F63 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				BF8C739BB13E582AF07D5C6F /* libFlurry.a */,
+				BF8C7200C4E1B1DC1807F32E /* Flurry.h */,
+			);
+			name = Flurry;
 			sourceTree = "<group>";
 		};
 		BF8C780C9F3494B8FBED25BA /* Bubbles */ = {
@@ -15424,7 +15425,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
-					"\"$(SRCROOT)/Beezle/libs/FlurryAnalytics\"",
 					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
 				);
 				OTHER_LDFLAGS = "-lz";
@@ -15456,7 +15456,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
-					"\"$(SRCROOT)/Beezle/libs/FlurryAnalytics\"",
 					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
 				);
 				OTHER_CFLAGS = "-DNDEBUG";
@@ -15536,8 +15535,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
-					"\"$(SRCROOT)/Beezle/libs/FlurryAnalytics\"",
 					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
+					"\"${SRCROOT}/Beezle/libs/Flurry\"",
 				);
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -15569,8 +15568,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
-					"\"$(SRCROOT)/Beezle/libs/FlurryAnalytics\"",
 					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
+					"\"${SRCROOT}/Beezle/libs/Flurry\"",
 				);
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
