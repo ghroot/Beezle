@@ -206,6 +206,7 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 						[slingerComponent clearLoadedBee];
 
 						_currentPower = 0.0f;
+						_startPower = 0.0f;
 
 						[trajectoryComponent reset];
 
