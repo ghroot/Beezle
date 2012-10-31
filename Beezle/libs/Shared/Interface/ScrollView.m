@@ -43,6 +43,8 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 		_touches = [NSMutableArray new];
 		_previousDragTouchPositions = [NSMutableArray new];
 
+		CGSize winSize = [[CCDirector sharedDirector] winSize];
+		[_draggableNode setPosition:CGPointMake(0.0f, winSize.height - [_draggableNode contentSize].height)];
 		[self addChild:_draggableNode];
 
 		[self setIsTouchEnabled:TRUE];
