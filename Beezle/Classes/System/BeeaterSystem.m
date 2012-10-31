@@ -15,6 +15,9 @@
 #import "RenderComponent.h"
 #import "RenderSprite.h"
 
+static const float MINIMUM_BODY_ANIMATION_SPEED = 0.7f;
+static const float MAXIMUM_BODY_ANIMATION_SPEED = 1.2f;
+
 @interface BeeaterSystem()
 
 -(void) handleEntityDisposed:(NSNotification *)notification;
@@ -121,6 +124,8 @@
 
 	RenderSprite *bodyRenderSprite = [renderComponent renderSpriteWithName:@"body"];
 	[bodyRenderSprite playDefaultIdleAnimation];
+	float randomAnimationSpeed = MINIMUM_BODY_ANIMATION_SPEED + ((rand() % 100) / 100.0f) * (MAXIMUM_BODY_ANIMATION_SPEED - MINIMUM_BODY_ANIMATION_SPEED);
+	[bodyRenderSprite setAnimationSpeed:randomAnimationSpeed];
 
 	BeeaterComponent *beeaterComponent = [_beeaterComponentMapper getComponentFor:beeaterEntity];
 	CapturedComponent *capturedComponent = [_capturedComponentMapper getComponentFor:beeaterEntity];
