@@ -187,6 +187,7 @@
 	[draggableNode setPosition:CGPointMake(max(winSize.width - 1200.0f, min(0.0f, winSize.width / 2 - lastCanPlayCellX)), 0.0f)];
 
 	_scrollView = [[ScrollView alloc] initWithContent:draggableNode];
+	[_scrollView setScrollHorizontally:TRUE];
 	[self addChild:_scrollView];
 
 	_beesFrontNode = [BeesFrontNode new];
@@ -255,7 +256,6 @@
 	CCMenuItemImage *menuItem = (CCMenuItemImage *)sender;
 	NSString *levelName = [NSString stringWithFormat:@"Level-%@%d", _theme, [menuItem tag]];
 
-	// TODO: Fade out
 	[self removeChild:_scrollView cleanup:TRUE];
 
 	CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.35f scale:1.5f];

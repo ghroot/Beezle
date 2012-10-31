@@ -25,8 +25,10 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 
 @implementation ScrollView
 
+@synthesize scrollHorizontally = _scrollHorizontally;
+@synthesize scrollVertically = _scrollVertically;
+@synthesize constantVelocity = _constantVelocity;
 @synthesize didDragSignificantDistance = _didDragSignificantDistance;
-@synthesize constantVelocityX = _constantVelocityX;
 
 +(id) viewWithContent:(CCNode *)node
 {
@@ -39,7 +41,7 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 	{
 		_draggableNode = [node retain];
 		_touches = [NSMutableArray new];
-		_previousDragTouchX = [NSMutableArray new];
+		_previousDragTouchPositions = [NSMutableArray new];
 
 		[self addChild:_draggableNode];
 
@@ -52,9 +54,27 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 {
 	[_draggableNode release];
 	[_touches release];
-	[_previousDragTouchX release];
+	[_previousDragTouchPositions release];
 
 	[super dealloc];
+}
+
+-(void) setScrollHorizontally:(BOOL)scrollHorizontally
+{
+	_scrollHorizontally = scrollHorizontally;
+	if (_scrollHorizontally)
+	{
+		_scrollVertically = FALSE;
+	}
+}
+
+-(void) setScrollVertically:(BOOL)scrollVertically
+{
+	_scrollVertically = scrollVertically;
+	if (_scrollVertically)
+	{
+		_scrollHorizontally = FALSE;
+	}
 }
 
 -(void) registerWithTouchDispatcher
@@ -125,25 +145,37 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 -(void) startDragging
 {
 	_isDragging = TRUE;
-	_startDragTouchX = [self touchLocation].x;
-	_startDragNodeX = [_draggableNode position].x;
-	_velocityX = 0.0f;
-	[_draggableNode stopActionByTag:ACTION_TAG_ELASTIC_SWIPE];
+	_startDragTouchPosition = [self touchLocation];
+	_startDragNodePosition = [_draggableNode position];
+	_velocity = CGPointZero;
+	[_draggableNode stopActionByTag:ACTION_TAG_ELASTIC_SWIPE_X];
+	[_draggableNode stopActionByTag:ACTION_TAG_ELASTIC_SWIPE_Y];
 	_didDragSignificantDistance = FALSE;
 }
 
 -(void) stopDragging
 {
 	_isDragging = FALSE;
-	if ([_previousDragTouchX count] >= 3)
+	if ([_previousDragTouchPositions count] >= 3)
 	{
-		float previousDragTouchX1 = [[_previousDragTouchX objectAtIndex:0] floatValue];
-		float previousDragTouchX2 = [[_previousDragTouchX objectAtIndex:1] floatValue];
-		float previousDragTouchX3 = [[_previousDragTouchX objectAtIndex:2] floatValue];
-		float firstDistance = previousDragTouchX3 - previousDragTouchX2;
-		float secondDistance = previousDragTouchX2 - previousDragTouchX1;
-		float averageDistance = (firstDistance + secondDistance) / 2;
-		_velocityX = averageDistance / 2.0f;
+		CGPoint previousDragTouchPosition1 = [[_previousDragTouchPositions objectAtIndex:0] CGPointValue];
+		CGPoint previousDragTouchPosition2 = [[_previousDragTouchPositions objectAtIndex:1] CGPointValue];
+		CGPoint previousDragTouchPosition3 = [[_previousDragTouchPositions objectAtIndex:2] CGPointValue];
+
+		if (_scrollHorizontally)
+		{
+			float firstDistanceX = previousDragTouchPosition3.x - previousDragTouchPosition2.x;
+			float secondDistanceX = previousDragTouchPosition2.x - previousDragTouchPosition1.x;
+			float averageDistanceX = (firstDistanceX + secondDistanceX) / 2;
+			_velocity.x = averageDistanceX / 2.0f;
+		}
+		if (_scrollVertically)
+		{
+			float firstDistanceY = previousDragTouchPosition3.y - previousDragTouchPosition2.y;
+			float secondDistanceY = previousDragTouchPosition2.y - previousDragTouchPosition1.y;
+			float averageDistanceY = (firstDistanceY + secondDistanceY) / 2;
+			_velocity.y = averageDistanceY / 2.0f;
+		}
 	}
 	_didDragSignificantDistance = FALSE;
 }
@@ -151,27 +183,47 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 -(void) updateDragging
 {
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	float newX = _startDragNodeX + ([self touchLocation].x - _startDragTouchX);
-	float minX = winSize.width - [_draggableNode contentSize].width;
-	float maxX = 0.0f;
-	if (newX > maxX)
-	{
-		newX = maxX + 0.2f * newX;
-	}
-	else if (newX < minX)
-	{
-		newX = minX + 0.2f * (newX - minX);
-	}
-	[_draggableNode setPosition:CGPointMake(newX, 0)];
 
-	[_previousDragTouchX addObject:[NSNumber numberWithFloat:[self touchLocation].x]];
-	while ([_previousDragTouchX count] > 3)
+	if (_scrollHorizontally)
 	{
-		[_previousDragTouchX removeObjectAtIndex:0];
+		float newX = _startDragNodePosition.x + ([self touchLocation].x - _startDragTouchPosition.x);
+		float minX = winSize.width - [_draggableNode contentSize].width;
+		float maxX = 0.0f;
+		if (newX > maxX)
+		{
+			newX = maxX + 0.2f * newX;
+		}
+		else if (newX < minX)
+		{
+			newX = minX + 0.2f * (newX - minX);
+		}
+		[_draggableNode setPosition:CGPointMake(newX, [_draggableNode position].y)];
+	}
+	if (_scrollVertically)
+	{
+		float newY = _startDragNodePosition.y + ([self touchLocation].y - _startDragTouchPosition.y);
+		float minY = winSize.height - [_draggableNode contentSize].height;
+		float maxY = 0.0f;
+		if (newY > maxY)
+		{
+			newY = maxY + 0.2f * newY;
+		}
+		else if (newY < minY)
+		{
+			newY = minY + 0.2f * (newY - minY);
+		}
+		[_draggableNode setPosition:CGPointMake([_draggableNode position].x, newY)];
+	}
+
+	[_previousDragTouchPositions addObject:[NSValue valueWithCGPoint:[self touchLocation]]];
+	while ([_previousDragTouchPositions count] > 3)
+	{
+		[_previousDragTouchPositions removeObjectAtIndex:0];
 	}
 
 	if (!_didDragSignificantDistance &&
-		fabsf(_startDragTouchX - [self touchLocation].x) >= SIGNIFICANT_DRAG_DISTANCE)
+		(fabsf(_startDragTouchPosition.x - [self touchLocation].x) >= SIGNIFICANT_DRAG_DISTANCE ||
+				fabsf(_startDragTouchPosition.y - [self touchLocation].y) >= SIGNIFICANT_DRAG_DISTANCE))
 	{
 		_didDragSignificantDistance = TRUE;
 	}
@@ -180,74 +232,152 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 -(void) updateSliding
 {
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	float minX = winSize.width - [_draggableNode contentSize].width;
-	float maxX = 0.0f;
 
-	if ([_draggableNode position].x > maxX)
+	if (_scrollHorizontally)
 	{
-		BOOL bounce = FALSE;
+		float minX = winSize.width - [_draggableNode contentSize].width;
+		float maxX = 0.0f;
 
-		if (_velocityX == 0.0f)
+		if ([_draggableNode position].x > maxX)
 		{
-			bounce = [_draggableNode getActionByTag:ACTION_TAG_ELASTIC_SWIPE] == nil;
-		}
-		else
-		{
-			float velocityXBefore = _velocityX;
-			_velocityX *= 0.6f;
-			bounce = velocityXBefore > 0.0f && fabsf(_velocityX) <= 1.0f;
-		}
+			BOOL bounce = FALSE;
 
-		if (bounce)
-		{
-			_velocityX = 0.0f;
-			CCMoveTo *moveAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.3f position:CGPointMake(maxX, 0.0f)]];
-			[moveAction setTag:ACTION_TAG_ELASTIC_SWIPE];
-			[_draggableNode runAction:moveAction];
-		}
-	}
-	else if ([_draggableNode position].x < minX)
-	{
-		BOOL bounce = FALSE;
-
-		if (_velocityX == 0.0f)
-		{
-			bounce = [_draggableNode getActionByTag:ACTION_TAG_ELASTIC_SWIPE] == nil;
-		}
-		else
-		{
-			float velocityXBefore = _velocityX;
-			_velocityX *= 0.6f;
-			bounce = velocityXBefore < 0.0f && fabsf(_velocityX) <= 1.0f;
-		}
-
-		if (bounce)
-		{
-			_velocityX = 0.0f;
-			CCMoveTo *moveAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.3f position:CGPointMake(minX, 0.0f)]];
-			[moveAction setTag:ACTION_TAG_ELASTIC_SWIPE];
-			[_draggableNode runAction:moveAction];
-		}
-	}
-	else
-	{
-		_velocityX *= 0.94f;
-
-		if (fabsf(_velocityX) < fabsf(_constantVelocityX))
-		{
-			if (_constantVelocityX > 0.0f &&
-					[_draggableNode position].x < maxX)
+			if (_velocity.x == 0.0f)
 			{
-				_velocityX = min(_constantVelocityX, maxX - [_draggableNode position].x);
-			}
-			else if (_constantVelocityX < 0.0f &&
-					[_draggableNode position].x > minX)
-			{
-				_velocityX = max(_constantVelocityX, minX - [_draggableNode position].x);
+				bounce = [_draggableNode getActionByTag:ACTION_TAG_ELASTIC_SWIPE_X] == nil;
 			}
 			else
 			{
-				_velocityX = 0.0f;
+				float velocityXBefore = _velocity.x;
+				_velocity.x *= 0.6f;
+				bounce = velocityXBefore > 0.0f && fabsf(_velocity.x) <= 1.0f;
+			}
+
+			if (bounce)
+			{
+				_velocity.x = 0.0f;
+				CCMoveTo *moveAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.3f position:CGPointMake(maxX, [_draggableNode position].y)]];
+				[moveAction setTag:ACTION_TAG_ELASTIC_SWIPE_X];
+				[_draggableNode runAction:moveAction];
+			}
+		}
+		else if ([_draggableNode position].x < minX)
+		{
+			BOOL bounce = FALSE;
+
+			if (_velocity.x == 0.0f)
+			{
+				bounce = [_draggableNode getActionByTag:ACTION_TAG_ELASTIC_SWIPE_X] == nil;
+			}
+			else
+			{
+				float velocityXBefore = _velocity.x;
+				_velocity.x *= 0.6f;
+				bounce = velocityXBefore < 0.0f && fabsf(_velocity.x) <= 1.0f;
+			}
+
+			if (bounce)
+			{
+				_velocity.x = 0.0f;
+				CCMoveTo *moveAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.3f position:CGPointMake(minX, [_draggableNode position].y)]];
+				[moveAction setTag:ACTION_TAG_ELASTIC_SWIPE_X];
+				[_draggableNode runAction:moveAction];
+			}
+		}
+		else
+		{
+			_velocity.x *= 0.94f;
+
+			if (fabsf(_velocity.x) < fabsf(_constantVelocity.x))
+			{
+				if (_constantVelocity.x > 0.0f &&
+						[_draggableNode position].x < maxX)
+				{
+					_velocity.x = min(_constantVelocity.x, maxX - [_draggableNode position].x);
+				}
+				else if (_constantVelocity.x < 0.0f &&
+						[_draggableNode position].x > minX)
+				{
+					_velocity.x = max(_constantVelocity.x, minX - [_draggableNode position].x);
+				}
+				else
+				{
+					_velocity.x = 0.0f;
+				}
+			}
+		}
+	}
+	if (_scrollVertically)
+	{
+		float minY = winSize.height - [_draggableNode contentSize].height;
+		float maxY = 0.0f;
+
+		if ([_draggableNode position].y > maxY)
+		{
+			BOOL bounce = FALSE;
+
+			if (_velocity.y == 0.0f)
+			{
+				bounce = [_draggableNode getActionByTag:ACTION_TAG_ELASTIC_SWIPE_Y] == nil;
+			}
+			else
+			{
+				float velocityYBefore = _velocity.y;
+				_velocity.y *= 0.6f;
+				bounce = velocityYBefore > 0.0f && fabsf(_velocity.y) <= 1.0f;
+			}
+
+			if (bounce)
+			{
+				_velocity.y = 0.0f;
+				CCMoveTo *moveAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.3f position:CGPointMake([_draggableNode position].x, maxY)]];
+				[moveAction setTag:ACTION_TAG_ELASTIC_SWIPE_Y];
+				[_draggableNode runAction:moveAction];
+			}
+		}
+		else if ([_draggableNode position].y < minY)
+		{
+			BOOL bounce = FALSE;
+
+			if (_velocity.y == 0.0f)
+			{
+				bounce = [_draggableNode getActionByTag:ACTION_TAG_ELASTIC_SWIPE_Y] == nil;
+			}
+			else
+			{
+				float velocityYBefore = _velocity.y;
+				_velocity.y *= 0.6f;
+				bounce = velocityYBefore < 0.0f && fabsf(_velocity.y) <= 1.0f;
+			}
+
+			if (bounce)
+			{
+				_velocity.y = 0.0f;
+				CCMoveTo *moveAction = [CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.3f position:CGPointMake([_draggableNode position].x, minY)]];
+				[moveAction setTag:ACTION_TAG_ELASTIC_SWIPE_Y];
+				[_draggableNode runAction:moveAction];
+			}
+		}
+		else
+		{
+			_velocity.y *= 0.94f;
+
+			if (fabsf(_velocity.y) < fabsf(_constantVelocity.y))
+			{
+				if (_constantVelocity.y > 0.0f &&
+						[_draggableNode position].y < maxY)
+				{
+					_velocity.y = min(_constantVelocity.y, maxY - [_draggableNode position].y);
+				}
+				else if (_constantVelocity.y < 0.0f &&
+						[_draggableNode position].y > minY)
+				{
+					_velocity.y = max(_constantVelocity.y, minY - [_draggableNode position].y);
+				}
+				else
+				{
+					_velocity.y = 0.0f;
+				}
 			}
 		}
 	}
@@ -257,8 +387,8 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 
 -(void) applyVelocity
 {
-	float newX = [_draggableNode position].x + _velocityX;
-	float newY = [_draggableNode position].y;
+	float newX = [_draggableNode position].x + _velocity.x;
+	float newY = [_draggableNode position].y + _velocity.y;
 	[_draggableNode setPosition:CGPointMake(newX, newY)];
 }
 

@@ -11,18 +11,22 @@
 @interface ScrollView : CCLayer
 {
 	CCNode *_draggableNode;
+	BOOL _scrollHorizontally;
+	BOOL _scrollVertically;
 	BOOL _isDragging;
-	float _startDragTouchX;
-	NSMutableArray *_previousDragTouchX;
+	CGPoint _startDragTouchPosition;
+	NSMutableArray *_previousDragTouchPositions;
 	NSMutableArray *_touches;
-	float _startDragNodeX;
-	float _velocityX;
+	CGPoint _startDragNodePosition;
+	CGPoint _velocity;
 	BOOL _didDragSignificantDistance;
-	float _constantVelocityX;
+	CGPoint _constantVelocity;
 }
 
+@property (nonatomic) BOOL scrollHorizontally;
+@property (nonatomic) BOOL scrollVertically;
+@property (nonatomic) CGPoint constantVelocity;
 @property (nonatomic, readonly) BOOL didDragSignificantDistance;
-@property (nonatomic) float constantVelocityX;
 
 +(id) viewWithContent:(CCNode *)node;
 
