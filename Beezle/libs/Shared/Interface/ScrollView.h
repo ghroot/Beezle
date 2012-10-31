@@ -18,9 +18,11 @@
 	float _startDragNodeX;
 	float _velocityX;
 	BOOL _didDragSignificantDistance;
+	float _constantVelocityX;
 }
 
 @property (nonatomic, readonly) BOOL didDragSignificantDistance;
+@property (nonatomic) float constantVelocityX;
 
 +(id) viewWithContent:(CCNode *)node;
 

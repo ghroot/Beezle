@@ -26,6 +26,7 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 @implementation ScrollView
 
 @synthesize didDragSignificantDistance = _didDragSignificantDistance;
+@synthesize constantVelocityX = _constantVelocityX;
 
 +(id) viewWithContent:(CCNode *)node
 {
@@ -231,6 +232,24 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 	else
 	{
 		_velocityX *= 0.94f;
+
+		if (fabsf(_velocityX) < fabsf(_constantVelocityX))
+		{
+			if (_constantVelocityX > 0.0f &&
+					[_draggableNode position].x < maxX)
+			{
+				_velocityX = min(_constantVelocityX, maxX - [_draggableNode position].x);
+			}
+			else if (_constantVelocityX < 0.0f &&
+					[_draggableNode position].x > minX)
+			{
+				_velocityX = max(_constantVelocityX, minX - [_draggableNode position].x);
+			}
+			else
+			{
+				_velocityX = 0.0f;
+			}
+		}
 	}
 
 	[self applyVelocity];
