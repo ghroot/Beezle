@@ -305,7 +305,7 @@
 	}
 	else if ([action isKindOfClass:[CCSequence class]])
 	{
-		// TODO: No way to get actions from CCSequence :(
+		// No way to get actions from CCSequence :(
 	}
 }
 

@@ -90,8 +90,6 @@ static float FORCE_SCALE = 0.5f;
 			{
 				if ([followComponent state] == FOLLOW_CONTROL_STATE_ACTIVE)
 				{
-					// TODO: Destroy bee?
-
 					[followComponent setState:FOLLOW_CONTROL_STATE_INACTIVE];
 				}
 				break;
