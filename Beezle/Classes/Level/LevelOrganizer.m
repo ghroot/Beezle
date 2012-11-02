@@ -25,8 +25,12 @@
 	if (self = [super init])
 	{
 		_levelNamesByTheme = [[NSMutableDictionary alloc] init];
-		
+
+#ifdef LITE_VERSION
+		[self addLevelNamesWithFile:@"Levels-Lite.plist"];
+#else
 		[self addLevelNamesWithFile:@"Levels.plist"];
+#endif
 	}
 	return self;
 }

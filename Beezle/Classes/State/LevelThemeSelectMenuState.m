@@ -18,6 +18,7 @@
 #import "BeesFrontNode.h"
 
 static BOOL isFirstLoad = TRUE;
+static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 
 @interface LevelThemeSelectMenuState()
 
@@ -175,7 +176,7 @@ static BOOL isFirstLoad = TRUE;
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 
 	float scrollLayerX = [_scrollLayer position].x;
-	float percent = -scrollLayerX / (([[_scrollLayer pages] count] - 1) * winSize.width);
+	float percent = -scrollLayerX / ((NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE - 1) * winSize.width);
 	percent = min(percent, 1.0f);
 	percent = max(percent, 0.0f);
 	float backgroundSpritePadding = 120.0f;
