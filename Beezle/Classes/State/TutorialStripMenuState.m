@@ -82,6 +82,7 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 
 		_scrollView = [[ScrollView alloc] initWithContent:draggableNode];
 		[_scrollView setScrollHorizontally:TRUE];
+        [_scrollView setConstantVelocity:CGPointMake(-0.2f, 0.0f)];
 		[self addChild:_scrollView];
 
 		_arrowSprite = [CCSprite spriteWithFile:@"Symbol-Scroll-White.png"];
