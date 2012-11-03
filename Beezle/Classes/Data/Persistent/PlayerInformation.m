@@ -282,10 +282,8 @@
 	}
 	else
 	{
-		// TODO: This should check pollen count
 		NSString *previousTheme = [themes objectAtIndex:themeIndex - 1];
-		NSString *lastLevelNameInPreviousTheme = [[[LevelOrganizer sharedOrganizer] levelNamesInTheme:previousTheme] lastObject];
-		return [self hasPlayedLevel:lastLevelNameInPreviousTheme];
+		return [self flowerRecordForTheme:previousTheme] >= NUMBER_OF_REQUIRED_FLOWERS_TO_UNLOCK_NEXT_THEME;
 	}
 }
 

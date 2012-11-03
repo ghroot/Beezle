@@ -127,8 +127,7 @@
 		[self addChild:beeBackSprite];
 
 		int flowerRecordForTheme = [[PlayerInformation sharedInformation] flowerRecordForTheme:theme];
-		int totalFlowersInTheme = [[[LevelOrganizer sharedOrganizer] levelNamesInTheme:theme] count] * 3;
-		NSString *flowersString = [NSString stringWithFormat:@"%d/%d", flowerRecordForTheme, totalFlowersInTheme];
+		NSString *flowersString = [NSString stringWithFormat:@"%d/%d", flowerRecordForTheme, NUMBER_OF_REQUIRED_FLOWERS_TO_UNLOCK_NEXT_THEME];
 		CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:flowersString charMapFile:@"numberImages-red-s.png" itemWidth:12 itemHeight:14 startCharMap:'/'] autorelease];
 		[label setAnchorPoint:CGPointZero];
 		[label setPosition:[_flowerLabelPosition position]];
