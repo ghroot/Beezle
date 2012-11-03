@@ -282,6 +282,7 @@
 	}
 	else
 	{
+		// TODO: This should check pollen count
 		NSString *previousTheme = [themes objectAtIndex:themeIndex - 1];
 		NSString *lastLevelNameInPreviousTheme = [[[LevelOrganizer sharedOrganizer] levelNamesInTheme:previousTheme] lastObject];
 		return [self hasPlayedLevel:lastLevelNameInPreviousTheme];
