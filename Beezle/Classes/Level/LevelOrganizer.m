@@ -94,6 +94,21 @@
     return nil;
 }
 
+-(NSString *) themeAfter:(NSString *)theme
+{
+	NSArray *themes = [self themes];
+	int themeIndex = [themes indexOfObject:theme];
+	int themeIndexAfter = themeIndex + 1;
+	if (themeIndexAfter >= [themes count])
+	{
+		return nil;
+	}
+	else
+	{
+		return [themes objectAtIndex:themeIndexAfter];
+	}
+}
+
 -(NSString *) levelNameBefore:(NSString *)levelName
 {
     NSArray *levelNamesInTheme = [self levelNamesInTheme:[self themeForLevel:levelName]];

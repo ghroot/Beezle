@@ -73,6 +73,7 @@
 #import "GameStateUtils.h"
 #import "PlayState.h"
 #import "CreditsDialog.h"
+#import "LevelThemeSelectMenuState.h"
 
 @interface GameplayState()
 
@@ -429,8 +430,16 @@
 		}
 		else
 		{
-			// TODO: This should probably go to theme selector for either the current world or the next (if unlocked)
-			[_game replaceState:[PlayState state]];
+			NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:_levelName];
+			NSString *nextTheme = [[LevelOrganizer sharedOrganizer] themeAfter:theme];
+			if (nextTheme != nil)
+			{
+				[_game clearAndReplaceState:[LevelThemeSelectMenuState stateWithPreselectedTheme:nextTheme]];
+			}
+			else
+			{
+				[_game replaceState:[PlayState state]];
+			}
 		}
 	}
 }
