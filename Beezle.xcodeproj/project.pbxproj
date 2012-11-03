@@ -2092,7 +2092,6 @@
 		2CD6B0CB164480AD008D834B /* SlingerControlSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8C78B268D72D725D8479D3 /* SlingerControlSystem.m */; };
 		2CD6B0CC164480AD008D834B /* PollenSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8C78167568B2557BD8B0A4 /* PollenSystem.m */; };
 		2CD6B0CD164480AD008D834B /* AnimationSoundMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8C74093517CACBCE262B76 /* AnimationSoundMediator.m */; };
-		2CD6B0CE164480AD008D834B /* CreditsState.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8C78E2257A36E31F31711C /* CreditsState.m */; };
 		2CD6B0D0164480AD008D834B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF7AE531640963A00AE18B3 /* SystemConfiguration.framework */; };
 		2CD6B0D1164480AD008D834B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5C9A3A154A0E2A00FF6F57 /* libz.dylib */; };
 		2CD6B0D2164480AD008D834B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3277145F66F7000FF575 /* QuartzCore.framework */; };
@@ -3245,6 +3244,8 @@
 		2CF8E0F61576B45F0052F63F /* PlayState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F63E /* PlayState.m */; };
 		2CF8E0F61576B45F0052F653 /* numberImages-s-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F652 /* numberImages-s-hd.png */; };
 		2CF8E0F61576B45F0052F655 /* numberImages-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F654 /* numberImages-s.png */; };
+		88F16A5138AA852FA56DA0F5 /* CreditsDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16E5EAFAE797A8C2419F2 /* CreditsDialog.m */; };
+		88F16F3AA28D8A1875C9DA1F /* CreditsDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16E5EAFAE797A8C2419F2 /* CreditsDialog.m */; };
 		BF8C700D78B8AC27EAD25A57 /* BubbleYel-A2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C762FFE66F12287ED00D3 /* BubbleYel-A2-hd.png */; };
 		BF8C70104E6BBF19066F0CB7 /* FreedTBee.caf in Resources */ = {isa = PBXBuildFile; fileRef = BF8C74D4DF3469E17BB01DAA /* FreedTBee.caf */; };
 		BF8C704612C049F717987589 /* Text-TapToShoot-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C70223C05A2DF88FFBFD6 /* Text-TapToShoot-hd.png */; };
@@ -3371,7 +3372,6 @@
 		BF8C7B1FC0BA5C4FB09AA101 /* PageDot-full.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7EA4F0FF615C3549691C /* PageDot-full.png */; };
 		BF8C7B22C3073B1A703C2A36 /* SlingerBee.caf in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7392F799934688EE8D2A /* SlingerBee.caf */; };
 		BF8C7B2D44F6ACD682D617D6 /* BubbleYel-A30.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C71B2698E3B479C595F86 /* BubbleYel-A30.png */; };
-		BF8C7B4A9C71E1DD7F7AEB70 /* CreditsState.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8C78E2257A36E31F31711C /* CreditsState.m */; };
 		BF8C7B85E345C18528EA477F /* ChooserSlingerBackground-2-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8C74171953B5183CF59143 /* ChooserSlingerBackground-2-hd.jpg */; };
 		BF8C7B8C998BA74AD23A8ABD /* C59-Ice-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C76476C3BDAF334EF56E6 /* C59-Ice-hd.png */; };
 		BF8C7BA6B3093C863C3A2D38 /* BubbleYel-A13.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C77ED371308B85F0821D4 /* BubbleYel-A13.png */; };
@@ -5846,7 +5846,9 @@
 		2CF8E0F61576B45F0052F63E /* PlayState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayState.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F652 /* numberImages-s-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "numberImages-s-hd.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F654 /* numberImages-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "numberImages-s.png"; sourceTree = "<group>"; };
+		88F161AB5F653DF9D91080C5 /* CreditsDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsDialog.h; sourceTree = "<group>"; };
 		88F16A62E243C30BF27B54C6 /* Levels-Lite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Levels-Lite.plist"; sourceTree = "<group>"; };
+		88F16E5EAFAE797A8C2419F2 /* CreditsDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsDialog.m; sourceTree = "<group>"; };
 		BF8C70223C05A2DF88FFBFD6 /* Text-TapToShoot-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Text-TapToShoot-hd.png"; sourceTree = "<group>"; };
 		BF8C7038B59C3ED9C41D39BC /* SlingerSumee.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = SlingerSumee.caf; sourceTree = "<group>"; };
 		BF8C703C0D78E0737D3DC294 /* SlingerMumee.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = SlingerMumee.caf; sourceTree = "<group>"; };
@@ -5920,7 +5922,6 @@
 		BF8C757EAEAD6F1BC8C1BDED /* C14-Ice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C14-Ice.png"; sourceTree = "<group>"; };
 		BF8C758A339CC633959670A0 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iRate.h; path = libs/iRate/iRate.h; sourceTree = "<group>"; };
 		BF8C7591983936343EC54D51 /* C2-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "C2-Glass.png"; sourceTree = "<group>"; };
-		BF8C75C4C4B92799F932B74F /* CreditsState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsState.h; sourceTree = "<group>"; };
 		BF8C75E5E15CDAE611A5905E /* DescrStrip-Speedee-A-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Speedee-A-hd.jpg"; sourceTree = "<group>"; };
 		BF8C75EA7B7E5525F12E2C71 /* BubbleYel-D4-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-D4-hd.png"; sourceTree = "<group>"; };
 		BF8C760F7370A6C38455FD1D /* BeeaterFishKill.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = BeeaterFishKill.caf; sourceTree = "<group>"; };
@@ -5962,7 +5963,6 @@
 		BF8C78B268D72D725D8479D3 /* SlingerControlSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlingerControlSystem.m; sourceTree = "<group>"; };
 		BF8C78CD63AD4884B5F74532 /* BubbleYel-A2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-A2.png"; sourceTree = "<group>"; };
 		BF8C78DF82395819A542F7AA /* Symbol-Redo-White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Symbol-Redo-White.png"; sourceTree = "<group>"; };
-		BF8C78E2257A36E31F31711C /* CreditsState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsState.m; sourceTree = "<group>"; };
 		BF8C78E8798C314DE0AD5A10 /* SoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundButton.m; sourceTree = "<group>"; };
 		BF8C78F9B46E5F22F68530CB /* Text-TapToShoot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Text-TapToShoot.png"; sourceTree = "<group>"; };
 		BF8C7905743726903F974514 /* Title-s-A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Title-s-A.png"; sourceTree = "<group>"; };
@@ -8360,6 +8360,8 @@
 				2C74B44E156FAD1E00596A22 /* LevelCompletedDialog.m */,
 				2C74B44F156FAD1E00596A22 /* LevelFailedDialog.h */,
 				2C74B450156FAD1E00596A22 /* LevelFailedDialog.m */,
+				88F16E5EAFAE797A8C2419F2 /* CreditsDialog.m */,
+				88F161AB5F653DF9D91080C5 /* CreditsDialog.h */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -8396,8 +8398,6 @@
 		2C74B461156FAD1E00596A22 /* State */ = {
 			isa = PBXGroup;
 			children = (
-				BF8C75C4C4B92799F932B74F /* CreditsState.h */,
-				BF8C78E2257A36E31F31711C /* CreditsState.m */,
 				BF8C757BAFF2AED20DFF798E /* GameStateUtils.m */,
 				BF8C70CF79430BED3F4395F8 /* GameStateUtils.h */,
 				2CF8E0F61576B45F0052F63E /* PlayState.m */,
@@ -13025,7 +13025,7 @@
 				2CD6B0CB164480AD008D834B /* SlingerControlSystem.m in Sources */,
 				2CD6B0CC164480AD008D834B /* PollenSystem.m in Sources */,
 				2CD6B0CD164480AD008D834B /* AnimationSoundMediator.m in Sources */,
-				2CD6B0CE164480AD008D834B /* CreditsState.m in Sources */,
+				88F16F3AA28D8A1875C9DA1F /* CreditsDialog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -13340,7 +13340,7 @@
 				BF8C7837C2936D33FB6C0D8C /* SlingerControlSystem.m in Sources */,
 				BF8C76E6895BF79120A9E6E0 /* PollenSystem.m in Sources */,
 				BF8C7FB19401CA29DF2BD690 /* AnimationSoundMediator.m in Sources */,
-				BF8C7B4A9C71E1DD7F7AEB70 /* CreditsState.m in Sources */,
+				88F16A5138AA852FA56DA0F5 /* CreditsDialog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -13520,8 +13520,8 @@
 					DEBUG,
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
-					LEVEL_RATINGS,
 					ICLOUD,
+					LEVEL_RATINGS,
 				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = "";

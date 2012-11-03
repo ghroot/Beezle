@@ -124,4 +124,19 @@
     }
 }
 
+-(BOOL) isLastLevelInGame:(NSString *)levelName
+{
+	NSString *theme = [self themeForLevel:levelName];
+	NSString *lastTheme = [[self themes] lastObject];
+	if ([theme isEqualToString:lastTheme])
+	{
+		NSString *lastLevelName = [[self levelNamesInTheme:theme] lastObject];
+		return [levelName isEqualToString:lastLevelName];
+	}
+	else
+	{
+		return FALSE;
+	}
+}
+
 @end

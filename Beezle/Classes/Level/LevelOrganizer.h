@@ -23,5 +23,6 @@
 -(NSString *) themeForLevel:(NSString *)levelName;
 -(NSString *) levelNameBefore:(NSString *)levelName;
 -(NSString *) levelNameAfter:(NSString *)levelName;
+-(BOOL) isLastLevelInGame:(NSString *)levelName;
 
 @end

@@ -1,37 +1,47 @@
 //
-//  CreditsState
-//  Beezle
+// Created by Marcus on 03/11/2012.
 //
-//  Created by marcus on 31/10/2012.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+// To change the template use AppCode | Preferences | File Templates.
 //
 
-#import "CreditsState.h"
+
+#import "CreditsDialog.h"
 #import "ScrollView.h"
 #import "Game.h"
 #import "PlayState.h"
 
-@interface CreditsState()
+@interface CreditsDialog()
 
+-(ScrollView *) createScrollView;
 -(CCNode *) createCreditsNode;
 -(void) createBackMenu;
 
 @end
 
-@implementation CreditsState
+@implementation CreditsDialog
 
--(id) init
++(id) dialogWithGame:(Game *)game
 {
-	if (self = [super init])
+	return [[[self alloc] initWithGame:game] autorelease];
+}
+
+-(id) initWithGame:(Game *)game
+{
+	if (self = [super initWithNode:[self createScrollView] coverOpacity:128 instantCoverOpacity:TRUE])
 	{
-		_scrollView = [ScrollView viewWithContent:[self createCreditsNode]];
-		[_scrollView setScrollVertically:TRUE];
-		[_scrollView setConstantVelocity:CGPointMake(0.0f, 0.5f)];
-		[self addChild:_scrollView];
+		_game = game;
 
 		[self createBackMenu];
 	}
 	return self;
+}
+
+-(ScrollView *) createScrollView
+{
+	ScrollView *scrollView = [ScrollView viewWithContent:[self createCreditsNode]];
+	[scrollView setScrollVertically:TRUE];
+	[scrollView setConstantVelocity:CGPointMake(0.0f, 0.5f)];
+	return scrollView;
 }
 
 -(CCNode *) createCreditsNode
@@ -58,7 +68,7 @@
 {
 	CCMenu *backMenu = [CCMenu node];
 	CCMenuItemImage *backMenuItem = [CCMenuItemImage itemWithNormalImage:@"Symbol-Next-White.png" selectedImage:@"Symbol-Next-White.png" block:^(id sender){
-		[_game pushState:[PlayState state]];
+		[_game clearAndReplaceState:[PlayState state]];
 	}];
 	[backMenuItem setScaleX:-1.0f];
 	[backMenuItem setPosition:CGPointMake(2.0f, 2.0f)];

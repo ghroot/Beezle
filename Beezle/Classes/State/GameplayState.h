@@ -123,5 +123,6 @@
 -(void) pauseGame:(id)sender;
 -(void) hidePauseButton;
 -(void) showPauseButton;
+-(void) nextLevel;
 
 @end

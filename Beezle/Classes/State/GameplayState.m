@@ -70,6 +70,9 @@
 #import "BeeWithTeleportCollisionHandler.h"
 #import "NotificationTypes.h"
 #import "SlingerControlSystem.h"
+#import "GameStateUtils.h"
+#import "PlayState.h"
+#import "CreditsDialog.h"
 
 @interface GameplayState()
 
@@ -398,6 +401,38 @@
 -(void) handlePauseNotification:(NSNotification *)notification
 {
 	[self pauseGame:nil];
+}
+
+-(void) nextLevel
+{
+	if ([[LevelOrganizer sharedOrganizer] isLastLevelInGame:_levelName])
+	{
+		// Close all dialogs
+		for (int i = [[_uiLayer children] count] - 1; i >= 0; i--)
+		{
+			id child = [[_uiLayer children] objectAtIndex:i];
+			if ([child isKindOfClass:[Dialog class]])
+			{
+				[_uiLayer removeChild:child cleanup:TRUE];
+			}
+		}
+
+		// Show credits
+		[_uiLayer addChild:[CreditsDialog dialogWithGame:_game]];
+	}
+	else
+	{
+		NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:_levelName];
+		if (nextLevelName != nil)
+		{
+			[GameStateUtils replaceWithGameplayState:nextLevelName game:_game];
+		}
+		else
+		{
+			// TODO: This should probably go to theme selector for either the current world or the next (if unlocked)
+			[_game replaceState:[PlayState state]];
+		}
+	}
 }
 
 @end

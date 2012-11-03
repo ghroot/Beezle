@@ -8,10 +8,8 @@
 
 #import "RateLevelState.h"
 #import "Game.h"
-#import "LevelOrganizer.h"
 #import "LevelRatings.h"
-#import "PlayState.h"
-#import "GameStateUtils.h"
+#import "GameplayState.h"
 
 @interface RateLevelState()
 
@@ -20,7 +18,7 @@
 -(void) rateTwoStars:(id)sender;
 -(void) rateThreeStars:(id)sender;
 -(void) skipRating:(id)sender;
--(void) loadNextLevel;
+-(void) close;
 
 @end
 
@@ -106,7 +104,7 @@
 	[[LevelRatings sharedRatings] rate:_levelName numberOfStars:1];
 	[[LevelRatings sharedRatings] save];
 	
-	[self loadNextLevel];
+	[self close];
 }
 
 -(void) rateTwoStars:(id)sender
@@ -114,7 +112,7 @@
 	[[LevelRatings sharedRatings] rate:_levelName numberOfStars:2];
 	[[LevelRatings sharedRatings] save];
 	
-	[self loadNextLevel];
+	[self close];
 }
 
 -(void) rateThreeStars:(id)sender
@@ -122,25 +120,19 @@
 	[[LevelRatings sharedRatings] rate:_levelName numberOfStars:3];
 	[[LevelRatings sharedRatings] save];
 	
-	[self loadNextLevel];
+	[self close];
 }
 
 -(void) skipRating:(id)sender
 {
-	[self loadNextLevel];
+	[self close];
 }
 
--(void) loadNextLevel
+-(void) close
 {
-	NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:_levelName];
-    if (nextLevelName != nil)
-    {
-		[GameStateUtils replaceWithGameplayState:nextLevelName game:_game];
-    }
-    else
-    {
-		[_game replaceState:[PlayState state]];
-    }
+	[_game popState];
+	GameplayState *gameplayState = (GameplayState *)[_game currentState];
+	[gameplayState nextLevel];
 }
 
 @end

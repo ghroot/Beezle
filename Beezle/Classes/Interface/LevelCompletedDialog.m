@@ -12,13 +12,11 @@
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "LevelOrganizer.h"
-#import "LevelRatings.h"
 #import "LevelSession.h"
-#import "RateLevelState.h"
-#import "PlayState.h"
-#import "GameStateUtils.h"
 #import "SoundManager.h"
 #import "LevelSelectMenuState.h"
+#import "LevelRatings.h"
+#import "RateLevelState.h"
 
 static const int POLLEN_COUNT_PER_FLYING_POLLEN = 4;
 
@@ -283,32 +281,18 @@ static const int POLLEN_COUNT_PER_FLYING_POLLEN = 4;
 {
 #ifdef LEVEL_RATINGS
 	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:[_levelSession levelName]];
-	if ([[LevelRatings sharedRatings] hasRatedLevel:[levelLayout levelName] withVersion:[levelLayout version]])
+	if (![[LevelRatings sharedRatings] hasRatedLevel:[levelLayout levelName] withVersion:[levelLayout version]])
 	{
-		NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:[_levelSession levelName]];
-		if (nextLevelName != nil)
-		{
-			[GameStateUtils replaceWithGameplayState:nextLevelName game:_game];
-		}
-		else
-		{
-			[_game replaceState:[PlayState state]];
-		}
+		[_game pushState:[RateLevelState stateWithLevelName:[_levelSession levelName]]];
 	}
 	else
 	{
-		[_game replaceState:[RateLevelState stateWithLevelName:[_levelSession levelName]]];
+		GameplayState *gameplayState = (GameplayState *)[_game currentState];
+		[gameplayState nextLevel];
 	}
 #else
-    NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:[_levelSession levelName]];
-    if (nextLevelName != nil)
-    {
-        [GameStateUtils replaceWithGameplayState:nextLevelName game:_game];
-    }
-    else
-    {
-		[_game replaceState:[PlayState state]];
-    }
+	GameplayState *gameplayState = (GameplayState *)[_game currentState];
+	[gameplayState nextLevel];
 #endif
 }
 

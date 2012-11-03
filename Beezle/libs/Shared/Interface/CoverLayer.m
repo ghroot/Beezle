@@ -10,32 +10,31 @@
 
 @implementation CoverLayer
 
--(id) initWithOpacity:(GLubyte)opacity
+-(id) initWithOpacity:(GLubyte)opacity instant:(BOOL)instant
 {
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
     if (self = [super initWithColor:ccc4(0, 0, 0, 0) width:winSize.width height:winSize.height])
 	{
-//		[self setIsTouchEnabled:TRUE];
-		
-		[self runAction:[CCFadeTo actionWithDuration:0.2f opacity:opacity]];
+		if (instant)
+		{
+			[self setOpacity:opacity];
+		}
+		else
+		{
+			[self runAction:[CCFadeTo actionWithDuration:0.2f opacity:opacity]];
+		}
     }
     return self;
 }
 
--(id) init
+-(id) initWithOpacity:(GLubyte)opacity
 {
-	self = [self initWithOpacity:120];
-	return self;
+	return [self initWithOpacity:opacity instant:FALSE];
 }
 
-//-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
-//{
-//	return TRUE;
-//}
-
-//-(void) registerWithTouchDispatcher
-//{
-//	[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:(INT_MIN + 1) swallowsTouches:TRUE];
-//}
+-(id) init
+{
+	return [self initWithOpacity:120];
+}
 
 @end

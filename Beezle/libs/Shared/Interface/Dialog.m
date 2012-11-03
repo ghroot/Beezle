@@ -12,17 +12,22 @@
 
 @implementation Dialog
 
--(id) initWithNode:(CCNode *)node coverOpacity:(GLubyte)opacity
+-(id) initWithNode:(CCNode *)node coverOpacity:(GLubyte)opacity instantCoverOpacity:(BOOL)instantCoverOpacity
 {
 	if (self = [super init])
 	{
-		_coverLayer = [[CoverLayer alloc] initWithOpacity:opacity];
+		_coverLayer = [[CoverLayer alloc] initWithOpacity:opacity instant:instantCoverOpacity];
 		[self addChild:_coverLayer];
 
 		_node = [node retain];
 		[self addChild:_node];
 	}
 	return self;
+}
+
+-(id) initWithNode:(CCNode *)node coverOpacity:(GLubyte)opacity
+{
+	return [self initWithNode:node coverOpacity:opacity instantCoverOpacity:FALSE];
 }
 
 -(id) initWithNode:(CCNode *)node
