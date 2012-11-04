@@ -3244,7 +3244,11 @@
 		2CF8E0F61576B45F0052F63F /* PlayState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F63E /* PlayState.m */; };
 		2CF8E0F61576B45F0052F653 /* numberImages-s-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F652 /* numberImages-s-hd.png */; };
 		2CF8E0F61576B45F0052F655 /* numberImages-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F654 /* numberImages-s.png */; };
+		88F1616D87C454F0BB877027 /* A42-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F160F176D6E51FACC88FE6 /* A42-Glass-hd.png */; };
+		88F1660907FC9C46A2921BA9 /* A42-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16A1344B4119F754AF8E5 /* A42-Glass.png */; };
+		88F168270E60671EE5DF16A3 /* A42-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16A1344B4119F754AF8E5 /* A42-Glass.png */; };
 		88F16A5138AA852FA56DA0F5 /* CreditsDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16E5EAFAE797A8C2419F2 /* CreditsDialog.m */; };
+		88F16E8164305EAF77334093 /* A42-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F160F176D6E51FACC88FE6 /* A42-Glass-hd.png */; };
 		88F16F3AA28D8A1875C9DA1F /* CreditsDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16E5EAFAE797A8C2419F2 /* CreditsDialog.m */; };
 		BF8C700D78B8AC27EAD25A57 /* BubbleYel-A2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C762FFE66F12287ED00D3 /* BubbleYel-A2-hd.png */; };
 		BF8C70104E6BBF19066F0CB7 /* FreedTBee.caf in Resources */ = {isa = PBXBuildFile; fileRef = BF8C74D4DF3469E17BB01DAA /* FreedTBee.caf */; };
@@ -5846,7 +5850,9 @@
 		2CF8E0F61576B45F0052F63E /* PlayState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayState.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F652 /* numberImages-s-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "numberImages-s-hd.png"; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F654 /* numberImages-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "numberImages-s.png"; sourceTree = "<group>"; };
+		88F160F176D6E51FACC88FE6 /* A42-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A42-Glass-hd.png"; sourceTree = "<group>"; };
 		88F161AB5F653DF9D91080C5 /* CreditsDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsDialog.h; sourceTree = "<group>"; };
+		88F16A1344B4119F754AF8E5 /* A42-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A42-Glass.png"; sourceTree = "<group>"; };
 		88F16A62E243C30BF27B54C6 /* Levels-Lite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Levels-Lite.plist"; sourceTree = "<group>"; };
 		88F16E5EAFAE797A8C2419F2 /* CreditsDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsDialog.m; sourceTree = "<group>"; };
 		BF8C70223C05A2DF88FFBFD6 /* Text-TapToShoot-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Text-TapToShoot-hd.png"; sourceTree = "<group>"; };
@@ -7600,6 +7606,8 @@
 				2C5C581C15CBD536006BA973 /* A58-Glass.png */,
 				2C5C581D15CBD536006BA973 /* A59-Glass-hd.png */,
 				2C5C581E15CBD536006BA973 /* A59-Glass.png */,
+				88F160F176D6E51FACC88FE6 /* A42-Glass-hd.png */,
+				88F16A1344B4119F754AF8E5 /* A42-Glass.png */,
 			);
 			path = A;
 			sourceTree = "<group>";
@@ -10788,6 +10796,8 @@
 				2CD6B846164480AD008D834B /* BubbleYel-A30.png in Resources */,
 				2CD6B84E1644821D008D834B /* Levels-Lite.plist in Resources */,
 				2CD8637C16448D8C00E601B4 /* Cactus-Animations.plist in Resources */,
+				88F1616D87C454F0BB877027 /* A42-Glass-hd.png in Resources */,
+				88F1660907FC9C46A2921BA9 /* A42-Glass.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -12684,6 +12694,8 @@
 				BF8C7F8DA62B446C9D22A8D1 /* Symbol-Scroll-White.png in Resources */,
 				BF8C71A8E8F7A43284602376 /* BubbleYel-A30-hd.png in Resources */,
 				BF8C7B2D44F6ACD682D617D6 /* BubbleYel-A30.png in Resources */,
+				88F16E8164305EAF77334093 /* A42-Glass-hd.png in Resources */,
+				88F168270E60671EE5DF16A3 /* A42-Glass.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
