@@ -74,6 +74,7 @@
 #import "PlayState.h"
 #import "CreditsDialog.h"
 #import "LevelThemeSelectMenuState.h"
+#import "GameAlmostCompletedDialog.h"
 
 @interface GameplayState()
 
@@ -86,6 +87,7 @@
 -(void) enterMode:(GameMode *)mode;
 -(void) updateMode:(float)delta;
 -(void) handlePauseNotification:(NSNotification *)notification;
+-(void) closeAllDialogs;
 
 @end
 
@@ -404,22 +406,19 @@
 	[self pauseGame:nil];
 }
 
+/**
+* TODO: Go to hidden levels if there are enough collected flowers.
+*/
 -(void) nextLevel
 {
 	if ([[LevelOrganizer sharedOrganizer] isLastLevelInGame:_levelName])
 	{
-		// Close all dialogs
-		for (int i = [[_uiLayer children] count] - 1; i >= 0; i--)
-		{
-			id child = [[_uiLayer children] objectAtIndex:i];
-			if ([child isKindOfClass:[Dialog class]])
-			{
-				[_uiLayer removeChild:child cleanup:TRUE];
-			}
-		}
+		[self closeAllDialogs];
 
 		// Show credits
-		[_uiLayer addChild:[CreditsDialog dialogWithGame:_game]];
+//		[_uiLayer addChild:[CreditsDialog dialogWithGame:_game]];
+
+		[_uiLayer addChild:[GameAlmostCompletedDialog dialogWithGame:_game]];
 	}
 	else
 	{
@@ -440,6 +439,18 @@
 			{
 				[_game replaceState:[PlayState state]];
 			}
+		}
+	}
+}
+
+-(void) closeAllDialogs
+{
+	for (int i = [[_uiLayer children] count] - 1; i >= 0; i--)
+	{
+		id child = [[_uiLayer children] objectAtIndex:i];
+		if ([child isKindOfClass:[Dialog class]])
+		{
+			[_uiLayer removeChild:child cleanup:TRUE];
 		}
 	}
 }

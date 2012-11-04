@@ -6,10 +6,12 @@
 	<false/>
 	<key>currentResolution</key>
 	<integer>0</integer>
+	<key>currentSequenceId</key>
+	<integer>0</integer>
 	<key>fileType</key>
 	<string>CocosBuilder</string>
 	<key>fileVersion</key>
-	<integer>3</integer>
+	<integer>4</integer>
 	<key>guides</key>
 	<array/>
 	<key>nodeGraph</key>
@@ -30,6 +32,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -45,18 +49,6 @@
 								<array>
 									<real>60</real>
 									<real>160</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -86,14 +78,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -107,14 +91,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -177,6 +153,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -197,18 +175,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -233,14 +199,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -254,14 +212,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -324,6 +274,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -344,18 +296,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -380,14 +320,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -401,14 +333,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -471,6 +395,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -491,18 +417,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -527,14 +441,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -548,14 +454,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -618,6 +516,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -638,18 +538,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -674,14 +562,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -695,14 +575,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -765,6 +637,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -785,18 +659,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -821,14 +683,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -842,14 +696,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -912,6 +758,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -932,18 +780,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -968,14 +804,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -989,14 +817,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -1059,6 +879,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -1079,18 +901,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -1115,14 +925,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -1136,14 +938,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -1206,6 +1000,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -1226,18 +1022,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -1262,14 +1046,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -1283,14 +1059,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -1353,6 +1121,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -1373,18 +1143,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -1409,14 +1167,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -1430,14 +1180,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -1500,6 +1242,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -1520,18 +1264,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -1556,14 +1288,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -1577,14 +1301,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -1647,6 +1363,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -1667,18 +1385,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -1703,14 +1409,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -1724,14 +1422,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -1794,6 +1484,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -1814,18 +1506,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -1850,14 +1530,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -1871,14 +1543,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -1941,6 +1605,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -1961,18 +1627,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -1997,14 +1651,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -2018,14 +1664,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -2088,6 +1726,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -2108,18 +1748,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -2144,14 +1772,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -2165,14 +1785,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -2235,6 +1847,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -2255,18 +1869,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -2291,14 +1893,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -2312,14 +1906,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -2382,6 +1968,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -2402,18 +1990,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -2438,14 +2014,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -2459,14 +2027,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -2529,6 +2089,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -2549,18 +2111,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -2585,14 +2135,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -2606,14 +2148,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -2676,6 +2210,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -2696,18 +2232,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -2732,14 +2256,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -2753,14 +2269,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -2823,6 +2331,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -2843,18 +2353,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -2879,14 +2377,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -2900,14 +2390,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -2970,6 +2452,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -2990,18 +2474,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -3026,14 +2498,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -3047,14 +2511,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -3117,6 +2573,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -3137,18 +2595,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -3173,14 +2619,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -3194,14 +2632,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -3264,6 +2694,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -3284,18 +2716,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -3320,14 +2740,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -3341,14 +2753,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -3411,6 +2815,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -3431,18 +2837,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -3467,14 +2861,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -3488,14 +2874,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -3558,6 +2936,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -3578,18 +2958,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -3614,14 +2982,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -3635,14 +2995,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -3705,6 +3057,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -3725,18 +3079,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -3761,14 +3103,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -3782,14 +3116,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -3852,6 +3178,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -3872,18 +3200,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -3908,14 +3224,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -3929,14 +3237,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -3999,6 +3299,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -4019,18 +3321,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -4055,14 +3345,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -4076,14 +3358,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -4146,6 +3420,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -4166,18 +3442,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -4202,14 +3466,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -4223,14 +3479,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -4293,6 +3541,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -4313,18 +3563,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -4349,14 +3587,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -4370,14 +3600,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -4440,6 +3662,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -4460,18 +3684,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -4496,14 +3708,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -4517,14 +3721,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -4587,6 +3783,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -4607,18 +3805,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -4643,14 +3829,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -4664,14 +3842,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -4734,6 +3904,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -4754,18 +3926,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -4790,14 +3950,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -4811,14 +3963,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -4881,6 +4025,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -4901,18 +4047,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -4937,14 +4071,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -4958,14 +4084,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -5028,6 +4146,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -5048,18 +4168,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -5084,14 +4192,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -5105,14 +4205,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -5175,6 +4267,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -5195,18 +4289,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -5231,14 +4313,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -5252,14 +4326,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -5322,6 +4388,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -5342,18 +4410,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -5378,14 +4434,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -5399,14 +4447,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -5469,6 +4509,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -5489,18 +4531,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -5525,14 +4555,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -5546,14 +4568,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -5616,6 +4630,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -5636,18 +4652,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -5672,14 +4676,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -5693,14 +4689,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -5763,6 +4751,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -5783,18 +4773,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -5819,14 +4797,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -5840,14 +4810,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -5910,6 +4872,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -5930,18 +4894,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -5966,14 +4918,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -5987,14 +4931,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -6057,6 +4993,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -6077,18 +5015,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -6113,14 +5039,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -6134,14 +5052,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -6204,6 +5114,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -6224,18 +5136,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -6260,14 +5160,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -6281,14 +5173,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -6351,6 +5235,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -6371,18 +5257,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -6407,14 +5281,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -6428,14 +5294,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -6498,6 +5356,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -6518,18 +5378,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -6554,14 +5402,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -6575,14 +5415,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -6645,6 +5477,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -6665,18 +5499,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -6701,14 +5523,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -6722,14 +5536,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -6792,6 +5598,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -6812,18 +5620,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -6848,14 +5644,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -6869,14 +5657,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -6939,6 +5719,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -6959,18 +5741,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -6995,14 +5765,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -7016,14 +5778,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -7086,6 +5840,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -7106,18 +5862,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -7142,14 +5886,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -7163,14 +5899,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -7233,6 +5961,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -7253,18 +5983,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -7289,14 +6007,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -7310,14 +6020,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -7380,6 +6082,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -7400,18 +6104,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -7436,14 +6128,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -7457,14 +6141,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -7527,6 +6203,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -7547,18 +6225,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -7583,14 +6249,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -7604,14 +6262,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -7674,6 +6324,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -7694,18 +6346,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -7730,14 +6370,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -7751,14 +6383,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -7821,6 +6445,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -7841,18 +6467,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -7877,14 +6491,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -7898,14 +6504,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -7968,6 +6566,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -7988,18 +6588,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -8024,14 +6612,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -8045,14 +6625,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -8115,6 +6687,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -8135,18 +6709,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -8171,14 +6733,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -8192,14 +6746,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -8262,6 +6808,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -8282,18 +6830,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -8318,14 +6854,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -8339,14 +6867,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -8409,6 +6929,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -8429,18 +6951,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -8465,14 +6975,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -8486,14 +6988,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -8556,6 +7050,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -8576,18 +7072,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
@@ -8612,14 +7096,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -8633,14 +7109,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -8703,6 +7171,8 @@
 						<array/>
 						<key>customClass</key>
 						<string></string>
+						<key>displayName</key>
+						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -8718,18 +7188,6 @@
 								<array>
 									<real>1118.5</real>
 									<real>191.5</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>contentSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>69</real>
-									<real>60</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -8759,14 +7217,6 @@
 							</dict>
 							<dict>
 								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>tag</string>
 								<key>type</key>
 								<string>Integer</string>
@@ -8780,14 +7230,6 @@
 								<string>Check</string>
 								<key>value</key>
 								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>visible</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -8846,6 +7288,8 @@
 				</array>
 				<key>customClass</key>
 				<string>CCMenuNoTouchSwallow</string>
+				<key>displayName</key>
+				<string>CCMenuNoTouchSwallow</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -8857,18 +7301,6 @@
 						<string>position</string>
 						<key>type</key>
 						<string>Position</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>contentSize</string>
-						<key>type</key>
-						<string>Size</string>
 						<key>value</key>
 						<array>
 							<real>0.0</real>
@@ -8902,31 +7334,7 @@
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>rotation</string>
-						<key>type</key>
-						<string>Degrees</string>
-						<key>value</key>
-						<real>0.0</real>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>tag</string>
-						<key>type</key>
-						<string>Integer</string>
-						<key>value</key>
-						<integer>-1</integer>
-					</dict>
-					<dict>
-						<key>name</key>
 						<string>ignoreAnchorPointForPosition</string>
-						<key>type</key>
-						<string>Check</string>
-						<key>value</key>
-						<true/>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>visible</string>
 						<key>type</key>
 						<string>Check</string>
 						<key>value</key>
@@ -8954,7 +7362,7 @@
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>isMouseEnabled</string>
+						<string>mouseEnabled</string>
 						<key>platform</key>
 						<string>Mac</string>
 						<key>type</key>
@@ -8977,36 +7385,14 @@
 		</array>
 		<key>customClass</key>
 		<string></string>
+		<key>displayName</key>
+		<string>CCNode</string>
 		<key>memberVarAssignmentName</key>
 		<string></string>
 		<key>memberVarAssignmentType</key>
 		<integer>0</integer>
 		<key>properties</key>
 		<array>
-			<dict>
-				<key>name</key>
-				<string>position</string>
-				<key>type</key>
-				<string>Position</string>
-				<key>value</key>
-				<array>
-					<real>0.0</real>
-					<real>0.0</real>
-					<integer>0</integer>
-				</array>
-			</dict>
-			<dict>
-				<key>name</key>
-				<string>contentSize</string>
-				<key>type</key>
-				<string>Size</string>
-				<key>value</key>
-				<array>
-					<real>0.0</real>
-					<real>0.0</real>
-					<integer>0</integer>
-				</array>
-			</dict>
 			<dict>
 				<key>name</key>
 				<string>anchorPoint</string>
@@ -9033,35 +7419,11 @@
 			</dict>
 			<dict>
 				<key>name</key>
-				<string>rotation</string>
-				<key>type</key>
-				<string>Degrees</string>
-				<key>value</key>
-				<real>0.0</real>
-			</dict>
-			<dict>
-				<key>name</key>
-				<string>tag</string>
-				<key>type</key>
-				<string>Integer</string>
-				<key>value</key>
-				<integer>-1</integer>
-			</dict>
-			<dict>
-				<key>name</key>
 				<string>ignoreAnchorPointForPosition</string>
 				<key>type</key>
 				<string>Check</string>
 				<key>value</key>
 				<false/>
-			</dict>
-			<dict>
-				<key>name</key>
-				<string>visible</string>
-				<key>type</key>
-				<string>Check</string>
-				<key>value</key>
-				<true/>
 			</dict>
 		</array>
 	</dict>
@@ -9084,5 +7446,30 @@
 			<integer>1200</integer>
 		</dict>
 	</array>
+	<key>sequences</key>
+	<array>
+		<dict>
+			<key>autoPlay</key>
+			<true/>
+			<key>chainedSequenceId</key>
+			<integer>-1</integer>
+			<key>length</key>
+			<real>10</real>
+			<key>name</key>
+			<string>Default Timeline</string>
+			<key>offset</key>
+			<real>0.0</real>
+			<key>position</key>
+			<real>0.0</real>
+			<key>resolution</key>
+			<real>30</real>
+			<key>scale</key>
+			<real>128</real>
+			<key>sequenceId</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>stageBorder</key>
+	<integer>0</integer>
 </dict>
 </plist>
