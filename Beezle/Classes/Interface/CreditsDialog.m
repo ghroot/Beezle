@@ -7,8 +7,8 @@
 
 #import "CreditsDialog.h"
 #import "ScrollView.h"
-#import "Game.h"
 #import "PlayState.h"
+#import "CCBReader.h"
 
 @interface CreditsDialog()
 
@@ -41,26 +41,14 @@
 	ScrollView *scrollView = [ScrollView viewWithContent:[self createCreditsNode]];
 	[scrollView setScrollVertically:TRUE];
 	[scrollView setConstantVelocity:CGPointMake(0.0f, 0.5f)];
+	[scrollView setConstantVelocityDelay:3.0f];
 	return scrollView;
 }
 
 -(CCNode *) createCreditsNode
 {
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-
-	CCNode *creditsNode = [CCNode node];
-
-	// TEMP: Replace with actual credits
-	for (int i = 1; i <= 20; i++)
-	{
-		CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Credit %d", i] fontName:@"Marker Felt" fontSize:30];
-		[label setPosition:CGPointMake(winSize.width / 2, i * 30.0f)];
-		[creditsNode addChild:label];
-	}
-
-
-	[creditsNode setContentSize:CGSizeMake(winSize.width, 640.0f)];
-
+	CCNode *creditsNode = [CCBReader nodeGraphFromFile:@"Credits.ccbi"];
+	[creditsNode setContentSize:CGSizeMake(480.0f, 1200.0f)];
 	return creditsNode;
 }
 

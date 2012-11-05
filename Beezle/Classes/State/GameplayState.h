@@ -88,6 +88,7 @@
 }
 
 @property (nonatomic, readonly) NSString *levelName;
+@property (nonatomic, readonly) CCLayer *uiLayer;
 @property (nonatomic, readonly) World *world;
 @property (nonatomic, readonly) AimPollenShooterSystem *aimPollenShooterSystem;
 @property (nonatomic, readonly) BeeaterSystem *beeaterSystem;
@@ -124,5 +125,6 @@
 -(void) hidePauseButton;
 -(void) showPauseButton;
 -(void) nextLevel;
+-(void) closeAllDialogs;
 
 @end

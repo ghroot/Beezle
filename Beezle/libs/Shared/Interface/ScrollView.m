@@ -18,7 +18,7 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 -(void) startDragging;
 -(void) stopDragging;
 -(void) updateDragging;
--(void) updateSliding;
+-(void) updateSliding:(float)delta;
 -(void) applyVelocity;
 
 @end
@@ -28,6 +28,7 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 @synthesize scrollHorizontally = _scrollHorizontally;
 @synthesize scrollVertically = _scrollVertically;
 @synthesize constantVelocity = _constantVelocity;
+@synthesize constantVelocityDelay = _constantVelocityDelay;
 @synthesize didDragSignificantDistance = _didDragSignificantDistance;
 
 +(id) viewWithContent:(CCNode *)node
@@ -119,7 +120,7 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 		}
 		else
 		{
-			[self updateSliding];
+			[self updateSliding:delta];
 		}
 	}
 }
@@ -231,9 +232,14 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 	}
 }
 
--(void) updateSliding
+-(void) updateSliding:(float)delta
 {
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
+
+	if (_constantVelocityDelay > 0.0f)
+	{
+		_constantVelocityDelay -= delta;
+	}
 
 	if (_scrollHorizontally)
 	{
@@ -290,7 +296,8 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 		{
 			_velocity.x *= 0.94f;
 
-			if (fabsf(_velocity.x) < fabsf(_constantVelocity.x))
+			if (_constantVelocityDelay <= 0.0f &&
+					fabsf(_velocity.x) < fabsf(_constantVelocity.x))
 			{
 				if (_constantVelocity.x > 0.0f &&
 						[_draggableNode position].x < maxX)
@@ -364,7 +371,8 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 		{
 			_velocity.y *= 0.94f;
 
-			if (fabsf(_velocity.y) < fabsf(_constantVelocity.y))
+			if (_constantVelocityDelay <= 0.0f &&
+					fabsf(_velocity.y) < fabsf(_constantVelocity.y))
 			{
 				if (_constantVelocity.y > 0.0f &&
 						[_draggableNode position].y < maxY)

@@ -21,11 +21,13 @@
 	CGPoint _velocity;
 	BOOL _didDragSignificantDistance;
 	CGPoint _constantVelocity;
+	float _constantVelocityDelay;
 }
 
 @property (nonatomic) BOOL scrollHorizontally;
 @property (nonatomic) BOOL scrollVertically;
 @property (nonatomic) CGPoint constantVelocity;
+@property (nonatomic) float constantVelocityDelay;
 @property (nonatomic, readonly) BOOL didDragSignificantDistance;
 
 +(id) viewWithContent:(CCNode *)node;

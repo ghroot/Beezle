@@ -72,9 +72,8 @@
 #import "SlingerControlSystem.h"
 #import "GameStateUtils.h"
 #import "PlayState.h"
-#import "CreditsDialog.h"
 #import "LevelThemeSelectMenuState.h"
-#import "GameAlmostCompletedDialog.h"
+#import "GameCompletedDialog.h"
 
 @interface GameplayState()
 
@@ -87,13 +86,13 @@
 -(void) enterMode:(GameMode *)mode;
 -(void) updateMode:(float)delta;
 -(void) handlePauseNotification:(NSNotification *)notification;
--(void) closeAllDialogs;
 
 @end
 
 @implementation GameplayState
 
 @synthesize levelName = _levelName;
+@synthesize uiLayer = _uiLayer;
 @synthesize world = _world;
 @synthesize aimPollenShooterSystem = _aimPollenShooterSystem;
 @synthesize beeaterSystem = _beeaterSystem;
@@ -415,10 +414,8 @@
 	{
 		[self closeAllDialogs];
 
-		// Show credits
-//		[_uiLayer addChild:[CreditsDialog dialogWithGame:_game]];
-
-		[_uiLayer addChild:[GameAlmostCompletedDialog dialogWithGame:_game]];
+//		[_uiLayer addChild:[GameAlmostCompletedDialog dialogWithGame:_game]];
+		[_uiLayer addChild:[GameCompletedDialog dialogWithGame:_game]];
 	}
 	else
 	{
