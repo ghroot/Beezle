@@ -9,6 +9,7 @@
 #import "Game.h"
 #import "CCBReader.h"
 #import "PlayState.h"
+#import "SoundManager.h"
 
 @interface GameAlmostCompletedDialog()
 
@@ -28,6 +29,8 @@
 	if (self = [super initWithNode:[CCBReader nodeGraphFromFile:@"GameAlmostCompletedDialog.ccbi" owner:self] coverOpacity:128 instantCoverOpacity:TRUE])
 	{
 		_game = game;
+
+		[[SoundManager sharedManager] playSound:@"LevelCompleted"];
 	}
 	return self;
 }

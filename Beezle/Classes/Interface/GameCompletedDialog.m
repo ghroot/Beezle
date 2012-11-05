@@ -10,7 +10,13 @@
 #import "CCBReader.h"
 #import "GameplayState.h"
 #import "CreditsDialog.h"
+#import "SoundManager.h"
 
+@interface GameCompletedDialog()
+
+-(void) showCredits;
+
+@end
 
 @implementation GameCompletedDialog
 
@@ -24,11 +30,13 @@
 	if (self = [super initWithNode:[CCBReader nodeGraphFromFile:@"GameCompletedDialog.ccbi" owner:self] coverOpacity:128 instantCoverOpacity:TRUE])
 	{
 		_game = game;
+
+		[[SoundManager sharedManager] playSound:@"LevelCompleted"];
 	}
 	return self;
 }
 
--(void) exitGame
+-(void) showCredits
 {
 	GameplayState *gameplayState = (GameplayState *)[_game currentState];
 	[gameplayState closeAllDialogs];

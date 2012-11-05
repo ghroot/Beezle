@@ -9,6 +9,7 @@
 #import "ScrollView.h"
 #import "PlayState.h"
 #import "CCBReader.h"
+#import "SoundManager.h"
 
 @interface CreditsDialog()
 
@@ -32,6 +33,8 @@
 		_game = game;
 
 		[self createBackMenu];
+
+		[[SoundManager sharedManager] playMusic:@"MusicMain"];
 	}
 	return self;
 }
