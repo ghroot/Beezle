@@ -11,6 +11,7 @@
 #import "LevelSession.h"
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
+#import "Logger.h"
 
 @interface PlayerInformation()
 
@@ -63,6 +64,9 @@
 	[self load];
 
 #ifdef ICLOUD
+#ifdef DEBUG
+	[[Logger defaultLogger] log:@"Synchronizing iCloud..."];
+#endif
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cloudDataDidChange:) name:NSUbiquitousKeyValueStoreDidChangeExternallyNotification object:[NSUbiquitousKeyValueStore defaultStore]];
 	[[NSUbiquitousKeyValueStore defaultStore] synchronize];
 #endif
@@ -70,6 +74,10 @@
 
 -(void) cloudDataDidChange:(NSNotification *)notification
 {
+#ifdef DEBUG
+	[[Logger defaultLogger] log:@"iCloud data recieved."];
+#endif
+
 	NSDictionary *cloudDict = [notification userInfo];
 
 	NSDictionary *cloudPollenRecordByLevelName = [cloudDict objectForKey:@"pollenRecordByLevelName"];
@@ -112,6 +120,9 @@
 	[[NSUserDefaults standardUserDefaults] synchronize];
 
 #ifdef ICLOUD
+#ifdef DEBUG
+	[[Logger defaultLogger] log:@"Saving to iCloud..."];
+#endif
 	[[NSUbiquitousKeyValueStore defaultStore] setObject:dict forKey:@"playerInformation"];
 #endif
 }
@@ -152,6 +163,9 @@
 	[[NSUserDefaults standardUserDefaults] synchronize];
 
 #ifdef ICLOUD
+#ifdef DEBUG
+	[[Logger defaultLogger] log:@"Resetting iCloud data..."];
+#endif
     [[NSUbiquitousKeyValueStore defaultStore] removeObjectForKey:@"playerInformation"];
 #endif
 }

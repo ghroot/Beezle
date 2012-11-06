@@ -17,6 +17,7 @@
 #import "PlayerInformation.h"
 #import "TestMenuState.h"
 #import "PlayState.h"
+#import "OutputConsoleState.h"
 
 @interface DebugMenuState()
 
@@ -29,6 +30,7 @@
 -(void) resetLevelRatings:(id)sender;
 -(void) resetEditedLevels:(id)sender;
 -(void) resaveEditedLevels:(id)sender;
+-(void) showOutput:(id)sender;
 -(void) goBack:(id)sender;
 
 @end
@@ -53,8 +55,10 @@
 	[_menu addChild:sendLevelRatingsMenuItem];
 #endif
 	CCMenuItemFont *testMenuItem = [CCMenuItemFont itemWithString:@"Test" target:self selector:@selector(showTestMenu:)];
+	[testMenuItem setFontSize:20];
 	[_menu addChild:testMenuItem];
     CCMenuItemFont *toggleStatsMenuItem = [CCMenuItemFont itemWithString:@"Toggle stats" target:self selector:@selector(toggleStats:)];
+	[toggleStatsMenuItem setFontSize:20];
 	[_menu addChild:toggleStatsMenuItem];
 	CCMenuItemFont *resetInfoMenuItem = [CCMenuItemFont itemWithString:@"Reset player information" target:self selector:@selector(resetPlayerInformation:)];
 	[resetInfoMenuItem setFontSize:20];
@@ -70,6 +74,9 @@
 	[resetRatingsMenuItem setFontSize:20];
 	[_menu addChild:resetRatingsMenuItem];
 #endif
+	CCMenuItemFont *outputMenuItem = [CCMenuItemFont itemWithString:@"Output" target:self selector:@selector(showOutput:)];
+	[outputMenuItem setFontSize:20];
+	[_menu addChild:outputMenuItem];
     
     CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
     [backMenuItem setFontSize:26];
@@ -172,6 +179,11 @@
             }
         }
     }]];
+}
+
+-(void) showOutput:(id)sender
+{
+	[_game pushState:[OutputConsoleState state]];
 }
 
 -(void) goBack:(id)sender
