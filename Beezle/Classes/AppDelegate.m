@@ -62,32 +62,6 @@
 	// Show
 	[_window makeKeyAndVisible];
 
-	// Player information
-	[[PlayerInformation sharedInformation] initialise];
-
-	// Animation sound trigger
-	[[AnimationSoundMediator sharedMediator] initialise];
-
-	// Tracking
-	[[SessionTracker sharedTracker] start];
-
-	// iRate
-#ifdef DEBUG
-	[[iRate sharedInstance] setPreviewMode:TRUE];
-	[[iRate sharedInstance] setPromptAtLaunch:FALSE];
-#endif
-
-	// Setup sound
-	if ([[PlayerInformation sharedInformation] isSoundMuted])
-	{
-		[[SoundManager sharedManager] mute];
-	}
-	else
-	{
-		[[SoundManager sharedManager] unMute];
-	}
-	[[SoundManager sharedManager] setup];
-
 	return TRUE;
 }
 
@@ -105,6 +79,31 @@
 {
 	if ([director runningScene] == nil)
 	{
+		// Player information
+		[[PlayerInformation sharedInformation] initialise];
+
+		// Animation sound trigger
+		[[AnimationSoundMediator sharedMediator] initialise];
+
+		// Tracking
+		[[SessionTracker sharedTracker] start];
+
+		// iRate
+		[[iRate sharedInstance] setPreviewMode:TRUE];
+		[[iRate sharedInstance] setPromptAtLaunch:FALSE];
+
+		// Setup sound
+		if ([[PlayerInformation sharedInformation] isSoundMuted])
+		{
+			[[SoundManager sharedManager] mute];
+		}
+		else
+		{
+			[[SoundManager sharedManager] unMute];
+		}
+		[[SoundManager sharedManager] setup];
+
+		// Show first screen
 		_game = [[Game alloc] init];
 		[_game startWithState:[PlayState state]];
 	}
