@@ -13,11 +13,15 @@
 #import "LevelLayoutCache.h"
 #import "Logger.h"
 
+static NSString *SETTINGS_KEY = @"Settings";
+static NSString *PROGRESS_KEY = @"Progress";
+
 @interface PlayerInformation()
 
 -(void) cloudDataDidChange:(NSNotification *)notification;
 -(void) load;
--(NSDictionary *) getInformationAsDictionary;
+-(NSDictionary *) getSettingsAsDictionary;
+-(NSDictionary *) getProgressAsDictionary;
 -(BOOL) hasCompletedLevelAtLeastOnce:(NSString *)levelName;
 
 @end
@@ -87,13 +91,13 @@
 	if (reason != nil)
 	{
 		NSInteger reasonValue = [reason integerValue];
-		if (reasonValue == NSUbiquitousKeyValueStoreServerChange ||
-				reasonValue == NSUbiquitousKeyValueStoreInitialSyncChange)
+		if (reasonValue == NSUbiquitousKeyValueStoreInitialSyncChange ||
+				reasonValue == NSUbiquitousKeyValueStoreServerChange)
 		{
 			NSArray *keys = [userInfo objectForKey:NSUbiquitousKeyValueStoreChangedKeysKey];
 			for (NSString *key in keys)
 			{
-				if ([key isEqualToString:@"playerInformation"])
+				if ([key isEqualToString:PROGRESS_KEY])
 				{
 					NSUbiquitousKeyValueStore *store = [NSUbiquitousKeyValueStore defaultStore];
 					NSDictionary *cloudDict = [store objectForKey:key];
@@ -115,8 +119,6 @@
 							[_seenTutorialIds addObject:cloudSeenTutorialId];
 						}
 					}
-					_isSoundMuted = [[cloudDict objectForKey:@"isSoundMuted"] boolValue];
-					_usingAdvancedControlScheme = [[cloudDict objectForKey:@"usingAdvancedControlScheme"] boolValue];
 				}
 			}
 		}
@@ -125,19 +127,8 @@
 
 -(void) save
 {
-//	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
-//	NSString *documentsDirectory = [paths objectAtIndex:0];
-//	NSString *fileName = @"Player-Information.plist";
-//	NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
-//	BOOL success = [[self getInformationAsDictionary] writeToFile:filePath atomically:TRUE];
-//	if (!success)
-//	{
-//		NSLog(@"Player information failed to save...");
-//	}
-
-	NSDictionary *dict = [self getInformationAsDictionary];
-
-	[[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"playerInformation"];
+	[[NSUserDefaults standardUserDefaults] setObject:[self getSettingsAsDictionary] forKey:SETTINGS_KEY];
+	[[NSUserDefaults standardUserDefaults] setObject:[self getProgressAsDictionary] forKey:PROGRESS_KEY];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 
 #ifdef ICLOUD
@@ -147,27 +138,24 @@
 	NSUbiquitousKeyValueStore *store = [NSUbiquitousKeyValueStore defaultStore];
 	if (store != nil)
 	{
-		[store setObject:dict forKey:@"playerInformation"];
+		[store setObject:[self getProgressAsDictionary] forKey:PROGRESS_KEY];
 	}
 #endif
 }
 
 -(void) load
 {
-//	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
-//	NSString *documentsDirectory = [paths objectAtIndex:0];
-//	NSString *fileName = @"Player-Information.plist";
-//	NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
-//	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
-
-	NSDictionary *dict = [[NSUserDefaults standardUserDefaults] objectForKey:@"playerInformation"];
-
-	if (dict != nil)
+	NSDictionary *settingsDict = [[NSUserDefaults standardUserDefaults] objectForKey:SETTINGS_KEY];
+	if (settingsDict != nil)
 	{
-		[_pollenRecordByLevelName addEntriesFromDictionary:[dict objectForKey:@"pollenRecordByLevelName"]];
-		[_seenTutorialIds addObjectsFromArray:[dict objectForKey:@"seenTutorialIds"]];
-		_isSoundMuted = [[dict objectForKey:@"isSoundMuted"] boolValue];
-		_usingAdvancedControlScheme = [[dict objectForKey:@"usingAdvancedControlScheme"] boolValue];
+		_isSoundMuted = [[settingsDict objectForKey:@"isSoundMuted"] boolValue];
+		_usingAdvancedControlScheme = [[settingsDict objectForKey:@"usingAdvancedControlScheme"] boolValue];
+	}
+	NSDictionary *progressDict = [[NSUserDefaults standardUserDefaults] objectForKey:PROGRESS_KEY];
+	if (progressDict != nil)
+	{
+		[_pollenRecordByLevelName addEntriesFromDictionary:[progressDict objectForKey:@"pollenRecordByLevelName"]];
+		[_seenTutorialIds addObjectsFromArray:[progressDict objectForKey:@"seenTutorialIds"]];
 	}
 }
 
@@ -178,13 +166,8 @@
 	_isSoundMuted = FALSE;
 	_usingAdvancedControlScheme = FALSE;
 	
-//	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
-//	NSString *documentsDirectory = [paths objectAtIndex:0];
-//	NSString *fileName = @"Player-Information.plist";
-//	NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
-//	[[NSFileManager defaultManager] removeItemAtPath:filePath error:NULL];
-
-	[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"playerInformation"];
+	[[NSUserDefaults standardUserDefaults] removeObjectForKey:SETTINGS_KEY];
+	[[NSUserDefaults standardUserDefaults] removeObjectForKey:PROGRESS_KEY];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 
 #ifdef ICLOUD
@@ -194,18 +177,24 @@
 	NSUbiquitousKeyValueStore *store = [NSUbiquitousKeyValueStore defaultStore];
 	if (store != nil)
 	{
-		[store removeObjectForKey:@"playerInformation"];
+		[store removeObjectForKey:PROGRESS_KEY];
 	}
 #endif
 }
 
--(NSDictionary *) getInformationAsDictionary
+-(NSDictionary *) getSettingsAsDictionary
+{
+	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	[dict setObject:[NSNumber numberWithBool:_isSoundMuted] forKey:@"isSoundMuted"];
+	[dict setObject:[NSNumber numberWithBool:_usingAdvancedControlScheme] forKey:@"usingAdvancedControlScheme"];
+	return dict;
+}
+
+-(NSDictionary *) getProgressAsDictionary
 {
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	[dict setObject:[NSDictionary dictionaryWithDictionary:_pollenRecordByLevelName] forKey:@"pollenRecordByLevelName"];
 	[dict setObject:[_seenTutorialIds allObjects] forKey:@"seenTutorialIds"];
-	[dict setObject:[NSNumber numberWithBool:_isSoundMuted] forKey:@"isSoundMuted"];
-	[dict setObject:[NSNumber numberWithBool:_usingAdvancedControlScheme] forKey:@"usingAdvancedControlScheme"];
 	return dict;
 }
 
