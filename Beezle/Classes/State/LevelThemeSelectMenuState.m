@@ -64,9 +64,9 @@ static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 
 	[self createBackgroundSprite];
 
-	_chooserScreenBackSprite = [[CCSprite alloc] initWithFile:@"Chooser-Screen-back.png"];
-	[_chooserScreenBackSprite setPosition:[Utils screenCenterPosition]];
-	[self addChild:_chooserScreenBackSprite z:25];
+	CCSprite *chooserScreenBackSprite = [CCSprite spriteWithFile:@"Chooser-Screen.png"];
+	[chooserScreenBackSprite setPosition:[Utils screenCenterPosition]];
+	[self addChild:chooserScreenBackSprite z:25];
 
 	NSArray *themes = [[LevelOrganizer sharedOrganizer] themes];
 	[self createScrollLayer:themes];
@@ -103,7 +103,6 @@ static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 	[_backgroundSprite release];
 	[_scrollLayer release];
 	[_pageDotSprites release];
-	[_chooserScreenBackSprite release];
 	[_theme release];
 
 	[super dealloc];

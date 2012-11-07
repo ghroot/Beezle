@@ -13,6 +13,7 @@
 #import "LevelOrganizer.h"
 #import "Game.h"
 #import "LevelSelectMenuState.h"
+#import "Utils.h"
 
 @interface LevelThemeSelectLayer()
 
@@ -106,8 +107,10 @@
 			[animationNames addObject:@"Title-Mumee-Blink"];
 		}
 
+		float universalScreenStartX = [Utils universalScreenStartX];
+
 		CCSprite *beeSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
-		[beeSprite setPosition:CGPointMake(180.0f, 180.0f)];
+		[beeSprite setPosition:CGPointMake(universalScreenStartX + 180.0f, 180.0f)];
 		[self animateSprite:beeSprite animationNames:animationNames];
 		[self swaySprite:beeSprite speed:0.4f];
 		CCScaleTo *scaleUpAction = [CCScaleTo actionWithDuration:2.0f scale:1.2f];
@@ -119,7 +122,7 @@
 		[self addChild:beeSprite];
 
 		CCSprite *beeBackSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
-		[beeBackSprite setPosition:CGPointMake(280.0f, 140.0f)];
+		[beeBackSprite setPosition:CGPointMake(universalScreenStartX + 280.0f, 140.0f)];
 		[self animateSprite:beeBackSprite animationNames:[NSArray arrayWithObject:@"Title-BeeBack-Idle"]];
 		rotateRightAction = [CCRotateTo actionWithDuration:0.6f angle:3.0f];
 		rotateLeftAction = [CCRotateTo actionWithDuration:0.6f angle:-3.0f];
@@ -129,8 +132,8 @@
 		int flowerRecordForTheme = [[PlayerInformation sharedInformation] flowerRecordForTheme:theme];
 		NSString *flowersString = [NSString stringWithFormat:@"%d/%d", flowerRecordForTheme, NUMBER_OF_REQUIRED_FLOWERS_TO_UNLOCK_NEXT_THEME];
 		CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:flowersString charMapFile:@"numberImages-red-s.png" itemWidth:12 itemHeight:14 startCharMap:'/'] autorelease];
-		[label setAnchorPoint:CGPointZero];
-		[label setPosition:[_flowerLabelPosition position]];
+		[label setAnchorPoint:CGPointMake(0.0f, 0.5f)];
+		[label setPosition:CGPointMake([_flowerSprite position].x + 5.0f, [_flowerSprite position].y)];
 		[self addChild:label];
 
 		_menu = [CCMenu new];

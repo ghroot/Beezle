@@ -7,6 +7,7 @@
 //
 
 #import "TransformComponent.h"
+#import "Utils.h"
 
 @implementation TransformComponent
 
@@ -39,6 +40,10 @@
 		if (instanceComponentDict != nil)
 		{
 			_position = CGPointFromString([instanceComponentDict objectForKey:@"position"]);
+
+			// Support iPhone 5 resolution width by offsetting layout positions
+			_position.x += [Utils universalScreenStartX];
+
 			_rotation = [[instanceComponentDict objectForKey:@"rotation"] floatValue];
 			_instanceScale = CGPointFromString([instanceComponentDict objectForKey:@"scale"]);
 		}
@@ -49,6 +54,10 @@
 -(NSDictionary *) getInstanceComponentDict
 {
 	NSMutableDictionary *instanceComponentDict = [NSMutableDictionary dictionary];
+
+	// Support iPhone 5 resolution width by offsetting layout positions
+	_position.x -= [Utils universalScreenStartX];
+
 	[instanceComponentDict setObject:NSStringFromCGPoint(_position) forKey:@"position"];
 	[instanceComponentDict setObject:[NSNumber numberWithFloat:_rotation] forKey:@"rotation"];
 	[instanceComponentDict setObject:NSStringFromCGPoint(_instanceScale) forKey:@"scale"];

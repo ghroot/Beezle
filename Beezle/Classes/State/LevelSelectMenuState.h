@@ -16,7 +16,7 @@
 {
 	NSString *_theme;
 	ScrollView *_scrollView;
-	CCSprite *_chooserScreenBackSprite;
+	CCSprite *_chooserScreenSprite;
 	BeesFrontNode *_beesFrontNode;
 	CCLayer *_fadeLayer;
 }

@@ -30,9 +30,9 @@
 				<key>displayName</key>
 				<string>CCSprite</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_flowerSprite</string>
 				<key>memberVarAssignmentType</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>properties</key>
 				<array>
 					<dict>
@@ -42,9 +42,9 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>190</real>
-							<real>228</real>
-							<integer>0</integer>
+							<real>45</real>
+							<real>71</real>
+							<integer>4</integer>
 						</array>
 					</dict>
 					<dict>
@@ -54,7 +54,7 @@
 						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
+							<real>1</real>
 							<real>0.5</real>
 						</array>
 					</dict>
@@ -94,67 +94,6 @@
 			</dict>
 			<dict>
 				<key>baseClass</key>
-				<string>CCNode</string>
-				<key>children</key>
-				<array/>
-				<key>customClass</key>
-				<string></string>
-				<key>displayName</key>
-				<string>CCNode</string>
-				<key>memberVarAssignmentName</key>
-				<string>_flowerLabelPosition</string>
-				<key>memberVarAssignmentType</key>
-				<integer>2</integer>
-				<key>properties</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>position</string>
-						<key>type</key>
-						<string>Position</string>
-						<key>value</key>
-						<array>
-							<real>209</real>
-							<real>220</real>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>anchorPoint</string>
-						<key>type</key>
-						<string>Point</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>scale</string>
-						<key>type</key>
-						<string>ScaleLock</string>
-						<key>value</key>
-						<array>
-							<real>1</real>
-							<real>1</real>
-							<false/>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>ignoreAnchorPointForPosition</string>
-						<key>type</key>
-						<string>Check</string>
-						<key>value</key>
-						<false/>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>baseClass</key>
 				<string>CCSprite</string>
 				<key>children</key>
 				<array/>
@@ -175,9 +114,9 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>232.2578125</real>
-							<real>164.58203125</real>
-							<integer>0</integer>
+							<real>50</real>
+							<real>50</real>
+							<integer>4</integer>
 						</array>
 					</dict>
 					<dict>
@@ -247,9 +186,9 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>242.15234375</real>
-							<real>162.875</real>
-							<integer>0</integer>
+							<real>50</real>
+							<real>50</real>
+							<integer>4</integer>
 						</array>
 					</dict>
 					<dict>
@@ -310,6 +249,18 @@
 		<array>
 			<dict>
 				<key>name</key>
+				<string>contentSize</string>
+				<key>type</key>
+				<string>Size</string>
+				<key>value</key>
+				<array>
+					<real>100</real>
+					<real>100</real>
+					<integer>1</integer>
+				</array>
+			</dict>
+			<dict>
+				<key>name</key>
 				<string>anchorPoint</string>
 				<key>type</key>
 				<string>Point</string>
@@ -359,6 +310,20 @@
 			<real>1</real>
 			<key>width</key>
 			<integer>480</integer>
+		</dict>
+		<dict>
+			<key>centeredOrigin</key>
+			<false/>
+			<key>ext</key>
+			<string> </string>
+			<key>height</key>
+			<integer>320</integer>
+			<key>name</key>
+			<string>iPhone 5 Landscape</string>
+			<key>scale</key>
+			<real>1</real>
+			<key>width</key>
+			<integer>568</integer>
 		</dict>
 	</array>
 	<key>sequences</key>

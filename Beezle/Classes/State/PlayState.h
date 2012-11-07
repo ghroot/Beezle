@@ -13,6 +13,7 @@
 	CCMenu *_menu;
 	CCMenuItemImage *_menuItemPlay;
 	CCSprite *_pollenExplodeSprite;
+	float _universalScreenStartX;
 }
 
 -(void) play;

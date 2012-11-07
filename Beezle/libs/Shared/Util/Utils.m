@@ -72,6 +72,12 @@ static const float TWO_PI = 0.0174532925f;
 	return CGPointMake(winSize.width / 2, winSize.height / 2);
 }
 
++(float) universalScreenStartX
+{
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	return (winSize.width - 480.0f) / 2;
+}
+
 +(CCRenderTexture *) takeScreenShot
 {
 	CGSize winSize = [[CCDirector sharedDirector] winSize];

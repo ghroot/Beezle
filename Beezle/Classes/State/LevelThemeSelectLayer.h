@@ -12,7 +12,7 @@
 
 @interface LevelThemeSelectLayer : CCLayer
 {
-	CCNode *_flowerLabelPosition;
+	CCSprite *_flowerSprite;
 	CCSprite *_lockSprite;
 	CCSprite *_playSprite;
 	CCMenu *_menu;

@@ -19,7 +19,6 @@
 	CCSprite *_titleSprite;
 
 	CCSprite *_pollenSprite;
-	CCNode *_pollenLabelPosition;
 	CCNode *_flowerSprite1Position;
 	CCNode *_flowerSprite2Position;
 	CCNode *_flowerSprite3Position;

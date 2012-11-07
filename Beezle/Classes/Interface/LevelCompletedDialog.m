@@ -40,8 +40,8 @@ static const int POLLEN_COUNT_PER_FLYING_POLLEN = 4;
 
 		NSString *pollenString = [NSString stringWithFormat:@"%d", [levelSession totalNumberOfPollen]];
 		_pollenLabel = [[CCLabelAtlas alloc] initWithString:pollenString charMapFile:@"numberImages-s.png" itemWidth:15 itemHeight:18 startCharMap:'/'];
-		[_pollenLabel setAnchorPoint:CGPointZero];
-		[_pollenLabel setPosition:[_pollenLabelPosition position]];
+		[_pollenLabel setAnchorPoint:CGPointMake(0.0f, 0.5f)];
+		[_pollenLabel setPosition:CGPointMake([_pollenSprite position].x + 5.0f, [_pollenSprite position].y)];
 		[self addChild:_pollenLabel];
 
 		[self createFlowerSprites];

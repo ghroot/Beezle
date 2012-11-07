@@ -45,8 +45,10 @@
 		[self swaySprite:bombeeSprite speed:0.9f];
 		[self addChild:bombeeSprite];
 
+		CGSize winSize = [[CCDirector sharedDirector] winSize];
+
 		CCSprite *speedeeSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
-		[speedeeSprite setPosition:CGPointMake(310.0f, 80.0f)];
+		[speedeeSprite setPosition:CGPointMake(winSize.width - 170.0f, 80.0f)];
 		[self animateSprite:speedeeSprite animationNames:[NSArray arrayWithObjects:
 				@"Chooser-Speedee-Idle",
 				@"Chooser-Speedee-Idle",
@@ -62,7 +64,7 @@
 		[self addChild:speedeeSprite];
 
 		CCSprite *beeSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
-		[beeSprite setPosition:CGPointMake(350.0f, 80.0f)];
+		[beeSprite setPosition:CGPointMake(winSize.width - 130.0f, 80.0f)];
 		[self animateSprite:beeSprite animationNames:[NSArray arrayWithObjects:
 				@"Chooser-Bee-Idle",
 				@"Chooser-Bee-Idle",
@@ -79,7 +81,7 @@
 		[self addChild:beeSprite];
 
 		CCSprite *beeaterSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
-		[beeaterSprite setPosition:CGPointMake(420.0f, 50.0f)];
+		[beeaterSprite setPosition:CGPointMake(winSize.width - 60.0f, 50.0f)];
 		[self animateSprite:beeaterSprite animationNames:[NSArray arrayWithObjects:
 				@"Chooser-Beeater-Idle",
 				@"Chooser-Beeater-Idle",

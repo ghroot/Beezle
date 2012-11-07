@@ -11,10 +11,6 @@
 #import "EntityUtil.h"
 #import "LevelLayout.h"
 #import "LevelLayoutEntry.h"
-#import "LevelOrganizer.h"
-#import "GCpShapeCache.h"
-#import "EntityDescription.h"
-#import "EntityDescriptionCache.h"
 
 static const int LEVEL_LAYOUT_FORMAT = 2;
 

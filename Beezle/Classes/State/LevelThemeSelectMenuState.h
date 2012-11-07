@@ -18,7 +18,6 @@
 	float _backgroundSpriteWidth;
 	CCScrollLayer *_scrollLayer;
 	NSMutableArray *_pageDotSprites;
-	CCSprite *_chooserScreenBackSprite;
 	NSString *_theme;
 	int _numberOfPages;
 	CCSprite *_arrowLeftSprite;

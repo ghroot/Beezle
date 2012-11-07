@@ -42,9 +42,9 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>246</real>
-							<real>187</real>
-							<integer>0</integer>
+							<real>50</real>
+							<real>55</real>
+							<integer>4</integer>
 						</array>
 					</dict>
 					<dict>
@@ -119,8 +119,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>151</real>
-									<real>97</real>
+									<real>-80</real>
+									<real>0.0</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -225,18 +225,6 @@
 						<integer>0</integer>
 						<key>properties</key>
 						<array>
-							<dict>
-								<key>name</key>
-								<string>position</string>
-								<key>type</key>
-								<string>Position</string>
-								<key>value</key>
-								<array>
-									<real>234</real>
-									<real>96</real>
-									<integer>0</integer>
-								</array>
-							</dict>
 							<dict>
 								<key>name</key>
 								<string>anchorPoint</string>
@@ -345,8 +333,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>317</real>
-									<real>95</real>
+									<real>80</real>
+									<real>0.0</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -454,9 +442,9 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-							<integer>0</integer>
+							<real>50</real>
+							<real>35</real>
+							<integer>4</integer>
 						</array>
 					</dict>
 					<dict>
@@ -546,6 +534,18 @@
 		<array>
 			<dict>
 				<key>name</key>
+				<string>contentSize</string>
+				<key>type</key>
+				<string>Size</string>
+				<key>value</key>
+				<array>
+					<real>100</real>
+					<real>100</real>
+					<integer>1</integer>
+				</array>
+			</dict>
+			<dict>
+				<key>name</key>
 				<string>anchorPoint</string>
 				<key>type</key>
 				<string>Point</string>
@@ -595,6 +595,20 @@
 			<real>1</real>
 			<key>width</key>
 			<integer>480</integer>
+		</dict>
+		<dict>
+			<key>centeredOrigin</key>
+			<false/>
+			<key>ext</key>
+			<string> </string>
+			<key>height</key>
+			<integer>320</integer>
+			<key>name</key>
+			<string>iPhone 5 Landscape</string>
+			<key>scale</key>
+			<real>1</real>
+			<key>width</key>
+			<integer>568</integer>
 		</dict>
 	</array>
 	<key>sequences</key>

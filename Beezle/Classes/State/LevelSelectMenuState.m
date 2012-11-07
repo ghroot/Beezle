@@ -92,9 +92,9 @@
 	[backgroundSprite setPosition:CGPointMake(backgroundSpriteX, (winSize.height - [backgroundSprite1 contentSize].height) / 2)];
 	[self addChild:backgroundSprite];
 
-	_chooserScreenBackSprite = [[CCSprite alloc] initWithFile:@"Chooser-Screen-back.png"];
-	[_chooserScreenBackSprite setPosition:[Utils screenCenterPosition]];
-	[self addChild:_chooserScreenBackSprite];
+	_chooserScreenSprite = [[CCSprite alloc] initWithFile:@"Chooser-Screen.png"];
+	[_chooserScreenSprite setPosition:[Utils screenCenterPosition]];
+	[self addChild:_chooserScreenSprite];
 
 	float firstCellX = -1.0f;
 	float lastCellX = 0.0f;
@@ -254,7 +254,7 @@
 {
 	[_theme release];
 	[_scrollView release];
-	[_chooserScreenBackSprite release];
+	[_chooserScreenSprite release];
 	[_beesFrontNode release];
 	[_fadeLayer release];
 	
@@ -284,7 +284,7 @@
 	CCCallBlock *gotoGameAction = [CCCallBlock actionWithBlock:^{
 		[GameStateUtils replaceWithGameplayState:levelName game:_game];
 	}];
-	[_chooserScreenBackSprite runAction:[CCSequence actionOne:scaleAction two:gotoGameAction]];
+	[_chooserScreenSprite runAction:[CCSequence actionOne:scaleAction two:gotoGameAction]];
 
 	CCMoveTo *moveAction = [CCMoveTo actionWithDuration:0.3f position:CGPointMake(0.0f, -20.0f)];
 	[_beesFrontNode runAction:moveAction];

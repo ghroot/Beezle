@@ -42,9 +42,9 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>239.82421875</real>
-							<real>131.22265625</real>
-							<integer>0</integer>
+							<real>49.96337890625</real>
+							<real>41.007080078125</real>
+							<integer>4</integer>
 						</array>
 					</dict>
 					<dict>
@@ -119,8 +119,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>162</real>
-									<real>71</real>
+									<real>-70</real>
+									<real>0.0</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -225,18 +225,6 @@
 						<integer>0</integer>
 						<key>properties</key>
 						<array>
-							<dict>
-								<key>name</key>
-								<string>position</string>
-								<key>type</key>
-								<string>Position</string>
-								<key>value</key>
-								<array>
-									<real>232</real>
-									<real>73</real>
-									<integer>0</integer>
-								</array>
-							</dict>
 							<dict>
 								<key>name</key>
 								<string>anchorPoint</string>
@@ -345,8 +333,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>306</real>
 									<real>70</real>
+									<real>0.0</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -454,9 +442,9 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-							<integer>0</integer>
+							<real>50</real>
+							<real>19</real>
+							<integer>4</integer>
 						</array>
 					</dict>
 					<dict>
@@ -555,9 +543,9 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>158</real>
-							<real>190</real>
-							<integer>0</integer>
+							<real>39</real>
+							<real>60</real>
+							<integer>4</integer>
 						</array>
 					</dict>
 					<dict>
@@ -616,9 +604,9 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>222</real>
-							<real>190</real>
-							<integer>0</integer>
+							<real>50</real>
+							<real>60</real>
+							<integer>4</integer>
 						</array>
 					</dict>
 					<dict>
@@ -677,9 +665,9 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>288</real>
-							<real>190</real>
-							<integer>0</integer>
+							<real>61</real>
+							<real>60</real>
+							<integer>4</integer>
 						</array>
 					</dict>
 					<dict>
@@ -738,9 +726,9 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>197.515625</real>
-							<real>230</real>
-							<integer>0</integer>
+							<real>44</real>
+							<real>77</real>
+							<integer>4</integer>
 						</array>
 					</dict>
 					<dict>
@@ -750,7 +738,7 @@
 						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
+							<real>1</real>
 							<real>0.5</real>
 						</array>
 					</dict>
@@ -788,67 +776,6 @@
 					</dict>
 				</array>
 			</dict>
-			<dict>
-				<key>baseClass</key>
-				<string>CCNode</string>
-				<key>children</key>
-				<array/>
-				<key>customClass</key>
-				<string></string>
-				<key>displayName</key>
-				<string>CCNode</string>
-				<key>memberVarAssignmentName</key>
-				<string>_pollenLabelPosition</string>
-				<key>memberVarAssignmentType</key>
-				<integer>2</integer>
-				<key>properties</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>position</string>
-						<key>type</key>
-						<string>Position</string>
-						<key>value</key>
-						<array>
-							<real>213</real>
-							<real>221</real>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>anchorPoint</string>
-						<key>type</key>
-						<string>Point</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>scale</string>
-						<key>type</key>
-						<string>ScaleLock</string>
-						<key>value</key>
-						<array>
-							<real>1</real>
-							<real>1</real>
-							<false/>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>ignoreAnchorPointForPosition</string>
-						<key>type</key>
-						<string>Check</string>
-						<key>value</key>
-						<false/>
-					</dict>
-				</array>
-			</dict>
 		</array>
 		<key>customClass</key>
 		<string></string>
@@ -862,13 +789,25 @@
 		<array>
 			<dict>
 				<key>name</key>
+				<string>contentSize</string>
+				<key>type</key>
+				<string>Size</string>
+				<key>value</key>
+				<array>
+					<real>100</real>
+					<real>100</real>
+					<integer>1</integer>
+				</array>
+			</dict>
+			<dict>
+				<key>name</key>
 				<string>anchorPoint</string>
 				<key>type</key>
 				<string>Point</string>
 				<key>value</key>
 				<array>
-					<real>0.5</real>
-					<real>0.5</real>
+					<real>0.0</real>
+					<real>0.0</real>
 				</array>
 			</dict>
 			<dict>
@@ -911,6 +850,20 @@
 			<real>1</real>
 			<key>width</key>
 			<integer>480</integer>
+		</dict>
+		<dict>
+			<key>centeredOrigin</key>
+			<false/>
+			<key>ext</key>
+			<string> </string>
+			<key>height</key>
+			<integer>320</integer>
+			<key>name</key>
+			<string>iPhone 5 Landscape</string>
+			<key>scale</key>
+			<real>1</real>
+			<key>width</key>
+			<integer>568</integer>
 		</dict>
 	</array>
 	<key>sequences</key>
