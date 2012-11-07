@@ -67,8 +67,12 @@
 #ifdef DEBUG
 	[[Logger defaultLogger] log:@"Synchronizing iCloud..."];
 #endif
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cloudDataDidChange:) name:NSUbiquitousKeyValueStoreDidChangeExternallyNotification object:[NSUbiquitousKeyValueStore defaultStore]];
-	[[NSUbiquitousKeyValueStore defaultStore] synchronize];
+	NSUbiquitousKeyValueStore *store = [NSUbiquitousKeyValueStore defaultStore];
+	if (store != nil)
+	{
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cloudDataDidChange:) name:NSUbiquitousKeyValueStoreDidChangeExternallyNotification object:store];
+		[store synchronize];
+	}
 #endif
 }
 
@@ -78,28 +82,45 @@
 	[[Logger defaultLogger] log:@"iCloud data recieved."];
 #endif
 
-	NSDictionary *cloudDict = [notification userInfo];
-
-	NSDictionary *cloudPollenRecordByLevelName = [cloudDict objectForKey:@"pollenRecordByLevelName"];
-	for (NSString *levelName in [cloudPollenRecordByLevelName allKeys])
+	NSDictionary *userInfo = [notification userInfo];
+	NSNumber *reason = [userInfo objectForKey:NSUbiquitousKeyValueStoreChangeReasonKey];
+	if (reason != nil)
 	{
-		int localRecord = [[_pollenRecordByLevelName objectForKey:levelName] intValue];
-		int cloudRecord = [[cloudPollenRecordByLevelName objectForKey:levelName] intValue];
-		if (cloudRecord > localRecord)
+		NSInteger reasonValue = [reason integerValue];
+		if (reasonValue == NSUbiquitousKeyValueStoreServerChange ||
+				reasonValue == NSUbiquitousKeyValueStoreInitialSyncChange)
 		{
-			[_pollenRecordByLevelName setObject:[NSNumber numberWithInt:cloudRecord] forKey:levelName];
+			NSArray *keys = [userInfo objectForKey:NSUbiquitousKeyValueStoreChangedKeysKey];
+			for (NSString *key in keys)
+			{
+				if ([key isEqualToString:@"playerInformation"])
+				{
+					NSUbiquitousKeyValueStore *store = [NSUbiquitousKeyValueStore defaultStore];
+					NSDictionary *cloudDict = [store objectForKey:key];
+					NSDictionary *cloudPollenRecordByLevelName = [cloudDict objectForKey:@"pollenRecordByLevelName"];
+					for (NSString *levelName in [cloudPollenRecordByLevelName allKeys])
+					{
+						int localRecord = [[_pollenRecordByLevelName objectForKey:levelName] intValue];
+						int cloudRecord = [[cloudPollenRecordByLevelName objectForKey:levelName] intValue];
+						if (cloudRecord > localRecord)
+						{
+							[_pollenRecordByLevelName setObject:[NSNumber numberWithInt:cloudRecord] forKey:levelName];
+						}
+					}
+					NSArray *cloudSeenTutorialIds = [cloudDict objectForKey:@"seenTutorialIds"];
+					for (NSString *cloudSeenTutorialId in cloudSeenTutorialIds)
+					{
+						if (![_seenTutorialIds containsObject:cloudSeenTutorialId])
+						{
+							[_seenTutorialIds addObject:cloudSeenTutorialId];
+						}
+					}
+					_isSoundMuted = [[cloudDict objectForKey:@"isSoundMuted"] boolValue];
+					_usingAdvancedControlScheme = [[cloudDict objectForKey:@"usingAdvancedControlScheme"] boolValue];
+				}
+			}
 		}
 	}
-	NSArray *cloudSeenTutorialIds = [cloudDict objectForKey:@"seenTutorialIds"];
-	for (NSString *cloudSeenTutorialId in cloudSeenTutorialIds)
-	{
-		if (![_seenTutorialIds containsObject:cloudSeenTutorialId])
-		{
-			[_seenTutorialIds addObject:cloudSeenTutorialId];
-		}
-	}
-	_isSoundMuted = [[cloudDict objectForKey:@"isSoundMuted"] boolValue];
-	_usingAdvancedControlScheme = [[cloudDict objectForKey:@"usingAdvancedControlScheme"] boolValue];
 }
 
 -(void) save
@@ -123,7 +144,11 @@
 #ifdef DEBUG
 	[[Logger defaultLogger] log:@"Saving to iCloud..."];
 #endif
-	[[NSUbiquitousKeyValueStore defaultStore] setObject:dict forKey:@"playerInformation"];
+	NSUbiquitousKeyValueStore *store = [NSUbiquitousKeyValueStore defaultStore];
+	if (store != nil)
+	{
+		[store setObject:dict forKey:@"playerInformation"];
+	}
 #endif
 }
 
@@ -166,7 +191,11 @@
 #ifdef DEBUG
 	[[Logger defaultLogger] log:@"Resetting iCloud data..."];
 #endif
-    [[NSUbiquitousKeyValueStore defaultStore] removeObjectForKey:@"playerInformation"];
+	NSUbiquitousKeyValueStore *store = [NSUbiquitousKeyValueStore defaultStore];
+	if (store != nil)
+	{
+		[store removeObjectForKey:@"playerInformation"];
+	}
 #endif
 }
 
