@@ -50,8 +50,11 @@
 
 -(CCNode *) createCreditsNode
 {
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+
 	CCNode *creditsNode = [CCBReader nodeGraphFromFile:@"Credits.ccbi"];
-	[creditsNode setContentSize:CGSizeMake(480.0f, 1200.0f)];
+	[creditsNode setAnchorPoint:CGPointMake(0.5f, 0.0f)];
+	[creditsNode setPosition:CGPointMake(winSize.width / 2, winSize.height - [creditsNode contentSize].height)];
 	return creditsNode;
 }
 
