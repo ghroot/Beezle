@@ -197,6 +197,8 @@ static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 	}
 	[_pageDotSprites removeAllObjects];
 
+	float universalScreenStartX = [Utils universalScreenStartX];
+
 	for (int i = 0; i < [[_scrollLayer pages] count]; i++)
 	{
 		CCSprite *pageDotSprite = nil;
@@ -208,7 +210,7 @@ static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 		{
 			pageDotSprite = [CCSprite spriteWithFile:@"PageDot-diff.png"];
 		}
-		[pageDotSprite setPosition:CGPointMake(220.0f + i * 10.0f, 20.0f)];
+		[pageDotSprite setPosition:CGPointMake(universalScreenStartX + 220.0f + i * 10.0f, 20.0f)];
 		[_pageDotSprites addObject:pageDotSprite];
 		[self addChild:pageDotSprite z:35];
 	}
