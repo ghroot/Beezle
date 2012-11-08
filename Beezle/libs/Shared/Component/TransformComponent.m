@@ -56,9 +56,9 @@
 	NSMutableDictionary *instanceComponentDict = [NSMutableDictionary dictionary];
 
 	// Support iPhone 5 resolution width by offsetting layout positions
-	_position.x -= [Utils universalScreenStartX];
+	CGPoint position = CGPointMake(_position.x - [Utils universalScreenStartX], _position.y);
 
-	[instanceComponentDict setObject:NSStringFromCGPoint(_position) forKey:@"position"];
+	[instanceComponentDict setObject:NSStringFromCGPoint(position) forKey:@"position"];
 	[instanceComponentDict setObject:[NSNumber numberWithFloat:_rotation] forKey:@"rotation"];
 	[instanceComponentDict setObject:NSStringFromCGPoint(_instanceScale) forKey:@"scale"];
 	return instanceComponentDict;

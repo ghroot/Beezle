@@ -10,6 +10,7 @@
 #import "BodyInfo.h"
 #import "CollisionGroup.h"
 #import "PhysicsSystem.h"
+#import "Utils.h"
 
 @implementation PhysicsComponent
 
@@ -175,6 +176,7 @@
 
         // Instance
         CGPoint position = CGPointFromString([instanceComponentDict objectForKey:@"position"]);
+		position.x += [Utils universalScreenStartX]; // Support iPhone 5 resolution width by offsetting layout positions
         [_body setPos:position];
         float angle = [[instanceComponentDict objectForKey:@"angle"] floatValue];
         [_body setAngle:angle];
@@ -211,6 +213,7 @@
 {
     [_shapes release];
     [_body release];
+	[_overrideBodyName release];
     
     [super dealloc];
 }
@@ -223,7 +226,11 @@
 -(NSDictionary *) getInstanceComponentDict
 {
 	NSMutableDictionary *instanceComponentDict = [NSMutableDictionary dictionary];
-	[instanceComponentDict setObject:NSStringFromCGPoint([_body pos]) forKey:@"position"];
+
+	// Support iPhone 5 resolution width by offsetting layout positions
+	CGPoint position = CGPointMake([_body pos].x - [Utils universalScreenStartX], [_body pos].y);
+
+	[instanceComponentDict setObject:NSStringFromCGPoint(position) forKey:@"position"];
 	[instanceComponentDict setObject:[NSNumber numberWithFloat:[_body angle]] forKey:@"angle"];
 	if (_overrideBodyName != nil)
 	{
