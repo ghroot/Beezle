@@ -11,7 +11,7 @@
 
 @class InputAction;
 
-@interface InputSystem : EntitySystem <CCTargetedTouchDelegate>
+@interface InputSystem : EntitySystem <CCTouchOneByOneDelegate>
 {
     NSMutableArray *_inputActions;
 }

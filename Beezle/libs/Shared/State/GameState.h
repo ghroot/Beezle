@@ -10,7 +10,7 @@
 
 @class Game;
 
-@interface GameState : CCScene <CCTargetedTouchDelegate>
+@interface GameState : CCScene <CCTouchOneByOneDelegate>
 {
 	Game *_game;
 	BOOL _isInitialised;

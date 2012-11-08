@@ -46,7 +46,7 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 
 		[self addChild:_draggableNode];
 
-		[self setIsTouchEnabled:TRUE];
+		[self setTouchEnabled:TRUE];
 	}
 	return self;
 }
