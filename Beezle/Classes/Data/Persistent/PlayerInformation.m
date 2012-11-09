@@ -319,6 +319,22 @@ static NSString *PROGRESS_KEY = @"Progress";
 	}
 }
 
+-(NSString *) latestPlayedTheme
+{
+	int latestPlayedThemeIndex = 0;
+	NSArray *themes = [[LevelOrganizer sharedOrganizer] themes];
+	for (NSString *levelName in _pollenRecordByLevelName)
+	{
+		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:levelName];
+		int themeIndex = [themes indexOfObject:theme];
+		if (themeIndex > latestPlayedThemeIndex)
+		{
+			latestPlayedThemeIndex = themeIndex;
+		}
+	}
+	return [themes objectAtIndex:latestPlayedThemeIndex];
+}
+
 -(void) markTutorialIdAsSeen:(NSString *)tutorialId
 {
 	[_seenTutorialIds addObject:tutorialId];

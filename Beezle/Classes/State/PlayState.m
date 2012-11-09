@@ -14,6 +14,7 @@
 #import "TweenableSprite.h"
 #import "SoundButton.h"
 #import "Utils.h"
+#import "PlayerInformation.h"
 
 static int nextBeeIndex = 0;
 
@@ -122,7 +123,8 @@ static int nextBeeIndex = 0;
 	CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Button-Explode"];
 	CCAnimate *animateAction = [CCAnimate actionWithAnimation:animation];
 	CCCallBlock *gotoThemeSelectAction = [CCCallBlock actionWithBlock:^{
-		[_game replaceState:[LevelThemeSelectMenuState state]];
+
+		[_game replaceState:[LevelThemeSelectMenuState stateWithPreselectedTheme:[[PlayerInformation sharedInformation] latestPlayedTheme]]];
 	}];
 	[_pollenExplodeSprite runAction:[CCSequence actionOne:animateAction two:gotoThemeSelectAction]];
 
