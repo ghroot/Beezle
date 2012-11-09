@@ -20,6 +20,17 @@
 
 @implementation AppDelegate
 
++(void) initialize
+{
+	[super initialize];
+
+	// iRate
+	[[iRate sharedInstance] setRemindPeriod:3.0f];
+#ifdef DEBUG
+	[[iRate sharedInstance] setVerboseLogging:TRUE];
+#endif
+}
+
 -(BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	// Create the main window
@@ -87,10 +98,6 @@
 
 		// Tracking
 		[[SessionTracker sharedTracker] start];
-
-		// iRate
-		[[iRate sharedInstance] setPreviewMode:TRUE];
-		[[iRate sharedInstance] setPromptAtLaunch:FALSE];
 
 		// Setup sound
 		if ([[PlayerInformation sharedInformation] isSoundMuted])
