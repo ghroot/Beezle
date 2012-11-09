@@ -99,27 +99,35 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 
 -(void) update:(ccTime)delta
 {
-	if (_isDragging)
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	if ([_draggableNode contentSize].width > winSize.width)
 	{
-		if ([self isTouching])
+		if (_isDragging)
 		{
-			[self updateDragging];
+			if ([self isTouching])
+			{
+				[self updateDragging];
+			}
+			else
+			{
+				[self stopDragging];
+			}
 		}
 		else
 		{
-			[self stopDragging];
+			if ([self isTouching])
+			{
+				[self startDragging];
+			}
+			else
+			{
+				[self updateSliding:delta];
+			}
 		}
 	}
 	else
 	{
-		if ([self isTouching])
-		{
-			[self startDragging];
-		}
-		else
-		{
-			[self updateSliding:delta];
-		}
+		[_draggableNode setPosition:CGPointMake((winSize.width - [_draggableNode contentSize].width) / 2, (winSize.height - [_draggableNode contentSize].height) / 2)];
 	}
 }
 
