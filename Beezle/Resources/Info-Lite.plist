@@ -12,12 +12,12 @@
 	<string></string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>Icon.png</string>
-		<string>Icon@2x.png</string>
-		<string>Icon-72.png</string>
-		<string>Icon-Small-50.png</string>
-		<string>Icon-Small.png</string>
-		<string>Icon-Small@2x.png</string>
+		<string>Icon-Lite.png</string>
+		<string>Icon-Lite@2x.png</string>
+		<string>Icon-72-Lite.png</string>
+		<string>Icon-Small-50-Lite.png</string>
+		<string>Icon-Small-Lite.png</string>
+		<string>Icon-Small-Lite@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.stinglab.${PRODUCT_NAME:rfc1034identifier}</string>
@@ -36,7 +36,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIPrerenderedIcon</key>
-	<true/>
+	<false/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<dict>
 		<key>opengles-2</key>
