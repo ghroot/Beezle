@@ -41,6 +41,8 @@
 		[_node runAction:[CCSequence actions:scaleAction, startSwayAction, enableMenuAction, nil]];
 		[[SoundManager sharedManager] playSound:@"BlowUpBalloon"];
 
+		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Interface.plist"];
+
 		CCMenu *menu = [CCMenu node];
 		CCMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
 			if (!_balloonCanBeClosed)
@@ -48,19 +50,34 @@
 				return;
 			}
 
-			CCSpriteFrame *frame1 = [CCSpriteFrame frameWithTextureFilename:@"BubbleBurst-1.png" rect:CGRectMake(0.0f, 0.0f, 703.0f, 564.0f)];
-			CCSpriteFrame *frame2 = [CCSpriteFrame frameWithTextureFilename:@"BubbleBurst-2.png" rect:CGRectMake(0.0f, 0.0f, 703.0f, 564.0f)];
-			CCSpriteFrame *frame3 = [CCSpriteFrame frameWithTextureFilename:@"BubbleBurst-3.png" rect:CGRectMake(0.0f, 0.0f, 703.0f, 564.0f)];
-			NSArray *spriteFrames = [NSArray arrayWithObjects:frame1, frame2, frame3, nil];
-			CCAnimation *burstAnimation = [CCAnimation animationWithSpriteFrames:spriteFrames delay:0.08f];
-			CCAnimate *animationAction = [CCAnimate actionWithAnimation:burstAnimation];
-			CCSprite *burstSprite = [CCSprite spriteWithSpriteFrame:frame1];
-			CCCallBlock *removeAction = [CCCallBlock actionWithBlock:^{
-				[burstSprite removeFromParentAndCleanup:TRUE];
-			}];
-			[burstSprite setPosition:[Utils screenCenterPosition]];
-			[parent_ addChild:burstSprite];
-			[burstSprite runAction:[CCSequence actionOne:animationAction two:removeAction]];
+			CGPoint centerPosition = [_node position];
+
+			for (int i = 0; i < 6; i++)
+			{
+				float angle = CC_DEGREES_TO_RADIANS((360.0f / 6) * i);
+				CGPoint startPosition = CGPointMake(centerPosition.x + 70.0f * cosf(angle), centerPosition.y + 70.0f * sinf(angle));
+				CGPoint endPosition = CGPointMake(centerPosition.x + 180.0f * cosf(angle), centerPosition.y + 180.0f * sinf(angle));
+
+				int randomPieceIndex = (rand() % 3) + 1;
+				CCSprite *burstSprite = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"Bubble/BubbleBurst-pc%d.png", randomPieceIndex]];
+				[burstSprite setPosition:startPosition];
+				[burstSprite setScale:1.4f];
+
+				float duration = 0.1f;
+				CCMoveTo *moveAction = [CCMoveTo actionWithDuration:duration position:endPosition];
+				CCFadeOut *fadeAction = [CCFadeOut actionWithDuration:duration];
+				CCRotateBy *rotateAction = [CCRotateBy actionWithDuration:duration angle:100.0f];
+				CCScaleTo *scaleDownAction = [CCScaleTo actionWithDuration:duration scale:0.2f];
+				CCCallBlock *removeAction = [CCCallBlock actionWithBlock:^{
+					[burstSprite removeFromParentAndCleanup:TRUE];
+				}];
+				[burstSprite runAction:[CCSequence actionOne:moveAction two:removeAction]];
+				[burstSprite runAction:fadeAction];
+				[burstSprite runAction:rotateAction];
+				[burstSprite runAction:scaleDownAction];
+
+				[parent_ addChild:burstSprite];
+			}
 
 			[self close];
 
