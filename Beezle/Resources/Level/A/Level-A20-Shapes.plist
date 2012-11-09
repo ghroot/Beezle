@@ -32,64 +32,90 @@
                         <integer>0</integer>
                         <key>collision_type</key>
                         <integer>0</integer>
-                        <key>fixture_type</key>
-                        <key>POLYGON</key>
                         <key>isSensor</key>
-
-                           <false/>
-
-                        <key>polygons</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
 						<array>
-
-							<array>
-	
-								<string>{ -161.75439,52.98247 }</string>
-	
-								<string>{ -175.08772,66.66667 }</string>
-	
-								<string>{ -139.29824,62.10527 }</string>
-	
-								<string>{ -138.94736,56.14037 }</string>
-
+							<array>	
+								<string>{ -161.05984,53.30400 }</string>	
+								<string>{ -174.39318,66.98822 }</string>	
+								<string>{ -138.60371,62.42682 }</string>	
+								<string>{ -138.25282,56.46190 }</string>
 							</array>
-
-							<array>
-	
-								<string>{ -173.68421,39.64912 }</string>
-	
-								<string>{ -215.08772,55.43860 }</string>
-	
-								<string>{ -216.84210,62.10527 }</string>
-	
-								<string>{ -175.08772,66.66667 }</string>
-	
-								<string>{ -161.75439,52.98247 }</string>
-
+							<array>	
+								<string>{ -172.98967,39.97067 }</string>	
+								<string>{ -214.39318,55.76015 }</string>	
+								<string>{ -216.14757,62.42682 }</string>	
+								<string>{ -174.39318,66.98822 }</string>	
+								<string>{ -161.05984,53.30400 }</string>
 							</array>
-
-							<array>
-	
-								<string>{ -173.68421,39.64912 }</string>
-	
-								<string>{ -181.05263,9.47369 }</string>
-	
-								<string>{ -215.08772,55.43860 }</string>
-
+							<array>	
+								<string>{ -172.98967,39.97067 }</string>	
+								<string>{ -180.35809,9.79523 }</string>	
+								<string>{ -214.39318,55.76015 }</string>
 							</array>
-
-							<array>
-	
-								<string>{ -181.05263,9.47369 }</string>
-	
-								<string>{ -173.68421,39.64912 }</string>
-	
-								<string>{ -171.57894,-160.00000 }</string>
-	
-								<string>{ -188.07018,-159.29825 }</string>
-
+							<array>	
+								<string>{ -180.35809,9.79523 }</string>	
+								<string>{ -172.98967,39.97067 }</string>	
+								<string>{ -170.88441,-159.67846 }</string>	
+								<string>{ -187.37564,-158.97670 }</string>
 							</array>
-
 						</array>
+                        
+					</dict>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0</real>
+                        <key>friction</key>
+                        <real>0</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ -107.34630,7.04688 }</string>	
+								<string>{ -78.22350,11.95917 }</string>	
+								<string>{ -54.36385,6.69600 }</string>	
+								<string>{ -70.50420,0.73109 }</string>	
+								<string>{ -87.69717,-2.07593 }</string>	
+								<string>{ -105.94279,-2.07593 }</string>
+							</array>
+							<array>	
+								<string>{ -70.50420,0.73109 }</string>	
+								<string>{ -54.36385,6.69600 }</string>	
+								<string>{ -54.36385,0.73109 }</string>
+							</array>
+							<array>	
+								<string>{ -70.50420,0.73109 }</string>	
+								<string>{ -75.41647,-4.88293 }</string>	
+								<string>{ -83.83752,-13.65488 }</string>	
+								<string>{ -87.69717,-2.07593 }</string>
+							</array>
+							<array>	
+								<string>{ -83.83752,-13.65488 }</string>	
+								<string>{ -75.41647,-4.88293 }</string>	
+								<string>{ -75.06560,-159.97067 }</string>	
+								<string>{ -86.29367,-159.97067 }</string>
+							</array>
+						</array>
+                        
 					</dict>
 
 					<dict>
@@ -107,66 +133,43 @@
                         <integer>0</integer>
                         <key>collision_type</key>
                         <integer>0</integer>
-                        <key>fixture_type</key>
-                        <key>POLYGON</key>
                         <key>isSensor</key>
-
-                           <false/>
-
-                        <key>polygons</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
 						<array>
-
-							<array>
-	
-								<string>{ -107.71930,7.36842 }</string>
-	
-								<string>{ -78.59648,12.28070 }</string>
-	
-								<string>{ -54.73683,7.01755 }</string>
-	
-								<string>{ -70.87718,1.05264 }</string>
-	
-								<string>{ -88.07018,-1.75438 }</string>
-	
-								<string>{ -106.31578,-1.75438 }</string>
-
+							<array>	
+								<string>{ -10.06531,41.40352 }</string>	
+								<string>{ -22.69690,42.10527 }</string>	
+								<string>{ -43.04778,47.36842 }</string>	
+								<string>{ -16.73199,51.92982 }</string>	
+								<string>{ 7.82941,48.42105 }</string>	
+								<string>{ 8.18030,41.05264 }</string>
 							</array>
-
-							<array>
-	
-								<string>{ -70.87718,1.05264 }</string>
-	
-								<string>{ -54.73683,7.01755 }</string>
-	
-								<string>{ -54.73683,1.05264 }</string>
-
+							<array>	
+								<string>{ -43.04778,47.36842 }</string>	
+								<string>{ -22.69690,42.10527 }</string>	
+								<string>{ -43.39865,42.80702 }</string>
 							</array>
-
-							<array>
-	
-								<string>{ -70.87718,1.05264 }</string>
-	
-								<string>{ -75.78947,-4.56140 }</string>
-	
-								<string>{ -84.21053,-13.33333 }</string>
-	
-								<string>{ -88.07018,-1.75438 }</string>
-
+							<array>	
+								<string>{ -14.62671,-160.00000 }</string>	
+								<string>{ -19.53900,24.21053 }</string>	
+								<string>{ -5.15305,-159.29825 }</string>
 							</array>
-
-							<array>
-	
-								<string>{ -84.21053,-13.33333 }</string>
-	
-								<string>{ -75.78947,-4.56140 }</string>
-	
-								<string>{ -75.43858,-159.64912 }</string>
-	
-								<string>{ -86.66666,-159.64912 }</string>
-
+							<array>	
+								<string>{ -10.06531,41.40352 }</string>	
+								<string>{ -19.53900,24.21053 }</string>	
+								<string>{ -22.69690,42.10527 }</string>
 							</array>
-
+							<array>	
+								<string>{ -11.46881,-63.50877 }</string>	
+								<string>{ -19.53900,24.21053 }</string>	
+								<string>{ -10.06531,41.40352 }</string>
+							</array>
 						</array>
+                        
 					</dict>
 
 					<dict>
@@ -184,72 +187,34 @@
                         <integer>0</integer>
                         <key>collision_type</key>
                         <integer>0</integer>
-                        <key>fixture_type</key>
-                        <key>POLYGON</key>
                         <key>isSensor</key>
-
-                           <false/>
-
-                        <key>polygons</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
 						<array>
-
-							<array>
-	
-								<string>{ -9.47368,41.40352 }</string>
-	
-								<string>{ -22.10526,42.10527 }</string>
-	
-								<string>{ -42.45613,47.36842 }</string>
-	
-								<string>{ -16.14035,51.92982 }</string>
-	
-								<string>{ 8.42107,48.42105 }</string>
-	
-								<string>{ 8.77194,41.05264 }</string>
-
+							<array>	
+								<string>{ 63.23868,-65.26315 }</string>	
+								<string>{ 54.81763,-63.15789 }</string>	
+								<string>{ 30.25623,-50.52631 }</string>	
+								<string>{ 59.37903,-47.36842 }</string>	
+								<string>{ 80.78253,-51.57894 }</string>	
+								<string>{ 80.78256,-60.70175 }</string>
 							</array>
-
-							<array>
-	
-								<string>{ -42.45613,47.36842 }</string>
-	
-								<string>{ -22.10526,42.10527 }</string>
-	
-								<string>{ -42.80701,42.80702 }</string>
-
+							<array>	
+								<string>{ 30.25623,-50.52631 }</string>	
+								<string>{ 54.81763,-63.15789 }</string>	
+								<string>{ 30.60712,-58.94736 }</string>
 							</array>
-
-							<array>
-	
-								<string>{ -14.03508,-160.00000 }</string>
-	
-								<string>{ -18.94736,24.21053 }</string>
-	
-								<string>{ -4.56140,-159.29825 }</string>
-
+							<array>	
+								<string>{ 53.41412,-160.70175 }</string>	
+								<string>{ 54.81763,-63.15789 }</string>	
+								<string>{ 63.23868,-65.26315 }</string>	
+								<string>{ 67.09833,-160.00000 }</string>
 							</array>
-
-							<array>
-	
-								<string>{ -9.47368,41.40352 }</string>
-	
-								<string>{ -18.94736,24.21053 }</string>
-	
-								<string>{ -22.10526,42.10527 }</string>
-
-							</array>
-
-							<array>
-	
-								<string>{ -10.87718,-63.50877 }</string>
-	
-								<string>{ -18.94736,24.21053 }</string>
-	
-								<string>{ -9.47368,41.40352 }</string>
-
-							</array>
-
 						</array>
+                        
 					</dict>
 
 					<dict>
@@ -267,121 +232,35 @@
                         <integer>0</integer>
                         <key>collision_type</key>
                         <integer>0</integer>
-                        <key>fixture_type</key>
-                        <key>POLYGON</key>
                         <key>isSensor</key>
-
-                           <false/>
-
-                        <key>polygons</key>
-						<array>
-
-							<array>
-	
-								<string>{ 63.50879,-65.26315 }</string>
-	
-								<string>{ 55.08774,-63.15789 }</string>
-	
-								<string>{ 30.52634,-50.52631 }</string>
-	
-								<string>{ 59.64914,-47.36842 }</string>
-	
-								<string>{ 81.05264,-51.57894 }</string>
-	
-								<string>{ 81.05264,-60.70175 }</string>
-
-							</array>
-
-							<array>
-	
-								<string>{ 30.52634,-50.52631 }</string>
-	
-								<string>{ 55.08774,-63.15789 }</string>
-	
-								<string>{ 30.87720,-58.94736 }</string>
-
-							</array>
-
-							<array>
-	
-								<string>{ 53.68423,-160.70175 }</string>
-	
-								<string>{ 55.08774,-63.15789 }</string>
-	
-								<string>{ 63.50879,-65.26315 }</string>
-	
-								<string>{ 67.36844,-160.00000 }</string>
-
-							</array>
-
-						</array>
-					</dict>
-
-					<dict>
-                        <key>mass</key>
-                        <real>2</real>
-                        <key>elasticity</key>
-                        <real>0</real>
-                        <key>friction</key>
-                        <real>0</real>
-                        <key>surface_velocity</key>
-                        <string>{ 0.00000,0.00000 }</string>
-                        <key>layers</key>
-                        <integer>0</integer>
-                        <key>group</key>
-                        <integer>0</integer>
-                        <key>collision_type</key>
-                        <integer>0</integer>
+                        <false/>
                         <key>fixture_type</key>
-                        <key>POLYGON</key>
-                        <key>isSensor</key>
-
-                           <false/>
-
-                        <key>polygons</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
 						<array>
-
-							<array>
-	
-								<string>{ 101.40353,7.71930 }</string>
-	
-								<string>{ 130.52634,11.57895 }</string>
-	
-								<string>{ 153.33334,9.12282 }</string>
-	
-								<string>{ 120.00000,-2.10526 }</string>
-	
-								<string>{ 101.75439,0.70177 }</string>
-
+							<array>	
+								<string>{ 101.45496,7.07622 }</string>	
+								<string>{ 130.57779,10.93587 }</string>	
+								<string>{ 153.38480,8.47972 }</string>	
+								<string>{ 120.05145,-2.74835 }</string>	
+								<string>{ 101.80585,0.05867 }</string>
 							</array>
-
-							<array>
-	
-								<string>{ 153.33334,9.12282 }</string>
-	
-								<string>{ 153.33334,2.45615 }</string>
-	
-								<string>{ 131.57895,-6.66666 }</string>
-	
-								<string>{ 124.56140,-8.77193 }</string>
-	
-								<string>{ 120.00000,-2.10526 }</string>
-
+							<array>	
+								<string>{ 153.38480,8.47972 }</string>	
+								<string>{ 153.38480,1.81306 }</string>	
+								<string>{ 131.63040,-7.30975 }</string>	
+								<string>{ 124.61285,-9.41501 }</string>	
+								<string>{ 120.05145,-2.74835 }</string>
 							</array>
-
-							<array>
-	
-								<string>{ 124.56140,-8.77193 }</string>
-	
-								<string>{ 131.57895,-6.66666 }</string>
-	
-								<string>{ 134.38599,-159.29825 }</string>
-	
-								<string>{ 121.75439,-160.00000 }</string>
-
+							<array>	
+								<string>{ 124.61285,-9.41501 }</string>	
+								<string>{ 131.63040,-7.30975 }</string>	
+								<string>{ 134.43744,-159.94133 }</string>	
+								<string>{ 121.80585,-160.64309 }</string>
 							</array>
-
 						</array>
+                        
 					</dict>
 
 					<dict>
@@ -399,46 +278,30 @@
                         <integer>0</integer>
                         <key>collision_type</key>
                         <integer>0</integer>
-                        <key>fixture_type</key>
-                        <key>POLYGON</key>
                         <key>isSensor</key>
-
-                           <false/>
-
-                        <key>polygons</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
 						<array>
-
-							<array>
-	
-								<string>{ 168.07019,48.77194 }</string>
-	
-								<string>{ 197.54388,50.52632 }</string>
-	
-								<string>{ 221.40353,48.07018 }</string>
-	
-								<string>{ 221.05264,42.80702 }</string>
-	
-								<string>{ 201.05264,38.94737 }</string>
-	
-								<string>{ 189.47369,37.19299 }</string>
-	
-								<string>{ 168.07019,42.80702 }</string>
-
+							<array>	
+								<string>{ 166.51392,48.12885 }</string>	
+								<string>{ 195.98761,49.88324 }</string>	
+								<string>{ 219.84726,47.42709 }</string>	
+								<string>{ 219.49637,42.16394 }</string>	
+								<string>{ 199.49637,38.30429 }</string>	
+								<string>{ 187.91742,36.54990 }</string>	
+								<string>{ 166.51392,42.16394 }</string>
 							</array>
-
-							<array>
-	
-								<string>{ 189.47369,37.19299 }</string>
-	
-								<string>{ 201.05264,38.94737 }</string>
-	
-								<string>{ 209.47369,-159.29825 }</string>
-	
-								<string>{ 197.19299,-159.29825 }</string>
-
+							<array>	
+								<string>{ 187.91742,36.54990 }</string>	
+								<string>{ 199.49637,38.30429 }</string>	
+								<string>{ 207.91742,-159.94133 }</string>	
+								<string>{ 195.63672,-159.94133 }</string>
 							</array>
-
 						</array>
+                        
 					</dict>
 
 				</array>
@@ -447,4 +310,7 @@
 		</dict>
 	</dict>
 </plist>
+
+
+
 
