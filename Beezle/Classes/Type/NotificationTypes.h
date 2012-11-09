@@ -6,8 +6,6 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#define NOTIFICATION_PAUSE @"Pause"
-
 #define GAME_NOTIFICATION_BEE_LOADED @"BeeLoaded"
 #define GAME_NOTIFICATION_BEE_REVERTED @"BeeReverted"
 #define GAME_NOTIFICATION_BEE_FIRED @"BeeFired"

@@ -120,8 +120,6 @@
 	{
 		[_director pause];
 	}
-
-	[[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PAUSE object:self];
 }
 
 -(void) applicationDidBecomeActive:(UIApplication *)application
