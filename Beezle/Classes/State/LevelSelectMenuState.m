@@ -20,6 +20,7 @@
 #import "GameStateUtils.h"
 #import "LevelRatings.h"
 #import "LevelRating.h"
+#import "LevelOrganizer.h"
 
 @interface LevelSelectMenuState()
 
@@ -100,113 +101,121 @@
 	float lastCellX = 0.0f;
 	float lastCanPlayCellX = 0.0f;
 
-//    NSString *nodeFileName = [NSString stringWithFormat:@"LevelSelect-%@.ccbi", _theme];
-    NSString *nodeFileName = @"LevelSelect-A.ccbi";
-	CCNode *draggableNode = [CCBReader nodeGraphFromFile:nodeFileName owner:self];
+	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesInTheme:_theme];
+
+	CCNode *draggableNode = [CCBReader nodeGraphFromFile:@"LevelSelect.ccbi" owner:self];
     CCMenu *menu = [self getMenu:draggableNode];
     for (CCMenuItemImage *menuItemImage in [menu children])
     {
-        NSString *levelName = [NSString stringWithFormat:@"Level-%@%d", _theme, [menuItemImage tag]];
-		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
-		CGPoint position = [menuItemImage position];
-		if (levelLayout == nil)
+		int levelIndex = [menuItemImage tag] - 1;
+		if (levelIndex < [levelNames count])
 		{
+			NSString *levelName = [levelNames objectAtIndex:levelIndex];
+			LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+			CGPoint position = [menuItemImage position];
+			if (levelLayout == nil)
+			{
 #ifdef LITE_VERSION
-			// TODO: What do we do with levels that are not in the lite version?
-			NSString *imageName = [NSString stringWithFormat:@"LevelCell-%@-Bee.png", _theme];
-			[menuItemImage setNormalImage:[CCSprite spriteWithFile:imageName]];
-			[menuItemImage setSelectedImage:[CCSprite spriteWithFile:imageName]];
-			[menuItemImage setDisabledImage:[CCSprite spriteWithFile:imageName]];
-			
-			[menuItemImage setIsEnabled:FALSE];
-#endif
-		}
-		else
-		{
-			if ([[PlayerInformation sharedInformation] canPlayLevel:levelName])
-			{
-				// Open icon
-				NSString *openImageName = [NSString stringWithFormat:@"LevelCell-%@-Open.png", _theme];
-				[menuItemImage setNormalImage:[CCSprite spriteWithFile:openImageName]];
-				[menuItemImage setSelectedImage:[CCSprite spriteWithFile:openImageName]];
-				[menuItemImage setDisabledImage:[CCSprite spriteWithFile:openImageName]];
-				
-				// Level number
-				NSString *levelString = [NSString stringWithFormat:@"%d", [menuItemImage tag]];
-				CCLabelAtlas *label = [CCLabelAtlas labelWithString:levelString charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'];
-				[label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
-				[label setPosition:CGPointMake(position.x, position.y + 6)];
-				[draggableNode addChild:label];
-				
-				// Flowers
-				int flowerRecord = [[PlayerInformation sharedInformation] flowerRecordForLevel:levelName];
-				CCSprite *flowerSprite1 = [CCSprite spriteWithFile:(flowerRecord >= 1 ? @"Flower-Cell-full.png" : @"Flower-Cell-dim.png")];
-				[flowerSprite1 setPosition:CGPointMake(position.x - 12.0f, position.y - 18.0f)];
-				[draggableNode addChild:flowerSprite1];
-				CCSprite *flowerSprite2 = [CCSprite spriteWithFile:(flowerRecord >= 2 ? @"Flower-Cell-full.png" : @"Flower-Cell-dim.png")];
-				[flowerSprite2 setPosition:CGPointMake(position.x, position.y - 18.0f)];
-				[draggableNode addChild:flowerSprite2];
-				CCSprite *flowerSprite3 = [CCSprite spriteWithFile:(flowerRecord == 3 ? @"Flower-Cell-full.png" : @"Flower-Cell-dim.png")];
-				[flowerSprite3 setPosition:CGPointMake(position.x + 12.0f, position.y - 18.0f)];
-				[draggableNode addChild:flowerSprite3];
-				
-				lastCanPlayCellX = [menuItemImage position].x;
-			}
-			else
-			{
-				// Bee or Beeater icon
-				NSString *imageName;
-				if ([levelLayout isBossLevel])
-				{
-					imageName = [NSString stringWithFormat:@"LevelCell-%@-Beeater.png", _theme];
-				}
-				else
-				{
-					imageName = [NSString stringWithFormat:@"LevelCell-%@-Bee.png", _theme];
-				}
+				// TODO: What do we do with levels that are not in the lite version?
+				NSString *imageName = [NSString stringWithFormat:@"LevelCell-%@-Bee.png", _theme];
 				[menuItemImage setNormalImage:[CCSprite spriteWithFile:imageName]];
 				[menuItemImage setSelectedImage:[CCSprite spriteWithFile:imageName]];
 				[menuItemImage setDisabledImage:[CCSprite spriteWithFile:imageName]];
-				
-#ifndef DEBUG
+
 				[menuItemImage setIsEnabled:FALSE];
 #endif
 			}
-			
-#ifdef DEBUG
-			NSString *levelString = [NSString stringWithFormat:@"%d", [menuItemImage tag]];
-			CCLabelTTF *debugLabel = [CCLabelTTF labelWithString:levelString fontName:@"Marker Felt" fontSize:24];
-			[debugLabel setAnchorPoint:CGPointMake(0.5f, 0.5f)];
-			[debugLabel setPosition:position];
-			if ([[LevelRatings sharedRatings] hasRatedLevel:levelName withVersion:[levelLayout version]])
+			else
 			{
-				LevelRating *rating = [[LevelRatings sharedRatings] ratingForLevel:levelName];
-				if ([rating numberOfStars] == 1)
+				if ([[PlayerInformation sharedInformation] canPlayLevel:levelName])
 				{
-					[debugLabel setColor:ccc3(255, 0, 0)];
+					// Open icon
+					NSString *openImageName = [NSString stringWithFormat:@"LevelCell-%@-Open.png", _theme];
+					[menuItemImage setNormalImage:[CCSprite spriteWithFile:openImageName]];
+					[menuItemImage setSelectedImage:[CCSprite spriteWithFile:openImageName]];
+					[menuItemImage setDisabledImage:[CCSprite spriteWithFile:openImageName]];
+
+					// Level number
+					NSString *levelString = [NSString stringWithFormat:@"%d", [menuItemImage tag]];
+					CCLabelAtlas *label = [CCLabelAtlas labelWithString:levelString charMapFile:@"numberImages.png" itemWidth:25 itemHeight:30 startCharMap:'/'];
+					[label setAnchorPoint:CGPointMake(0.5f, 0.5f)];
+					[label setPosition:CGPointMake(position.x, position.y + 6)];
+					[draggableNode addChild:label];
+
+					// Flowers
+					int flowerRecord = [[PlayerInformation sharedInformation] flowerRecordForLevel:levelName];
+					CCSprite *flowerSprite1 = [CCSprite spriteWithFile:(flowerRecord >= 1 ? @"Flower-Cell-full.png" : @"Flower-Cell-dim.png")];
+					[flowerSprite1 setPosition:CGPointMake(position.x - 12.0f, position.y - 18.0f)];
+					[draggableNode addChild:flowerSprite1];
+					CCSprite *flowerSprite2 = [CCSprite spriteWithFile:(flowerRecord >= 2 ? @"Flower-Cell-full.png" : @"Flower-Cell-dim.png")];
+					[flowerSprite2 setPosition:CGPointMake(position.x, position.y - 18.0f)];
+					[draggableNode addChild:flowerSprite2];
+					CCSprite *flowerSprite3 = [CCSprite spriteWithFile:(flowerRecord == 3 ? @"Flower-Cell-full.png" : @"Flower-Cell-dim.png")];
+					[flowerSprite3 setPosition:CGPointMake(position.x + 12.0f, position.y - 18.0f)];
+					[draggableNode addChild:flowerSprite3];
+
+					lastCanPlayCellX = [menuItemImage position].x;
 				}
-				else if ([rating numberOfStars] == 2)
+				else
 				{
-					[debugLabel setColor:ccc3(255, 255, 0)];
-				}
-				else if ([rating numberOfStars] == 3)
-				{
-					[debugLabel setColor:ccc3(0, 255, 0)];
-				}
-			}
-			[draggableNode addChild:debugLabel];
+					// Bee or Beeater icon
+					NSString *imageName;
+					if ([levelLayout isBossLevel])
+					{
+						imageName = [NSString stringWithFormat:@"LevelCell-%@-Beeater.png", _theme];
+					}
+					else
+					{
+						imageName = [NSString stringWithFormat:@"LevelCell-%@-Bee.png", _theme];
+					}
+					[menuItemImage setNormalImage:[CCSprite spriteWithFile:imageName]];
+					[menuItemImage setSelectedImage:[CCSprite spriteWithFile:imageName]];
+					[menuItemImage setDisabledImage:[CCSprite spriteWithFile:imageName]];
+
+#ifndef DEBUG
+					[menuItemImage setIsEnabled:FALSE];
 #endif
+				}
+
+#ifdef DEBUG
+				NSString *levelString = [NSString stringWithFormat:@"%d", [menuItemImage tag]];
+				CCLabelTTF *debugLabel = [CCLabelTTF labelWithString:levelString fontName:@"Marker Felt" fontSize:24];
+				[debugLabel setAnchorPoint:CGPointMake(0.5f, 0.5f)];
+				[debugLabel setPosition:position];
+				if ([[LevelRatings sharedRatings] hasRatedLevel:levelName withVersion:[levelLayout version]])
+				{
+					LevelRating *rating = [[LevelRatings sharedRatings] ratingForLevel:levelName];
+					if ([rating numberOfStars] == 1)
+					{
+						[debugLabel setColor:ccc3(255, 0, 0)];
+					}
+					else if ([rating numberOfStars] == 2)
+					{
+						[debugLabel setColor:ccc3(255, 255, 0)];
+					}
+					else if ([rating numberOfStars] == 3)
+					{
+						[debugLabel setColor:ccc3(0, 255, 0)];
+					}
+				}
+				[draggableNode addChild:debugLabel];
+#endif
+			}
+
+			if (firstCellX < 0.0f)
+			{
+				firstCellX = [menuItemImage position].x;
+			}
+			lastCellX = [menuItemImage position].x;
 		}
-		
-		if (firstCellX < 0.0f)
+		else
 		{
-			firstCellX = [menuItemImage position].x;
+			[menuItemImage setVisible:FALSE];
 		}
-		lastCellX = [menuItemImage position].x;
     }
 	float contentWidth = lastCellX + firstCellX;
 	[draggableNode setContentSize:CGSizeMake(contentWidth, winSize.height)];
-	[draggableNode setPosition:CGPointMake(max(winSize.width - contentWidth, min(0.0f, winSize.width / 2 - lastCanPlayCellX)), 0.0f)];
+	[draggableNode setPosition:CGPointMake(max(winSize.width - contentWidth, min(0.0f, winSize.width / 2 - lastCanPlayCellX)), 20.0f)];
 
 	_scrollView = [[ScrollView alloc] initWithContent:draggableNode];
 	[_scrollView setScrollHorizontally:TRUE];
@@ -276,7 +285,9 @@
     }
 
 	CCMenuItemImage *menuItem = (CCMenuItemImage *)sender;
-	NSString *levelName = [NSString stringWithFormat:@"Level-%@%d", _theme, [menuItem tag]];
+	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesInTheme:_theme];
+	int levelIndex = [menuItem tag] - 1;
+	NSString *levelName = [levelNames objectAtIndex:levelIndex];
 
 	[self removeChild:_scrollView cleanup:TRUE];
 
