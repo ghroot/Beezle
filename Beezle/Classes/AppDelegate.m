@@ -123,7 +123,7 @@
 
 -(void) applicationWillResignActive:(UIApplication *)application
 {
-	if([_navigationController visibleViewController] == _director)
+	if ([_navigationController visibleViewController] == _director)
 	{
 		[_director pause];
 	}
@@ -131,7 +131,7 @@
 
 -(void) applicationDidBecomeActive:(UIApplication *)application
 {
-	if([_navigationController visibleViewController] == _director)
+	if ([_navigationController visibleViewController] == _director)
 	{
 		[_director resume];
 	}
@@ -139,15 +139,17 @@
 
 -(void) applicationDidEnterBackground:(UIApplication *)application
 {
-	if([_navigationController visibleViewController] == _director)
+	if ([_navigationController visibleViewController] == _director)
 	{
 		[_director stopAnimation];
+
+		[[MemoryManager sharedManager] purgeCachedData];
 	}
 }
 
 -(void) applicationWillEnterForeground:(UIApplication *)application
 {
-	if([_navigationController visibleViewController] == _director)
+	if ([_navigationController visibleViewController] == _director)
 	{
 		[_director startAnimation];
 	}
