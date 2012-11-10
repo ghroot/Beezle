@@ -156,6 +156,7 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 	_isDragging = TRUE;
 	_startDragTouchPosition = [self touchLocation];
 	_startDragNodePosition = [_draggableNode position];
+	[_previousDragTouchPositions removeAllObjects];
 	_velocity = CGPointZero;
 	[_draggableNode stopActionByTag:ACTION_TAG_ELASTIC_SWIPE_X];
 	[_draggableNode stopActionByTag:ACTION_TAG_ELASTIC_SWIPE_Y];
