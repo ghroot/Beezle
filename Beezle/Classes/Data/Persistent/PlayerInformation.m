@@ -319,20 +319,18 @@ static NSString *PROGRESS_KEY = @"Progress";
 	}
 }
 
--(NSString *) latestPlayedTheme
+-(NSString *) latestPlayableTheme
 {
-	int latestPlayedThemeIndex = 0;
 	NSArray *themes = [[LevelOrganizer sharedOrganizer] themes];
-	for (NSString *levelName in _pollenRecordByLevelName)
+	for (int i = [themes count] - 1; i >= 0; i--)
 	{
-		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:levelName];
-		int themeIndex = [themes indexOfObject:theme];
-		if (themeIndex > latestPlayedThemeIndex)
+		NSString *theme = [themes objectAtIndex:i];
+		if ([self canPlayTheme:theme])
 		{
-			latestPlayedThemeIndex = themeIndex;
+			return theme;
 		}
 	}
-	return [themes objectAtIndex:latestPlayedThemeIndex];
+	return [themes objectAtIndex:0];
 }
 
 -(void) markTutorialIdAsSeen:(NSString *)tutorialId

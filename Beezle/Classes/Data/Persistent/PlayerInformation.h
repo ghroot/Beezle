@@ -39,7 +39,7 @@ static const int NUMBER_OF_REQUIRED_FLOWERS_TO_UNLOCK_NEXT_THEME = 150;
 -(BOOL) hasPlayedLevel:(NSString *)levelName;
 -(BOOL) canPlayLevel:(NSString *)levelName;
 -(BOOL) canPlayTheme:(NSString *)theme;
--(NSString *) latestPlayedTheme;
+-(NSString *) latestPlayableTheme;
 -(void) markTutorialIdAsSeen:(NSString *)tutorialId;
 -(void) markTutorialIdAsSeenAndSave:(NSString *)tutorialId;
 -(BOOL) hasSeenTutorialId:(NSString *)tutorialId;
