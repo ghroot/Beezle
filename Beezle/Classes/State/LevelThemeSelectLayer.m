@@ -33,6 +33,7 @@
 
 		[_lockSprite setVisible:locked];
 		[_playSprite setVisible:!locked];
+		[_flowerSprite setVisible:!locked];
 
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Interface.plist"];
 		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Chooser-Animations.plist"];
@@ -129,12 +130,15 @@
 		[beeBackSprite runAction:[CCRepeatForever actionWithAction:[CCSequence actionOne:rotateRightAction two:rotateLeftAction]]];
 		[self addChild:beeBackSprite];
 
-		int flowerRecordForTheme = [[PlayerInformation sharedInformation] flowerRecordForTheme:theme];
-		NSString *flowersString = [NSString stringWithFormat:@"%d/%d", flowerRecordForTheme, NUMBER_OF_REQUIRED_FLOWERS_TO_UNLOCK_NEXT_THEME];
-		CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:flowersString charMapFile:@"numberImages-red-s.png" itemWidth:12 itemHeight:14 startCharMap:'/'] autorelease];
-		[label setAnchorPoint:CGPointMake(0.0f, 0.5f)];
-		[label setPosition:CGPointMake([_flowerSprite position].x + 5.0f, [_flowerSprite position].y)];
-		[self addChild:label];
+		if (!locked)
+		{
+			int flowerRecordForTheme = [[PlayerInformation sharedInformation] flowerRecordForTheme:theme];
+			NSString *flowersString = [NSString stringWithFormat:@"%d/%d", flowerRecordForTheme, NUMBER_OF_REQUIRED_FLOWERS_TO_UNLOCK_NEXT_THEME];
+			CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:flowersString charMapFile:@"numberImages-red-s.png" itemWidth:12 itemHeight:14 startCharMap:'/'] autorelease];
+			[label setAnchorPoint:CGPointMake(0.0f, 0.5f)];
+			[label setPosition:CGPointMake([_flowerSprite position].x + 5.0f, [_flowerSprite position].y)];
+			[self addChild:label];
+		}
 
 		_menu = [CCMenu new];
 		FullscreenTransparentMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
