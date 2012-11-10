@@ -59,7 +59,7 @@
             <key>Bees/Bee/Bee-Saved-Leap-Dust-2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{490,1005},{6,6}}</string>
+                <string>{{490,1013},{6,6}}</string>
                 <key>offset</key>
                 <string>{0,1}</string>
                 <key>rotated</key>
@@ -254,7 +254,7 @@
             <key>Bees/Bombee/Bombee-Boom-13.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{490,997},{6,6}}</string>
+                <string>{{490,1005},{6,6}}</string>
                 <key>offset</key>
                 <string>{1,-2}</string>
                 <key>rotated</key>
@@ -423,7 +423,7 @@
             <key>Bees/Bombee/Bombee-Piece-1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{319,210},{7,7}}</string>
+                <string>{{487,988},{7,7}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -436,7 +436,7 @@
             <key>Bees/Bombee/Bombee-Piece-2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{487,988},{7,7}}</string>
+                <string>{{487,979},{7,7}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -475,7 +475,7 @@
             <key>Bees/Bombee/Bombee-Piece-5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{313,933},{6,7}}</string>
+                <string>{{134,156},{6,7}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -579,11 +579,11 @@
             <key>Bees/Bombee/Bombee-Saved-Leap-Dust-7.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{487,979},{7,6}}</string>
+                <string>{{486,971},{7,6}}</string>
                 <key>offset</key>
                 <string>{1,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{7,7},{7,6}}</string>
                 <key>sourceSize</key>
@@ -735,7 +735,7 @@
             <key>Bees/Ending-General/Bees-Ending-General-1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{328,212},{6,6}}</string>
+                <string>{{490,997},{6,6}}</string>
                 <key>offset</key>
                 <string>{0,-1}</string>
                 <key>rotated</key>
@@ -917,11 +917,11 @@
             <key>Bees/Ending-Lava/Bees-Ending-Lava-5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{486,971},{7,6}}</string>
+                <string>{{313,933},{7,6}}</string>
                 <key>offset</key>
                 <string>{1,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{7,7},{7,6}}</string>
                 <key>sourceSize</key>
@@ -1476,7 +1476,7 @@
             <key>Bees/Speedee/Speedee-Cloud.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{456,459},{5,4}}</string>
+                <string>{{504,486},{5,4}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -1658,7 +1658,7 @@
             <key>Bees/Speedee/Speedee-Saved-Leap-Dust-3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{222,905},{5,4}}</string>
+                <string>{{456,459},{5,4}}</string>
                 <key>offset</key>
                 <string>{-4,1}</string>
                 <key>rotated</key>
@@ -3491,15 +3491,15 @@
             <key>Other/Eyes/Eye-Open.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{134,156},{8,6}}</string>
+                <string>{{222,905},{5,4}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{8,6}}</string>
+                <string>{{0,0},{5,4}}</string>
                 <key>sourceSize</key>
-                <string>{8,6}</string>
+                <string>{5,4}</string>
             </dict>
             <key>Other/Waterdrop/Waterdrop-Idle.png</key>
             <dict>
@@ -4879,19 +4879,6 @@
                 <key>sourceSize</key>
                 <string>{21,20}</string>
             </dict>
-            <key>Tools/Slinger/Slinger-Addon.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{379,995},{17,19}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{17,19}}</string>
-                <key>sourceSize</key>
-                <string>{17,19}</string>
-            </dict>
             <key>Tools/Slinger/Slinger-Idle.png</key>
             <dict>
                 <key>frame</key>
@@ -4956,6 +4943,19 @@
                 <string>{{0,5},{35,93}}</string>
                 <key>sourceSize</key>
                 <string>{37,101}</string>
+            </dict>
+            <key>Tools/Slinger/Slinger-addon.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{379,995},{17,19}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{17,19}}</string>
+                <key>sourceSize</key>
+                <string>{17,19}</string>
             </dict>
             <key>Tools/Smoke-Mushroom/Smoke-Mushroom-Destroy-1.png</key>
             <dict>
@@ -5214,7 +5214,7 @@
             <key>size</key>
             <string>{512,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:17df47f1ff26b212cbded9322e0fab16$</string>
+            <string>$TexturePacker:SmartUpdate:358f33329d29c34a8d9fba51de742377$</string>
             <key>textureFileName</key>
             <string>Shared.png</string>
         </dict>
