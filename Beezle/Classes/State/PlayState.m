@@ -190,7 +190,7 @@ static int nextBeeIndex = 0;
 			id glideAndAnimate = [CCSpawn actionOne:[CCRepeat actionWithAction:glideAnimationAction times:INT_MAX] two:[CCSequence actionOne:glideDownAction two:removeAction]];
 			[beeSprite runAction:[CCSequence actionOne:hitAnimationAction two:glideAndAnimate]];
 
-			[[SoundManager sharedManager] playSound:@"BeeHitGlass"];
+			[[SoundManager sharedManager] playSound:@"BeeHitScreen"];
 
 			CCSprite *honeySprite = [CCSprite spriteWithSpriteFrameName:@"Play/Play-Bee-Honey.png"];
 			[honeySprite setPosition:CGPointMake([beeSprite position].x, [beeSprite position].y - 40.0f)];
@@ -234,6 +234,8 @@ static int nextBeeIndex = 0;
 				[self removeChild:saweeSprite cleanup:TRUE];
 			}];
 			[saweeSprite runAction:[CCSequence actionOne:moveUpAction two:removeAction]];
+
+			[[SoundManager sharedManager] playSound:@"SaweeHitScreen"];
 
 			CCSprite *cutSprite = [CCSprite spriteWithSpriteFrameName:@"Play/Play-Sawee-cut-2.png"];
 			[cutSprite setPosition:CGPointMake([saweeSprite position].x - 50.0f, [saweeSprite position].y + 50.0f)];

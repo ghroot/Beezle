@@ -9,7 +9,7 @@
 #import "SoundManager.h"
 
 static const float MUSIC_VOLUME = 1.0f;
-static const float SFX_VOLUME = 0.5f;
+static const float SFX_VOLUME = 0.6f;
 
 @interface SoundManager()
 
