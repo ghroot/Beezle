@@ -7,11 +7,11 @@
 //
 
 #import "BeesFrontNode.h"
+#import "ActionUtils.h"
 
 @interface BeesFrontNode()
 
 -(void) animateSprite:(CCSprite *)sprite animationNames:(NSArray *)animationNames;
--(void) swaySprite:(CCSprite *)sprite speed:(float)speed;
 
 @end
 
@@ -27,7 +27,7 @@
 		CCSprite *saweeSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
 		[saweeSprite setPosition:CGPointMake(50.0f, 80.0f)];
 		[self animateSprite:saweeSprite animationNames:[NSArray arrayWithObject:@"Chooser-Sawee-Idle"]];
-		[self swaySprite:saweeSprite speed:1.5f];
+		[ActionUtils swaySprite:saweeSprite speed:1.5f distance:2.0f];
 		[self addChild:saweeSprite];
 
 		CCSprite *bombeeSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
@@ -42,7 +42,7 @@
 				@"Chooser-Bombee-Blink",
 				nil
 		]];
-		[self swaySprite:bombeeSprite speed:0.9f];
+		[ActionUtils swaySprite:bombeeSprite speed:0.9f distance:2.0f];
 		[self addChild:bombeeSprite];
 
 		CGSize winSize = [[CCDirector sharedDirector] winSize];
@@ -60,7 +60,7 @@
 				@"Chooser-Speedee-Blink",
 				nil
 		]];
-		[self swaySprite:speedeeSprite speed:0.6f];
+		[ActionUtils swaySprite:speedeeSprite speed:0.6f distance:2.0f];
 		[self addChild:speedeeSprite];
 
 		CCSprite *beeSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
@@ -77,7 +77,7 @@
 				@"Chooser-Bee-Blink",
 				nil
 		]];
-		[self swaySprite:beeSprite speed:1.1f];
+		[ActionUtils swaySprite:beeSprite speed:1.1f distance:2.0f];
 		[self addChild:beeSprite];
 
 		CCSprite *beeaterSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
@@ -123,14 +123,6 @@
 	CCSequence *sequenceAction = [CCSequence actionWithArray:animationActions];
 	CCRepeatForever *repeatForeverAction = [CCRepeatForever actionWithAction:sequenceAction];
 	[sprite runAction:repeatForeverAction];
-}
-
--(void) swaySprite:(CCSprite *)sprite speed:(float)speed
-{
-	CCMoveTo *moveUpAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:speed position:CGPointMake([sprite position].x, [sprite position].y + 2.0f)]];
-	CCMoveTo *moveDownAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:speed position:CGPointMake([sprite position].x, [sprite position].y - 2.0f)]];
-	CCAction *swayAction = [CCRepeat actionWithAction:[CCSequence actions:moveUpAction, moveDownAction, nil] times:INT_MAX];
-	[sprite runAction:swayAction];
 }
 
 @end

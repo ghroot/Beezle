@@ -11,6 +11,8 @@
 @interface GameAlmostCompletedDialog : Dialog
 {
 	Game *_game;
+
+	CCSprite *_beeSprite;
 }
 
 +(id) dialogWithGame:(Game *)game;

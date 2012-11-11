@@ -3012,6 +3012,7 @@
 		88F16179FE4FFC9294B0E3B1 /* End-Credits-Thanks-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F1698F7A90BC1C43CF75F1 /* End-Credits-Thanks-hd.png */; };
 		88F16189282C33223F2A9184 /* CCBKeyframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1660F2D5915EC2D7E01CC /* CCBKeyframe.m */; };
 		88F1618B335F62E6619AB82C /* End-Credits-Copyright.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F1621F80BB64251FE58E55 /* End-Credits-Copyright.png */; };
+		88F1618D338A673B9F399DD0 /* ActionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16A01E189F9D6E18B9EC4 /* ActionUtils.m */; };
 		88F161A8772A023F39109596 /* End-Congratulations-Bee-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F161FCFAFE655E9ABD7E50 /* End-Congratulations-Bee-1.png */; };
 		88F161B379D1AE5F6DFE1FC0 /* End-Congratulations-Bee-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F1656D5A4AF42F4269DB00 /* End-Congratulations-Bee-2.png */; };
 		88F161B6DC9481BBE019AC99 /* End-Congratulations-Sawee-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F1673A556B4564335DEF57 /* End-Congratulations-Sawee-1.png */; };
@@ -3151,6 +3152,7 @@
 		88F16D3E4860731BAB59E2AF /* End-Credits-Beeaters-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F169C82197EC0F7750C1E5 /* End-Credits-Beeaters-hd.png */; };
 		88F16D41998C830E25907F29 /* End-GameCompleted!-Sumee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16DDA90CFE1963941ED6A /* End-GameCompleted!-Sumee-1-hd.png */; };
 		88F16D4711F84273E6BC996C /* End-Credits-BusyBeesLogo-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F165D46F226FCF6C7403B8 /* End-Credits-BusyBeesLogo-hd.png */; };
+		88F16D4D60E814332831FB2F /* ActionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16A01E189F9D6E18B9EC4 /* ActionUtils.m */; };
 		88F16D5532BB2486723FCAB9 /* End-GameCompleted!-Sawee-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F169F312EF324A03A7C9DB /* End-GameCompleted!-Sawee-1.png */; };
 		88F16D55D407C5898F59A633 /* GameCompletedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 88F1694B1AE0A48841501329 /* GameCompletedDialog.ccbi */; };
 		88F16D5E33CB0221600030AD /* End-Credits-Bees-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16218AE09A08E66BB8854 /* End-Credits-Bees-hd.png */; };
@@ -5664,9 +5666,11 @@
 		88F169C82197EC0F7750C1E5 /* End-Credits-Beeaters-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-Beeaters-hd.png"; sourceTree = "<group>"; };
 		88F169DD56F5D7205FD0DD0D /* End-Congratulations-Bee-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Congratulations-Bee-1-hd.png"; sourceTree = "<group>"; };
 		88F169F312EF324A03A7C9DB /* End-GameCompleted!-Sawee-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Sawee-1.png"; sourceTree = "<group>"; };
+		88F16A01E189F9D6E18B9EC4 /* ActionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionUtils.m; sourceTree = "<group>"; };
 		88F16A1136C803F91B4016B0 /* End-Credits-Beeaters.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-Beeaters.png"; sourceTree = "<group>"; };
 		88F16A1344B4119F754AF8E5 /* A42-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A42-Glass.png"; sourceTree = "<group>"; };
 		88F16A1C8739C7BDE9A56C37 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = unzip.c; path = libs/SSZipArchive/minizip/unzip.c; sourceTree = "<group>"; };
+		88F16A31422933134AE9DCE1 /* ActionUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionUtils.h; sourceTree = "<group>"; };
 		88F16A62E243C30BF27B54C6 /* Levels-Lite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Levels-Lite.plist"; sourceTree = "<group>"; };
 		88F16AC82F8276083A785959 /* End-GameCompleted!-Bombee-2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Bombee-2-hd.png"; sourceTree = "<group>"; };
 		88F16AD0C16B4AFBA5D5E286 /* End-GameCompleted!-Bombee-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Bombee-1-hd.png"; sourceTree = "<group>"; };
@@ -8159,6 +8163,8 @@
 				2C74B4CD156FAD1E00596A22 /* Debug */,
 				2C74B4D0156FAD1E00596A22 /* EmailInfo.h */,
 				2C74B4D1156FAD1E00596A22 /* EmailInfo.m */,
+				88F16A01E189F9D6E18B9EC4 /* ActionUtils.m */,
+				88F16A31422933134AE9DCE1 /* ActionUtils.h */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -12735,6 +12741,7 @@
 				2CE08CDC164C6C6F0012E22B /* vec2.c in Sources */,
 				2CE08CDE164C6C6F0012E22B /* vec3.c in Sources */,
 				2CE08CE0164C6C6F0012E22B /* vec4.c in Sources */,
+				88F16D4D60E814332831FB2F /* ActionUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -13065,6 +13072,7 @@
 				2CE08CDB164C6C6F0012E22B /* vec2.c in Sources */,
 				2CE08CDD164C6C6F0012E22B /* vec3.c in Sources */,
 				2CE08CDF164C6C6F0012E22B /* vec4.c in Sources */,
+				88F1618D338A673B9F399DD0 /* ActionUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

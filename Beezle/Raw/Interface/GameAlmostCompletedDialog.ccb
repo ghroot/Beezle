@@ -5,7 +5,7 @@
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
-	<integer>0</integer>
+	<integer>1</integer>
 	<key>currentSequenceId</key>
 	<integer>0</integer>
 	<key>fileType</key>
@@ -96,54 +96,7 @@
 				<key>animatedProperties</key>
 				<dict>
 					<key>0</key>
-					<dict>
-						<key>displayFrame</key>
-						<dict>
-							<key>keyframes</key>
-							<array>
-								<dict>
-									<key>easing</key>
-									<dict>
-										<key>type</key>
-										<integer>0</integer>
-									</dict>
-									<key>name</key>
-									<string>displayFrame</string>
-									<key>time</key>
-									<real>0.0</real>
-									<key>type</key>
-									<integer>7</integer>
-									<key>value</key>
-									<array>
-										<string>End-Completed?-Bee-1.png</string>
-										<string>Use regular file</string>
-									</array>
-								</dict>
-								<dict>
-									<key>easing</key>
-									<dict>
-										<key>type</key>
-										<integer>0</integer>
-									</dict>
-									<key>name</key>
-									<string>displayFrame</string>
-									<key>time</key>
-									<real>0.066666670143604279</real>
-									<key>type</key>
-									<integer>7</integer>
-									<key>value</key>
-									<array>
-										<string>End-Completed?-Bee-2.png</string>
-										<string>Use regular file</string>
-									</array>
-								</dict>
-							</array>
-							<key>name</key>
-							<string>displayFrame</string>
-							<key>type</key>
-							<integer>7</integer>
-						</dict>
-					</dict>
+					<dict/>
 				</dict>
 				<key>baseClass</key>
 				<string>CCSprite</string>
@@ -154,9 +107,9 @@
 				<key>displayName</key>
 				<string>CCSprite</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_beeSprite</string>
 				<key>memberVarAssignmentType</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>properties</key>
 				<array>
 					<dict>
@@ -204,11 +157,6 @@
 						<false/>
 					</dict>
 					<dict>
-						<key>baseValue</key>
-						<array>
-							<string>End-Completed?-Bee-1.png</string>
-							<string>Use regular file</string>
-						</array>
 						<key>name</key>
 						<string>displayFrame</string>
 						<key>type</key>
@@ -520,15 +468,15 @@
 			<key>autoPlay</key>
 			<true/>
 			<key>chainedSequenceId</key>
-			<integer>0</integer>
+			<integer>-1</integer>
 			<key>length</key>
-			<real>0.13333334028720856</real>
+			<real>0.1666666716337204</real>
 			<key>name</key>
 			<string>Default Timeline</string>
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.13333334028720856</real>
+			<real>0.0</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
@@ -538,6 +486,6 @@
 		</dict>
 	</array>
 	<key>stageBorder</key>
-	<integer>0</integer>
+	<integer>3</integer>
 </dict>
 </plist>

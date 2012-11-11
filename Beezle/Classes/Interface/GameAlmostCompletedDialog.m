@@ -10,6 +10,7 @@
 #import "CCBReader.h"
 #import "PlayState.h"
 #import "SoundManager.h"
+#import "ActionUtils.h"
 
 @interface GameAlmostCompletedDialog()
 
@@ -29,6 +30,9 @@
 	if (self = [super initWithNode:[CCBReader nodeGraphFromFile:@"GameAlmostCompletedDialog.ccbi" owner:self] coverOpacity:128 instantCoverOpacity:TRUE])
 	{
 		_game = game;
+
+		[ActionUtils swaySprite:_beeSprite speed:1.5f distance:4.0f];
+		[ActionUtils animateSprite:_beeSprite fileNames:[NSArray arrayWithObjects:@"End-Completed?-Bee-1.png", @"End-Completed?-Bee-2.png", nil] delay:0.1f];
 
 		[[SoundManager sharedManager] playSound:@"LevelCompleted"];
 	}
