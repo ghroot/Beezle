@@ -14,7 +14,6 @@
 #import "SoundManager.h"
 #import "PlayState.h"
 #import "Utils.h"
-#import "PlayerInformation.h"
 #import "BeesFrontNode.h"
 
 static BOOL isFirstLoad = TRUE;
@@ -147,7 +146,7 @@ static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 	NSMutableArray *layers = [NSMutableArray array];
 	for (NSString *theme in themes)
 	{
-		LevelThemeSelectLayer *levelThemeSelectLayer = [[[LevelThemeSelectLayer alloc] initWithTheme:theme game:_game locked:![[PlayerInformation sharedInformation] canPlayTheme:theme]] autorelease];
+		LevelThemeSelectLayer *levelThemeSelectLayer = [LevelThemeSelectLayer layerWithTheme:theme game:_game];
 		[layers addObject:levelThemeSelectLayer];
 	}
 	_scrollLayer = [[CCScrollLayer alloc] initWithLayers:layers widthOffset:0];

@@ -10,8 +10,6 @@
 
 @class LevelSession;
 
-static const int NUMBER_OF_REQUIRED_FLOWERS_TO_UNLOCK_NEXT_THEME = 150;
-
 @interface PlayerInformation : NSObject
 {
 	NSMutableDictionary *_pollenRecordByLevelName;

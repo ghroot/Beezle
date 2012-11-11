@@ -5,29 +5,44 @@
 	<key>themes</key>
 	<dict>
 		<key>A</key>
-		<array>
-            <string>Level-A1</string>
-            <string>Level-A2</string>
-            <string>Level-A3</string>
-            <string>Level-A6</string>
-            <string>Level-A7</string>
-		</array>
+        <dict>
+            <key>requiredNumberOfFlowers</key>
+            <integer>0</integer>
+            <key>levels</key>
+            <array>
+                <string>Level-A1</string>
+                <string>Level-A2</string>
+                <string>Level-A3</string>
+                <string>Level-A6</string>
+                <string>Level-A7</string>
+            </array>
+        </dict>
 		<key>B</key>
-		<array>
-			<string>Level-B1</string>
-			<string>Level-B2</string>
-			<string>Level-B4</string>
-			<string>Level-B8</string>
-			<string>Level-B9</string>
-		</array>
+        <dict>
+            <key>requiredNumberOfFlowers</key>
+            <integer>7</integer>
+            <key>levels</key>
+            <array>
+                <string>Level-B1</string>
+                <string>Level-B2</string>
+                <string>Level-B4</string>
+                <string>Level-B8</string>
+                <string>Level-B9</string>
+            </array>
+        </dict>
 		<key>C</key>
-		<array>
-			<string>Level-C1</string>
-			<string>Level-C2</string>
-			<string>Level-C3</string>
-			<string>Level-C4</string>
-			<string>Level-C5</string>
-		</array>
+        <dict>
+            <key>requiredNumberOfFlowers</key>
+            <integer>14</integer>
+            <key>levels</key>
+            <array>
+                <string>Level-C1</string>
+                <string>Level-C2</string>
+                <string>Level-C3</string>
+                <string>Level-C4</string>
+                <string>Level-C5</string>
+            </array>
+        </dict>
 	</dict>
 </dict>
 </plist>

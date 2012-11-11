@@ -11,6 +11,7 @@
 @interface LevelOrganizer : NSObject
 {
 	NSMutableDictionary *_levelNamesByTheme;
+	NSMutableDictionary *_requiredNumberOfFlowersByTheme;
 }
 
 +(LevelOrganizer *) sharedOrganizer;
@@ -25,5 +26,6 @@
 -(NSString *) levelNameBefore:(NSString *)levelName;
 -(NSString *) levelNameAfter:(NSString *)levelName;
 -(BOOL) isLastLevelInGame:(NSString *)levelName;
+-(int) requiredNumberOfFlowersForTheme:(NSString *)theme;
 
 @end

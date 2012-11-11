@@ -306,17 +306,8 @@ static NSString *PROGRESS_KEY = @"Progress";
 
 -(BOOL) canPlayTheme:(NSString *)theme
 {
-	NSArray *themes = [[LevelOrganizer sharedOrganizer] themes];
-	int themeIndex = [themes indexOfObject:theme];
-	if (themeIndex == 0)
-	{
-		return TRUE;
-	}
-	else
-	{
-		NSString *previousTheme = [themes objectAtIndex:themeIndex - 1];
-		return [self flowerRecordForTheme:previousTheme] >= NUMBER_OF_REQUIRED_FLOWERS_TO_UNLOCK_NEXT_THEME;
-	}
+	int requiredNumberOfFlowers = [[LevelOrganizer sharedOrganizer] requiredNumberOfFlowersForTheme:theme];
+	return [self totalNumberOfFlowers] >= requiredNumberOfFlowers;
 }
 
 -(NSString *) latestPlayableTheme

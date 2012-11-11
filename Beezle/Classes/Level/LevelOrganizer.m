@@ -24,7 +24,8 @@
 {
 	if (self = [super init])
 	{
-		_levelNamesByTheme = [[NSMutableDictionary alloc] init];
+		_levelNamesByTheme = [NSMutableDictionary new];
+		_requiredNumberOfFlowersByTheme = [NSMutableDictionary new];
 
 #ifdef LITE_VERSION
 		[self addLevelNamesWithFile:@"Levels-Lite.plist"];
@@ -38,6 +39,7 @@
 -(void) dealloc
 {
 	[_levelNamesByTheme release];
+	[_requiredNumberOfFlowersByTheme release];
 	
 	[super dealloc];
 }
@@ -47,7 +49,10 @@
 	NSDictionary *themes = [dict objectForKey:@"themes"];
 	for (NSString *theme in [themes allKeys])
 	{
-		NSArray *levels = [themes objectForKey:theme];
+		NSDictionary *themeDict = [themes objectForKey:theme];
+		int requiredNumberOfFlowers = [[themeDict objectForKey:@"requiredNumberOfFlowers"] intValue];
+		[_requiredNumberOfFlowersByTheme setObject:[NSNumber numberWithInt:requiredNumberOfFlowers] forKey:theme];
+		NSArray *levels = [themeDict objectForKey:@"levels"];
 		[_levelNamesByTheme setObject:levels forKey:theme];
 	}
 }
@@ -152,6 +157,11 @@
 	{
 		return FALSE;
 	}
+}
+
+-(int) requiredNumberOfFlowersForTheme:(NSString *)theme
+{
+	return [[_requiredNumberOfFlowersByTheme objectForKey:theme] intValue];
 }
 
 @end

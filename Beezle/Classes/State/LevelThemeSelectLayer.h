@@ -18,6 +18,8 @@
 	CCMenu *_menu;
 }
 
--(id) initWithTheme:(NSString *)theme game:(Game *)game locked:(BOOL)locked;
++(id) layerWithTheme:(NSString *)theme game:(Game *)game;
+
+-(id) initWithTheme:(NSString *)theme game:(Game *)game;
 
 @end

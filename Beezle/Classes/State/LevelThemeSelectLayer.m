@@ -24,16 +24,23 @@
 
 @implementation LevelThemeSelectLayer
 
--(id) initWithTheme:(NSString *)theme game:(Game *)game locked:(BOOL)locked
++(id) layerWithTheme:(NSString *)theme game:(Game *)game
+{
+	return [[[self alloc] initWithTheme:theme game:game] autorelease];
+}
+
+-(id) initWithTheme:(NSString *)theme game:(Game *)game
 {
 	if (self = [super init])
 	{
 		NSString *interfaceFileName = [NSString stringWithFormat:@"ThemeSelect-%@.ccbi", theme];
 		[self addChild:[CCBReader nodeGraphFromFile:interfaceFileName owner:self]];
 
+		BOOL locked = ![[PlayerInformation sharedInformation] canPlayTheme:theme];
+
 		[_lockSprite setVisible:locked];
 		[_playSprite setVisible:!locked];
-		[_flowerSprite setVisible:!locked];
+		[_flowerSprite setVisible:locked];
 
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Interface.plist"];
 		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Chooser-Animations.plist"];
@@ -130,10 +137,11 @@
 		[beeBackSprite runAction:[CCRepeatForever actionWithAction:[CCSequence actionOne:rotateRightAction two:rotateLeftAction]]];
 		[self addChild:beeBackSprite];
 
-		if (!locked)
+		if (locked)
 		{
-			int flowerRecordForTheme = [[PlayerInformation sharedInformation] flowerRecordForTheme:theme];
-			NSString *flowersString = [NSString stringWithFormat:@"%d/%d", flowerRecordForTheme, NUMBER_OF_REQUIRED_FLOWERS_TO_UNLOCK_NEXT_THEME];
+			int totalNumberOfFlowers = [[PlayerInformation sharedInformation] totalNumberOfFlowers];
+			int requiredNumberOfFlowers = [[LevelOrganizer sharedOrganizer] requiredNumberOfFlowersForTheme:theme];
+			NSString *flowersString = [NSString stringWithFormat:@"%d/%d", totalNumberOfFlowers, requiredNumberOfFlowers];
 			CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:flowersString charMapFile:@"numberImages-red-s.png" itemWidth:12 itemHeight:14 startCharMap:'/'] autorelease];
 			[label setAnchorPoint:CGPointMake(0.0f, 0.5f)];
 			[label setPosition:CGPointMake([_flowerSprite position].x + 5.0f, [_flowerSprite position].y)];
