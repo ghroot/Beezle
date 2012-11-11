@@ -10,6 +10,7 @@
 #import "Game.h"
 #import "TestAnimationsState.h"
 #import "TestEntitySystemState.h"
+#import "TestCreditsState.h"
 
 @interface TestMenuState()
 
@@ -37,6 +38,10 @@
 	[_menu addChild:testAnimationsMenuItem];
 	CCMenuItemFont *testEntitySystemMenuItem = [CCMenuItemFont itemWithString:@"Test entity system" target:self selector:@selector(testEntitySystem:)];
 	[_menu addChild:testEntitySystemMenuItem];
+	CCMenuItemFont *testCreditsMenuItem = [CCMenuItemFont itemWithString:@"Test credits" block:^(id sender){
+		[_game pushState:[TestCreditsState state]];
+	}];
+	[_menu addChild:testCreditsMenuItem];
     
     CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
     [backMenuItem setFontSize:26];

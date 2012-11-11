@@ -100,7 +100,8 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 -(void) update:(ccTime)delta
 {
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	if ([_draggableNode contentSize].width > winSize.width)
+	if ([_draggableNode contentSize].width > winSize.width ||
+			[_draggableNode contentSize].height > winSize.height)
 	{
 		if (_isDragging)
 		{
