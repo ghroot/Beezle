@@ -20,8 +20,6 @@
 	NSMutableArray *_pageDotSprites;
 	NSString *_theme;
 	int _numberOfPages;
-	CCSprite *_arrowLeftSprite;
-	CCSprite *_arrowRightSprite;
 }
 
 +(id) stateWithPreselectedTheme:(NSString *)theme;

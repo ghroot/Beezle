@@ -26,7 +26,6 @@ static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 -(void) createScrollLayer:(NSArray *)themes;
 -(void) updateBackground;
 -(void) updatePageDots:(int)page;
--(void) updateArrows:(int)page;
 
 @end
 
@@ -74,19 +73,6 @@ static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 
 	[self addChild:[BeesFrontNode node] z:31];
 
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-
-	_arrowLeftSprite = [CCSprite spriteWithFile:@"Symbol-Scroll-White.png"];
-	[_arrowLeftSprite setScaleX:-1.0f];
-	[_arrowLeftSprite setAnchorPoint:CGPointMake(1.0f, 0.5f)];
-	[_arrowLeftSprite setPosition:CGPointMake(5.0f, winSize.height / 2)];
-	[self addChild:_arrowLeftSprite z:32];
-
-	_arrowRightSprite = [CCSprite spriteWithFile:@"Symbol-Scroll-White.png"];
-	[_arrowRightSprite setAnchorPoint:CGPointMake(1.0f, 0.5f)];
-	[_arrowRightSprite setPosition:CGPointMake(winSize.width - 5.0f, winSize.height / 2)];
-	[self addChild:_arrowRightSprite z:32];
-
 	[self createBackMenu];
 
 	int index = [themes indexOfObject:_theme];
@@ -94,7 +80,6 @@ static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 
 	[self updateBackground];
     [self updatePageDots:index];
-    [self updateArrows:index];
 }
 
 -(void) dealloc
@@ -149,7 +134,7 @@ static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 		LevelThemeSelectLayer *levelThemeSelectLayer = [LevelThemeSelectLayer layerWithTheme:theme game:_game];
 		[layers addObject:levelThemeSelectLayer];
 	}
-	_scrollLayer = [[CCScrollLayer alloc] initWithLayers:layers widthOffset:0];
+	_scrollLayer = [[CCScrollLayer alloc] initWithLayers:layers widthOffset:240];
 	[_scrollLayer setShowPagesIndicator:FALSE];
     [_scrollLayer setDelegate:self];
 	[self addChild:_scrollLayer z:30];
@@ -185,7 +170,6 @@ static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 -(void) scrollLayer:(CCScrollLayer *)sender scrolledToPageNumber:(int)page
 {
     [self updatePageDots:page];
-	[self updateArrows:page];
 }
 
 -(void) updatePageDots:(int)page
@@ -213,12 +197,6 @@ static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 		[_pageDotSprites addObject:pageDotSprite];
 		[self addChild:pageDotSprite z:35];
 	}
-}
-
--(void) updateArrows:(int)page
-{
-	[_arrowLeftSprite setVisible:page > 0];
-	[_arrowRightSprite setVisible:page < _numberOfPages - 1];
 }
 
 @end
