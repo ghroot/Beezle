@@ -20,6 +20,7 @@
 	NSMutableArray *_pageDotSprites;
 	NSString *_theme;
 	int _numberOfPages;
+	int _layerOffset;
 }
 
 +(id) stateWithPreselectedTheme:(NSString *)theme;

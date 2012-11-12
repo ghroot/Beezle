@@ -118,7 +118,7 @@
 		float universalScreenStartX = [Utils universalScreenStartX];
 
 		CCSprite *beeSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
-		[beeSprite setPosition:CGPointMake(universalScreenStartX + 180.0f, 180.0f)];
+		[beeSprite setPosition:CGPointMake(universalScreenStartX + 290.0f, 180.0f)];
 		[self animateSprite:beeSprite animationNames:animationNames];
 		[self swaySprite:beeSprite speed:0.4f];
 		CCScaleTo *scaleUpAction = [CCScaleTo actionWithDuration:2.0f scale:1.2f];
@@ -130,7 +130,7 @@
 		[self addChild:beeSprite];
 
 		CCSprite *beeBackSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
-		[beeBackSprite setPosition:CGPointMake(universalScreenStartX + 280.0f, 140.0f)];
+		[beeBackSprite setPosition:CGPointMake(universalScreenStartX + 180.0f, 140.0f)];
 		[self animateSprite:beeBackSprite animationNames:[NSArray arrayWithObject:@"Title-BeeBack-Idle"]];
 		rotateRightAction = [CCRotateTo actionWithDuration:0.6f angle:3.0f];
 		rotateLeftAction = [CCRotateTo actionWithDuration:0.6f angle:-3.0f];

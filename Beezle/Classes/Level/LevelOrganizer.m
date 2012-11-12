@@ -7,6 +7,7 @@
 //
 
 #import "LevelOrganizer.h"
+#import "PlayerInformation.h"
 
 @implementation LevelOrganizer
 
@@ -26,6 +27,7 @@
 	{
 		_levelNamesByTheme = [NSMutableDictionary new];
 		_requiredNumberOfFlowersByTheme = [NSMutableDictionary new];
+		_hiddenByTheme = [NSMutableDictionary new];
 
 #ifdef LITE_VERSION
 		[self addLevelNamesWithFile:@"Levels-Lite.plist"];
@@ -40,6 +42,7 @@
 {
 	[_levelNamesByTheme release];
 	[_requiredNumberOfFlowersByTheme release];
+	[_hiddenByTheme release];
 	
 	[super dealloc];
 }
@@ -52,6 +55,8 @@
 		NSDictionary *themeDict = [themes objectForKey:theme];
 		int requiredNumberOfFlowers = [[themeDict objectForKey:@"requiredNumberOfFlowers"] intValue];
 		[_requiredNumberOfFlowersByTheme setObject:[NSNumber numberWithInt:requiredNumberOfFlowers] forKey:theme];
+		BOOL hidden = [[themeDict objectForKey:@"hidden"] boolValue];
+		[_hiddenByTheme setObject:[NSNumber numberWithBool:hidden] forKey:theme];
 		NSArray *levels = [themeDict objectForKey:@"levels"];
 		[_levelNamesByTheme setObject:levels forKey:theme];
 	}
@@ -68,6 +73,28 @@
 -(NSArray *) themes
 {
 	return [[_levelNamesByTheme allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+}
+
+-(NSArray *) visibleThemes
+{
+	NSMutableArray *visibleThemes = [NSMutableArray array];
+	for (NSString *theme in [self themes])
+	{
+		BOOL includeTheme;
+		if ([self isThemeHidden:theme])
+		{
+			includeTheme = [[PlayerInformation sharedInformation] canPlayTheme:theme];
+		}
+		else
+		{
+			includeTheme = TRUE;
+		}
+		if (includeTheme)
+		{
+			[visibleThemes addObject:theme];
+		}
+	}
+	return visibleThemes;
 }
 
 -(NSArray *) levelNamesInTheme:(NSString *)theme
@@ -162,6 +189,11 @@
 -(int) requiredNumberOfFlowersForTheme:(NSString *)theme
 {
 	return [[_requiredNumberOfFlowersByTheme objectForKey:theme] intValue];
+}
+
+-(BOOL) isThemeHidden:(NSString *)theme
+{
+	return [[_hiddenByTheme objectForKey:theme] boolValue];
 }
 
 @end

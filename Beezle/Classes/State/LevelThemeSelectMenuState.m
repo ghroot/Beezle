@@ -18,6 +18,7 @@
 
 static BOOL isFirstLoad = TRUE;
 static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
+static const float PAGE_DOT_DISTANCE = 10.0f;
 
 @interface LevelThemeSelectMenuState()
 
@@ -53,7 +54,7 @@ static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 
 -(id) init
 {
-	return [self initWithPreselectedTheme:[[[LevelOrganizer sharedOrganizer] themes] objectAtIndex:0]];
+	return [self initWithPreselectedTheme:[[[LevelOrganizer sharedOrganizer] visibleThemes] objectAtIndex:0]];
 }
 
 -(void) initialise
@@ -66,16 +67,19 @@ static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 	[chooserScreenBackSprite setPosition:[Utils screenCenterPosition]];
 	[self addChild:chooserScreenBackSprite z:25];
 
-	NSArray *themes = [[LevelOrganizer sharedOrganizer] themes];
-	[self createScrollLayer:themes];
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	_layerOffset = (int)(winSize.width * 0.42f);
 
-	_numberOfPages = [themes count];
+	NSArray *visibleThemes = [[LevelOrganizer sharedOrganizer] visibleThemes];
+	[self createScrollLayer:visibleThemes];
+
+	_numberOfPages = [visibleThemes count];
 
 	[self addChild:[BeesFrontNode node] z:31];
 
 	[self createBackMenu];
 
-	int index = [themes indexOfObject:_theme];
+	int index = [visibleThemes indexOfObject:_theme];
 	[_scrollLayer selectPage:index];
 
 	[self updateBackground];
@@ -134,7 +138,7 @@ static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 		LevelThemeSelectLayer *levelThemeSelectLayer = [LevelThemeSelectLayer layerWithTheme:theme game:_game];
 		[layers addObject:levelThemeSelectLayer];
 	}
-	_scrollLayer = [[CCScrollLayer alloc] initWithLayers:layers widthOffset:240];
+	_scrollLayer = [[CCScrollLayer alloc] initWithLayers:layers widthOffset:_layerOffset];
 	[_scrollLayer setShowPagesIndicator:FALSE];
     [_scrollLayer setDelegate:self];
 	[self addChild:_scrollLayer z:30];
@@ -159,7 +163,7 @@ static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 
 	float scrollLayerX = [_scrollLayer position].x;
-	float percent = -scrollLayerX / ((NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE - 1) * winSize.width);
+	float percent = -scrollLayerX / ((NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE - 1) * (winSize.width - _layerOffset));
 	percent = min(percent, 1.0f);
 	percent = max(percent, 0.0f);
 	float backgroundSpritePadding = 120.0f;
@@ -180,9 +184,10 @@ static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 	}
 	[_pageDotSprites removeAllObjects];
 
-	float universalScreenStartX = [Utils universalScreenStartX];
-
-	for (int i = 0; i < [[_scrollLayer pages] count]; i++)
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	int numberOfPages = [[_scrollLayer pages] count];
+	float startX = (winSize.width - PAGE_DOT_DISTANCE * (numberOfPages - 1)) / 2.0f;
+	for (int i = 0; i < numberOfPages; i++)
 	{
 		CCSprite *pageDotSprite = nil;
 		if (i == page)
@@ -193,7 +198,7 @@ static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 		{
 			pageDotSprite = [CCSprite spriteWithFile:@"PageDot-diff.png"];
 		}
-		[pageDotSprite setPosition:CGPointMake(universalScreenStartX + 220.0f + i * 10.0f, 20.0f)];
+		[pageDotSprite setPosition:CGPointMake(startX + i * PAGE_DOT_DISTANCE, 20.0f)];
 		[_pageDotSprites addObject:pageDotSprite];
 		[self addChild:pageDotSprite z:35];
 	}

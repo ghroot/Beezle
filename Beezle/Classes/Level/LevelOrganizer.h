@@ -12,6 +12,7 @@
 {
 	NSMutableDictionary *_levelNamesByTheme;
 	NSMutableDictionary *_requiredNumberOfFlowersByTheme;
+	NSMutableDictionary *_hiddenByTheme;
 }
 
 +(LevelOrganizer *) sharedOrganizer;
@@ -19,6 +20,7 @@
 -(void) addLevelNamesWithDictionary:(NSDictionary *)dict;
 -(void) addLevelNamesWithFile:(NSString *)fileName;
 -(NSArray *) themes;
+-(NSArray *) visibleThemes;
 -(NSArray *) levelNamesInTheme:(NSString *)theme;
 -(NSArray *) allLevelNames;
 -(NSString *) themeForLevel:(NSString *)levelName;
@@ -27,5 +29,6 @@
 -(NSString *) levelNameAfter:(NSString *)levelName;
 -(BOOL) isLastLevelInGame:(NSString *)levelName;
 -(int) requiredNumberOfFlowersForTheme:(NSString *)theme;
+-(BOOL) isThemeHidden:(NSString *)theme;
 
 @end

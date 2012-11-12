@@ -28,6 +28,7 @@
 -(CCMenu *) getMenu:(CCNode *)node;
 -(void) createBackMenu;
 -(void) startGame:(id)sender;
+-(void) showBuyFullVersionAlert;
 
 @end
 
@@ -113,19 +114,7 @@
 			NSString *levelName = [levelNames objectAtIndex:levelIndex];
 			LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
 			CGPoint position = [menuItemImage position];
-			if (levelLayout == nil)
-			{
-#ifdef LITE_VERSION
-				// TODO: What do we do with levels that are not in the lite version?
-				NSString *imageName = [NSString stringWithFormat:@"LevelCell-%@-Bee.png", _theme];
-				[menuItemImage setNormalImage:[CCSprite spriteWithFile:imageName]];
-				[menuItemImage setSelectedImage:[CCSprite spriteWithFile:imageName]];
-				[menuItemImage setDisabledImage:[CCSprite spriteWithFile:imageName]];
-
-				[menuItemImage setIsEnabled:FALSE];
-#endif
-			}
-			else
+			if (levelLayout != nil)
 			{
 				if ([[PlayerInformation sharedInformation] canPlayLevel:levelName])
 				{
@@ -201,17 +190,21 @@
 				[draggableNode addChild:debugLabel];
 #endif
 			}
-
-			if (firstCellX < 0.0f)
-			{
-				firstCellX = [menuItemImage position].x;
-			}
-			lastCellX = [menuItemImage position].x;
 		}
 		else
 		{
-			[menuItemImage setVisible:FALSE];
+			// Open icon
+			NSString *openImageName = [NSString stringWithFormat:@"LevelCell-%@-Open.png", _theme];
+			[menuItemImage setNormalImage:[CCSprite spriteWithFile:openImageName]];
+			[menuItemImage setSelectedImage:[CCSprite spriteWithFile:openImageName]];
+			[menuItemImage setDisabledImage:[CCSprite spriteWithFile:openImageName]];
 		}
+
+		if (firstCellX < 0.0f)
+		{
+			firstCellX = [menuItemImage position].x;
+		}
+		lastCellX = [menuItemImage position].x;
     }
 	float contentWidth = lastCellX + firstCellX;
 	[draggableNode setContentSize:CGSizeMake(contentWidth, winSize.height)];
@@ -287,21 +280,48 @@
 	CCMenuItemImage *menuItem = (CCMenuItemImage *)sender;
 	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesInTheme:_theme];
 	int levelIndex = [menuItem tag] - 1;
-	NSString *levelName = [levelNames objectAtIndex:levelIndex];
+	if (levelIndex < [levelNames count])
+	{
+		NSString *levelName = [levelNames objectAtIndex:levelIndex];
 
-	[self removeChild:_scrollView cleanup:TRUE];
+		[self removeChild:_scrollView cleanup:TRUE];
 
-	CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.35f scale:1.5f];
-	CCCallBlock *gotoGameAction = [CCCallBlock actionWithBlock:^{
-		[GameStateUtils replaceWithGameplayState:levelName game:_game];
-	}];
-	[_chooserScreenSprite runAction:[CCSequence actionOne:scaleAction two:gotoGameAction]];
+		CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:0.35f scale:1.5f];
+		CCCallBlock *gotoGameAction = [CCCallBlock actionWithBlock:^{
+			[GameStateUtils replaceWithGameplayState:levelName game:_game];
+		}];
+		[_chooserScreenSprite runAction:[CCSequence actionOne:scaleAction two:gotoGameAction]];
 
-	CCMoveTo *moveAction = [CCMoveTo actionWithDuration:0.3f position:CGPointMake(0.0f, -20.0f)];
-	[_beesFrontNode runAction:moveAction];
+		CCMoveTo *moveAction = [CCMoveTo actionWithDuration:0.3f position:CGPointMake(0.0f, -20.0f)];
+		[_beesFrontNode runAction:moveAction];
 
-	CCFadeIn *fadeInAction = [CCFadeIn actionWithDuration:0.3f];
-	[_fadeLayer runAction:fadeInAction];
+		CCFadeIn *fadeInAction = [CCFadeIn actionWithDuration:0.3f];
+		[_fadeLayer runAction:fadeInAction];
+	}
+	else
+	{
+		[self showBuyFullVersionAlert];
+	}
+}
+
+-(void) showBuyFullVersionAlert
+{
+	UIAlertView *dialog = [[UIAlertView alloc] init];
+	[dialog setDelegate:self];
+	[dialog setTitle:@"Full version"];
+	[dialog setMessage:@"Buy the full version to access all 160+ levels!"];
+	[dialog addButtonWithTitle:@"App Store"];
+	[dialog addButtonWithTitle:@"No thanks"];
+	[dialog show];
+	[dialog release];
+}
+
+-(void) alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if (buttonIndex == 0)
+	{
+		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/app/angry-birds/id343200656?mt=8"]];
+	}
 }
 
 @end
