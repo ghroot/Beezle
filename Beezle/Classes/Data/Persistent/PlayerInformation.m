@@ -12,6 +12,7 @@
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "Logger.h"
+#import "GameCenterManager.h"
 
 static NSString *SETTINGS_KEY = @"Settings";
 static NSString *PROGRESS_KEY = @"Progress";
@@ -53,7 +54,7 @@ static NSString *PROGRESS_KEY = @"Progress";
 
 -(void) dealloc
 {
-#ifdef ICLOUD
+#ifndef LITE_VERSION
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 #endif
 
@@ -67,7 +68,7 @@ static NSString *PROGRESS_KEY = @"Progress";
 {
 	[self load];
 
-#ifdef ICLOUD
+#ifndef LITE_VERSION
 #ifdef DEBUG
 	[[Logger defaultLogger] log:@"Synchronizing iCloud..."];
 #endif
@@ -131,7 +132,7 @@ static NSString *PROGRESS_KEY = @"Progress";
 	[[NSUserDefaults standardUserDefaults] setObject:[self getProgressAsDictionary] forKey:PROGRESS_KEY];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 
-#ifdef ICLOUD
+#ifndef LITE_VERSION
 #ifdef DEBUG
 	[[Logger defaultLogger] log:@"Saving to iCloud..."];
 #endif
@@ -170,7 +171,7 @@ static NSString *PROGRESS_KEY = @"Progress";
 	[[NSUserDefaults standardUserDefaults] removeObjectForKey:PROGRESS_KEY];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 
-#ifdef ICLOUD
+#ifndef LITE_VERSION
 #ifdef DEBUG
 	[[Logger defaultLogger] log:@"Resetting iCloud data..."];
 #endif
@@ -203,6 +204,10 @@ static NSString *PROGRESS_KEY = @"Progress";
 	if ([self isPollenRecord:levelSession])
 	{
 		[_pollenRecordByLevelName setObject:[NSNumber numberWithInt:[levelSession totalNumberOfPollen]] forKey:[levelSession levelName]];
+
+#ifndef LITE_VERSION
+		[[GameCenterManager sharedManager] reportScore:[self totalNumberOfPollen]];
+#endif
 	}
 }
 

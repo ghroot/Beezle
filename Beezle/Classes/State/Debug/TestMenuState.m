@@ -11,6 +11,7 @@
 #import "TestAnimationsState.h"
 #import "TestEntitySystemState.h"
 #import "TestCreditsState.h"
+#import "GameCenterManager.h"
 
 @interface TestMenuState()
 
@@ -42,7 +43,11 @@
 		[_game pushState:[TestCreditsState state]];
 	}];
 	[_menu addChild:testCreditsMenuItem];
-    
+	CCMenuItemFont *testGameCenterMenuItem = [CCMenuItemFont itemWithString:@"Test game center" block:^(id sender){
+		[[GameCenterManager sharedManager] showLeaderboards];
+	}];
+	[_menu addChild:testGameCenterMenuItem];
+
     CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
     [backMenuItem setFontSize:26];
 	[_menu addChild:backMenuItem];

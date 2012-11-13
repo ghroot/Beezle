@@ -1309,6 +1309,8 @@
 		2C85BD4F164DCEC300A369AE /* Icon-Small-Lite.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C85BD48164DCEC300A369AE /* Icon-Small-Lite.png */; };
 		2C85BD50164DCEC300A369AE /* Icon-Small-Lite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C85BD49164DCEC300A369AE /* Icon-Small-Lite@2x.png */; };
 		2C85BD51164DCEC300A369AE /* iTunesArtwork-Lite in Resources */ = {isa = PBXBuildFile; fileRef = 2C85BD4A164DCEC300A369AE /* iTunesArtwork-Lite */; };
+		2C85BD731651BDE100A369AE /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C85BD721651BDE000A369AE /* GameKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		2C85BD741651BDF100A369AE /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C85BD721651BDE000A369AE /* GameKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		2C8808AC155EF3BD000FD02E /* Beeater-Land-C.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8808AB155EF3BD000FD02E /* Beeater-Land-C.plist */; };
 		2C8808AF155F07C4000FD02E /* Beeater-Hanging-C.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8808AE155F07C4000FD02E /* Beeater-Hanging-C.plist */; };
 		2C8808B1155F0971000FD02E /* Beeater-Bird-C.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8808B0155F0971000FD02E /* Beeater-Bird-C.plist */; };
@@ -2797,6 +2799,7 @@
 		88F1655F0D61F9B6C9231C12 /* CCBAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1651BB879453695B5F534 /* CCBAnimationManager.m */; };
 		88F165770885AF668BD24C47 /* End-Credits-Beeaters.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16A1136C803F91B4016B0 /* End-Credits-Beeaters.png */; };
 		88F1658C00D05B1146607281 /* End-GameCompleted!-Mumee-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F162E766D9334D7CC4E066 /* End-GameCompleted!-Mumee-1.png */; };
+		88F1659AB13A19374C0D95A9 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163F21CDB2253F82F64FE /* GameCenterManager.m */; };
 		88F165AE8E86690C7281B192 /* Text-GameCompleted?-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16EDB05686F37A96063A3 /* Text-GameCompleted?-hd.png */; };
 		88F165CB5EB9D23516F70E6E /* End-GameCompleted!-Bee-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F160193E8134C9F166BF31 /* End-GameCompleted!-Bee-2.png */; };
 		88F165F302D3A62530E02B46 /* Text-GameCompleted!-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16118DC7F9631754CF09E /* Text-GameCompleted!-hd.png */; };
@@ -2819,6 +2822,7 @@
 		88F167ED5CA451E84CB11875 /* SaweeHitScreen.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F160197DCE2C13A8257B03 /* SaweeHitScreen.caf */; };
 		88F1680B6891A08317E3BA46 /* CCBAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1651BB879453695B5F534 /* CCBAnimationManager.m */; };
 		88F168270E60671EE5DF16A3 /* A42-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16A1344B4119F754AF8E5 /* A42-Glass.png */; };
+		88F168356D81FD0035D6EE62 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163F21CDB2253F82F64FE /* GameCenterManager.m */; };
 		88F1684B411BC5423F06BE99 /* End-GameCompleted!-Bombee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16AD0C16B4AFBA5D5E286 /* End-GameCompleted!-Bombee-1-hd.png */; };
 		88F1688D7DB39D23AF7966C6 /* End-Credits-Flowers-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16C88CCAC5A70FB68D483 /* End-Credits-Flowers-hd.png */; };
 		88F1689F175A18B4AC4A4F66 /* BubbleYel-A24.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16DC362DA2996D4A4BB25 /* BubbleYel-A24.png */; };
@@ -4518,6 +4522,7 @@
 		2C85BD48164DCEC300A369AE /* Icon-Small-Lite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-Lite.png"; sourceTree = "<group>"; };
 		2C85BD49164DCEC300A369AE /* Icon-Small-Lite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-Lite@2x.png"; sourceTree = "<group>"; };
 		2C85BD4A164DCEC300A369AE /* iTunesArtwork-Lite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork-Lite"; sourceTree = "<group>"; };
+		2C85BD721651BDE000A369AE /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		2C8808AB155EF3BD000FD02E /* Beeater-Land-C.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Land-C.plist"; sourceTree = "<group>"; };
 		2C8808AE155F07C4000FD02E /* Beeater-Hanging-C.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Hanging-C.plist"; sourceTree = "<group>"; };
 		2C8808B0155F0971000FD02E /* Beeater-Bird-C.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beeater-Bird-C.plist"; sourceTree = "<group>"; };
@@ -5150,6 +5155,7 @@
 		88F160197DCE2C13A8257B03 /* SaweeHitScreen.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = SaweeHitScreen.caf; sourceTree = "<group>"; };
 		88F1602FF74FDBE04B5399CB /* GameCompletedDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCompletedDialog.h; sourceTree = "<group>"; };
 		88F1609041D472D74B85C3EF /* CCBKeyframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBKeyframe.h; sourceTree = "<group>"; };
+		88F160CB166D2379FD307433 /* GameCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterManager.h; sourceTree = "<group>"; };
 		88F160DD1014B091DFCB9284 /* End-Completed?-Bee-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Completed?-Bee-1-hd.png"; sourceTree = "<group>"; };
 		88F160E33CC64B2EEECE14F3 /* End-GameCompleted!-Sawee-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Sawee-1-hd.png"; sourceTree = "<group>"; };
 		88F160F176D6E51FACC88FE6 /* A42-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A42-Glass-hd.png"; sourceTree = "<group>"; };
@@ -5175,6 +5181,7 @@
 		88F163BE772341C643097BFF /* End-GameCompleted!-Sumee-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Sumee-2.png"; sourceTree = "<group>"; };
 		88F163C1735003267D916572 /* CCBSequenceProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBSequenceProperty.h; sourceTree = "<group>"; };
 		88F163C3EAA348F3859CCD64 /* End-GameCompleted!-Speedee-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Speedee-1-hd.png"; sourceTree = "<group>"; };
+		88F163F21CDB2253F82F64FE /* GameCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterManager.m; sourceTree = "<group>"; };
 		88F164438FED3FE1AFE6D2F8 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unzip.h; path = libs/SSZipArchive/minizip/unzip.h; sourceTree = "<group>"; };
 		88F1645169D3DF11FAAD581E /* Chooser-Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chooser-Screen.png"; sourceTree = "<group>"; };
 		88F16460284B5F105106134C /* End-Credits-StingLabLogo-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-StingLabLogo-hd.png"; sourceTree = "<group>"; };
@@ -5435,6 +5442,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C85BD741651BDF100A369AE /* GameKit.framework in Frameworks */,
 				2CD6B0D0164480AD008D834B /* SystemConfiguration.framework in Frameworks */,
 				2CD6B0D1164480AD008D834B /* libz.dylib in Frameworks */,
 				2CD6B0D2164480AD008D834B /* QuartzCore.framework in Frameworks */,
@@ -5456,6 +5464,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C85BD731651BDE100A369AE /* GameKit.framework in Frameworks */,
 				2CF7AE541640963A00AE18B3 /* SystemConfiguration.framework in Frameworks */,
 				2C5C9A3B154A0E2A00FF6F57 /* libz.dylib in Frameworks */,
 				2CEA3278145F66F7000FF575 /* QuartzCore.framework in Frameworks */,
@@ -7512,13 +7521,15 @@
 		2C74B4CC156FAD1E00596A22 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				2CF8E0F61576B45F0052F60B /* MemoryManager.m */,
-				2CF8E0F61576B45F0052F60A /* MemoryManager.h */,
+				88F16A31422933134AE9DCE1 /* ActionUtils.h */,
+				88F16A01E189F9D6E18B9EC4 /* ActionUtils.m */,
 				2C74B4CD156FAD1E00596A22 /* Debug */,
 				2C74B4D0156FAD1E00596A22 /* EmailInfo.h */,
 				2C74B4D1156FAD1E00596A22 /* EmailInfo.m */,
-				88F16A01E189F9D6E18B9EC4 /* ActionUtils.m */,
-				88F16A31422933134AE9DCE1 /* ActionUtils.h */,
+				88F160CB166D2379FD307433 /* GameCenterManager.h */,
+				88F163F21CDB2253F82F64FE /* GameCenterManager.m */,
+				2CF8E0F61576B45F0052F60A /* MemoryManager.h */,
+				2CF8E0F61576B45F0052F60B /* MemoryManager.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -8640,6 +8651,7 @@
 				2CEA327F145F66F7000FF575 /* AVFoundation.framework */,
 				2CEA3285145F66F7000FF575 /* CoreGraphics.framework */,
 				2CEA3283145F66F7000FF575 /* Foundation.framework */,
+				2C85BD721651BDE000A369AE /* GameKit.framework */,
 				2C5C9A3A154A0E2A00FF6F57 /* libz.dylib */,
 				2C0D500314A8CDBC00466316 /* MessageUI.framework */,
 				2CEA327B145F66F7000FF575 /* OpenAL.framework */,
@@ -11809,6 +11821,7 @@
 				2CE08CE0164C6C6F0012E22B /* vec4.c in Sources */,
 				88F16D4D60E814332831FB2F /* ActionUtils.m in Sources */,
 				88F16DB7108779564B64D9BC /* TestCreditsState.m in Sources */,
+				88F168356D81FD0035D6EE62 /* GameCenterManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -12141,6 +12154,7 @@
 				2CE08CDF164C6C6F0012E22B /* vec4.c in Sources */,
 				88F1618D338A673B9F399DD0 /* ActionUtils.m in Sources */,
 				88F1694FF2F6AC9731024015 /* TestCreditsState.m in Sources */,
+				88F1659AB13A19374C0D95A9 /* GameCenterManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -12228,7 +12242,6 @@
 					DEBUG,
 					"COCOS2D_DEBUG=1",
 					LEVEL_RATINGS,
-					ICLOUD,
 					LITE_VERSION,
 				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
@@ -12263,6 +12276,13 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DEBUG,
+					NDEBUG,
+					"NS_BLOCK_ASSERTIONS=1",
+					LEVEL_RATINGS,
+					LITE_VERSION,
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -12298,7 +12318,6 @@
 					DEBUG,
 					"COCOS2D_DEBUG=1",
 					LEVEL_RATINGS,
-					ICLOUD,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -12320,7 +12339,6 @@
 					DEBUG,
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
-					ICLOUD,
 					LEVEL_RATINGS,
 				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;

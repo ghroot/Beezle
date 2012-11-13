@@ -15,8 +15,8 @@
 #import "PlayState.h"
 #import "iRate.h"
 #import "PlayerInformation.h"
-#import "NotificationTypes.h"
 #import "AnimationSoundMediator.h"
+#import "GameCenterManager.h"
 
 @implementation AppDelegate
 
@@ -95,6 +95,11 @@
 
 		// Animation sound trigger
 		[[AnimationSoundMediator sharedMediator] initialise];
+
+#ifndef LITE_VERSION
+		// Game center
+		[[GameCenterManager sharedManager] initialise];
+#endif
 
 		// Tracking
 		[[SessionTracker sharedTracker] start];
