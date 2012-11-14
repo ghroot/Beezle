@@ -171,7 +171,8 @@ static const int AIM_POLLEN_LAYERS = 2;
 	float r1, g1, b1, a1;
 	float r2, g2, b2, a2;
 	float damping, diffusion;
-	if ([theme isEqualToString:@"A"])
+	if ([theme isEqualToString:@"A"] ||
+			[theme isEqualToString:@"E"])
 	{
 		r1 = r2 = 24.0f / 255.0f;
 		g1 = g2 = 98.0f / 255.0f;
@@ -241,7 +242,8 @@ static const int AIM_POLLEN_LAYERS = 2;
 	
 	// Water
 	WaterComponent *waterComponent = [WaterComponent component];
-	if ([theme isEqualToString:@"A"])
+	if ([theme isEqualToString:@"A"] ||
+			[theme isEqualToString:@"E"])
 	{
 		[waterComponent setSplashEntityType:@"WATER-SPLASH"];
 	}

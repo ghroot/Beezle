@@ -75,7 +75,8 @@
 	[backgroundSprite2 setPosition:CGPointMake([backgroundSprite1 contentSize].width, 0.0f)];
 	[backgroundSprite addChild:backgroundSprite2];
 	float backgroundSpriteX;
-	if ([_theme isEqualToString:@"A"])
+	if ([_theme isEqualToString:@"A"] ||
+			[_theme isEqualToString:@"E"])
 	{
 		backgroundSpriteX = 0.0f;
 	}
@@ -119,7 +120,7 @@
 				if ([[PlayerInformation sharedInformation] canPlayLevel:levelName])
 				{
 					// Open icon
-					NSString *openImageName = [NSString stringWithFormat:@"LevelCell-%@-Open.png", _theme];
+					NSString *openImageName = [NSString stringWithFormat:@"LevelCell-%@-Open.png", [_theme isEqualToString:@"E"] ? @"A" : _theme];
 					[menuItemImage setNormalImage:[CCSprite spriteWithFile:openImageName]];
 					[menuItemImage setSelectedImage:[CCSprite spriteWithFile:openImageName]];
 					[menuItemImage setDisabledImage:[CCSprite spriteWithFile:openImageName]];
@@ -151,11 +152,11 @@
 					NSString *imageName;
 					if ([levelLayout isBossLevel])
 					{
-						imageName = [NSString stringWithFormat:@"LevelCell-%@-Beeater.png", _theme];
+						imageName = [NSString stringWithFormat:@"LevelCell-%@-Beeater.png", [_theme isEqualToString:@"E"] ? @"A" : _theme];
 					}
 					else
 					{
-						imageName = [NSString stringWithFormat:@"LevelCell-%@-Bee.png", _theme];
+						imageName = [NSString stringWithFormat:@"LevelCell-%@-Bee.png", [_theme isEqualToString:@"E"] ? @"A" : _theme];
 					}
 					[menuItemImage setNormalImage:[CCSprite spriteWithFile:imageName]];
 					[menuItemImage setSelectedImage:[CCSprite spriteWithFile:imageName]];
@@ -190,21 +191,31 @@
 				[draggableNode addChild:debugLabel];
 #endif
 			}
+
+			if (firstCellX < 0.0f)
+			{
+				firstCellX = [menuItemImage position].x;
+			}
+			lastCellX = [menuItemImage position].x;
 		}
 		else
 		{
+#ifdef LITE_VERSION
 			// Open icon
-			NSString *openImageName = [NSString stringWithFormat:@"LevelCell-%@-Open.png", _theme];
+			NSString *openImageName = [NSString stringWithFormat:@"LevelCell-%@-Open.png", [_theme isEqualToString:@"E"] ? @"A" : _theme];
 			[menuItemImage setNormalImage:[CCSprite spriteWithFile:openImageName]];
 			[menuItemImage setSelectedImage:[CCSprite spriteWithFile:openImageName]];
 			[menuItemImage setDisabledImage:[CCSprite spriteWithFile:openImageName]];
-		}
 
-		if (firstCellX < 0.0f)
-		{
-			firstCellX = [menuItemImage position].x;
+			if (firstCellX < 0.0f)
+			{
+				firstCellX = [menuItemImage position].x;
+			}
+			lastCellX = [menuItemImage position].x;
+#else
+			[menuItemImage setVisible:FALSE];
+#endif
 		}
-		lastCellX = [menuItemImage position].x;
     }
 	float contentWidth = lastCellX + firstCellX;
 	[draggableNode setContentSize:CGSizeMake(contentWidth, winSize.height)];
@@ -300,7 +311,9 @@
 	}
 	else
 	{
+#ifdef LITE_VERSION
 		[self showBuyFullVersionAlert];
+#endif
 	}
 }
 

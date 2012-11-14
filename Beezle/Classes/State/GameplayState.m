@@ -73,6 +73,8 @@
 #import "PlayState.h"
 #import "LevelThemeSelectMenuState.h"
 #import "GameCompletedDialog.h"
+#import "GameAlmostCompletedDialog.h"
+#import "HiddenLevelsFoundDialog.h"
 
 @interface GameplayState()
 
@@ -401,12 +403,27 @@
 */
 -(void) nextLevel
 {
-	if ([[LevelOrganizer sharedOrganizer] isLastLevelInGame:_levelName])
+	if ([[LevelOrganizer sharedOrganizer] isLastLevelInTheme:_levelName])
 	{
 		[self closeAllDialogs];
 
-//		[_uiLayer addChild:[GameAlmostCompletedDialog dialogWithGame:_game]];
-		[_uiLayer addChild:[GameCompletedDialog dialogWithGame:_game]];
+		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:_levelName];
+		NSString *nextTheme = [[LevelOrganizer sharedOrganizer] themeAfter:theme];
+		if (nextTheme != nil)
+		{
+			if ([[PlayerInformation sharedInformation] canPlayTheme:nextTheme])
+			{
+				[_uiLayer addChild:[HiddenLevelsFoundDialog dialogWithGame:_game andLevelSession:_levelSession]];
+			}
+			else
+			{
+				[_uiLayer addChild:[GameAlmostCompletedDialog dialogWithGame:_game]];
+			}
+		}
+		else
+		{
+			[_uiLayer addChild:[GameCompletedDialog dialogWithGame:_game]];
+		}
 	}
 	else
 	{

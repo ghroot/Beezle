@@ -96,7 +96,8 @@
 	[_generalOptionsMenu addChild:[self createMenuItem:@"Add entity" selector:@selector(doOptionOpenEntityMenu:) userData:nil]];
 	
 	NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:[_editState levelName]];
-	if ([theme isEqualToString:@"A"])
+	if ([theme isEqualToString:@"A"] ||
+			[theme isEqualToString:@"E"])
 	{
 		[_generalOptionsMenu addChild:[self createMenuItem:@"Toggle water" selector:@selector(doOptionToggleWater:) userData:nil]];
 	}

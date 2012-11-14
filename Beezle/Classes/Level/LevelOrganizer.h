@@ -27,7 +27,7 @@
 -(NSString *) themeAfter:(NSString *)theme;
 -(NSString *) levelNameBefore:(NSString *)levelName;
 -(NSString *) levelNameAfter:(NSString *)levelName;
--(BOOL) isLastLevelInGame:(NSString *)levelName;
+-(BOOL) isLastLevelInTheme:(NSString *)levelName;
 -(int) requiredNumberOfFlowersForTheme:(NSString *)theme;
 -(BOOL) isThemeHidden:(NSString *)theme;
 

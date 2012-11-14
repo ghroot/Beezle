@@ -46,7 +46,8 @@
 		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Chooser-Animations.plist"];
 
 		NSMutableArray *animationNames = [NSMutableArray array];
-		if ([theme isEqualToString:@"A"])
+		if ([theme isEqualToString:@"A"] ||
+				[theme isEqualToString:@"E"])
 		{
 			[animationNames addObject:@"Title-Bee-Idle"];
 			[animationNames addObject:@"Title-Bee-Idle"];

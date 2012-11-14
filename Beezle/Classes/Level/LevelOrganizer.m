@@ -171,19 +171,9 @@
     }
 }
 
--(BOOL) isLastLevelInGame:(NSString *)levelName
+-(BOOL) isLastLevelInTheme:(NSString *)levelName
 {
-	NSString *theme = [self themeForLevel:levelName];
-	NSString *lastTheme = [[self themes] lastObject];
-	if ([theme isEqualToString:lastTheme])
-	{
-		NSString *lastLevelName = [[self levelNamesInTheme:theme] lastObject];
-		return [levelName isEqualToString:lastLevelName];
-	}
-	else
-	{
-		return FALSE;
-	}
+	return [self levelNameAfter:levelName] == nil;
 }
 
 -(int) requiredNumberOfFlowersForTheme:(NSString *)theme
@@ -193,7 +183,11 @@
 
 -(BOOL) isThemeHidden:(NSString *)theme
 {
+#ifdef DEBUG
+	return FALSE;
+#else
 	return [[_hiddenByTheme objectForKey:theme] boolValue];
+#endif
 }
 
 @end
