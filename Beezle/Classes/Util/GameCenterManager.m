@@ -25,18 +25,52 @@ static NSString *LEADERBOARD_ID = @"default";
 -(void) initialise
 {
 	GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
-	[localPlayer authenticateWithCompletionHandler:^(NSError *error){
-		if ([localPlayer isAuthenticated])
-		{
-			_isAuthenticated = TRUE;
-		}
-#ifdef DEBUG
-		if (error != nil)
-		{
-			[[Logger defaultLogger] log:[error localizedDescription]];
-		}
-#endif
-	}];
+	
+	if ([localPlayer respondsToSelector:@selector(setAuthenticateHandler:)])
+	{
+		[localPlayer setAuthenticateHandler:^(UIViewController *viewController, NSError *error){
+			if (viewController != nil)
+			{
+				[[CCDirector sharedDirector] presentViewController:viewController animated:TRUE completion:nil];
+
+				[[Logger defaultLogger] log:@"Showing GameCenter authentication dialog"];
+			}
+			else if ([localPlayer isAuthenticated])
+			{
+				_isAuthenticated = TRUE;
+
+				[[Logger defaultLogger] log:@"GameCenter local player authenticated"];
+			}
+			else
+			{
+				[[Logger defaultLogger] log:@"GameCenter local player NOT authenticated"];
+			}
+			if (error != nil)
+			{
+				[[Logger defaultLogger] log:[error localizedDescription]];
+			}
+		}];
+	}
+	else
+	{
+		[localPlayer authenticateWithCompletionHandler:^(NSError *error){
+			if ([localPlayer isAuthenticated])
+			{
+				_isAuthenticated = TRUE;
+
+				[[Logger defaultLogger] log:@"GameCenter local player authenticated"];
+			}
+			else
+			{
+				[[Logger defaultLogger] log:@"GameCenter local player NOT authenticated"];
+			}
+			if (error != nil)
+			{
+				[[Logger defaultLogger] log:[error localizedDescription]];
+			}
+		}];
+	}
+
 }
 
 -(void) showLeaderboards

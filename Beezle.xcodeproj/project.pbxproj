@@ -2882,7 +2882,9 @@
 		88F16BC5B3566700587B6633 /* Chooser-Screen-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16F9E27F3FB9352175335 /* Chooser-Screen-hd.png */; };
 		88F16BCB27B775C3B14B81B4 /* BeeHitScreen.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F1673950BED977CFA3E30C /* BeeHitScreen.caf */; };
 		88F16BDB8DAA37C348D1F395 /* End-GameCompleted!-Mumee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16CCE5D365F0BA297F8C9 /* End-GameCompleted!-Mumee-1-hd.png */; };
+		88F16BEF2D60535A280DED74 /* BeezleNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163EF41B4544CC7852D7B /* BeezleNavigationViewController.m */; };
 		88F16BF31EB8F16E2304CEF9 /* Text-GameCompleted?.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F1679963304021267221B0 /* Text-GameCompleted?.png */; };
+		88F16C0EE888625D5BFA25F9 /* BeezleNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163EF41B4544CC7852D7B /* BeezleNavigationViewController.m */; };
 		88F16C303E71580797C32FA4 /* End-Completed?-Bee-2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16696B433AEBE34C3E306 /* End-Completed?-Bee-2-hd.png */; };
 		88F16C35B442B6517D1A8DFB /* End-GameCompleted!-Speedee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F163C3EAA348F3859CCD64 /* End-GameCompleted!-Speedee-1-hd.png */; };
 		88F16C506F6AF5A6C8A942C2 /* Credits.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 88F16682A9EEF3A90FA48485 /* Credits.ccbi */; };
@@ -5204,6 +5206,7 @@
 		88F1625980982F54EC65F686 /* TestCreditsState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCreditsState.h; sourceTree = "<group>"; };
 		88F1628D8065B43990F7479D /* HiddenLevelsFoundDialog.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file.ccbi; path = HiddenLevelsFoundDialog.ccbi; sourceTree = "<group>"; };
 		88F162930A97BC78B86C9415 /* End-Credits-StingLabLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-StingLabLogo.png"; sourceTree = "<group>"; };
+		88F1629A925728F553823AF3 /* BeezleNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeezleNavigationViewController.h; sourceTree = "<group>"; };
 		88F162CAA517808899801331 /* End-Credits-Bees.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-Bees.png"; sourceTree = "<group>"; };
 		88F162CFE432763D9C045E3A /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zip.h; path = libs/SSZipArchive/minizip/zip.h; sourceTree = "<group>"; };
 		88F162E55DBAE4A1983BB8F0 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mztools.h; path = libs/SSZipArchive/minizip/mztools.h; sourceTree = "<group>"; };
@@ -5217,6 +5220,7 @@
 		88F163C1735003267D916572 /* CCBSequenceProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBSequenceProperty.h; sourceTree = "<group>"; };
 		88F163C3EAA348F3859CCD64 /* End-GameCompleted!-Speedee-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Speedee-1-hd.png"; sourceTree = "<group>"; };
 		88F163E235FEF7B99BF3EC42 /* Level-E3-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level-E3-hd.jpg"; sourceTree = "<group>"; };
+		88F163EF41B4544CC7852D7B /* BeezleNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeezleNavigationViewController.m; sourceTree = "<group>"; };
 		88F163F21CDB2253F82F64FE /* GameCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterManager.m; sourceTree = "<group>"; };
 		88F1642EFF3606E48185444D /* Level-E5-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Level-E5-Shapes.plist"; sourceTree = "<group>"; };
 		88F164438FED3FE1AFE6D2F8 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unzip.h; path = libs/SSZipArchive/minizip/unzip.h; sourceTree = "<group>"; };
@@ -7160,6 +7164,8 @@
 				2C74B48B156FAD1E00596A22 /* System */,
 				2C74B4C3156FAD1E00596A22 /* Type */,
 				2C74B4CC156FAD1E00596A22 /* Util */,
+				88F163EF41B4544CC7852D7B /* BeezleNavigationViewController.m */,
+				88F1629A925728F553823AF3 /* BeezleNavigationViewController.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -11933,6 +11939,7 @@
 				88F16DB7108779564B64D9BC /* TestCreditsState.m in Sources */,
 				88F168356D81FD0035D6EE62 /* GameCenterManager.m in Sources */,
 				88F1682AEEA1C563EDEA0588 /* HiddenLevelsFoundDialog.m in Sources */,
+				88F16BEF2D60535A280DED74 /* BeezleNavigationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -12267,6 +12274,7 @@
 				88F1694FF2F6AC9731024015 /* TestCreditsState.m in Sources */,
 				88F1659AB13A19374C0D95A9 /* GameCenterManager.m in Sources */,
 				88F164CD04518E159B40E2FD /* HiddenLevelsFoundDialog.m in Sources */,
+				88F16C0EE888625D5BFA25F9 /* BeezleNavigationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

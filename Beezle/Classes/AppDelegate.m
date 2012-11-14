@@ -17,6 +17,7 @@
 #import "PlayerInformation.h"
 #import "AnimationSoundMediator.h"
 #import "GameCenterManager.h"
+#import "BeezleNavigationViewController.h"
 
 @implementation AppDelegate
 
@@ -64,11 +65,19 @@
 	[_director enableRetinaDisplay:TRUE];
 	
 	// Create a Navigation Controller with the Director
-	_navigationController = [[UINavigationController alloc] initWithRootViewController:_director];
+	_navigationController = [[BeezleNavigationViewController alloc] initWithRootViewController:_director];
 	[_navigationController setNavigationBarHidden:TRUE];
 	
 	// Set the Navigation Controller as the root view controller
-    [_window setRootViewController:_navigationController];
+	if ([[[UIDevice currentDevice] systemVersion] compare:@"6.0" options:NSNumericSearch] != NSOrderedAscending)
+	{
+		[_window addSubview:_navigationController.view];
+		[_window setRootViewController:_navigationController];
+	}
+	else
+	{
+		[_window addSubview:_navigationController.view];
+	}
 	
 	// Show
 	[_window makeKeyAndVisible];
@@ -123,7 +132,19 @@
 
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+	if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight)
+	{
+		return TRUE;
+	}
+	else
+	{
+		return FALSE;
+	}
+}
+
+-(NSUInteger) application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+	return UIInterfaceOrientationMaskAllButUpsideDown;
 }
 
 -(void) applicationWillResignActive:(UIApplication *)application
