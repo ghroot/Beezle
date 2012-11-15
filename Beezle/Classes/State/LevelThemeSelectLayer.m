@@ -152,7 +152,7 @@
 		_menu = [CCMenu new];
 		FullscreenTransparentMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
 			[game replaceState:[LevelSelectMenuState stateWithTheme:theme]];
-		} selectedBlock:nil unselectedBlock:nil] autorelease];
+		} width:200.0f] autorelease];
 		[_menu addChild:menuItem];
 		[self addChild:_menu];
 #ifndef DEBUG

@@ -83,7 +83,7 @@
 
 			[[SoundManager sharedManager] playSound:@"BalloonBurst"];
 
-		} selectedBlock:nil unselectedBlock:nil] autorelease];
+		}] autorelease];
 		[menu addChild:menuItem];
 		[self addChild:menu];
 	}

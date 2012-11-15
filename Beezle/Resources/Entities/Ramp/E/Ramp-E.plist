@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>RAMP-E</string>
+	<key>template</key>
+    <string>Ramp-Template.plist</string>
+    <key>templateSubstitutions</key>
+    <dict>
+		<key>renderSpriteSheetName</key>
+		<string>Shared</string>
+		<key>renderAnimationFile</key>
+		<string>Ramp-Animations.plist</string>
+        <key>renderDefaultIdleAnimation</key>
+		<string>Ramp-Idle</string>
+		<key>renderDefaultDestroyAnimation</key>
+		<string>Ramp-Destroy</string>
+		<key>shardPiecesEntityType</key>
+		<string>RAMP-PIECE-E</string>
+    </dict>
+</dict>
+</plist>

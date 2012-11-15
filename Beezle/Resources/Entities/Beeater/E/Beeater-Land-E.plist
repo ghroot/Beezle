@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>type</key>
+		<string>BEEATER-LAND-E</string>
+		<key>template</key>
+		<string>Beeater-Land-Template.plist</string>
+		<key>templateSubstitutions</key>
+		<dict>
+			<key>beeaterShowBeeAnimationFormat</key>
+			<string>Beeater-Head-E-%@-%@</string>
+			<key>beeaterShowBeeBetweenAnimation1</key>
+			<string>Beeater-Head-E-Idle-Between-Short</string>
+			<key>beeaterShowBeeBetweenAnimation2</key>
+			<string>Beeater-Head-E-Idle-Between-Medium</string>
+			<key>beeaterShowBeeBetweenAnimation3</key>
+			<string>Beeater-Head-E-Idle-Between-Long</string>
+            <key>beeaterSynchronisedBodyAnimation</key>
+            <string></string>
+            <key>beeaterSynchronisedHeadAnimation</key>
+            <string></string>
+            <key>pulverizablePulverAnimationBody</key>
+            <string></string>
+            <key>pulverizablePulverAnimationHead</key>
+            <string></string>
+			<key>renderSpriteSheetName</key>
+			<string>A</string>
+			<key>renderBodyAnimationFile</key>
+			<string>Beeater-Body-Land-E-Animations.plist</string>
+			<key>renderBodyAnchorPoint</key>
+			<string>{ 0.6, 0.0 }</string>
+			<key>renderBodyDefaultIdleAnimation</key>
+			<string>Beeater-Body-Land-E-Idle</string>
+			<key>renderBodyDefaultDestroyAnimation</key>
+			<string>Beeater-Body-Land-E-Destroy</string>
+			<key>renderBodyDefaultStillAnimation</key>
+			<string>Beeater-Body-Land-E-Still</string>
+			<key>renderHeadAnimationFile</key>
+			<string>Beeater-Head-E-Animations.plist</string>
+			<key>renderHeadDefaultIdleAnimation</key>
+			<string>Beeater-Head-E-Idle-NoBee</string>
+			<key>shardPiecesEntityType1</key>
+			<string>BEEATER-HEAD-PIECE-E-1</string>
+			<key>shardPiecesEntityType2</key>
+			<string>BEEATER-HEAD-PIECE-E-2</string>
+			<key>shardPiecesEntityType3</key>
+			<string>BEEATER-HEAD-PIECE-E-3</string>
+			<key>shardPiecesEntityType4</key>
+			<string>BEEATER-HEAD-PIECE-E-4</string>
+			<key>shardPiecesEntityType5</key>
+			<string>BEEATER-HEAD-PIECE-E-5</string>
+		</dict>
+	</dict>
+</plist>

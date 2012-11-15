@@ -9,11 +9,8 @@
 #import "cocos2d.h"
 
 @interface FullscreenTransparentMenuItem : CCMenuItemSprite
-{
-	void (^_selectedBlock)(id sender);
-	void (^_unselectedBlock)(id sender);
-}
 
--(id) initWithBlock:(void (^)(id))block selectedBlock:(void (^)(id))selectedBlock unselectedBlock:(void (^)(id))unselectedBlock;
+-(id) initWithBlock:(void (^)(id))block width:(float)width;
+-(id) initWithBlock:(void (^)(id))block;
 
 @end

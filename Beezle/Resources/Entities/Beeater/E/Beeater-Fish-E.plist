@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>BEEATER-FISH-E</string>
+	<key>template</key>
+    <string>Beeater-Fish-Template.plist</string>
+    <key>templateSubstitutions</key>
+    <dict>
+        <key>beeaterShowBeeAnimationFormat</key>
+        <string>Beeater-Head-E-%@-%@</string>
+		<key>beeaterShowBeeBetweenAnimation1</key>
+        <string>Beeater-Head-E-Idle-Between-Short</string>
+		<key>beeaterShowBeeBetweenAnimation2</key>
+        <string>Beeater-Head-E-Idle-Between-Medium</string>
+		<key>beeaterShowBeeBetweenAnimation3</key>
+        <string>Beeater-Head-E-Idle-Between-Long</string>
+		<key>renderSpriteSheetName</key>
+		<string>A</string>
+		<key>renderBodyAnimationFile</key>
+		<string>Beeater-Body-Fish-E-Animations.plist</string>
+		<key>renderBodyDefaultIdleAnimation</key>
+		<string>Beeater-Body-Fish-E-Idle</string>
+		<key>renderBodyDefaultDestroyAnimation</key>
+		<string>Beeater-Fish-E-Destroy</string>
+		<key>renderHeadAnimationFile</key>
+		<string>Beeater-Head-E-Animations.plist</string>
+		<key>renderHeadDefaultIdleAnimation</key>
+		<string>Beeater-Head-E-Idle-NoBee</string>
+    </dict>
+</dict>
+</plist>

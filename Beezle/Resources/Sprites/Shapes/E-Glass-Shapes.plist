@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+    <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>1</integer>
+        </dict>
+        <key>bodies</key>
+		<dict>
+
+			<key>E3-Glass</key>
+			<dict>
+				<key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>fixtures</key>
+                <array>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>2</real>
+                        <key>friction</key>
+                        <real>4</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ -27.50000,50.00000 }</string>	
+								<string>{ -5.50000,51.00000 }</string>	
+								<string>{ -4.50000,27.00000 }</string>	
+								<string>{ -6.50000,-2.00000 }</string>	
+								<string>{ -14.50000,-10.00000 }</string>	
+								<string>{ -35.50000,2.00000 }</string>	
+								<string>{ -60.50000,35.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -14.50000,-10.00000 }</string>	
+								<string>{ -6.50000,-2.00000 }</string>	
+								<string>{ 0.50000,-28.00000 }</string>	
+								<string>{ -3.50000,-32.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -35.50000,2.00000 }</string>	
+								<string>{ -25.50000,-25.00000 }</string>	
+								<string>{ -24.50000,-51.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -35.50000,2.00000 }</string>	
+								<string>{ -14.50000,-10.00000 }</string>	
+								<string>{ -25.50000,-25.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -4.50000,27.00000 }</string>	
+								<string>{ 40.50000,-17.00000 }</string>	
+								<string>{ -6.50000,-2.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 40.50000,-17.00000 }</string>	
+								<string>{ -4.50000,27.00000 }</string>	
+								<string>{ 59.50000,-29.00000 }</string>
+							</array>
+						</array>
+                        
+					</dict>
+
+				</array>
+			</dict>
+
+			<key>E4-Glass</key>
+			<dict>
+				<key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>fixtures</key>
+                <array>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0.2</real>
+                        <key>friction</key>
+                        <real>0.4</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ 3.00000,19.50000 }</string>	
+								<string>{ 4.00000,37.50000 }</string>	
+								<string>{ 56.00000,14.50000 }</string>	
+								<string>{ 38.00000,-25.50000 }</string>
+							</array>
+							<array>	
+								<string>{ 4.00000,37.50000 }</string>	
+								<string>{ 3.00000,19.50000 }</string>	
+								<string>{ -8.00000,4.50000 }</string>	
+								<string>{ -19.00000,2.50000 }</string>	
+								<string>{ -56.00000,46.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -8.00000,-12.50000 }</string>	
+								<string>{ -19.00000,2.50000 }</string>	
+								<string>{ -8.00000,4.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -19.00000,2.50000 }</string>	
+								<string>{ -8.00000,-12.50000 }</string>	
+								<string>{ -1.00000,-44.50000 }</string>
+							</array>
+						</array>
+                        
+					</dict>
+
+				</array>
+			</dict>
+
+			<key>E5-Glass</key>
+			<dict>
+				<key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>fixtures</key>
+                <array>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0.2</real>
+                        <key>friction</key>
+                        <real>0.4</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ 7.00000,9.00000 }</string>	
+								<string>{ -5.00000,0.00000 }</string>	
+								<string>{ -20.00000,0.00000 }</string>	
+								<string>{ -15.00000,21.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -2.00000,-9.00000 }</string>	
+								<string>{ -5.00000,0.00000 }</string>	
+								<string>{ 7.00000,9.00000 }</string>	
+								<string>{ 21.00000,-22.00000 }</string>
+							</array>
+						</array>
+                        
+					</dict>
+
+				</array>
+			</dict>
+
+		</dict>
+	</dict>
+</plist>
+
+
+
+

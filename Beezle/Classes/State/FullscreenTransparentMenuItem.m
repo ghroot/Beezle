@@ -10,53 +10,19 @@
 
 @implementation FullscreenTransparentMenuItem
 
--(id) initWithBlock:(void (^)(id))block selectedBlock:(void (^)(id))selectedBlock unselectedBlock:(void (^)(id))unselectedBlock
+-(id) initWithBlock:(void (^)(id))block width:(float)width;
 {
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	CCLayerColor *fullscreenLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 0) width:winSize.width height:winSize.height];
+	CCLayerColor *fullscreenLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 0) width:width height:winSize.height];
 
-	if (self = [super initWithNormalSprite:fullscreenLayer selectedSprite:nil disabledSprite:nil block:block])
-	{
-		if (selectedBlock != nil)
-		{
-			_selectedBlock = [selectedBlock copy];
-		}
-		if (unselectedBlock != nil)
-		{
-			_unselectedBlock = [unselectedBlock copy];
-		}
-	}
+	self = [super initWithNormalSprite:fullscreenLayer selectedSprite:nil disabledSprite:nil block:block];
 	return self;
 }
 
--(void) dealloc
+-(id) initWithBlock:(void (^)(id))block
 {
-	[_selectedBlock release];
-	[_unselectedBlock release];
-
-	[super dealloc];
-}
-
--(void) selected
-{
-	[super selected];
-
-	if (isEnabled_ &&
-		_selectedBlock != nil)
-	{
-		_selectedBlock(self);
-	}
-}
-
--(void) unselected
-{
-	[super unselected];
-
-	if (isEnabled_ &&
-		_unselectedBlock != nil)
-	{
-		_unselectedBlock(self);
-	}
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	return [self initWithBlock:block width:winSize.width];
 }
 
 @end
