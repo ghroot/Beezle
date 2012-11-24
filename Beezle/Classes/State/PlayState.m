@@ -15,6 +15,7 @@
 #import "SoundButton.h"
 #import "Utils.h"
 #import "PlayerInformation.h"
+#import "GameCenterManager.h"
 
 static int nextBeeIndex = 0;
 
@@ -89,8 +90,24 @@ static int nextBeeIndex = 0;
 		[self createBeeaters];
 
 		SoundButton *soundButton = [SoundButton node];
-		[soundButton setPosition:CGPointMake(winSize.width / 2, 40.0f)];
 		[self addChild:soundButton];
+
+#ifndef LITE_VERSION
+		[soundButton setPosition:CGPointMake(winSize.width / 2 - 30.0f, 40.0f)];
+
+		CCMenu *gameCenterMenu = [CCMenu node];
+		CCMenuItemImage *gameCenterMenuItem = [CCMenuItemImage itemWithNormalImage:@"GameCentre logo-Idle.png" selectedImage:@"GameCentre logo-Push.png" block:^(id sender){
+			[[GameCenterManager sharedManager] showLeaderboards];
+		}];
+		[[gameCenterMenuItem selectedImage] setPosition:CGPointMake([gameCenterMenuItem contentSize].width / 2, [gameCenterMenuItem contentSize].height / 2)];
+		[[gameCenterMenuItem selectedImage] setAnchorPoint:CGPointMake(0.5f, 0.5f)];
+		[gameCenterMenuItem setPosition:CGPointMake(winSize.width / 2 + 30.0f, 40.0f)];
+		[gameCenterMenu setPosition:CGPointZero];
+		[gameCenterMenu addChild:gameCenterMenuItem];
+		[self addChild:gameCenterMenu];
+#else
+		[soundButton setPosition:CGPointMake(winSize.width / 2, 40.0f)];
+#endif
 
 #ifdef DEBUG
 		[self createGotoDebugMenu];
