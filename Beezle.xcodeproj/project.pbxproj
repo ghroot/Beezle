@@ -4519,6 +4519,7 @@
 		2CBA326C154842AD00A85642 /* Waves1DNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Waves1DNode.h; sourceTree = "<group>"; };
 		2CBA326D154842AD00A85642 /* Waves1DNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Waves1DNode.m; sourceTree = "<group>"; };
 		2CBFCD96162CC6CD0086EAF8 /* Info-Lite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-Lite.plist"; path = "Resources/Info-Lite.plist"; sourceTree = "<group>"; };
+		2CC2DD291662E55D00A2362E /* Busy Bees Lite.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Busy Bees Lite.entitlements"; sourceTree = "<group>"; };
 		2CD1CCAF15605D2B0090AFBE /* NSDictionary+Merge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Merge.h"; sourceTree = "<group>"; };
 		2CD1CCB015605D2B0090AFBE /* NSDictionary+Merge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Merge.m"; sourceTree = "<group>"; };
 		2CD2C42C14D19E2A00DC0BD5 /* GandEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GandEnum.h; sourceTree = "<group>"; };
@@ -8542,12 +8543,13 @@
 		2CEA3268145F66F7000FF575 = {
 			isa = PBXGroup;
 			children = (
-				2CE08AF6164A9A9E0012E22B /* Default-568h@2x.png */,
-				2CF7ADF8163DE85B00AE18B3 /* Busy Bees.entitlements */,
-				2CD4A10E16171C92002F23F7 /* Default@2x.png */,
-				2CD4A10C16171C83002F23F7 /* Default.png */,
-				2CEA3287145F66F7000FF575 /* Beezle */,
 				2CADCC8814746BA100302475 /* ArtemisTests */,
+				2CEA3287145F66F7000FF575 /* Beezle */,
+				2CC2DD291662E55D00A2362E /* Busy Bees Lite.entitlements */,
+				2CF7ADF8163DE85B00AE18B3 /* Busy Bees.entitlements */,
+				2CE08AF6164A9A9E0012E22B /* Default-568h@2x.png */,
+				2CD4A10C16171C83002F23F7 /* Default.png */,
+				2CD4A10E16171C92002F23F7 /* Default@2x.png */,
 				2CEA3276145F66F7000FF575 /* Frameworks */,
 				2CEA3274145F66F7000FF575 /* Products */,
 			);
@@ -12250,7 +12252,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_ENTITLEMENTS = "Busy Bees.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Busy Bees Lite.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: KM Lagerstrom (SMJ33Q3Z5B)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -12289,7 +12291,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_ENTITLEMENTS = "Busy Bees.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Busy Bees Lite.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: KM Lagerstrom";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
