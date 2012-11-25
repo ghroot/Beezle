@@ -20,7 +20,6 @@
 -(void) addLevelNamesWithDictionary:(NSDictionary *)dict;
 -(void) addLevelNamesWithFile:(NSString *)fileName;
 -(NSArray *) themes;
--(NSArray *) visibleThemes;
 -(NSArray *) levelNamesInTheme:(NSString *)theme;
 -(NSArray *) allLevelNames;
 -(NSString *) themeForLevel:(NSString *)levelName;

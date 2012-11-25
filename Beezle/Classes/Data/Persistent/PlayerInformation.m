@@ -329,6 +329,28 @@ static NSString *PROGRESS_KEY = @"Progress";
 	return [themes objectAtIndex:0];
 }
 
+-(NSArray *) visibleThemes
+{
+	NSMutableArray *visibleThemes = [NSMutableArray array];
+	for (NSString *theme in [[LevelOrganizer sharedOrganizer] themes])
+	{
+		BOOL includeTheme;
+		if ([[LevelOrganizer sharedOrganizer] isThemeHidden:theme])
+		{
+			includeTheme = [self canPlayTheme:theme];
+		}
+		else
+		{
+			includeTheme = TRUE;
+		}
+		if (includeTheme)
+		{
+			[visibleThemes addObject:theme];
+		}
+	}
+	return visibleThemes;
+}
+
 -(void) markTutorialIdAsSeen:(NSString *)tutorialId
 {
 	[_seenTutorialIds addObject:tutorialId];

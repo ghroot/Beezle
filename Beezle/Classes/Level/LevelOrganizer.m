@@ -7,7 +7,6 @@
 //
 
 #import "LevelOrganizer.h"
-#import "PlayerInformation.h"
 
 @implementation LevelOrganizer
 
@@ -73,28 +72,6 @@
 -(NSArray *) themes
 {
 	return [[_levelNamesByTheme allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-}
-
--(NSArray *) visibleThemes
-{
-	NSMutableArray *visibleThemes = [NSMutableArray array];
-	for (NSString *theme in [self themes])
-	{
-		BOOL includeTheme;
-		if ([self isThemeHidden:theme])
-		{
-			includeTheme = [[PlayerInformation sharedInformation] canPlayTheme:theme];
-		}
-		else
-		{
-			includeTheme = TRUE;
-		}
-		if (includeTheme)
-		{
-			[visibleThemes addObject:theme];
-		}
-	}
-	return visibleThemes;
 }
 
 -(NSArray *) levelNamesInTheme:(NSString *)theme
@@ -183,11 +160,7 @@
 
 -(BOOL) isThemeHidden:(NSString *)theme
 {
-#ifdef DEBUG
-	return FALSE;
-#else
 	return [[_hiddenByTheme objectForKey:theme] boolValue];
-#endif
 }
 
 @end

@@ -8,23 +8,23 @@
 
 #import "LevelThemeSelectMenuState.h"
 #import "Game.h"
-#import "LevelOrganizer.h"
 #import "LevelThemeSelectLayer.h"
 #import "LevelSelectMenuState.h"
 #import "SoundManager.h"
 #import "PlayState.h"
 #import "Utils.h"
 #import "BeesFrontNode.h"
+#import "PlayerInformation.h"
+#import "LevelOrganizer.h"
 
 static BOOL isFirstLoad = TRUE;
-static const int NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE = 4;
 static const float PAGE_DOT_DISTANCE = 10.0f;
 
 @interface LevelThemeSelectMenuState()
 
 -(void) createBackgroundSprite;
 -(void) createBackMenu;
--(void) createScrollLayer:(NSArray *)themes;
+-(void) createScrollLayer;
 -(void) updateBackground;
 -(void) updatePageDots:(int)page;
 
@@ -54,12 +54,18 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 
 -(id) init
 {
-	return [self initWithPreselectedTheme:[[[LevelOrganizer sharedOrganizer] visibleThemes] objectAtIndex:0]];
+	return [self initWithPreselectedTheme:[[[PlayerInformation sharedInformation] visibleThemes] objectAtIndex:0]];
 }
 
 -(void) initialise
 {
 	[super initialise];
+
+#ifdef DEBUG
+	_themes = [[[LevelOrganizer sharedOrganizer] themes] retain];
+#else
+	_themes = [[[PlayerInformation sharedInformation] visibleThemes] retain];
+#endif
 
 	[self createBackgroundSprite];
 
@@ -70,16 +76,15 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	_layerOffset = (int)(winSize.width * 0.42f);
 
-	NSArray *visibleThemes = [[LevelOrganizer sharedOrganizer] visibleThemes];
-	[self createScrollLayer:visibleThemes];
+	[self createScrollLayer];
 
-	_numberOfPages = [visibleThemes count];
+	_numberOfPages = [_themes count];
 
 	[self addChild:[BeesFrontNode node] z:31];
 
 	[self createBackMenu];
 
-	int index = [visibleThemes indexOfObject:_theme];
+	int index = [_themes indexOfObject:_theme];
 	[_scrollLayer selectPage:index];
 
 	[self updateBackground];
@@ -88,6 +93,7 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 
 -(void) dealloc
 {
+	[_themes release];
 	[_backgroundSprite release];
 	[_scrollLayer release];
 	[_pageDotSprites release];
@@ -103,13 +109,32 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 	CCSprite *backgroundSprite1 = [CCSprite spriteWithFile:@"ChooserSlingerBackground-1.jpg"];
 	[backgroundSprite1 setAnchorPoint:CGPointZero];
 	[_backgroundSprite addChild:backgroundSprite1];
+	_backgroundSpriteWidth += [backgroundSprite1 contentSize].width;
 
-	CCSprite *backgroundSprite2 = [CCSprite spriteWithFile:@"ChooserSlingerBackground-2.jpg"];
-	[backgroundSprite2 setAnchorPoint:CGPointZero];
-	[backgroundSprite2 setPosition:CGPointMake([backgroundSprite1 contentSize].width, 0.0f)];
-	[_backgroundSprite addChild:backgroundSprite2];
+	if ([_themes count] > 2)
+	{
+		CCSprite *backgroundSprite2 = [CCSprite spriteWithFile:@"ChooserSlingerBackground-2.jpg"];
+		[backgroundSprite2 setAnchorPoint:CGPointZero];
+		[backgroundSprite2 setPosition:CGPointMake(_backgroundSpriteWidth, 0.0f)];
+		[_backgroundSprite addChild:backgroundSprite2];
+		if ([_themes count] > 3)
+		{
+			_backgroundSpriteWidth += [backgroundSprite2 contentSize].width;
+		}
+		else
+		{
+			_backgroundSpriteWidth += [backgroundSprite2 contentSize].width / 2;
+		}
+	}
 
-	_backgroundSpriteWidth = [backgroundSprite1 contentSize].width + [backgroundSprite2 contentSize].width;
+	if ([_themes count] > 4)
+	{
+		CCSprite *backgroundSprite3 = [CCSprite spriteWithFile:@"ChooserSlingerBackground-3.jpg"];
+		[backgroundSprite3 setAnchorPoint:CGPointZero];
+		[backgroundSprite3 setPosition:CGPointMake(_backgroundSpriteWidth, 0.0f)];
+		[_backgroundSprite addChild:backgroundSprite3];
+		_backgroundSpriteWidth += [backgroundSprite3 contentSize].width;
+	}
 
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	[_backgroundSprite setPosition:CGPointMake(0.0f, (winSize.height - [backgroundSprite1 contentSize].height) / 2)];
@@ -130,10 +155,10 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 	[self addChild:backMenu z:40];
 }
 
--(void) createScrollLayer:(NSArray *)themes
+-(void) createScrollLayer
 {
 	NSMutableArray *layers = [NSMutableArray array];
-	for (NSString *theme in themes)
+	for (NSString *theme in _themes)
 	{
 		LevelThemeSelectLayer *levelThemeSelectLayer = [LevelThemeSelectLayer layerWithTheme:theme game:_game];
 		[layers addObject:levelThemeSelectLayer];
@@ -163,7 +188,7 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 
 	float scrollLayerX = [_scrollLayer position].x;
-	float percent = -scrollLayerX / ((NUMBER_OF_SECTIONS_IN_BACKGROUND_IMAGE - 1) * (winSize.width - _layerOffset));
+	float percent = -scrollLayerX / (([_themes count] - 1) * (winSize.width - _layerOffset));
 	percent = min(percent, 1.0f);
 	percent = max(percent, 0.0f);
 	float backgroundSpritePadding = 120.0f;

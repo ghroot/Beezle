@@ -14,6 +14,7 @@
 
 @interface LevelThemeSelectMenuState : GameState <CCScrollLayerDelegate>
 {
+	NSArray *_themes;
 	CCSprite *_backgroundSprite;
 	float _backgroundSpriteWidth;
 	CCScrollLayer *_scrollLayer;

@@ -37,6 +37,7 @@
 -(BOOL) hasPlayedLevel:(NSString *)levelName;
 -(BOOL) canPlayLevel:(NSString *)levelName;
 -(BOOL) canPlayTheme:(NSString *)theme;
+-(NSArray *) visibleThemes;
 -(NSString *) latestPlayableTheme;
 -(void) markTutorialIdAsSeen:(NSString *)tutorialId;
 -(void) markTutorialIdAsSeenAndSave:(NSString *)tutorialId;
