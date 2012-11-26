@@ -398,9 +398,6 @@
 	[_pauseMenuItem setVisible:TRUE];
 }
 
-/**
-* TODO: Go to hidden levels if there are enough collected flowers.
-*/
 -(void) nextLevel
 {
 	if ([[LevelOrganizer sharedOrganizer] isLastLevelInTheme:_levelName])
@@ -413,11 +410,25 @@
 		{
 			if ([[PlayerInformation sharedInformation] canPlayTheme:nextTheme])
 			{
-				[_uiLayer addChild:[HiddenLevelsFoundDialog dialogWithGame:_game andLevelSession:_levelSession]];
+				if ([[LevelOrganizer sharedOrganizer] isThemeHidden:nextTheme])
+				{
+					[_uiLayer addChild:[HiddenLevelsFoundDialog dialogWithGame:_game andLevelSession:_levelSession]];
+				}
+				else
+				{
+					[_game clearAndReplaceState:[LevelThemeSelectMenuState stateWithPreselectedTheme:nextTheme]];
+				}
 			}
 			else
 			{
-				[_uiLayer addChild:[GameAlmostCompletedDialog dialogWithGame:_game]];
+				if ([[LevelOrganizer sharedOrganizer] isThemeHidden:nextTheme])
+				{
+					[_uiLayer addChild:[GameAlmostCompletedDialog dialogWithGame:_game]];
+				}
+				else
+				{
+					[_game clearAndReplaceState:[LevelThemeSelectMenuState stateWithPreselectedTheme:theme]];
+				}
 			}
 		}
 		else
@@ -428,23 +439,7 @@
 	else
 	{
 		NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:_levelName];
-		if (nextLevelName != nil)
-		{
-			[GameStateUtils replaceWithGameplayState:nextLevelName game:_game];
-		}
-		else
-		{
-			NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:_levelName];
-			NSString *nextTheme = [[LevelOrganizer sharedOrganizer] themeAfter:theme];
-			if (nextTheme != nil)
-			{
-				[_game clearAndReplaceState:[LevelThemeSelectMenuState stateWithPreselectedTheme:nextTheme]];
-			}
-			else
-			{
-				[_game replaceState:[PlayState state]];
-			}
-		}
+		[GameStateUtils replaceWithGameplayState:nextLevelName game:_game];
 	}
 }
 

@@ -2716,6 +2716,7 @@
 		88F16354A39841D42C0B5A81 /* End-Credits-Thanks.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16F718E42A0ABBF73B35B /* End-Credits-Thanks.png */; };
 		88F1637F7E94004F11109283 /* Glass-Piece-Small-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F161ED53CADE207CEB8410 /* Glass-Piece-Small-E.plist */; };
 		88F163810B69E961FC875237 /* Level-E5-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1642EFF3606E48185444D /* Level-E5-Shapes.plist */; };
+		88F163836ECD758F0E2C43F5 /* LiteUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16ECB57493AAB36916987 /* LiteUtils.m */; };
 		88F163A8F585AF37FF453A81 /* Text-Congratulations-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F160F2878533CD18FBFA77 /* Text-Congratulations-hd.png */; };
 		88F163ADEF8877DFD4F7D5E7 /* BubbleYel-A24.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16DC362DA2996D4A4BB25 /* BubbleYel-A24.png */; };
 		88F163BFBF308A206F3D5EC6 /* Ramp-Piece-Small-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1635BD08CAFA35EA24A94 /* Ramp-Piece-Small-E.plist */; };
@@ -5147,6 +5148,7 @@
 		88F165326E51E7284B0D5C80 /* End-GameCompleted!-Sumee-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Sumee-1.png"; sourceTree = "<group>"; };
 		88F16541C5F73A6EDE112F4D /* HiddenLevelsFoundDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HiddenLevelsFoundDialog.h; sourceTree = "<group>"; };
 		88F1658A0AEF2EF3F9DA73EB /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransaction.h; path = libs/GoogleAnalytics/GAITransaction.h; sourceTree = "<group>"; };
+		88F165A6E6244AF7D4BAF3A3 /* LiteUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiteUtils.h; sourceTree = "<group>"; };
 		88F165CEACAAD12482E3380B /* Level-E3-Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Level-E3-Shapes.plist"; sourceTree = "<group>"; };
 		88F165D46F226FCF6C7403B8 /* End-Credits-BusyBeesLogo-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-BusyBeesLogo-hd.png"; sourceTree = "<group>"; };
 		88F165D69830D69FEB428DFE /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = libs/GoogleAnalytics/GAITracker.h; sourceTree = "<group>"; };
@@ -5243,6 +5245,7 @@
 		88F16E306BA40F1FA8104825 /* Level-E1-front-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level-E1-front-hd.png"; sourceTree = "<group>"; };
 		88F16E5EAFAE797A8C2419F2 /* CreditsDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsDialog.m; sourceTree = "<group>"; };
 		88F16ECB303424F4715A15A2 /* End-Credits-BusyBeesLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-BusyBeesLogo.png"; sourceTree = "<group>"; };
+		88F16ECB57493AAB36916987 /* LiteUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiteUtils.m; sourceTree = "<group>"; };
 		88F16EDB05686F37A96063A3 /* Text-GameCompleted?-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Text-GameCompleted?-hd.png"; sourceTree = "<group>"; };
 		88F16EF3FBB116958AEE14C8 /* End-GameCompleted!-Sawee-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Sawee-2.png"; sourceTree = "<group>"; };
 		88F16EF9BAB26087C7768B02 /* OutputConsoleState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutputConsoleState.m; sourceTree = "<group>"; };
@@ -7460,6 +7463,8 @@
 				2CF8E0F61576B45F0052F60B /* MemoryManager.m */,
 				2C74B4CE156FAD1E00596A22 /* SessionTracker.h */,
 				2C74B4CF156FAD1E00596A22 /* SessionTracker.m */,
+				88F16ECB57493AAB36916987 /* LiteUtils.m */,
+				88F165A6E6244AF7D4BAF3A3 /* LiteUtils.h */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -11868,6 +11873,7 @@
 				88F168356D81FD0035D6EE62 /* GameCenterManager.m in Sources */,
 				88F1682AEEA1C563EDEA0588 /* HiddenLevelsFoundDialog.m in Sources */,
 				88F16BEF2D60535A280DED74 /* BeezleNavigationViewController.m in Sources */,
+				88F163836ECD758F0E2C43F5 /* LiteUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

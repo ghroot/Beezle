@@ -21,6 +21,7 @@
 #import "LevelRatings.h"
 #import "LevelRating.h"
 #import "LevelOrganizer.h"
+#import "LiteUtils.h"
 
 @interface LevelSelectMenuState()
 
@@ -28,7 +29,6 @@
 -(CCMenu *) getMenu:(CCNode *)node;
 -(void) createBackMenu;
 -(void) startGame:(id)sender;
--(void) showBuyFullVersionAlert;
 
 @end
 
@@ -312,28 +312,8 @@
 	else
 	{
 #ifdef LITE_VERSION
-		[self showBuyFullVersionAlert];
+		[[LiteUtils sharedUtils] showBuyFullVersionAlert];
 #endif
-	}
-}
-
--(void) showBuyFullVersionAlert
-{
-	UIAlertView *dialog = [[UIAlertView alloc] init];
-	[dialog setDelegate:self];
-	[dialog setTitle:@"Full version"];
-	[dialog setMessage:@"Buy the full version to access all 160+ levels!"];
-	[dialog addButtonWithTitle:@"App Store"];
-	[dialog addButtonWithTitle:@"No thanks"];
-	[dialog show];
-	[dialog release];
-}
-
--(void) alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-	if (buttonIndex == 0)
-	{
-		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/app/angry-birds/id343200656?mt=8"]];
 	}
 }
 

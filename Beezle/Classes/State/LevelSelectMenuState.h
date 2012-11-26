@@ -12,7 +12,7 @@
 @class ScrollView;
 @class BeesFrontNode;
 
-@interface LevelSelectMenuState : GameState <CCTouchOneByOneDelegate, UIAlertViewDelegate>
+@interface LevelSelectMenuState : GameState <CCTouchOneByOneDelegate>
 {
 	NSString *_theme;
 	ScrollView *_scrollView;

@@ -12,6 +12,7 @@
 #import "CreditsDialog.h"
 #import "SoundManager.h"
 #import "ActionUtils.h"
+#import "LiteUtils.h"
 
 @interface GameCompletedDialog()
 
@@ -54,9 +55,14 @@
 
 -(void) showCredits
 {
+#ifdef LITE_VERSION
+	[_game clearAndReplaceState:[PlayState state]];
+	[[LiteUtils sharedUtils] showBuyFullVersionAlert];
+#else
 	GameplayState *gameplayState = (GameplayState *)[_game currentState];
 	[gameplayState closeAllDialogs];
 	[[gameplayState uiLayer] addChild:[CreditsDialog dialogWithGame:_game]];
+#endif
 }
 
 @end
