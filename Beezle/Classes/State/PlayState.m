@@ -204,7 +204,7 @@ static int nextBeeIndex = 0;
 			CCCallBlock *removeAction = [CCCallBlock actionWithBlock:^{
 				[self removeChild:beeSprite cleanup:TRUE];
 			}];
-			id glideAndAnimate = [CCSpawn actionOne:[CCRepeat actionWithAction:glideAnimationAction times:INT_MAX] two:[CCSequence actionOne:glideDownAction two:removeAction]];
+			id glideAndAnimate = [CCSpawn actionOne:glideAnimationAction two:[CCSequence actionOne:glideDownAction two:removeAction]];
 			[beeSprite runAction:[CCSequence actionOne:hitAnimationAction two:glideAndAnimate]];
 
 			[[SoundManager sharedManager] playSound:@"BeeHitScreen"];
