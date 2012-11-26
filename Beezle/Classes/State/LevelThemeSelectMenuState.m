@@ -27,6 +27,7 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 -(void) createScrollLayer;
 -(void) updateBackground;
 -(void) updatePageDots:(int)page;
+-(void) updateScrollLayers:(int)page;
 
 @end
 
@@ -84,11 +85,12 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 
 	[self createBackMenu];
 
-	int index = [_themes indexOfObject:_theme];
-	[_scrollLayer selectPage:index];
+	int page = [_themes indexOfObject:_theme];
+	[_scrollLayer selectPage:page];
 
 	[self updateBackground];
-    [self updatePageDots:index];
+    [self updatePageDots:page];
+	[self updateScrollLayers:page];
 }
 
 -(void) dealloc
@@ -199,6 +201,7 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 -(void) scrollLayer:(CCScrollLayer *)sender scrolledToPageNumber:(int)page
 {
     [self updatePageDots:page];
+	[self updateScrollLayers:page];
 }
 
 -(void) updatePageDots:(int)page
@@ -226,6 +229,22 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 		[pageDotSprite setPosition:CGPointMake(startX + i * PAGE_DOT_DISTANCE, 20.0f)];
 		[_pageDotSprites addObject:pageDotSprite];
 		[self addChild:pageDotSprite z:35];
+	}
+}
+
+-(void) updateScrollLayers:(int)page
+{
+	for (int i = 0; i < _numberOfPages; i++)
+	{
+		LevelThemeSelectLayer *layer = [[_scrollLayer pages] objectAtIndex:i];
+		if (i == page)
+		{
+			[layer enable];
+		}
+		else
+		{
+			[layer disable];
+		}
 	}
 }
 

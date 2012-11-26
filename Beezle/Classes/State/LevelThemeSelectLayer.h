@@ -12,6 +12,7 @@
 
 @interface LevelThemeSelectLayer : CCLayer
 {
+	NSString *_theme;
 	CCSprite *_flowerSprite;
 	CCSprite *_lockSprite;
 	CCSprite *_playSprite;
@@ -21,5 +22,8 @@
 +(id) layerWithTheme:(NSString *)theme game:(Game *)game;
 
 -(id) initWithTheme:(NSString *)theme game:(Game *)game;
+
+-(void) enable;
+-(void) disable;
 
 @end

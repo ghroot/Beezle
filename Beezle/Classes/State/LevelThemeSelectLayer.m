@@ -33,6 +33,8 @@
 {
 	if (self = [super init])
 	{
+		_theme = [theme copy];
+
 		NSString *interfaceFileName = [NSString stringWithFormat:@"ThemeSelect-%@.ccbi", theme];
 		[self addChild:[CCBReader nodeGraphFromFile:interfaceFileName owner:self]];
 
@@ -167,6 +169,7 @@
 
 -(void) dealloc
 {
+	[_theme release];
 	[_menu release];
 
 	[super dealloc];
@@ -193,6 +196,24 @@
 	CCMoveTo *moveDownAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:speed position:CGPointMake([sprite position].x, [sprite position].y - 2.0f)]];
 	CCAction *swayAction = [CCRepeat actionWithAction:[CCSequence actions:moveUpAction, moveDownAction, nil] times:INT_MAX];
 	[sprite runAction:swayAction];
+}
+
+-(void) enable
+{
+#ifdef DEBUG
+	[_menu setEnabled:TRUE];
+#else
+	BOOL locked = ![[PlayerInformation sharedInformation] canPlayTheme:_theme];
+	if (!locked)
+	{
+		[_menu setEnabled:TRUE];
+	}
+#endif
+}
+
+-(void) disable
+{
+	[_menu setEnabled:FALSE];
 }
 
 @end
