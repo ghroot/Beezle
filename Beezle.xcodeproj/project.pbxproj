@@ -8555,7 +8555,6 @@
 		2CEA3268145F66F7000FF575 = {
 			isa = PBXGroup;
 			children = (
-				2CC2DD3A1662F2FC00A2362E /* CoreData.framework */,
 				2CADCC8814746BA100302475 /* ArtemisTests */,
 				2CEA3287145F66F7000FF575 /* Beezle */,
 				2CC2DD291662E55D00A2362E /* Busy Bees Lite.entitlements */,
@@ -8581,6 +8580,7 @@
 		2CEA3276145F66F7000FF575 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2CC2DD3A1662F2FC00A2362E /* CoreData.framework */,
 				2CEA327D145F66F7000FF575 /* AudioToolbox.framework */,
 				2CEA327F145F66F7000FF575 /* AVFoundation.framework */,
 				2CEA3285145F66F7000FF575 /* CoreGraphics.framework */,
@@ -8639,6 +8639,7 @@
 				2CE08BE0164C6C6F0012E22B /* CocosDenshion */,
 				BF8C7795C0B67150EBA26F63 /* Flurry */,
 				2CD2C42B14D19E2A00DC0BD5 /* GandEnum */,
+				88F162428B87BFC5341C67FA /* GoogleAnalytics */,
 				BF8C7FF970A282442BFC89DD /* iRate */,
 				2CE08BEA164C6C6F0012E22B /* kazmath */,
 				2C114745148B9459002E4DBD /* LICENSE_Chipmunk.txt */,
@@ -8652,7 +8653,6 @@
 				88F1621244BED1CE00195C0F /* SSZipArchive */,
 				2C5C9A36154A0D8800FF6F57 /* TestFlight */,
 				2CBA326B154842AD00A85642 /* Waves1DNode */,
-				88F162428B87BFC5341C67FA /* GoogleAnalytics */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -12305,6 +12305,7 @@
 					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
 					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
 					"\"${SRCROOT}/Beezle/libs/Flurry\"",
+					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"/**",
 				);
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "Busy Bees Lite";
@@ -12345,6 +12346,7 @@
 					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
 					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
 					"\"${SRCROOT}/Beezle/libs/Flurry\"",
+					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"/**",
 				);
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "Busy Bees Lite";
