@@ -96,7 +96,14 @@ static NSString *LEADERBOARD_ID = @"default";
 			[leaderboardController setLeaderboardDelegate:self];
 			[leaderboardController setTimeScope:GKLeaderboardTimeScopeAllTime];
 			[leaderboardController setCategory:LEADERBOARD_ID];
-			[[CCDirector sharedDirector] presentViewController:leaderboardController animated:TRUE completion:nil];
+			if ([[CCDirector sharedDirector] respondsToSelector:@selector(presentViewController:animated:completion:)])
+			{
+				[[CCDirector sharedDirector] presentViewController:leaderboardController animated:TRUE completion:nil];
+			}
+			else
+			{
+				[[CCDirector sharedDirector] presentModalViewController:leaderboardController animated:TRUE];
+			}
 			[leaderboardController release];
 		}
 	}
@@ -112,8 +119,6 @@ static NSString *LEADERBOARD_ID = @"default";
 
 		GKScore *scoreReporter = [[[GKScore alloc] initWithCategory:LEADERBOARD_ID] autorelease];
 		[scoreReporter setValue:score];
-		[scoreReporter setContext:0];
-
 		[scoreReporter reportScoreWithCompletionHandler:^(NSError *error){
 #ifdef DEBUG
 			if (error != nil)
@@ -132,7 +137,14 @@ static NSString *LEADERBOARD_ID = @"default";
 
 -(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
 {
-	[[CCDirector sharedDirector] dismissViewControllerAnimated:YES completion:nil];
+	if ([[CCDirector sharedDirector] respondsToSelector:@selector(dismissViewControllerAnimated:completion:)])
+	{
+		[[CCDirector sharedDirector] dismissViewControllerAnimated:TRUE completion:nil];
+	}
+	else
+	{
+		[[CCDirector sharedDirector] dismissModalViewControllerAnimated:TRUE];
+	}
 }
 
 @end
