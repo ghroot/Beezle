@@ -8,7 +8,7 @@
 #import "cocos2d.h"
 #import "Logger.h"
 
-static NSString *LEADERBOARD_ID = @"default";
+static NSString *LEADERBOARD_ID = @"collectedPollen";
 
 @implementation GameCenterManager
 
