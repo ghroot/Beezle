@@ -50,10 +50,8 @@
 	
 	CCMenuItemFont *sendEditedLevelsMenuItem = [CCMenuItemFont itemWithString:@"Send Edited Levels" target:self selector:@selector(sendEditedLevels:)];
 	[_menu addChild:sendEditedLevelsMenuItem];
-#ifdef LEVEL_RATINGS
 	CCMenuItemFont *sendLevelRatingsMenuItem = [CCMenuItemFont itemWithString:@"Send Level Ratings" target:self selector:@selector(sendLevelRatings:)];
 	[_menu addChild:sendLevelRatingsMenuItem];
-#endif
 	CCMenuItemFont *testMenuItem = [CCMenuItemFont itemWithString:@"Test" target:self selector:@selector(showTestMenu:)];
 	[testMenuItem setFontSize:20];
 	[_menu addChild:testMenuItem];
@@ -69,11 +67,9 @@
     CCMenuItemFont *resaveEditedLevelsMenuItem = [CCMenuItemFont itemWithString:@"Resave edited levels" target:self selector:@selector(resaveEditedLevels:)];
 	[resaveEditedLevelsMenuItem setFontSize:20];
 	[_menu addChild:resaveEditedLevelsMenuItem];
-#ifdef LEVEL_RATINGS
 	CCMenuItemFont *resetRatingsMenuItem = [CCMenuItemFont itemWithString:@"Reset level ratings" target:self selector:@selector(resetLevelRatings:)];
 	[resetRatingsMenuItem setFontSize:20];
 	[_menu addChild:resetRatingsMenuItem];
-#endif
 	CCMenuItemFont *outputMenuItem = [CCMenuItemFont itemWithString:@"Output" target:self selector:@selector(showOutput:)];
 	[outputMenuItem setFontSize:20];
 	[_menu addChild:outputMenuItem];

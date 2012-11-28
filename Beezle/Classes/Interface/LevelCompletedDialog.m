@@ -279,7 +279,7 @@ static const int POLLEN_COUNT_PER_FLYING_POLLEN = 4;
 
 -(void) nextLevel
 {
-#ifdef LEVEL_RATINGS
+#ifdef DEBUG
 	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:[_levelSession levelName]];
 	if (![[LevelRatings sharedRatings] hasRatedLevel:[levelLayout levelName] withVersion:[levelLayout version]])
 	{
