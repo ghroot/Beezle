@@ -17,6 +17,7 @@
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "LevelLayoutEntry.h"
+#import "StringCollection.h"
 
 @interface TutorialOrganizer()
 
@@ -170,8 +171,8 @@
 		{
 			if ([[levelLayoutEntry type] isEqualToString:@"SLINGER"])
 			{
-				NSDictionary *slingerComponentDictionary = [[levelLayoutEntry instanceComponentsDict] objectForKey:@"slinger"];
-				for (NSString *beeTypeAsString in [slingerComponentDictionary objectForKey:@"queuedBeeTypes"])
+				NSDictionary *slingerComponentDict = [[levelLayoutEntry instanceComponentsDict] objectForKey:@"slinger"];
+				for (NSString *beeTypeAsString in [slingerComponentDict objectForKey:@"queuedBeeTypes"])
 				{
 					BeeType *beeType = [BeeType enumFromName:beeTypeAsString];
 					if ([tutorialBeeTypeTriggerDescription beeType] == beeType)
@@ -183,11 +184,14 @@
 			else if ([[levelLayoutEntry instanceComponentsDict] objectForKey:@"captured"] != nil)
 			{
 				NSDictionary *capturedInstanceComponentDict = [[levelLayoutEntry instanceComponentsDict] objectForKey:@"captured"];
-				NSString *containedBeeTypeAsString = [capturedInstanceComponentDict objectForKey:@"containedBeeType"];
-				BeeType *capturedBeeType = [BeeType enumFromName:containedBeeTypeAsString];
-				if (capturedBeeType == [tutorialBeeTypeTriggerDescription beeType])
+				StringCollection *containedBeeTypesAsStrings = [StringCollection collectionFromDictionary:capturedInstanceComponentDict baseName:@"containedBeeType"];
+				for (NSString *containedBeeTypeAsString in [containedBeeTypesAsStrings strings])
 				{
-					return TRUE;
+					BeeType *capturedBeeType = [BeeType enumFromName:containedBeeTypeAsString];
+					if (capturedBeeType == [tutorialBeeTypeTriggerDescription beeType])
+					{
+						return TRUE;
+					}
 				}
 			}
 		}
