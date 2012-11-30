@@ -45,6 +45,9 @@
     if (self = [super init])
     {
 		_theme = [theme copy];
+
+		[[PlayerInformation sharedInformation] setDefaultTheme:theme];
+		[[PlayerInformation sharedInformation] save];
     }
     return self;
 }

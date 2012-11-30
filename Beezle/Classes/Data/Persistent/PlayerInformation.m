@@ -60,6 +60,7 @@ static NSString *PROGRESS_KEY = @"Progress";
 
 	[_pollenRecordByLevelName release];
 	[_seenTutorialIds release];
+	[_defaultTheme release];
 	
 	[super dealloc];
 }
@@ -120,6 +121,10 @@ static NSString *PROGRESS_KEY = @"Progress";
 							[_seenTutorialIds addObject:cloudSeenTutorialId];
 						}
 					}
+					if ([cloudDict objectForKey:@"defaultTheme"] != nil)
+					{
+						_defaultTheme = [[cloudDict objectForKey:@"defaultTheme"] copy];
+					}
 				}
 			}
 		}
@@ -157,6 +162,7 @@ static NSString *PROGRESS_KEY = @"Progress";
 	{
 		[_pollenRecordByLevelName addEntriesFromDictionary:[progressDict objectForKey:@"pollenRecordByLevelName"]];
 		[_seenTutorialIds addObjectsFromArray:[progressDict objectForKey:@"seenTutorialIds"]];
+		_defaultTheme = [[progressDict objectForKey:@"defaultTheme"] copy];
 	}
 }
 
@@ -164,6 +170,8 @@ static NSString *PROGRESS_KEY = @"Progress";
 {
 	[_pollenRecordByLevelName removeAllObjects];
 	[_seenTutorialIds removeAllObjects];
+	[_defaultTheme release];
+	_defaultTheme = nil;
 	_isSoundMuted = FALSE;
 	_usingAdvancedControlScheme = FALSE;
 	
@@ -196,6 +204,7 @@ static NSString *PROGRESS_KEY = @"Progress";
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	[dict setObject:[NSDictionary dictionaryWithDictionary:_pollenRecordByLevelName] forKey:@"pollenRecordByLevelName"];
 	[dict setObject:[_seenTutorialIds allObjects] forKey:@"seenTutorialIds"];
+	[dict setObject:_defaultTheme forKey:@"defaultTheme"];
 	return dict;
 }
 
@@ -315,20 +324,6 @@ static NSString *PROGRESS_KEY = @"Progress";
 	return [self totalNumberOfFlowers] >= requiredNumberOfFlowers;
 }
 
--(NSString *) latestPlayableTheme
-{
-	NSArray *themes = [[LevelOrganizer sharedOrganizer] themes];
-	for (int i = [themes count] - 1; i >= 0; i--)
-	{
-		NSString *theme = [themes objectAtIndex:i];
-		if ([self canPlayTheme:theme])
-		{
-			return theme;
-		}
-	}
-	return [themes objectAtIndex:0];
-}
-
 -(NSArray *) visibleThemes
 {
 	NSMutableArray *visibleThemes = [NSMutableArray array];
@@ -365,6 +360,18 @@ static NSString *PROGRESS_KEY = @"Progress";
 -(BOOL) hasSeenTutorialId:(NSString *)tutorialId
 {
 	return [_seenTutorialIds containsObject:tutorialId];
+}
+
+-(NSString *) defaultTheme
+{
+	if (_defaultTheme != nil)
+	{
+		return _defaultTheme;
+	}
+	else
+	{
+		return [[[LevelOrganizer sharedOrganizer] themes] objectAtIndex:0];
+	}
 }
 
 @end

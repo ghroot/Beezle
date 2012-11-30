@@ -141,7 +141,7 @@ static int nextBeeIndex = 0;
 	CCAnimate *animateAction = [CCAnimate actionWithAnimation:animation];
 	CCCallBlock *gotoThemeSelectAction = [CCCallBlock actionWithBlock:^{
 
-		[_game replaceState:[LevelThemeSelectMenuState stateWithPreselectedTheme:[[PlayerInformation sharedInformation] latestPlayableTheme]]];
+		[_game replaceState:[LevelThemeSelectMenuState stateWithPreselectedTheme:[[PlayerInformation sharedInformation] defaultTheme]]];
 	}];
 	[_pollenExplodeSprite runAction:[CCSequence actionOne:animateAction two:gotoThemeSelectAction]];
 

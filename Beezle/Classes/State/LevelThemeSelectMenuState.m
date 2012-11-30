@@ -9,7 +9,6 @@
 #import "LevelThemeSelectMenuState.h"
 #import "Game.h"
 #import "LevelThemeSelectLayer.h"
-#import "LevelSelectMenuState.h"
 #import "SoundManager.h"
 #import "PlayState.h"
 #import "Utils.h"
@@ -49,6 +48,9 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 			_needsLoadingState = TRUE;
 			isFirstLoad = FALSE;
 		}
+
+		[[PlayerInformation sharedInformation] setDefaultTheme:theme];
+		[[PlayerInformation sharedInformation] save];
 	}
 	return self;
 }
@@ -87,6 +89,7 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 
 	int page = [_themes indexOfObject:_theme];
 	[_scrollLayer selectPage:page];
+	[_scrollLayer selectPage:page]; // This is to work around a bug in CCScrollLayer
 
 	[self updateBackground];
     [self updatePageDots:page];

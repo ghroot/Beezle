@@ -14,10 +14,12 @@
 {
 	NSMutableDictionary *_pollenRecordByLevelName;
 	NSMutableSet *_seenTutorialIds;
+	NSString *_defaultTheme;
 	BOOL _isSoundMuted;
 	BOOL _usingAdvancedControlScheme;
 }
 
+@property (nonatomic, copy) NSString *defaultTheme;
 @property (nonatomic) BOOL isSoundMuted;
 @property (nonatomic) BOOL usingAdvancedControlScheme;
 
@@ -38,7 +40,6 @@
 -(BOOL) canPlayLevel:(NSString *)levelName;
 -(BOOL) canPlayTheme:(NSString *)theme;
 -(NSArray *) visibleThemes;
--(NSString *) latestPlayableTheme;
 -(void) markTutorialIdAsSeen:(NSString *)tutorialId;
 -(void) markTutorialIdAsSeenAndSave:(NSString *)tutorialId;
 -(BOOL) hasSeenTutorialId:(NSString *)tutorialId;
