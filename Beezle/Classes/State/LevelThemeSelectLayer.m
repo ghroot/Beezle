@@ -42,7 +42,6 @@
 
 		[_lockSprite setVisible:locked];
 		[_playSprite setVisible:!locked];
-		[_flowerSprite setVisible:locked];
 
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Interface.plist"];
 		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Chooser-Animations.plist"];
@@ -140,15 +139,25 @@
 		[beeBackSprite runAction:[CCRepeatForever actionWithAction:[CCSequence actionOne:rotateRightAction two:rotateLeftAction]]];
 		[self addChild:beeBackSprite];
 
-		if (locked)
+		int totalNumberOfFlowers = [[PlayerInformation sharedInformation] totalNumberOfFlowers];
+		int requiredNumberOfFlowers = [[LevelOrganizer sharedOrganizer] requiredNumberOfFlowersForTheme:theme];
+		NSString *flowersString;
+		if (requiredNumberOfFlowers > 0)
 		{
-			int totalNumberOfFlowers = [[PlayerInformation sharedInformation] totalNumberOfFlowers];
-			int requiredNumberOfFlowers = [[LevelOrganizer sharedOrganizer] requiredNumberOfFlowersForTheme:theme];
-			NSString *flowersString = [NSString stringWithFormat:@"%d/%d", totalNumberOfFlowers, requiredNumberOfFlowers];
-			CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:flowersString charMapFile:@"numberImages-red-s.png" itemWidth:12 itemHeight:14 startCharMap:'/'] autorelease];
-			[label setAnchorPoint:CGPointMake(0.0f, 0.5f)];
-			[label setPosition:CGPointMake([_flowerSprite position].x + 5.0f, [_flowerSprite position].y)];
-			[self addChild:label];
+			flowersString = [NSString stringWithFormat:@"%d/%d", totalNumberOfFlowers, requiredNumberOfFlowers];
+		}
+		else
+		{
+			flowersString = [NSString stringWithFormat:@"%d", totalNumberOfFlowers];
+		}
+		CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:flowersString charMapFile:@"numberImages-red-s.png" itemWidth:12 itemHeight:14 startCharMap:'/'] autorelease];
+		[label setAnchorPoint:CGPointMake(0.0f, 0.5f)];
+		[label setPosition:CGPointMake([_flowerSprite position].x + 5.0f, [_flowerSprite position].y)];
+		[self addChild:label];
+		if (requiredNumberOfFlowers == 0)
+		{
+			[_flowerSprite setPosition:CGPointMake([_flowerSprite position].x + 20.0f, [_flowerSprite position].y)];
+			[label setPosition:CGPointMake([label position].x + 20.0f, [label position].y)];
 		}
 
 		_menu = [CCMenu new];
