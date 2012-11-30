@@ -6,6 +6,8 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+#define NOTIFICATION_GAME_CENTER_AUTHENTICATED @"GameCenterAuthenticated"
+
 #define GAME_NOTIFICATION_BEE_LOADED @"BeeLoaded"
 #define GAME_NOTIFICATION_BEE_REVERTED @"BeeReverted"
 #define GAME_NOTIFICATION_BEE_FIRED @"BeeFired"

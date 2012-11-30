@@ -9,6 +9,8 @@
 	BOOL _isAuthenticated;
 }
 
+@property (nonatomic, readonly) BOOL isAuthenticated;
+
 +(GameCenterManager *) sharedManager;
 
 -(void) initialise;

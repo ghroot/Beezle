@@ -7,10 +7,13 @@
 #import "GameCenterManager.h"
 #import "cocos2d.h"
 #import "Logger.h"
+#import "NotificationTypes.h"
 
 static NSString *LEADERBOARD_ID = @"collectedPollen";
 
 @implementation GameCenterManager
+
+@synthesize isAuthenticated = _isAuthenticated;
 
 +(GameCenterManager *) sharedManager
 {
@@ -40,6 +43,8 @@ static NSString *LEADERBOARD_ID = @"collectedPollen";
 				_isAuthenticated = TRUE;
 
 				[[Logger defaultLogger] log:@"GameCenter local player authenticated"];
+
+				[[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GAME_CENTER_AUTHENTICATED object:nil];
 			}
 			else
 			{
@@ -59,6 +64,8 @@ static NSString *LEADERBOARD_ID = @"collectedPollen";
 				_isAuthenticated = TRUE;
 
 				[[Logger defaultLogger] log:@"GameCenter local player authenticated"];
+
+				[[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GAME_CENTER_AUTHENTICATED object:nil];
 			}
 			else
 			{
@@ -114,7 +121,7 @@ static NSString *LEADERBOARD_ID = @"collectedPollen";
 	if (_isAuthenticated)
 	{
 #ifdef DEBUG
-		[[Logger defaultLogger] log:@"Reporting score to game center"];
+		[[Logger defaultLogger] log:[NSString stringWithFormat:@"Reporting score to game center: %d", score]];
 #endif
 
 		GKScore *scoreReporter = [[[GKScore alloc] initWithCategory:LEADERBOARD_ID] autorelease];

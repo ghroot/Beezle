@@ -16,6 +16,7 @@
 #import "Utils.h"
 #import "PlayerInformation.h"
 #import "GameCenterManager.h"
+#import "NotificationTypes.h"
 
 static int nextBeeIndex = 0;
 
@@ -23,6 +24,8 @@ static int nextBeeIndex = 0;
 
 -(void) createGotoDebugMenu;
 -(void) gotoDebugMenu;
+-(void) handleGameCenterNotification:(NSNotification *)notification;
+-(void) updateGameCenterButton;
 -(void) createBee;
 -(void) createSawee;
 -(void) createBombee;
@@ -96,15 +99,17 @@ static int nextBeeIndex = 0;
 		[soundButton setPosition:CGPointMake(winSize.width / 2 - 30.0f, 40.0f)];
 
 		CCMenu *gameCenterMenu = [CCMenu node];
-		CCMenuItemImage *gameCenterMenuItem = [CCMenuItemImage itemWithNormalImage:@"GameCentre logo-Idle.png" selectedImage:@"GameCentre logo-Push.png" block:^(id sender){
+		_gameCenterMenuItem = [CCMenuItemImage itemWithNormalImage:@"GameCentre logo-Idle.png" selectedImage:@"GameCentre logo-Push.png" block:^(id sender){
 			[[GameCenterManager sharedManager] showLeaderboards];
 		}];
-		[[gameCenterMenuItem selectedImage] setPosition:CGPointMake([gameCenterMenuItem contentSize].width / 2, [gameCenterMenuItem contentSize].height / 2)];
-		[[gameCenterMenuItem selectedImage] setAnchorPoint:CGPointMake(0.5f, 0.5f)];
-		[gameCenterMenuItem setPosition:CGPointMake(winSize.width / 2 + 30.0f, 40.0f)];
+		[[_gameCenterMenuItem selectedImage] setPosition:CGPointMake([_gameCenterMenuItem contentSize].width / 2, [_gameCenterMenuItem contentSize].height / 2)];
+		[[_gameCenterMenuItem selectedImage] setAnchorPoint:CGPointMake(0.5f, 0.5f)];
+		[_gameCenterMenuItem setPosition:CGPointMake(winSize.width / 2 + 30.0f, 40.0f)];
 		[gameCenterMenu setPosition:CGPointZero];
-		[gameCenterMenu addChild:gameCenterMenuItem];
+		[gameCenterMenu addChild:_gameCenterMenuItem];
 		[self addChild:gameCenterMenu];
+		[self updateGameCenterButton];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleGameCenterNotification:) name:NOTIFICATION_GAME_CENTER_AUTHENTICATED object:nil];
 #else
 		[soundButton setPosition:CGPointMake(winSize.width / 2, 40.0f)];
 #endif
@@ -118,6 +123,8 @@ static int nextBeeIndex = 0;
 
 -(void) dealloc
 {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+
 	[_pollenExplodeSprite release];
 
 	[super dealloc];
@@ -162,6 +169,25 @@ static int nextBeeIndex = 0;
 -(void) gotoDebugMenu
 {
 	[_game replaceState:[DebugMenuState state]];
+}
+
+-(void) handleGameCenterNotification:(NSNotification *)notification
+{
+	[self updateGameCenterButton];
+}
+
+-(void) updateGameCenterButton
+{
+	if ([[GameCenterManager sharedManager] isAuthenticated])
+	{
+		[_gameCenterMenuItem setIsEnabled:TRUE];
+		[_gameCenterMenuItem setOpacity:255];
+	}
+	else
+	{
+		[_gameCenterMenuItem setIsEnabled:FALSE];
+		[_gameCenterMenuItem setOpacity:128];
+	}
 }
 
 -(void) createBee
