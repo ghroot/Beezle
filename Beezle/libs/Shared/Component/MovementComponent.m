@@ -7,6 +7,7 @@
 //
 
 #import "MovementComponent.h"
+#import "Utils.h"
 
 @implementation MovementComponent
 
@@ -45,6 +46,10 @@
         for (NSString *positionAsString in positionsAsStrings)
         {
             CGPoint position = CGPointFromString(positionAsString);
+
+			// Support iPhone 5 resolution width by offsetting layout positions
+			position.x += [Utils universalScreenStartX];
+
             [positions addObject:[NSValue valueWithCGPoint:position]];
         }
         [self setPositions:positions];
@@ -66,7 +71,12 @@
 	NSMutableArray *positionsAsStrings = [NSMutableArray array];
     for (NSValue *positionAsValue in _positions)
     {
-        [positionsAsStrings addObject:NSStringFromCGPoint([positionAsValue CGPointValue])];
+		CGPoint position = [positionAsValue CGPointValue];
+
+		// Support iPhone 5 resolution width by offsetting layout positions
+		position.x -= [Utils universalScreenStartX];
+
+        [positionsAsStrings addObject:NSStringFromCGPoint(position)];
     }
 	[instanceComponentDict setObject:positionsAsStrings forKey:@"positions"];
 	

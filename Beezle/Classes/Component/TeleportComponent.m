@@ -8,6 +8,7 @@
 
 #import "TeleportComponent.h"
 #import "TeleportInfo.h"
+#import "Utils.h"
 
 @implementation TeleportComponent
 
@@ -21,6 +22,10 @@
 	{
 		// Instance
 		_outPosition = CGPointFromString([instanceComponentDict objectForKey:@"outPosition"]);
+
+		// Support iPhone 5 resolution width by offsetting layout positions
+		_outPosition.x += [Utils universalScreenStartX];
+
 		_outRotation = [[instanceComponentDict objectForKey:@"outRotation"] floatValue];
 	}
 	return self;
@@ -46,7 +51,10 @@
 {
 	NSMutableDictionary *instanceComponentDict = [NSMutableDictionary dictionary];
 
-	[instanceComponentDict setObject:NSStringFromCGPoint(_outPosition) forKey:@"outPosition"];
+	// Support iPhone 5 resolution width by offsetting layout positions
+	CGPoint outPosition = CGPointMake(_outPosition.x - [Utils universalScreenStartX], _outPosition.y);
+
+	[instanceComponentDict setObject:NSStringFromCGPoint(outPosition) forKey:@"outPosition"];
 	[instanceComponentDict setObject:[NSNumber numberWithFloat:_outRotation] forKey:@"outRotation"];
 
 	return instanceComponentDict;
