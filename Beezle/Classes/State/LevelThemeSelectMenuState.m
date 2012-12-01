@@ -88,6 +88,10 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 	[self createBackMenu];
 
 	int page = [_themes indexOfObject:_theme];
+	if (page == -1)
+	{
+		page = 0;
+	}
 	[_scrollLayer selectPage:page];
 	[_scrollLayer selectPage:page]; // This is to work around a bug in CCScrollLayer
 
