@@ -87,8 +87,12 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 
 	[self createBackMenu];
 
-	int page = [_themes indexOfObject:_theme];
-	if (page == -1)
+	int page;
+	if ([_themes containsObject:_theme])
+	{
+		page = [_themes indexOfObject:_theme];
+	}
+	else
 	{
 		page = 0;
 	}
