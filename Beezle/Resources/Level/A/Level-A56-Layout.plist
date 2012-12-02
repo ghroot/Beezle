@@ -18,7 +18,7 @@
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{69.5, 206.5}</string>
+					<string>{74.5, 210.5}</string>
 					<key>rotation</key>
 					<real>330</real>
 					<key>scale</key>
@@ -53,36 +53,6 @@
 					<real>0.0</real>
 					<key>scale</key>
 					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>BEEATER-LAND-A</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>captured</key>
-				<dict>
-					<key>containedBeeTypes</key>
-					<array>
-						<string>BEE</string>
-					</array>
-				</dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{106, 24.5}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{106, 24.5}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{-1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -308,12 +278,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{141, 22}</string>
+					<string>{137, 21}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{141, 22}</string>
+					<string>{137, 21}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -392,6 +362,36 @@
 			<key>type</key>
 			<string>POLLEN-YELLOW</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>captured</key>
+				<dict>
+					<key>containedBeeTypes</key>
+					<array>
+						<string>BEE</string>
+					</array>
+				</dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{76, 125}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{76, 125}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{-1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>BEEATER-HANGING-A</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -404,6 +404,6 @@
 	<key>pollenForTwoFlowers</key>
 	<integer>364</integer>
 	<key>version</key>
-	<integer>27</integer>
+	<integer>28</integer>
 </dict>
 </plist>
