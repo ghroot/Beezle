@@ -64,7 +64,8 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 		[draggableNode setContentSize:CGSizeMake(contentWidth, winSize.height)];
 
 		CCMenu *menu = [CCMenuNoTouchSwallow node];
-		CCMenuItemImage *menuItem = [CCMenuItemImage itemWithNormalImage:[NSString stringWithFormat:@"Syst-Check-%@.png", theme] selectedImage:[NSString stringWithFormat:@"Syst-Check2-%@.png", theme] block:^(id sender){
+		NSString *imageTheme = [theme isEqualToString:@"E"] ? @"A" : theme;
+		CCMenuItemImage *menuItem = [CCMenuItemImage itemWithNormalImage:[NSString stringWithFormat:@"Syst-Check-%@.png", imageTheme] selectedImage:[NSString stringWithFormat:@"Syst-Check2-%@.png", imageTheme] block:^(id sender){
 			if ([_scrollView didDragSignificantDistance])
 			{
 				return;
