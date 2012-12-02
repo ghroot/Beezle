@@ -222,10 +222,11 @@
     }
 	float contentWidth = lastCellX + firstCellX;
 	[draggableNode setContentSize:CGSizeMake(contentWidth, winSize.height)];
-	[draggableNode setPosition:CGPointMake(max(winSize.width - contentWidth, min(0.0f, winSize.width / 2 - lastCanPlayCellX)), 20.0f)];
+	[draggableNode setPosition:CGPointMake(max(winSize.width - contentWidth, min(0.0f, winSize.width / 2 - lastCanPlayCellX)), 0.0f)];
 
 	_scrollView = [[ScrollView alloc] initWithContent:draggableNode];
 	[_scrollView setScrollHorizontally:TRUE];
+	[_scrollView setPosition:CGPointMake(0.0f, 25.0f)];
 	[self addChild:_scrollView];
 
 	_beesFrontNode = [BeesFrontNode new];
