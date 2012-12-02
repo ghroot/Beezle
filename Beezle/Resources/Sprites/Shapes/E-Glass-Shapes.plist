@@ -170,16 +170,465 @@
 						<key>polygons</key>
 						<array>
 							<array>	
-								<string>{ 7.00000,9.00000 }</string>	
-								<string>{ -5.00000,0.00000 }</string>	
-								<string>{ -20.00000,0.00000 }</string>	
-								<string>{ -15.00000,21.00000 }</string>
+								<string>{ -28.00000,26.50000 }</string>	
+								<string>{ -12.00000,3.50000 }</string>	
+								<string>{ -57.00000,2.50000 }</string>	
+								<string>{ -65.00000,34.50000 }</string>
 							</array>
 							<array>	
-								<string>{ -2.00000,-9.00000 }</string>	
-								<string>{ -5.00000,0.00000 }</string>	
-								<string>{ 7.00000,9.00000 }</string>	
-								<string>{ 21.00000,-22.00000 }</string>
+								<string>{ 61.00000,15.50000 }</string>	
+								<string>{ 46.00000,42.50000 }</string>	
+								<string>{ 77.00000,24.50000 }</string>	
+								<string>{ 97.00000,-5.50000 }</string>
+							</array>
+							<array>	
+								<string>{ 16.00000,18.50000 }</string>	
+								<string>{ 7.00000,29.50000 }</string>	
+								<string>{ 46.00000,42.50000 }</string>	
+								<string>{ 61.00000,15.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -81.00000,-1.50000 }</string>	
+								<string>{ -75.00000,-10.50000 }</string>	
+								<string>{ -97.00000,-4.50000 }</string>
+							</array>
+							<array>	
+								<string>{ 7.00000,29.50000 }</string>	
+								<string>{ 16.00000,18.50000 }</string>	
+								<string>{ -12.00000,3.50000 }</string>	
+								<string>{ -28.00000,26.50000 }</string>	
+								<string>{ -29.00000,40.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -62.00000,-24.50000 }</string>	
+								<string>{ -52.00000,-27.50000 }</string>	
+								<string>{ -68.00000,-42.50000 }</string>	
+								<string>{ -72.00000,-38.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -65.00000,-14.50000 }</string>	
+								<string>{ -57.00000,2.50000 }</string>	
+								<string>{ -12.00000,3.50000 }</string>	
+								<string>{ -52.00000,-27.50000 }</string>	
+								<string>{ -62.00000,-24.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -75.00000,-10.50000 }</string>	
+								<string>{ -65.00000,-14.50000 }</string>	
+								<string>{ -90.00000,-14.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -81.00000,-1.50000 }</string>	
+								<string>{ -57.00000,2.50000 }</string>	
+								<string>{ -65.00000,-14.50000 }</string>	
+								<string>{ -75.00000,-10.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -52.00000,-27.50000 }</string>	
+								<string>{ -12.00000,3.50000 }</string>	
+								<string>{ -55.00000,-42.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -57.00000,2.50000 }</string>	
+								<string>{ -81.00000,-1.50000 }</string>	
+								<string>{ -93.00000,-0.50000 }</string>
+							</array>
+						</array>
+                        
+					</dict>
+
+				</array>
+			</dict>
+
+			<key>E1-Glass</key>
+			<dict>
+				<key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>fixtures</key>
+                <array>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0.2</real>
+                        <key>friction</key>
+                        <real>0.4</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ 18.50000,33.50000 }</string>	
+								<string>{ 6.50000,13.50000 }</string>	
+								<string>{ -30.50000,13.50000 }</string>	
+								<string>{ -45.50000,31.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -12.50000,-7.50000 }</string>	
+								<string>{ 6.50000,-12.50000 }</string>	
+								<string>{ 12.50000,-48.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -12.50000,-7.50000 }</string>	
+								<string>{ -28.50000,2.50000 }</string>	
+								<string>{ -30.50000,13.50000 }</string>	
+								<string>{ 6.50000,13.50000 }</string>	
+								<string>{ 6.50000,-12.50000 }</string>
+							</array>
+							<array>	
+								<string>{ 35.50000,29.50000 }</string>	
+								<string>{ 18.50000,33.50000 }</string>	
+								<string>{ -11.50000,44.50000 }</string>	
+								<string>{ -19.50000,60.50000 }</string>	
+								<string>{ 63.50000,43.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -30.50000,13.50000 }</string>	
+								<string>{ -28.50000,2.50000 }</string>	
+								<string>{ -62.50000,-4.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -28.50000,2.50000 }</string>	
+								<string>{ -12.50000,-7.50000 }</string>	
+								<string>{ -21.50000,-61.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -11.50000,44.50000 }</string>	
+								<string>{ 18.50000,33.50000 }</string>	
+								<string>{ -14.50000,32.50000 }</string>
+							</array>
+						</array>
+                        
+					</dict>
+
+				</array>
+			</dict>
+
+			<key>E2-Glass</key>
+			<dict>
+				<key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>fixtures</key>
+                <array>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0.2</real>
+                        <key>friction</key>
+                        <real>0.4</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ -21.50000,-4.50000 }</string>	
+								<string>{ -10.50000,15.50000 }</string>	
+								<string>{ 16.50000,-0.50000 }</string>	
+								<string>{ -2.50000,-24.50000 }</string>	
+								<string>{ -22.50000,-43.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -10.50000,15.50000 }</string>	
+								<string>{ -21.50000,-4.50000 }</string>	
+								<string>{ -32.50000,25.50000 }</string>	
+								<string>{ -31.50000,43.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -2.50000,-24.50000 }</string>	
+								<string>{ 16.50000,-0.50000 }</string>	
+								<string>{ 48.50000,1.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -48.50000,-38.50000 }</string>	
+								<string>{ -32.50000,25.50000 }</string>	
+								<string>{ -21.50000,-4.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -32.50000,43.50000 }</string>	
+								<string>{ -32.50000,25.50000 }</string>	
+								<string>{ -48.50000,-38.50000 }</string>
+							</array>
+						</array>
+                        
+					</dict>
+
+				</array>
+			</dict>
+
+			<key>E7-Glass</key>
+			<dict>
+				<key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>fixtures</key>
+                <array>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0.2</real>
+                        <key>friction</key>
+                        <real>0.4</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ -14.50000,27.00000 }</string>	
+								<string>{ 6.50000,19.00000 }</string>	
+								<string>{ -14.50000,7.00000 }</string>	
+								<string>{ -37.50000,9.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -14.50000,7.00000 }</string>	
+								<string>{ 6.50000,19.00000 }</string>	
+								<string>{ 4.50000,2.00000 }</string>	
+								<string>{ -14.50000,-11.00000 }</string>	
+								<string>{ -27.50000,-9.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 6.50000,19.00000 }</string>	
+								<string>{ -24.50000,45.00000 }</string>	
+								<string>{ -37.50000,58.00000 }</string>	
+								<string>{ 31.50000,51.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -14.50000,-11.00000 }</string>	
+								<string>{ 4.50000,2.00000 }</string>	
+								<string>{ 2.50000,-22.00000 }</string>	
+								<string>{ -20.50000,-21.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -24.50000,45.00000 }</string>	
+								<string>{ 6.50000,19.00000 }</string>	
+								<string>{ -50.50000,41.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 3.50000,-45.00000 }</string>	
+								<string>{ 2.50000,-22.00000 }</string>	
+								<string>{ 18.50000,-27.00000 }</string>	
+								<string>{ 52.50000,-59.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 2.50000,-22.00000 }</string>	
+								<string>{ 4.50000,2.00000 }</string>	
+								<string>{ 18.50000,-27.00000 }</string>
+							</array>
+						</array>
+                        
+					</dict>
+
+				</array>
+			</dict>
+
+			<key>E8-Glass</key>
+			<dict>
+				<key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>fixtures</key>
+                <array>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0.2</real>
+                        <key>friction</key>
+                        <real>0.4</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ -15.00000,36.50000 }</string>	
+								<string>{ 1.00000,2.50000 }</string>	
+								<string>{ -5.00000,-14.50000 }</string>	
+								<string>{ -33.00000,22.50000 }</string>
+							</array>
+							<array>	
+								<string>{ 15.00000,31.50000 }</string>	
+								<string>{ -15.00000,36.50000 }</string>	
+								<string>{ 33.00000,48.50000 }</string>
+							</array>
+							<array>	
+								<string>{ 14.00000,10.50000 }</string>	
+								<string>{ 1.00000,2.50000 }</string>	
+								<string>{ -15.00000,36.50000 }</string>	
+								<string>{ 15.00000,31.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -5.00000,-14.50000 }</string>	
+								<string>{ 1.00000,2.50000 }</string>	
+								<string>{ 18.00000,-46.50000 }</string>	
+								<string>{ 5.00000,-48.50000 }</string>
+							</array>
+							<array>	
+								<string>{ 1.00000,2.50000 }</string>	
+								<string>{ 14.00000,10.50000 }</string>	
+								<string>{ 30.00000,-39.50000 }</string>
+							</array>
+						</array>
+                        
+					</dict>
+
+				</array>
+			</dict>
+
+			<key>E9-Glass</key>
+			<dict>
+				<key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>fixtures</key>
+                <array>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0.2</real>
+                        <key>friction</key>
+                        <real>0.4</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ -28.00000,-4.00000 }</string>	
+								<string>{ -6.00000,1.00000 }</string>	
+								<string>{ -23.00000,-24.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 16.00000,-12.00000 }</string>	
+								<string>{ 28.00000,0.00000 }</string>	
+								<string>{ 23.00000,-22.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 10.00000,-12.00000 }</string>	
+								<string>{ 16.00000,-12.00000 }</string>	
+								<string>{ 14.00000,-25.00000 }</string>
+							</array>
+							<array>	
+								<string>{ -47.00000,3.00000 }</string>	
+								<string>{ -6.00000,1.00000 }</string>	
+								<string>{ -28.00000,-4.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 28.00000,0.00000 }</string>	
+								<string>{ -47.00000,3.00000 }</string>	
+								<string>{ 45.00000,24.00000 }</string>
+							</array>
+							<array>	
+								<string>{ 10.00000,-12.00000 }</string>	
+								<string>{ -6.00000,1.00000 }</string>	
+								<string>{ 28.00000,0.00000 }</string>	
+								<string>{ 16.00000,-12.00000 }</string>
+							</array>
+						</array>
+                        
+					</dict>
+
+				</array>
+			</dict>
+
+			<key>E10-Glass</key>
+			<dict>
+				<key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>fixtures</key>
+                <array>
+
+					<dict>
+                        <key>mass</key>
+                        <real>0</real>
+                        <key>elasticity</key>
+                        <real>0.2</real>
+                        <key>friction</key>
+                        <real>0.4</real>
+                        <key>surface_velocity</key>
+                        <string>{ 0.00000,0.00000 }</string>
+                        <key>layers</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>collision_type</key>
+                        <integer>0</integer>
+                        <key>isSensor</key>
+                        <false/>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ 54.00000,-3.50000 }</string>	
+								<string>{ 18.00000,-39.50000 }</string>	
+								<string>{ 15.00000,-14.50000 }</string>	
+								<string>{ 74.00000,39.50000 }</string>
+							</array>
+							<array>	
+								<string>{ -19.00000,-39.50000 }</string>	
+								<string>{ -73.00000,-37.50000 }</string>	
+								<string>{ -73.00000,-31.50000 }</string>	
+								<string>{ 15.00000,-14.50000 }</string>	
+								<string>{ 18.00000,-39.50000 }</string>
 							</array>
 						</array>
                         
