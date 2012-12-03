@@ -22,7 +22,6 @@
 	// Instance
 	NSString *_overrideIdleAnimationName;
 	NSString *_overrideTextureFile;
-	NSString *_overrideParticleFile;
 }
 
 @property (nonatomic, readonly) NSArray *renderSprites;

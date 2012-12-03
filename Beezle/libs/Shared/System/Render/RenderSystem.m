@@ -57,7 +57,6 @@ static const int BATCH_NODE_CAPACITY = 140;
         NSDictionary *spriteSheetDict = [NSDictionary dictionaryWithContentsOfFile:spriteSheetFilePath];
         NSDictionary *metadataDict = [spriteSheetDict objectForKey:@"metadata"];
         NSString *texturePath = [metadataDict objectForKey:@"textureFileName"];
-        spriteSheet = [CCSpriteBatchNode batchNodeWithFile:texturePath capacity:BATCH_NODE_CAPACITY];
         
         ZOrder *spriteSheetZOrder;
         if ([name isEqualToString:@"Shared"])
@@ -96,7 +95,8 @@ static const int BATCH_NODE_CAPACITY = 140;
         {
             spriteSheetZOrder = [ZOrder Z_SHEET_DEFAULT];
         }
-        
+
+		spriteSheet = [CCSpriteBatchNode batchNodeWithFile:texturePath capacity:BATCH_NODE_CAPACITY];
         [_layer addChild:spriteSheet z:[spriteSheetZOrder z]];
         [_spriteSheetsByName setObject:spriteSheet forKey:name];
         

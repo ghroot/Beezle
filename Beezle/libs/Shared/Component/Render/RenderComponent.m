@@ -64,14 +64,6 @@
 				NSString *overrideTextureFile = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:_overrideTextureFile];
 				renderSprite = [RenderSprite renderSpriteWithFile:overrideTextureFile zOrder:zOrder];
 			}
-			else if ([instanceComponentDict objectForKey:@"overrideParticleFile"] != nil)
-			{
-				_overrideParticleFile = [[instanceComponentDict objectForKey:@"overrideParticleFile"] copy];
-				CCParticleSystem *particleSystem = [CCParticleSystemQuad particleWithFile:_overrideParticleFile];
-				CCSprite *particleSprite = [CCSprite node];
-				[particleSprite addChild:particleSystem];
-				renderSprite = [RenderSprite renderSpriteWithSprite:particleSprite zOrder:zOrder];
-			}
 			else if ([spriteDict objectForKey:@"spriteSheetName"] != nil)
 			{
 				renderSprite = [renderSystem createRenderSpriteWithSpriteSheetName:[spriteDict objectForKey:@"spriteSheetName"] animationFile:[spriteDict objectForKey:@"animationFile"] zOrder:zOrder];
@@ -90,13 +82,6 @@
 				NSString *textureFile = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:[spriteDict objectForKey:@"textureFile"]];
                 renderSprite = [RenderSprite renderSpriteWithFile:textureFile zOrder:zOrder];
 			}
-			else if ([spriteDict objectForKey:@"particleFile"] != nil)
-			{
-				CCParticleSystem *particleSystem = [CCParticleSystemQuad particleWithFile:[spriteDict objectForKey:@"particleFile"]];
-				CCSprite *particleSprite = [CCSprite node];
-				[particleSprite addChild:particleSystem];
-				renderSprite = [RenderSprite renderSpriteWithSprite:particleSprite zOrder:zOrder];
-			}
 			else if ([spriteDict objectForKey:@"spriteClass"] != nil)
 			{
 				Class spriteClass = NSClassFromString([spriteDict objectForKey:@"spriteClass"]);
@@ -105,7 +90,7 @@
 			}
 			else
 			{
-				NSLog(@"WARNING: Render component must specify either 'spriteSheetName', 'textureFile', 'particleFile' or 'spriteClass'");
+				NSLog(@"WARNING: Render component must specify either 'spriteSheetName', 'textureFile' or 'spriteClass'");
 			}
             
             if ([spriteDict objectForKey:@"name"] != nil)
@@ -156,10 +141,6 @@
 		if (_overrideTextureFile != nil)
 		{
 			[instanceComponentDict setObject:_overrideTextureFile forKey:@"overrideTextureFile"];
-		}
-		if (_overrideParticleFile != nil)
-		{
-			[instanceComponentDict setObject:_overrideParticleFile forKey:@"overrideParticleFile"];
 		}
 	}
 	return instanceComponentDict;
