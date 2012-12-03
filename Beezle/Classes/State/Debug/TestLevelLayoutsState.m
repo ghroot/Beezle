@@ -92,6 +92,50 @@
 				}
 			}
 		}
+
+		int numberOfThemeSpriteSheets = 0;
+		if ([[renderSystem spriteSheetsByName] objectForKey:@"A"] != nil)
+		{
+			numberOfThemeSpriteSheets++;
+		}
+		if ([[renderSystem spriteSheetsByName] objectForKey:@"B"] != nil)
+		{
+			numberOfThemeSpriteSheets++;
+		}
+		if ([[renderSystem spriteSheetsByName] objectForKey:@"C"] != nil)
+		{
+			numberOfThemeSpriteSheets++;
+		}
+		if ([[renderSystem spriteSheetsByName] objectForKey:@"D"] != nil)
+		{
+			numberOfThemeSpriteSheets++;
+		}
+		if (numberOfThemeSpriteSheets > 1)
+		{
+			[lines addObject:[NSString stringWithFormat:@"Found render error in %@", levelName]];
+		}
+
+		int numberOfBossThemeSpriteSheets = 0;
+		if ([[renderSystem spriteSheetsByName] objectForKey:@"Boss-A"] != nil)
+		{
+			numberOfBossThemeSpriteSheets++;
+		}
+		if ([[renderSystem spriteSheetsByName] objectForKey:@"Boss-B"] != nil)
+		{
+			numberOfBossThemeSpriteSheets++;
+		}
+		if ([[renderSystem spriteSheetsByName] objectForKey:@"Boss-C"] != nil)
+		{
+			numberOfBossThemeSpriteSheets++;
+		}
+		if ([[renderSystem spriteSheetsByName] objectForKey:@"Boss-D"] != nil)
+		{
+			numberOfBossThemeSpriteSheets++;
+		}
+		if (numberOfBossThemeSpriteSheets > 1)
+		{
+			[lines addObject:[NSString stringWithFormat:@"Found render error in %@", levelName]];
+		}
 	}
 
 	NSMutableString *string = [NSMutableString string];
@@ -104,7 +148,7 @@
 	}
 	else
 	{
-		[string appendString:@"No errors found\n"];
+		[string appendString:@"No errors found!\n"];
 	}
 	return string;
 }

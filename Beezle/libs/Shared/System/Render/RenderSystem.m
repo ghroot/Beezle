@@ -18,6 +18,7 @@ static const int BATCH_NODE_CAPACITY = 140;
 @implementation RenderSystem
 
 @synthesize layer = _layer;
+@synthesize spriteSheetsByName = _spriteSheetsByName;
 
 -(id) initWithLayer:(CCLayer *)layer
 {

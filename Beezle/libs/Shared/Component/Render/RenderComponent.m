@@ -90,7 +90,7 @@
 			}
 			else
 			{
-				NSLog(@"WARNING: Render component must specify either 'spriteSheetName', 'textureFile' or 'spriteClass'");
+				NSLog(@"WARNING: Render component could not create render sprite");
 			}
             
             if ([spriteDict objectForKey:@"name"] != nil)

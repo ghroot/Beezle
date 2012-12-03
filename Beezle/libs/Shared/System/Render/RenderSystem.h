@@ -22,6 +22,8 @@
 	NSMutableSet *_loadedAnimationsFileNames;
 }
 
+@property (nonatomic, readonly) NSDictionary *spriteSheetsByName;
+
 @property (nonatomic, readonly) CCLayer *layer;
 
 -(id) initWithLayer:(CCLayer *)layer;
