@@ -25,13 +25,13 @@
 		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Chooser-Animations.plist"];
 
 		CCSprite *saweeSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
-		[saweeSprite setPosition:CGPointMake(50.0f, 80.0f)];
+		[saweeSprite setPosition:CGPointMake(50.0f, 70.0f)];
 		[self animateSprite:saweeSprite animationNames:[NSArray arrayWithObject:@"Chooser-Sawee-Idle"]];
 		[ActionUtils swaySprite:saweeSprite speed:1.5f distance:2.0f];
 		[self addChild:saweeSprite];
 
 		CCSprite *bombeeSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
-		[bombeeSprite setPosition:CGPointMake(100.0f, 60.0f)];
+		[bombeeSprite setPosition:CGPointMake(100.0f, 50.0f)];
 		[self animateSprite:bombeeSprite animationNames:[NSArray arrayWithObjects:
 				@"Chooser-Bombee-Idle",
 				@"Chooser-Bombee-Idle",
@@ -48,7 +48,7 @@
 		CGSize winSize = [[CCDirector sharedDirector] winSize];
 
 		CCSprite *speedeeSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
-		[speedeeSprite setPosition:CGPointMake(winSize.width - 170.0f, 80.0f)];
+		[speedeeSprite setPosition:CGPointMake(winSize.width - 170.0f, 60.0f)];
 		[self animateSprite:speedeeSprite animationNames:[NSArray arrayWithObjects:
 				@"Chooser-Speedee-Idle",
 				@"Chooser-Speedee-Idle",
@@ -64,7 +64,7 @@
 		[self addChild:speedeeSprite];
 
 		CCSprite *beeSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
-		[beeSprite setPosition:CGPointMake(winSize.width - 130.0f, 80.0f)];
+		[beeSprite setPosition:CGPointMake(winSize.width - 130.0f, 60.0f)];
 		[self animateSprite:beeSprite animationNames:[NSArray arrayWithObjects:
 				@"Chooser-Bee-Idle",
 				@"Chooser-Bee-Idle",
@@ -81,7 +81,7 @@
 		[self addChild:beeSprite];
 
 		CCSprite *beeaterSprite = [CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache] textureForKey:@"Interface.png"]];
-		[beeaterSprite setPosition:CGPointMake(winSize.width - 60.0f, 50.0f)];
+		[beeaterSprite setPosition:CGPointMake(winSize.width - 60.0f, 40.0f)];
 		[self animateSprite:beeaterSprite animationNames:[NSArray arrayWithObjects:
 				@"Chooser-Beeater-Idle",
 				@"Chooser-Beeater-Idle",
