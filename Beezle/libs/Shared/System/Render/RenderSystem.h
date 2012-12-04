@@ -20,11 +20,12 @@
     CCLayer *_layer;
     NSMutableDictionary *_spriteSheetsByName;
 	NSMutableSet *_loadedAnimationsFileNames;
+	BOOL _disableSpriteSheetUnloading;
 }
 
 @property (nonatomic, readonly) NSDictionary *spriteSheetsByName;
-
 @property (nonatomic, readonly) CCLayer *layer;
+@property (nonatomic) BOOL disableSpriteSheetUnloading;
 
 -(id) initWithLayer:(CCLayer *)layer;
 -(RenderSprite *) createRenderSpriteWithSpriteSheetName:(NSString *)name animationFile:(NSString *)animationsFileName zOrder:(ZOrder *)zOrder;
