@@ -13,6 +13,8 @@
 #import "CapturedComponent.h"
 #import "BeeType.h"
 #import "EntityUtil.h"
+#import "CGPointExtension.h"
+#import "TransformComponent.h"
 
 @interface SandSystem()
 
@@ -36,6 +38,7 @@
 {
 	[_capturedComponentMapper release];
 	[_sandComponentMapper release];
+	[_transformComponentMapper release];
 
 	[_notificationProcessor release];
 
@@ -46,6 +49,7 @@
 {
 	_capturedComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[CapturedComponent class]];
 	_sandComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[SandComponent class]];
+	_transformComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[TransformComponent class]];
 }
 
 -(void) activate
@@ -72,16 +76,29 @@
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
 	if ([_capturedComponentMapper hasEntityComponent:entity])
 	{
+		TransformComponent *transformComponent = [_transformComponentMapper getComponentFor:entity];
 		CapturedComponent *capturedComponent = [_capturedComponentMapper getComponentFor:entity];
 		BeeType *beeType = [capturedComponent containedBeeType];
 		if (beeType == [BeeType MUMEE])
 		{
-			for (Entity *entity in [[_world entityManager] entities])
+			Entity *closestEntity = nil;
+			float closestDistance = -1.0f;
+			for (Entity *otherEntity in [[_world entityManager] entities])
 			{
-				if ([_sandComponentMapper hasEntityComponent:entity])
+				if ([_sandComponentMapper hasEntityComponent:otherEntity])
 				{
-					[EntityUtil destroyEntity:entity];
+					TransformComponent *otherTransformComponent = [_transformComponentMapper getComponentFor:otherEntity];
+					float distance = ccpDistance([transformComponent position], [otherTransformComponent position]);
+					if (closestDistance < 0.0f || distance < closestDistance)
+					{
+						closestEntity = otherEntity;
+						closestDistance = distance;
+					}
 				}
+			}
+			if (closestEntity != nil)
+			{
+				[EntityUtil destroyEntity:closestEntity];
 			}
 		}
 	}

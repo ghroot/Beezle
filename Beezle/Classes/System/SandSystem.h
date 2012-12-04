@@ -11,8 +11,10 @@
 @class NotificationProcessor;
 
 @interface SandSystem : EntityComponentSystem
-{	ComponentMapper *_capturedComponentMapper;
+{
+	ComponentMapper *_capturedComponentMapper;
 	ComponentMapper *_sandComponentMapper;
+	ComponentMapper *_transformComponentMapper;
 
 	NotificationProcessor *_notificationProcessor;
 }
