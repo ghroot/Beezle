@@ -16,6 +16,7 @@
 #import "TeleportInfo.h"
 #import "Utils.h"
 #import "RenderComponent.h"
+#import "SoundManager.h"
 
 @implementation TeleportSystem
 
@@ -91,7 +92,9 @@
 				[[teleportInfo entity] refresh];
 
 				[teleportInfosToRemove addObject:teleportInfo];
-            }
+
+				[[SoundManager sharedManager] playSound:@"SpeedeeSound"];
+			}
 			else
 			{
 				[teleportInfo decreaseCountdown];
