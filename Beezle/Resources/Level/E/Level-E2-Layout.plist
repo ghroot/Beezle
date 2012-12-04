@@ -102,12 +102,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{405, 101}</string>
+					<string>{400, 105}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{405, 101}</string>
+					<string>{400, 105}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -132,12 +132,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{349, 59}</string>
+					<string>{346, 65}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{349, 59}</string>
+					<string>{346, 65}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -326,29 +326,6 @@
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>-0.59341192245483398</real>
-					<key>position</key>
-					<string>{302, 47}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{302, 47}</string>
-					<key>rotation</key>
-					<real>34</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>RAMP-E</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
 					<real>-0.069813169538974762</real>
 					<key>position</key>
 					<string>{423, 275}</string>
@@ -366,6 +343,36 @@
 			<key>type</key>
 			<string>EGG</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>overrideBodyName</key>
+					<string>E2-Glass</string>
+					<key>position</key>
+					<string>{308, 43}</string>
+				</dict>
+				<key>render</key>
+				<dict>
+					<key>overrideTextureFile</key>
+					<string>E2-Glass.png</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{308, 43}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>GLASS-E</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -378,6 +385,6 @@
 	<key>pollenForTwoFlowers</key>
 	<integer>370</integer>
 	<key>version</key>
-	<integer>10</integer>
+	<integer>13</integer>
 </dict>
 </plist>

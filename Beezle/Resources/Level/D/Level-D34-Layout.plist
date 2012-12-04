@@ -102,12 +102,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{252, 84}</string>
+					<string>{261, 86}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{252, 84}</string>
+					<string>{261, 86}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -254,6 +254,27 @@
 		<dict>
 			<key>components</key>
 			<dict>
+				<key>render</key>
+				<dict>
+					<key>overrideTextureFile</key>
+					<string>D34-Sand.png</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{399, 184}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>SAND</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
@@ -277,29 +298,6 @@
 		<dict>
 			<key>components</key>
 			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{294, 199}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{294, 199}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>EGG</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
 				<key>captured</key>
 				<dict>
 					<key>containedBeeTypes</key>
@@ -310,18 +308,18 @@
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>0.0</real>
+					<real>-5.7595863342285156</real>
 					<key>position</key>
-					<string>{293, 219}</string>
+					<string>{293, 217}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{293, 219}</string>
+					<string>{293, 217}</string>
 					<key>rotation</key>
-					<real>0.0</real>
+					<real>330</real>
 					<key>scale</key>
-					<string>{1, 1}</string>
+					<string>{-1, 1}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -480,10 +478,10 @@
 	<key>name</key>
 	<string>Level-D34</string>
 	<key>pollenForThreeFlowers</key>
-	<integer>243</integer>
+	<integer>488</integer>
 	<key>pollenForTwoFlowers</key>
-	<integer>213</integer>
+	<integer>458</integer>
 	<key>version</key>
-	<integer>13</integer>
+	<integer>19</integer>
 </dict>
 </plist>
