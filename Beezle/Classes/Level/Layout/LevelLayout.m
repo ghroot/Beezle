@@ -87,12 +87,21 @@
 	return FALSE;
 }
 
+-(BOOL) hasEntityWithTypeLike:(NSString *)string
+{
+	for (LevelLayoutEntry *entry in _entries)
+	{
+		if ([[entry type] rangeOfString:string].location != NSNotFound)
+		{
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+
 -(BOOL) isBossLevel
 {
-	return [self hasEntityWithType:@"SUPER-BEEATER-A"] ||
-			[self hasEntityWithType:@"SUPER-BEEATER-B"] ||
-			[self hasEntityWithType:@"SUPER-BEEATER-C"] ||
-			[self hasEntityWithType:@"SUPER-BEEATER-D"];
+	return [self hasEntityWithTypeLike:@"SUPER-BEEATER-"];
 }
 
 @end

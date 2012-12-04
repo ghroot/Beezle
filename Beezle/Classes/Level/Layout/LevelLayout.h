@@ -41,6 +41,7 @@
 -(void) addLevelLayoutEntry:(LevelLayoutEntry *)entry;
 -(NSDictionary *) layoutAsDictionary;
 -(BOOL) hasEntityWithType:(NSString *)entityType;
+-(BOOL) hasEntityWithTypeLike:(NSString *)string;
 -(BOOL) isBossLevel;
 
 @end
