@@ -78,6 +78,7 @@
 			@"POLLEN-GREEN",
 			@"POLLEN-ORANGE",
 			@"POLLEN-YELLOW",
+			@"POLLEN-MAGIC",
 			@"SLINGER",
 			@"SMOKE-MUSHROOM",
 			nil]];

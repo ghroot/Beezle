@@ -69,6 +69,7 @@
 #import "NSObject+PWObject.h"
 #import "BeeWithTeleportCollisionHandler.h"
 #import "SlingerControlSystem.h"
+#import "RespawnSystem.h"
 #import "GameStateUtils.h"
 #import "LevelThemeSelectMenuState.h"
 #import "GameCompletedDialog.h"
@@ -112,6 +113,7 @@
 @synthesize physicsSystem = _physicsSystem;
 @synthesize pollenSystem = _pollenSystem;
 @synthesize renderSystem = _renderSystem;
+@synthesize respawnSystem = _respawnSystem;
 @synthesize sandSystem = _sandSystem;
 @synthesize shakeSystem = _shakeSystem;
 @synthesize shardSystem = _shardSystem;
@@ -238,6 +240,8 @@
 	[systemManager setSystem:_shakeSystem];
 	_healthSystem = [HealthSystem system];
 	[systemManager setSystem:_healthSystem];
+	_respawnSystem = [RespawnSystem system];
+	[systemManager setSystem:_respawnSystem];
 	_disposalSystem = [DisposalSystem system];
 	[systemManager setSystem:_disposalSystem];
 	if (_debug)

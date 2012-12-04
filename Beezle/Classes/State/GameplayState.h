@@ -40,6 +40,7 @@
 @class TeleportSystem;
 @class SlingerControlSystem;
 @class PollenSystem;
+@class RespawnSystem;
 
 @interface GameplayState : GameState
 {
@@ -80,6 +81,7 @@
 	SandSystem *_sandSystem;
 	ShakeSystem *_shakeSystem;
 	HealthSystem *_healthSystem;
+	RespawnSystem *_respawnSystem;
 	DisposalSystem *_disposalSystem;
 	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
     
@@ -110,6 +112,7 @@
 @property (nonatomic, readonly) PhysicsSystem *physicsSystem;
 @property (nonatomic, readonly) PollenSystem *pollenSystem;
 @property (nonatomic, readonly) RenderSystem *renderSystem;
+@property (nonatomic, readonly) RespawnSystem *respawnSystem;
 @property (nonatomic, readonly) SandSystem *sandSystem;
 @property (nonatomic, readonly) ShakeSystem *shakeSystem;
 @property (nonatomic, readonly) ShardSystem *shardSystem;

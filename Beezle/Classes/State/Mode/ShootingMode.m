@@ -48,6 +48,7 @@
 		[_systems addObject:[gameplayState spawnSystem]];
 		[_systems addObject:[gameplayState shakeSystem]];
 		[_systems addObject:[gameplayState healthSystem]];
+		[_systems addObject:[gameplayState respawnSystem]];
 		[_systems addObject:[gameplayState disposalSystem]];
 		[_systems addObject:[gameplayState gameRulesSystem]];
     }

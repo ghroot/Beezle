@@ -3393,6 +3393,7 @@
 		88F1628313639C90F568E2C9 /* SaweeHitScreen.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F160197DCE2C13A8257B03 /* SaweeHitScreen.caf */; };
 		88F16283BBC4C9EA2EF78225 /* Beeater-Head-Piece-E-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F169C6C53BF3DE82B0D8EF /* Beeater-Head-Piece-E-Animations.plist */; };
 		88F1628AC6FD518364DFAC67 /* End-Credits-Copyright-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16C6223E81A81B9CF24B8 /* End-Credits-Copyright-hd.png */; };
+		88F1628F98C44E997689CDBA /* RespawnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16579ADE2F7B75B98E3D3 /* RespawnComponent.m */; };
 		88F16297395A004C994C29D4 /* E1-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16AFEB78B753575A526D0 /* E1-Glass-hd.png */; };
 		88F1629B5541F97D7B918973 /* End-GameCompleted!-Bee-2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F161AAEA57A39D955CAEF3 /* End-GameCompleted!-Bee-2-hd.png */; };
 		88F162A964664B70ED7C0C44 /* ChooserSlingerBackground-3-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88F1669EDA5390CBA85447D3 /* ChooserSlingerBackground-3-hd.jpg */; };
@@ -3401,12 +3402,15 @@
 		88F162CA6A27BC92D95DFF96 /* End-GameCompleted!-Mumee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16CCE5D365F0BA297F8C9 /* End-GameCompleted!-Mumee-1-hd.png */; };
 		88F162F5B2758BCCA7352F31 /* End-GameCompleted!-TBee-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16AD1357157FC12554EC3 /* End-GameCompleted!-TBee-1.png */; };
 		88F162F8D2D6ECC7CAAC7A71 /* Beeater-Head-Piece-E-4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16F038E4EA4BAF9AA002F /* Beeater-Head-Piece-E-4.plist */; };
+		88F1630803838C3B755FB9A5 /* RespawnSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16F84741DF26044AD0082 /* RespawnSystem.m */; };
 		88F1630F2B44346B775EBFC9 /* End-Credits-StingyBeesLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16B4269B72DCCD323C11F /* End-Credits-StingyBeesLogo.png */; };
 		88F1630FB04987A056E29698 /* E-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16CE7B0DBE176A9F4DC75 /* E-Glass-Shapes.plist */; };
 		88F163141838578E24C8CCF1 /* CCBSequenceProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16CABFB750E1507717F97 /* CCBSequenceProperty.m */; };
 		88F1631FCE7DB897177170BA /* CCNode+CCBRelativePositioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F162180D8EED3511FB7131 /* CCNode+CCBRelativePositioning.m */; };
 		88F16325B49AF003CEF27A93 /* End-GameCompleted!-Bombee-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F160FAB25BEFC66475BFB9 /* End-GameCompleted!-Bombee-1.png */; };
+		88F16330B220C90F6C072647 /* RespawnInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163E64A26B0A08A307A79 /* RespawnInfo.m */; };
 		88F16345F4D4DF0B7E14195C /* Hangnest-Lian-E-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16AB21D4018977E9A8D9F /* Hangnest-Lian-E-Animations.plist */; };
+		88F16353D418E6A23B38260D /* RespawnInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163E64A26B0A08A307A79 /* RespawnInfo.m */; };
 		88F16354A39841D42C0B5A81 /* End-Credits-Thanks.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16F718E42A0ABBF73B35B /* End-Credits-Thanks.png */; };
 		88F16372ACD1CC5804B73B66 /* E1-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F163988B9ED8F374C45F9D /* E1-Glass.png */; };
 		88F1637F7E94004F11109283 /* Glass-Piece-Small-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F161ED53CADE207CEB8410 /* Glass-Piece-Small-E.plist */; };
@@ -3439,11 +3443,13 @@
 		88F164C4A0A9830FDD710818 /* Super-Beeater-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16BE26AA17A8F4C36902F /* Super-Beeater-E.plist */; };
 		88F164C8827D1C384D40A3BC /* End-Completed?-Bee-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F161C7D04907A985C55A96 /* End-Completed?-Bee-1.png */; };
 		88F164CD04518E159B40E2FD /* HiddenLevelsFoundDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F168DC6C0E7D12DB48A61D /* HiddenLevelsFoundDialog.m */; };
+		88F164F9868A1231729C2B6A /* Pollen-Magic-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16BF2180E5668C2DEBD09 /* Pollen-Magic-Animations.plist */; };
 		88F16537499EC9A67EC74808 /* GameAlmostCompletedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16D82FAA5666D3ABB3249 /* GameAlmostCompletedDialog.m */; };
 		88F1653EF9EBB1B304EC3798 /* ChooserSlingerBackground-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88F162D644973A0DF190144A /* ChooserSlingerBackground-3.jpg */; };
 		88F16541019DDE79D9239B20 /* D34b-Sand.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16BC57E0EDA958AF1ACA0 /* D34b-Sand.png */; };
 		88F16543507724931C1A2A76 /* Super-Beeater-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16BE26AA17A8F4C36902F /* Super-Beeater-E.plist */; };
 		88F1654361051393866599EE /* End-GameCompleted!-Sumee-2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16CCC3494E5DC198834BB /* End-GameCompleted!-Sumee-2-hd.png */; };
+		88F165561C515DAFEEB28517 /* RespawnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16579ADE2F7B75B98E3D3 /* RespawnComponent.m */; };
 		88F16559CADD2B7AF6FACF64 /* End-GameCompleted!-Sumee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16DDA90CFE1963941ED6A /* End-GameCompleted!-Sumee-1-hd.png */; };
 		88F1655F0D61F9B6C9231C12 /* CCBAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1651BB879453695B5F534 /* CCBAnimationManager.m */; };
 		88F165770885AF668BD24C47 /* End-Credits-Beeaters.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16A1136C803F91B4016B0 /* End-Credits-Beeaters.png */; };
@@ -3460,6 +3466,7 @@
 		88F1663560F602C4749DBD4F /* GameCompletedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1681F43B4A308CC5FA88D /* GameCompletedDialog.m */; };
 		88F1663B875D41D946EE4D00 /* Beeater-Head-E-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16F4079D06E5186630E12 /* Beeater-Head-E-Animations.plist */; };
 		88F16644F87270C7C743732E /* Beeater-Bird-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F161CFD2135A1F85DBBB64 /* Beeater-Bird-E.plist */; };
+		88F1664DD0E08EEBBA578728 /* Pollen-Magic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16DE4036D4DF45E471D80 /* Pollen-Magic.plist */; };
 		88F166718F3291183DCC168A /* End-GameCompleted!-Bombee-2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16AC82F8276083A785959 /* End-GameCompleted!-Bombee-2-hd.png */; };
 		88F166807FB9410DF1576A9F /* E4-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16991BCCDD8A8E174F46E /* E4-Glass.png */; };
 		88F1668C86E48BA9DD4DA8DC /* End-GameCompleted!-Mumee-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F162E766D9334D7CC4E066 /* End-GameCompleted!-Mumee-1.png */; };
@@ -3487,6 +3494,7 @@
 		88F167ED5CA451E84CB11875 /* SaweeHitScreen.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F160197DCE2C13A8257B03 /* SaweeHitScreen.caf */; };
 		88F1680B6891A08317E3BA46 /* CCBAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1651BB879453695B5F534 /* CCBAnimationManager.m */; };
 		88F1682589DD4D2CED4CC9EA /* E1-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F163988B9ED8F374C45F9D /* E1-Glass.png */; };
+		88F16826BAFE13ECACEE4C3A /* RespawnSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16F84741DF26044AD0082 /* RespawnSystem.m */; };
 		88F168270E60671EE5DF16A3 /* A42-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16A1344B4119F754AF8E5 /* A42-Glass.png */; };
 		88F1682AEEA1C563EDEA0588 /* HiddenLevelsFoundDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F168DC6C0E7D12DB48A61D /* HiddenLevelsFoundDialog.m */; };
 		88F168356D81FD0035D6EE62 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163F21CDB2253F82F64FE /* GameCenterManager.m */; };
@@ -3590,6 +3598,7 @@
 		88F16D5D79913EB54363FCDE /* Level-E8-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16077E5C41B0D3E03EF00 /* Level-E8-Layout.plist */; };
 		88F16D5E33CB0221600030AD /* End-Credits-Bees-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16218AE09A08E66BB8854 /* End-Credits-Bees-hd.png */; };
 		88F16D6280429BA8A13D2F9E /* HiddenLevelsFoundDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 88F1628D8065B43990F7479D /* HiddenLevelsFoundDialog.ccbi */; };
+		88F16D85E5CA6735F8F6AB6E /* Pollen-Magic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16DE4036D4DF45E471D80 /* Pollen-Magic.plist */; };
 		88F16D9B206B9385FD73CAF1 /* End-Credits-Copyright-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16C6223E81A81B9CF24B8 /* End-Credits-Copyright-hd.png */; };
 		88F16DA7293FA0802285E7E8 /* Glass-Piece-Small-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F161ED53CADE207CEB8410 /* Glass-Piece-Small-E.plist */; };
 		88F16DB7108779564B64D9BC /* TestCreditsState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F169B7B355B5F8E2DC8832 /* TestCreditsState.m */; };
@@ -3613,6 +3622,7 @@
 		88F16EA6D6C61B7277CD4CD7 /* BubbleYel-A24-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16E2FFB048E404EA68476 /* BubbleYel-A24-hd.png */; };
 		88F16EA772CB143F4E969465 /* E1-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16AFEB78B753575A526D0 /* E1-Glass-hd.png */; };
 		88F16EAA7B94379681078231 /* GameCompletedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1681F43B4A308CC5FA88D /* GameCompletedDialog.m */; };
+		88F16EB1A0354FC608E24988 /* Pollen-Magic-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16BF2180E5668C2DEBD09 /* Pollen-Magic-Animations.plist */; };
 		88F16ECE481D899CAC0AC95C /* E8-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F165922364752477718CE5 /* E8-Glass-hd.png */; };
 		88F16ECF977A55B20A959DBF /* Ramp-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1634C1168610C5EDBD530 /* Ramp-E.plist */; };
 		88F16EE6F5DEEC70C55E34B0 /* E-Glass-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16CE7B0DBE176A9F4DC75 /* E-Glass-Shapes.plist */; };
@@ -5852,11 +5862,13 @@
 		88F162180D8EED3511FB7131 /* CCNode+CCBRelativePositioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+CCBRelativePositioning.m"; sourceTree = "<group>"; };
 		88F16218AE09A08E66BB8854 /* End-Credits-Bees-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-Bees-hd.png"; sourceTree = "<group>"; };
 		88F1621F80BB64251FE58E55 /* End-Credits-Copyright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-Copyright.png"; sourceTree = "<group>"; };
+		88F162367B9FDD62526A85A8 /* RespawnInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespawnInfo.h; sourceTree = "<group>"; };
 		88F1625980982F54EC65F686 /* TestCreditsState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCreditsState.h; sourceTree = "<group>"; };
 		88F16280D09097CFF6C69201 /* Glass-E.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Glass-E.plist"; sourceTree = "<group>"; };
 		88F1628D8065B43990F7479D /* HiddenLevelsFoundDialog.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file.ccbi; path = HiddenLevelsFoundDialog.ccbi; sourceTree = "<group>"; };
 		88F162930A97BC78B86C9415 /* End-Credits-StingLabLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-StingLabLogo.png"; sourceTree = "<group>"; };
 		88F1629A925728F553823AF3 /* BeezleNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeezleNavigationViewController.h; sourceTree = "<group>"; };
+		88F162BF9CACBBB551BFDB2E /* RespawnComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespawnComponent.h; sourceTree = "<group>"; };
 		88F162CAA517808899801331 /* End-Credits-Bees.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-Bees.png"; sourceTree = "<group>"; };
 		88F162CFE432763D9C045E3A /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zip.h; path = libs/SSZipArchive/minizip/zip.h; sourceTree = "<group>"; };
 		88F162D1B5F6CCC02CB730CA /* Beeater-Body-Bird-E-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Beeater-Body-Bird-E-Animations.plist"; sourceTree = "<group>"; };
@@ -5876,6 +5888,7 @@
 		88F163BE772341C643097BFF /* End-GameCompleted!-Sumee-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Sumee-2.png"; sourceTree = "<group>"; };
 		88F163C1735003267D916572 /* CCBSequenceProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBSequenceProperty.h; sourceTree = "<group>"; };
 		88F163C3EAA348F3859CCD64 /* End-GameCompleted!-Speedee-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Speedee-1-hd.png"; sourceTree = "<group>"; };
+		88F163E64A26B0A08A307A79 /* RespawnInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RespawnInfo.m; sourceTree = "<group>"; };
 		88F163EF41B4544CC7852D7B /* BeezleNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeezleNavigationViewController.m; sourceTree = "<group>"; };
 		88F163F21CDB2253F82F64FE /* GameCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterManager.m; sourceTree = "<group>"; };
 		88F1641C13F25A38C83FAF73 /* TestLevelLayoutsState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLevelLayoutsState.m; sourceTree = "<group>"; };
@@ -5889,6 +5902,7 @@
 		88F1651BB879453695B5F534 /* CCBAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBAnimationManager.m; sourceTree = "<group>"; };
 		88F165326E51E7284B0D5C80 /* End-GameCompleted!-Sumee-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Sumee-1.png"; sourceTree = "<group>"; };
 		88F16541C5F73A6EDE112F4D /* HiddenLevelsFoundDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HiddenLevelsFoundDialog.h; sourceTree = "<group>"; };
+		88F16579ADE2F7B75B98E3D3 /* RespawnComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RespawnComponent.m; sourceTree = "<group>"; };
 		88F1658A0AEF2EF3F9DA73EB /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransaction.h; path = libs/GoogleAnalytics/GAITransaction.h; sourceTree = "<group>"; };
 		88F165922364752477718CE5 /* E8-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E8-Glass-hd.png"; sourceTree = "<group>"; };
 		88F165A6E6244AF7D4BAF3A3 /* LiteUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiteUtils.h; sourceTree = "<group>"; };
@@ -5962,6 +5976,7 @@
 		88F16BE26AA17A8F4C36902F /* Super-Beeater-E.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Super-Beeater-E.plist"; sourceTree = "<group>"; };
 		88F16BEBF72371BBB36EECE5 /* Beeater-Head-Piece-E-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Beeater-Head-Piece-E-2.plist"; sourceTree = "<group>"; };
 		88F16BED9BC8C7BAD7FF6FB1 /* Title-s-E-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Title-s-E-hd.png"; sourceTree = "<group>"; };
+		88F16BF2180E5668C2DEBD09 /* Pollen-Magic-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Pollen-Magic-Animations.plist"; sourceTree = "<group>"; };
 		88F16C14C9CF23947F323932 /* E7-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E7-Glass.png"; sourceTree = "<group>"; };
 		88F16C457F8B6579D1BE4435 /* End-GameCompleted!-Bee-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Bee-1.png"; sourceTree = "<group>"; };
 		88F16C6223E81A81B9CF24B8 /* End-Credits-Copyright-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-Copyright-hd.png"; sourceTree = "<group>"; };
@@ -5980,11 +5995,13 @@
 		88F16D547595DC13E1D6BD32 /* LevelSelect.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file.ccbi; path = LevelSelect.ccbi; sourceTree = "<group>"; };
 		88F16D66507EF501BB695D95 /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
 		88F16D82FAA5666D3ABB3249 /* GameAlmostCompletedDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameAlmostCompletedDialog.m; sourceTree = "<group>"; };
+		88F16DAADC30014B5F54E8EA /* RespawnSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespawnSystem.h; sourceTree = "<group>"; };
 		88F16DC362DA2996D4A4BB25 /* BubbleYel-A24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-A24.png"; sourceTree = "<group>"; };
 		88F16DC53204B60855B30840 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ioapi.h; path = libs/SSZipArchive/minizip/ioapi.h; sourceTree = "<group>"; };
 		88F16DCF58C8CBC8C2B25A4A /* CCNode+CCBRelativePositioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+CCBRelativePositioning.h"; sourceTree = "<group>"; };
 		88F16DDA90CFE1963941ED6A /* End-GameCompleted!-Sumee-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Sumee-1-hd.png"; sourceTree = "<group>"; };
 		88F16DDE78ECCDDAEF968062 /* End-GameCompleted!-Speedee-2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Speedee-2-hd.png"; sourceTree = "<group>"; };
+		88F16DE4036D4DF45E471D80 /* Pollen-Magic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Pollen-Magic.plist"; sourceTree = "<group>"; };
 		88F16DF35F4A1F71C5E54EFB /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ioapi.c; path = libs/SSZipArchive/minizip/ioapi.c; sourceTree = "<group>"; };
 		88F16DF4571CBFE365DCA8AF /* OutputConsoleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputConsoleState.h; sourceTree = "<group>"; };
 		88F16DF93A6C9827B0ACDCC0 /* Beeater-Body-Land-E-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Beeater-Body-Land-E-Animations.plist"; sourceTree = "<group>"; };
@@ -6000,6 +6017,7 @@
 		88F16F4255104F4288F68489 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = libs/SSZipArchive/minizip/crypt.h; sourceTree = "<group>"; };
 		88F16F5E395CE4ADDB051148 /* E7-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E7-Glass-hd.png"; sourceTree = "<group>"; };
 		88F16F718E42A0ABBF73B35B /* End-Credits-Thanks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-Thanks.png"; sourceTree = "<group>"; };
+		88F16F84741DF26044AD0082 /* RespawnSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RespawnSystem.m; sourceTree = "<group>"; };
 		88F16F9E27F3FB9352175335 /* Chooser-Screen-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chooser-Screen-hd.png"; sourceTree = "<group>"; };
 		88F16F9F96ED24A2E423C93D /* End-GameCompleted!-Mumee-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Mumee-2.png"; sourceTree = "<group>"; };
 		88F16FC478B4F19D0789F6A6 /* Level-E9-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Level-E9-Layout.plist"; sourceTree = "<group>"; };
@@ -7854,6 +7872,10 @@
 				2C74B438156FAD1E00596A22 /* WobbleComponent.m */,
 				2C74B439156FAD1E00596A22 /* WoodComponent.h */,
 				2C74B43A156FAD1E00596A22 /* WoodComponent.m */,
+				88F16579ADE2F7B75B98E3D3 /* RespawnComponent.m */,
+				88F162BF9CACBBB551BFDB2E /* RespawnComponent.h */,
+				88F163E64A26B0A08A307A79 /* RespawnInfo.m */,
+				88F162367B9FDD62526A85A8 /* RespawnInfo.h */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -8105,6 +8127,8 @@
 				2C74B4BA156FAD1E00596A22 /* Render */,
 				2C74B4BF156FAD1E00596A22 /* WaterWaveSystem.h */,
 				2C74B4C0156FAD1E00596A22 /* WaterWaveSystem.m */,
+				88F16F84741DF26044AD0082 /* RespawnSystem.m */,
+				88F16DAADC30014B5F54E8EA /* RespawnSystem.h */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -8546,6 +8570,7 @@
 				2C8409C715829AA10098BA9C /* Pollen-Green-Animations.plist */,
 				2C8409C815829AA10098BA9C /* Pollen-Orange-Animations.plist */,
 				2C8409C915829AA10098BA9C /* Pollen-Yellow-Animations.plist */,
+				88F16BF2180E5668C2DEBD09 /* Pollen-Magic-Animations.plist */,
 			);
 			path = Pollen;
 			sourceTree = "<group>";
@@ -9317,6 +9342,7 @@
 				2CDB9CE81555DF3E00384B54 /* Pollen-Green.plist */,
 				2CE4F59B153CC8A80023B5C6 /* Pollen-Orange.plist */,
 				2CDB9878154F44D500384B54 /* Pollen-Yellow.plist */,
+				88F16DE4036D4DF45E471D80 /* Pollen-Magic.plist */,
 			);
 			path = Pollen;
 			sourceTree = "<group>";
@@ -11406,6 +11432,8 @@
 				88F16F4A14D8C5BFEFDF3F91 /* Level-E8-Layout.plist in Resources */,
 				88F16E3A34F9DFF6261F1F76 /* Level-E9-Layout.plist in Resources */,
 				88F167C1EEA7C8DDA60DB94C /* Level-E10-Layout.plist in Resources */,
+				88F16D85E5CA6735F8F6AB6E /* Pollen-Magic.plist in Resources */,
+				88F16EB1A0354FC608E24988 /* Pollen-Magic-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -13006,6 +13034,8 @@
 				88F16D5D79913EB54363FCDE /* Level-E8-Layout.plist in Resources */,
 				88F16DC78D6D36C25C24A101 /* Level-E9-Layout.plist in Resources */,
 				88F163B99A2EC66C72C93624 /* Level-E10-Layout.plist in Resources */,
+				88F1664DD0E08EEBBA578728 /* Pollen-Magic.plist in Resources */,
+				88F164F9868A1231729C2B6A /* Pollen-Magic-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -13370,6 +13400,9 @@
 				88F16BEF2D60535A280DED74 /* BeezleNavigationViewController.m in Sources */,
 				88F163836ECD758F0E2C43F5 /* LiteUtils.m in Sources */,
 				88F161A4455216FE5D1EE351 /* TestLevelLayoutsState.m in Sources */,
+				88F1628F98C44E997689CDBA /* RespawnComponent.m in Sources */,
+				88F1630803838C3B755FB9A5 /* RespawnSystem.m in Sources */,
+				88F16353D418E6A23B38260D /* RespawnInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -13706,6 +13739,9 @@
 				88F164CD04518E159B40E2FD /* HiddenLevelsFoundDialog.m in Sources */,
 				88F16C0EE888625D5BFA25F9 /* BeezleNavigationViewController.m in Sources */,
 				88F16059F115DBCC6735BCDF /* TestLevelLayoutsState.m in Sources */,
+				88F165561C515DAFEEB28517 /* RespawnComponent.m in Sources */,
+				88F16826BAFE13ECACEE4C3A /* RespawnSystem.m in Sources */,
+				88F16330B220C90F6C072647 /* RespawnInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
