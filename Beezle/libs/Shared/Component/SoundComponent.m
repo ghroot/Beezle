@@ -8,8 +8,14 @@
 
 #import "SoundComponent.h"
 #import "StringCollection.h"
+#import "CocosDenshion.h"
+#import "CCDirector.h"
+#import "CCActionManager.h"
 
 @implementation SoundComponent
+
+@synthesize loopingSoundName = _loopingSoundName;
+@synthesize soundSource = _soundSource;
 
 -(id) init
 {
@@ -28,6 +34,10 @@
         // Type
         [_defaultCollisionSoundNames addStringsFromDictionary:typeComponentDict baseName:@"defaultCollisionSound"];
         [_defaultDestroySoundNames addStringsFromDictionary:typeComponentDict baseName:@"defaultDestroySound"];
+		if ([typeComponentDict objectForKey:@"loopingSound"] != nil)
+		{
+			_loopingSoundName = [[typeComponentDict objectForKey:@"loopingSound"] copy];
+		}
 	}
 	return self;
 }
@@ -36,6 +46,13 @@
 {
 	[_defaultCollisionSoundNames release];
     [_defaultDestroySoundNames release];
+	[_loopingSoundName release];
+	if (_soundSource != nil)
+	{
+		[[[CCDirector sharedDirector] actionManager] removeAllActionsFromTarget:_soundSource];
+		[_soundSource stop];
+	}
+	[_soundSource release];
     
     [super dealloc];
 }

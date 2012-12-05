@@ -9,6 +9,7 @@
 #import "artemis.h"
 
 @class StringCollection;
+@class CDSoundSource;
 
 /**
   Sounds for collision and destruction.
@@ -18,7 +19,14 @@
     // Type
 	StringCollection *_defaultCollisionSoundNames;
     StringCollection *_defaultDestroySoundNames;
+	NSString *_loopingSoundName;
+
+	// Transient
+	CDSoundSource *_soundSource;
 }
+
+@property (nonatomic, readonly) NSString *loopingSoundName;
+@property (nonatomic, retain) CDSoundSource *soundSource;
 
 -(BOOL) hasDefaultCollisionSoundName;
 -(void) setDefaultCollisionSoundName:(NSString *)defaultCollisionSoundName;

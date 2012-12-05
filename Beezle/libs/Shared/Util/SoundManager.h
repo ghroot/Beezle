@@ -33,5 +33,6 @@
 -(void) stopMusic;
 -(void) mute;
 -(void) unMute;
+-(NSString *) soundFilePathForSfx:(NSString *)name;
 
 @end

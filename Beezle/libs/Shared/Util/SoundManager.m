@@ -205,4 +205,10 @@ static const float SFX_VOLUME = 0.6f;
 	_isMuted = FALSE;
 }
 
+-(NSString *) soundFilePathForSfx:(NSString *)name
+{
+	NSDictionary *soundInfoDict = [_sfxInfoDictsByName objectForKey:name];
+	return [soundInfoDict objectForKey:@"fileName"];
+}
+
 @end

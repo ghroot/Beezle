@@ -42,6 +42,7 @@
 #import "FadeSystem.h"
 #import "AnythingWithVoidCollisionHandler.h"
 #import "AnythingWithVolatileCollisionHandler.h"
+#import "SoundSystem.h"
 #import "BeeWithBeeaterCollisionHandler.h"
 #import "BeeWithSpikeCollisionHandler.h"
 #import "DozerWithCrumbleCollisionHandler.h"
@@ -118,6 +119,7 @@
 @synthesize shakeSystem = _shakeSystem;
 @synthesize shardSystem = _shardSystem;
 @synthesize slingerControlSystem = _slingerControlSystem;
+@synthesize soundSystem = _soundSystem;
 @synthesize spawnSystem = _spawnSystem;
 @synthesize teleportSystem = _teleportSystem;
 @synthesize waterWaveSystem = _waterWaveSystem;
@@ -187,7 +189,9 @@
     _world = [[World alloc] init];
     
 	SystemManager *systemManager = [_world systemManager];
-	
+
+	_soundSystem = [SoundSystem system];
+	[systemManager setSystem:_soundSystem];
     _gameRulesSystem = [[[GameRulesSystem alloc] initWithLevelSession:_levelSession] autorelease];
     [systemManager setSystem:_gameRulesSystem];
 	_physicsSystem = [PhysicsSystem system];

@@ -41,6 +41,7 @@
 @class SlingerControlSystem;
 @class PollenSystem;
 @class RespawnSystem;
+@class SoundSystem;
 
 @interface GameplayState : GameState
 {
@@ -54,7 +55,8 @@
 	World *_world;
 	
 	BOOL _debug;
-	
+
+	SoundSystem *_soundSystem;
 	BeeaterSystem *_beeaterSystem;
 	CapturedSystem *_capturedSystem;
     BeeExpiratonSystem *_beeExpirationSystem;
@@ -117,6 +119,7 @@
 @property (nonatomic, readonly) ShakeSystem *shakeSystem;
 @property (nonatomic, readonly) ShardSystem *shardSystem;
 @property (nonatomic, readonly) SlingerControlSystem *slingerControlSystem;
+@property (nonatomic, readonly) SoundSystem *soundSystem;
 @property (nonatomic, readonly) SpawnSystem *spawnSystem;
 @property (nonatomic, readonly) TeleportSystem *teleportSystem;
 @property (nonatomic, readonly) WaterWaveSystem *waterWaveSystem;

@@ -25,6 +25,7 @@
 {
     if (self = [super initWithGameplayState:gameplayState])
     {
+		[_systems addObject:[gameplayState soundSystem]];
 		[_systems addObject:[gameplayState movementSystem]];
 		[_systems addObject:[gameplayState physicsSystem]];
 		[_systems addObject:[gameplayState collisionSystem]];
