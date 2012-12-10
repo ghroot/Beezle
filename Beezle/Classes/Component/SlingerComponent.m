@@ -7,6 +7,7 @@
 //
 
 #import "SlingerComponent.h"
+#import "SlingerRotator.h"
 
 static const int AIM_POLLEN_INTERVAL = 16;
 
@@ -15,6 +16,8 @@ static const int AIM_POLLEN_INTERVAL = 16;
 @synthesize queuedBeeTypes = _queuedBeeTypes;
 @synthesize state = _state;
 @synthesize loadedBeeType = _loadedBeeType;
+@synthesize originalRotation = _originalRotation;
+@synthesize rotator = _rotator;
 
 -(id) init
 {
@@ -43,6 +46,7 @@ static const int AIM_POLLEN_INTERVAL = 16;
 -(void) dealloc
 {
 	[_queuedBeeTypes release];
+	[_rotator release];
 
 	[super dealloc];
 }

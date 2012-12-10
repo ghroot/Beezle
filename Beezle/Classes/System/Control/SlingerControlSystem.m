@@ -23,6 +23,8 @@
 #import "RenderSprite.h"
 #import "BeeComponent.h"
 #import "RenderSystem.h"
+#import "SlingerRotator.h"
+#import "ActionTags.h"
 
 static const float SLINGER_POWER_SENSITIVITY = 7.5f;
 static const int SLINGER_MIN_POWER = 100;
@@ -45,6 +47,7 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 -(void) changeToSimpleMode:(Entity *)entity;
 -(void) changeToAdvancedMode:(Entity *)entity;
 -(void) createControlChangeText:(Entity *)entity fileName:(NSString *)fileName;
+-(void) rotateToOriginalRotation:(Entity *)entity;
 
 @end
 
@@ -79,7 +82,13 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 
 -(void) entityAdded:(Entity *)entity
 {
-	[[SlingerComponent getFrom:entity] setState:SLINGER_STATE_IDLE];
+	SlingerComponent *slingerComponent = [SlingerComponent getFrom:entity];
+	[slingerComponent setState:SLINGER_STATE_IDLE];
+
+	TransformComponent *transformComponent = [_transformComponentMapper getComponentFor:entity];
+	[slingerComponent setOriginalRotation:[transformComponent rotation]];
+	SlingerRotator *rotator = [[[SlingerRotator alloc] initWithSlingerEntity:entity] autorelease];
+	[slingerComponent setRotator:rotator];
 }
 
 -(void) processEntity:(Entity *)entity
@@ -124,6 +133,8 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 						_touchBeganTime = [[NSDate date] timeIntervalSince1970];
 
 						_stretchSoundPlayed = FALSE;
+
+						[[[CCDirector sharedDirector] actionManager] removeActionByTag:ACTION_TAG_SLINGER_ROTATION target:[slingerComponent rotator]];
 
 						[slingerComponent setState:SLINGER_STATE_AIMING];
 					}
@@ -210,6 +221,8 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 
 						[trajectoryComponent reset];
 
+						[self rotateToOriginalRotation:entity];
+
 						BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
 						RenderComponent *beeRenderComponent = [RenderComponent getFrom:beeEntity];
 						NSString *shootAnimationName = [NSString stringWithFormat:@"%@-Shoot", [[beeComponent type] capitalizedString]];
@@ -273,6 +286,8 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 						_currentAngle = CC_DEGREES_TO_RADIANS(360 - [transformComponent rotation] + 270);
 
 						_stretchSoundPlayed = FALSE;
+
+						[[[CCDirector sharedDirector] actionManager] removeActionByTag:ACTION_TAG_SLINGER_ROTATION target:[slingerComponent rotator]];
 
 						[slingerComponent setState:SLINGER_STATE_AIMING];
 					}
@@ -352,6 +367,8 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 						[slingerComponent clearLoadedBee];
 
 						[trajectoryComponent reset];
+
+						[self rotateToOriginalRotation:entity];
 
 						BeeComponent *beeComponent = [BeeComponent getFrom:beeEntity];
 						RenderComponent *beeRenderComponent = [RenderComponent getFrom:beeEntity];
@@ -477,6 +494,32 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 	}];
 	[_controlChangeTextSprite runAction:moveUpAction];
 	[_controlChangeTextSprite runAction:[CCSequence actionOne:fadeOutAction two:removeAction]];
+}
+
+-(void) rotateToOriginalRotation:(Entity *)entity
+{
+	SlingerComponent *slingerComponent = [_slingerComponentMapper getComponentFor:entity];
+	TransformComponent *transformComponent = [_transformComponentMapper getComponentFor:entity];
+
+	[[[CCDirector sharedDirector] actionManager] removeActionByTag:ACTION_TAG_SLINGER_ROTATION target:[slingerComponent rotator]];
+
+	CCSequence *sequence = nil;
+
+	CCDelayTime *delayAction = [CCDelayTime actionWithDuration:0.6f];
+
+	if ([transformComponent rotation] < 180.0f - (360.0f - [slingerComponent originalRotation]))
+	{
+		CCActionTween *tweenAction1 = [CCActionTween actionWithDuration:0.15f key:@"rotation" from:[transformComponent rotation] to:0.0f];
+		CCActionTween *tweenAction2 = [CCActionTween actionWithDuration:0.15f key:@"rotation" from:0.0f to:[slingerComponent originalRotation] - 360.0f];
+		sequence = [CCSequence actions:delayAction, tweenAction1, tweenAction2, nil];
+	}
+	else
+	{
+		CCActionTween *tweenAction = [CCActionTween actionWithDuration:0.3f key:@"rotation" from:[transformComponent rotation] to:[slingerComponent originalRotation]];
+		sequence = [CCSequence actions:delayAction, tweenAction, nil];
+	}
+	[sequence setTag:ACTION_TAG_SLINGER_ROTATION];
+	[[[CCDirector sharedDirector] actionManager] addAction:sequence target:[slingerComponent rotator] paused:FALSE];
 }
 
 @end

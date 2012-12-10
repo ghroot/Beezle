@@ -9,6 +9,8 @@
 #import "artemis.h"
 #import "BeeType.h"
 
+@class SlingerRotator;
+
 typedef enum
 {
 	SLINGER_STATE_IDLE,
@@ -27,11 +29,15 @@ typedef enum
 	SlingerState _state;
 	BeeType *_loadedBeeType;
 	int _aimPollenCountdown;
+	float _originalRotation;
+	SlingerRotator *_rotator;
 }
 
 @property (nonatomic, readonly) NSArray *queuedBeeTypes;
 @property (nonatomic) SlingerState state;
 @property (nonatomic, readonly) BeeType *loadedBeeType;
+@property (nonatomic) float originalRotation;
+@property (nonatomic, retain) SlingerRotator *rotator;
 
 -(void) pushBeeType:(BeeType *)beeType;
 -(void) insertBeeTypeAtStart:(BeeType *)beeType;
