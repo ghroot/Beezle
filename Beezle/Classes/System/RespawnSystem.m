@@ -12,6 +12,8 @@
 #import "TransformComponent.h"
 #import "EntityFactory.h"
 #import "EntityUtil.h"
+#import "RenderComponent.h"
+#import "RenderSprite.h"
 
 @interface RespawnSystem()
 
@@ -64,6 +66,9 @@
 		{
 			Entity *entity = [EntityFactory createEntity:[respawnInfo entityType] world:_world];
 			[EntityUtil setEntityPosition:entity position:[respawnInfo position]];
+			RenderComponent *renderComponent = [RenderComponent getFrom:entity];
+			RenderSprite *renderSprite = [renderComponent firstRenderSprite];
+			[renderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:[respawnInfo respawnAnimationName], [renderSprite randomDefaultIdleAnimationName], nil]];
 
 			[respawnInfosToRemove addObject:respawnInfo];
 		}
@@ -84,7 +89,7 @@
 	{
 		RespawnComponent *respawnComponent = [RespawnComponent getFrom:entity];
 		TransformComponent *transformComponent = [TransformComponent getFrom:entity];
-		RespawnInfo *respawnInfo = [[[RespawnInfo alloc] initWithEntityType:[respawnComponent entityType] andPosition:[transformComponent position]] autorelease];
+		RespawnInfo *respawnInfo = [[[RespawnInfo alloc] initWithEntityType:[respawnComponent entityType] position:[transformComponent position] respawnAnimationName:[respawnComponent respawnAnimationName]] autorelease];
 		[_respawnInfos addObject:respawnInfo];
 	}
 }

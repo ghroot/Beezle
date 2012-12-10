@@ -13,8 +13,10 @@
 {
 	// Type
 	NSString *_entityType;
+	NSString *_respawnAnimationName;
 }
 
 @property (nonatomic, readonly) NSString *entityType;
+@property (nonatomic, readonly) NSString *respawnAnimationName;
 
 @end

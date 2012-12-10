@@ -8,13 +8,15 @@
 {
 	NSString *_entityType;
 	CGPoint _position;
+	NSString *_respawnAnimationName;
 	int _countdown;
 }
 
 @property (nonatomic, readonly) NSString *entityType;
 @property (nonatomic, readonly) CGPoint position;
+@property (nonatomic, readonly) NSString *respawnAnimationName;
 
--(id) initWithEntityType:(NSString *)entityType andPosition:(CGPoint)position;
+-(id) initWithEntityType:(NSString *)entityType position:(CGPoint)position respawnAnimationName:(NSString *)respawnAnimationName;
 
 -(BOOL) hasCountdownReachedZero;
 -(void) decreaseCountdown;

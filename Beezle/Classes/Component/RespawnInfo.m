@@ -13,12 +13,13 @@ static const int RESPAWN_DURATION = 50;
 @synthesize entityType = _entityType;
 @synthesize position = _position;
 
--(id) initWithEntityType:(NSString *)entityType andPosition:(CGPoint)position
+-(id) initWithEntityType:(NSString *)entityType position:(CGPoint)position respawnAnimationName:(NSString *)respawnAnimationName
 {
 	if (self = [super init])
 	{
 		_entityType = [entityType copy];
 		_position = position;
+		_respawnAnimationName = [respawnAnimationName copy];
 		_countdown = RESPAWN_DURATION;
 	}
 	return self;
@@ -27,6 +28,7 @@ static const int RESPAWN_DURATION = 50;
 -(void) dealloc
 {
 	[_entityType release];
+	[_respawnAnimationName release];
 
 	[super dealloc];
 }
