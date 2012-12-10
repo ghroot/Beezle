@@ -10,6 +10,7 @@
 #import "PossessComponent.h"
 #import "SpiritComponent.h"
 #import "EntityUtil.h"
+#import "SoundManager.h"
 
 @implementation PossessWithSpiritCollisionHandler
 
@@ -30,6 +31,8 @@
 
 	[EntityUtil destroyEntity:possessEntity instant:TRUE];
 	[EntityUtil destroyEntity:spiritEntity];
+
+	[[SoundManager sharedManager] playSound:@"FreedMumee"];
 
 	return FALSE;
 }
