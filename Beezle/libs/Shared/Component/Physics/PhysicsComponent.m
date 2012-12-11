@@ -168,10 +168,9 @@
 		{
 			[_body setVelLimit:[[typeComponentDict objectForKey:@"maxVelocity"] floatValue]];
 		}
-		if ([typeComponentDict objectForKey:@"lockRotation"] &&
-			[[typeComponentDict objectForKey:@"lockRotation"] boolValue])
+		if ([typeComponentDict objectForKey:@"maxRotationVelocity"] != nil)
 		{
-			[_body setAngVelLimit:0.0f];
+			[_body setAngVelLimit:[[typeComponentDict objectForKey:@"maxRotationVelocity"] floatValue]];
 		}
 
         // Instance
