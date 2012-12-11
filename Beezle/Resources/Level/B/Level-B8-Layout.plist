@@ -37,7 +37,7 @@
 					<key>overrideBodyName</key>
 					<string>B8-Glass</string>
 					<key>position</key>
-					<string>{236, 88}</string>
+					<string>{234, 90}</string>
 				</dict>
 				<key>render</key>
 				<dict>
@@ -47,7 +47,7 @@
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{236, 88}</string>
+					<string>{234, 90}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -208,12 +208,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{239, 86}</string>
+					<string>{267, 238}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{239, 86}</string>
+					<string>{267, 238}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -246,6 +246,52 @@
 			<key>type</key>
 			<string>EGG</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{243, 238}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{243, 238}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN-ORANGE</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{219, 238}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{219, 238}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN-ORANGE</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -254,10 +300,10 @@
 	<key>name</key>
 	<string>Level-B8</string>
 	<key>pollenForThreeFlowers</key>
-	<integer>255</integer>
+	<integer>265</integer>
 	<key>pollenForTwoFlowers</key>
-	<integer>215</integer>
+	<integer>225</integer>
 	<key>version</key>
-	<integer>8</integer>
+	<integer>9</integer>
 </dict>
 </plist>

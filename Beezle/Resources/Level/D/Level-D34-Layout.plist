@@ -308,16 +308,16 @@
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>-5.7595863342285156</real>
+					<real>-4.2935099601745605</real>
 					<key>position</key>
-					<string>{293, 217}</string>
+					<string>{292, 219}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{293, 217}</string>
+					<string>{292, 219}</string>
 					<key>rotation</key>
-					<real>330</real>
+					<real>246</real>
 					<key>scale</key>
 					<string>{-1, 1}</string>
 				</dict>
@@ -470,6 +470,48 @@
 			<key>type</key>
 			<string>POLLEN-YELLOW</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>render</key>
+				<dict>
+					<key>overrideTextureFile</key>
+					<string>D34b-Sand.png</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{293, 214}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>SAND</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>render</key>
+				<dict>
+					<key>overrideTextureFile</key>
+					<string>D34a-Sand.png</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{399, 185}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>SAND</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -478,10 +520,10 @@
 	<key>name</key>
 	<string>Level-D34</string>
 	<key>pollenForThreeFlowers</key>
-	<integer>488</integer>
+	<integer>473</integer>
 	<key>pollenForTwoFlowers</key>
-	<integer>458</integer>
+	<integer>443</integer>
 	<key>version</key>
-	<integer>19</integer>
+	<integer>21</integer>
 </dict>
 </plist>
