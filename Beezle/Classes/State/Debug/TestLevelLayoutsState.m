@@ -14,6 +14,8 @@
 #import "RenderSprite.h"
 #import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
+#import "LevelLayout.h"
+#import "LevelLayoutCache.h"
 
 @interface TestLevelLayoutsState()
 
@@ -135,6 +137,14 @@
 		if (numberOfBossThemeSpriteSheets > 1)
 		{
 			[lines addObject:[NSString stringWithFormat:@"Found render error in %@", levelName]];
+		}
+
+		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:levelName];
+		if ([levelLayout pollenForTwoFlowers] == 0 ||
+				[levelLayout pollenForThreeFlowers] == 0 ||
+				[levelLayout pollenForThreeFlowers] <= [levelLayout pollenForTwoFlowers])
+		{
+			[lines addObject:[NSString stringWithFormat:@"Found pollen requirement error in %@", levelName]];
 		}
 	}
 
