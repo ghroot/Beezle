@@ -22,6 +22,7 @@
 #import "LevelRating.h"
 #import "LevelOrganizer.h"
 #import "LiteUtils.h"
+#import "CCMenuItemImageScale.h"
 
 @interface LevelSelectMenuState()
 
@@ -251,7 +252,7 @@
 -(void) createBackMenu
 {
     CCMenu *backMenu = [CCMenu node];
-	CCMenuItemImage *backMenuItem = [CCMenuItemImage itemWithNormalImage:@"Symbol-Next-White.png" selectedImage:@"Symbol-Next-White.png" block:^(id sender){
+	CCMenuItemImage *backMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"Symbol-Next-White.png" selectedImage:@"Symbol-Next-White.png" block:^(id sender){
         if ([_scrollView didDragSignificantDistance])
         {
             return;

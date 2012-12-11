@@ -15,6 +15,7 @@
 #import "BeesFrontNode.h"
 #import "PlayerInformation.h"
 #import "LevelOrganizer.h"
+#import "CCMenuItemImageScale.h"
 
 static BOOL isFirstLoad = TRUE;
 static const float PAGE_DOT_DISTANCE = 10.0f;
@@ -157,7 +158,7 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 -(void) createBackMenu
 {
 	CCMenu *backMenu = [CCMenu node];
-	CCMenuItemImage *backMenuItem = [CCMenuItemImage itemWithNormalImage:@"Symbol-Next-White.png" selectedImage:@"Symbol-Next-White.png" block:^(id sender){
+	CCMenuItemImage *backMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"Symbol-Next-White.png" selectedImage:@"Symbol-Next-White.png" block:^(id sender){
 		[_game replaceState:[PlayState state]];
 	}];
 	[backMenuItem setScaleX:-1.0f];

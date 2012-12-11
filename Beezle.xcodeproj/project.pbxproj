@@ -3362,6 +3362,7 @@
 		88F160E85B5CB5301FED4729 /* End-Completed?-Bee-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F161C7D04907A985C55A96 /* End-Completed?-Bee-1.png */; };
 		88F160F10138B649A742D2B6 /* GameCentre logo-Push.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16E15D11E5AD94EF90BDE /* GameCentre logo-Push.png */; };
 		88F160FCE81F712192CFA6D8 /* Text-atleastfornow.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16374042A5E8F91FA7AFD /* Text-atleastfornow.png */; };
+		88F1610BBC996B14F8F035A4 /* CCMenuItemImageScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16067C2E3EB7D843457FA /* CCMenuItemImageScale.m */; };
 		88F16119027447FF728101B8 /* End-GameCompleted!-Bombee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16AD0C16B4AFBA5D5E286 /* End-GameCompleted!-Bombee-1-hd.png */; };
 		88F1611CE6B973298C1D3762 /* Level-E6-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F168284202793BF9E5ECCA /* Level-E6-Layout.plist */; };
 		88F161366DD8CF656E9E3EE9 /* End-GameCompleted!-Bee-2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F161AAEA57A39D955CAEF3 /* End-GameCompleted!-Bee-2-hd.png */; };
@@ -5842,6 +5843,8 @@
 		88F160193E8134C9F166BF31 /* End-GameCompleted!-Bee-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Bee-2.png"; sourceTree = "<group>"; };
 		88F160197DCE2C13A8257B03 /* SaweeHitScreen.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = SaweeHitScreen.caf; sourceTree = "<group>"; };
 		88F1602FF74FDBE04B5399CB /* GameCompletedDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCompletedDialog.h; sourceTree = "<group>"; };
+		88F16049FB964DD6323479A9 /* CCMenuItemImageScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuItemImageScale.h; sourceTree = "<group>"; };
+		88F16067C2E3EB7D843457FA /* CCMenuItemImageScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMenuItemImageScale.m; sourceTree = "<group>"; };
 		88F16077E5C41B0D3E03EF00 /* Level-E8-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Level-E8-Layout.plist"; sourceTree = "<group>"; };
 		88F1609041D472D74B85C3EF /* CCBKeyframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBKeyframe.h; sourceTree = "<group>"; };
 		88F160BF3D081E70DE74B452 /* E5-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E5-Glass.png"; sourceTree = "<group>"; };
@@ -9498,6 +9501,7 @@
 				88F1621244BED1CE00195C0F /* SSZipArchive */,
 				2C5C9A36154A0D8800FF6F57 /* TestFlight */,
 				2CBA326B154842AD00A85642 /* Waves1DNode */,
+				88F1632ADB2FD865FE24E8D9 /* CCMenuItemImageScale */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -9689,6 +9693,15 @@
 				88F16B225BE44BB79BAE9C48 /* libGoogleAnalytics_debug.a */,
 			);
 			name = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
+		88F1632ADB2FD865FE24E8D9 /* CCMenuItemImageScale */ = {
+			isa = PBXGroup;
+			children = (
+				88F16049FB964DD6323479A9 /* CCMenuItemImageScale.h */,
+				88F16067C2E3EB7D843457FA /* CCMenuItemImageScale.m */,
+			);
+			name = CCMenuItemImageScale;
 			sourceTree = "<group>";
 		};
 		88F1698B795C31376BE8E2E4 /* E */ = {
@@ -13758,6 +13771,7 @@
 				88F16330B220C90F6C072647 /* RespawnInfo.m in Sources */,
 				88F16E919856954BBF295B46 /* SoundSystem.m in Sources */,
 				88F16221CDB43C6975EE92F4 /* SlingerRotator.m in Sources */,
+				88F1610BBC996B14F8F035A4 /* CCMenuItemImageScale.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
