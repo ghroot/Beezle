@@ -8,6 +8,7 @@
 
 +(LiteUtils *) sharedUtils;
 
+-(void) gotoAppStoreForFullVersion;
 -(void) showBuyFullVersionAlert;
 
 @end

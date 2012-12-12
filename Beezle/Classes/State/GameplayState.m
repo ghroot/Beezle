@@ -77,6 +77,7 @@
 #import "GameAlmostCompletedDialog.h"
 #import "HiddenLevelsFoundDialog.h"
 #import "CCMenuItemImageScale.h"
+#import "GameCompletedLiteDialog.h"
 
 @interface GameplayState()
 
@@ -441,7 +442,11 @@
 		}
 		else
 		{
+#ifdef LITE_VERSION
+			[_uiLayer addChild:[GameCompletedLiteDialog dialogWithGame:_game]];
+#else
 			[_uiLayer addChild:[GameCompletedDialog dialogWithGame:_game]];
+#endif
 		}
 	}
 	else

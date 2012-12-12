@@ -24,6 +24,11 @@
 	return utils;
 }
 
+-(void) gotoAppStoreForFullVersion
+{
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/app/angry-birds/id343200656?mt=8"]];
+}
+
 -(void) showBuyFullVersionAlert
 {
 	UIAlertView *dialog = [[UIAlertView alloc] init];
@@ -40,7 +45,7 @@
 {
 	if (buttonIndex == 0)
 	{
-		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/app/angry-birds/id343200656?mt=8"]];
+		[self gotoAppStoreForFullVersion];
 	}
 }
 
