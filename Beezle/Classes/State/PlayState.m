@@ -201,7 +201,7 @@ static int nextBeeIndex = 0;
 	CCAnimate *animateAction = [CCAnimate actionWithAnimation:beeAnimation];
 	[beeSprite runAction:[CCRepeatForever actionWithAction:animateAction]];
 
-	if (rand() % 2 == 0)
+	if (rand() % 100 <= 75)
 	{
 		float duration = 2.0f;
 
@@ -264,7 +264,7 @@ static int nextBeeIndex = 0;
 	CCAnimate *animateAction = [CCAnimate actionWithAnimation:saweeAnimation];
 	[saweeSprite runAction:[CCRepeatForever actionWithAction:animateAction]];
 
-	if (rand() % 2 == 0)
+	if (rand() % 100 <= 25)
 	{
 		float duration = 1.8f;
 
