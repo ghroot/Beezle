@@ -505,17 +505,17 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 
 	CCSequence *sequence = nil;
 
-	CCDelayTime *delayAction = [CCDelayTime actionWithDuration:0.6f];
+	CCDelayTime *delayAction = [CCDelayTime actionWithDuration:0.4f];
 
 	if ([transformComponent rotation] < 180.0f - (360.0f - [slingerComponent originalRotation]))
 	{
-		CCActionTween *tweenAction1 = [CCActionTween actionWithDuration:0.15f key:@"rotation" from:[transformComponent rotation] to:0.0f];
-		CCActionTween *tweenAction2 = [CCActionTween actionWithDuration:0.15f key:@"rotation" from:0.0f to:[slingerComponent originalRotation] - 360.0f];
+		CCActionTween *tweenAction1 = [CCActionTween actionWithDuration:0.2f key:@"rotation" from:[transformComponent rotation] to:0.0f];
+		id tweenAction2 = [CCEaseElasticOut actionWithAction:[CCActionTween actionWithDuration:0.4f key:@"rotation" from:0.0f to:[slingerComponent originalRotation] - 360.0f]];
 		sequence = [CCSequence actions:delayAction, tweenAction1, tweenAction2, nil];
 	}
 	else
 	{
-		CCActionTween *tweenAction = [CCActionTween actionWithDuration:0.3f key:@"rotation" from:[transformComponent rotation] to:[slingerComponent originalRotation]];
+		id tweenAction = [CCEaseElasticOut actionWithAction:[CCActionTween actionWithDuration:0.8f key:@"rotation" from:[transformComponent rotation] to:[slingerComponent originalRotation]]];
 		sequence = [CCSequence actions:delayAction, tweenAction, nil];
 	}
 	[sequence setTag:ACTION_TAG_SLINGER_ROTATION];
