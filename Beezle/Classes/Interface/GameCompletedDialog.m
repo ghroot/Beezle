@@ -48,7 +48,8 @@
 		[ActionUtils swaySprite:_beeSprite7 speed:1.0f distance:2.0f];
 		[ActionUtils animateSprite:_beeSprite7 fileNames:[NSArray arrayWithObjects:@"End-GameCompleted!-Mumee-1.png", @"End-GameCompleted!-Mumee-2.png", nil] delay:0.1f];
 
-		[[SoundManager sharedManager] playSound:@"LevelCompleted"];
+		[[SoundManager sharedManager] stopMusic];
+		[[SoundManager sharedManager] playSound:@"GameCompleted!"];
 	}
 	return self;
 }
