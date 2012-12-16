@@ -40,4 +40,16 @@
 	return components;
 }
 
+-(void) dealloc
+{
+	[_type release];
+	[_groups release];
+	[_labels release];
+	[_tags release];
+	[_typeComponentsDict release];
+
+	[super dealloc];
+}
+
+
 @end
