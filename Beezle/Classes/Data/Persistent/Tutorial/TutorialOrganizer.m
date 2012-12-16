@@ -45,7 +45,11 @@
 	{
 		_tutorialDescriptions = [NSMutableArray new];
 
+#ifdef LITE_VERSION
+		[self addTutorialsWithFile:@"Tutorial-Lite.plist"];
+#else
 		[self addTutorialsWithFile:@"Tutorial.plist"];
+#endif
 	}
 	return self;
 }

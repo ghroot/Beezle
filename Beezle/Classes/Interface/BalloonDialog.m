@@ -21,7 +21,7 @@
 
 -(id) initWithFileName:(NSString *)fileName andOffset:(CGPoint)offset
 {
-	if (self = [super initWithNode:[self createBubbleSprite:fileName] coverOpacity:80])
+	if (self = [super initWithNode:[self createBubbleSprite:fileName] coverOpacity:60])
 	{
 		_balloonCanBeClosed = FALSE;
 
