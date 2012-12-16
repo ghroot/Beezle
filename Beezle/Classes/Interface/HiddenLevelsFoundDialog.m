@@ -46,7 +46,6 @@
 		[ActionUtils swaySprite:_beeSprite4 speed:1.5f distance:2.0f];
 		[ActionUtils animateSprite:_beeSprite4 fileNames:[NSArray arrayWithObjects:@"End-GameCompleted!-Sawee-1.png", @"End-GameCompleted!-Sawee-2.png", nil] delay:0.1f];
 
-		[[SoundManager sharedManager] stopMusic];
 		[[SoundManager sharedManager] playSound:@"GameCompleted?"];
 	}
 	return self;

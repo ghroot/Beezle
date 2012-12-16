@@ -45,6 +45,19 @@ static const int POLLEN_COUNT_PER_FLYING_POLLEN = 4;
 		[self addChild:_pollenLabel];
 
 		[self createFlowerSprites];
+
+		NSString *soundName;
+		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:[_levelSession levelName]];
+		if ([levelLayout isBossLevel])
+		{
+			[[SoundManager sharedManager] stopMusic];
+			soundName = @"BossCompleted";
+		}
+		else
+		{
+			soundName = @"LevelCompleted";
+		}
+		[[SoundManager sharedManager] playSound:soundName];
 	}
 	return self;
 }

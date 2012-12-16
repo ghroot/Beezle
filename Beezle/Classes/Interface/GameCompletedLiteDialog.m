@@ -45,7 +45,6 @@
 		[ActionUtils swaySprite:_beeSprite6 speed:0.9f distance:2.0f];
 		[ActionUtils animateSprite:_beeSprite6 fileNames:[NSArray arrayWithObjects:@"End-GameCompleted!-TBee-1.png", @"End-GameCompleted!-TBee-2.png", nil] delay:0.1f];
 
-		[[SoundManager sharedManager] stopMusic];
 		[[SoundManager sharedManager] playSound:@"GameCompleted?"];
 	}
 	return self;

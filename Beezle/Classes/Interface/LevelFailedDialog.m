@@ -12,6 +12,7 @@
 #import "LevelSession.h"
 #import "LevelOrganizer.h"
 #import "LevelSelectMenuState.h"
+#import "SoundManager.h"
 
 @implementation LevelFailedDialog
 
@@ -21,6 +22,8 @@
 	{
 		_game = game;
         _levelSession = levelSession;
+
+		[[SoundManager sharedManager] playSound:@"LevelFailed"];
 	}
 	return self;
 }
