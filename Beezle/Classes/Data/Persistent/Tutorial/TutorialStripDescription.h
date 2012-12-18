@@ -11,10 +11,12 @@
 @interface TutorialStripDescription : TutorialDescription
 {
 	NSString *_fileName;
+	NSString *_buttonFileName;
 }
 
 @property (nonatomic, readonly) NSString *fileName;
+@property (nonatomic, readonly) NSString *buttonFileName;
 
--(id) initWithId:(NSString *)id trigger:(TutorialTriggerDescription *)triggerDescription andFileName:(NSString *)fileName;
+-(id) initWithId:(NSString *)id trigger:(TutorialTriggerDescription *)triggerDescription fileName:(NSString *)fileName buttonFileName:(NSString *)buttonFileName;
 
 @end

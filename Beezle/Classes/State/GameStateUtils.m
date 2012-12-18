@@ -11,7 +11,6 @@
 #import "TutorialOrganizer.h"
 #import "PlayerInformation.h"
 #import "Game.h"
-#import "LevelOrganizer.h"
 #import "TutorialStripMenuState.h"
 #import "Game.h"
 #import "GameplayState.h"
@@ -23,8 +22,7 @@
 	TutorialStripDescription *tutorialStripDescription = [[TutorialOrganizer sharedOrganizer] unseenTutorialStripDescriptionForLevel:levelName];
 	if (tutorialStripDescription != nil)
 	{
-		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:levelName];
-		TutorialStripMenuState *tutorialStripMenuState = [[[TutorialStripMenuState alloc] initWithFileName:[tutorialStripDescription fileName] theme:theme block:^{
+		TutorialStripMenuState *tutorialStripMenuState = [[[TutorialStripMenuState alloc] initWithFileName:[tutorialStripDescription fileName] buttonFileName:[tutorialStripDescription buttonFileName] block:^{
 			[game clearAndReplaceState:[GameplayState stateWithLevelName:levelName]];
 		}] autorelease];
 		[game pushState:tutorialStripMenuState];

@@ -17,6 +17,6 @@
 	void (^_block)();
 }
 
--(id) initWithFileName:(NSString *)fileName theme:(NSString *)theme block:(void(^)())block;
+-(id) initWithFileName:(NSString *)fileName buttonFileName:(NSString *)buttonFileName block:(void(^)())block;
 
 @end

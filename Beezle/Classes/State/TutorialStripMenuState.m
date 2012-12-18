@@ -8,14 +8,14 @@
 
 #import "TutorialStripMenuState.h"
 #import "CCMenuNoTouchSwallow.h"
-#import "Game.h"
 #import "ScrollView.h"
+#import "CCMenuItemImageScale.h"
 
 static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 
 @implementation TutorialStripMenuState
 
--(id) initWithFileName:(NSString *)fileName theme:(NSString *)theme block:(void(^)())block
+-(id) initWithFileName:(NSString *)fileName buttonFileName:(NSString *)buttonFileName block:(void(^)())block
 {
 	if (self = [super init])
 	{
@@ -64,16 +64,13 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 		[draggableNode setContentSize:CGSizeMake(contentWidth, winSize.height)];
 
 		CCMenu *menu = [CCMenuNoTouchSwallow node];
-		NSString *imageTheme = [theme isEqualToString:@"E"] ? @"A" : theme;
-		CCMenuItemImage *menuItem = [CCMenuItemImage itemWithNormalImage:[NSString stringWithFormat:@"Syst-Check-%@.png", imageTheme] selectedImage:[NSString stringWithFormat:@"Syst-Check2-%@.png", imageTheme] block:^(id sender){
+		CCMenuItemImageScale *menuItem = [CCMenuItemImageScale itemWithNormalImage:buttonFileName selectedImage:buttonFileName block:^(id sender){
 			if ([_scrollView didDragSignificantDistance])
 			{
 				return;
 			}
 			_block();
 		}];
-		[[menuItem selectedImage] setPosition:CGPointMake([menuItem contentSize].width / 2, [menuItem contentSize].height / 2)];
-		[[menuItem selectedImage] setAnchorPoint:CGPointMake(0.5f, 0.5f)];
 		[menuItem setPosition:CGPointMake(contentWidth - 5.0f, 5.0f)];
 		[menuItem setAnchorPoint:CGPointMake(1.0f, 0.0f)];
 		[menu setPosition:CGPointZero];

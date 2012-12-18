@@ -11,12 +11,14 @@
 @implementation TutorialStripDescription
 
 @synthesize fileName = _fileName;
+@synthesize buttonFileName = _buttonFileName;
 
--(id) initWithId:(NSString *)id trigger:(TutorialTriggerDescription *)triggerDescription andFileName:(NSString *)fileName
+-(id) initWithId:(NSString *)id trigger:(TutorialTriggerDescription *)triggerDescription fileName:(NSString *)fileName buttonFileName:(NSString *)buttonFileName
 {
 	if (self = [super initWithId:id andTrigger:triggerDescription])
 	{
 		_fileName = [fileName copy];
+		_buttonFileName = [buttonFileName copy];
 	}
 	return self;
 }
@@ -24,6 +26,7 @@
 -(void) dealloc
 {
 	[_fileName release];
+	[_buttonFileName release];
 
 	[super dealloc];
 }

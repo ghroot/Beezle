@@ -101,7 +101,8 @@
 		else if ([type isEqualToString:@"strip"])
 		{
 			NSString *fileName = [tutorialDict objectForKey:@"fileName"];
-			tutorialDescription = [[[TutorialStripDescription alloc] initWithId:id trigger:triggerDescription andFileName:fileName] autorelease];
+			NSString *buttonFileName = [tutorialDict objectForKey:@"buttonFileName"];
+			tutorialDescription = [[[TutorialStripDescription alloc] initWithId:id trigger:triggerDescription fileName:fileName buttonFileName:buttonFileName] autorelease];
 		}
 
 		if (tutorialDescription != nil)
