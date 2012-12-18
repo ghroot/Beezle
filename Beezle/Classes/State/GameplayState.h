@@ -18,7 +18,6 @@
 @class BeeQueueRenderingSystem;
 @class CapturedSystem;
 @class CollisionSystem;
-@class DebugRenderPhysicsSystem;
 @class DisposalSystem;
 @class FreezeSystem;
 @class GameRulesSystem;
@@ -54,7 +53,7 @@
 
 	World *_world;
 	
-	BOOL _debug;
+	BOOL _musicDisabled;
 
 	SoundSystem *_soundSystem;
 	BeeaterSystem *_beeaterSystem;
@@ -85,8 +84,7 @@
 	HealthSystem *_healthSystem;
 	RespawnSystem *_respawnSystem;
 	DisposalSystem *_disposalSystem;
-	DebugRenderPhysicsSystem *_debugRenderPhysicsSystem;
-    
+
     NSMutableArray *_modes;
     GameMode *_currentMode;
 }
@@ -94,6 +92,7 @@
 @property (nonatomic, readonly) NSString *levelName;
 @property (nonatomic, readonly) CCLayer *uiLayer;
 @property (nonatomic, readonly) World *world;
+@property (nonatomic) BOOL musicDisabled;
 @property (nonatomic, readonly) AimPollenShooterSystem *aimPollenShooterSystem;
 @property (nonatomic, readonly) BeeaterSystem *beeaterSystem;
 @property (nonatomic, readonly) BeeExpiratonSystem *beeExpirationSystem;

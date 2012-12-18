@@ -14,7 +14,6 @@
 #import "BeeQueueRenderingSystem.h"
 #import "BeeExpiratonSystem.h"
 #import "CollisionSystem.h"
-#import "DebugRenderPhysicsSystem.h"
 #import "DisposalSystem.h"
 #import "CapturedSystem.h"
 #import "FreezeSystem.h"
@@ -97,6 +96,7 @@
 @synthesize levelName = _levelName;
 @synthesize uiLayer = _uiLayer;
 @synthesize world = _world;
+@synthesize musicDisabled = _musicDisabled;
 @synthesize aimPollenShooterSystem = _aimPollenShooterSystem;
 @synthesize beeaterSystem = _beeaterSystem;
 @synthesize beeExpirationSystem = _beeExpirationSystem;
@@ -154,8 +154,6 @@
 -(void) initialise
 {
 	[super initialise];
-	
-	_debug = FALSE;
 	
 	_gameLayer = [CCLayer node];
 	[self addChild:_gameLayer];
@@ -250,11 +248,6 @@
 	[systemManager setSystem:_respawnSystem];
 	_disposalSystem = [DisposalSystem system];
 	[systemManager setSystem:_disposalSystem];
-	if (_debug)
-	{
-		_debugRenderPhysicsSystem = [[[DebugRenderPhysicsSystem alloc] initWithScene:self] autorelease];
-		[systemManager setSystem:_debugRenderPhysicsSystem];
-	}
 	
 	[systemManager initialiseAll];
 }
@@ -340,17 +333,20 @@
     
     [_currentMode enter];
 
-	NSString *musicName;
-	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:_levelName];
-	if ([levelLayout isBossLevel])
+	if (!_musicDisabled)
 	{
-		musicName = @"MusicBoss";
+		NSString *musicName;
+		LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:_levelName];
+		if ([levelLayout isBossLevel])
+		{
+			musicName = @"MusicBoss";
+		}
+		else
+		{
+			musicName = [NSString stringWithFormat:@"Music%@", [[LevelOrganizer sharedOrganizer] themeForLevel:_levelName]];
+		}
+		[[SoundManager sharedManager] playMusic:musicName loop:TRUE];
 	}
-	else
-	{
-		musicName = [NSString stringWithFormat:@"Music%@", [[LevelOrganizer sharedOrganizer] themeForLevel:_levelName]];
-	}
-	[[SoundManager sharedManager] playMusic:musicName loop:TRUE];
 }
 
 -(void) leave

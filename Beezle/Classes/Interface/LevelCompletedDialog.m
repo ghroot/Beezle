@@ -51,6 +51,8 @@ static const int POLLEN_COUNT_PER_FLYING_POLLEN = 4;
 		if ([levelLayout isBossLevel])
 		{
 			[[SoundManager sharedManager] stopMusic];
+			GameplayState *gameplayState = (GameplayState *)[_game currentState];
+			[gameplayState setMusicDisabled:TRUE];
 			soundName = @"BossCompleted";
 		}
 		else
