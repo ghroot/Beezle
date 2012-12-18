@@ -8,12 +8,14 @@
 
 #import "GameState.h"
 
+@class CCMenuItemImageScale;
+
 @interface PlayState : GameState
 {
 	CCMenu *_menu;
 	CCMenuItemImage *_menuItemPlay;
 	CCSprite *_pollenExplodeSprite;
-	CCMenuItemImage *_gameCenterMenuItem;
+	CCMenuItemImageScale *_gameCenterMenuItem;
 	float _universalScreenStartX;
 }
 
