@@ -10,15 +10,12 @@
 #import "ActionUtils.h"
 #import "SoundManager.h"
 #import "PlayState.h"
-#import "GameplayState.h"
 #import "LevelSession.h"
 #import "LevelOrganizer.h"
 #import "LevelThemeSelectMenuState.h"
 
 @interface HiddenLevelsFoundDialog()
 
--(void) exitGame;
--(void) restartGame;
 -(void) gotoLevelThemeSelectionState;
 
 @end
@@ -49,16 +46,6 @@
 		[[SoundManager sharedManager] playSound:@"GameCompleted?"];
 	}
 	return self;
-}
-
--(void) exitGame
-{
-	[_game clearAndReplaceState:[PlayState state]];
-}
-
--(void) restartGame
-{
-	[_game replaceState:[GameplayState stateWithLevelName:[_levelSession levelName]]];
 }
 
 -(void) gotoLevelThemeSelectionState
