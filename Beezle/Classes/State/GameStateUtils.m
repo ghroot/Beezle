@@ -20,9 +20,8 @@
 
 +(void) replaceWithGameplayState:(NSString *)levelName game:(Game *)game
 {
-	TutorialStripDescription *tutorialStripDescription = [[TutorialOrganizer sharedOrganizer] tutorialStripDescriptionForLevel:levelName];
-	if (tutorialStripDescription != nil &&
-			![[PlayerInformation sharedInformation] hasSeenTutorialId:[tutorialStripDescription id]])
+	TutorialStripDescription *tutorialStripDescription = [[TutorialOrganizer sharedOrganizer] unseenTutorialStripDescriptionForLevel:levelName];
+	if (tutorialStripDescription != nil)
 	{
 		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:levelName];
 		TutorialStripMenuState *tutorialStripMenuState = [[[TutorialStripMenuState alloc] initWithFileName:[tutorialStripDescription fileName] theme:theme block:^{

@@ -21,7 +21,7 @@
 -(void) addTutorialsWithDictionary:(NSDictionary *)dict;
 -(void) addTutorialsWithFile:(NSString *)fileName;
 
--(TutorialBalloonDescription *) tutorialBalloonDescriptionForLevel:(NSString *)levelName;
--(TutorialStripDescription *) tutorialStripDescriptionForLevel:(NSString *)levelName;
+-(TutorialBalloonDescription *) unseenTutorialBalloonDescriptionForLevel:(NSString *)levelName;
+-(TutorialStripDescription *) unseenTutorialStripDescriptionForLevel:(NSString *)levelName;
 
 @end

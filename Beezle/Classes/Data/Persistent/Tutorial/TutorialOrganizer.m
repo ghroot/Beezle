@@ -18,6 +18,7 @@
 #import "LevelLayoutCache.h"
 #import "LevelLayoutEntry.h"
 #import "StringCollection.h"
+#import "PlayerInformation.h"
 
 @interface TutorialOrganizer()
 
@@ -118,12 +119,13 @@
 	[self addTutorialsWithDictionary:dict];
 }
 
--(TutorialBalloonDescription *) tutorialBalloonDescriptionForLevel:(NSString *)levelName
+-(TutorialBalloonDescription *) unseenTutorialBalloonDescriptionForLevel:(NSString *)levelName
 {
 	for (TutorialDescription *tutorialDescription in _tutorialDescriptions)
 	{
 		if ([tutorialDescription isKindOfClass:[TutorialBalloonDescription class]] &&
-			[self isTutorialDescriptionTriggered:tutorialDescription levelName:levelName])
+			[self isTutorialDescriptionTriggered:tutorialDescription levelName:levelName] &&
+			![[PlayerInformation sharedInformation] hasSeenTutorialId:[tutorialDescription id]])
 		{
 			return (TutorialBalloonDescription *)tutorialDescription;
 		}
@@ -131,12 +133,13 @@
 	return nil;
 }
 
--(TutorialStripDescription *) tutorialStripDescriptionForLevel:(NSString *)levelName
+-(TutorialStripDescription *) unseenTutorialStripDescriptionForLevel:(NSString *)levelName
 {
 	for (TutorialDescription *tutorialDescription in _tutorialDescriptions)
 	{
 		if ([tutorialDescription isKindOfClass:[TutorialStripDescription class]] &&
-			[self isTutorialDescriptionTriggered:tutorialDescription levelName:levelName])
+			[self isTutorialDescriptionTriggered:tutorialDescription levelName:levelName] &&
+			![[PlayerInformation sharedInformation] hasSeenTutorialId:[tutorialDescription id]])
 		{
 			return (TutorialStripDescription *)tutorialDescription;
 		}

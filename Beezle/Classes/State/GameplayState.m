@@ -300,9 +300,8 @@
 
 -(void) checkTutorial
 {
-	TutorialBalloonDescription *tutorialBalloonDescription = [[TutorialOrganizer sharedOrganizer] tutorialBalloonDescriptionForLevel:_levelName];
-	if (tutorialBalloonDescription != nil &&
-		![[PlayerInformation sharedInformation] hasSeenTutorialId:[tutorialBalloonDescription id]])
+	TutorialBalloonDescription *tutorialBalloonDescription = [[TutorialOrganizer sharedOrganizer] unseenTutorialBalloonDescriptionForLevel:_levelName];
+	if (tutorialBalloonDescription != nil)
 	{
 		BalloonDialog *balloonDialog = [[[BalloonDialog alloc] initWithFileName:[tutorialBalloonDescription fileName] andOffset:[tutorialBalloonDescription offset]] autorelease];
 		[_uiLayer addChild:balloonDialog];
