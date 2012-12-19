@@ -86,6 +86,23 @@
 		}] autorelease];
 		[menu addChild:menuItem];
 		[self addChild:menu];
+
+		if ([fileName isEqualToString:@"BubbleYel-A1.png"])
+		{
+			CGSize winSize = [[CCDirector sharedDirector] winSize];
+
+			CCSprite *fingerSprite = [CCSprite spriteWithFile:@"Finger-A1.png"];
+			[fingerSprite setAnchorPoint:CGPointMake(0.5f, 0.0f)];
+			[fingerSprite setPosition:CGPointMake(3.0f * winSize.width / 4.0f, -70.0f)];
+			[fingerSprite setRotation:-20.0f];
+
+			id rotateAction1 = [CCEaseSineInOut actionWithAction:[CCRotateBy actionWithDuration:1.5f angle:30.0f]];
+			id rotateAction2 = [CCEaseSineInOut actionWithAction:[CCRotateBy actionWithDuration:1.5f angle:-30.0f]];
+			[fingerSprite runAction:[CCRepeat actionWithAction:[CCSequence actionOne:rotateAction1 two:rotateAction2] times:INT_MAX]];
+
+			[self addChild:fingerSprite z:150];
+
+		}
 	}
 	return self;
 }

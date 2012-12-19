@@ -17,10 +17,10 @@
 	if (self = [super init])
 	{
 		_coverLayer = [[CoverLayer alloc] initWithOpacity:opacity instant:instantCoverOpacity];
-		[self addChild:_coverLayer];
+		[self addChild:_coverLayer z:100];
 
 		_node = [node retain];
-		[self addChild:_node];
+		[self addChild:_node z:200];
 	}
 	return self;
 }
