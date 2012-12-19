@@ -505,18 +505,27 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 
 	CCSequence *sequence = nil;
 
-	CCDelayTime *delayAction = [CCDelayTime actionWithDuration:0.4f];
+	CCDelayTime *delayAction = [CCDelayTime actionWithDuration:0.28f];
 
 	if ([transformComponent rotation] < 180.0f - (360.0f - [slingerComponent originalRotation]))
 	{
-		CCActionTween *tweenAction1 = [CCActionTween actionWithDuration:0.2f key:@"rotation" from:[transformComponent rotation] to:0.0f];
-		id tweenAction2 = [CCEaseElasticOut actionWithAction:[CCActionTween actionWithDuration:0.4f key:@"rotation" from:0.0f to:[slingerComponent originalRotation] - 360.0f]];
+		float halfWayRotation = [slingerComponent originalRotation] + 20.0f - 360.0f;
+		float degreesToRotate = fabsf([transformComponent rotation] - halfWayRotation);
+		float duration = degreesToRotate / 600.0f;
+		CCActionTween *tweenAction1 = [CCActionTween actionWithDuration:duration key:@"rotation" from:[transformComponent rotation] to:halfWayRotation];
+		id tweenAction2 = [CCEaseElasticOut actionWithAction:[CCActionTween actionWithDuration:0.3f key:@"rotation" from:halfWayRotation to:[slingerComponent originalRotation] - 360.0f] period:0.2f];
+
 		sequence = [CCSequence actions:delayAction, tweenAction1, tweenAction2, nil];
 	}
 	else
 	{
-		id tweenAction = [CCEaseElasticOut actionWithAction:[CCActionTween actionWithDuration:0.8f key:@"rotation" from:[transformComponent rotation] to:[slingerComponent originalRotation]]];
-		sequence = [CCSequence actions:delayAction, tweenAction, nil];
+		float halfWayRotation = [slingerComponent originalRotation] - 20.0f;
+		float degreesToRotate = fabsf([transformComponent rotation] - halfWayRotation);
+		float duration = degreesToRotate / 600.0f;
+		CCActionTween *tweenAction1 = [CCActionTween actionWithDuration:duration key:@"rotation" from:[transformComponent rotation] to:halfWayRotation];
+		id tweenAction2 = [CCEaseElasticOut actionWithAction:[CCActionTween actionWithDuration:0.3f key:@"rotation" from:halfWayRotation to:[slingerComponent originalRotation]] period:0.2f];
+
+		sequence = [CCSequence actions:delayAction, tweenAction1, tweenAction2, nil];
 	}
 	[sequence setTag:ACTION_TAG_SLINGER_ROTATION];
 	[[[CCDirector sharedDirector] actionManager] addAction:sequence target:[slingerComponent rotator] paused:FALSE];
