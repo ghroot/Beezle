@@ -100,7 +100,7 @@
 			id rotateAction2 = [CCEaseSineInOut actionWithAction:[CCRotateBy actionWithDuration:1.5f angle:-30.0f]];
 			[fingerSprite runAction:[CCRepeat actionWithAction:[CCSequence actionOne:rotateAction1 two:rotateAction2] times:INT_MAX]];
 
-			[self addChild:fingerSprite z:150];
+			[self addChild:fingerSprite];
 
 		}
 	}
