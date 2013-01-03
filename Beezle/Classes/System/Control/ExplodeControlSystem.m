@@ -74,6 +74,8 @@
 {
     ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
     [explodeComponent setExplosionState:ANIMATING_START_EXPLOSION];
+
+	[EntityUtil disablePhysics:entity];
     
 	RenderComponent *renderComponent = [RenderComponent getFrom:entity];
 	RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];
@@ -87,7 +89,6 @@
 	ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
 	[explodeComponent setExplosionState:EXPLODED];
 	
-	[EntityUtil disablePhysics:entity];
 	[EntityUtil destroyEntity:entity];
     
 	TransformComponent *transformComponent = [TransformComponent getFrom:entity];
