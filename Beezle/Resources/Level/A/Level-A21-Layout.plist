@@ -54,29 +54,6 @@
 		<dict>
 			<key>components</key>
 			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{183.5, 34}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{183.5, 34}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>EGG</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
 				<key>captured</key>
 				<dict>
 					<key>containedBeeTypes</key>
@@ -348,6 +325,52 @@
 			<key>type</key>
 			<string>EYES</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{184, 55}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{184, 55}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN-GREEN</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{183, 34}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{183, 34}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>EGG</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -360,6 +383,6 @@
 	<key>pollenForTwoFlowers</key>
 	<integer>270</integer>
 	<key>version</key>
-	<integer>18</integer>
+	<integer>19</integer>
 </dict>
 </plist>

@@ -18,7 +18,7 @@
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{75, 258}</string>
+					<string>{74, 258}</string>
 					<key>rotation</key>
 					<real>326</real>
 					<key>scale</key>
@@ -34,44 +34,14 @@
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>-6.1784653663635254</real>
-					<key>overrideBodyName</key>
-					<string>C7-Glass</string>
-					<key>position</key>
-					<string>{216, 149}</string>
-				</dict>
-				<key>render</key>
-				<dict>
-					<key>overrideTextureFile</key>
-					<string>C7-Glass.png</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{216, 149}</string>
-					<key>rotation</key>
-					<real>354</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>GLASS-C</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
 					<real>-4.6774821281433105</real>
 					<key>position</key>
-					<string>{241, 139}</string>
+					<string>{241, 137}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{241, 139}</string>
+					<string>{241, 137}</string>
 					<key>rotation</key>
 					<real>268</real>
 					<key>scale</key>
@@ -614,12 +584,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{285, 272}</string>
+					<string>{286, 272}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{285, 272}</string>
+					<string>{286, 272}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -660,12 +630,12 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{188, 272}</string>
+					<string>{187, 272}</string>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{188, 272}</string>
+					<string>{187, 272}</string>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scale</key>
@@ -674,6 +644,36 @@
 			</dict>
 			<key>type</key>
 			<string>POLLEN-YELLOW</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>overrideBodyName</key>
+					<string>C7-Glass</string>
+					<key>position</key>
+					<string>{211, 159}</string>
+				</dict>
+				<key>render</key>
+				<dict>
+					<key>overrideTextureFile</key>
+					<string>C7-Glass.png</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{211, 159}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>GLASS-C</string>
 		</dict>
 	</array>
 	<key>format</key>
@@ -687,6 +687,6 @@
 	<key>pollenForTwoFlowers</key>
 	<integer>265</integer>
 	<key>version</key>
-	<integer>44</integer>
+	<integer>46</integer>
 </dict>
 </plist>

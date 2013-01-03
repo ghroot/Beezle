@@ -65,29 +65,6 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{168, 10}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{168, 10}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>EGG</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
 					<string>{135, 166}</string>
 				</dict>
 				<key>render</key>
@@ -615,6 +592,29 @@
 			<key>type</key>
 			<string>POLLEN-YELLOW</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{168, 10}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{168, 10}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>EGG-REFLECTION</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -623,10 +623,10 @@
 	<key>name</key>
 	<string>Level-C31</string>
 	<key>pollenForThreeFlowers</key>
-	<integer>323</integer>
+	<integer>373</integer>
 	<key>pollenForTwoFlowers</key>
-	<integer>293</integer>
+	<integer>340</integer>
 	<key>version</key>
-	<integer>9</integer>
+	<integer>12</integer>
 </dict>
 </plist>

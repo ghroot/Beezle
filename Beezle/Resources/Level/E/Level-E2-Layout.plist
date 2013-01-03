@@ -220,7 +220,7 @@
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>0.0</real>
+					<real>-0.034906584769487381</real>
 					<key>position</key>
 					<string>{109, 191}</string>
 				</dict>
@@ -229,7 +229,7 @@
 					<key>position</key>
 					<string>{109, 191}</string>
 					<key>rotation</key>
-					<real>0.0</real>
+					<real>2</real>
 					<key>scale</key>
 					<string>{-1, 1}</string>
 				</dict>
@@ -442,11 +442,34 @@
 			<key>type</key>
 			<string>POLLEN-ORANGE</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>-2.3038349151611328</real>
+					<key>position</key>
+					<string>{40, 189}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{40, 189}</string>
+					<key>rotation</key>
+					<real>132.00001525878906</real>
+					<key>scale</key>
+					<string>{-1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>BRANCH</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
 	<key>hasWater</key>
-	<false/>
+	<true/>
 	<key>name</key>
 	<string>Level-E2</string>
 	<key>pollenForThreeFlowers</key>
@@ -454,6 +477,6 @@
 	<key>pollenForTwoFlowers</key>
 	<integer>385</integer>
 	<key>version</key>
-	<integer>14</integer>
+	<integer>15</integer>
 </dict>
 </plist>

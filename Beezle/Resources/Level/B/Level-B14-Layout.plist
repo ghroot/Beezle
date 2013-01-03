@@ -124,13 +124,13 @@
 				<dict>
 					<key>containedBeeTypes</key>
 					<array>
-						<string>SPEEDEE</string>
+						<string>BEE</string>
 					</array>
 				</dict>
 				<key>physics</key>
 				<dict>
 					<key>angle</key>
-					<real>-0.20943951606750488</real>
+					<real>-6.2482786178588867</real>
 					<key>position</key>
 					<string>{317, 264}</string>
 				</dict>
@@ -139,7 +139,7 @@
 					<key>position</key>
 					<string>{317, 264}</string>
 					<key>rotation</key>
-					<real>12</real>
+					<real>358</real>
 					<key>scale</key>
 					<string>{-1, 1}</string>
 				</dict>
@@ -154,7 +154,7 @@
 				<dict>
 					<key>containedBeeTypes</key>
 					<array>
-						<string>SPEEDEE</string>
+						<string>BEE</string>
 					</array>
 				</dict>
 				<key>physics</key>
@@ -298,29 +298,6 @@
 					<key>angle</key>
 					<real>0.0</real>
 					<key>position</key>
-					<string>{236, 165}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{236, 165}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>POLLEN-YELLOW</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
 					<string>{257, 155}</string>
 				</dict>
 				<key>transform</key>
@@ -435,6 +412,52 @@
 			<key>type</key>
 			<string>GLASS-B</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{419, 174}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{419, 174}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN-MAGIC</string>
+		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{236, 164}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{236, 164}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>POLLEN-YELLOW</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -447,6 +470,6 @@
 	<key>pollenForTwoFlowers</key>
 	<integer>340</integer>
 	<key>version</key>
-	<integer>18</integer>
+	<integer>23</integer>
 </dict>
 </plist>
