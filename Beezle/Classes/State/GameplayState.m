@@ -46,6 +46,7 @@
 #import "BeeWithSpikeCollisionHandler.h"
 #import "DozerWithCrumbleCollisionHandler.h"
 #import "PulverizeWithPulverizableCollisionHandler.h"
+#import "DestroySystem.h"
 #import "SawWithWoodCollisionHandler.h"
 #import "SolidWithSoundCollisionHandler.h"
 #import "SolidWithBoostCollisionHandler.h"
@@ -126,6 +127,7 @@
 @synthesize teleportSystem = _teleportSystem;
 @synthesize waterWaveSystem = _waterWaveSystem;
 @synthesize followControlSystem = _followControlSystem;
+@synthesize destroySystem = _destroySystem;
 
 +(id) stateWithLevelName:(NSString *)levelName
 {
@@ -224,6 +226,8 @@
 	[systemManager setSystem:_fadeSystem];
 	_beeExpirationSystem = [BeeExpiratonSystem system];
 	[systemManager setSystem:_beeExpirationSystem];
+	_destroySystem = [DestroySystem system];
+	[systemManager setSystem:_destroySystem];
 	_explodeControlSystem = [ExplodeControlSystem system];
 	[systemManager setSystem:_explodeControlSystem];
 	_beeQueueRenderingSystem = [BeeQueueRenderingSystem system];

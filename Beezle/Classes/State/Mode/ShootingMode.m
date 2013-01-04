@@ -35,6 +35,7 @@
 		[_systems addObject:[gameplayState hudRenderingSystem]];
 		[_systems addObject:[gameplayState inputSystem]];
 		[_systems addObject:[gameplayState beeExpirationSystem]];
+		[_systems addObject:[gameplayState destroySystem]];
 		[_systems addObject:[gameplayState explodeControlSystem]];
 		[_systems addObject:[gameplayState destructControlSystem]];
 		[_systems addObject:[gameplayState followControlSystem]];

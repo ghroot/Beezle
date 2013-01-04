@@ -41,6 +41,7 @@
 @class PollenSystem;
 @class RespawnSystem;
 @class SoundSystem;
+@class DestroySystem;
 
 @interface GameplayState : GameState
 {
@@ -59,6 +60,7 @@
 	BeeaterSystem *_beeaterSystem;
 	CapturedSystem *_capturedSystem;
     BeeExpiratonSystem *_beeExpirationSystem;
+	DestroySystem *_destroySystem;
 	BeeQueueRenderingSystem *_beeQueueRenderingSystem;
 	WaterWaveSystem *_waterWaveSystem;
     CollisionSystem *_collisionSystem;
@@ -99,6 +101,7 @@
 @property (nonatomic, readonly) BeeQueueRenderingSystem *beeQueueRenderingSystem;
 @property (nonatomic, readonly) CapturedSystem *capturedSystem;
 @property (nonatomic, readonly) CollisionSystem *collisionSystem;
+@property (nonatomic, readonly) DestroySystem *destroySystem;
 @property (nonatomic, readonly) DestructControlSystem *destructControlSystem;
 @property (nonatomic, readonly) DisposalSystem *disposalSystem;
 @property (nonatomic, readonly) ExplodeControlSystem *explodeControlSystem;
