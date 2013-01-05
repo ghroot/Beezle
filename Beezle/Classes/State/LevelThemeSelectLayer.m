@@ -14,6 +14,7 @@
 #import "Game.h"
 #import "LevelSelectMenuState.h"
 #import "Utils.h"
+#import "LiteUtils.h"
 
 @interface LevelThemeSelectLayer()
 
@@ -141,35 +142,63 @@
 
 		int totalNumberOfFlowers = [[PlayerInformation sharedInformation] totalNumberOfFlowers];
 		int requiredNumberOfFlowers = [[LevelOrganizer sharedOrganizer] requiredNumberOfFlowersForTheme:theme];
-		NSString *flowersString;
-		if (requiredNumberOfFlowers > 0)
+		if (requiredNumberOfFlowers >= 0)
 		{
-			flowersString = [NSString stringWithFormat:@"%d/%d", totalNumberOfFlowers, requiredNumberOfFlowers];
+			NSString *flowersString;
+			if (requiredNumberOfFlowers > 0)
+			{
+				flowersString = [NSString stringWithFormat:@"%d/%d", totalNumberOfFlowers, requiredNumberOfFlowers];
+			}
+			else
+			{
+				flowersString = [NSString stringWithFormat:@"%d", totalNumberOfFlowers];
+			}
+			CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:flowersString charMapFile:@"numberImages-red-s.png" itemWidth:12 itemHeight:14 startCharMap:'/'] autorelease];
+			[label setAnchorPoint:CGPointMake(0.0f, 0.5f)];
+			[label setPosition:CGPointMake([_flowerSprite position].x + 5.0f, [_flowerSprite position].y)];
+			[self addChild:label];
+			if (requiredNumberOfFlowers == 0)
+			{
+				[_flowerSprite setPosition:CGPointMake([_flowerSprite position].x + 20.0f, [_flowerSprite position].y)];
+				[label setPosition:CGPointMake([label position].x + 20.0f, [label position].y)];
+			}
 		}
 		else
 		{
-			flowersString = [NSString stringWithFormat:@"%d", totalNumberOfFlowers];
-		}
-		CCLabelAtlas *label = [[[CCLabelAtlas alloc] initWithString:flowersString charMapFile:@"numberImages-red-s.png" itemWidth:12 itemHeight:14 startCharMap:'/'] autorelease];
-		[label setAnchorPoint:CGPointMake(0.0f, 0.5f)];
-		[label setPosition:CGPointMake([_flowerSprite position].x + 5.0f, [_flowerSprite position].y)];
-		[self addChild:label];
-		if (requiredNumberOfFlowers == 0)
-		{
-			[_flowerSprite setPosition:CGPointMake([_flowerSprite position].x + 20.0f, [_flowerSprite position].y)];
-			[label setPosition:CGPointMake([label position].x + 20.0f, [label position].y)];
+			[_flowerSprite setVisible:FALSE];
 		}
 
 		_menu = [CCMenu new];
-		FullscreenTransparentMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
-			[game replaceState:[LevelSelectMenuState stateWithTheme:theme]];
-		} width:200.0f] autorelease];
-		[_menu addChild:menuItem];
 		[self addChild:_menu];
-#ifndef DEBUG
+
+#ifdef LITE_VERSION
 		if (locked)
 		{
-			[_menu setEnabled:FALSE];
+			FullscreenTransparentMenuItem *buyFullVersionmenuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
+				[[LiteUtils sharedUtils] showBuyFullVersionAlert];
+			} width:200.0f] autorelease];
+			[_menu addChild:buyFullVersionmenuItem];
+		}
+		else
+		{
+			FullscreenTransparentMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
+				[game replaceState:[LevelSelectMenuState stateWithTheme:theme]];
+			} width:200.0f] autorelease];
+			[_menu addChild:menuItem];
+		}
+#else
+		BOOL canEnterLevelSelect;
+#ifdef DEBUG
+		canEnterLevelSelect = TRUE;
+#else
+		canEnterLevelSelect = !locked;
+#endif
+		if (canEnterLevelSelect)
+		{
+			FullscreenTransparentMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
+				[game replaceState:[LevelSelectMenuState stateWithTheme:theme]];
+			} width:200.0f] autorelease];
+			[_menu addChild:menuItem];
 		}
 #endif
 	}

@@ -28,7 +28,7 @@
             <key>type</key>
             <string>balloon</string>
             <key>fileName</key>
-            <string>BubbleYel-A1-Lite.png</string>
+            <string>BubbleYel-A2.png</string>
             <key>offset</key>
             <string>{ -40, 15 }</string>
             <key>trigger</key>
@@ -36,7 +36,7 @@
 				<key>type</key>
 				<string>level</string>
 				<key>levelName</key>
-				<string>Level-A7</string>
+				<string>Level-A2</string>
 			</dict>
         </dict>
         <dict>
@@ -53,16 +53,16 @@
                 <key>type</key>
                 <string>level</string>
                 <key>levelName</key>
-                <string>Level-A20</string>
+                <string>Level-A3</string>
             </dict>
         </dict>
         <dict>
             <key>id</key>
-            <string>BALLOON-A4</string>
+            <string>BALLOON-A7</string>
             <key>type</key>
             <string>balloon</string>
             <key>fileName</key>
-            <string>BubbleYel-A7-Lite.png</string>
+            <string>BubbleYel-A7.png</string>
             <key>offset</key>
             <string>{ -75, 0 }</string>
             <key>trigger</key>
@@ -70,25 +70,42 @@
                 <key>type</key>
                 <string>level</string>
                 <key>levelName</key>
-                <string>Level-A26</string>
+                <string>Level-A7</string>
             </dict>
         </dict>
         <dict>
             <key>id</key>
-            <string>BALLOON-A5</string>
+            <string>BALLOON-A13</string>
             <key>type</key>
             <string>balloon</string>
             <key>fileName</key>
-            <string>BubbleYel-A24.png</string>
+            <string>BubbleYel-A13.png</string>
             <key>offset</key>
-            <string>{ -75, 5 }</string>
+            <string>{ -75, 35 }</string>
             <key>trigger</key>
 			<dict>
 				<key>type</key>
 				<string>level</string>
 				<key>levelName</key>
-				<string>Level-A24</string>
+				<string>Level-A13</string>
 			</dict>
+        </dict>
+        <dict>
+            <key>id</key>
+            <string>BALLOON-A39</string>
+            <key>type</key>
+            <string>balloon</string>
+            <key>fileName</key>
+            <string>BubbleYel-A10.png</string>
+            <key>offset</key>
+            <string>{ -105, -45 }</string>
+            <key>trigger</key>
+            <dict>
+                <key>type</key>
+                <string>level</string>
+                <key>levelName</key>
+                <string>Level-A39</string>
+            </dict>
         </dict>
 
         <!-- Strips -->
@@ -159,40 +176,6 @@
 				<key>beeType</key>
 				<string>SAWEE</string>
 			</dict>
-        </dict>
-        <dict>
-            <key>id</key>
-            <string>STRIP-SUMEE</string>
-            <key>type</key>
-            <string>strip</string>
-            <key>fileName</key>
-            <string>DescrStrip-Sumee-B.jpg</string>
-            <key>buttonFileName</key>
-            <string>Syst-Check-B.png</string>
-            <key>trigger</key>
-            <dict>
-                <key>type</key>
-                <string>bee</string>
-                <key>beeType</key>
-                <string>SUMEE</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>id</key>
-            <string>STRIP-TBEE</string>
-            <key>type</key>
-            <string>strip</string>
-            <key>fileName</key>
-            <string>DescrStrip-TBee-C.jpg</string>
-            <key>buttonFileName</key>
-            <string>Syst-Check-C.png</string>
-            <key>trigger</key>
-            <dict>
-                <key>type</key>
-                <string>bee</string>
-                <key>beeType</key>
-                <string>TBEE</string>
-            </dict>
         </dict>
     </array>
 </dict>

@@ -204,21 +204,7 @@
 		}
 		else
 		{
-#ifdef LITE_VERSION
-			// Open icon
-			NSString *openImageName = [NSString stringWithFormat:@"LevelCell-%@-Open.png", [_theme isEqualToString:@"E"] ? @"A" : _theme];
-			[menuItemImage setNormalImage:[CCSprite spriteWithFile:openImageName]];
-			[menuItemImage setSelectedImage:[CCSprite spriteWithFile:openImageName]];
-			[menuItemImage setDisabledImage:[CCSprite spriteWithFile:openImageName]];
-
-			if (firstCellX < 0.0f)
-			{
-				firstCellX = [menuItemImage position].x;
-			}
-			lastCellX = [menuItemImage position].x;
-#else
 			[menuItemImage setVisible:FALSE];
-#endif
 		}
     }
 	float contentWidth = lastCellX + firstCellX;

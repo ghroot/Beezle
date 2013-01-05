@@ -321,7 +321,7 @@ static NSString *PROGRESS_KEY = @"Progress";
 -(BOOL) canPlayTheme:(NSString *)theme
 {
 	int requiredNumberOfFlowers = [[LevelOrganizer sharedOrganizer] requiredNumberOfFlowersForTheme:theme];
-	return [self totalNumberOfFlowers] >= requiredNumberOfFlowers;
+	return requiredNumberOfFlowers >= 0 && [self totalNumberOfFlowers] >= requiredNumberOfFlowers;
 }
 
 -(NSArray *) visibleThemes
