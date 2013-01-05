@@ -505,7 +505,7 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 
 	CCSequence *sequence = nil;
 
-	CCDelayTime *delayAction = [CCDelayTime actionWithDuration:0.28f];
+	CCDelayTime *delayAction = [CCDelayTime actionWithDuration:0.18f];
 
 	if ([transformComponent rotation] < 180.0f - (360.0f - [slingerComponent originalRotation]))
 	{
