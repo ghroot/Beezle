@@ -14,10 +14,10 @@
 #import "LevelOrganizer.h"
 #import "LevelRatings.h"
 #import "LevelSender.h"
-#import "PlayerInformation.h"
 #import "TestMenuState.h"
 #import "PlayState.h"
 #import "OutputConsoleState.h"
+#import "ResetMenuState.h"
 
 @interface DebugMenuState()
 
@@ -26,9 +26,6 @@
 -(void) sendLevelRatings:(id)sender;
 -(void) showTestMenu:(id)sender;
 -(void) toggleStats:(id)sender;
--(void) resetPlayerInformation:(id)sender;
--(void) resetLevelRatings:(id)sender;
--(void) resetEditedLevels:(id)sender;
 -(void) resaveEditedLevels:(id)sender;
 -(void) showOutput:(id)sender;
 -(void) goBack:(id)sender;
@@ -58,20 +55,15 @@
     CCMenuItemFont *toggleStatsMenuItem = [CCMenuItemFont itemWithString:@"Toggle stats" target:self selector:@selector(toggleStats:)];
 	[toggleStatsMenuItem setFontSize:20];
 	[_menu addChild:toggleStatsMenuItem];
-	CCMenuItemFont *resetInfoMenuItem = [CCMenuItemFont itemWithString:@"Reset player information" target:self selector:@selector(resetPlayerInformation:)];
-	[resetInfoMenuItem setFontSize:20];
-	[_menu addChild:resetInfoMenuItem];
-	CCMenuItemFont *resetEditedLevelsMenuItem = [CCMenuItemFont itemWithString:@"Reset edited levels" target:self selector:@selector(resetEditedLevels:)];
-	[resetEditedLevelsMenuItem setFontSize:20];
-	[_menu addChild:resetEditedLevelsMenuItem];
+	CCMenuItemFont *resetMenuItem = [CCMenuItemFont itemWithString:@"Reset" block:^(id sender){
+		[_game pushState:[ResetMenuState state]];
+	}];
+	[resetMenuItem setFontSize:20];
+	[_menu addChild:resetMenuItem];
     CCMenuItemFont *resaveEditedLevelsMenuItem = [CCMenuItemFont itemWithString:@"Resave edited levels" target:self selector:@selector(resaveEditedLevels:)];
 	[resaveEditedLevelsMenuItem setFontSize:20];
 	[_menu addChild:resaveEditedLevelsMenuItem];
-	CCMenuItemFont *resetRatingsMenuItem = [CCMenuItemFont itemWithString:@"Reset level ratings" target:self selector:@selector(resetLevelRatings:)];
-	[resetRatingsMenuItem setFontSize:20];
-	[_menu addChild:resetRatingsMenuItem];
 	CCMenuItemFont *outputMenuItem = [CCMenuItemFont itemWithString:@"Output" target:self selector:@selector(showOutput:)];
-	[outputMenuItem setFontSize:20];
 	[_menu addChild:outputMenuItem];
     
     CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
@@ -111,36 +103,6 @@
 -(void) toggleStats:(id)sender
 {
     [[CCDirector sharedDirector] setDisplayStats:![[CCDirector sharedDirector] displayStats]];
-}
-
--(void) resetPlayerInformation:(id)sender
-{
-	[_game pushState:[ConfirmationState stateWithTitle:@"Really reset player information?" block:^{
-		[[PlayerInformation sharedInformation] reset];
-	}]];
-}
-
--(void) resetLevelRatings:(id)sender
-{
-	[_game pushState:[ConfirmationState stateWithTitle:@"Really reset level ratings?" block:^{
-		[[LevelRatings sharedRatings] reset];
-	}]];
-}
-
--(void) resetEditedLevels:(id)sender
-{
-	[_game pushState:[ConfirmationState stateWithTitle:@"Really reset edited levels?" block:^{
-		[[LevelLayoutCache sharedLevelLayoutCache] purgeAllCachedLevelLayouts];
-		NSArray *allLevelNames = [[LevelOrganizer sharedOrganizer] allLevelNames];
-		for (NSString *levelName in allLevelNames)
-		{
-			NSString *levelFileName = [NSString stringWithFormat:@"%@-Layout.plist", levelName];
-			NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE);
-			NSString *documentsDirectory = [paths objectAtIndex:0];
-			NSString *filePath = [documentsDirectory stringByAppendingPathComponent:levelFileName];
-			[[NSFileManager defaultManager] removeItemAtPath:filePath error:NULL];
-		}
-	}]];
 }
 
 -(void) resaveEditedLevels:(id)sender
