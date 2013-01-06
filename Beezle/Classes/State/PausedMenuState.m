@@ -68,6 +68,7 @@
 	CCMenuItem *nextLevelMenuItem = [CCMenuItemFont itemWithString:@"Next Level" target:self selector:@selector(nextLevel)];
 	[menu addChild:nextLevelMenuItem];
 	[menu alignItemsVerticallyWithPadding:30.0f];
+	[menu setPosition:CGPointMake([menu position].x, [menu position].y + 50.0f)];
 	[self addChild:menu];
 
 	GameplayState *gameplayState = (GameplayState *)[_game previousState];
