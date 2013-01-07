@@ -204,7 +204,16 @@
 		}
 		else
 		{
+#ifdef LITE_VERSION
+			[menuItemImage setOpacity:180];
+			if (firstCellX < 0.0f)
+			{
+				firstCellX = [menuItemImage position].x;
+			}
+			lastCellX = [menuItemImage position].x;
+#else
 			[menuItemImage setVisible:FALSE];
+#endif
 		}
     }
 	float contentWidth = lastCellX + firstCellX;

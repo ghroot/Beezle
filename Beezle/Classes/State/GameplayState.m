@@ -72,12 +72,12 @@
 #import "SlingerControlSystem.h"
 #import "RespawnSystem.h"
 #import "GameStateUtils.h"
-#import "LevelThemeSelectMenuState.h"
-#import "GameCompletedDialog.h"
-#import "GameAlmostCompletedDialog.h"
-#import "HiddenLevelsFoundDialog.h"
 #import "CCMenuItemImageScale.h"
 #import "GameCompletedLiteDialog.h"
+#import "HiddenLevelsFoundDialog.h"
+#import "LevelThemeSelectMenuState.h"
+#import "GameAlmostCompletedDialog.h"
+#import "GameCompletedDialog.h"
 
 @interface GameplayState()
 
@@ -412,6 +412,9 @@
 	{
 		[self closeAllDialogs];
 
+#ifdef LITE_VERSION
+		[_uiLayer addChild:[GameCompletedLiteDialog dialogWithGame:_game]];
+#else
 		NSString *theme = [[LevelOrganizer sharedOrganizer] themeForLevel:_levelName];
 		NSString *nextTheme = [[LevelOrganizer sharedOrganizer] themeAfter:theme];
 		if (nextTheme != nil)
@@ -441,12 +444,9 @@
 		}
 		else
 		{
-#ifdef LITE_VERSION
-			[_uiLayer addChild:[GameCompletedLiteDialog dialogWithGame:_game]];
-#else
 			[_uiLayer addChild:[GameCompletedDialog dialogWithGame:_game]];
-#endif
 		}
+#endif
 	}
 	else
 	{
