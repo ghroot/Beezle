@@ -18,6 +18,7 @@
 	CCSprite *_beeSprite4;
 	CCSprite *_beeSprite5;
 	CCSprite *_beeSprite6;
+	CCSprite *_beeSprite7;
 }
 
 +(id) dialogWithGame:(Game *)game;

@@ -5,7 +5,7 @@
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
-	<integer>1</integer>
+	<integer>0</integer>
 	<key>currentSequenceId</key>
 	<integer>0</integer>
 	<key>fileType</key>
@@ -447,7 +447,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>54.577465057373047</real>
+							<real>52.5</real>
 							<real>80.9375</real>
 							<integer>4</integer>
 						</array>
@@ -524,7 +524,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>63.908451080322266</real>
+							<real>61.875</real>
 							<real>77.1875</real>
 							<integer>4</integer>
 						</array>
@@ -601,7 +601,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>60.035209655761719</real>
+							<real>57.916667938232422</real>
 							<real>72.5</real>
 							<integer>4</integer>
 						</array>
@@ -678,7 +678,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>44.190139770507812</real>
+							<real>42.083332061767578</real>
 							<real>72.8125</real>
 							<integer>4</integer>
 						</array>
@@ -755,7 +755,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>51.056339263916016</real>
+							<real>48.958332061767578</real>
 							<real>69.375</real>
 							<integer>4</integer>
 						</array>
@@ -832,7 +832,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>36.619716644287109</real>
+							<real>34.583332061767578</real>
 							<real>74.6875</real>
 							<integer>4</integer>
 						</array>
@@ -878,6 +878,78 @@
 						<array>
 							<string></string>
 							<string>End-GameCompleted!-Sawee-2.png</string>
+						</array>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>baseClass</key>
+				<string>CCSprite</string>
+				<key>children</key>
+				<array/>
+				<key>customClass</key>
+				<string></string>
+				<key>displayName</key>
+				<string>CCSprite</string>
+				<key>memberVarAssignmentName</key>
+				<string>_beeSprite7</string>
+				<key>memberVarAssignmentType</key>
+				<integer>2</integer>
+				<key>properties</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>position</string>
+						<key>type</key>
+						<string>Position</string>
+						<key>value</key>
+						<array>
+							<real>67.083335876464844</real>
+							<real>70.9375</real>
+							<integer>4</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>anchorPoint</string>
+						<key>type</key>
+						<string>Point</string>
+						<key>value</key>
+						<array>
+							<real>0.5</real>
+							<real>0.5</real>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>scale</string>
+						<key>type</key>
+						<string>ScaleLock</string>
+						<key>value</key>
+						<array>
+							<real>1</real>
+							<real>1</real>
+							<false/>
+							<integer>0</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>ignoreAnchorPointForPosition</string>
+						<key>type</key>
+						<string>Check</string>
+						<key>value</key>
+						<false/>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>displayFrame</string>
+						<key>type</key>
+						<string>SpriteFrame</string>
+						<key>value</key>
+						<array>
+							<string></string>
+							<string>End-GameCompleted!-Mumee-2.png</string>
 						</array>
 					</dict>
 				</array>
