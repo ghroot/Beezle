@@ -96,6 +96,19 @@ static int nextBeeIndex = 0;
 		SoundButton *soundButton = [SoundButton node];
 		[self addChild:soundButton];
 
+		if ([[PlayerInformation sharedInformation] totalNumberOfPollen] > 0)
+		{
+			CCSprite *pollenSprite = [CCSprite spriteWithFile:@"Symbol-Pollen.png"];
+			[pollenSprite setAnchorPoint:CGPointMake(1.0f, 0.5f)];
+			[pollenSprite setPosition:CGPointMake(20.0f, winSize.height - 15.0f)];
+			[self addChild:pollenSprite];
+			NSString *pollenString = [NSString stringWithFormat:@"%d", [[PlayerInformation sharedInformation] totalNumberOfPollen]];
+			CCLabelAtlas *pollenLabel = [CCLabelAtlas labelWithString:pollenString charMapFile:@"numberImages-xs.png" itemWidth:11 itemHeight:14 startCharMap:'/'];
+			[pollenLabel setAnchorPoint:CGPointMake(0.0f, 0.5f)];
+			[pollenLabel setPosition:CGPointMake(25.0f, winSize.height - 15.0f)];
+			[self addChild:pollenLabel];
+		}
+
 #ifndef LITE_VERSION
 		[soundButton setPosition:CGPointMake(winSize.width / 2 - 30.0f, 40.0f)];
 
