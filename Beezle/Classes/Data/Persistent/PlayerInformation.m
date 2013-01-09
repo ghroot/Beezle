@@ -204,7 +204,10 @@ static NSString *PROGRESS_KEY = @"Progress";
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	[dict setObject:[NSDictionary dictionaryWithDictionary:_pollenRecordByLevelName] forKey:@"pollenRecordByLevelName"];
 	[dict setObject:[_seenTutorialIds allObjects] forKey:@"seenTutorialIds"];
-	[dict setObject:_defaultTheme forKey:@"defaultTheme"];
+	if (_defaultTheme != nil)
+	{
+		[dict setObject:_defaultTheme forKey:@"defaultTheme"];
+	}
 	return dict;
 }
 
