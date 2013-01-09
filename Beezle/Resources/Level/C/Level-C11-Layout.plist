@@ -259,7 +259,7 @@
 				<dict>
 					<key>containedBeeTypes</key>
 					<array>
-						<string>BEE</string>
+						<string>SPEEDEE</string>
 					</array>
 				</dict>
 				<key>physics</key>
@@ -733,6 +733,29 @@
 			<key>type</key>
 			<string>POLLEN-ORANGE</string>
 		</dict>
+		<dict>
+			<key>components</key>
+			<dict>
+				<key>physics</key>
+				<dict>
+					<key>angle</key>
+					<real>0.0</real>
+					<key>position</key>
+					<string>{409, 256}</string>
+				</dict>
+				<key>transform</key>
+				<dict>
+					<key>position</key>
+					<string>{409, 256}</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1, 1}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>EGG-REFLECTION</string>
+		</dict>
 	</array>
 	<key>format</key>
 	<integer>2</integer>
@@ -741,10 +764,10 @@
 	<key>name</key>
 	<string>Level-C11</string>
 	<key>pollenForThreeFlowers</key>
-	<integer>370</integer>
+	<integer>400</integer>
 	<key>pollenForTwoFlowers</key>
-	<integer>360</integer>
+	<integer>390</integer>
 	<key>version</key>
-	<integer>15</integer>
+	<integer>16</integer>
 </dict>
 </plist>
