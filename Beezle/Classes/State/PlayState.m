@@ -18,6 +18,7 @@
 #import "PlayerInformation.h"
 #import "GameCenterManager.h"
 #import "NotificationTypes.h"
+#import "LiteUtils.h"
 
 static int nextBeeIndex = 0;
 
@@ -96,18 +97,30 @@ static int nextBeeIndex = 0;
 		SoundButton *soundButton = [SoundButton node];
 		[self addChild:soundButton];
 
-		if ([[PlayerInformation sharedInformation] totalNumberOfPollen] > 0)
-		{
-			CCSprite *pollenSprite = [CCSprite spriteWithFile:@"Symbol-Pollen.png"];
-			[pollenSprite setAnchorPoint:CGPointMake(1.0f, 0.5f)];
-			[pollenSprite setPosition:CGPointMake(20.0f, winSize.height - 15.0f)];
-			[self addChild:pollenSprite];
-			NSString *pollenString = [NSString stringWithFormat:@"%d", [[PlayerInformation sharedInformation] totalNumberOfPollen]];
-			CCLabelAtlas *pollenLabel = [CCLabelAtlas labelWithString:pollenString charMapFile:@"numberImages-xs.png" itemWidth:11 itemHeight:14 startCharMap:'/'];
-			[pollenLabel setAnchorPoint:CGPointMake(0.0f, 0.5f)];
-			[pollenLabel setPosition:CGPointMake(25.0f, winSize.height - 15.0f)];
-			[self addChild:pollenLabel];
-		}
+		// TODO: Show total pollen here or not?
+//		if ([[PlayerInformation sharedInformation] totalNumberOfPollen] > 0)
+//		{
+//			CCSprite *pollenSprite = [CCSprite spriteWithFile:@"Symbol-Pollen.png"];
+//			[pollenSprite setAnchorPoint:CGPointMake(1.0f, 0.5f)];
+//			[pollenSprite setPosition:CGPointMake(20.0f, winSize.height - 15.0f)];
+//			[self addChild:pollenSprite];
+//			NSString *pollenString = [NSString stringWithFormat:@"%d", [[PlayerInformation sharedInformation] totalNumberOfPollen]];
+//			CCLabelAtlas *pollenLabel = [CCLabelAtlas labelWithString:pollenString charMapFile:@"numberImages-xs.png" itemWidth:11 itemHeight:14 startCharMap:'/'];
+//			[pollenLabel setAnchorPoint:CGPointMake(0.0f, 0.5f)];
+//			[pollenLabel setPosition:CGPointMake(25.0f, winSize.height - 15.0f)];
+//			[self addChild:pollenLabel];
+//		}
+
+#ifdef LITE_VERSION
+		CCMenu *appStoreMenu = [CCMenu node];
+		CCMenuItemImageScale *appStoreMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"Download_on_the_App_Store_Badge_US-UK_135x40.png" selectedImage:@"Download_on_the_App_Store_Badge_US-UK_135x40.png" block:^(id sender){
+			[[LiteUtils sharedUtils] gotoAppStoreForFullVersion];
+		}];
+		[appStoreMenuItem setPosition:CGPointMake(90.0f, 60.0f)];
+		[appStoreMenu setPosition:CGPointZero];
+		[appStoreMenu addChild:appStoreMenuItem];
+		[self addChild:appStoreMenu];
+#endif
 
 #ifndef LITE_VERSION
 		[soundButton setPosition:CGPointMake(winSize.width / 2 - 30.0f, 40.0f)];

@@ -14,7 +14,6 @@
 
 @interface GameCompletedLiteDialog()
 
--(void) gotoAppStore;
 -(void) exitGame;
 
 @end
@@ -52,14 +51,10 @@
 	return self;
 }
 
--(void) gotoAppStore
-{
-	[[LiteUtils sharedUtils] gotoAppStoreForFullVersion];
-}
-
 -(void) exitGame
 {
 	[_game clearAndReplaceState:[PlayState state]];
+	[[LiteUtils sharedUtils] showBuyFullVersionAlert];
 }
 
 @end
