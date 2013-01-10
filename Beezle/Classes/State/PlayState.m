@@ -113,7 +113,7 @@ static int nextBeeIndex = 0;
 
 #ifdef LITE_VERSION
 		CCMenu *appStoreMenu = [CCMenu node];
-		CCMenuItemImageScale *appStoreMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"Download_on_the_App_Store_Badge_US-UK_135x40.png" selectedImage:@"Download_on_the_App_Store_Badge_US-UK_135x40.png" block:^(id sender){
+		CCMenuItemImageScale *appStoreMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"Button-Buy Full Version.png" selectedImage:@"Button-Buy Full Version.png" block:^(id sender){
 			[[LiteUtils sharedUtils] gotoAppStoreForFullVersion];
 		}];
 		[appStoreMenuItem setPosition:CGPointMake(90.0f, 60.0f)];
