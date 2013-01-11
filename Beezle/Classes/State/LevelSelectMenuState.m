@@ -205,7 +205,7 @@
 		else
 		{
 #ifdef LITE_VERSION
-			[menuItemImage setOpacity:180];
+			[menuItemImage setOpacity:130];
 			if (firstCellX < 0.0f)
 			{
 				firstCellX = [menuItemImage position].x;
