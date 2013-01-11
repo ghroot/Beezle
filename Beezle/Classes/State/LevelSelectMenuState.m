@@ -172,7 +172,7 @@
 				}
 
 #ifdef DEBUG
-				NSString *levelString = [NSString stringWithFormat:@"%d", [menuItemImage tag]];
+				NSString *levelString = [levelName stringByReplacingOccurrencesOfString:@"Level-" withString:@""];
 				CCLabelTTF *debugLabel = [CCLabelTTF labelWithString:levelString fontName:@"Marker Felt" fontSize:24];
 				[debugLabel setAnchorPoint:CGPointMake(0.5f, 0.5f)];
 				[debugLabel setPosition:position];
