@@ -241,11 +241,15 @@
 #ifdef DEBUG
 	[_menu setEnabled:TRUE];
 #else
+#ifdef LITE_VERSION
+	[_menu setEnabled:TRUE];
+#else
 	BOOL locked = ![[PlayerInformation sharedInformation] canPlayTheme:_theme];
 	if (!locked)
 	{
 		[_menu setEnabled:TRUE];
 	}
+#endif
 #endif
 }
 
