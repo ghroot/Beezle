@@ -14,6 +14,7 @@
 @interface PausedMenuState : GameState
 {
     NSString *_theme;
+    NSString *_levelName;
 }
 
 -(id) initWithBackground:(CCNode *)backgroundNode andLevelSession:(LevelSession *)levelSession;

@@ -35,8 +35,9 @@
 	if (self = [super init])
 	{
         _theme = [[[LevelOrganizer sharedOrganizer] themeForLevel:[levelSession levelName]] copy];
+		_levelName = [[levelSession levelName] copy];
 
-        [backgroundNode setPosition:[Utils screenCenterPosition]];
+		[backgroundNode setPosition:[Utils screenCenterPosition]];
 		[self addChild:backgroundNode];
 
 		PausedDialog *pausedDialog = [[[PausedDialog alloc] initWithState:self andLevelSession:levelSession] autorelease];
@@ -48,6 +49,7 @@
 -(void) dealloc
 {
     [_theme release];
+	[_levelName release];
 
     [super dealloc];
 }
@@ -71,8 +73,7 @@
 	[menu setPosition:CGPointMake([menu position].x, [menu position].y + 50.0f)];
 	[self addChild:menu];
 
-	GameplayState *gameplayState = (GameplayState *)[_game previousState];
-	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:[gameplayState levelName]];
+	LevelLayout *levelLayout = [[LevelLayoutCache sharedLevelLayoutCache] levelLayoutByName:_levelName];
 	NSString *levelInfoString = [NSString stringWithFormat:@"%@v%d%@", [levelLayout levelName], [levelLayout version], ([levelLayout isEdited] ? @" (edited)" : @"")];
 	CCLabelTTF *levelInfoLabel = [CCLabelTTF labelWithString:levelInfoString fontName:@"Marker Felt" fontSize:14.0f];
 	[levelInfoLabel setPosition:CGPointMake(winSize.width, 0.0f)];
@@ -99,8 +100,7 @@
 {
 	// This assumes the previous state was the game play state
 	[_game popState];
-	GameplayState *gameplayState = (GameplayState *)[_game currentState];
-	[_game replaceState:[GameplayState stateWithLevelName:[gameplayState levelName]]];
+	[_game replaceState:[GameplayState stateWithLevelName:_levelName]];
 }
 
 -(void) exitGame
@@ -112,16 +112,14 @@
 {
 	// This assumes the previous state was the game play state
 	[_game popState];
-	GameplayState *gameplayState = (GameplayState *)[_game currentState];
-	[_game replaceState:[EditState stateWithLevelName:[gameplayState levelName]]];
+	[_game replaceState:[EditState stateWithLevelName:_levelName]];
 }
 
 -(void) nextLevel
 {
 	// This assumes the previous state was the game play state
 	[_game popState];
-	GameplayState *gameplayState = (GameplayState *)[_game currentState];
-	NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:[gameplayState levelName]];
+	NSString *nextLevelName = [[LevelOrganizer sharedOrganizer] levelNameAfter:_levelName];
     if (nextLevelName != nil)
     {
 		[GameStateUtils replaceWithGameplayState:nextLevelName game:_game];
