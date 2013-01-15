@@ -13,6 +13,7 @@
 #import "LevelLayoutCache.h"
 #import "Logger.h"
 #import "GameCenterManager.h"
+#import "FacebookManager.h"
 
 static NSString *SETTINGS_KEY = @"Settings";
 static NSString *PROGRESS_KEY = @"Progress";
@@ -31,6 +32,8 @@ static NSString *PROGRESS_KEY = @"Progress";
 
 @synthesize isSoundMuted = _isSoundMuted;
 @synthesize usingAdvancedControlScheme = _usingAdvancedControlScheme;
+@synthesize autoAuthenticateGameCenter = _autoAuthenticateGameCenter;
+@synthesize autoLoginToFacebook = _autoLoginToFacebook;
 
 +(PlayerInformation *) sharedInformation
 {
@@ -145,6 +148,7 @@ static NSString *PROGRESS_KEY = @"Progress";
 	if (store != nil)
 	{
 		[store setObject:[self getProgressAsDictionary] forKey:PROGRESS_KEY];
+		[store synchronize];
 	}
 #endif
 }
@@ -156,6 +160,8 @@ static NSString *PROGRESS_KEY = @"Progress";
 	{
 		_isSoundMuted = [[settingsDict objectForKey:@"isSoundMuted"] boolValue];
 		_usingAdvancedControlScheme = [[settingsDict objectForKey:@"usingAdvancedControlScheme"] boolValue];
+		_autoAuthenticateGameCenter = [[settingsDict objectForKey:@"autoAuthenticateGameCenter"] boolValue];
+		_autoLoginToFacebook = [[settingsDict objectForKey:@"autoLoginToFacebook"] boolValue];
 	}
 	NSDictionary *progressDict = [[NSUserDefaults standardUserDefaults] objectForKey:PROGRESS_KEY];
 	if (progressDict != nil)
@@ -174,6 +180,8 @@ static NSString *PROGRESS_KEY = @"Progress";
 	_defaultTheme = nil;
 	_isSoundMuted = FALSE;
 	_usingAdvancedControlScheme = FALSE;
+	_autoAuthenticateGameCenter = FALSE;
+	_autoLoginToFacebook = FALSE;
 	
 	[[NSUserDefaults standardUserDefaults] removeObjectForKey:SETTINGS_KEY];
 	[[NSUserDefaults standardUserDefaults] removeObjectForKey:PROGRESS_KEY];
@@ -196,6 +204,8 @@ static NSString *PROGRESS_KEY = @"Progress";
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	[dict setObject:[NSNumber numberWithBool:_isSoundMuted] forKey:@"isSoundMuted"];
 	[dict setObject:[NSNumber numberWithBool:_usingAdvancedControlScheme] forKey:@"usingAdvancedControlScheme"];
+	[dict setObject:[NSNumber numberWithBool:_autoAuthenticateGameCenter] forKey:@"autoAuthenticateGameCenter"];
+	[dict setObject:[NSNumber numberWithBool:_autoLoginToFacebook] forKey:@"autoLoginToFacebook"];
 	return dict;
 }
 
@@ -219,6 +229,7 @@ static NSString *PROGRESS_KEY = @"Progress";
 
 #ifndef LITE_VERSION
 		[[GameCenterManager sharedManager] reportScore:[self totalNumberOfPollen]];
+		[[FacebookManager sharedManager] postScore:[self totalNumberOfPollen]];
 #endif
 	}
 }

@@ -18,6 +18,7 @@
 #import "AnimationSoundMediator.h"
 #import "GameCenterManager.h"
 #import "BeezleNavigationViewController.h"
+#import "FacebookManager.h"
 
 @implementation AppDelegate
 
@@ -106,8 +107,17 @@
 		[[AnimationSoundMediator sharedMediator] initialise];
 
 #ifndef LITE_VERSION
-		// Game center
-		[[GameCenterManager sharedManager] initialise];
+		if ([[PlayerInformation sharedInformation] autoAuthenticateGameCenter])
+		{
+			// Game center
+			[[GameCenterManager sharedManager] authenticate];
+		}
+
+		if ([[PlayerInformation sharedInformation] autoLoginToFacebook])
+		{
+			// Facebook
+			[[FacebookManager sharedManager] login];
+		}
 #endif
 
 		// Tracking
@@ -183,6 +193,8 @@
 
 -(void) applicationWillTerminate:(UIApplication *)application
 {
+	[[FBSession activeSession] close];
+
 	CC_DIRECTOR_END();
 }
 
@@ -194,6 +206,21 @@
 -(void) applicationSignificantTimeChange:(UIApplication *)application
 {
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:TRUE];
+}
+
+-(BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    [[FBSession activeSession] handleOpenURL:url];
+    
+    return YES;
+}
+
+// iOS 4.3 compatibility
+-(BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+	[[FBSession activeSession] handleOpenURL:url];
+
+	return TRUE;
 }
 
 -(void) sendEmail:(EmailInfo *)emailInfo

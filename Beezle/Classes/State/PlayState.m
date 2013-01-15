@@ -17,8 +17,8 @@
 #import "Utils.h"
 #import "PlayerInformation.h"
 #import "GameCenterManager.h"
-#import "NotificationTypes.h"
-#import "LiteUtils.h"
+#import "FacebookManager.h"
+#import "FacebookHighscoresState.h"
 
 static int nextBeeIndex = 0;
 
@@ -26,8 +26,6 @@ static int nextBeeIndex = 0;
 
 -(void) createGotoDebugMenu;
 -(void) gotoDebugMenu;
--(void) handleGameCenterNotification:(NSNotification *)notification;
--(void) updateGameCenterButton;
 -(void) createBee;
 -(void) createSawee;
 -(void) createBombee;
@@ -133,8 +131,15 @@ static int nextBeeIndex = 0;
 		[gameCenterMenu setPosition:CGPointZero];
 		[gameCenterMenu addChild:_gameCenterMenuItem];
 		[self addChild:gameCenterMenu];
-		[self updateGameCenterButton];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleGameCenterNotification:) name:NOTIFICATION_GAME_CENTER_AUTHENTICATED object:nil];
+
+		CCMenu *facebookMenu = [CCMenu node];
+		CCMenuItemImageScale *facebookMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"Facebook-logo.png" selectedImage:@"Facebook-logo.png" block:^(id sender){
+			[_game pushState:[FacebookHighscoresState state] transition:FALSE];
+		}];
+		[facebookMenuItem setPosition:CGPointMake(80.0f, 40.0f)];
+		[facebookMenu setPosition:CGPointZero];
+		[facebookMenu addChild:facebookMenuItem];
+		[self addChild:facebookMenu];
 #else
 		[soundButton setPosition:CGPointMake(winSize.width / 2, 40.0f)];
 #endif
@@ -194,25 +199,6 @@ static int nextBeeIndex = 0;
 -(void) gotoDebugMenu
 {
 	[_game replaceState:[DebugMenuState state]];
-}
-
--(void) handleGameCenterNotification:(NSNotification *)notification
-{
-	[self updateGameCenterButton];
-}
-
--(void) updateGameCenterButton
-{
-	if ([[GameCenterManager sharedManager] isAuthenticated])
-	{
-		[_gameCenterMenuItem setIsEnabled:TRUE];
-		[_gameCenterMenuItem setOpacity:255];
-	}
-	else
-	{
-		[_gameCenterMenuItem setIsEnabled:FALSE];
-		[_gameCenterMenuItem setOpacity:128];
-	}
 }
 
 -(void) createBee

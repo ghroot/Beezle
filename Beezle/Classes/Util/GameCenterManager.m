@@ -7,9 +7,16 @@
 #import "GameCenterManager.h"
 #import "cocos2d.h"
 #import "Logger.h"
-#import "NotificationTypes.h"
+#import "PlayerInformation.h"
 
 static NSString *LEADERBOARD_ID = @"collectedPollen";
+
+@interface GameCenterManager()
+
+-(void) authenticationSuccessful;
+-(void) authenticationFailed;
+
+@end
 
 @implementation GameCenterManager
 
@@ -25,7 +32,7 @@ static NSString *LEADERBOARD_ID = @"collectedPollen";
 	return manager;
 }
 
--(void) initialise
+-(void) authenticate
 {
 	GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
 	
@@ -40,20 +47,18 @@ static NSString *LEADERBOARD_ID = @"collectedPollen";
 			}
 			else if ([localPlayer isAuthenticated])
 			{
-				_isAuthenticated = TRUE;
-
-				[[Logger defaultLogger] log:@"GameCenter local player authenticated"];
-
-				[[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GAME_CENTER_AUTHENTICATED object:nil];
+				[self authenticationSuccessful];
 			}
 			else
 			{
-				[[Logger defaultLogger] log:@"GameCenter local player NOT authenticated"];
+				[self authenticationFailed];
 			}
+#ifdef DEBUG
 			if (error != nil)
 			{
 				[[Logger defaultLogger] log:[error localizedDescription]];
 			}
+#endif
 		}];
 	}
 	else
@@ -61,80 +66,118 @@ static NSString *LEADERBOARD_ID = @"collectedPollen";
 		[localPlayer authenticateWithCompletionHandler:^(NSError *error){
 			if ([localPlayer isAuthenticated])
 			{
-				_isAuthenticated = TRUE;
-
-				[[Logger defaultLogger] log:@"GameCenter local player authenticated"];
-
-				[[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GAME_CENTER_AUTHENTICATED object:nil];
+				[self authenticationSuccessful];
 			}
 			else
 			{
-				[[Logger defaultLogger] log:@"GameCenter local player NOT authenticated"];
+				[self authenticationFailed];
 			}
+#ifdef DEBUG
 			if (error != nil)
 			{
 				[[Logger defaultLogger] log:[error localizedDescription]];
 			}
+#endif
 		}];
 	}
+}
 
+-(void) authenticationSuccessful
+{
+	_isAuthenticated = TRUE;
+
+	if (![[PlayerInformation sharedInformation] autoAuthenticateGameCenter])
+	{
+		[[PlayerInformation sharedInformation] setAutoAuthenticateGameCenter:TRUE];
+		[[PlayerInformation sharedInformation] save];
+	}
+
+#ifdef DEBUG
+	[[Logger defaultLogger] log:@"GameCenter authenticated"];
+#endif
+
+	if (_showLeaderBoardsOnceAuthenticated)
+	{
+		_showLeaderBoardsOnceAuthenticated = FALSE;
+		[self showLeaderboards];
+	}
+}
+
+-(void) authenticationFailed
+{
+#ifdef DEBUG
+	[[Logger defaultLogger] log:@"GameCenter failed to authenticate"];
+#endif
+
+	_showLeaderBoardsOnceAuthenticated = FALSE;
 }
 
 -(void) showLeaderboards
 {
-	if ([GKGameCenterViewController class])
+	if (_isAuthenticated)
 	{
-		GKGameCenterViewController *gameCenterController = [[GKGameCenterViewController alloc] init];
-		if (gameCenterController != nil)
+		if ([GKGameCenterViewController class])
 		{
-			[gameCenterController setGameCenterDelegate:self];
-			[gameCenterController setViewState:GKGameCenterViewControllerStateLeaderboards];
-			[gameCenterController setLeaderboardTimeScope:GKLeaderboardTimeScopeAllTime];
-			[gameCenterController setLeaderboardCategory:LEADERBOARD_ID];
-			[[CCDirector sharedDirector] presentViewController:gameCenterController animated:TRUE completion:nil];
-			[gameCenterController release];
+			GKGameCenterViewController *gameCenterController = [[GKGameCenterViewController alloc] init];
+			if (gameCenterController != nil)
+			{
+				[gameCenterController setGameCenterDelegate:self];
+				[gameCenterController setViewState:GKGameCenterViewControllerStateLeaderboards];
+				[gameCenterController setLeaderboardTimeScope:GKLeaderboardTimeScopeAllTime];
+				[gameCenterController setLeaderboardCategory:LEADERBOARD_ID];
+				[[CCDirector sharedDirector] presentViewController:gameCenterController animated:TRUE completion:nil];
+				[gameCenterController release];
+			}
+		}
+		else
+		{
+			GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
+			if (leaderboardController != nil)
+			{
+				[leaderboardController setLeaderboardDelegate:self];
+				[leaderboardController setTimeScope:GKLeaderboardTimeScopeAllTime];
+				[leaderboardController setCategory:LEADERBOARD_ID];
+				if ([[CCDirector sharedDirector] respondsToSelector:@selector(presentViewController:animated:completion:)])
+				{
+					[[CCDirector sharedDirector] presentViewController:leaderboardController animated:TRUE completion:nil];
+				}
+				else
+				{
+					[[CCDirector sharedDirector] presentModalViewController:leaderboardController animated:TRUE];
+				}
+				[leaderboardController release];
+			}
 		}
 	}
 	else
 	{
-		GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
-		if (leaderboardController != nil)
-		{
-			[leaderboardController setLeaderboardDelegate:self];
-			[leaderboardController setTimeScope:GKLeaderboardTimeScopeAllTime];
-			[leaderboardController setCategory:LEADERBOARD_ID];
-			if ([[CCDirector sharedDirector] respondsToSelector:@selector(presentViewController:animated:completion:)])
-			{
-				[[CCDirector sharedDirector] presentViewController:leaderboardController animated:TRUE completion:nil];
-			}
-			else
-			{
-				[[CCDirector sharedDirector] presentModalViewController:leaderboardController animated:TRUE];
-			}
-			[leaderboardController release];
-		}
+		_showLeaderBoardsOnceAuthenticated = TRUE;
+
+		[self authenticate];
 	}
 }
 
 -(void) reportScore:(int)score
 {
-	if (_isAuthenticated)
+	if (!_isAuthenticated)
 	{
+		return;
+	}
+
 #ifdef DEBUG
-		[[Logger defaultLogger] log:[NSString stringWithFormat:@"Reporting score to game center: %d", score]];
+	[[Logger defaultLogger] log:[NSString stringWithFormat:@"Reporting score to game center: %d", score]];
 #endif
 
-		GKScore *scoreReporter = [[[GKScore alloc] initWithCategory:LEADERBOARD_ID] autorelease];
-		[scoreReporter setValue:score];
-		[scoreReporter reportScoreWithCompletionHandler:^(NSError *error){
+	GKScore *scoreReporter = [[[GKScore alloc] initWithCategory:LEADERBOARD_ID] autorelease];
+	[scoreReporter setValue:score];
+	[scoreReporter reportScoreWithCompletionHandler:^(NSError *error){
 #ifdef DEBUG
-			if (error != nil)
-			{
-				[[Logger defaultLogger] log:[error localizedDescription]];
-			}
+		if (error != nil)
+		{
+			[[Logger defaultLogger] log:[error localizedDescription]];
+		}
 #endif
-		}];
-	}
+	}];
 }
 
 -(void) gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController

@@ -7,13 +7,14 @@
 @interface GameCenterManager : NSObject <GKGameCenterControllerDelegate, GKLeaderboardViewControllerDelegate>
 {
 	BOOL _isAuthenticated;
+	BOOL _showLeaderBoardsOnceAuthenticated;
 }
 
 @property (nonatomic, readonly) BOOL isAuthenticated;
 
 +(GameCenterManager *) sharedManager;
 
--(void) initialise;
+-(void) authenticate;
 -(void) showLeaderboards;
 -(void) reportScore:(int)score;
 
