@@ -14,6 +14,7 @@ static const long long APP_ID = 392888574136437;
 
 @interface FacebookManager()
 
+-(void) getSession;
 -(void) requestUserInformation;
 
 @end
@@ -44,27 +45,6 @@ static const long long APP_ID = 392888574136437;
 	return self;
 }
 
-
--(void) login
-{
-	[FBSession openActiveSessionWithPublishPermissions:[NSArray arrayWithObject:@"publish_actions"] defaultAudience:FBSessionDefaultAudienceFriends allowLoginUI:TRUE completionHandler:^(FBSession *session, FBSessionState status, NSError *error){
-		if (status == FBSessionStateClosedLoginFailed || status == FBSessionStateCreatedOpening){
-			[[FBSession activeSession] closeAndClearTokenInformation];
-			[FBSession setActiveSession:nil];
-
-			[[Logger defaultLogger] log:[NSString stringWithFormat:@"Facebook login failed: %@", [error localizedDescription]]];
-		}
-		else
-		{
-			_facebook = [[Facebook alloc] initWithAppId:[[FBSession activeSession] appID] andDelegate:nil];
-			[_facebook setAccessToken:[[FBSession activeSession] accessToken]];
-			[_facebook setExpirationDate:[[FBSession activeSession] expirationDate]];
-
-			[self requestUserInformation];
-		}
-	}];
-}
-
 -(void) dealloc
 {
 	[_facebook release];
@@ -73,15 +53,83 @@ static const long long APP_ID = 392888574136437;
 	[super dealloc];
 }
 
+-(void) login
+{
+	if (_isLoggedIn)
+	{
+		if (_delegate != nil)
+		{
+			[_delegate didLogin];
+		}
+		return;
+	}
+
+	if (_isRequestInProgress)
+	{
+		return;
+	}
+
+	if (_hasSession)
+	{
+		[self requestUserInformation];
+	}
+	else
+	{
+		[self getSession];
+	}
+}
+
+-(void) getSession
+{
+	_isRequestInProgress = TRUE;
+
+	[FBSession openActiveSessionWithPublishPermissions:[NSArray arrayWithObject:@"publish_actions"] defaultAudience:FBSessionDefaultAudienceFriends allowLoginUI:TRUE completionHandler:^(FBSession *session, FBSessionState status, NSError *error){
+		_isRequestInProgress = FALSE;
+		if (status == FBSessionStateClosedLoginFailed || status == FBSessionStateCreatedOpening){
+#ifdef DEBUG
+			[[Logger defaultLogger] log:[NSString stringWithFormat:@"Getting Facebook session failed: %@", [error localizedDescription]]];
+#endif
+
+			[[FBSession activeSession] closeAndClearTokenInformation];
+			[FBSession setActiveSession:nil];
+
+			if (_delegate != nil)
+			{
+				[_delegate loginFailed];
+			}
+		}
+		else
+		{
+#ifdef DEBUG
+			[[Logger defaultLogger] log:[NSString stringWithFormat:@"Getting Facebook session succeeeded"]];
+#endif
+
+			_facebook = [[Facebook alloc] initWithAppId:[[FBSession activeSession] appID] andDelegate:nil];
+			[_facebook setAccessToken:[[FBSession activeSession] accessToken]];
+			[_facebook setExpirationDate:[[FBSession activeSession] expirationDate]];
+
+			_hasSession = TRUE;
+
+			[self requestUserInformation];
+		}
+	}];
+}
+
 -(void) requestUserInformation
 {
+	_isRequestInProgress = TRUE;
+
 	[[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *result, NSError *error){
+		_isRequestInProgress = FALSE;
 		if (!error && result)
 		{
+#ifdef DEBUG
+			[[Logger defaultLogger] log:@"Facebook user info request successful"];
+			[[Logger defaultLogger] log:@"Facebook login completed"];
+#endif
+
 			_playerFBID = [[result id] longLongValue];
 			_playerName = [[result first_name] copy];
-
-			[[Logger defaultLogger] log:@"Facebook login successful!"];
 
 			_isLoggedIn = TRUE;
 
@@ -98,17 +146,27 @@ static const long long APP_ID = 392888574136437;
 		}
 		else
 		{
+#ifdef DEBUG
 			[[Logger defaultLogger] log:[NSString stringWithFormat:@"Facebook user info request failed: %@", [error localizedDescription]]];
+#endif
+
+			if (_delegate != nil)
+			{
+				[_delegate loginFailed];
+			}
 		}
 	}];
 }
 
 -(void) postScore:(int)score
 {
-	if (!_isLoggedIn)
+	if (!_isLoggedIn ||
+		_isRequestInProgress)
 	{
 		return;
 	}
+
+	_isRequestInProgress = TRUE;
 
 #ifdef DEBUG
 	[[Logger defaultLogger] log:[NSString stringWithFormat:@"Posting score to Facebook: %d", score]];
@@ -116,6 +174,7 @@ static const long long APP_ID = 392888574136437;
 
 	NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d", score], @"score", nil];
 	[FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%llu/scores", _playerFBID] parameters:params HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error){
+		_isRequestInProgress = FALSE;
 		if (result && !error)
 		{
 			int currentScore = 0;
@@ -155,10 +214,20 @@ static const long long APP_ID = 392888574136437;
 {
 	if (!_isLoggedIn)
 	{
+		if (_delegate != nil)
+		{
+			[_delegate failedToGetScores];
+		}
+		return;
+	}
+
+	if (_isRequestInProgress)
+	{
 		return;
 	}
 
 	[FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%llu/scores?fields=score,user", APP_ID] parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error){
+		_isRequestInProgress = FALSE;
 		if (result && !error)
 		{
 			NSMutableArray *uids = [NSMutableArray array];
@@ -181,6 +250,10 @@ static const long long APP_ID = 392888574136437;
 			{
 				[_delegate didRecieveUids:uids names:names scores:scores];
 			}
+
+#ifdef DEBUG
+			[[Logger defaultLogger] log:[NSString stringWithFormat:@"Getting Facebook scores succeeeded"]];
+#endif
 		}
 		else
 		{
@@ -188,6 +261,10 @@ static const long long APP_ID = 392888574136437;
 			{
 				[_delegate failedToGetScores];
 			}
+
+#ifdef DEBUG
+			[[Logger defaultLogger] log:[NSString stringWithFormat:@"Getting Facebook scores failed: %@", [error localizedDescription]]];
+#endif
 		}
 	}];
 }

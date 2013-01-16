@@ -20,6 +20,7 @@
 -(void) hideLoadingSprite;
 -(void) createBackMenu;
 -(BOOL) isPlayerUid:(NSString *)uid;
+-(void) showErrorMessage;
 
 @end
 
@@ -63,6 +64,12 @@
 -(void) didLogin
 {
 	[[FacebookManager sharedManager] getScores];
+}
+
+-(void) loginFailed
+{
+	[self hideLoadingSprite];
+	[self showErrorMessage];
 }
 
 -(void) didRecieveUids:(NSArray *)uids names:(NSArray *)names scores:(NSArray *)scores
@@ -134,7 +141,11 @@
 -(void) failedToGetScores
 {
 	[self hideLoadingSprite];
+	[self showErrorMessage];
+}
 
+-(void) showErrorMessage
+{
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 
 	NSString *errorMessage = @"Could not retrieve scores, please try again later";
