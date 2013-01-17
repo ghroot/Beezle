@@ -5,6 +5,7 @@
 //
 
 #import "Logger.h"
+#import "NotificationTypes.h"
 
 @implementation Logger
 
@@ -42,6 +43,8 @@
 	NSDateFormatter *dateFormat = [[NSDateFormatter new] autorelease];
 	[dateFormat setDateFormat:@"HH:mm:ss"];
 	[_lines addObject:[NSString stringWithFormat:@"[%@] %@", [dateFormat stringFromDate:now], message]];
+
+	[[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOG object:self];
 }
 
 @end

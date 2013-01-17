@@ -6,9 +6,11 @@
 
 #import "GameState.h"
 
+@class ScrollView;
+
 @interface OutputConsoleState : GameState
 {
-	CCLabelTTF *_label;
+	ScrollView *_scrollView;
 }
 
 @end

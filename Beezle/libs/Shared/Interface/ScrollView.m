@@ -128,7 +128,19 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 	}
 	else
 	{
-		[_draggableNode setPosition:CGPointMake((winSize.width - [_draggableNode contentSize].width) / 2, (winSize.height - [_draggableNode contentSize].height) / 2)];
+		float positionX = [_draggableNode position].x;
+		float positionY = [_draggableNode position].y;
+
+		if ([_draggableNode contentSize].width < winSize.width)
+		{
+			positionX = (winSize.width - [_draggableNode contentSize].width) / 2;
+		}
+		if ([_draggableNode contentSize].height < winSize.height)
+		{
+			positionY = (winSize.height - [_draggableNode contentSize].height) / 2;
+		}
+
+		[_draggableNode setPosition:CGPointMake(positionX, positionY)];
 	}
 }
 
