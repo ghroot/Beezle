@@ -1217,7 +1217,7 @@
 		2C85BDF51656E8E400A369AE /* Level-D29-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C85BDE71656E8E400A369AE /* Level-D29-Shapes.plist */; };
 		2C85BDF71656E8E400A369AE /* Level-D29.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C85BDE81656E8E400A369AE /* Level-D29.jpg */; };
 		2C86AD7616A8B08600A57F52 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2C86AD7516A8B08600A57F52 /* FacebookSDKResources.bundle */; };
-		2C86AD7816A8B09900A57F52 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C86AD7716A8B09900A57F52 /* FacebookSDK.framework */; };
+		2C86AD7816A8B09900A57F52 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C86AD7716A8B09900A57F52 /* FacebookSDK.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2C8808AC155EF3BD000FD02E /* Beeater-Land-C.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8808AB155EF3BD000FD02E /* Beeater-Land-C.plist */; };
 		2C8808AF155F07C4000FD02E /* Beeater-Hanging-C.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8808AE155F07C4000FD02E /* Beeater-Hanging-C.plist */; };
 		2C8808B1155F0971000FD02E /* Beeater-Bird-C.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8808B0155F0971000FD02E /* Beeater-Bird-C.plist */; };
@@ -12454,7 +12454,6 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../FacebookSDK\"",
 					"\"$(SRCROOT)/Beezle/libs\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -12497,7 +12496,6 @@
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../FacebookSDK\"",
 					"\"$(SRCROOT)/Beezle/libs\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
