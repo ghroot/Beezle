@@ -30,6 +30,7 @@ static NSString *PROGRESS_KEY = @"Progress";
 
 @implementation PlayerInformation
 
+@synthesize defaultTheme = _defaultTheme;
 @synthesize isSoundMuted = _isSoundMuted;
 @synthesize usingAdvancedControlScheme = _usingAdvancedControlScheme;
 @synthesize autoAuthenticateGameCenter = _autoAuthenticateGameCenter;
