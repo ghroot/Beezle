@@ -36,7 +36,9 @@
 +(FacebookManager *) sharedManager;
 
 -(void) login;
+-(void) closeSession;
 -(void) postScore:(int)score;
 -(void) getScores;
+-(void) handleOpenURL:(NSURL *)url;
 
 @end

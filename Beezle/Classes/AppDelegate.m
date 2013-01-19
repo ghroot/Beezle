@@ -193,7 +193,7 @@
 
 -(void) applicationWillTerminate:(UIApplication *)application
 {
-	[[FBSession activeSession] close];
+	[[FacebookManager sharedManager] closeSession];
 
 	CC_DIRECTOR_END();
 }
@@ -210,15 +210,15 @@
 
 -(BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    [[FBSession activeSession] handleOpenURL:url];
-    
-    return YES;
+	[[FacebookManager sharedManager] handleOpenURL:url];
+
+	return YES;
 }
 
 // iOS 4.3 compatibility
 -(BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
-	[[FBSession activeSession] handleOpenURL:url];
+	[[FacebookManager sharedManager] handleOpenURL:url];
 
 	return TRUE;
 }

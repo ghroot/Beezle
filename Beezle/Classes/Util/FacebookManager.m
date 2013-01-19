@@ -158,6 +158,11 @@ static const long long APP_ID = 392888574136437;
 	}];
 }
 
+-(void) closeSession
+{
+	[[FBSession activeSession] close];
+}
+
 -(void) postScore:(int)score
 {
 	if (!_isLoggedIn ||
@@ -267,6 +272,11 @@ static const long long APP_ID = 392888574136437;
 #endif
 		}
 	}];
+}
+
+-(void) handleOpenURL:(NSURL *)url
+{
+	[[FBSession activeSession] handleOpenURL:url];
 }
 
 @end
