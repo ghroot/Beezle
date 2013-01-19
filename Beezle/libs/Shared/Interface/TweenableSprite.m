@@ -10,9 +10,19 @@
 
 @implementation TweenableSprite
 
+-(float) tweenableX
+{
+	return [self position].x;
+}
+
 -(void) setTweenableX:(float)tweenableX
 {
 	[self setPosition:CGPointMake(tweenableX, [self position].y)];
+}
+
+-(float) tweenableY
+{
+	return [self position].y;
 }
 
 -(void) setTweenableY:(float)tweenableY

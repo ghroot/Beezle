@@ -12,6 +12,7 @@ static const int RESPAWN_DURATION = 50;
 
 @synthesize entityType = _entityType;
 @synthesize position = _position;
+@synthesize respawnAnimationName = _respawnAnimationName;
 
 -(id) initWithEntityType:(NSString *)entityType position:(CGPoint)position respawnAnimationName:(NSString *)respawnAnimationName
 {
@@ -32,7 +33,6 @@ static const int RESPAWN_DURATION = 50;
 
 	[super dealloc];
 }
-
 
 -(BOOL) hasCountdownReachedZero
 {
