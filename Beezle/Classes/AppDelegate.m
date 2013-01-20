@@ -19,6 +19,7 @@
 #import "GameCenterManager.h"
 #import "BeezleNavigationViewController.h"
 #import "FacebookManager.h"
+#import "ApplicationIds.h"
 
 @implementation AppDelegate
 
@@ -27,6 +28,11 @@
 	[super initialize];
 
 	// iRate
+#ifdef LITE_VERSION
+	[[iRate sharedInstance] setAppStoreID:APPLE_APPLICATION_FREE_ID];
+#else
+	[[iRate sharedInstance] setAppStoreID:APPLE_APPLICATION_FULL_ID];
+#endif
 	[[iRate sharedInstance] setRemindPeriod:3.0f];
 #ifdef DEBUG
 	[[iRate sharedInstance] setVerboseLogging:TRUE];

@@ -5,6 +5,7 @@
 //
 
 #import "LiteUtils.h"
+#import "ApplicationIds.h"
 
 @interface LiteUtils()
 
@@ -26,7 +27,8 @@
 
 -(void) gotoAppStoreForFullVersion
 {
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/app/angry-birds/id343200656?mt=8"]];
+	NSString *url = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/app/%@/id%i?mt=8", @"stingy-bees", APPLE_APPLICATION_FULL_ID];
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
 -(void) showBuyFullVersionAlert

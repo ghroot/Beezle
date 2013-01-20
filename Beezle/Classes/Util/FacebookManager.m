@@ -10,8 +10,7 @@
 #import "FacebookManager.h"
 #import "Logger.h"
 #import "PlayerInformation.h"
-
-static const long long APP_ID = 392888574136437;
+#import "ApplicationIds.h"
 
 @interface FacebookManager()
 
@@ -149,7 +148,7 @@ static const long long APP_ID = 392888574136437;
 		return;
 	}
 
-	[FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%llu/scores?fields=score,user", APP_ID] parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error){
+	[FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%llu/scores?fields=score,user", FACEBOOK_APPLICATION_ID] parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error){
 		if (result && !error)
 		{
 			NSMutableArray *uids = [NSMutableArray array];
