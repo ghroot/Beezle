@@ -33,8 +33,6 @@
 -(void) increaseCurrentDuration:(float)delta
 {
 	_currentDuration += delta;
-
-	NSLog(@"%f", _currentDuration);
 }
 
 @end
