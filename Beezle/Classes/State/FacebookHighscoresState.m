@@ -134,14 +134,20 @@
 
 -(BOOL) isPlayerUid:(NSString *)uid
 {
-	NSString *playerUidString = [NSString stringWithFormat:@"%lld", [[FacebookManager sharedManager] playerFBID]];
-	return [uid isEqualToString:playerUidString];
+//	NSString *playerUidString = [NSString stringWithFormat:@"%lld", [[FacebookManager sharedManager] playerFBID]];
+//	return [uid isEqualToString:playerUidString];
+
+	return FALSE;
 }
 
 -(void) failedToGetScores
 {
 	[self hideLoadingSprite];
 	[self showErrorMessage];
+}
+
+-(void) failedToPostScore
+{
 }
 
 -(void) showErrorMessage

@@ -12,8 +12,6 @@
 #import "LevelLayout.h"
 #import "LevelLayoutCache.h"
 #import "Logger.h"
-#import "GameCenterManager.h"
-#import "FacebookManager.h"
 
 static NSString *SETTINGS_KEY = @"Settings";
 static NSString *PROGRESS_KEY = @"Progress";
@@ -227,11 +225,6 @@ static NSString *PROGRESS_KEY = @"Progress";
 	if ([self isPollenRecord:levelSession])
 	{
 		[_pollenRecordByLevelName setObject:[NSNumber numberWithInt:[levelSession totalNumberOfPollen]] forKey:[levelSession levelName]];
-
-#ifndef LITE_VERSION
-		[[GameCenterManager sharedManager] reportScore:[self totalNumberOfPollen]];
-		[[FacebookManager sharedManager] postScore:[self totalNumberOfPollen]];
-#endif
 	}
 }
 

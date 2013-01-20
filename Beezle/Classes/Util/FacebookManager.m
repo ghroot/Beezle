@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 __MyCompanyName__. All rights reserved.
 //
 
+#import <Accounts/Accounts.h>
 #import "FacebookManager.h"
 #import "Logger.h"
 #import "PlayerInformation.h"
@@ -14,15 +15,15 @@ static const long long APP_ID = 392888574136437;
 
 @interface FacebookManager()
 
--(void) getSession;
--(void) requestUserInformation;
+-(BOOL) hasNativeIntegration;
+-(void) handleLoginResult:(FBSession *)session status:(FBSessionState)status error:(NSError *)error;
+-(void) postScore:(int)score;
 
 @end
 
 @implementation FacebookManager
 
 @synthesize isLoggedIn = _isLoggedIn;
-@synthesize playerFBID = _playerFBID;
 @synthesize delegate = _delegate;
 
 +(FacebookManager *) sharedManager
@@ -48,7 +49,6 @@ static const long long APP_ID = 392888574136437;
 -(void) dealloc
 {
 	[_facebook release];
-	[_playerName release];
 
 	[super dealloc];
 }
@@ -57,105 +57,83 @@ static const long long APP_ID = 392888574136437;
 {
 	if (_isLoggedIn)
 	{
-		if (_delegate != nil)
-		{
-			[_delegate didLogin];
-		}
+		[_delegate didLogin];
 		return;
 	}
 
-	if (_isRequestInProgress)
+	if ([self hasNativeIntegration])
 	{
-		return;
-	}
-
-	if (_hasSession)
-	{
-		[self requestUserInformation];
+		// iOS6 with facebook account, can only request read permissions
+		[FBSession openActiveSessionWithReadPermissions:[NSArray array] allowLoginUI:TRUE completionHandler:^(FBSession *session, FBSessionState status, NSError *error){
+			[self handleLoginResult:session status:status error:error];
+		}];
 	}
 	else
 	{
-		[self getSession];
+		[FBSession openActiveSessionWithPublishPermissions:[NSArray arrayWithObject:@"publish_actions"] defaultAudience:FBSessionDefaultAudienceFriends allowLoginUI:TRUE completionHandler:^(FBSession *session, FBSessionState status, NSError *error){
+			[self handleLoginResult:session status:status error:error];
+		}];
 	}
 }
 
--(void) getSession
+-(void) handleLoginResult:(FBSession *)session status:(FBSessionState)status error:(NSError *)error
 {
-	_isRequestInProgress = TRUE;
+	// NOTE: Due to a bug in the Facebook SDK this function is called after asking for permissions too. If
+	// we are already logged in we simply ignore this callback.
+	if (_isLoggedIn)
+	{
+		return;
+	}
 
-	[FBSession openActiveSessionWithPublishPermissions:[NSArray arrayWithObject:@"publish_actions"] defaultAudience:FBSessionDefaultAudienceFriends allowLoginUI:TRUE completionHandler:^(FBSession *session, FBSessionState status, NSError *error){
-		_isRequestInProgress = FALSE;
-		if (status == FBSessionStateClosedLoginFailed || status == FBSessionStateCreatedOpening){
+	if (status == FBSessionStateClosedLoginFailed || status == FBSessionStateCreatedOpening){
 #ifdef DEBUG
-			[[Logger defaultLogger] log:[NSString stringWithFormat:@"Getting Facebook session failed: %@", [error localizedDescription]]];
+		[[Logger defaultLogger] log:[NSString stringWithFormat:@"Facebook login failed: %@", [error localizedDescription]]];
 #endif
 
-			[[FBSession activeSession] closeAndClearTokenInformation];
-			[FBSession setActiveSession:nil];
+		[[FBSession activeSession] closeAndClearTokenInformation];
+		[FBSession setActiveSession:nil];
 
-			if (_delegate != nil)
+		[_delegate loginFailed];
+	}
+	else
+	{
+#ifdef DEBUG
+		[[Logger defaultLogger] log:@"Facebook logged in"];
+#endif
+
+		_facebook = [[Facebook alloc] initWithAppId:[[FBSession activeSession] appID] andDelegate:nil];
+		[_facebook setAccessToken:[[FBSession activeSession] accessToken]];
+		[_facebook setExpirationDate:[[FBSession activeSession] expirationDate]];
+
+		for (NSString *permission in [session permissions])
+		{
+			if ([permission isEqualToString:@"publish_actions"])
 			{
-				[_delegate loginFailed];
+				_hasPublishPermission = TRUE;
 			}
 		}
-		else
-		{
+
 #ifdef DEBUG
-			[[Logger defaultLogger] log:[NSString stringWithFormat:@"Getting Facebook session succeeeded"]];
+		[[Logger defaultLogger] log:[NSString stringWithFormat:@"Has Facebook publish permissions: %@", (_hasPublishPermission ? @"true" : @"false")]];
 #endif
+		
+		_isLoggedIn = TRUE;
 
-			_facebook = [[Facebook alloc] initWithAppId:[[FBSession activeSession] appID] andDelegate:nil];
-			[_facebook setAccessToken:[[FBSession activeSession] accessToken]];
-			[_facebook setExpirationDate:[[FBSession activeSession] expirationDate]];
+		[_delegate didLogin];
 
-			_hasSession = TRUE;
-
-			[self requestUserInformation];
+		if (![[PlayerInformation sharedInformation] autoLoginToFacebook])
+		{
+			[[PlayerInformation sharedInformation] setAutoLoginToFacebook:TRUE];
+			[[PlayerInformation sharedInformation] save];
 		}
-	}];
+	}
 }
 
--(void) requestUserInformation
+-(BOOL) hasNativeIntegration
 {
-	_isRequestInProgress = TRUE;
-
-	[[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *result, NSError *error){
-		_isRequestInProgress = FALSE;
-		if (!error && result)
-		{
-#ifdef DEBUG
-			[[Logger defaultLogger] log:@"Facebook user info request successful"];
-			[[Logger defaultLogger] log:@"Facebook login completed"];
-#endif
-
-			_playerFBID = [[result id] longLongValue];
-			_playerName = [[result first_name] copy];
-
-			_isLoggedIn = TRUE;
-
-			if (_delegate != nil)
-			{
-				[_delegate didLogin];
-			}
-
-			if (![[PlayerInformation sharedInformation] autoLoginToFacebook])
-			{
-				[[PlayerInformation sharedInformation] setAutoLoginToFacebook:TRUE];
-				[[PlayerInformation sharedInformation] save];
-			}
-		}
-		else
-		{
-#ifdef DEBUG
-			[[Logger defaultLogger] log:[NSString stringWithFormat:@"Facebook user info request failed: %@", [error localizedDescription]]];
-#endif
-
-			if (_delegate != nil)
-			{
-				[_delegate loginFailed];
-			}
-		}
-	}];
+	ACAccountStore *accountStore = [[ACAccountStore new] autorelease];
+	ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:@"com.apple.facebook"];
+	return accountType != nil;
 }
 
 -(void) closeSession
@@ -163,76 +141,15 @@ static const long long APP_ID = 392888574136437;
 	[[FBSession activeSession] close];
 }
 
--(void) postScore:(int)score
-{
-	if (!_isLoggedIn ||
-		_isRequestInProgress)
-	{
-		return;
-	}
-
-	_isRequestInProgress = TRUE;
-
-#ifdef DEBUG
-	[[Logger defaultLogger] log:[NSString stringWithFormat:@"Posting score to Facebook: %d", score]];
-#endif
-
-	NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d", score], @"score", nil];
-	[FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%llu/scores", _playerFBID] parameters:params HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error){
-		_isRequestInProgress = FALSE;
-		if (result && !error)
-		{
-			int currentScore = 0;
-
-			NSArray *data = [result objectForKey:@"data"];
-			if ([data count] > 0)
-			{
-				currentScore = [[[data objectAtIndex:0] objectForKey:@"score"] intValue];
-			}
-
-			if (score > currentScore) {
-
-				[FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%llu/scores", _playerFBID] parameters:params HTTPMethod:@"POST" completionHandler:^(FBRequestConnection *connection, id result, NSError *error){
-#ifdef DEBUG
-					if (result && !error)
-					{
-						[[Logger defaultLogger] log:@"Facebook score posted"];
-					}
-					else
-					{
-						[[Logger defaultLogger] log:[NSString stringWithFormat:@"Error posting Facebook score: %@", [error localizedDescription]]];
-					}
-#endif
-				}];
-			}
-			else
-			{
-#ifdef DEBUG
-				[[Logger defaultLogger] log:@"No need to post Facebook score"];
-#endif
-			}
-		}
-	}];
-}
-
 -(void) getScores
 {
 	if (!_isLoggedIn)
 	{
-		if (_delegate != nil)
-		{
-			[_delegate failedToGetScores];
-		}
-		return;
-	}
-
-	if (_isRequestInProgress)
-	{
+		[_delegate failedToGetScores];
 		return;
 	}
 
 	[FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%llu/scores?fields=score,user", APP_ID] parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error){
-		_isRequestInProgress = FALSE;
 		if (result && !error)
 		{
 			NSMutableArray *uids = [NSMutableArray array];
@@ -251,25 +168,139 @@ static const long long APP_ID = 392888574136437;
 				[scores addObject:score];
 			}
 
-			if (_delegate != nil)
-			{
-				[_delegate didRecieveUids:uids names:names scores:scores];
-			}
+			[_delegate didRecieveUids:uids names:names scores:scores];
 
 #ifdef DEBUG
-			[[Logger defaultLogger] log:[NSString stringWithFormat:@"Getting Facebook scores succeeeded"]];
+			[[Logger defaultLogger] log:@"Getting Facebook scores succeeeded"];
 #endif
 		}
 		else
 		{
-			if (_delegate != nil)
-			{
-				[_delegate failedToGetScores];
-			}
+			[_delegate failedToGetScores];
 
 #ifdef DEBUG
 			[[Logger defaultLogger] log:[NSString stringWithFormat:@"Getting Facebook scores failed: %@", [error localizedDescription]]];
 #endif
+		}
+	}];
+}
+
+-(void) tryPostScore:(int)score
+{
+	if (!_isLoggedIn)
+	{
+		[_delegate failedToPostScore];
+		return;
+	}
+
+	if (_hasPublishPermission)
+	{
+		[self postScore:score];
+	}
+	else if ([self hasNativeIntegration])
+	{
+		// iOS6 with facebook account, have to request publish permission
+		[[FBSession activeSession] reauthorizeWithPublishPermissions:[NSArray arrayWithObject:@"publish_actions"] defaultAudience:FBSessionDefaultAudienceFriends completionHandler:^(FBSession *session, NSError *error){
+			if (!error)
+			{
+				for (NSString *permission in [session permissions])
+				{
+					if ([permission isEqualToString:@"publish_actions"])
+					{
+						_hasPublishPermission = TRUE;
+					}
+				}
+
+#ifdef DEBUG
+				[[Logger defaultLogger] log:[NSString stringWithFormat:@"Has Facebook publish permissions: %@", (_hasPublishPermission ? @"true" : @"false")]];
+#endif
+
+				[self postScore:score];
+			}
+			else
+			{
+#ifdef DEBUG
+				[[Logger defaultLogger] log:@"No Facebook permission to post score"];
+#endif
+
+				[_delegate failedToPostScore];
+			}
+		}];
+	}
+	else
+	{
+		[_delegate failedToPostScore];
+	}
+}
+
+-(void) postScore:(int)score
+{
+	if (!_isLoggedIn)
+	{
+		[_delegate failedToPostScore];
+		return;
+	}
+
+	if (!_hasPublishPermission)
+	{
+#ifdef DEBUG
+		[[Logger defaultLogger] log:@"No Facebook permission to post score"];
+#endif
+
+		[_delegate failedToPostScore];
+
+		return;
+	}
+
+#ifdef DEBUG
+	[[Logger defaultLogger] log:[NSString stringWithFormat:@"Posting score to Facebook: %d", score]];
+#endif
+
+	NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d", score], @"score", nil];
+	[FBRequestConnection startWithGraphPath:@"me/scores" parameters:params HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error){
+		if (result && !error)
+		{
+			int currentScore = 0;
+
+			NSArray *data = [result objectForKey:@"data"];
+			if ([data count] > 0)
+			{
+				currentScore = [[[data objectAtIndex:0] objectForKey:@"score"] intValue];
+			}
+
+			if (score > currentScore) {
+
+				[FBRequestConnection startWithGraphPath:@"me/scores" parameters:params HTTPMethod:@"POST" completionHandler:^(FBRequestConnection *connection, id result, NSError *error){
+					if (result && !error)
+					{
+#ifdef DEBUG
+						[[Logger defaultLogger] log:@"Facebook score posted"];
+#endif
+					}
+					else
+					{
+#ifdef DEBUG
+						[[Logger defaultLogger] log:[NSString stringWithFormat:@"Error posting Facebook score: %@", [error localizedDescription]]];
+#endif
+
+						[_delegate failedToPostScore];
+					}
+				}];
+			}
+			else
+			{
+#ifdef DEBUG
+				[[Logger defaultLogger] log:@"No need to post Facebook score"];
+#endif
+			}
+		}
+		else
+		{
+#ifdef DEBUG
+			[[Logger defaultLogger] log:[NSString stringWithFormat:@"Error posting Facebook score: %@", [error localizedDescription]]];
+#endif
+
+			[_delegate failedToPostScore];
 		}
 	}];
 }
