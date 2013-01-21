@@ -10,7 +10,8 @@
 #import "FacebookManager.h"
 #import "Logger.h"
 #import "PlayerInformation.h"
-#import "ApplicationIds.h"
+
+static const long long FACEBOOK_APPLICATION_ID = 392888574136437;
 
 @interface FacebookManager()
 
