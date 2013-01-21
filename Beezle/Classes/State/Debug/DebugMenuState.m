@@ -75,7 +75,7 @@
 	[self addChild:_menu];
 
 	NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
-	NSString* appName = [infoDict objectForKey:@"CFBundleDisplayName"];
+	NSString* appName = [infoDict objectForKey:@"CFBundleName"];
 	NSString* version = [infoDict objectForKey:@"CFBundleShortVersionString"];
 	NSString *labelString = [NSString stringWithFormat:@"%@ %@", appName, version];
 	CCLabelTTF *versionLabel = [CCLabelTTF labelWithString:labelString fontName:@"Marker Felt" fontSize:12.0f];

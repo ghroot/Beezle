@@ -1240,6 +1240,12 @@
 		2C96F77A15741DEA00052239 /* TestEntitySystemState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C96F77915741DE900052239 /* TestEntitySystemState.m */; };
 		2C96F780157422CC00052239 /* DebugSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C96F77F157422CA00052239 /* DebugSystem.m */; };
 		2C9EB4C3167948050031D8EE /* LiteUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16ECB57493AAB36916987 /* LiteUtils.m */; };
+		2CA0B9CC16ACB9F4003E4B4C /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163B77EF8D1730950FF3C /* FacebookManager.m */; };
+		2CA0B9CD16ACBA73003E4B4C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4D1D9F16A307B400E4F91F /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		2CA0B9CE16ACBA7B003E4B4C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4D1DA016A307B400E4F91F /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		2CA0B9CF16ACBA86003E4B4C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C86AD7716A8B09900A57F52 /* FacebookSDK.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		2CA0B9D016ACBA8C003E4B4C /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2C86AD7516A8B08600A57F52 /* FacebookSDKResources.bundle */; };
+		2CA0B9D116ACBA99003E4B4C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4D1DA116A307B400E4F91F /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2CAC3C5B166C1DC10089B83B /* libObjectiveChipmunk-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAC3C59166C1DC10089B83B /* libObjectiveChipmunk-iPhone.a */; };
 		2CAC3C5C166C1DC10089B83B /* libObjectiveChipmunk-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAC3C59166C1DC10089B83B /* libObjectiveChipmunk-iPhone.a */; };
 		2CAC3C83166D46190089B83B /* Level-E1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CAC3C5E166D46190089B83B /* Level-E1-hd.jpg */; };
@@ -5467,6 +5473,10 @@
 				88F162B56B2A97819C0EBA74 /* libGoogleAnalytics.a in Frameworks */,
 				88F16CF0E94825812C367F0C /* libGoogleAnalytics_debug.a in Frameworks */,
 				2CAC3C5C166C1DC10089B83B /* libObjectiveChipmunk-iPhone.a in Frameworks */,
+				2CA0B9CD16ACBA73003E4B4C /* Accounts.framework in Frameworks */,
+				2CA0B9CE16ACBA7B003E4B4C /* AdSupport.framework in Frameworks */,
+				2CA0B9CF16ACBA86003E4B4C /* FacebookSDK.framework in Frameworks */,
+				2CA0B9D116ACBA99003E4B4C /* Social.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9909,6 +9919,7 @@
 				88F16EB4553AD33866AD29B5 /* Symbol-Pause.png in Resources */,
 				88F16CF8D009979A04D4E46B /* Button-Buy Full Version-hd.png in Resources */,
 				88F16421A2B4FD01FBD8EA1E /* Button-Buy Full Version.png in Resources */,
+				2CA0B9D016ACBA8C003E4B4C /* FacebookSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -11893,6 +11904,7 @@
 				88F165AFAA061592B8E431D6 /* DestroyComponent.m in Sources */,
 				88F16CF3A46C5D1DC6F04CB9 /* ResetMenuState.m in Sources */,
 				88F166F8BA38D29B48F88A4D /* URLConnection.m in Sources */,
+				2CA0B9CC16ACB9F4003E4B4C /* FacebookManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -12321,11 +12333,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Stingy Bees Lite.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: KM Lagerstrom (SMJ33Q3Z5B)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: KM Lagerstrom (WXEWHGD352)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../FacebookSDK\"",
+					"\"$(SRCROOT)/Beezle/libs\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -12350,9 +12363,12 @@
 					"\"${SRCROOT}/Beezle/libs/Flurry\"",
 					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"/**",
 				);
-				OTHER_LDFLAGS = "-lz";
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-lsqlite3.0",
+				);
 				PRODUCT_NAME = "Stingy Bees Lite";
-				PROVISIONING_PROFILE = "7169242D-4E29-4649-84CD-0C07EECA48E0";
+				PROVISIONING_PROFILE = "0DAFA8DE-D8E9-49F4-883A-F76AA0188374";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
@@ -12364,11 +12380,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Stingy Bees Lite.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: KM Lagerstrom";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../FacebookSDK\"",
+					"\"$(SRCROOT)/Beezle/libs\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
@@ -12394,9 +12411,12 @@
 					"\"${SRCROOT}/Beezle/libs/Flurry\"",
 					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"/**",
 				);
-				OTHER_LDFLAGS = "-lz";
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-lsqlite3.0",
+				);
 				PRODUCT_NAME = "Stingy Bees Lite";
-				PROVISIONING_PROFILE = "6DEE7056-549D-42AA-B212-862222856F58";
+				PROVISIONING_PROFILE = "9121CBDE-5E92-4D47-8BCB-A7D77DD19D6F";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
@@ -12452,7 +12472,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Stingy Bees.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: KM Lagerstrom (SMJ33Q3Z5B)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: KM Lagerstrom (WXEWHGD352)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -12482,7 +12502,7 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "B5260DB4-FF89-45FD-8683-12604A363E82";
+				PROVISIONING_PROFILE = "4BD77263-2CDE-4285-8DDB-FB7CCE89278E";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
@@ -12494,7 +12514,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Stingy Bees.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: KM Lagerstrom";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -12524,7 +12544,7 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "51874A51-3FBB-4190-BC7E-8E3CBE1AC1CA";
+				PROVISIONING_PROFILE = "2E4AB93B-98E2-4ED6-81CD-0560F775F1BE";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;

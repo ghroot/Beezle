@@ -19,6 +19,7 @@
 #import "GameCenterManager.h"
 #import "FacebookManager.h"
 #import "FacebookHighscoresState.h"
+#import "LiteUtils.h"
 
 static int nextBeeIndex = 0;
 
