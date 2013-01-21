@@ -97,12 +97,12 @@
 
 		CCLabelTTF *nameLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d. %@", (i + 1), name] fontName:@"Marker Felt" fontSize:18.0f];
 		[nameLabel setAnchorPoint:CGPointMake(0.0f, 0.5f)];
-		[nameLabel setPosition:CGPointMake(centerX - 60.0f, currentY)];
+		[nameLabel setPosition:CGPointMake(centerX - 100.0f, currentY)];
 		[contentNode addChild:nameLabel];
 
 		CCLabelTTF *scoreLabel = [CCLabelTTF labelWithString:score fontName:@"Marker Felt" fontSize:18.0f];
 		[scoreLabel setAnchorPoint:CGPointMake(1.0f, 0.5f)];
-		[scoreLabel setPosition:CGPointMake(centerX + 120.0f, currentY)];
+		[scoreLabel setPosition:CGPointMake(centerX + 160.0f, currentY)];
 		[contentNode addChild:scoreLabel];
 
 		if ([self isPlayerUid:uid])
@@ -117,7 +117,7 @@
 			UIImage *imageFromURL = [UIImage imageWithData:data];
 			CCSprite *sprite = [CCSprite spriteWithCGImage:[imageFromURL CGImage] key:[NSString stringWithFormat:@"player_image_%d", i]];
 			[sprite setAnchorPoint:CGPointMake(0.0f, 0.5f)];
-			[sprite setPosition:CGPointMake(centerX - 120.0f, currentY)];
+			[sprite setPosition:CGPointMake(centerX - 160.0f, currentY)];
 			[contentNode addChild:sprite];
 		} errorBlock:^(NSError *error){
 		}];
