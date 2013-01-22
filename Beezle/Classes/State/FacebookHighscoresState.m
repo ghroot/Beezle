@@ -95,7 +95,16 @@
 		NSString *name = [names objectAtIndex:i];
 		NSString *score = [scores objectAtIndex:i];
 
-		CCLabelTTF *nameLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d. %@", (i + 1), name] fontName:@"Marker Felt" fontSize:18.0f];
+		NSString *truncatedName;
+		if ([name length] > 20)
+		{
+			truncatedName = [NSString stringWithFormat:@"%@...", [name substringToIndex:20]];
+		}
+		else
+		{
+			truncatedName = name;
+		}
+		CCLabelTTF *nameLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d. %@", (i + 1), truncatedName] fontName:@"Marker Felt" fontSize:18.0f];
 		[nameLabel setAnchorPoint:CGPointMake(0.0f, 0.5f)];
 		[nameLabel setPosition:CGPointMake(centerX - 100.0f, currentY)];
 		[contentNode addChild:nameLabel];
