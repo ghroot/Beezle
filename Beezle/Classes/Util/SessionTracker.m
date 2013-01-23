@@ -12,15 +12,33 @@
 #import "GAI.h"
 
 #ifdef LITE_VERSION
+  #ifdef DEVELOPMENT
+static NSString *FLURRY_ANALYTICS_TOKEN = @"V3GG4GT62DG6J6BV6CDJ";
+  #else
 static NSString *FLURRY_ANALYTICS_TOKEN = @"QZ935N6MX7FB84PG6XDR";
+  #endif
 #else
+  #ifdef DEVELOPMENT
+static NSString *FLURRY_ANALYTICS_TOKEN = @"6FSC8Y9JFX4ZQNRJ3NDZ";
+  #else
 static NSString *FLURRY_ANALYTICS_TOKEN = @"R5JM67WQ5K522SHSW925";
+  #endif
 #endif
+
 static NSString *TEST_FLIGHT_TOKEN = @"ae396bc6dbee18a35a1087713acb890b_ODQ5NTEyMDEyLTA0LTI2IDE5OjE0OjM3LjYyMDc3NQ";
+
 #ifdef LITE_VERSION
+  #ifdef DEVELOPMENT
+static NSString *GOOGLE_ANALYTICS_TRACKING_ID = @"UA-36666042-4";
+  #else
 static NSString *GOOGLE_ANALYTICS_TRACKING_ID = @"UA-36666042-2";
+  #endif
 #else
+  #ifdef DEVELOPMENT
+static NSString *GOOGLE_ANALYTICS_TRACKING_ID = @"UA-36666042-3";
+  #else
 static NSString *GOOGLE_ANALYTICS_TRACKING_ID = @"UA-36666042-1";
+  #endif
 #endif
 
 void uncaughtExceptionHandler(NSException *exception)
