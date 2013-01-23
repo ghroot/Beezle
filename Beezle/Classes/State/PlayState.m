@@ -20,6 +20,7 @@
 #import "FacebookManager.h"
 #import "FacebookHighscoresState.h"
 #import "LiteUtils.h"
+#import "SessionTracker.h"
 
 static int nextBeeIndex = 0;
 
@@ -127,6 +128,7 @@ static int nextBeeIndex = 0;
 		CCMenu *gameCenterMenu = [CCMenu node];
 		_gameCenterMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"GameCentre logo-Idle.png" selectedImage:@"GameCentre logo-Idle.png" block:^(id sender){
 			[[GameCenterManager sharedManager] showLeaderboards];
+			[[SessionTracker sharedTracker] trackInteraction:@"button" name:@"game center"];
 		}];
 		[_gameCenterMenuItem setPosition:CGPointMake(winSize.width / 2 + 30.0f, 40.0f)];
 		[gameCenterMenu setPosition:CGPointZero];
@@ -136,6 +138,7 @@ static int nextBeeIndex = 0;
 		CCMenu *facebookMenu = [CCMenu node];
 		CCMenuItemImageScale *facebookMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"Facebook-logo.png" selectedImage:@"Facebook-logo.png" block:^(id sender){
 			[_game pushState:[FacebookHighscoresState state] transition:FALSE];
+			[[SessionTracker sharedTracker] trackInteraction:@"button" name:@"facebook"];
 		}];
 		[facebookMenuItem setPosition:CGPointMake(80.0f, 40.0f)];
 		[facebookMenu setPosition:CGPointZero];

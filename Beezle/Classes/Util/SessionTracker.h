@@ -14,5 +14,6 @@
 -(void) trackStartedLevel:(NSString *)levelName;
 -(void) trackCompletedLevel:(NSString *)levelName;
 -(void) trackFailedLevel:(NSString *)levelName;
+-(void) trackInteraction:(NSString *)type name:(NSString *)interactionName;
 
 @end

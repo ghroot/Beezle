@@ -87,4 +87,13 @@ void uncaughtExceptionHandler(NSException *exception)
 	[[[GAI sharedInstance] defaultTracker] trackEventWithCategory:@"level" withAction:@"failed" withLabel:levelName withValue:[NSNumber numberWithInt:0]];
 }
 
+-(void) trackInteraction:(NSString *)type name:(NSString *)interactionName
+{
+	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+	[parameters setObject:interactionName forKey:@"interactionName"];
+	[Flurry logEvent:@"INTERACTION" withParameters:parameters];
+
+	[[[GAI sharedInstance] defaultTracker] trackEventWithCategory:@"interaction" withAction:type withLabel:interactionName withValue:[NSNumber numberWithInt:0]];
+}
+
 @end
