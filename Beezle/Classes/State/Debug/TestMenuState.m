@@ -13,6 +13,7 @@
 #import "TestCreditsState.h"
 #import "GameCenterManager.h"
 #import "TestLevelLayoutsState.h"
+#import "iRate.h"
 
 @interface TestMenuState()
 
@@ -48,6 +49,10 @@
 		[_game pushState:[TestLevelLayoutsState state]];
 	}];
 	[_menu addChild:testLevelLayoutsMenuItem];
+	CCMenuItemFont *testRatingMenuItem = [CCMenuItemFont itemWithString:@"Test rating" block:^(id sender){
+		[[iRate sharedInstance] promptForRating];
+	}];
+	[_menu addChild:testRatingMenuItem];
 
     CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
     [backMenuItem setFontSize:26];

@@ -1,15 +1,14 @@
 //
 //  iRate.m
 //
-//  Version 1.5.3
+//  Version 1.7.2
 //
 //  Created by Nick Lockwood on 26/01/2011.
 //  Copyright 2011 Charcoal Design
 //
 //  Distributed under the permissive zlib license
-//  Get the latest version from either of these locations:
+//  Get the latest version from here:
 //
-//  http://charcoaldesign.co.uk/source/cocoa#irate
 //  https://github.com/nicklockwood/iRate
 //
 //  This software is provided 'as-is', without any express or implied
@@ -31,7 +30,15 @@
 //  3. This notice may not be removed or altered from any source distribution.
 //
 
+
 #import "iRate.h"
+#import <StoreKit/StoreKit.h>
+
+
+#import <Availability.h>
+#if !__has_feature(objc_arc)
+#error This class requires automatic reference counting
+#endif
 
 
 NSUInteger const iRateAppStoreGameGenreID = 6014;
@@ -49,20 +56,17 @@ static NSString *const iRateEventCountKey = @"iRateEventCount";
 static NSString *const iRateMacAppStoreBundleID = @"com.apple.appstore";
 static NSString *const iRateAppLookupURLFormat = @"http://itunes.apple.com/%@/lookup";
 
-static NSString *const iRateiOSAppStoreURLFormat = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%u";
+static NSString *const iRateiOSAppStoreURLFormat = @"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%u";
 static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.com/app/id%u";
 
 
 #define SECONDS_IN_A_DAY 86400.0
+#define SECONDS_IN_A_WEEK 604800.0
 #define MAC_APP_STORE_REFRESH_DELAY 5.0
 #define REQUEST_TIMEOUT 60.0
 
 
-#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
-@interface iRate() <UIAlertViewDelegate>
-#else
 @interface iRate()
-#endif
 
 @property (nonatomic, strong) id visibleAlert;
 @property (nonatomic, assign) int previousOrientation;
@@ -72,34 +76,6 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
 
 
 @implementation iRate
-
-@synthesize appStoreID = _appStoreID;
-@synthesize appStoreGenreID = _appStoreGenreID;
-@synthesize appStoreCountry = _appStoreCountry;
-@synthesize applicationName = _applicationName;
-@synthesize applicationVersion = _applicationVersion;
-@synthesize applicationBundleID = _applicationBundleID;
-@synthesize daysUntilPrompt = _daysUntilPrompt;
-@synthesize usesUntilPrompt = _usesUntilPrompt;
-@synthesize eventsUntilPrompt = _eventsUntilPrompt;
-@synthesize remindPeriod = _remindPeriod;
-@synthesize messageTitle = _messageTitle;
-@synthesize message = _message;
-@synthesize cancelButtonLabel = _cancelButtonLabel;
-@synthesize remindButtonLabel = _remindButtonLabel;
-@synthesize rateButtonLabel = _rateButtonLabel;
-@synthesize ratingsURL = _ratingsURL;
-@synthesize disableAlertViewResizing = _disableAlertViewResizing;
-@synthesize onlyPromptIfLatestVersion = _onlyPromptIfLatestVersion;
-@synthesize onlyPromptIfMainWindowIsAvailable = _onlyPromptIfMainWindowIsAvailable;
-@synthesize promptAtLaunch = _promptAtLaunch;
-@synthesize promptAgainForEachNewVersion = _promptAgainForEachNewVersion;
-@synthesize verboseLogging = _verboseLogging;
-@synthesize previewMode = _previewMode;
-@synthesize delegate = _delegate;
-@synthesize visibleAlert = _visibleAlert;
-@synthesize currentlyChecking = _currentlyChecking;
-@synthesize previousOrientation = _previousOrientation;
 
 #pragma mark -
 #pragma mark Lifecycle methods
@@ -119,32 +95,29 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
     return sharedInstance;
 }
 
-- (NSString *)localizedStringForKey:(NSString *)key
+- (NSString *)localizedStringForKey:(NSString *)key withDefault:(NSString *)defaultString
 {
     static NSBundle *bundle = nil;
     if (bundle == nil)
     {
-        //get localisation bundle
         NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"iRate" ofType:@"bundle"];
         bundle = [NSBundle bundleWithPath:bundlePath] ?: [NSBundle mainBundle];
-        
-        //get correct lproj folder as this doesn't always happen automatically
-        for (NSString *language in [NSLocale preferredLanguages])
+        if (self.useAllAvailableLanguages)
         {
-            if ([[bundle localizations] containsObject:language])
+            //manually select the desired lproj folder
+            for (NSString *language in [NSLocale preferredLanguages])
             {
-                bundlePath = [bundle pathForResource:language ofType:@"lproj"];
-                bundle = [NSBundle bundleWithPath:bundlePath];
-                break;
+                if ([[bundle localizations] containsObject:language])
+                {
+                    bundlePath = [bundle pathForResource:language ofType:@"lproj"];
+                    bundle = [NSBundle bundleWithPath:bundlePath];
+                    break;
+                }
             }
         }
-        
-        //retain bundle
-        bundle = [bundle ah_retain];
     }
-    
-    //return localised string
-    return [bundle localizedStringForKey:key value:nil table:nil];
+    defaultString = [bundle localizedStringForKey:key value:defaultString table:nil];
+    return [[NSBundle mainBundle] localizedStringForKey:key value:defaultString table:nil];
 }
 
 - (iRate *)init
@@ -191,15 +164,18 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
         //bundle id
         self.applicationBundleID = [[NSBundle mainBundle] bundleIdentifier];
         
-        //usage settings - these have sensible defaults
+        //default settings
+        self.useAllAvailableLanguages = YES;
         self.disableAlertViewResizing = NO;
         self.onlyPromptIfLatestVersion = YES;
         self.onlyPromptIfMainWindowIsAvailable = YES;
+        self.displayAppUsingStorekitIfAvailable = YES;
         self.promptAgainForEachNewVersion = YES;
         self.promptAtLaunch = YES;
         self.usesUntilPrompt = 10;
         self.eventsUntilPrompt = 10;
         self.daysUntilPrompt = 10.0f;
+        self.usesPerWeekForPrompt = 0.0f;
         self.remindPeriod = 1.0f;
         self.verboseLogging = NO;
         self.previewMode = NO;
@@ -210,13 +186,6 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
         self.verboseLogging = YES;
         
 #endif
-        
-        //message text, you may wish to customise these, e.g. for localisation
-        self.messageTitle = nil; //set lazily so that appname can be included
-        self.message = nil; //set lazily so that appname can be included
-        self.cancelButtonLabel = [self localizedStringForKey:@"No, Thanks"];
-        self.remindButtonLabel = [self localizedStringForKey:@"Remind Me Later"];
-        self.rateButtonLabel = [self localizedStringForKey:@"Rate It Now"];
         
         //app launched
         [self performSelectorOnMainThread:@selector(applicationLaunched) withObject:nil waitUntilDone:NO];
@@ -242,28 +211,32 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
 
 - (NSString *)messageTitle
 {
-    if (_messageTitle)
-    {
-        return _messageTitle;
-    }
-    return [NSString stringWithFormat:[self localizedStringForKey:@"Rate %@"], self.applicationName];
+    return [_messageTitle ?: [self localizedStringForKey:iRateMessageTitleKey withDefault:@"Rate %@"] stringByReplacingOccurrencesOfString:@"%@" withString:self.applicationName];
 }
 
 - (NSString *)message
 {
-    if (_message)
+    NSString *message = _message;
+    if (!message)
     {
-        return _message;
+        message = (self.appStoreGenreID == iRateAppStoreGameGenreID)? [self localizedStringForKey:iRateGameMessageKey withDefault:@"If you enjoy playing %@, would you mind taking a moment to rate it? It won’t take more than a minute. Thanks for your support!"]: [self localizedStringForKey:iRateAppMessageKey withDefault:@"If you enjoy using %@, would you mind taking a moment to rate it? It won’t take more than a minute. Thanks for your support!"];
     }
-    if (self.appStoreGenreID == iRateAppStoreGameGenreID)
-    {
-         return [NSString stringWithFormat:[self localizedStringForKey:@"If you enjoy playing %@, would you mind taking a moment to rate it? It won't take more than a minute. Thanks for your support!"], self.applicationName];
-    }
-    else
-    {
-        return [NSString stringWithFormat:[self localizedStringForKey:@"If you enjoy using %@, would you mind taking a moment to rate it? It won't take more than a minute. Thanks for your support!"], self.applicationName];
+    return [message stringByReplacingOccurrencesOfString:@"%@" withString:self.applicationName];
+}
 
-    }   
+- (NSString *)cancelButtonLabel
+{
+    return _cancelButtonLabel ?: [self localizedStringForKey:iRateCancelButtonKey withDefault:@"No, Thanks"];
+}
+
+- (NSString *)rateButtonLabel
+{
+    return _rateButtonLabel ?: [self localizedStringForKey:iRateRateButtonKey withDefault:@"Rate It Now"];
+}
+
+- (NSString *)remindButtonLabel
+{
+    return _remindButtonLabel ?: [self localizedStringForKey:iRateRemindButtonKey withDefault:@"Remind Me Later"];
 }
 
 - (NSURL *)ratingsURL
@@ -333,6 +306,11 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+- (float)usesPerWeek
+{
+    return (float)self.usesCount / ([[NSDate date] timeIntervalSinceDate:self.firstUsed] / SECONDS_IN_A_WEEK);
+}
+
 - (BOOL)declinedThisVersion
 {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:iRateDeclinedVersionKey] isEqualToString:self.applicationVersion];
@@ -368,19 +346,6 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-    [_appStoreCountry release];
-    [_applicationName release];
-    [_applicationVersion release];
-    [_applicationBundleID release];
-    [_messageTitle release];
-    [_message release];
-    [_cancelButtonLabel release];
-    [_remindButtonLabel release];
-    [_rateButtonLabel release];
-    [_ratingsURL release];
-    [_visibleAlert release];
-    [super ah_dealloc];
 }
 
 #pragma mark -
@@ -401,10 +366,7 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
     //preview mode?
     if (self.previewMode)
     {
-        if (self.verboseLogging)
-        {
-            NSLog(@"iRate preview mode is enabled - make sure you disable this for release");
-        }
+        NSLog(@"iRate preview mode is enabled - make sure you disable this for release");
         return YES;
     }
     
@@ -439,7 +401,7 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
     }
     
     //check for first launch
-    else if (self.daysUntilPrompt > 0.0f && self.firstUsed == nil)
+    else if ((self.daysUntilPrompt > 0.0f || self.usesPerWeekForPrompt) && self.firstUsed == nil)
     {
         if (self.verboseLogging)
         {
@@ -453,7 +415,7 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
     {
         if (self.verboseLogging)
         {
-            NSLog(@"iRate did not prompt for rating because the last prompt was less than %g days ago", self.daysUntilPrompt);
+            NSLog(@"iRate did not prompt for rating because the app was first used less than %g days ago", self.daysUntilPrompt);
         }
         return NO;
     }
@@ -463,12 +425,21 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
     {
         if (self.verboseLogging)
         {
-            NSLog(@"iRate did not prompt for rating because the app has only been used %i/%i times and only %i/%i events have been logged",
-                  (int)self.usesCount, (int)self.usesUntilPrompt, (int)self.eventCount, (int)self.eventsUntilPrompt);
+            NSLog(@"iRate did not prompt for rating because the app has only been used %i times and only %i events have been logged", (int)self.usesCount, (int)self.eventCount);
         }
         return NO;
     }
     
+    //check if usage frequency is high enough
+    else if (self.usesPerWeek < self.usesPerWeekForPrompt)
+    {
+        if (self.verboseLogging)
+        {
+            NSLog(@"iRate did not prompt for rating because the app has only been used %g times per week on average since it was installed", self.usesPerWeek);
+        }
+        return NO;
+    }
+
     //check if within the reminder period
     else if (self.lastReminded != nil && [[NSDate date] timeIntervalSinceDate:self.lastReminded] < self.remindPeriod * SECONDS_IN_A_DAY)
     {
@@ -672,7 +643,7 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
                                           self.applicationVersion, latestVersion);
                                 }
                                 
-                                error = [NSError errorWithDomain:iRateErrorDomain code:iRateErrorApplicationIsNotLatestVersion userInfo:[NSDictionary dictionaryWithObject:@"Installed app is not the latest version available" forKey:NSLocalizedDescriptionKey]];
+                                error = [NSError errorWithDomain:iRateErrorDomain code:iRateErrorApplicationIsNotLatestVersion userInfo:@{NSLocalizedDescriptionKey: @"Installed app is not the latest version available"}];
                             }
                         }
                     }
@@ -683,7 +654,7 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
                             NSLog(@"iRate found that the application bundle ID (%@) does not match the bundle ID of the app found on iTunes (%@) with the specified App Store ID (%i)", self.applicationBundleID, bundleID, (int)self.appStoreID);
                         }
                         
-                        error = [NSError errorWithDomain:iRateErrorDomain code:iRateErrorBundleIdDoesNotMatchAppStore userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"Application bundle ID does not match expected value of %@", bundleID] forKey:NSLocalizedDescriptionKey]];
+                        error = [NSError errorWithDomain:iRateErrorDomain code:iRateErrorBundleIdDoesNotMatchAppStore userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"Application bundle ID does not match expected value of %@", bundleID]}];
                     }
                 }
                 else if (self.appStoreID || !self.ratingsURL)
@@ -695,15 +666,12 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
                     
                     error = [NSError errorWithDomain:iRateErrorDomain
                                                 code:iRateErrorApplicationNotFoundOnAppStore
-                                            userInfo:[NSDictionary dictionaryWithObject:@"The application could not be found on the App Store." forKey:NSLocalizedDescriptionKey]];
+                                            userInfo:@{NSLocalizedDescriptionKey: @"The application could not be found on the App Store."}];
                 }
                 else if (!self.appStoreID && self.verboseLogging)
                 {
                     NSLog(@"iRate could not find your app on iTunes. If your app is not yet on the store or is not intended for App Store release then don't worry about this");
                 }
-                
-                //release json
-                [json release];
             }
             
             if (error && !(error.code == EPERM && [error.domain isEqualToString:NSPOSIXErrorDomain] && self.appStoreID))
@@ -737,17 +705,16 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
     
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:self.messageTitle
                                                         message:self.message
-                                                       delegate:self
+                                                       delegate:(id <UIAlertViewDelegate>)self
                                               cancelButtonTitle:self.cancelButtonLabel
                                               otherButtonTitles:self.rateButtonLabel, nil];
-        if (self.remindButtonLabel)
+        if ([self.remindButtonLabel length])
         {
             [alert addButtonWithTitle:self.remindButtonLabel];
         }
         
         self.visibleAlert = alert;
         [self.visibleAlert show];
-        [alert release];
 
 #else
 
@@ -764,7 +731,7 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
                                               otherButton:nil
                                 informativeTextWithFormat:@"%@", self.message];
         
-        if (self.remindButtonLabel)
+        if ([self.remindButtonLabel length])
         {
             [self.visibleAlert addButtonWithTitle:self.remindButtonLabel];
         }
@@ -830,12 +797,97 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
 
 - (void)openRatingsPageInAppStore
 {
+    if (_displayAppUsingStorekitIfAvailable && [SKStoreProductViewController class])
+    {
+        if (self.verboseLogging)
+        {
+            NSLog(@"iRate will attempt to open the StoreKit in-app product page using the following app store ID: %i", self.appStoreID);
+        }
+        
+        //create store view controller
+        SKStoreProductViewController *productController = [[SKStoreProductViewController alloc] init];
+        productController.delegate = (id<SKStoreProductViewControllerDelegate>)self;
+        
+        //load product details
+        NSDictionary *productParameters = @{SKStoreProductParameterITunesItemIdentifier: [@(_appStoreID) description]};
+        [productController loadProductWithParameters:productParameters completionBlock:^(BOOL result, NSError *error) {
+            
+            if (!result)
+            {
+                //log the error
+                if (error)
+                {
+                    NSLog(@"iRate rating process failed because: %@", [error localizedDescription]);
+                }
+                else
+                {
+                    NSLog(@"iRate rating process failed because an unknown error occured");
+                }
+                
+                self.ratedThisVersion = NO;
+                if ([self.delegate respondsToSelector:@selector(iRateCouldNotConnectToAppStore:)])
+                {
+                    [self.delegate iRateCouldNotConnectToAppStore:error];
+                }
+            }
+        }];
+        
+        //get root view controller
+        UIViewController *rootViewController = nil;
+        id appDelegate = [[UIApplication sharedApplication] delegate];
+        if ([appDelegate respondsToSelector:@selector(viewController)])
+        {
+            rootViewController = [appDelegate valueForKey:@"viewController"];
+        }
+        if (!rootViewController && [appDelegate respondsToSelector:@selector(window)])
+        {
+            UIWindow *window = [appDelegate valueForKey:@"window"];
+            rootViewController = window.rootViewController;
+        }
+        if (!rootViewController)
+        {
+            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+            rootViewController = window.rootViewController;
+        }
+        if (!rootViewController)
+        {
+            if (self.verboseLogging)
+            {
+                NSLog(@"iRate couldn't find root view controller from which to display StoreKit product page");
+            }
+        }
+        else
+        {
+            while (rootViewController.presentedViewController)
+            {
+                rootViewController = rootViewController.presentedViewController;
+            }
+            
+            //present product view controller
+            [rootViewController presentViewController:productController animated:YES completion:nil];
+            if ([self.delegate respondsToSelector:@selector(iRateDidPresentStoreKitModal)])
+            {
+                [self.delegate iRateDidPresentStoreKitModal];
+            }
+            return;
+        }
+    }
+
     if (self.verboseLogging)
     {
         NSLog(@"iRate will open the App Store ratings page using the following URL: %@", self.ratingsURL);
     }
     
     [[UIApplication sharedApplication] openURL:self.ratingsURL];
+}
+
+- (void)productViewControllerDidFinish:(SKStoreProductViewController *)controller
+{
+    [controller.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+    if ([self.delegate respondsToSelector:@selector(iRateDidDismissStoreKitModal)])
+    {
+        [self.delegate iRateDidDismissStoreKitModal];
+    }
 }
 
 - (void)resizeAlertView:(UIAlertView *)alertView
@@ -863,9 +915,9 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
                 }
                 else if ([label.text isEqualToString:alertView.message])
                 {
-                    label.alpha = 1.0f;
-                    label.lineBreakMode = UILineBreakModeWordWrap;
+                    label.lineBreakMode = NSLineBreakByWordWrapping;
                     label.numberOfLines = 0;
+                    label.alpha = 1.0f;
                     [label sizeToFit];
                     offset += label.frame.size.height - frame.size.height;
                     frame.origin.y += messageOffset;
@@ -955,8 +1007,11 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
             [self.delegate iRateUserDidAttemptToRateApp];
         }
         
-        //go to ratings page
-        [self openRatingsPageInAppStore];
+        if (![self.delegate respondsToSelector:@selector(iRateShouldOpenAppStore)] || [_delegate iRateShouldOpenAppStore])
+        {
+            //go to ratings page
+            [self openRatingsPageInAppStore];
+        }
     }
     
     //release alert
@@ -1026,8 +1081,11 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
                 [self.delegate iRateUserDidAttemptToRateApp];
             }
             
-            //launch mac app store
-            [self openRatingsPageInAppStore];
+            if (![self.delegate respondsToSelector:@selector(iRateShouldOpenAppStore)] || [_delegate iRateShouldOpenAppStore])
+            {
+                //launch mac app store
+                [self openRatingsPageInAppStore];
+            }
             break;
         }
         default:
