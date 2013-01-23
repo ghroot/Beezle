@@ -9,7 +9,11 @@
 #import "Logger.h"
 #import "PlayerInformation.h"
 
+#ifdef DEVELOPMENT
+static NSString *LEADERBOARD_ID = @"collectedPollenDevelopment";
+#else
 static NSString *LEADERBOARD_ID = @"collectedPollen";
+#endif
 
 @interface GameCenterManager()
 

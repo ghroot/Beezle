@@ -11,7 +11,11 @@
 #import "Logger.h"
 #import "PlayerInformation.h"
 
+#ifdef DEVELOPMENT
+static const long long FACEBOOK_APPLICATION_ID = 452448771476437;
+#else
 static const long long FACEBOOK_APPLICATION_ID = 392888574136437;
+#endif
 
 @interface FacebookManager()
 
