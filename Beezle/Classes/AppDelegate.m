@@ -176,6 +176,7 @@
 	if ([_navigationController visibleViewController] == _director)
 	{
 		[_director resume];
+		[_director setNextDeltaTimeZero:TRUE];
 	}
 }
 
@@ -211,7 +212,7 @@
 
 -(void) applicationSignificantTimeChange:(UIApplication *)application
 {
-	[[CCDirector sharedDirector] setNextDeltaTimeZero:TRUE];
+	[_director setNextDeltaTimeZero:TRUE];
 }
 
 -(BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
