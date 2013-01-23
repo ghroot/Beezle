@@ -18282,7 +18282,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2C198DE916AF4AEB006D8333 /* TestFlight */ = {
+		2C198DE916AF4AEB006D8333 /* TestFlight Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = armv7;
@@ -18299,9 +18299,9 @@
 				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 			};
-			name = TestFlight;
+			name = "TestFlight Debug";
 		};
-		2C198DEA16AF4AEB006D8333 /* TestFlight */ = {
+		2C198DEA16AF4AEB006D8333 /* TestFlight Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
@@ -18315,10 +18315,6 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"NS_BLOCK_ASSERTIONS=1",
-					NDEBUG,
-				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
@@ -18345,9 +18341,9 @@
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
-			name = TestFlight;
+			name = "TestFlight Debug";
 		};
-		2C198DEC16AF4AEB006D8333 /* TestFlight */ = {
+		2C198DEC16AF4AEB006D8333 /* TestFlight Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
@@ -18362,11 +18358,6 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					DEBUG,
-					"COCOS2D_DEBUG=1",
-					LITE_VERSION,
-				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
@@ -18392,9 +18383,9 @@
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
-			name = TestFlight;
+			name = "TestFlight Debug";
 		};
-		2C198DEE16AF4AEB006D8333 /* TestFlight */ = {
+		2C198DEE16AF4AEB006D8333 /* TestFlight Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -18418,7 +18409,7 @@
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
-			name = TestFlight;
+			name = "TestFlight Debug";
 		};
 		2C19959D16AF50D6006D8333 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -18467,7 +18458,7 @@
 			};
 			name = Debug;
 		};
-		2C19959E16AF50D6006D8333 /* TestFlight */ = {
+		2C19959E16AF50D6006D8333 /* TestFlight Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
@@ -18512,50 +18503,7 @@
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
-			name = TestFlight;
-		};
-		2C19959F16AF50D6006D8333 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_ENTITLEMENTS = "Stingy Bees.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
-				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Beezle/libs\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
-				GCC_WARN_UNDECLARED_SELECTOR = NO;
-				GCC_WARN_UNUSED_FUNCTION = NO;
-				GCC_WARN_UNUSED_PARAMETER = NO;
-				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
-				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Resources/Info-Development.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
-					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
-					"\"${SRCROOT}/Beezle/libs/Flurry\"",
-					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"/**",
-					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"/**",
-				);
-				OTHER_LDFLAGS = (
-					"-lz",
-					"-lsqlite3.0",
-				);
-				PRODUCT_NAME = "Stingy Bees Dev";
-				PROVISIONING_PROFILE = "893F94F9-E3A2-4F5A-8F5A-2ED45EDCA272";
-				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "";
-				VALIDATE_PRODUCT = YES;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
+			name = "TestFlight Debug";
 		};
 		2C19999716AF50E8006D8333 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -18605,7 +18553,7 @@
 			};
 			name = Debug;
 		};
-		2C19999816AF50E8006D8333 /* TestFlight */ = {
+		2C19999816AF50E8006D8333 /* TestFlight Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
@@ -18651,56 +18599,7 @@
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
-			name = TestFlight;
-		};
-		2C19999916AF50E8006D8333 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_ENTITLEMENTS = "Stingy Bees Lite.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
-				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../FacebookSDK\"",
-					"\"$(SRCROOT)/Beezle/libs\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					NDEBUG,
-					"NS_BLOCK_ASSERTIONS=1",
-					LITE_VERSION,
-					DEBUG,
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
-				GCC_WARN_UNDECLARED_SELECTOR = NO;
-				GCC_WARN_UNUSED_FUNCTION = NO;
-				GCC_WARN_UNUSED_PARAMETER = NO;
-				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
-				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Resources/Info-Lite-Development.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
-					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
-					"\"${SRCROOT}/Beezle/libs/Flurry\"",
-					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"/**",
-				);
-				OTHER_LDFLAGS = (
-					"-lz",
-					"-lsqlite3.0",
-				);
-				PRODUCT_NAME = "Stingy Bees Lite Dev";
-				PROVISIONING_PROFILE = "794A23EC-C08B-4834-849F-9C045D74981D";
-				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "";
-				VALIDATE_PRODUCT = YES;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
+			name = "TestFlight Debug";
 		};
 		2C1999A116AF533C006D8333 /* AppStore */ = {
 			isa = XCBuildConfiguration;
@@ -18821,12 +18720,6 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					NDEBUG,
-					"NS_BLOCK_ASSERTIONS=1",
-					LITE_VERSION,
-					DEBUG,
-				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -18869,12 +18762,6 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					NDEBUG,
-					"NS_BLOCK_ASSERTIONS=1",
-					LITE_VERSION,
-					DEBUG,
-				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -18926,6 +18813,224 @@
 			};
 			name = AppStore;
 		};
+		2C1999A716B09C09006D8333 /* TestFlight Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = armv7;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				KEEP_PRIVATE_EXTERNS = NO;
+				OTHER_LDFLAGS = "";
+				SDKROOT = iphoneos;
+			};
+			name = "TestFlight Release";
+		};
+		2C1999A816B09C09006D8333 /* TestFlight Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_ENTITLEMENTS = "Stingy Bees.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Beezle/libs\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = DEVELOPMENT;
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
+				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Resources/Info-Development.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
+					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
+					"\"${SRCROOT}/Beezle/libs/Flurry\"",
+					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"/**",
+					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"/**",
+				);
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-lsqlite3.0",
+				);
+				PRODUCT_NAME = "Stingy Bees Dev";
+				PROVISIONING_PROFILE = "893F94F9-E3A2-4F5A-8F5A-2ED45EDCA272";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = "TestFlight Release";
+		};
+		2C1999A916B09C09006D8333 /* TestFlight Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_ENTITLEMENTS = "Stingy Bees.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Beezle/libs\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
+				INFOPLIST_FILE = Beezle/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
+					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
+					"\"${SRCROOT}/Beezle/libs/Flurry\"",
+					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"/**",
+					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"/**",
+				);
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-lsqlite3.0",
+				);
+				PRODUCT_NAME = "Stingy Bees";
+				PROVISIONING_PROFILE = "2E4AB93B-98E2-4ED6-81CD-0560F775F1BE";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = "TestFlight Release";
+		};
+		2C1999AA16B09C09006D8333 /* TestFlight Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_ENTITLEMENTS = "Stingy Bees Lite.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../FacebookSDK\"",
+					"\"$(SRCROOT)/Beezle/libs\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					LITE_VERSION,
+					DEVELOPMENT,
+				);
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
+				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Resources/Info-Lite-Development.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
+					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
+					"\"${SRCROOT}/Beezle/libs/Flurry\"",
+					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"/**",
+				);
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-lsqlite3.0",
+				);
+				PRODUCT_NAME = "Stingy Bees Lite Dev";
+				PROVISIONING_PROFILE = "794A23EC-C08B-4834-849F-9C045D74981D";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = "TestFlight Release";
+		};
+		2C1999AB16B09C09006D8333 /* TestFlight Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_ENTITLEMENTS = "Stingy Bees Lite.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../FacebookSDK\"",
+					"\"$(SRCROOT)/Beezle/libs\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
+				INFOPLIST_FILE = "Beezle/Resources/Info-Lite.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
+					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
+					"\"${SRCROOT}/Beezle/libs/Flurry\"",
+					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"/**",
+				);
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-lsqlite3.0",
+				);
+				PRODUCT_NAME = "Stingy Bees Lite";
+				PROVISIONING_PROFILE = "9121CBDE-5E92-4D47-8BCB-A7D77DD19D6F";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = "TestFlight Release";
+		};
+		2C1999AC16B09C09006D8333 /* TestFlight Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Beezle.app/Beezle";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ArtemisTests/ArtemisTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "ArtemisTests/ArtemisTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = "TestFlight Release";
+		};
 		2CADCC9314746BA200302475 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -18952,28 +19057,6 @@
 			};
 			name = Debug;
 		};
-		2CADCC9414746BA200302475 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Beezle.app/Beezle";
-				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ArtemisTests/ArtemisTests-Prefix.pch";
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				INFOPLIST_FILE = "ArtemisTests/ArtemisTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				VALIDATE_PRODUCT = YES;
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 		2CD6B848164480AD008D834B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -18989,11 +19072,6 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					DEBUG,
-					"COCOS2D_DEBUG=1",
-					LITE_VERSION,
-				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
@@ -19021,55 +19099,6 @@
 			};
 			name = Debug;
 		};
-		2CD6B849164480AD008D834B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_ENTITLEMENTS = "Stingy Bees Lite.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
-				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../FacebookSDK\"",
-					"\"$(SRCROOT)/Beezle/libs\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					NDEBUG,
-					"NS_BLOCK_ASSERTIONS=1",
-					LITE_VERSION,
-					DEBUG,
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
-				GCC_WARN_UNDECLARED_SELECTOR = NO;
-				GCC_WARN_UNUSED_FUNCTION = NO;
-				GCC_WARN_UNUSED_PARAMETER = NO;
-				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
-				INFOPLIST_FILE = "Beezle/Resources/Info-Lite.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
-					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
-					"\"${SRCROOT}/Beezle/libs/Flurry\"",
-					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"/**",
-				);
-				OTHER_LDFLAGS = (
-					"-lz",
-					"-lsqlite3.0",
-				);
-				PRODUCT_NAME = "Stingy Bees Lite";
-				PROVISIONING_PROFILE = "9121CBDE-5E92-4D47-8BCB-A7D77DD19D6F";
-				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "";
-				VALIDATE_PRODUCT = YES;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
 		2CEA3484145F66F9000FF575 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -19091,26 +19120,6 @@
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
-		};
-		2CEA3485145F66F9000FF575 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = armv7;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					NDEBUG,
-					"NS_BLOCK_ASSERTIONS=1",
-				);
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_VERSION = "";
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				KEEP_PRIVATE_EXTERNS = NO;
-				OTHER_LDFLAGS = "";
-				SDKROOT = iphoneos;
-			};
-			name = Release;
 		};
 		2CEA3487145F66F9000FF575 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -19154,49 +19163,6 @@
 			};
 			name = Debug;
 		};
-		2CEA3488145F66F9000FF575 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_ENTITLEMENTS = "Stingy Bees.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
-				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Beezle/libs\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
-				GCC_WARN_UNDECLARED_SELECTOR = NO;
-				GCC_WARN_UNUSED_FUNCTION = NO;
-				GCC_WARN_UNUSED_PARAMETER = NO;
-				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
-				INFOPLIST_FILE = Beezle/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
-					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
-					"\"${SRCROOT}/Beezle/libs/Flurry\"",
-					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"/**",
-					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"/**",
-				);
-				OTHER_LDFLAGS = (
-					"-lz",
-					"-lsqlite3.0",
-				);
-				PRODUCT_NAME = "Stingy Bees";
-				PROVISIONING_PROFILE = "2E4AB93B-98E2-4ED6-81CD-0560F775F1BE";
-				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "";
-				VALIDATE_PRODUCT = YES;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -19204,67 +19170,67 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2C19959D16AF50D6006D8333 /* Debug */,
-				2C19959E16AF50D6006D8333 /* TestFlight */,
-				2C19959F16AF50D6006D8333 /* Release */,
+				2C19959E16AF50D6006D8333 /* TestFlight Debug */,
+				2C1999A816B09C09006D8333 /* TestFlight Release */,
 				2C1999A216AF533C006D8333 /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		2C19999616AF50E8006D8333 /* Build configuration list for PBXNativeTarget "Stingy Bees Lite Development" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2C19999716AF50E8006D8333 /* Debug */,
-				2C19999816AF50E8006D8333 /* TestFlight */,
-				2C19999916AF50E8006D8333 /* Release */,
+				2C19999816AF50E8006D8333 /* TestFlight Debug */,
+				2C1999AA16B09C09006D8333 /* TestFlight Release */,
 				2C1999A416AF533C006D8333 /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		2CADCC9214746BA200302475 /* Build configuration list for PBXNativeTarget "ArtemisTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2CADCC9314746BA200302475 /* Debug */,
-				2C198DEE16AF4AEB006D8333 /* TestFlight */,
-				2CADCC9414746BA200302475 /* Release */,
+				2C198DEE16AF4AEB006D8333 /* TestFlight Debug */,
+				2C1999AC16B09C09006D8333 /* TestFlight Release */,
 				2C1999A616AF533C006D8333 /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		2CD6B847164480AD008D834B /* Build configuration list for PBXNativeTarget "Stingy Bees Lite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2CD6B848164480AD008D834B /* Debug */,
-				2C198DEC16AF4AEB006D8333 /* TestFlight */,
-				2CD6B849164480AD008D834B /* Release */,
+				2C198DEC16AF4AEB006D8333 /* TestFlight Debug */,
+				2C1999AB16B09C09006D8333 /* TestFlight Release */,
 				2C1999A516AF533C006D8333 /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		2CEA326D145F66F7000FF575 /* Build configuration list for PBXProject "Beezle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2CEA3484145F66F9000FF575 /* Debug */,
-				2C198DE916AF4AEB006D8333 /* TestFlight */,
-				2CEA3485145F66F9000FF575 /* Release */,
+				2C198DE916AF4AEB006D8333 /* TestFlight Debug */,
+				2C1999A716B09C09006D8333 /* TestFlight Release */,
 				2C1999A116AF533C006D8333 /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		2CEA3486145F66F9000FF575 /* Build configuration list for PBXNativeTarget "Stingy Bees" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2CEA3487145F66F9000FF575 /* Debug */,
-				2C198DEA16AF4AEB006D8333 /* TestFlight */,
-				2CEA3488145F66F9000FF575 /* Release */,
+				2C198DEA16AF4AEB006D8333 /* TestFlight Debug */,
+				2C1999A916B09C09006D8333 /* TestFlight Release */,
 				2C1999A316AF533C006D8333 /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
