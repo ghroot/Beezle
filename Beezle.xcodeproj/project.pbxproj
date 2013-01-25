@@ -5271,6 +5271,8 @@
 		2CEA3478145F66F9000FF575 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA3477145F66F9000FF575 /* main.m */; };
 		2CEEAEA916AF3B8A001F7CC6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEEAEA816AF3B8A001F7CC6 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2CEEAEAB16AF3BB6001F7CC6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEEAEA816AF3B8A001F7CC6 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		2CF1B86916B3273500CEB737 /* FacebookHighscoresState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F166AB6BC30968A3246318 /* FacebookHighscoresState.m */; };
+		2CF1B86A16B3273600CEB737 /* FacebookHighscoresState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F166AB6BC30968A3246318 /* FacebookHighscoresState.m */; };
 		2CF7AE541640963A00AE18B3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF7AE531640963A00AE18B3 /* SystemConfiguration.framework */; };
 		2CF7C6A715CAA436006C2F0C /* Super-Beeater-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF7C6A615CAA436006C2F0C /* Super-Beeater-Template.plist */; };
 		2CF7C6A915CAA442006C2F0C /* Super-Beeater-A.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF7C6A815CAA442006C2F0C /* Super-Beeater-A.plist */; };
@@ -17550,6 +17552,7 @@
 				2C1996F816AF50E8006D8333 /* ResetMenuState.m in Sources */,
 				2C1996F916AF50E8006D8333 /* URLConnection.m in Sources */,
 				2C1996FA16AF50E8006D8333 /* FacebookManager.m in Sources */,
+				2CF1B86916B3273500CEB737 /* FacebookHighscoresState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -17907,6 +17910,7 @@
 				88F16CF3A46C5D1DC6F04CB9 /* ResetMenuState.m in Sources */,
 				88F166F8BA38D29B48F88A4D /* URLConnection.m in Sources */,
 				2CA0B9CC16ACB9F4003E4B4C /* FacebookManager.m in Sources */,
+				2CF1B86A16B3273600CEB737 /* FacebookHighscoresState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -18819,7 +18823,10 @@
 				ARCHS = armv7;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"NS_BLOCK_ASSERTIONS=1",
+					NDEBUG,
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = "";
