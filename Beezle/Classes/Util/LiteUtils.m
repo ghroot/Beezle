@@ -27,7 +27,7 @@
 
 -(void) gotoAppStoreForFullVersion
 {
-	NSString *url = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/app/%@/id%i?mt=8", @"stingy-bees", APPLE_APPLICATION_FULL_ID];
+	NSString *url = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%d", APPLE_APPLICATION_FULL_ID];
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
