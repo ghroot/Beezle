@@ -127,6 +127,7 @@
 			CCSprite *sprite = [CCSprite spriteWithCGImage:[imageFromURL CGImage] key:[NSString stringWithFormat:@"player_image_%d", i]];
 			[sprite setAnchorPoint:CGPointMake(0.0f, 0.5f)];
 			[sprite setPosition:CGPointMake(centerX - 160.0f, currentY)];
+			[sprite setScale:(50.0f / [sprite contentSize].width)];
 			[contentNode addChild:sprite];
 		} errorBlock:^(NSError *error){
 		}];
