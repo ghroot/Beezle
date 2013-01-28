@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C03D6D016B5EF1300242FD8 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CADCC8414746BA100302475 /* SenTestingKit.framework */; };
+		2C03D6D116B5EF1300242FD8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3281145F66F7000FF575 /* UIKit.framework */; };
+		2C03D6D216B5EF1300242FD8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3283145F66F7000FF575 /* Foundation.framework */; };
+		2C03D6D816B5EF1300242FD8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C03D6D616B5EF1300242FD8 /* InfoPlist.strings */; };
+		2C03D6E716B5F0A300242FD8 /* GameplayStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C03D6E616B5F0A300242FD8 /* GameplayStateTest.m */; };
+		2C03D6EB16B5F4E900242FD8 /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C03D6EA16B5F4E900242FD8 /* OCMockitoIOS.framework */; };
 		2C0D500414A8CDBC00466316 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0D500314A8CDBC00466316 /* MessageUI.framework */; };
 		2C0D5E7115C486E10024C88D /* PausedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6615C486E10024C88D /* PausedDialog.ccbi */; };
 		2C0D5E7A15C486E10024C88D /* Syst-Text-Pause-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6F15C486E10024C88D /* Syst-Text-Pause-hd.png */; };
@@ -5953,6 +5959,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2C03D6E816B5F26200242FD8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2CEA326A145F66F7000FF575 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CEA3272145F66F7000FF575;
+			remoteInfo = "Stingy Bees";
+		};
 		2C75CD891474715A00545287 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2CEA326A145F66F7000FF575 /* Project object */;
@@ -5963,6 +5976,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C03D6CF16B5EF1300242FD8 /* BeezleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeezleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C03D6D516B5EF1300242FD8 /* BeezleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BeezleTests-Info.plist"; sourceTree = "<group>"; };
+		2C03D6D716B5EF1300242FD8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2C03D6DC16B5EF1300242FD8 /* BeezleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BeezleTests-Prefix.pch"; sourceTree = "<group>"; };
+		2C03D6E616B5F0A300242FD8 /* GameplayStateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameplayStateTest.m; sourceTree = "<group>"; };
+		2C03D6EA16B5F4E900242FD8 /* OCMockitoIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMockitoIOS.framework; path = "../../../Downloads/OCMockito-0.23/OCMockitoIOS.framework"; sourceTree = "<group>"; };
 		2C0D500314A8CDBC00466316 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		2C0D5E6615C486E10024C88D /* PausedDialog.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = PausedDialog.ccbi; sourceTree = "<group>"; };
 		2C0D5E6F15C486E10024C88D /* Syst-Text-Pause-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Pause-hd.png"; sourceTree = "<group>"; };
@@ -8405,6 +8424,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2C03D6CB16B5EF1300242FD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C03D6D016B5EF1300242FD8 /* SenTestingKit.framework in Frameworks */,
+				2C03D6D116B5EF1300242FD8 /* UIKit.framework in Frameworks */,
+				2C03D6D216B5EF1300242FD8 /* Foundation.framework in Frameworks */,
+				2C03D6EB16B5F4E900242FD8 /* OCMockitoIOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2C198F4816AF50D6006D8333 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -8606,6 +8636,25 @@
 			);
 			name = Images;
 			path = Resources/Images;
+			sourceTree = "<group>";
+		};
+		2C03D6D316B5EF1300242FD8 /* BeezleTests */ = {
+			isa = PBXGroup;
+			children = (
+				2C03D6E616B5F0A300242FD8 /* GameplayStateTest.m */,
+				2C03D6D416B5EF1300242FD8 /* Supporting Files */,
+			);
+			path = BeezleTests;
+			sourceTree = "<group>";
+		};
+		2C03D6D416B5EF1300242FD8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C03D6D516B5EF1300242FD8 /* BeezleTests-Info.plist */,
+				2C03D6D616B5EF1300242FD8 /* InfoPlist.strings */,
+				2C03D6DC16B5EF1300242FD8 /* BeezleTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		2C27E8E414D20577002165CD /* Artemis */ = {
@@ -10285,29 +10334,29 @@
 		2C74B461156FAD1E00596A22 /* State */ = {
 			isa = PBXGroup;
 			children = (
-				BF8C757BAFF2AED20DFF798E /* GameStateUtils.m */,
-				BF8C70CF79430BED3F4395F8 /* GameStateUtils.h */,
-				2CF8E0F61576B45F0052F63E /* PlayState.m */,
-				2CF8E0F61576B45F0052F63D /* PlayState.h */,
-				2CF8E0F61576B45F0052F5D8 /* TutorialStripMenuState.m */,
-				2CF8E0F61576B45F0052F5D7 /* TutorialStripMenuState.h */,
-				2CF8E0F61576B45F0052F49B /* FullscreenTransparentMenuItem.m */,
-				2CF8E0F61576B45F0052F49A /* FullscreenTransparentMenuItem.h */,
-				2CF8E0F61576B45F0052F3D1 /* LevelThemeSelectLayer.m */,
-				2CF8E0F61576B45F0052F3D0 /* LevelThemeSelectLayer.h */,
 				2C74B462156FAD1E00596A22 /* Debug */,
 				2C74B46B156FAD1E00596A22 /* Edit */,
+				88F16C1622705B8FD34F79E6 /* FacebookHighscoresState.h */,
+				88F166AB6BC30968A3246318 /* FacebookHighscoresState.m */,
+				2CF8E0F61576B45F0052F49A /* FullscreenTransparentMenuItem.h */,
+				2CF8E0F61576B45F0052F49B /* FullscreenTransparentMenuItem.m */,
 				2C74B472156FAD1E00596A22 /* GameplayState.h */,
 				2C74B473156FAD1E00596A22 /* GameplayState.m */,
-				2C74B474156FAD1E00596A22 /* PausedMenuState.h */,
-				2C74B475156FAD1E00596A22 /* PausedMenuState.m */,
+				BF8C70CF79430BED3F4395F8 /* GameStateUtils.h */,
+				BF8C757BAFF2AED20DFF798E /* GameStateUtils.m */,
 				2C74B478156FAD1E00596A22 /* LevelSelectMenuState.h */,
 				2C74B479156FAD1E00596A22 /* LevelSelectMenuState.m */,
+				2CF8E0F61576B45F0052F3D0 /* LevelThemeSelectLayer.h */,
+				2CF8E0F61576B45F0052F3D1 /* LevelThemeSelectLayer.m */,
 				2C74B47C156FAD1E00596A22 /* LevelThemeSelectMenuState.h */,
 				2C74B47D156FAD1E00596A22 /* LevelThemeSelectMenuState.m */,
 				2C74B480156FAD1E00596A22 /* Mode */,
-				88F16C1622705B8FD34F79E6 /* FacebookHighscoresState.h */,
-				88F166AB6BC30968A3246318 /* FacebookHighscoresState.m */,
+				2C74B474156FAD1E00596A22 /* PausedMenuState.h */,
+				2C74B475156FAD1E00596A22 /* PausedMenuState.m */,
+				2CF8E0F61576B45F0052F63D /* PlayState.h */,
+				2CF8E0F61576B45F0052F63E /* PlayState.m */,
+				2CF8E0F61576B45F0052F5D7 /* TutorialStripMenuState.h */,
+				2CF8E0F61576B45F0052F5D8 /* TutorialStripMenuState.m */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -11729,6 +11778,7 @@
 				2CE08AF6164A9A9E0012E22B /* Default-568h@2x.png */,
 				2CD4A10C16171C83002F23F7 /* Default.png */,
 				2CD4A10E16171C92002F23F7 /* Default@2x.png */,
+				2C03D6D316B5EF1300242FD8 /* BeezleTests */,
 				2CEA3276145F66F7000FF575 /* Frameworks */,
 				2CEA3274145F66F7000FF575 /* Products */,
 			);
@@ -11743,6 +11793,7 @@
 				2CD6B84A164480AD008D834B /* Stingy Bees Lite.app */,
 				2C1995A016AF50D6006D8333 /* Stingy Bees Dev.app */,
 				2C19999A16AF50E8006D8333 /* Stingy Bees Lite Dev.app */,
+				2C03D6CF16B5EF1300242FD8 /* BeezleTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -11763,6 +11814,7 @@
 				2C85BD721651BDE000A369AE /* GameKit.framework */,
 				2C5C9A3A154A0E2A00FF6F57 /* libz.dylib */,
 				2C0D500314A8CDBC00466316 /* MessageUI.framework */,
+				2C03D6EA16B5F4E900242FD8 /* OCMockitoIOS.framework */,
 				2CEA327B145F66F7000FF575 /* OpenAL.framework */,
 				2CEA3279145F66F7000FF575 /* OpenGLES.framework */,
 				2CEA3277145F66F7000FF575 /* QuartzCore.framework */,
@@ -12210,6 +12262,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2C03D6CE16B5EF1300242FD8 /* BeezleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C03D6E216B5EF1300242FD8 /* Build configuration list for PBXNativeTarget "BeezleTests" */;
+			buildPhases = (
+				2C03D6CA16B5EF1300242FD8 /* Sources */,
+				2C03D6CB16B5EF1300242FD8 /* Frameworks */,
+				2C03D6CC16B5EF1300242FD8 /* Resources */,
+				2C03D6CD16B5EF1300242FD8 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C03D6E916B5F26200242FD8 /* PBXTargetDependency */,
+			);
+			name = BeezleTests;
+			productName = BeezleTests;
+			productReference = 2C03D6CF16B5EF1300242FD8 /* BeezleTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		2C198DEF16AF50D6006D8333 /* Stingy Bees Development */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C19959C16AF50D6006D8333 /* Build configuration list for PBXNativeTarget "Stingy Bees Development" */;
@@ -12322,11 +12393,20 @@
 				2C1995A316AF50E8006D8333 /* Stingy Bees Lite Development */,
 				2CD6AF99164480AD008D834B /* Stingy Bees Lite */,
 				2CADCC8214746BA100302475 /* ArtemisTests */,
+				2C03D6CE16B5EF1300242FD8 /* BeezleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2C03D6CC16B5EF1300242FD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C03D6D816B5EF1300242FD8 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2C198F6016AF50D6006D8333 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -16840,6 +16920,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2C03D6CD16B5EF1300242FD8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		2CADCC8114746BA100302475 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -16856,6 +16949,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2C03D6CA16B5EF1300242FD8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C03D6E716B5F0A300242FD8 /* GameplayStateTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2C198DF016AF50D6006D8333 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -18267,6 +18368,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2C03D6E916B5F26200242FD8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CEA3272145F66F7000FF575 /* Stingy Bees */;
+			targetProxy = 2C03D6E816B5F26200242FD8 /* PBXContainerItemProxy */;
+		};
 		2C75CD8A1474715A00545287 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2CEA3272145F66F7000FF575 /* Stingy Bees */;
@@ -18275,6 +18381,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2C03D6D616B5EF1300242FD8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C03D6D716B5EF1300242FD8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		2CADCC8B14746BA200302475 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -18286,6 +18400,151 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2C03D6DD16B5EF1300242FD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Stingy Bees Dev.app/Stingy Bees Dev";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)/../../../Downloads/OCMockito-0.23\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BeezleTests/BeezleTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
+				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		2C03D6DE16B5EF1300242FD8 /* TestFlight Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Stingy Bees Dev.app/Stingy Bees Dev";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)/../../../Downloads/OCMockito-0.23\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BeezleTests/BeezleTests-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
+				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = "TestFlight Debug";
+		};
+		2C03D6DF16B5EF1300242FD8 /* TestFlight Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Stingy Bees Dev.app/Stingy Bees Dev";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)/../../../Downloads/OCMockito-0.23\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BeezleTests/BeezleTests-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
+				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = "TestFlight Release";
+		};
+		2C03D6E016B5EF1300242FD8 /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Stingy Bees Dev.app/Stingy Bees Dev";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)/../../../Downloads/OCMockito-0.23\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BeezleTests/BeezleTests-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
+				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = AppStore;
+		};
+		2C03D6E116B5EF1300242FD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Stingy Bees Dev.app/Stingy Bees Dev";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)/../../../Downloads/OCMockito-0.23\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BeezleTests/BeezleTests-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
+				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		2C198DE916AF4AEB006D8333 /* TestFlight Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -19409,6 +19668,17 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2C03D6E216B5EF1300242FD8 /* Build configuration list for PBXNativeTarget "BeezleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C03D6DD16B5EF1300242FD8 /* Debug */,
+				2C03D6DE16B5EF1300242FD8 /* TestFlight Debug */,
+				2C03D6DF16B5EF1300242FD8 /* TestFlight Release */,
+				2C03D6E016B5EF1300242FD8 /* AppStore */,
+				2C03D6E116B5EF1300242FD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		2C19959C16AF50D6006D8333 /* Build configuration list for PBXNativeTarget "Stingy Bees Development" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
