@@ -34,6 +34,7 @@
 
 -(void) login;
 -(void) closeSession;
+-(void) handleDidBecomeActive;
 -(void) getScores;
 -(void) tryPostScore:(int)score;
 -(void) handleOpenURL:(NSURL *)url;

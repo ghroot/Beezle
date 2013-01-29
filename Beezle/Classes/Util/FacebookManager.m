@@ -145,6 +145,11 @@ static const long long FACEBOOK_APPLICATION_ID = 392888574136437;
 	[[FBSession activeSession] close];
 }
 
+-(void) handleDidBecomeActive
+{
+	[[FBSession activeSession] handleDidBecomeActive];
+}
+
 -(void) getScores
 {
 	if (!_isLoggedIn)

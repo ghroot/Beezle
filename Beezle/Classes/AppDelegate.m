@@ -177,6 +177,8 @@
 	{
 		[_director resume];
 		[_director setNextDeltaTimeZero:TRUE];
+
+		[[FacebookManager sharedManager] handleDidBecomeActive];
 	}
 }
 
