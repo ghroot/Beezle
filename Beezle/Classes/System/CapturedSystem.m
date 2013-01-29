@@ -132,7 +132,7 @@
 	}
 	[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_SAVED object:self userInfo:notificationUserInfo];
 
-	if ([savedBeeType freedSoundName] != @"")
+	if (![[savedBeeType freedSoundName] isEqualToString:@""])
 	{
 		[[SoundManager sharedManager] playSound:[savedBeeType freedSoundName]];
 	}
