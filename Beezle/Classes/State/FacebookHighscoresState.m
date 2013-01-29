@@ -124,11 +124,14 @@
 		NSString *profilePictureUrl = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?width=%d&height=%d", uid, portraitSize, portraitSize];
 		[URLConnection asyncConnectionWithURLString:profilePictureUrl completionBlock:^(NSData *data, NSURLResponse *response){
 			UIImage *imageFromURL = [UIImage imageWithData:data];
-			CCSprite *sprite = [CCSprite spriteWithCGImage:[imageFromURL CGImage] key:[NSString stringWithFormat:@"player_image_%d", i]];
-			[sprite setAnchorPoint:CGPointMake(0.0f, 0.5f)];
-			[sprite setPosition:CGPointMake(centerX - 160.0f, currentY)];
-			[sprite setScale:(50.0f / [sprite contentSize].width)];
-			[contentNode addChild:sprite];
+			if (imageFromURL != nil)
+			{
+				CCSprite *sprite = [CCSprite spriteWithCGImage:[imageFromURL CGImage] key:[NSString stringWithFormat:@"player_image_%d", i]];
+				[sprite setAnchorPoint:CGPointMake(0.0f, 0.5f)];
+				[sprite setPosition:CGPointMake(centerX - 160.0f, currentY)];
+				[sprite setScale:(50.0f / [sprite contentSize].width)];
+				[contentNode addChild:sprite];
+			}
 		} errorBlock:^(NSError *error){
 		}];
 
