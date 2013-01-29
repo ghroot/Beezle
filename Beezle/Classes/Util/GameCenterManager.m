@@ -187,6 +187,8 @@ static NSString *LEADERBOARD_ID = @"collectedPollen";
 -(void) gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
 {
 	[[CCDirector sharedDirector] dismissViewControllerAnimated:YES completion:nil];
+
+	[[CCDirector sharedDirector] setNextDeltaTimeZero:TRUE];
 }
 
 -(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
@@ -199,6 +201,8 @@ static NSString *LEADERBOARD_ID = @"collectedPollen";
 	{
 		[[CCDirector sharedDirector] dismissModalViewControllerAnimated:TRUE];
 	}
+
+	[[CCDirector sharedDirector] setNextDeltaTimeZero:TRUE];
 }
 
 @end
