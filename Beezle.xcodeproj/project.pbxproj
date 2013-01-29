@@ -19336,7 +19336,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Stingy Bees.entitlements";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: KM Lagerstrom (WXEWHGD352)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -19344,6 +19344,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					"NS_BLOCK_ASSERTIONS=1",
+					DEVELOPMENT,
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -19366,6 +19371,7 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = "Stingy Bees Dev";
+				PROVISIONING_PROFILE = "3677B084-BC96-490D-81A8-9AF6E057A0A5";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
@@ -19678,6 +19684,7 @@
 				2C03D6E116B5EF1300242FD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		2C19959C16AF50D6006D8333 /* Build configuration list for PBXNativeTarget "Stingy Bees Development" */ = {
 			isa = XCConfigurationList;
