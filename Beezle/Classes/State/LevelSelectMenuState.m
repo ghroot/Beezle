@@ -21,7 +21,6 @@
 #import "LevelRatings.h"
 #import "LevelRating.h"
 #import "LevelOrganizer.h"
-#import "LiteUtils.h"
 #import "CCMenuItemImageScale.h"
 
 @interface LevelSelectMenuState()
@@ -109,7 +108,11 @@
 
 	NSArray *levelNames = [[LevelOrganizer sharedOrganizer] levelNamesInTheme:_theme];
 
+#ifdef LITE_VERSION
+	CCNode *draggableNode = [CCBReader nodeGraphFromFile:@"LevelSelect-Lite.ccbi" owner:self];
+#else
 	CCNode *draggableNode = [CCBReader nodeGraphFromFile:@"LevelSelect.ccbi" owner:self];
+#endif
     CCMenu *menu = [self getMenu:draggableNode];
     for (CCMenuItemImage *menuItemImage in [menu children])
     {
@@ -204,16 +207,7 @@
 		}
 		else
 		{
-#ifdef LITE_VERSION
-			[menuItemImage setOpacity:130];
-			if (firstCellX < 0.0f)
-			{
-				firstCellX = [menuItemImage position].x;
-			}
-			lastCellX = [menuItemImage position].x;
-#else
 			[menuItemImage setVisible:FALSE];
-#endif
 		}
     }
 	float contentWidth = lastCellX + firstCellX;
@@ -308,12 +302,6 @@
 
 		CCFadeIn *fadeInAction = [CCFadeIn actionWithDuration:0.3f];
 		[_fadeLayer runAction:fadeInAction];
-	}
-	else
-	{
-#ifdef LITE_VERSION
-		[[LiteUtils sharedUtils] showBuyFullVersionAlert];
-#endif
 	}
 }
 

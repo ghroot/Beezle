@@ -2845,7 +2845,6 @@
 		2C19990316AF50E8006D8333 /* Chooser-Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F1645169D3DF11FAAD581E /* Chooser-Screen.png */; };
 		2C19990416AF50E8006D8333 /* ChangeLog in Resources */ = {isa = PBXBuildFile; fileRef = 2CE08BFE164C6C6F0012E22B /* ChangeLog */; };
 		2C19990516AF50E8006D8333 /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2CE08BFF164C6C6F0012E22B /* CMakeLists.txt */; };
-		2C19990616AF50E8006D8333 /* LevelSelect.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 88F16D547595DC13E1D6BD32 /* LevelSelect.ccbi */; };
 		2C19990716AF50E8006D8333 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE08AF6164A9A9E0012E22B /* Default-568h@2x.png */; };
 		2C19990816AF50E8006D8333 /* Icon-72-Lite.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C85BD44164DCEC300A369AE /* Icon-72-Lite.png */; };
 		2C19990916AF50E8006D8333 /* Icon-Lite.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C85BD45164DCEC300A369AE /* Icon-Lite.png */; };
@@ -5237,6 +5236,18 @@
 		2CE08CDE164C6C6F0012E22B /* vec3.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C0B164C6C6F0012E22B /* vec3.c */; };
 		2CE08CDF164C6C6F0012E22B /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C0C164C6C6F0012E22B /* vec4.c */; };
 		2CE08CE0164C6C6F0012E22B /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C0C164C6C6F0012E22B /* vec4.c */; };
+		2CE3E2FA16BEACB700BC0461 /* LevelSelect-Lite.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3E2F916BEACB700BC0461 /* LevelSelect-Lite.ccbi */; };
+		2CE3E2FB16BEACB700BC0461 /* LevelSelect-Lite.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3E2F916BEACB700BC0461 /* LevelSelect-Lite.ccbi */; };
+		2CE3E2FF16BEB15700BC0461 /* Chooser-Buy Full Version-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3E2FC16BEB15500BC0461 /* Chooser-Buy Full Version-hd.png */; };
+		2CE3E30016BEB15700BC0461 /* Chooser-Buy Full Version-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3E2FC16BEB15500BC0461 /* Chooser-Buy Full Version-hd.png */; };
+		2CE3E30116BEB15700BC0461 /* Chooser-Buy Full Version.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3E2FD16BEB15500BC0461 /* Chooser-Buy Full Version.png */; };
+		2CE3E30216BEB15700BC0461 /* Chooser-Buy Full Version.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3E2FD16BEB15500BC0461 /* Chooser-Buy Full Version.png */; };
+		2CE3E30316BEB15700BC0461 /* ThemeSelectBuyFull.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3E2FE16BEB15600BC0461 /* ThemeSelectBuyFull.ccbi */; };
+		2CE3E30416BEB15700BC0461 /* ThemeSelectBuyFull.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3E2FE16BEB15600BC0461 /* ThemeSelectBuyFull.ccbi */; };
+		2CE3E30716BEB5C600BC0461 /* Download_on_the_App_Store_Badge_US-UK_135x40-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3E30516BEB5C600BC0461 /* Download_on_the_App_Store_Badge_US-UK_135x40-hd.png */; };
+		2CE3E30816BEB5C600BC0461 /* Download_on_the_App_Store_Badge_US-UK_135x40-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3E30516BEB5C600BC0461 /* Download_on_the_App_Store_Badge_US-UK_135x40-hd.png */; };
+		2CE3E30916BEB5C600BC0461 /* Download_on_the_App_Store_Badge_US-UK_135x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3E30616BEB5C600BC0461 /* Download_on_the_App_Store_Badge_US-UK_135x40.png */; };
+		2CE3E30A16BEB5C600BC0461 /* Download_on_the_App_Store_Badge_US-UK_135x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3E30616BEB5C600BC0461 /* Download_on_the_App_Store_Badge_US-UK_135x40.png */; };
 		2CE4F5A9153CC8A80023B5C6 /* Aim-Pollen.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F536153CC8A80023B5C6 /* Aim-Pollen.plist */; };
 		2CE4F5AA153CC8A80023B5C6 /* Bee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F538153CC8A80023B5C6 /* Bee.plist */; };
 		2CE4F5AB153CC8A80023B5C6 /* Bombee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4F539153CC8A80023B5C6 /* Bombee.plist */; };
@@ -5614,6 +5625,7 @@
 		88F165F8EC132E3B6BFB2E11 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 88F16362DC7182E48FE452C7 /* mztools.c */; };
 		88F165FE3CEBBBA940C2CAE9 /* Glass-Piece-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F164B2EF1E6C587405CB37 /* Glass-Piece-E.plist */; };
 		88F1660907FC9C46A2921BA9 /* A42-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16A1344B4119F754AF8E5 /* A42-Glass.png */; };
+		88F1660B0C5731015C71684F /* LevelThemeSelectBuyFullLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16D5E4F6CE0B80DC274B1 /* LevelThemeSelectBuyFullLayer.m */; };
 		88F1661024945CF3BEEB012C /* Game-Completed!.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F161C6EF9B1627C84A5BAC /* Game-Completed!.caf */; };
 		88F1661AA614A69CC316D9B9 /* End-GameCompleted!-Speedee-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F168DD615DE1289CC93BAE /* End-GameCompleted!-Speedee-1.png */; };
 		88F1663560F602C4749DBD4F /* GameCompletedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1681F43B4A308CC5FA88D /* GameCompletedDialog.m */; };
@@ -5634,7 +5646,6 @@
 		88F1670190BD55F4B3D82033 /* Glass-Piece-E-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16C74EC0C1E6BF41DBD88 /* Glass-Piece-E-Animations.plist */; };
 		88F167191C01151482CFCE52 /* End-Credits-Bees.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F162CAA517808899801331 /* End-Credits-Bees.png */; };
 		88F1671E41F2AB6D7CDCCA09 /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163B77EF8D1730950FF3C /* FacebookManager.m */; };
-		88F1673C0CC071B6E6CFEEB4 /* LevelSelect.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 88F16D547595DC13E1D6BD32 /* LevelSelect.ccbi */; };
 		88F16775B8FB7A52131CD3A5 /* End-GameCompleted!-TBee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F163866FEF28DCC31BD6E3 /* End-GameCompleted!-TBee-1-hd.png */; };
 		88F167984D94B27969E5DA41 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 88F16DF35F4A1F71C5E54EFB /* ioapi.c */; };
 		88F167A452CC9EED1AE907CC /* Ramp-Piece-Small-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1635BD08CAFA35EA24A94 /* Ramp-Piece-Small-E.plist */; };
@@ -5768,6 +5779,7 @@
 		88F16E71AF9B8BB1FED6FA5F /* CCBsequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16B5F0C128CBE3858CB5A /* CCBsequence.m */; };
 		88F16E8164305EAF77334093 /* A42-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F160F176D6E51FACC88FE6 /* A42-Glass-hd.png */; };
 		88F16E919856954BBF295B46 /* SoundSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16FD321481DE983D51F22 /* SoundSystem.m */; };
+		88F16E9393E3D05160731580 /* LevelThemeSelectBuyFullLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16D5E4F6CE0B80DC274B1 /* LevelThemeSelectBuyFullLayer.m */; };
 		88F16E99BF5A74774247988A /* Facebook-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16064140125B7130B6F55 /* Facebook-logo.png */; };
 		88F16EA6D6C61B7277CD4CD7 /* BubbleYel-A24-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16E2FFB048E404EA68476 /* BubbleYel-A24-hd.png */; };
 		88F16EAA7B94379681078231 /* GameCompletedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1681F43B4A308CC5FA88D /* GameCompletedDialog.m */; };
@@ -7741,6 +7753,12 @@
 		2CE08C0A164C6C6F0012E22B /* vec2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vec2.c; sourceTree = "<group>"; };
 		2CE08C0B164C6C6F0012E22B /* vec3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vec3.c; sourceTree = "<group>"; };
 		2CE08C0C164C6C6F0012E22B /* vec4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vec4.c; sourceTree = "<group>"; };
+		2CE3E2F916BEACB700BC0461 /* LevelSelect-Lite.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LevelSelect-Lite.ccbi"; sourceTree = "<group>"; };
+		2CE3E2FC16BEB15500BC0461 /* Chooser-Buy Full Version-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chooser-Buy Full Version-hd.png"; sourceTree = "<group>"; };
+		2CE3E2FD16BEB15500BC0461 /* Chooser-Buy Full Version.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chooser-Buy Full Version.png"; sourceTree = "<group>"; };
+		2CE3E2FE16BEB15600BC0461 /* ThemeSelectBuyFull.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThemeSelectBuyFull.ccbi; sourceTree = "<group>"; };
+		2CE3E30516BEB5C600BC0461 /* Download_on_the_App_Store_Badge_US-UK_135x40-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Download_on_the_App_Store_Badge_US-UK_135x40-hd.png"; sourceTree = "<group>"; };
+		2CE3E30616BEB5C600BC0461 /* Download_on_the_App_Store_Badge_US-UK_135x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Download_on_the_App_Store_Badge_US-UK_135x40.png"; sourceTree = "<group>"; };
 		2CE4F536153CC8A80023B5C6 /* Aim-Pollen.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Aim-Pollen.plist"; sourceTree = "<group>"; };
 		2CE4F538153CC8A80023B5C6 /* Bee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Bee.plist; sourceTree = "<group>"; };
 		2CE4F539153CC8A80023B5C6 /* Bombee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Bombee.plist; sourceTree = "<group>"; };
@@ -8218,6 +8236,7 @@
 		88F16D22AE4B051561A9E2C3 /* E4-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E4-Glass-hd.png"; sourceTree = "<group>"; };
 		88F16D430E686F22E0730B7D /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = libs/GoogleAnalytics/GAI.h; sourceTree = "<group>"; };
 		88F16D547595DC13E1D6BD32 /* LevelSelect.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file.ccbi; path = LevelSelect.ccbi; sourceTree = "<group>"; };
+		88F16D5E4F6CE0B80DC274B1 /* LevelThemeSelectBuyFullLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelThemeSelectBuyFullLayer.m; sourceTree = "<group>"; };
 		88F16D66507EF501BB695D95 /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
 		88F16D82FAA5666D3ABB3249 /* GameAlmostCompletedDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameAlmostCompletedDialog.m; sourceTree = "<group>"; };
 		88F16D9B8B47FEF5392C608F /* ApplicationIds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationIds.h; sourceTree = "<group>"; };
@@ -8241,6 +8260,7 @@
 		88F16EF3FBB116958AEE14C8 /* End-GameCompleted!-Sawee-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Sawee-2.png"; sourceTree = "<group>"; };
 		88F16EF9BAB26087C7768B02 /* OutputConsoleState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutputConsoleState.m; sourceTree = "<group>"; };
 		88F16F038E4EA4BAF9AA002F /* Beeater-Head-Piece-E-4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Beeater-Head-Piece-E-4.plist"; sourceTree = "<group>"; };
+		88F16F12DAE2A0FFE095F9F0 /* LevelThemeSelectBuyFullLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelThemeSelectBuyFullLayer.h; sourceTree = "<group>"; };
 		88F16F4079D06E5186630E12 /* Beeater-Head-E-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Beeater-Head-E-Animations.plist"; sourceTree = "<group>"; };
 		88F16F4255104F4288F68489 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = libs/SSZipArchive/minizip/crypt.h; sourceTree = "<group>"; };
 		88F16F5E395CE4ADDB051148 /* E7-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E7-Glass-hd.png"; sourceTree = "<group>"; };
@@ -8721,84 +8741,17 @@
 		2C32989815164C69009A5B83 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				BF8C76E8969B94C8D8EDC8AC /* Chooser-PlayButton.png */,
+				2CE3E2FC16BEB15500BC0461 /* Chooser-Buy Full Version-hd.png */,
+				2CE3E2FD16BEB15500BC0461 /* Chooser-Buy Full Version.png */,
 				BF8C76AD250EED059E710CD3 /* Chooser-PlayButton-hd.png */,
-				BF8C739A4CF21A370CF60469 /* ThemeSelect-Shared.ccbi */,
-				BF8C739EFC6CEF76D54E0556 /* Lock-Chooser.png */,
-				BF8C7F2971F6F1380A058C6C /* Lock-Chooser-hd.png */,
-				BF8C7178E4EE711DF7E5D7CA /* Symbol-Pollen.png */,
-				BF8C7B6786B38C11A38C78C8 /* Symbol-Pollen-hd.png */,
-				BF8C78DF82395819A542F7AA /* Symbol-Redo-White.png */,
-				BF8C7A925CA30E9A80AB8997 /* Symbol-Redo-White-hd.png */,
-				BF8C74A2A64907661B514A08 /* Symbol-Next-White.png */,
-				BF8C7AEAC5E359147742C20B /* Symbol-Next-White-hd.png */,
-				BF8C75072F9A3CE7D1D031AB /* Symbol-Exit.png */,
-				BF8C7837B934D655A71CDCBD /* Symbol-Exit-hd.png */,
-				BF8C79512FAB5E46547F1C64 /* Symbol-Continue.png */,
-				BF8C788FC252A15EF6A95375 /* Symbol-Continue-hd.png */,
-				BF8C7283C3865B8ECA77E5B8 /* Flower-Chooser-fullred.png */,
-				BF8C773CCE5BFE6D126D4015 /* Flower-Chooser-fullred-hd.png */,
-				BF8C7F4533C2A73891DAC159 /* Title-s-D.png */,
-				BF8C722149DAF348CBFDD0CF /* Title-s-D-hd.png */,
-				BF8C75504B541BF22DFE17D3 /* Title-s-C.png */,
-				BF8C78995F2BA9FCF4A8DBCA /* Title-s-C-hd.png */,
-				BF8C79D9CCC70EF8F8DA6C05 /* Title-s-B.png */,
-				BF8C7DCE17B2CF6822EF505B /* Title-s-B-hd.png */,
-				BF8C7905743726903F974514 /* Title-s-A.png */,
-				BF8C71EF084E21FB532DC2BF /* Title-s-A-hd.png */,
-				2C5C5AF115CC1401006BA973 /* ThemeSelect-C.ccbi */,
-				2C5C5AF215CC1401006BA973 /* ThemeSelect-D.ccbi */,
-				2C5C5AD115CC0EDA006BA973 /* ThemeSelect-B.ccbi */,
-				2C5C5ABF15CC090A006BA973 /* ThemeSelect-A.ccbi */,
-				2CF8E0F61576B45F0052F4DE /* LevelCell-D-Open.png */,
-				2CF8E0F61576B45F0052F4DC /* LevelCell-D-Open-hd.png */,
-				2CF8E0F61576B45F0052F4DA /* LevelCell-D-Beeater.png */,
-				2CF8E0F61576B45F0052F4D8 /* LevelCell-D-Beeater-hd.png */,
-				2CF8E0F61576B45F0052F4D6 /* LevelCell-D-Bee.png */,
-				2CF8E0F61576B45F0052F4D4 /* LevelCell-D-Bee-hd.png */,
-				2CF8E0F61576B45F0052F4D2 /* LevelCell-C-Open.png */,
-				2CF8E0F61576B45F0052F4D0 /* LevelCell-C-Open-hd.png */,
-				2CF8E0F61576B45F0052F4CE /* LevelCell-C-Beeater.png */,
-				2CF8E0F61576B45F0052F4CC /* LevelCell-C-Beeater-hd.png */,
-				2CF8E0F61576B45F0052F4CA /* LevelCell-C-Bee.png */,
-				2CF8E0F61576B45F0052F4C8 /* LevelCell-C-Bee-hd.png */,
-				2CF8E0F61576B45F0052F4C6 /* LevelCell-B-Open.png */,
-				2CF8E0F61576B45F0052F4C4 /* LevelCell-B-Open-hd.png */,
-				2CF8E0F61576B45F0052F4C2 /* LevelCell-B-Beeater.png */,
-				2CF8E0F61576B45F0052F4C0 /* LevelCell-B-Beeater-hd.png */,
-				2CF8E0F61576B45F0052F4BE /* LevelCell-B-Bee.png */,
-				2CF8E0F61576B45F0052F4BC /* LevelCell-B-Bee-hd.png */,
-				2CB75CB715C7DE4700668399 /* LevelCell-A-Bee-hd.png */,
-				2CB75CB815C7DE4700668399 /* LevelCell-A-Bee.png */,
-				2CB75CB915C7DE4700668399 /* LevelCell-A-Beeater-hd.png */,
-				2CB75CBA15C7DE4700668399 /* LevelCell-A-Beeater.png */,
-				2CB75CBB15C7DE4700668399 /* LevelCell-A-Open-hd.png */,
-				2CB75CBC15C7DE4700668399 /* LevelCell-A-Open.png */,
-				2CF8E0F61576B45F0052F4AB /* Syst-Text-Total.png */,
-				2CF8E0F61576B45F0052F4A9 /* Syst-Text-Total-hd.png */,
-				2CF8E0F61576B45F0052F4A7 /* Syst-Text-Level.png */,
-				2CF8E0F61576B45F0052F4A5 /* Syst-Text-Level-hd.png */,
-				2CF8E0F61576B45F0052F4A3 /* Syst-Pollen.png */,
-				2CF8E0F61576B45F0052F4A1 /* Syst-Pollen-hd.png */,
-				2C932AC215C4A3E6002EF3CF /* Syst-Text-Completed-hd.png */,
-				2C932AC315C4A3E6002EF3CF /* Syst-Text-Completed.png */,
-				2C932AC415C4A3E6002EF3CF /* Syst-Text-Failed-hd.png */,
-				2C932AC515C4A3E6002EF3CF /* Syst-Text-Failed.png */,
-				2C0D5E6615C486E10024C88D /* PausedDialog.ccbi */,
-				2C0D5E6F15C486E10024C88D /* Syst-Text-Pause-hd.png */,
-				2C0D5E7015C486E10024C88D /* Syst-Text-Pause.png */,
-				2C96EDF91570450600052239 /* LevelCompletedDialog.ccbi */,
-				2C96EE0915704B3A00052239 /* LevelFailedDialog.ccbi */,
+				BF8C76E8969B94C8D8EDC8AC /* Chooser-PlayButton.png */,
+				88F16682A9EEF3A90FA48485 /* Credits.ccbi */,
+				2CE3E30516BEB5C600BC0461 /* Download_on_the_App_Store_Badge_US-UK_135x40-hd.png */,
+				2CE3E30616BEB5C600BC0461 /* Download_on_the_App_Store_Badge_US-UK_135x40.png */,
 				88F160DD1014B091DFCB9284 /* End-Completed?-Bee-1-hd.png */,
 				88F161C7D04907A985C55A96 /* End-Completed?-Bee-1.png */,
 				88F16696B433AEBE34C3E306 /* End-Completed?-Bee-2-hd.png */,
 				88F1662CD4ECEBD7BA026AE4 /* End-Completed?-Bee-2.png */,
-				88F16B9AACB3E9960FA7B2F9 /* GameAlmostCompletedDialog.ccbi */,
-				88F16118DC7F9631754CF09E /* Text-GameCompleted!-hd.png */,
-				88F16649DED4295D2D2F280C /* Text-GameCompleted!.png */,
-				88F16EDB05686F37A96063A3 /* Text-GameCompleted?-hd.png */,
-				88F1679963304021267221B0 /* Text-GameCompleted?.png */,
-				88F16682A9EEF3A90FA48485 /* Credits.ccbi */,
 				88F169C82197EC0F7750C1E5 /* End-Credits-Beeaters-hd.png */,
 				88F16A1136C803F91B4016B0 /* End-Credits-Beeaters.png */,
 				88F16218AE09A08E66BB8854 /* End-Credits-Bees-hd.png */,
@@ -8809,10 +8762,10 @@
 				88F166D41C7B322C91D4E190 /* End-Credits-Flowers.png */,
 				88F16460284B5F105106134C /* End-Credits-StingLabLogo-hd.png */,
 				88F162930A97BC78B86C9415 /* End-Credits-StingLabLogo.png */,
+				88F1682834A383C7FF856869 /* End-Credits-StingyBeesLogo-hd.png */,
+				88F16B4269B72DCCD323C11F /* End-Credits-StingyBeesLogo.png */,
 				88F1698F7A90BC1C43CF75F1 /* End-Credits-Thanks-hd.png */,
 				88F16F718E42A0ABBF73B35B /* End-Credits-Thanks.png */,
-				88F161C3D84E9028E4F71F8C /* Text-atleastfornow-hd.png */,
-				88F16374042A5E8F91FA7AFD /* Text-atleastfornow.png */,
 				88F167FAAECC7C61E9C4801E /* End-GameCompleted!-Bee-1-hd.png */,
 				88F16C457F8B6579D1BE4435 /* End-GameCompleted!-Bee-1.png */,
 				88F161AAEA57A39D955CAEF3 /* End-GameCompleted!-Bee-2-hd.png */,
@@ -8841,19 +8794,92 @@
 				88F16AD1357157FC12554EC3 /* End-GameCompleted!-TBee-1.png */,
 				88F16938C86A7FBD8EF1C54F /* End-GameCompleted!-TBee-2-hd.png */,
 				88F167B5FE92D439C818D1CB /* End-GameCompleted!-TBee-2.png */,
+				BF8C773CCE5BFE6D126D4015 /* Flower-Chooser-fullred-hd.png */,
+				BF8C7283C3865B8ECA77E5B8 /* Flower-Chooser-fullred.png */,
+				88F16B9AACB3E9960FA7B2F9 /* GameAlmostCompletedDialog.ccbi */,
 				88F1694B1AE0A48841501329 /* GameCompletedDialog.ccbi */,
-				88F16D547595DC13E1D6BD32 /* LevelSelect.ccbi */,
-				88F161512DB9EA7E77E5FF61 /* ThemeSelect-E.ccbi */,
-				88F16BED9BC8C7BAD7FF6FB1 /* Title-s-E-hd.png */,
-				88F16B9D2B9E7EE6D24D1D9E /* Title-s-E.png */,
+				88F167766B5F18C3837D6EC5 /* GameCompletedLiteDialog.ccbi */,
 				88F1628D8065B43990F7479D /* HiddenLevelsFoundDialog.ccbi */,
+				2CB75CB715C7DE4700668399 /* LevelCell-A-Bee-hd.png */,
+				2CB75CB815C7DE4700668399 /* LevelCell-A-Bee.png */,
+				2CB75CB915C7DE4700668399 /* LevelCell-A-Beeater-hd.png */,
+				2CB75CBA15C7DE4700668399 /* LevelCell-A-Beeater.png */,
+				2CB75CBB15C7DE4700668399 /* LevelCell-A-Open-hd.png */,
+				2CB75CBC15C7DE4700668399 /* LevelCell-A-Open.png */,
+				2CF8E0F61576B45F0052F4BC /* LevelCell-B-Bee-hd.png */,
+				2CF8E0F61576B45F0052F4BE /* LevelCell-B-Bee.png */,
+				2CF8E0F61576B45F0052F4C0 /* LevelCell-B-Beeater-hd.png */,
+				2CF8E0F61576B45F0052F4C2 /* LevelCell-B-Beeater.png */,
+				2CF8E0F61576B45F0052F4C4 /* LevelCell-B-Open-hd.png */,
+				2CF8E0F61576B45F0052F4C6 /* LevelCell-B-Open.png */,
+				2CF8E0F61576B45F0052F4C8 /* LevelCell-C-Bee-hd.png */,
+				2CF8E0F61576B45F0052F4CA /* LevelCell-C-Bee.png */,
+				2CF8E0F61576B45F0052F4CC /* LevelCell-C-Beeater-hd.png */,
+				2CF8E0F61576B45F0052F4CE /* LevelCell-C-Beeater.png */,
+				2CF8E0F61576B45F0052F4D0 /* LevelCell-C-Open-hd.png */,
+				2CF8E0F61576B45F0052F4D2 /* LevelCell-C-Open.png */,
+				2CF8E0F61576B45F0052F4D4 /* LevelCell-D-Bee-hd.png */,
+				2CF8E0F61576B45F0052F4D6 /* LevelCell-D-Bee.png */,
+				2CF8E0F61576B45F0052F4D8 /* LevelCell-D-Beeater-hd.png */,
+				2CF8E0F61576B45F0052F4DA /* LevelCell-D-Beeater.png */,
+				2CF8E0F61576B45F0052F4DC /* LevelCell-D-Open-hd.png */,
+				2CF8E0F61576B45F0052F4DE /* LevelCell-D-Open.png */,
+				2C96EDF91570450600052239 /* LevelCompletedDialog.ccbi */,
+				2C96EE0915704B3A00052239 /* LevelFailedDialog.ccbi */,
+				2CE3E2F916BEACB700BC0461 /* LevelSelect-Lite.ccbi */,
+				88F16D547595DC13E1D6BD32 /* LevelSelect.ccbi */,
+				BF8C7F2971F6F1380A058C6C /* Lock-Chooser-hd.png */,
+				BF8C739EFC6CEF76D54E0556 /* Lock-Chooser.png */,
+				2C0D5E6615C486E10024C88D /* PausedDialog.ccbi */,
+				BF8C788FC252A15EF6A95375 /* Symbol-Continue-hd.png */,
+				BF8C79512FAB5E46547F1C64 /* Symbol-Continue.png */,
+				BF8C7837B934D655A71CDCBD /* Symbol-Exit-hd.png */,
+				BF8C75072F9A3CE7D1D031AB /* Symbol-Exit.png */,
+				BF8C7AEAC5E359147742C20B /* Symbol-Next-White-hd.png */,
+				BF8C74A2A64907661B514A08 /* Symbol-Next-White.png */,
+				BF8C7B6786B38C11A38C78C8 /* Symbol-Pollen-hd.png */,
+				BF8C7178E4EE711DF7E5D7CA /* Symbol-Pollen.png */,
+				BF8C7A925CA30E9A80AB8997 /* Symbol-Redo-White-hd.png */,
+				BF8C78DF82395819A542F7AA /* Symbol-Redo-White.png */,
+				2CF8E0F61576B45F0052F4A1 /* Syst-Pollen-hd.png */,
+				2CF8E0F61576B45F0052F4A3 /* Syst-Pollen.png */,
+				2C932AC215C4A3E6002EF3CF /* Syst-Text-Completed-hd.png */,
+				2C932AC315C4A3E6002EF3CF /* Syst-Text-Completed.png */,
+				2C932AC415C4A3E6002EF3CF /* Syst-Text-Failed-hd.png */,
+				2C932AC515C4A3E6002EF3CF /* Syst-Text-Failed.png */,
+				2CF8E0F61576B45F0052F4A5 /* Syst-Text-Level-hd.png */,
+				2CF8E0F61576B45F0052F4A7 /* Syst-Text-Level.png */,
+				2C0D5E6F15C486E10024C88D /* Syst-Text-Pause-hd.png */,
+				2C0D5E7015C486E10024C88D /* Syst-Text-Pause.png */,
+				2CF8E0F61576B45F0052F4A9 /* Syst-Text-Total-hd.png */,
+				2CF8E0F61576B45F0052F4AB /* Syst-Text-Total.png */,
+				88F161C3D84E9028E4F71F8C /* Text-atleastfornow-hd.png */,
+				88F16374042A5E8F91FA7AFD /* Text-atleastfornow.png */,
 				88F160F2878533CD18FBFA77 /* Text-Congratulations-hd.png */,
 				88F1679AE8FD81E5A2C84971 /* Text-Congratulations.png */,
-				88F1682834A383C7FF856869 /* End-Credits-StingyBeesLogo-hd.png */,
-				88F16B4269B72DCCD323C11F /* End-Credits-StingyBeesLogo.png */,
-				88F167766B5F18C3837D6EC5 /* GameCompletedLiteDialog.ccbi */,
+				88F16118DC7F9631754CF09E /* Text-GameCompleted!-hd.png */,
+				88F16649DED4295D2D2F280C /* Text-GameCompleted!.png */,
+				88F16EDB05686F37A96063A3 /* Text-GameCompleted?-hd.png */,
+				88F1679963304021267221B0 /* Text-GameCompleted?.png */,
 				88F1666001A46AD64279A363 /* Text-…but more bees-Lite-hd.png */,
 				88F161954D9E371E1B898DE0 /* Text-…but more bees-Lite.png */,
+				2C5C5ABF15CC090A006BA973 /* ThemeSelect-A.ccbi */,
+				2C5C5AD115CC0EDA006BA973 /* ThemeSelect-B.ccbi */,
+				2C5C5AF115CC1401006BA973 /* ThemeSelect-C.ccbi */,
+				2C5C5AF215CC1401006BA973 /* ThemeSelect-D.ccbi */,
+				88F161512DB9EA7E77E5FF61 /* ThemeSelect-E.ccbi */,
+				BF8C739A4CF21A370CF60469 /* ThemeSelect-Shared.ccbi */,
+				2CE3E2FE16BEB15600BC0461 /* ThemeSelectBuyFull.ccbi */,
+				BF8C71EF084E21FB532DC2BF /* Title-s-A-hd.png */,
+				BF8C7905743726903F974514 /* Title-s-A.png */,
+				BF8C7DCE17B2CF6822EF505B /* Title-s-B-hd.png */,
+				BF8C79D9CCC70EF8F8DA6C05 /* Title-s-B.png */,
+				BF8C78995F2BA9FCF4A8DBCA /* Title-s-C-hd.png */,
+				BF8C75504B541BF22DFE17D3 /* Title-s-C.png */,
+				BF8C722149DAF348CBFDD0CF /* Title-s-D-hd.png */,
+				BF8C7F4533C2A73891DAC159 /* Title-s-D.png */,
+				88F16BED9BC8C7BAD7FF6FB1 /* Title-s-E-hd.png */,
+				88F16B9D2B9E7EE6D24D1D9E /* Title-s-E.png */,
 			);
 			name = Interface;
 			path = Resources/Interface;
@@ -10357,6 +10383,8 @@
 				2CF8E0F61576B45F0052F63E /* PlayState.m */,
 				2CF8E0F61576B45F0052F5D7 /* TutorialStripMenuState.h */,
 				2CF8E0F61576B45F0052F5D8 /* TutorialStripMenuState.m */,
+				88F16F12DAE2A0FFE095F9F0 /* LevelThemeSelectBuyFullLayer.h */,
+				88F16D5E4F6CE0B80DC274B1 /* LevelThemeSelectBuyFullLayer.m */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -14511,7 +14539,6 @@
 				2C19990316AF50E8006D8333 /* Chooser-Screen.png in Resources */,
 				2C19990416AF50E8006D8333 /* ChangeLog in Resources */,
 				2C19990516AF50E8006D8333 /* CMakeLists.txt in Resources */,
-				2C19990616AF50E8006D8333 /* LevelSelect.ccbi in Resources */,
 				2C19990716AF50E8006D8333 /* Default-568h@2x.png in Resources */,
 				2C19990816AF50E8006D8333 /* Icon-72-Lite.png in Resources */,
 				2C19990916AF50E8006D8333 /* Icon-Lite.png in Resources */,
@@ -14655,6 +14682,12 @@
 				2C19999316AF50E8006D8333 /* Button-Buy Full Version-hd.png in Resources */,
 				2C19999416AF50E8006D8333 /* Button-Buy Full Version.png in Resources */,
 				2C19999516AF50E8006D8333 /* FacebookSDKResources.bundle in Resources */,
+				2CE3E2FA16BEACB700BC0461 /* LevelSelect-Lite.ccbi in Resources */,
+				2CE3E2FF16BEB15700BC0461 /* Chooser-Buy Full Version-hd.png in Resources */,
+				2CE3E30116BEB15700BC0461 /* Chooser-Buy Full Version.png in Resources */,
+				2CE3E30316BEB15700BC0461 /* ThemeSelectBuyFull.ccbi in Resources */,
+				2CE3E30716BEB5C600BC0461 /* Download_on_the_App_Store_Badge_US-UK_135x40-hd.png in Resources */,
+				2CE3E30916BEB5C600BC0461 /* Download_on_the_App_Store_Badge_US-UK_135x40.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -15168,7 +15201,6 @@
 				88F160CB2408B26B5DC27EA0 /* Chooser-Screen.png in Resources */,
 				2CE08CC6164C6C6F0012E22B /* ChangeLog in Resources */,
 				2CE08CC8164C6C6F0012E22B /* CMakeLists.txt in Resources */,
-				88F1673C0CC071B6E6CFEEB4 /* LevelSelect.ccbi in Resources */,
 				2C85BD43164DCC7300A369AE /* Default-568h@2x.png in Resources */,
 				2C85BD4B164DCEC300A369AE /* Icon-72-Lite.png in Resources */,
 				2C85BD4C164DCEC300A369AE /* Icon-Lite.png in Resources */,
@@ -15312,6 +15344,12 @@
 				88F16CF8D009979A04D4E46B /* Button-Buy Full Version-hd.png in Resources */,
 				88F16421A2B4FD01FBD8EA1E /* Button-Buy Full Version.png in Resources */,
 				2CA0B9D016ACBA8C003E4B4C /* FacebookSDKResources.bundle in Resources */,
+				2CE3E2FB16BEACB700BC0461 /* LevelSelect-Lite.ccbi in Resources */,
+				2CE3E30016BEB15700BC0461 /* Chooser-Buy Full Version-hd.png in Resources */,
+				2CE3E30216BEB15700BC0461 /* Chooser-Buy Full Version.png in Resources */,
+				2CE3E30416BEB15700BC0461 /* ThemeSelectBuyFull.ccbi in Resources */,
+				2CE3E30816BEB5C600BC0461 /* Download_on_the_App_Store_Badge_US-UK_135x40-hd.png in Resources */,
+				2CE3E30A16BEB5C600BC0461 /* Download_on_the_App_Store_Badge_US-UK_135x40.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -17654,6 +17692,7 @@
 				2C1996F916AF50E8006D8333 /* URLConnection.m in Sources */,
 				2C1996FA16AF50E8006D8333 /* FacebookManager.m in Sources */,
 				2CF1B86916B3273500CEB737 /* FacebookHighscoresState.m in Sources */,
+				88F16E9393E3D05160731580 /* LevelThemeSelectBuyFullLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -18012,6 +18051,7 @@
 				88F166F8BA38D29B48F88A4D /* URLConnection.m in Sources */,
 				2CA0B9CC16ACB9F4003E4B4C /* FacebookManager.m in Sources */,
 				2CF1B86A16B3273600CEB737 /* FacebookHighscoresState.m in Sources */,
+				88F1660B0C5731015C71684F /* LevelThemeSelectBuyFullLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -18550,7 +18590,6 @@
 			buildSettings = {
 				ARCHS = armv7;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -18815,7 +18854,6 @@
 				PRODUCT_NAME = "Stingy Bees Lite Dev";
 				PROVISIONING_PROFILE = "C5AD8CD9-6F02-4799-92E3-37BAE5ADF2CC";
 				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -18863,7 +18901,6 @@
 				PRODUCT_NAME = "Stingy Bees Lite Dev";
 				PROVISIONING_PROFILE = "794A23EC-C08B-4834-849F-9C045D74981D";
 				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = "TestFlight Debug";
@@ -19009,7 +19046,6 @@
 				);
 				PRODUCT_NAME = "Stingy Bees Lite Dev";
 				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -19090,7 +19126,6 @@
 			buildSettings = {
 				ARCHS = armv7;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"NS_BLOCK_ASSERTIONS=1",
 					NDEBUG,
@@ -19198,7 +19233,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Stingy Bees Lite.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../FacebookSDK\"",
@@ -19208,6 +19243,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"NS_BLOCK_ASSERTIONS=1",
+					NDEBUG,
 					LITE_VERSION,
 					DEVELOPMENT,
 				);
@@ -19233,7 +19270,7 @@
 				PRODUCT_NAME = "Stingy Bees Lite Dev";
 				PROVISIONING_PROFILE = "794A23EC-C08B-4834-849F-9C045D74981D";
 				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "";
+				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = "TestFlight Release";
@@ -19427,7 +19464,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Stingy Bees Lite.entitlements";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: KM Lagerstrom (WXEWHGD352)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -19436,6 +19473,12 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					"NS_BLOCK_ASSERTIONS=1",
+					LITE_VERSION,
+					DEVELOPMENT,
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -19457,8 +19500,8 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = "Stingy Bees Lite Dev";
+				PROVISIONING_PROFILE = "C5AD8CD9-6F02-4799-92E3-37BAE5ADF2CC";
 				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -19612,7 +19655,6 @@
 			buildSettings = {
 				ARCHS = armv7;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
 					"COCOS2D_DEBUG=1",

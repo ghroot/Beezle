@@ -171,22 +171,6 @@
 		_menu = [CCMenu new];
 		[self addChild:_menu];
 
-#ifdef LITE_VERSION
-		if (locked)
-		{
-			FullscreenTransparentMenuItem *buyFullVersionmenuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
-				[[LiteUtils sharedUtils] showBuyFullVersionAlert];
-			} width:200.0f] autorelease];
-			[_menu addChild:buyFullVersionmenuItem];
-		}
-		else
-		{
-			FullscreenTransparentMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
-				[game replaceState:[LevelSelectMenuState stateWithTheme:theme]];
-			} width:200.0f] autorelease];
-			[_menu addChild:menuItem];
-		}
-#else
 		BOOL canEnterLevelSelect;
 #ifdef DEBUG
 		canEnterLevelSelect = TRUE;
@@ -200,7 +184,6 @@
 			} width:200.0f] autorelease];
 			[_menu addChild:menuItem];
 		}
-#endif
 	}
 	return self;
 }

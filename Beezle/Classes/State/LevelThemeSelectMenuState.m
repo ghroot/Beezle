@@ -16,6 +16,7 @@
 #import "PlayerInformation.h"
 #import "LevelOrganizer.h"
 #import "CCMenuItemImageScale.h"
+#import "LevelThemeSelectBuyFullLayer.h"
 
 static BOOL isFirstLoad = TRUE;
 static const float PAGE_DOT_DISTANCE = 10.0f;
@@ -177,6 +178,13 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 		LevelThemeSelectLayer *levelThemeSelectLayer = [LevelThemeSelectLayer layerWithTheme:theme game:_game];
 		[layers addObject:levelThemeSelectLayer];
 	}
+
+#ifdef LITE_VERSION
+	[layers addObject:[LevelThemeSelectBuyFullLayer node]];
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	_layerOffset = (int)(winSize.width * 0.35f);
+#endif
+
 	_scrollLayer = [[CCScrollLayer alloc] initWithLayers:layers widthOffset:_layerOffset];
 	[_scrollLayer setShowPagesIndicator:FALSE];
     [_scrollLayer setDelegate:self];
@@ -202,7 +210,14 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 
 	float scrollLayerX = [_scrollLayer position].x;
-	float percent = -scrollLayerX / (([_themes count] - 1) * (winSize.width - _layerOffset));
+	float percent;
+
+#ifdef LITE_VERSION
+	percent = -scrollLayerX / (winSize.width - _layerOffset);
+#else
+	percent = -scrollLayerX / (([_themes count] - 1) * (winSize.width - _layerOffset));
+#endif
+
 	percent = min(percent, 1.0f);
 	percent = max(percent, 0.0f);
 	float backgroundSpritePadding = 120.0f;
