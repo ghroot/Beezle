@@ -22,6 +22,8 @@ static NSString *FULL_VERSION_UPGRADE_PRODUCT_ID = @"com.stinglab.inapp.fullupgr
 
 @implementation InAppPurchasesManager
 
+@synthesize delegate = _delegate;
+
 +(InAppPurchasesManager *) sharedManager
 {
 	static InAppPurchasesManager *manager = 0;
@@ -50,12 +52,10 @@ static NSString *FULL_VERSION_UPGRADE_PRODUCT_ID = @"com.stinglab.inapp.fullupgr
 	return [SKPaymentQueue canMakePayments];
 }
 
--(void) upgradeToFullVersion
+-(void) updateProductInformation
 {
-	if (![self canMakePayments])
-	{
-		return;
-	}
+	[_upgradeToFullVersionProduct release];
+	_upgradeToFullVersionProduct = nil;
 
 	SKProductsRequest *request = [[[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObject:FULL_VERSION_UPGRADE_PRODUCT_ID]] autorelease];
 	[request setDelegate:self];
@@ -68,36 +68,38 @@ static NSString *FULL_VERSION_UPGRADE_PRODUCT_ID = @"com.stinglab.inapp.fullupgr
 	{
 		if ([[product productIdentifier] isEqualToString:FULL_VERSION_UPGRADE_PRODUCT_ID])
 		{
-			[_upgradeToFullVersionProduct release];
 			_upgradeToFullVersionProduct = [product retain];
-
-			NSNumberFormatter *numberFormatter = [[[NSNumberFormatter alloc] init] autorelease];
-			[numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
-			[numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-			[numberFormatter setLocale:[product priceLocale]];
-			NSString *priceString = [numberFormatter stringFromNumber:[product price]];
-
-			UIAlertView *dialog = [[UIAlertView alloc] init];
-			[dialog setDelegate:self];
-			[dialog setTitle:@"Full version"];
-			[dialog setMessage:[NSString stringWithFormat:@"Would you like to upgrade to the full version for %@?", priceString]];
-			[dialog addButtonWithTitle:@"Yes"];
-			[dialog addButtonWithTitle:@"No"];
-			[dialog show];
-			[dialog release];
-
 			break;
 		}
 	}
+
+	if (_upgradeToFullVersionProduct != nil)
+	{
+		NSNumberFormatter *numberFormatter = [[[NSNumberFormatter alloc] init] autorelease];
+		[numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+		[numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+		[numberFormatter setLocale:[_upgradeToFullVersionProduct priceLocale]];
+		NSString *priceString = [numberFormatter stringFromNumber:[_upgradeToFullVersionProduct price]];
+
+		[_delegate didRecieveUpgradeProductWithName:[_upgradeToFullVersionProduct localizedTitle] andPrice:priceString];
+	}
+	else
+	{
+		[_delegate failedToGetProductInformation];
+	}
 }
 
--(void) alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex
+-(void) upgradeToFullVersion
 {
-	if (buttonIndex == 0)
+	if (![self canMakePayments] ||
+			_upgradeToFullVersionProduct == nil)
 	{
-		SKPayment *payment = [SKPayment paymentWithProduct:_upgradeToFullVersionProduct];
-		[[SKPaymentQueue defaultQueue] addPayment:payment];
+		[_delegate upgradeFailed:FALSE];
+		return;
 	}
+
+	SKPayment *payment = [SKPayment paymentWithProduct:_upgradeToFullVersionProduct];
+	[[SKPaymentQueue defaultQueue] addPayment:payment];
 }
 
 -(void) restorePurchases
@@ -124,6 +126,7 @@ static NSString *FULL_VERSION_UPGRADE_PRODUCT_ID = @"com.stinglab.inapp.fullupgr
 			case SKPaymentTransactionStateRestored:
 			{
 				[self restoreTransaction:transaction];
+				break;
 			}
 			default:
 			{
@@ -141,10 +144,7 @@ static NSString *FULL_VERSION_UPGRADE_PRODUCT_ID = @"com.stinglab.inapp.fullupgr
 
 -(void) failedTransaction: (SKPaymentTransaction *)transaction
 {
-	if ([[transaction error] code] != SKErrorPaymentCancelled)
-	{
-		// Optionally, display an error here.
-	}
+	[_delegate upgradeFailed:([[transaction error] code] == SKErrorPaymentCancelled)];
 	[[SKPaymentQueue defaultQueue] finishTransaction: transaction];
 }
 
@@ -159,6 +159,9 @@ static NSString *FULL_VERSION_UPGRADE_PRODUCT_ID = @"com.stinglab.inapp.fullupgr
 	if ([string isEqualToString:FULL_VERSION_UPGRADE_PRODUCT_ID])
 	{
 		[[PlayerInformation sharedInformation] markAsUpgradedToFullVersion];
+		[[PlayerInformation sharedInformation] save];
+
+		[_delegate upgradeWasSuccessful];
 	}
 }
 

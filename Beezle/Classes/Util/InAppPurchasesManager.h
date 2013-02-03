@@ -8,15 +8,28 @@
 
 #import <StoreKit/StoreKit.h>
 
-@interface InAppPurchasesManager : NSObject <SKPaymentTransactionObserver, SKProductsRequestDelegate, UIAlertViewDelegate>
+@protocol InAppPurchasesDelegate <NSObject>
+
+-(void) didRecieveUpgradeProductWithName:(NSString *)name andPrice:(NSString *)price;
+-(void) failedToGetProductInformation;
+-(void) upgradeWasSuccessful;
+-(void) upgradeFailed:(BOOL)canceled;
+
+@end
+
+@interface InAppPurchasesManager : NSObject <SKPaymentTransactionObserver, SKProductsRequestDelegate>
 {
 	SKProduct *_upgradeToFullVersionProduct;
+	id<InAppPurchasesDelegate> _delegate;
 }
+
+@property (nonatomic, assign) id<InAppPurchasesDelegate> delegate;
 
 +(InAppPurchasesManager *) sharedManager;
 
 -(void) initialise;
 -(BOOL) canMakePayments;
+-(void) updateProductInformation;
 -(void) upgradeToFullVersion;
 -(void) restorePurchases;
 
