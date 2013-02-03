@@ -206,8 +206,11 @@ static const long long FACEBOOK_APPLICATION_ID = 392888574136437;
 	{
 		[self postScore:score];
 	}
-	else if ([self hasNativeIntegration])
+	else if ([self hasNativeIntegration] &&
+			!_haveAskedForPublishPermissions)
 	{
+		_haveAskedForPublishPermissions = TRUE;
+
 		// iOS6 with facebook account, have to request publish permission
 		[[FBSession activeSession] reauthorizeWithPublishPermissions:[NSArray arrayWithObject:@"publish_actions"] defaultAudience:FBSessionDefaultAudienceFriends completionHandler:^(FBSession *session, NSError *error){
 			if (!error)

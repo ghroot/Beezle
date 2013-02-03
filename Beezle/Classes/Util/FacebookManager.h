@@ -24,6 +24,7 @@
 	Facebook *_facebook;
 	BOOL _isLoggedIn;
 	BOOL _hasPublishPermission;
+	BOOL _haveAskedForPublishPermissions;
 	id<FacebookScoresDelegate> _delegate;
 }
 
