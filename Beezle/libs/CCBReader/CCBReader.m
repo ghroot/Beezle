@@ -194,11 +194,18 @@
         default: {
             // using a memcpy since the compiler isn't
             // doing the float ptr math correctly on device.
-            float * pF = (float*)(bytes+currentByte);
-            float f = 0;
-            memcpy(&f, pF, sizeof(float));
-            currentByte+=4;
-            return f;
+//            float * pF = (float*)(bytes+currentByte);
+//            float f = 0;
+//            memcpy(&f, pF, sizeof(float));
+//            currentByte+=4;
+//            return f;
+			
+			// Fixed (http://www.cocos2d-x.org/boards/6/topics/18183)
+			float f;
+			unsigned char* pData = (bytes+currentByte);
+			memcpy( &f, pData, sizeof( float ) );
+			currentByte+=4;
+			return f;
         }
     }
 }
@@ -987,7 +994,13 @@
 	// if no bytes loaded, don't crash about it.
 	if( bytes == nil) return NO;
     // Read magic
-    int magic = *((int*)(bytes+currentByte));
+//    int magic = *((int*)(bytes+currentByte));
+	
+	// Fixed (http://www.cocos2d-x.org/boards/6/topics/18183)
+	int magic;
+	unsigned char* pData = (bytes+currentByte);
+	memcpy( &magic, pData, sizeof( int ) );
+	
     currentByte+=4;
     if (magic != 'ccbi') return NO;
     
