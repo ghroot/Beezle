@@ -178,7 +178,9 @@
 		[_director resume];
 		[_director setNextDeltaTimeZero:TRUE];
 
+#ifndef LITE_VERSION
 		[[FacebookManager sharedManager] handleDidBecomeActive];
+#endif
 	}
 }
 
@@ -202,7 +204,9 @@
 
 -(void) applicationWillTerminate:(UIApplication *)application
 {
+#ifndef LITE_VERSION
 	[[FacebookManager sharedManager] closeSession];
+#endif
 
 	CC_DIRECTOR_END();
 }
@@ -219,7 +223,9 @@
 
 -(BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
+#ifndef LITE_VERSION
 	[[FacebookManager sharedManager] handleOpenURL:url];
+#endif
 
 	return YES;
 }
@@ -227,7 +233,9 @@
 // iOS 4.3 compatibility
 -(BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
+#ifndef LITE_VERSION
 	[[FacebookManager sharedManager] handleOpenURL:url];
+#endif
 
 	return TRUE;
 }
