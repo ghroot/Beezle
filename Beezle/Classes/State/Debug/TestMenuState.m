@@ -14,6 +14,7 @@
 #import "GameCenterManager.h"
 #import "TestLevelLayoutsState.h"
 #import "iRate.h"
+#import "TestCCBState.h"
 
 @interface TestMenuState()
 
@@ -49,6 +50,10 @@
 		[_game pushState:[TestLevelLayoutsState state]];
 	}];
 	[_menu addChild:testLevelLayoutsMenuItem];
+	CCMenuItemFont *testCCBMenuItem = [CCMenuItemFont itemWithString:@"Test CCB" block:^(id sender){
+		[_game pushState:[TestCCBState state]];
+	}];
+	[_menu addChild:testCCBMenuItem];
 	CCMenuItemFont *testRatingMenuItem = [CCMenuItemFont itemWithString:@"Test rating" block:^(id sender){
 		[[iRate sharedInstance] promptForRating];
 	}];
