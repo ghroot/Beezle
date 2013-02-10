@@ -12,6 +12,7 @@
 
 @interface GameState : CCScene <CCTouchOneByOneDelegate>
 {
+	NSString *_name;
 	Game *_game;
 	BOOL _isInitialised;
 	BOOL _needsLoadingState;
@@ -22,6 +23,8 @@
 @property (nonatomic, readonly) BOOL needsLoadingState;
 
 +(id) state;
+
+-(id) initWithName:(NSString *)name;
 
 -(BOOL) needsLoadingState;
 -(void) initialise;

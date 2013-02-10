@@ -32,7 +32,7 @@
 
 -(id) initWithBackground:(CCNode *)backgroundNode andLevelSession:(LevelSession *)levelSession
 {
-	if (self = [super init])
+	if (self = [super initWithName:@"pausedMenu"])
 	{
         _theme = [[[LevelOrganizer sharedOrganizer] themeForLevel:[levelSession levelName]] copy];
 		_levelName = [[levelSession levelName] copy];

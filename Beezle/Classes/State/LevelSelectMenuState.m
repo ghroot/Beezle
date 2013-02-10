@@ -42,7 +42,7 @@
 // Designated initialiser
 -(id) initWithTheme:(NSString *)theme
 {
-    if (self = [super init])
+    if (self = [super initWithName:@"levelSelectMenu"])
     {
 		_theme = [theme copy];
 

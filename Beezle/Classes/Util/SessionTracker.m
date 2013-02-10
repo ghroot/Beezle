@@ -74,9 +74,6 @@ void uncaughtExceptionHandler(NSException *exception)
 	// Google analytics
 	[[GAI sharedInstance] setTrackUncaughtExceptions:TRUE];
 	[[GAI sharedInstance] setDispatchInterval:20];
-#ifdef DEBUG
-	[[GAI sharedInstance] setDebug:TRUE];
-#endif
 	[[GAI sharedInstance] trackerWithTrackingId:GOOGLE_ANALYTICS_TRACKING_ID];
 }
 
@@ -114,6 +111,11 @@ void uncaughtExceptionHandler(NSException *exception)
 	[Flurry logEvent:@"INTERACTION" withParameters:parameters];
 
 	[[[GAI sharedInstance] defaultTracker] trackEventWithCategory:@"interaction" withAction:type withLabel:interactionName withValue:[NSNumber numberWithInt:0]];
+}
+
+-(void) trackScreen:(NSString *)screenName
+{
+	[[[GAI sharedInstance] defaultTracker] trackView:screenName];
 }
 
 @end

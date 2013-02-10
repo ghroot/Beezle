@@ -8,6 +8,7 @@
 
 #import "GameState.h"
 #import "Game.h"
+#import "SessionTracker.h"
 
 @implementation GameState
 
@@ -20,15 +21,29 @@
 	return [[[self alloc] init] autorelease];
 }
 
--(id) init
+-(id) initWithName:(NSString *)name
 {
 	if (self = [super init])
 	{
+		_name = [name copy];
 		_isInitialised = FALSE;
 		_needsLoadingState = FALSE;
 	}
 	return self;
 }
+
+-(id) init
+{
+	return [self initWithName:nil];
+}
+
+-(void) dealloc
+{
+	[_name release];
+
+	[super dealloc];
+}
+
 
 -(void) initialise
 {
@@ -39,6 +54,11 @@
 {
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:FALSE];
     [self scheduleUpdate];
+
+	if (_name != nil)
+	{
+		[[SessionTracker sharedTracker] trackScreen:_name];
+	}
 }
 
 -(void) leave

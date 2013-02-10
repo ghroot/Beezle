@@ -40,7 +40,7 @@ static int nextBeeIndex = 0;
 
 -(id) init
 {
-	if (self = [super init])
+	if (self = [super initWithName:@"play"])
 	{
 		CGSize winSize = [[CCDirector sharedDirector] winSize];
 

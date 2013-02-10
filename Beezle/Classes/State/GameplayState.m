@@ -137,8 +137,8 @@
 // Designated initialiser
 -(id) initWithLevelName:(NSString *)levelName
 {
-	if (self = [super init])
-    {
+	if (self = [super initWithName:@"gameplay"])
+	{
 		_levelName = [levelName retain];
 		_levelSession = [[LevelSession alloc] initWithLevelName:levelName];
 		

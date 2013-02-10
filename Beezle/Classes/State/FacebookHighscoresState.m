@@ -28,7 +28,7 @@
 
 -(id) init
 {
-	if (self = [super init])
+	if (self = [super initWithName:@"facebookHighscores"])
 	{
 		CCSprite *backgroundSprite = [CCSprite spriteWithFile:@"PlayScene.jpg"];
 		[backgroundSprite setPosition:[Utils screenCenterPosition]];

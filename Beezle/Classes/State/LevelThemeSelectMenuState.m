@@ -41,7 +41,7 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 
 -(id) initWithPreselectedTheme:(NSString *)theme
 {
-	if (self = [super init])
+	if (self = [super initWithName:@"levelThemeSelectMenu"])
 	{
 		_theme = [theme copy];
 		_pageDotSprites = [NSMutableArray new];

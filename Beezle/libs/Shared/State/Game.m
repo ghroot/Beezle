@@ -139,7 +139,7 @@
 {
 	while ([_gameStateStack count] > 1)
 	{
-		[self popState];
+		[_gameStateStack removeObjectAtIndex:0];
 	}
 	[self replaceState:gameState transition:transition];
 }
