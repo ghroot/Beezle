@@ -17,7 +17,7 @@ static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
 
 -(id) initWithFileName:(NSString *)fileName buttonFileName:(NSString *)buttonFileName block:(void(^)())block
 {
-	if (self = [super initWithName:@"tutorialStipMenu"])
+	if (self = [super initWithName:@"tutorialStripMenu"])
 	{
 		NSString *filePath = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:fileName];
 		CCSprite *singleSprite = [CCSprite spriteWithFile:filePath];
