@@ -12,8 +12,11 @@
 
 @interface Game : NSObject
 {
+	CCDirector *_director;
     NSMutableArray *_gameStateStack;
 }
+
+-(id) initWithDirector:(CCDirector *)director;
 
 -(void) startWithState:(GameState *)gameState;
 -(void) replaceState:(GameState *)gameState transition:(BOOL)transition;

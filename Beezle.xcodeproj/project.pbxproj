@@ -11,8 +11,6 @@
 		2C03D6D116B5EF1300242FD8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3281145F66F7000FF575 /* UIKit.framework */; };
 		2C03D6D216B5EF1300242FD8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3283145F66F7000FF575 /* Foundation.framework */; };
 		2C03D6D816B5EF1300242FD8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C03D6D616B5EF1300242FD8 /* InfoPlist.strings */; };
-		2C03D6E716B5F0A300242FD8 /* GameplayStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C03D6E616B5F0A300242FD8 /* GameplayStateTest.m */; };
-		2C03D6EB16B5F4E900242FD8 /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C03D6EA16B5F4E900242FD8 /* OCMockitoIOS.framework */; };
 		2C0D500414A8CDBC00466316 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0D500314A8CDBC00466316 /* MessageUI.framework */; };
 		2C0D5E7115C486E10024C88D /* PausedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6615C486E10024C88D /* PausedDialog.ccbi */; };
 		2C0D5E7A15C486E10024C88D /* Syst-Text-Pause-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6F15C486E10024C88D /* Syst-Text-Pause-hd.png */; };
@@ -4211,6 +4209,11 @@
 		2C932AC915C4A3E6002EF3CF /* Syst-Text-Completed.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C932AC315C4A3E6002EF3CF /* Syst-Text-Completed.png */; };
 		2C932ACA15C4A3E6002EF3CF /* Syst-Text-Failed-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C932AC415C4A3E6002EF3CF /* Syst-Text-Failed-hd.png */; };
 		2C932ACB15C4A3E6002EF3CF /* Syst-Text-Failed.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C932AC515C4A3E6002EF3CF /* Syst-Text-Failed.png */; };
+		2C9524ED16CAF67400293ACE /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C9524EC16CAF67400293ACE /* OCMockitoIOS.framework */; };
+		2C9524EE16CAF67400293ACE /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C9524EC16CAF67400293ACE /* OCMockitoIOS.framework */; };
+		2C9524F016CAF67D00293ACE /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C9524EF16CAF67D00293ACE /* OCHamcrestIOS.framework */; };
+		2C9524F116CAF67D00293ACE /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C9524EF16CAF67D00293ACE /* OCHamcrestIOS.framework */; };
+		2C9524F716CAFA9A00293ACE /* GameTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9524F616CAFA9A00293ACE /* GameTest.m */; };
 		2C95F77D15C8680B00926A96 /* CCScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C95F77C15C8680B00926A96 /* CCScrollView.m */; };
 		2C96EDE9156D9C2300052239 /* Ice.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDE6156D9C2300052239 /* Ice.plist */; };
 		2C96EDEA156D9C2300052239 /* Icicle-Piece.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96EDE7156D9C2300052239 /* Icicle-Piece.plist */; };
@@ -5979,19 +5982,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2C03D6E816B5F26200242FD8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2CEA326A145F66F7000FF575 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2CEA3272145F66F7000FF575;
-			remoteInfo = "Stingy Bees";
-		};
 		2C75CD891474715A00545287 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2CEA326A145F66F7000FF575 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2CEA3272145F66F7000FF575;
 			remoteInfo = Beezle;
+		};
+		2C9526AC16CAFC7900293ACE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2CEA326A145F66F7000FF575 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C198DEF16AF50D6006D8333;
+			remoteInfo = "Stingy Bees Development";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -6000,8 +6003,6 @@
 		2C03D6D516B5EF1300242FD8 /* BeezleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BeezleTests-Info.plist"; sourceTree = "<group>"; };
 		2C03D6D716B5EF1300242FD8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C03D6DC16B5EF1300242FD8 /* BeezleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BeezleTests-Prefix.pch"; sourceTree = "<group>"; };
-		2C03D6E616B5F0A300242FD8 /* GameplayStateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameplayStateTest.m; sourceTree = "<group>"; };
-		2C03D6EA16B5F4E900242FD8 /* OCMockitoIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMockitoIOS.framework; path = "../../../Downloads/OCMockito-0.23/OCMockitoIOS.framework"; sourceTree = "<group>"; };
 		2C0D500314A8CDBC00466316 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		2C0D5E6615C486E10024C88D /* PausedDialog.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = PausedDialog.ccbi; sourceTree = "<group>"; };
 		2C0D5E6F15C486E10024C88D /* Syst-Text-Pause-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Pause-hd.png"; sourceTree = "<group>"; };
@@ -7407,6 +7408,9 @@
 		2C932AC315C4A3E6002EF3CF /* Syst-Text-Completed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Completed.png"; sourceTree = "<group>"; };
 		2C932AC415C4A3E6002EF3CF /* Syst-Text-Failed-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Failed-hd.png"; sourceTree = "<group>"; };
 		2C932AC515C4A3E6002EF3CF /* Syst-Text-Failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Failed.png"; sourceTree = "<group>"; };
+		2C9524EC16CAF67400293ACE /* OCMockitoIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMockitoIOS.framework; path = Beezle/libs/OCMock/OCMockitoIOS.framework; sourceTree = "<group>"; };
+		2C9524EF16CAF67D00293ACE /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = Beezle/libs/OCMock/OCHamcrestIOS.framework; sourceTree = "<group>"; };
+		2C9524F616CAFA9A00293ACE /* GameTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTest.m; sourceTree = "<group>"; };
 		2C95F77B15C8680B00926A96 /* CCScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollView.h; sourceTree = "<group>"; };
 		2C95F77C15C8680B00926A96 /* CCScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCScrollView.m; sourceTree = "<group>"; };
 		2C96EDE6156D9C2300052239 /* Ice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Ice.plist; sourceTree = "<group>"; };
@@ -8461,7 +8465,8 @@
 				2C03D6D016B5EF1300242FD8 /* SenTestingKit.framework in Frameworks */,
 				2C03D6D116B5EF1300242FD8 /* UIKit.framework in Frameworks */,
 				2C03D6D216B5EF1300242FD8 /* Foundation.framework in Frameworks */,
-				2C03D6EB16B5F4E900242FD8 /* OCMockitoIOS.framework in Frameworks */,
+				2C9524EE16CAF67400293ACE /* OCMockitoIOS.framework in Frameworks */,
+				2C9524F116CAF67D00293ACE /* OCHamcrestIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8532,6 +8537,8 @@
 				2CADCC8514746BA100302475 /* SenTestingKit.framework in Frameworks */,
 				2CADCC8614746BA100302475 /* UIKit.framework in Frameworks */,
 				2CADCC8714746BA100302475 /* Foundation.framework in Frameworks */,
+				2C9524ED16CAF67400293ACE /* OCMockitoIOS.framework in Frameworks */,
+				2C9524F016CAF67D00293ACE /* OCHamcrestIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8671,8 +8678,8 @@
 		2C03D6D316B5EF1300242FD8 /* BeezleTests */ = {
 			isa = PBXGroup;
 			children = (
-				2C03D6E616B5F0A300242FD8 /* GameplayStateTest.m */,
 				2C03D6D416B5EF1300242FD8 /* Supporting Files */,
+				2C9524F616CAFA9A00293ACE /* GameTest.m */,
 			);
 			path = BeezleTests;
 			sourceTree = "<group>";
@@ -11849,7 +11856,8 @@
 				2C85BD721651BDE000A369AE /* GameKit.framework */,
 				2C5C9A3A154A0E2A00FF6F57 /* libz.dylib */,
 				2C0D500314A8CDBC00466316 /* MessageUI.framework */,
-				2C03D6EA16B5F4E900242FD8 /* OCMockitoIOS.framework */,
+				2C9524EF16CAF67D00293ACE /* OCHamcrestIOS.framework */,
+				2C9524EC16CAF67400293ACE /* OCMockitoIOS.framework */,
 				2CEA327B145F66F7000FF575 /* OpenAL.framework */,
 				2CEA3279145F66F7000FF575 /* OpenGLES.framework */,
 				2CEA3277145F66F7000FF575 /* QuartzCore.framework */,
@@ -12314,7 +12322,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				2C03D6E916B5F26200242FD8 /* PBXTargetDependency */,
+				2C9526AD16CAFC7900293ACE /* PBXTargetDependency */,
 			);
 			name = BeezleTests;
 			productName = BeezleTests;
@@ -17007,7 +17015,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C03D6E716B5F0A300242FD8 /* GameplayStateTest.m in Sources */,
+				2C9524F716CAFA9A00293ACE /* GameTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -18428,15 +18436,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2C03D6E916B5F26200242FD8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2CEA3272145F66F7000FF575 /* Stingy Bees */;
-			targetProxy = 2C03D6E816B5F26200242FD8 /* PBXContainerItemProxy */;
-		};
 		2C75CD8A1474715A00545287 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2CEA3272145F66F7000FF575 /* Stingy Bees */;
 			targetProxy = 2C75CD891474715A00545287 /* PBXContainerItemProxy */;
+		};
+		2C9526AD16CAFC7900293ACE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C198DEF16AF50D6006D8333 /* Stingy Bees Development */;
+			targetProxy = 2C9526AC16CAFC7900293ACE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -18474,6 +18482,7 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 					"\"$(SRCROOT)/../../../Downloads/OCMockito-0.23\"",
+					"\"$(SRCROOT)/Beezle/libs/OCMock\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -18485,10 +18494,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "";
+				TEST_HOST = "${BUNDLE_LOADER}";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -18507,15 +18515,15 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 					"\"$(SRCROOT)/../../../Downloads/OCMockito-0.23\"",
+					"\"$(SRCROOT)/Beezle/libs/OCMock\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeezleTests/BeezleTests-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "";
+				TEST_HOST = "${BUNDLE_LOADER}";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = octest;
 			};
@@ -18535,15 +18543,15 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 					"\"$(SRCROOT)/../../../Downloads/OCMockito-0.23\"",
+					"\"$(SRCROOT)/Beezle/libs/OCMock\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeezleTests/BeezleTests-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "";
+				TEST_HOST = "${BUNDLE_LOADER}";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = octest;
 			};
@@ -18563,15 +18571,15 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 					"\"$(SRCROOT)/../../../Downloads/OCMockito-0.23\"",
+					"\"$(SRCROOT)/Beezle/libs/OCMock\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeezleTests/BeezleTests-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "";
+				TEST_HOST = "${BUNDLE_LOADER}";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = octest;
 			};
@@ -18591,15 +18599,15 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 					"\"$(SRCROOT)/../../../Downloads/OCMockito-0.23\"",
+					"\"$(SRCROOT)/Beezle/libs/OCMock\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeezleTests/BeezleTests-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "";
+				TEST_HOST = "${BUNDLE_LOADER}";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = octest;
 			};
@@ -18724,6 +18732,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/Beezle/libs/OCMock\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -18767,7 +18776,6 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Development.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
@@ -18813,7 +18821,6 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Development.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
@@ -18968,7 +18975,6 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Development.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
@@ -19129,6 +19135,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/Beezle/libs/OCMock\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ArtemisTests/ArtemisTests-Prefix.pch";
@@ -19189,7 +19196,6 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Development.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
@@ -19356,6 +19362,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/Beezle/libs/OCMock\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -19419,7 +19426,6 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Development.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Beezle/libs/ObjectiveChipmunk-iPhone\"",
@@ -19588,6 +19594,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/Beezle/libs/OCMock\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ArtemisTests/ArtemisTests-Prefix.pch";
@@ -19610,6 +19617,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/Beezle/libs/OCMock\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

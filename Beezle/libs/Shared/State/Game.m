@@ -14,13 +14,19 @@
 
 @implementation Game
 
--(id) init
+-(id) initWithDirector:(CCDirector *)director
 {
     if (self = [super init])
     {
+		_director = director;
         _gameStateStack = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+-(id) init
+{
+	return [self initWithDirector:[CCDirector sharedDirector]];
 }
 
 -(void) dealloc
@@ -42,7 +48,7 @@
 		[gameState setGame:self];
 		[gameState initialise];
 		[gameState enter];
-		[[CCDirector sharedDirector] runWithScene:gameState];
+		[_director runWithScene:gameState];
 	}
 }
 
@@ -67,11 +73,11 @@
 		[gameState enter];
 		if (transition)
 		{
-			[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TRANSITION_DURATION scene:gameState]];
+			[_director replaceScene:[CCTransitionFade transitionWithDuration:TRANSITION_DURATION scene:gameState]];
 		}
 		else
 		{
-			[[CCDirector sharedDirector] replaceScene:gameState];
+			[_director replaceScene:gameState];
 		}
     }
 }
@@ -101,11 +107,11 @@
 		[gameState enter];
 		if (transition)
 		{
-			[[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:TRANSITION_DURATION scene:gameState]];
+			[_director pushScene:[CCTransitionFade transitionWithDuration:TRANSITION_DURATION scene:gameState]];
 		}
 		else
 		{
-			[[CCDirector sharedDirector] pushScene:gameState];
+			[_director pushScene:gameState];
 		}
 	}
 }
@@ -122,11 +128,11 @@
 	[[self currentState] enter];
 	if (transition)
 	{
-		[[CCDirector sharedDirector] popSceneWithTransition:[CCTransitionFade class] duration:TRANSITION_DURATION];
+		[_director popSceneWithTransition:[CCTransitionFade class] duration:TRANSITION_DURATION];
 	}
 	else
 	{
-		[[CCDirector sharedDirector] popScene];
+		[_director popScene];
 	}
 }
 
