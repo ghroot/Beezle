@@ -11,6 +11,7 @@
 #import "ActionUtils.h"
 #import "FullscreenTransparentMenuItem.h"
 #import "LiteUtils.h"
+#import "SessionTracker.h"
 
 @implementation LevelThemeSelectBuyFullLayer
 
@@ -37,6 +38,7 @@
 
 		CCMenu *menu = [CCMenu node];
 		FullscreenTransparentMenuItem *menuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
+			[[SessionTracker sharedTracker] trackInteraction:@"button" name:@"buy full world"];
 			[[LiteUtils sharedUtils] showBuyFullVersionAlert];
 		} width:200.0f] autorelease];
 		[menu addChild:menuItem];

@@ -114,6 +114,7 @@ static int nextBeeIndex = 0;
 #ifdef LITE_VERSION
 		CCMenu *appStoreMenu = [CCMenu node];
 		CCMenuItemImageScale *appStoreMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"Button-Buy Full Version.png" selectedImage:@"Button-Buy Full Version.png" block:^(id sender){
+			[[SessionTracker sharedTracker] trackInteraction:@"button" name:@"buy full play"];
 			[[LiteUtils sharedUtils] gotoAppStoreForFullVersion];
 		}];
 		[appStoreMenuItem setPosition:CGPointMake(90.0f, 60.0f)];
