@@ -161,7 +161,7 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 	BeeType *beeType = [slingerComponent loadedBeeType];
 	_beeLoadedRenderSprite = [self createBeeQueueRenderSpriteWithBeeType:beeType position:[slingerTransformComponent position]];
 	[_beeLoadedRenderSprite retain];
-	NSString *animationName = [NSString stringWithFormat:@"%@-Idle", [beeType capitalizedString]];
+	NSString *animationName = [NSString stringWithFormat:@"%@-Slinger", [beeType capitalizedString]];
 	[_beeLoadedRenderSprite playAnimationLoop:animationName];
 	[[_beeLoadedRenderSprite sprite] setOpacity:0];
 	CCFadeIn *fadeInAction = [CCFadeIn actionWithDuration:0.3f];
@@ -295,7 +295,7 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 		[actions addObject:faceRightAction];
 	}
 	CCCallBlock *animateIdleAction = [CCCallBlock actionWithBlock:^(){
-		NSString *animationName = [NSString stringWithFormat:@"%@-Idle", [savedBeeType capitalizedString]];
+		NSString *animationName = [NSString stringWithFormat:@"%@-Slinger", [savedBeeType capitalizedString]];
 		[beeQueueRenderSprite playAnimationLoop:animationName];
 	}];
 	[actions addObject:animateIdleAction];
@@ -384,7 +384,7 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 	[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:animationsFileName];
 
 	// Idle animation
-	NSString *animationName = [NSString stringWithFormat:@"%@-Idle", [beeType capitalizedString]];
+	NSString *animationName = [NSString stringWithFormat:@"%@-Slinger", [beeType capitalizedString]];
 	[beeQueueRenderSprite playAnimationLoop:animationName];
 
 	return beeQueueRenderSprite;

@@ -28,6 +28,7 @@
 +(Entity *) createTeleportOutPosition:(World *)world;
 +(Entity *) createSimpleAnimatedEntity:(World *)world;
 +(Entity *) createSimpleAnimatedEntity:(World *)world animationFile:(NSString *)animationFile;
++(Entity *) createShardPieceEntity:(World *)world animationName:(NSString *)animationName smallAnimationNames:(NSArray *)smallAnimationNames spriteSheetName:(NSString *)spriteSheetName animationFile:(NSString *)animationFile shapeSize:(CGSize)shapeSize;
 +(Entity *) createShardPieceEntity:(World *)world animationName:(NSString *)animationName smallAnimationNames:(NSArray *)smallAnimationNames spriteSheetName:(NSString *)spriteSheetName animationFile:(NSString *)animationFile;
 
 @end

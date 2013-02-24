@@ -87,11 +87,16 @@
 	Entity *entity = [[notification userInfo] objectForKey:@"entity"];
 	if ([entity hasComponent:[RespawnComponent class]])
 	{
-		RespawnComponent *respawnComponent = [RespawnComponent getFrom:entity];
-		TransformComponent *transformComponent = [TransformComponent getFrom:entity];
-		RespawnInfo *respawnInfo = [[[RespawnInfo alloc] initWithEntityType:[respawnComponent entityType] position:[transformComponent position] respawnAnimationName:[respawnComponent respawnAnimationName]] autorelease];
-		[_respawnInfos addObject:respawnInfo];
+		[self addRespawnInfoForEntity:entity];
 	}
+}
+
+-(void) addRespawnInfoForEntity:(Entity *)entity
+{
+	RespawnComponent *respawnComponent = [RespawnComponent getFrom:entity];
+	TransformComponent *transformComponent = [TransformComponent getFrom:entity];
+	RespawnInfo *respawnInfo = [[[RespawnInfo alloc] initWithEntityType:[respawnComponent entityType] position:[transformComponent position] respawnAnimationName:[respawnComponent respawnAnimationName]] autorelease];
+	[_respawnInfos addObject:respawnInfo];
 }
 
 @end

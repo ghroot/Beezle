@@ -302,4 +302,23 @@
 	}
 }
 
++(CGPoint) getRandomPositionWithinShapes:(NSArray *)shapes boundingBox:(cpBB)boundingBox
+{
+	CGPoint randomPosition = CGPointZero;
+	BOOL validPoint = FALSE;
+	while (!validPoint)
+	{
+		randomPosition = CGPointMake(boundingBox.l + rand() % (int)(boundingBox.r - boundingBox.l), boundingBox.b + rand() % (int)(boundingBox.t - boundingBox.b));
+		for (ChipmunkShape *shape in shapes)
+		{
+			ChipmunkNearestPointQueryInfo *queryInfo = [shape nearestPointQuery:randomPosition];
+			if ([queryInfo dist] <= 0)
+			{
+				validPoint = TRUE;
+			}
+		}
+	}
+	return randomPosition;
+}
+
 @end

@@ -12,6 +12,9 @@
 #import "TransformComponent.h"
 #import "ZOrder.h"
 #import "MemoryManager.h"
+#import "RenderSpriteRotationType.h"
+#import "PhysicsComponent.h"
+#import "Utils.h"
 
 static const int BATCH_NODE_CAPACITY = 140;
 
@@ -36,6 +39,7 @@ static const int BATCH_NODE_CAPACITY = 140;
 {
 	[_transformComponentMapper release];
 	[_renderComponentMapper release];
+	[_physicsComponentMapper release];
 
     [_spriteSheetsByName release];
 	[_loadedAnimationsFileNames release];
@@ -136,6 +140,7 @@ static const int BATCH_NODE_CAPACITY = 140;
 {
 	_transformComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[TransformComponent class]];
 	_renderComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[RenderComponent class]];
+	_physicsComponentMapper = [[ComponentMapper alloc] initWithEntityManager:[_world entityManager] componentClass:[PhysicsComponent class]];
 }
 
 -(void) entityAdded:(Entity *)entity
@@ -180,7 +185,20 @@ static const int BATCH_NODE_CAPACITY = 140;
 		newPosition.x = [transformComponent position].x + [renderSprite offset].x;
 		newPosition.y = [transformComponent position].y + [renderSprite offset].y;
 		[[renderSprite sprite] setPosition:newPosition];
-		[[renderSprite sprite] setRotation:[transformComponent rotation]];
+		if ([renderSprite rotationType] == ROTATION_TYPE_NORMAL)
+		{
+			[[renderSprite sprite] setRotation:[transformComponent rotation]];
+		}
+		else if ([renderSprite rotationType] == ROTATION_TYPE_VELOCITY)
+		{
+			if ([_physicsComponentMapper hasEntityComponent:entity])
+			{
+				PhysicsComponent *physicsComponent = [_physicsComponentMapper getComponentFor:entity];
+				cpVect velocity = [[physicsComponent body] vel];
+				float angle = ccpToAngle(velocity);
+				[[renderSprite sprite] setRotation:[Utils chipmunkRadiansToCocos2dDegrees:angle] + 90.0f];
+			}
+		}
         [[renderSprite sprite] setScaleX:([transformComponent scale].x * [renderSprite scale].x)];
         [[renderSprite sprite] setScaleY:([transformComponent scale].y * [renderSprite scale].y)];
 	}

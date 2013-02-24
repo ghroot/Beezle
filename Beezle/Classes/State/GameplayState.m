@@ -78,6 +78,7 @@
 #import "LevelThemeSelectMenuState.h"
 #import "GameAlmostCompletedDialog.h"
 #import "GameCompletedDialog.h"
+#import "BurnWithBurnableCollisionHandler.h"
 
 @interface GameplayState()
 
@@ -259,6 +260,7 @@
 -(void) registerCollisionHandlers
 {
 	[_collisionSystem registerCollisionHandler:[PulverizeWithPulverizableCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[BurnWithBurnableCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[BeeWithTeleportCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[AnythingWithVoidCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[AnythingWithVolatileCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];

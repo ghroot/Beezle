@@ -8,6 +8,22 @@
 		<dict/>
 		<key>brittle</key>
 		<dict/>
+        <key>burnable</key>
+        <dict>
+            <key>burnSprites</key>
+            <array>
+                <dict>
+                    <key>name</key>
+                    <string>default</string>
+                    <key>spriteSheetName</key>
+                    <string>C</string>
+                    <key>animationFile</key>
+                    <string>Icicle-Animations.plist</string>
+                    <key>burnAnimation</key>
+                    <string>Icicle-Burn</string>
+                </dict>
+            </array>
+        </dict>
 		<key>disposable</key>
 		<dict>
 			<key>deleteEntityWhenDisposed</key>

@@ -16,6 +16,7 @@
 {
 	ComponentMapper *_transformComponentMapper;
 	ComponentMapper *_renderComponentMapper;
+	ComponentMapper *_physicsComponentMapper;
 
     CCLayer *_layer;
     NSMutableDictionary *_spriteSheetsByName;

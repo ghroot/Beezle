@@ -6,6 +6,36 @@
 	<string>BRANCH</string>
 	<key>components</key>
 	<dict>
+        <key>burnable</key>
+        <dict>
+            <key>burnSprites</key>
+            <array>
+                <dict>
+                    <key>name</key>
+                    <string>default</string>
+                    <key>spriteSheetName</key>
+                    <string>Shared</string>
+                    <key>animationFile</key>
+                    <string>Branch-Animations.plist</string>
+                    <key>burnAnimation</key>
+                    <string>Branch-Burn</string>
+                </dict>
+            </array>
+            <key>pieceSpriteSheet</key>
+            <string>Shared</string>
+            <key>pieceAnimationFile</key>
+            <string>Burn-Parts-Animations.plist</string>
+            <key>pieceAnimations</key>
+            <array>
+                <string>Burn-Large-Part-1</string>
+                <string>Burn-Large-Part-2</string>
+                <string>Burn-Large-Part-3</string>
+            </array>
+            <key>pieceDelay</key>
+            <real>0.2</real>
+            <key>numberOfFlames</key>
+            <integer>3</integer>
+        </dict>
         <key>disposable</key>
         <dict>
             <key>deleteEntityWhenDisposed</key>

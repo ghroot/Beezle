@@ -11,6 +11,7 @@
 #import "RenderSystem.h"
 #import "StringCollection.h"
 #import "ZOrder.h"
+#import "RenderSpriteRotationType.h"
 
 @interface RenderComponent()
 
@@ -111,6 +112,16 @@
                 CGPoint scale = CGPointFromString([spriteDict objectForKey:@"scale"]);
                 [renderSprite setScale:scale];
             }
+
+			if ([spriteDict objectForKey:@"rotationType"] == nil ||
+					[[spriteDict objectForKey:@"rotationType"] isEqualToString:@"NORMAL"])
+			{
+				[renderSprite setRotationType:ROTATION_TYPE_NORMAL];
+			}
+			else if ([[spriteDict objectForKey:@"rotationType"] isEqualToString:@"VELOCITY"])
+			{
+				[renderSprite setRotationType:ROTATION_TYPE_VELOCITY];
+			}
             
 			[self addRenderSprite:renderSprite];
 		}

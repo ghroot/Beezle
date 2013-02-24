@@ -4,6 +4,46 @@
 <dict>
 	<key>components</key>
 	<dict>
+        <key>burnable</key>
+        <dict>
+            <key>burnSprites</key>
+            <array>
+                <dict>
+                    <key>name</key>
+                    <string>main</string>
+                    <key>spriteSheetName</key>
+                    <string>Shared</string>
+                    <key>animationFile</key>
+                    <string>Hangnest-Animations.plist</string>
+                    <key>burnAnimation</key>
+                    <string>Hangnest-Burn</string>
+                </dict>
+                <dict>
+                    <key>name</key>
+                    <string>lian</string>
+                    <key>spriteSheetName</key>
+                    <string>%burnableLianSpriteSheetName%</string>
+                    <key>animationFile</key>
+                    <string>%burnableLianAnimationFile%</string>
+                    <key>burnAnimation</key>
+                    <string>%burnableLianBurnAnimation%</string>
+                </dict>
+            </array>
+            <key>pieceSpriteSheet</key>
+            <string>Shared</string>
+            <key>pieceAnimationFile</key>
+            <string>Burn-Parts-Animations.plist</string>
+            <key>pieceAnimations</key>
+            <array>
+                <string>Burn-Large-Part-1</string>
+                <string>Burn-Large-Part-2</string>
+                <string>Burn-Large-Part-3</string>
+                <string>Burn-Large-Part-4</string>
+                <string>Burn-Large-Part-5</string>
+            </array>
+            <key>pieceDelay</key>
+            <real>0.2</real>
+        </dict>
 		<key>movement</key>
 		<dict/>
 		<key>physics</key>
@@ -34,6 +74,27 @@
 					<key>group</key>
 					<string>LEVEL</string>
 				</dict>
+                <dict>
+                    <key>type</key>
+                    <string>poly</string>
+                    <key>vertices</key>
+                    <array>
+                        <string>{ -4, 90 }</string>
+                        <string>{ -4, 270 }</string>
+                        <string>{ -2, 270 }</string>
+                        <string>{ -2, 90 }</string>
+                    </array>
+                    <key>elasticity</key>
+                    <real>0.8</real>
+                    <key>friction</key>
+                    <real>0.5</real>
+                    <key>layers</key>
+                    <integer>7</integer>
+                    <key>group</key>
+                    <string>LEVEL</string>
+                    <key>isSensor</key>
+                    <true/>
+                </dict>
 			</array>
 		</dict>
 		<key>render</key>
