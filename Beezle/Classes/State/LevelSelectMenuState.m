@@ -22,6 +22,7 @@
 #import "LevelRating.h"
 #import "LevelOrganizer.h"
 #import "CCMenuItemImageScale.h"
+#import "AdManager.h"
 
 @interface LevelSelectMenuState()
 
@@ -273,6 +274,19 @@
 	[super enter];
 
 	[[SoundManager sharedManager] playMusic:@"MusicMain"];
+
+#ifdef LITE_VERSION
+	[[AdManager sharedManager] showBanner];
+#endif
+}
+
+-(void) leave
+{
+	[super leave];
+
+#ifdef LITE_VERSION
+	[[AdManager sharedManager] hideBanner];
+#endif
 }
 
 -(void) startGame:(id)sender
