@@ -42,6 +42,7 @@
 @class RespawnSystem;
 @class SoundSystem;
 @class DestroySystem;
+@class InteractiveTutorial;
 
 @interface GameplayState : GameState
 {
@@ -89,6 +90,8 @@
 
     NSMutableArray *_modes;
     GameMode *_currentMode;
+
+	InteractiveTutorial *_interactiveTutorial;
 }
 
 @property (nonatomic, readonly) NSString *levelName;

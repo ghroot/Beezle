@@ -86,7 +86,7 @@ static const int DISTANCE_FROM_EDGE_FOR_TOUCH_CANCEL = 8;
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
 	CGPoint location = [touch locationInView: [touch view]];
-	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL:location];
 	InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_BEGAN andTouchLocation:convertedLocation] autorelease];
 	[self pushInputAction:inputAction];
 
@@ -95,8 +95,8 @@ static const int DISTANCE_FROM_EDGE_FOR_TOUCH_CANCEL = 8;
 
 -(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
-	CGPoint location = [touch locationInView: [touch view]];
-	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+	CGPoint location = [touch locationInView:[touch view]];
+	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL:location];
 	InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_MOVED andTouchLocation:convertedLocation] autorelease];
 	[self pushInputAction:inputAction];
 }
@@ -109,8 +109,8 @@ static const int DISTANCE_FROM_EDGE_FOR_TOUCH_CANCEL = 8;
     }
     else
     {
-        CGPoint location = [touch locationInView: [touch view]];
-        CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
+        CGPoint location = [touch locationInView:[touch view]];
+        CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL:location];
         InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_ENDED andTouchLocation:convertedLocation] autorelease];
         [self pushInputAction:inputAction];
     }
@@ -118,7 +118,7 @@ static const int DISTANCE_FROM_EDGE_FOR_TOUCH_CANCEL = 8;
 
 -(BOOL) isTouchAtEdgeOfScreen:(UITouch *)touch
 {
-    CGPoint location = [touch locationInView: [touch view]];
+    CGPoint location = [touch locationInView:[touch view]];
     if (location.x <= DISTANCE_FROM_EDGE_FOR_TOUCH_CANCEL ||
         location.x >= [[touch view] frame].size.width - DISTANCE_FROM_EDGE_FOR_TOUCH_CANCEL ||
         location.y <= DISTANCE_FROM_EDGE_FOR_TOUCH_CANCEL ||
@@ -134,7 +134,7 @@ static const int DISTANCE_FROM_EDGE_FOR_TOUCH_CANCEL = 8;
 
 -(void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    CGPoint location = [touch locationInView: [touch view]];
+    CGPoint location = [touch locationInView:[touch view]];
 	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL: location];
 	InputAction *inputAction = [[[InputAction alloc] initWithTouchType:TOUCH_CANCELLED andTouchLocation:convertedLocation] autorelease];
 	[self pushInputAction:inputAction];

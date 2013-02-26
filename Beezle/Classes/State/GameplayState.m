@@ -76,6 +76,7 @@
 #import "GameCompletedLiteDialog.h"
 #import "HiddenLevelsFoundDialog.h"
 #import "LevelThemeSelectMenuState.h"
+#import "InteractiveTutorial.h"
 #import "GameAlmostCompletedDialog.h"
 #import "GameCompletedDialog.h"
 
@@ -312,6 +313,11 @@
 
 		[[PlayerInformation sharedInformation] markTutorialIdAsSeenAndSave:[tutorialBalloonDescription id]];
 	}
+
+	if ([_levelName isEqualToString:@"Level-A1"])
+	{
+		_interactiveTutorial = [[InteractiveTutorial alloc] initWithLayer:_uiLayer world:_world];
+	}
 }
 
 -(void) dealloc
@@ -320,6 +326,7 @@
 
 	[_levelName release];
 	[_levelSession release];
+	[_interactiveTutorial release];
 	
     [_modes release];
     
@@ -367,6 +374,11 @@
 	[_world setDelta:(int)(1000.0f * delta)];
     
     [self updateMode:delta];
+
+	if (_interactiveTutorial != nil)
+	{
+		[_interactiveTutorial update];
+	}
 }
 
 -(void) enterMode:(GameMode *)mode
