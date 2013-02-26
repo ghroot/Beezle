@@ -6,6 +6,8 @@
 
 #import "AdManager.h"
 #import "Logger.h"
+#import "SoundManager.h"
+#import "PlayerInformation.h"
 
 @implementation AdManager
 
@@ -59,6 +61,10 @@
 -(void) bannerViewDidLoadAd:(ADBannerView *)banner
 {
 	[banner setHidden:FALSE];
+
+#ifdef DEBUG
+	[[Logger defaultLogger] log:@"Showing iAd"];
+#endif
 }
 
 -(void) bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
@@ -76,6 +82,10 @@
 	[[CCDirector sharedDirector] stopAnimation];
 	[[CCDirector sharedDirector] resume];
 	[[CCDirector sharedDirector] startAnimation];
+	if (![[PlayerInformation sharedInformation] isSoundMuted])
+	{
+		[[SoundManager sharedManager] unMute];
+	}
 }
 
 -(BOOL) bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave
@@ -83,6 +93,7 @@
 	[banner setHidden:TRUE];
 	[[CCDirector sharedDirector] stopAnimation];
 	[[CCDirector sharedDirector] pause];
+	[[SoundManager sharedManager] mute];
 	return !willLeave;
 }
 
