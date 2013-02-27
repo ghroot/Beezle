@@ -34,4 +34,6 @@
 	CCSprite *_controlChangeTextSprite;
 }
 
+-(void) reset:(Entity *)slingerEntity;
+
 @end

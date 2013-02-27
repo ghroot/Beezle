@@ -531,4 +531,23 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 	[[[CCDirector sharedDirector] actionManager] addAction:sequence target:[slingerComponent rotator] paused:FALSE];
 }
 
+-(void) reset:(Entity *)slingerEntity
+{
+	RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:slingerEntity];
+	RenderSprite *mainRenderSprite = [renderComponent renderSpriteWithName:@"main"];
+	[mainRenderSprite setScale:CGPointMake(1.0f, 1.0f)];
+	RenderSprite *addonRenderSprite = [renderComponent renderSpriteWithName:@"addon"];
+	[addonRenderSprite setScale:CGPointMake(1.0f, 0.1f)];
+
+	TransformComponent *transformComponent = [_transformComponentMapper getComponentFor:slingerEntity];
+	SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
+	[transformComponent setRotation:[slingerComponent originalRotation]];
+
+	TrajectoryComponent *trajectoryComponent = [_trajectoryComponentMapper getComponentFor:slingerEntity];
+	[trajectoryComponent reset];
+
+	_currentPower = 0.0f;
+	_startPower = 0.0f;
+}
+
 @end
