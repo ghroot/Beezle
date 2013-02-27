@@ -88,7 +88,6 @@
 			@"FROZEN-TBEE",
 			@"SLEEPING-MUMEE",
 			@"TELEPORTER",
-			@"WATERDROP-SPAWNER",
 			nil]];
 }
 
