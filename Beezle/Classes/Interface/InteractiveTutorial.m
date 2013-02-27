@@ -10,6 +10,12 @@
 #import "SlingerControlSystem.h"
 #import "SlingerComponent.h"
 
+@interface InteractiveTutorial()
+
+-(void) changeToState:(int)state;
+
+@end
+
 @implementation InteractiveTutorial
 
 -(id) initWithLayer:(CCLayer *)layer world:(World *)world
@@ -27,8 +33,7 @@
 		_tutorialAnimationManager = [_tutorialNode userObject];
 		[_layer addChild:_tutorialNode];
 
-		[_tutorialAnimationManager runAnimationsForSequenceNamed:@"1"];
-		_tutorialState = 1;
+		[self changeToState:1];
 	}
 	return self;
 }
@@ -54,8 +59,7 @@
 			Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
 			[_slingerControlSystem reset:slingerEntity];
 
-			[_tutorialAnimationManager runAnimationsForSequenceNamed:@"2"];
-			_tutorialState = 2;
+			[self changeToState:2];
 		}
 	}
 
@@ -72,13 +76,11 @@
 		float distance = ccpDistance(convertedLocation, CGPointMake(winSize.width - 153.0f, 134.0f));
 		if (_tutorialState == 2 && distance <= 20.0f)
 		{
-			[_tutorialAnimationManager runAnimationsForSequenceNamed:@"3"];
-			_tutorialState = 3;
+			[self changeToState:3];
 		}
 		else if (_tutorialState == 3 && distance > 25.0f)
 		{
-			[_tutorialAnimationManager runAnimationsForSequenceNamed:@"2"];
-			_tutorialState = 2;
+			[self changeToState:2];
 		}
 	}
 }
@@ -91,8 +93,7 @@
 		Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
 		[_slingerControlSystem reset:slingerEntity];
 
-		[_tutorialAnimationManager runAnimationsForSequenceNamed:@"1"];
-		_tutorialState = 1;
+		[self changeToState:1];
 	}
 }
 
@@ -115,6 +116,20 @@
 			[_layer removeChild:_tutorialNode];
 			_tutorialState = 0;
 		}
+	}
+}
+
+-(void) changeToState:(int)state
+{
+	int previousTutorialState = _tutorialState;
+
+	[_tutorialAnimationManager runAnimationsForSequenceNamed:[NSString stringWithFormat:@"%i", state]];
+	_tutorialState = state;
+
+	if (_tutorialState == 1 ||
+			(previousTutorialState == 1 && _tutorialState == 2))
+	{
+		[_tutorialTargetSprite runAction:[CCFadeIn actionWithDuration:0.5f]];
 	}
 }
 
