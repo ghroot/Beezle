@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameState.h"
+#import "BeezleGameState.h"
 
 @class CCMenuItemImageScale;
 
-@interface PlayState : GameState
+@interface PlayState : BeezleGameState
 {
 	CCMenu *_menu;
 	CCMenuItemImage *_menuItemPlay;

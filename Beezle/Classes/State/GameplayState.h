@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameState.h"
+#import "BeezleGameState.h"
 #import "artemis.h"
 #import "cocos2d.h"
 #import "GameMode.h"
@@ -43,7 +43,7 @@
 @class SoundSystem;
 @class DestroySystem;
 
-@interface GameplayState : GameState
+@interface GameplayState : BeezleGameState
 {
 	NSString *_levelName;
 	LevelSession *_levelSession;

@@ -42,6 +42,8 @@ static int nextBeeIndex = 0;
 {
 	if (self = [super initWithName:@"play"])
 	{
+		_shouldShowAd = TRUE;
+
 		CGSize winSize = [[CCDirector sharedDirector] winSize];
 
 		CCSprite *backgroundSprite = [CCSprite spriteWithFile:@"PlayScene.jpg"];

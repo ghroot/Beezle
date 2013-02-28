@@ -28,26 +28,27 @@
 
 -(void) dealloc
 {
-	[_banner release];
+	[self ensureNoBanner];
 
 	[super dealloc];
 }
 
 
--(void) showBanner
+-(void) ensureBanner
 {
-	[self hideBanner];
-
-	_banner = [[ADBannerView alloc] initWithFrame:CGRectZero];
-	[_banner setDelegate:self];
-	[_banner setRequiredContentSizeIdentifiers:[NSSet setWithObject:ADBannerContentSizeIdentifierLandscape]];
-	[_banner setCurrentContentSizeIdentifier:ADBannerContentSizeIdentifierLandscape];
-	[_banner setCenter:CGPointMake([[CCDirector sharedDirector] winSize].width / 2, 15.0f)];
-	[_banner setHidden:TRUE];
-	[[_navigationController view] addSubview:_banner];
+	if (_banner == nil)
+	{
+		_banner = [[ADBannerView alloc] initWithFrame:CGRectZero];
+		[_banner setDelegate:self];
+		[_banner setRequiredContentSizeIdentifiers:[NSSet setWithObject:ADBannerContentSizeIdentifierLandscape]];
+		[_banner setCurrentContentSizeIdentifier:ADBannerContentSizeIdentifierLandscape];
+		[_banner setCenter:CGPointMake([[CCDirector sharedDirector] winSize].width / 2, 15.0f)];
+		[_banner setHidden:TRUE];
+		[[_navigationController view] addSubview:_banner];
+	}
 }
 
--(void) hideBanner
+-(void) ensureNoBanner
 {
 	if (_banner != nil)
 	{

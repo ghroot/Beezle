@@ -16,7 +16,7 @@
 +(AdManager *) sharedManager;
 
 -(void) initialise:(UINavigationController *) navigationController;
--(void) showBanner;
--(void) hideBanner;
+-(void) ensureBanner;
+-(void) ensureNoBanner;
 
 @end
