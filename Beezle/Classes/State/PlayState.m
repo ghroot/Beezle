@@ -21,7 +21,10 @@
 #import "FacebookHighscoresState.h"
 #import "LiteUtils.h"
 #import "SessionTracker.h"
+#import "FullscreenTransparentMenuItem.h"
+#import "AppGratisManager.h"
 
+static BOOL isFirstPlayState = TRUE;
 static int nextBeeIndex = 0;
 
 @interface PlayState()
@@ -131,6 +134,13 @@ static int nextBeeIndex = 0;
 		[facebookMenu setPosition:CGPointZero];
 		[facebookMenu addChild:facebookMenuItem];
 		[self addChild:facebookMenu];
+
+		if (isFirstPlayState)
+		{
+			[[AppGratisManager sharedManager] setDelegate:self];
+			[[AppGratisManager sharedManager] initialise];
+		}
+
 #else
 		[soundButton setPosition:CGPointMake(winSize.width / 2, 40.0f)];
 #endif
@@ -138,6 +148,8 @@ static int nextBeeIndex = 0;
 #ifdef DEBUG
 		[self createGotoDebugMenu];
 #endif
+
+		isFirstPlayState = FALSE;
 	}
 	return self;
 }
@@ -146,11 +158,39 @@ static int nextBeeIndex = 0;
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 
+	[[AppGratisManager sharedManager] setDelegate:nil];
+
 	[_pollenExplodeSprite release];
 
 	[super dealloc];
 }
 
+-(void) showAppGratisAd
+{
+	CGSize winSize = [[CCDirector sharedDirector] winSize];
+
+	CCSprite *appGratisSprite = [CCSprite spriteWithFile:@"3appgratis_rec_960x640_EN.png"];
+	[appGratisSprite setPosition:[Utils screenCenterPosition]];
+	[self addChild:appGratisSprite z:100];
+
+	CCMenu *appGratisMenu = [CCMenu node];
+	[appGratisMenu setPosition:CGPointZero];
+	FullscreenTransparentMenuItem *gotoAppGratisMenuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
+		[self removeChild:appGratisSprite];
+		[self removeChild:appGratisMenu];
+		[[AppGratisManager sharedManager] openAppGratisAdUrl];
+	} width:winSize.width - 100.0f] autorelease];
+	[appGratisMenu addChild:gotoAppGratisMenuItem];
+	[gotoAppGratisMenuItem setPosition:[Utils screenCenterPosition]];
+	CCMenuItemImageScale *skipAppGratisMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"Symbol-Exit.png" selectedImage:@"Symbol-Exit.png" block:^(id sender){
+		[self removeChild:appGratisSprite];
+		[self removeChild:appGratisMenu];
+	}];
+	[skipAppGratisMenuItem setAnchorPoint:CGPointZero];
+	[skipAppGratisMenuItem setPosition:CGPointMake(5.0f, 5.0f)];
+	[appGratisMenu addChild:skipAppGratisMenuItem];
+	[self addChild:appGratisMenu z:100];
+}
 
 -(void) enter
 {
@@ -168,7 +208,6 @@ static int nextBeeIndex = 0;
 	CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Button-Explode"];
 	CCAnimate *animateAction = [CCAnimate actionWithAnimation:animation];
 	CCCallBlock *gotoThemeSelectAction = [CCCallBlock actionWithBlock:^{
-
 		[_game replaceState:[LevelThemeSelectMenuState stateWithPreselectedTheme:[[PlayerInformation sharedInformation] defaultTheme]]];
 	}];
 	[_pollenExplodeSprite runAction:[CCSequence actionOne:animateAction two:gotoThemeSelectAction]];

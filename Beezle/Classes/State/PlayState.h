@@ -7,10 +7,11 @@
 //
 
 #import "GameState.h"
+#import "AppGratisManager.h"
 
 @class CCMenuItemImageScale;
 
-@interface PlayState : GameState
+@interface PlayState : GameState <AppGratisDelegate>
 {
 	CCMenu *_menu;
 	CCMenuItemImage *_menuItemPlay;
