@@ -19,6 +19,8 @@
 	CCSprite *_chooserScreenSprite;
 	BeesFrontNode *_beesFrontNode;
 	CCLayer *_fadeLayer;
+	CCSprite *_pollenSprite;
+	CCLabelAtlas *_pollenLabel;
 }
 
 +(LevelSelectMenuState *) stateWithTheme:(NSString *)theme;

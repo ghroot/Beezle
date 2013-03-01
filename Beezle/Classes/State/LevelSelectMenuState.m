@@ -66,15 +66,15 @@
 
 	// Pollen count
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	CCSprite *pollenSprite = [CCSprite spriteWithFile:@"Symbol-Pollen.png"];
-	[pollenSprite setAnchorPoint:CGPointMake(1.0f, 0.5f)];
-	[pollenSprite setPosition:CGPointMake(winSize.width / 2 - 35.0f, 30.0f)];
-	[self addChild:pollenSprite];
+	_pollenSprite = [CCSprite spriteWithFile:@"Symbol-Pollen.png"];
+	[_pollenSprite setAnchorPoint:CGPointMake(1.0f, 0.5f)];
+	[_pollenSprite setPosition:CGPointMake(winSize.width / 2 - 35.0f, 30.0f)];
+	[self addChild:_pollenSprite];
 	NSString *pollenString = [NSString stringWithFormat:@"%d", [[PlayerInformation sharedInformation] totalNumberOfPollen]];
-	CCLabelAtlas *pollenLabel = [CCLabelAtlas labelWithString:pollenString charMapFile:@"numberImages-xs.png" itemWidth:11 itemHeight:14 startCharMap:'/'];
-	[pollenLabel setAnchorPoint:CGPointMake(0.0f, 0.5f)];
-	[pollenLabel setPosition:CGPointMake(winSize.width / 2 - 30.0f, 30.0f)];
-	[self addChild:pollenLabel];
+	_pollenLabel = [CCLabelAtlas labelWithString:pollenString charMapFile:@"numberImages-xs.png" itemWidth:11 itemHeight:14 startCharMap:'/'];
+	[_pollenLabel setAnchorPoint:CGPointMake(0.0f, 0.5f)];
+	[_pollenLabel setPosition:CGPointMake(winSize.width / 2 - 30.0f, 30.0f)];
+	[self addChild:_pollenLabel];
 }
 
 -(void) addInterfaceLevelsMenu
@@ -314,6 +314,9 @@
 
 		CCFadeIn *fadeInAction = [CCFadeIn actionWithDuration:0.3f];
 		[_fadeLayer runAction:fadeInAction];
+
+		[_pollenSprite setVisible:FALSE];
+		[_pollenLabel setVisible:FALSE];
 	}
 }
 
