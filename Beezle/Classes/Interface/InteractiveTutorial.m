@@ -131,6 +131,10 @@
 	{
 		[_tutorialTargetSprite runAction:[CCFadeIn actionWithDuration:0.5f]];
 	}
+	else
+	{
+		[_tutorialTargetSprite setOpacity:255];
+	}
 }
 
 @end
