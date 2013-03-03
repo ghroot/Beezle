@@ -6,11 +6,11 @@
 //Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameState.h"
+#import "BeezleGameState.h"
 
 @class ScrollView;
 
-@interface TutorialStripMenuState : GameState
+@interface TutorialStripMenuState : BeezleGameState
 {
 	ScrollView *_scrollView;
 	CCSprite *_arrowSprite;

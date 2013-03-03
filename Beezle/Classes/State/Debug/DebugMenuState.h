@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameState.h"
+#import "BeezleGameState.h"
 #import "cocos2d.h"
 
-@interface DebugMenuState : GameState
+@interface DebugMenuState : BeezleGameState
 {
     CCMenu *_menu;
 }

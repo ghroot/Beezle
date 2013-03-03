@@ -89,7 +89,6 @@
 	[[SoundManager sharedManager] stopMusic];
 }
 
-
 -(void) resumeGame
 {
 	// This assumes the previous state was the game play state

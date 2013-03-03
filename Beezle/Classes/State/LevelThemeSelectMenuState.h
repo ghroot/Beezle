@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameState.h"
+#import "BeezleGameState.h"
 #import "cocos2d.h"
 #import "CCScrollLayer.h"
 
 @class CCScrollLayer;
 
-@interface LevelThemeSelectMenuState : GameState <CCScrollLayerDelegate>
+@interface LevelThemeSelectMenuState : BeezleGameState <CCScrollLayerDelegate>
 {
 	NSArray *_themes;
 	CCSprite *_backgroundSprite;

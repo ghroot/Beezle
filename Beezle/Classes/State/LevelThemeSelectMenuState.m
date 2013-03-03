@@ -45,6 +45,9 @@ static const float PAGE_DOT_DISTANCE = 10.0f;
 	{
 		_theme = [theme copy];
 		_pageDotSprites = [NSMutableArray new];
+
+		_shouldShowAd = TRUE;
+
 		if (isFirstLoad)
 		{
 			_needsLoadingState = TRUE;

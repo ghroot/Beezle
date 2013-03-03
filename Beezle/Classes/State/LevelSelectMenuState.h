@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameState.h"
+#import "BeezleGameState.h"
 #import "cocos2d.h"
 
 @class ScrollView;
 @class BeesFrontNode;
 
-@interface LevelSelectMenuState : GameState <CCTouchOneByOneDelegate>
+@interface LevelSelectMenuState : BeezleGameState <CCTouchOneByOneDelegate>
 {
 	NSString *_theme;
 	ScrollView *_scrollView;

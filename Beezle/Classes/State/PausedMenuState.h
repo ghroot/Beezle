@@ -6,12 +6,12 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameState.h"
+#import "BeezleGameState.h"
 #import "cocos2d.h"
 
 @class LevelSession;
 
-@interface PausedMenuState : GameState
+@interface PausedMenuState : BeezleGameState
 {
     NSString *_theme;
     NSString *_levelName;

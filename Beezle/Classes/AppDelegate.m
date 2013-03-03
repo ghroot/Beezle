@@ -20,6 +20,7 @@
 #import "BeezleNavigationViewController.h"
 #import "FacebookManager.h"
 #import "ApplicationIds.h"
+#import "AdManager.h"
 
 @implementation AppDelegate
 
@@ -124,6 +125,10 @@
 			// Facebook
 			[[FacebookManager sharedManager] login];
 		}
+#endif
+
+#ifdef LITE_VERSION
+		[[AdManager sharedManager] initialise:_navigationController];
 #endif
 
 		// Tracking

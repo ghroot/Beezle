@@ -46,6 +46,8 @@
     {
 		_theme = [theme copy];
 
+		_shouldShowAd = TRUE;
+
 		[[PlayerInformation sharedInformation] setDefaultTheme:theme];
 		[[PlayerInformation sharedInformation] save];
     }

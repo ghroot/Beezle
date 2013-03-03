@@ -39,6 +39,8 @@
 
 -(void) log:(NSString *)message
 {
+	NSLog(@"%@", message);
+
 	NSDate *now = [NSDate date];
 	NSDateFormatter *dateFormat = [[NSDateFormatter new] autorelease];
 	[dateFormat setDateFormat:@"HH:mm:ss"];
