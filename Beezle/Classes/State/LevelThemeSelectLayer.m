@@ -36,7 +36,11 @@
 	{
 		_theme = [theme copy];
 
+#ifdef LITE_VERSION
+		NSString *interfaceFileName = [NSString stringWithFormat:@"ThemeSelect-%@-Lite.ccbi", theme];
+#else
 		NSString *interfaceFileName = [NSString stringWithFormat:@"ThemeSelect-%@.ccbi", theme];
+#endif
 		[self addChild:[CCBReader nodeGraphFromFile:interfaceFileName owner:self]];
 
 		BOOL locked = ![[PlayerInformation sharedInformation] canPlayTheme:theme];
