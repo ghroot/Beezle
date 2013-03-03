@@ -39,7 +39,7 @@
 
 -(void) log:(NSString *)message
 {
-	NSLog(message);
+	NSLog(@"%@", message);
 
 	NSDate *now = [NSDate date];
 	NSDateFormatter *dateFormat = [[NSDateFormatter new] autorelease];
