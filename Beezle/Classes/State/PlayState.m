@@ -46,7 +46,11 @@ static int nextBeeIndex = 0;
 
 		CGSize winSize = [[CCDirector sharedDirector] winSize];
 
+#ifdef LITE_VERSION
+		CCSprite *backgroundSprite = [CCSprite spriteWithFile:@"PlayScene-Lite.jpg"];
+#else
 		CCSprite *backgroundSprite = [CCSprite spriteWithFile:@"PlayScene.jpg"];
+#endif
 		[backgroundSprite setPosition:[Utils screenCenterPosition]];
 		[self addChild:backgroundSprite];
 
@@ -54,7 +58,11 @@ static int nextBeeIndex = 0;
 		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Play-Animations.plist"];
 
 		_menuItemPlay = [CCMenuItemImage itemWithNormalImage:@"PlayButton.png" selectedImage:@"PlayButton.png" target:self selector:@selector(play)];
+#ifdef LITE_VERSION
+		[_menuItemPlay setPosition:CGPointMake(0.0f, -45.0f)];
+#else
 		[_menuItemPlay setPosition:CGPointMake(0.0f, -35.0f)];
+#endif
 		_menu = [CCMenu menuWithItems:_menuItemPlay, nil];
 		[self addChild:_menu z:50];
 		CCMoveTo *moveUpAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([_menuItemPlay position].x, [_menuItemPlay position].y + 2.0f)]];
@@ -134,7 +142,7 @@ static int nextBeeIndex = 0;
 		[facebookMenu addChild:facebookMenuItem];
 		[self addChild:facebookMenu];
 #else
-		[soundButton setPosition:CGPointMake(winSize.width / 2, 40.0f)];
+		[soundButton setPosition:CGPointMake(winSize.width / 2, 30.0f)];
 #endif
 
 #ifdef DEBUG
