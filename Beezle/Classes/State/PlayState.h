@@ -7,18 +7,22 @@
 //
 
 #import "BeezleGameState.h"
+#import "AppGratisManager.h"
 
 @class CCMenuItemImageScale;
 
-@interface PlayState : BeezleGameState
+@interface PlayState : BeezleGameState <AppGratisDelegate>
 {
 	CCMenu *_menu;
 	CCMenuItemImage *_menuItemPlay;
 	CCSprite *_pollenExplodeSprite;
 	CCMenuItemImageScale *_gameCenterMenuItem;
 	float _universalScreenStartX;
+	CCNode *_appGratisNode;
 }
 
 -(void) play;
+-(void) openAppGratisURL;
+-(void) removeAppGratisNode;
 
 @end
