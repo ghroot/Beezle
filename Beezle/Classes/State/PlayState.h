@@ -18,8 +18,11 @@
 	CCSprite *_pollenExplodeSprite;
 	CCMenuItemImageScale *_gameCenterMenuItem;
 	float _universalScreenStartX;
+	CCNode *_appGratisNode;
 }
 
 -(void) play;
+-(void) openAppGratisURL;
+-(void) removeAppGratisNode;
 
 @end

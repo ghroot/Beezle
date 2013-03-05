@@ -19,10 +19,9 @@
 #import "GameCenterManager.h"
 #import "FacebookManager.h"
 #import "FacebookHighscoresState.h"
-#import "LiteUtils.h"
 #import "SessionTracker.h"
-#import "FullscreenTransparentMenuItem.h"
-#import "AppGratisManager.h"
+#import "CCBReader.h"
+#import "LiteUtils.h"
 
 static BOOL isFirstPlayState = TRUE;
 static int nextBeeIndex = 0;
@@ -55,8 +54,9 @@ static int nextBeeIndex = 0;
 		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Play-Animations.plist"];
 
 		_menuItemPlay = [CCMenuItemImage itemWithNormalImage:@"PlayButton.png" selectedImage:@"PlayButton.png" target:self selector:@selector(play)];
-		[_menuItemPlay setPosition:CGPointMake(0.0f, -35.0f)];
+		[_menuItemPlay setPosition:CGPointMake(winSize.width / 2, winSize.height / 2 - 35.0f)];
 		_menu = [CCMenu menuWithItems:_menuItemPlay, nil];
+		[_menu setPosition:CGPointZero];
 		[self addChild:_menu z:50];
 		CCMoveTo *moveUpAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([_menuItemPlay position].x, [_menuItemPlay position].y + 2.0f)]];
 		CCMoveTo *moveDownAction = [CCEaseSineInOut actionWithAction:[CCMoveTo actionWithDuration:1.0f position:CGPointMake([_menuItemPlay position].x, [_menuItemPlay position].y - 2.0f)]];
@@ -101,46 +101,36 @@ static int nextBeeIndex = 0;
 		[self addChild:soundButton];
 
 #ifdef LITE_VERSION
-		CCMenu *appStoreMenu = [CCMenu node];
 		CCMenuItemImageScale *appStoreMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"Button-Buy Full Version.png" selectedImage:@"Button-Buy Full Version.png" block:^(id sender){
 			[[SessionTracker sharedTracker] trackInteraction:@"button" name:@"buy full play"];
 			[[LiteUtils sharedUtils] gotoAppStoreForFullVersion];
 		}];
 		[appStoreMenuItem setPosition:CGPointMake(90.0f, 60.0f)];
-		[appStoreMenu setPosition:CGPointZero];
-		[appStoreMenu addChild:appStoreMenuItem];
-		[self addChild:appStoreMenu];
+		[_menu addChild:appStoreMenuItem];
 #endif
 
 #ifndef LITE_VERSION
 		[soundButton setPosition:CGPointMake(winSize.width / 2 - 30.0f, 40.0f)];
 
-		CCMenu *gameCenterMenu = [CCMenu node];
 		_gameCenterMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"GameCentre logo-Idle.png" selectedImage:@"GameCentre logo-Idle.png" block:^(id sender){
 			[[GameCenterManager sharedManager] showLeaderboards];
 			[[SessionTracker sharedTracker] trackInteraction:@"button" name:@"game center"];
 		}];
 		[_gameCenterMenuItem setPosition:CGPointMake(winSize.width / 2 + 30.0f, 40.0f)];
-		[gameCenterMenu setPosition:CGPointZero];
-		[gameCenterMenu addChild:_gameCenterMenuItem];
-		[self addChild:gameCenterMenu];
+		[_menu addChild:_gameCenterMenuItem];
 
-		CCMenu *facebookMenu = [CCMenu node];
 		CCMenuItemImageScale *facebookMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"Facebook-logo.png" selectedImage:@"Facebook-logo.png" block:^(id sender){
 			[_game pushState:[FacebookHighscoresState state] transition:FALSE];
 			[[SessionTracker sharedTracker] trackInteraction:@"button" name:@"facebook"];
 		}];
 		[facebookMenuItem setPosition:CGPointMake(80.0f, 40.0f)];
-		[facebookMenu setPosition:CGPointZero];
-		[facebookMenu addChild:facebookMenuItem];
-		[self addChild:facebookMenu];
+		[_menu addChild:facebookMenuItem];
 
 		if (isFirstPlayState)
 		{
 			[[AppGratisManager sharedManager] setDelegate:self];
 			[[AppGratisManager sharedManager] initialise];
 		}
-
 #else
 		[soundButton setPosition:CGPointMake(winSize.width / 2, 40.0f)];
 #endif
@@ -167,29 +157,22 @@ static int nextBeeIndex = 0;
 
 -(void) showAppGratisAd
 {
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
+	[_menu setEnabled:FALSE];
+	_appGratisNode = [CCBReader nodeGraphFromFile:@"AppGratis.ccbi" owner:self];
+	[self addChild:_appGratisNode z:100];
+}
 
-	CCSprite *appGratisSprite = [CCSprite spriteWithFile:@"3appgratis_rec_960x640_EN.png"];
-	[appGratisSprite setPosition:[Utils screenCenterPosition]];
-	[self addChild:appGratisSprite z:100];
+-(void) openAppGratisURL
+{
+	[self removeAppGratisNode];
+	[[AppGratisManager sharedManager] openAppGratisAdUrl];
+}
 
-	CCMenu *appGratisMenu = [CCMenu node];
-	[appGratisMenu setPosition:CGPointZero];
-	FullscreenTransparentMenuItem *gotoAppGratisMenuItem = [[[FullscreenTransparentMenuItem alloc] initWithBlock:^(id sender){
-		[self removeChild:appGratisSprite];
-		[self removeChild:appGratisMenu];
-		[[AppGratisManager sharedManager] openAppGratisAdUrl];
-	} width:winSize.width - 100.0f] autorelease];
-	[appGratisMenu addChild:gotoAppGratisMenuItem];
-	[gotoAppGratisMenuItem setPosition:[Utils screenCenterPosition]];
-	CCMenuItemImageScale *skipAppGratisMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"Symbol-Exit.png" selectedImage:@"Symbol-Exit.png" block:^(id sender){
-		[self removeChild:appGratisSprite];
-		[self removeChild:appGratisMenu];
-	}];
-	[skipAppGratisMenuItem setAnchorPoint:CGPointZero];
-	[skipAppGratisMenuItem setPosition:CGPointMake(5.0f, 5.0f)];
-	[appGratisMenu addChild:skipAppGratisMenuItem];
-	[self addChild:appGratisMenu z:100];
+-(void) removeAppGratisNode
+{
+	[self removeChild:_appGratisNode];
+	_appGratisNode = nil;
+	[_menu setEnabled:TRUE];
 }
 
 -(void) enter
@@ -221,9 +204,7 @@ static int nextBeeIndex = 0;
 	[gotoDebugMenuItem setAnchorPoint:CGPointZero];
 	[gotoDebugMenuItem setPosition:CGPointZero];
 	[gotoDebugMenuItem setFontSize:20];
-	CCMenu *gotoDebugMenu = [CCMenu menuWithItems:gotoDebugMenuItem, nil];
-	[gotoDebugMenu setPosition:CGPointZero];
-	[self addChild:gotoDebugMenu];
+	[_menu addChild:gotoDebugMenuItem];
 }
 
 -(void) gotoDebugMenu
