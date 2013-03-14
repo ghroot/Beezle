@@ -10,12 +10,14 @@
 #import "AppGratisManager.h"
 
 @class CCMenuItemImageScale;
+@class SoundButton;
 
 @interface PlayState : BeezleGameState <AppGratisDelegate>
 {
 	CCMenu *_menu;
 	CCMenuItemImage *_menuItemPlay;
 	CCSprite *_pollenExplodeSprite;
+	SoundButton *_soundButton;
 	CCMenuItemImageScale *_gameCenterMenuItem;
 	float _universalScreenStartX;
 	CCNode *_appGratisNode;

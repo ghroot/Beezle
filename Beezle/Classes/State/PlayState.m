@@ -107,8 +107,8 @@ static int nextBeeIndex = 0;
 
 		[self createBeeaters];
 
-		SoundButton *soundButton = [SoundButton node];
-		[self addChild:soundButton];
+		_soundButton = [SoundButton node];
+		[self addChild:_soundButton];
 
 #ifdef LITE_VERSION
 		CCMenuItemImageScale *appStoreMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"Button-Buy Full Version.png" selectedImage:@"Button-Buy Full Version.png" block:^(id sender){
@@ -120,7 +120,7 @@ static int nextBeeIndex = 0;
 #endif
 
 #ifndef LITE_VERSION
-		[soundButton setPosition:CGPointMake(winSize.width / 2 - 30.0f, 40.0f)];
+		[_soundButton setPosition:CGPointMake(winSize.width / 2 - 30.0f, 40.0f)];
 
 		_gameCenterMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"GameCentre logo-Idle.png" selectedImage:@"GameCentre logo-Idle.png" block:^(id sender){
 			[[GameCenterManager sharedManager] showLeaderboards];
@@ -142,7 +142,7 @@ static int nextBeeIndex = 0;
 			[[AppGratisManager sharedManager] initialise];
 		}
 #else
-		[soundButton setPosition:CGPointMake(winSize.width / 2, 30.0f)];
+		[_soundButton setPosition:CGPointMake(winSize.width / 2, 30.0f)];
 #endif
 
 #ifdef DEBUG
@@ -196,6 +196,7 @@ static int nextBeeIndex = 0;
 {
 	[_menu setEnabled:FALSE];
 	[_menu setVisible:FALSE];
+	[_soundButton setVisible:FALSE];
 
 	[self addChild:_pollenExplodeSprite z:50];
 	CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Button-Explode"];
