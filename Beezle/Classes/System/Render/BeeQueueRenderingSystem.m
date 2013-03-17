@@ -21,9 +21,6 @@
 #import "ZOrder.h"
 #import "SoundManager.h"
 
-static const float QUEUE_START_OFFSET_X = -30.0f;
-static const float QUEUE_START_OFFSET_Y = 0.0f;
-static const float QUEUE_SPACING_X = 30.0f;
 static const float QUEUE_SWAY_Y = 4.0f;
 static const float LOADED_BEE_MIN_ANIMATION_DURATION = 0.6f;
 static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
@@ -188,12 +185,13 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 		RenderSprite *slingerAddonRenderSprite = [slingerRenderComponent renderSpriteWithName:@"addon"];
 		CCSprite *slingerAddonSprite = [slingerAddonRenderSprite sprite];
 		float angle = CC_DEGREES_TO_RADIANS(360 - [slingerTransformComponent rotation] + 270);
-		CGPoint newPosition = CGPointMake([slingerTransformComponent position].x - 15.0f * [slingerAddonSprite scaleY] * cosf(angle),
-				[slingerTransformComponent position].y - 15.0f * [slingerAddonSprite scaleY] * sinf(angle));
+		float distance = 17.0f;
+		CGPoint newPosition = CGPointMake([slingerTransformComponent position].x - distance * [slingerAddonSprite scaleY] * cosf(angle),
+				[slingerTransformComponent position].y - distance * [slingerAddonSprite scaleY] * sinf(angle));
 		[[_beeLoadedRenderSprite sprite] setPosition:newPosition];
 
 		// Animation speed
-		float animationSpeed = LOADED_BEE_MIN_ANIMATION_DURATION + (1.0f - [slingerAddonSprite scaleY]) * (LOADED_BEE_MAX_ANIMATION_DURATION - LOADED_BEE_MIN_ANIMATION_DURATION);
+		float animationSpeed = LOADED_BEE_MIN_ANIMATION_DURATION + (1.5f - [slingerAddonSprite scaleY]) * (LOADED_BEE_MAX_ANIMATION_DURATION - LOADED_BEE_MIN_ANIMATION_DURATION);
 		[_beeLoadedRenderSprite setAnimationSpeed:animationSpeed];
 	}
 }
@@ -393,23 +391,6 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 -(CGPoint) calculatePositionForBeeQueueRenderSpriteAtIndex:(int)index slingerEntity:(Entity *)slingerEntity
 {
 	TransformComponent *slingerTransformComponent = [_transformComponentMapper getComponentFor:slingerEntity];
-
-	// Method 1: Straight line
-//	int x = [slingerTransformComponent position].x + QUEUE_START_OFFSET_X - index * QUEUE_SPACING_X;
-//	int y = [slingerTransformComponent position].y + QUEUE_START_OFFSET_Y;
-//	return CGPointMake(x, y);
-
-	// Method 2: Slightly curved
-//	float angle = CC_DEGREES_TO_RADIANS(92 + index * 10);
-//	return CGPointMake([slingerTransformComponent position].x - 20 + 150 * cosf(angle),
-//					   [slingerTransformComponent position].y - 150 + 150 * sinf(angle));
-
-	// Method 3: Vertical
-//	int x = [slingerTransformComponent position].x - 32;
-//	int y = [slingerTransformComponent position].y - 5 - 20 * index;
-//	return CGPointMake(x, y);
-
-	// Method 3: Vertical with first bee closer
 	if (index == 0)
 	{
 		return CGPointMake([slingerTransformComponent position].x - 14.0f, [slingerTransformComponent position].y + 14.0f);

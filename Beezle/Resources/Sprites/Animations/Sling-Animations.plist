@@ -4,47 +4,53 @@
 <dict>
 	<key>animations</key>
 	<dict>
-		<key>Sling-Idle</key>
-		<dict>
-			<key>frames</key>
-			<array>
-				<string>Tools/Slinger/Slinger-Idle.png</string>
-			</array>
-			<key>delay</key>
-			<real>1</real>
-		</dict>
-		<key>Sling-Shoot-Fast</key>
-		<dict>
-			<key>frames</key>
-			<array>
-				<string>Tools/Slinger/Slinger-Shoot-1.png</string>
-				<string>Tools/Slinger/Slinger-Shoot-2.png</string>
-				<string>Tools/Slinger/Slinger-Shoot-3.png</string>
-				<string>Tools/Slinger/Slinger-Shoot-4.png</string>
-			</array>
-			<key>delay</key>
-			<real>0.04</real>
-		</dict>
-        <key>Sling-Shoot-Slow</key>
+        <key>Slinger-Body-Idle</key>
         <dict>
             <key>frames</key>
             <array>
-                <string>Tools/Slinger/Slinger-Shoot-1.png</string>
-                <string>Tools/Slinger/Slinger-Shoot-2.png</string>
-                <string>Tools/Slinger/Slinger-Shoot-4.png</string>
+                <string>Tools/Slinger/Slinger-AB-Nest.png</string>
             </array>
             <key>delay</key>
-            <real>0.06</real>
+            <real>1</real>
         </dict>
-        <key>Sling-Addon-Idle</key>
-		<dict>
-			<key>frames</key>
-			<array>
-				<string>Tools/Slinger/Slinger-addon.png</string>
-			</array>
-			<key>delay</key>
-			<real>1</real>
-		</dict>
+        <key>Slinger-Back-Idle</key>
+        <dict>
+            <key>frames</key>
+            <array>
+                <string>Tools/Slinger/Slinger-AB-Back.png</string>
+            </array>
+            <key>delay</key>
+            <real>1</real>
+        </dict>
+        <key>Slinger-Front-Idle</key>
+        <dict>
+            <key>frames</key>
+            <array>
+                <string>Tools/Slinger/Slinger-AB-Front.png</string>
+            </array>
+            <key>delay</key>
+            <real>1</real>
+        </dict>
+        <key>Slinger-Addon-Idle</key>
+        <dict>
+            <key>frames</key>
+            <array>
+                <string>Tools/Slinger/Slinger-AB-Honey.png</string>
+            </array>
+            <key>delay</key>
+            <real>1</real>
+        </dict>
+        <key>Slinger-Body-Shoot</key>
+        <dict>
+            <key>frames</key>
+            <array>
+                <string>Tools/Slinger/Slinger-AB-Shoot-1.png</string>
+                <string>Tools/Slinger/Slinger-AB-Shoot-2.png</string>
+                <string>Tools/Slinger/Slinger-AB-Shoot-3.png</string>
+            </array>
+            <key>delay</key>
+            <real>0.05</real>
+        </dict>
 	</dict>
 </dict>
 </plist>

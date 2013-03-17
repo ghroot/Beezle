@@ -15,35 +15,65 @@
 			<key>sprites</key>
 			<array>
                 <dict>
-					<key>name</key>
-					<string>addon</string>
-					<key>spriteSheetName</key>
-					<string>Shared</string>
-					<key>animationFile</key>
-					<string>Sling-Animations.plist</string>
+                    <key>name</key>
+                    <string>addon</string>
+                    <key>spriteSheetName</key>
+                    <string>Shared</string>
+                    <key>animationFile</key>
+                    <string>Sling-Animations.plist</string>
                     <key>z</key>
                     <string>Z_SLINGER</string>
-					<key>anchorPoint</key>
-					<string>{ 0.5, 0.0 }</string>
+                    <key>anchorPoint</key>
+                    <string>{ 0.5, 0.0 }</string>
                     <key>scale</key>
                     <string>{ 1.0, 0.1 }</string>
-					<key>defaultIdleAnimation</key>
-					<string>Sling-Addon-Idle</string>
-				</dict>
-				<dict>
-					<key>name</key>
-					<string>main</string>
-					<key>spriteSheetName</key>
-					<string>Shared</string>
-					<key>animationFile</key>
-					<string>Sling-Animations.plist</string>
+                    <key>defaultIdleAnimation</key>
+                    <string>Slinger-Addon-Idle</string>
+                </dict>
+                <dict>
+                    <key>name</key>
+                    <string>back</string>
+                    <key>spriteSheetName</key>
+                    <string>Shared</string>
+                    <key>animationFile</key>
+                    <string>Sling-Animations.plist</string>
                     <key>z</key>
                     <string>Z_SLINGER</string>
-					<key>anchorPoint</key>
-					<string>{ 0.5, 0.93 }</string>
-					<key>defaultIdleAnimation</key>
-					<string>Sling-Idle</string>
-				</dict>
+                    <key>anchorPoint</key>
+                    <string>{ 0.5, 0.0 }</string>
+                    <key>scale</key>
+                    <string>{ 1.0, 0.1 }</string>
+                    <key>defaultIdleAnimation</key>
+                    <string>Slinger-Back-Idle</string>
+                </dict>
+                <dict>
+                    <key>name</key>
+                    <string>body</string>
+                    <key>spriteSheetName</key>
+                    <string>Shared</string>
+                    <key>animationFile</key>
+                    <string>Sling-Animations.plist</string>
+                    <key>z</key>
+                    <string>Z_SLINGER</string>
+                    <key>anchorPoint</key>
+                    <string>{ 0.5, 0.8 }</string>
+                    <key>defaultIdleAnimation</key>
+                    <string>Slinger-Body-Idle</string>
+                </dict>
+                <dict>
+                    <key>name</key>
+                    <string>front</string>
+                    <key>spriteSheetName</key>
+                    <string>Shared</string>
+                    <key>animationFile</key>
+                    <string>Sling-Animations.plist</string>
+                    <key>z</key>
+                    <string>Z_SLINGER</string>
+                    <key>anchorPoint</key>
+                    <string>{ 0.5, 3.5 }</string>
+                    <key>defaultIdleAnimation</key>
+                    <string>Slinger-Front-Idle</string>
+                </dict>
 			</array>
 		</dict>
 		<key>slinger</key>
