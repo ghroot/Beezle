@@ -185,7 +185,7 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 		RenderSprite *slingerAddonRenderSprite = [slingerRenderComponent renderSpriteWithName:@"addon"];
 		CCSprite *slingerAddonSprite = [slingerAddonRenderSprite sprite];
 		float angle = CC_DEGREES_TO_RADIANS(360 - [slingerTransformComponent rotation] + 270);
-		float distance = 17.0f;
+		float distance = 15.0f;
 		CGPoint newPosition = CGPointMake([slingerTransformComponent position].x - distance * [slingerAddonSprite scaleY] * cosf(angle),
 				[slingerTransformComponent position].y - distance * [slingerAddonSprite scaleY] * sinf(angle));
 		[[_beeLoadedRenderSprite sprite] setPosition:newPosition];

@@ -33,7 +33,7 @@ static const float SLINGER_AIM_SENSITIVITY = 7.0f;
 static const float SLINGER_STRETCH_SOUND_SCALE = 0.8f;
 static const float SLINGER_HEIGHT = 28.0f;
 static const float SCALE_AT_MIN_POWER = 1.0f;
-static const float SCALE_AT_MAX_POWER = 0.5f;
+static const float SCALE_AT_MAX_POWER = 0.4f;
 static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SHOT = 15;
 static const float SLINGER_MAX_TOUCH_TIME_FOR_SHOT = 0.3f;
 static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
@@ -42,6 +42,8 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 
 -(void) processEntitySimple:(Entity *)entity;
 -(void) processEntityAdvanced:(Entity *)entity;
+-(void) stretchSlinger:(Entity *)entity scale:(float)scale power:(float)power;
+-(void) resetSlingerStretch:(Entity *)entity shoot:(BOOL)shoot;
 -(float) calculateAimAngle:(CGPoint)touchLocation slingerLocation:(CGPoint)slingerLocation;
 -(float) calculatePower:(CGPoint)touchLocation slingerLocation:(CGPoint)slingerLocation;
 -(void) changeToSimpleMode:(Entity *)entity;
@@ -108,7 +110,6 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 	TrajectoryComponent *trajectoryComponent = [_trajectoryComponentMapper getComponentFor:entity];
 	SlingerComponent *slingerComponent = [_slingerComponentMapper getComponentFor:entity];
 	TransformComponent *transformComponent = [_transformComponentMapper getComponentFor:entity];
-	RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
 
 	while ([_inputSystem hasInputActions])
 	{
@@ -169,17 +170,10 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 					float compatibleAimAngle = [Utils chipmunkRadiansToCocos2dDegrees:aimAngle];
 					[transformComponent setRotation:compatibleAimAngle];
 
-					// Strech scale
+					// Scale
 					float percent = (power - SLINGER_MIN_POWER) / (SLINGER_MAX_POWER - SLINGER_MIN_POWER);
 					float scale = SCALE_AT_MIN_POWER + percent * (SCALE_AT_MAX_POWER - SCALE_AT_MIN_POWER);
-					RenderSprite *bodyRenderSprite = [renderComponent renderSpriteWithName:@"body"];
-					[bodyRenderSprite setScale:CGPointMake(1.0f, scale)];
-					RenderSprite *frontRenderSprite = [renderComponent renderSpriteWithName:@"front"];
-					[frontRenderSprite setScale:CGPointMake(1.0f, scale)];
-					RenderSprite *backRenderSprite = [renderComponent renderSpriteWithName:@"back"];
-					[backRenderSprite setScale:CGPointMake(1.0f, (3.0f * (1.0f - scale)))];
-					RenderSprite *addonRenderSprite = [renderComponent renderSpriteWithName:@"addon"];
-					[addonRenderSprite setScale:CGPointMake(1.0f, (3.0f * (1.0f - scale)))];
+					[self stretchSlinger:entity scale:scale power:power];
 
 					if (!_stretchSoundPlayed &&
 							scale <= SLINGER_STRETCH_SOUND_SCALE)
@@ -204,15 +198,7 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 						[EntityUtil setEntityPosition:beeEntity position:[trajectoryComponent startPoint]];
 						[EntityUtil setEntityRotation:beeEntity rotation:[transformComponent rotation] + 90];
 
-						RenderSprite *bodyRenderSprite = [renderComponent renderSpriteWithName:@"body"];
-						[bodyRenderSprite setScale:CGPointMake(1.0f, 1.0f)];
-						[bodyRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:@"Slinger-Body-Shoot", @"Slinger-Body-Idle", nil]];
-						RenderSprite *frontRenderSprite = [renderComponent renderSpriteWithName:@"front"];
-						[frontRenderSprite setScale:CGPointMake(1.0f, 1.0f)];
-						RenderSprite *addonRenderSprite = [renderComponent renderSpriteWithName:@"addon"];
-						[addonRenderSprite setScale:CGPointMake(1.0f, 0.1f)];
-						RenderSprite *backRenderSprite = [renderComponent renderSpriteWithName:@"back"];
-						[backRenderSprite setScale:CGPointMake(1.0f, 0.1f)];
+						[self resetSlingerStretch:entity shoot:TRUE];
 
 						[[SoundManager sharedManager] playSound:@"SlingerShoot"];
 
@@ -270,7 +256,6 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 	TrajectoryComponent *trajectoryComponent = [_trajectoryComponentMapper getComponentFor:entity];
 	SlingerComponent *slingerComponent = [_slingerComponentMapper getComponentFor:entity];
 	TransformComponent *transformComponent = [_transformComponentMapper getComponentFor:entity];
-	RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
 
 	while ([_inputSystem hasInputActions])
 	{
@@ -328,13 +313,10 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 					float compatibleAimAngle = [Utils chipmunkRadiansToCocos2dDegrees:aimAngle];
 					[transformComponent setRotation:compatibleAimAngle];
 
-					// Strech scale
+					// Scale
 					float percent = (power - SLINGER_MIN_POWER) / (SLINGER_MAX_POWER - SLINGER_MIN_POWER);
 					float scale = SCALE_AT_MIN_POWER + percent * (SCALE_AT_MAX_POWER - SCALE_AT_MIN_POWER);
-					RenderSprite *mainRenderSprite = [renderComponent renderSpriteWithName:@"main"];
-					[mainRenderSprite setScale:CGPointMake(1.0f, scale)];
-					RenderSprite *addonRenderSprite = [renderComponent renderSpriteWithName:@"addon"];
-					[addonRenderSprite setScale:CGPointMake(1.0f, (2 * (1.0f - scale)))];
+					[self stretchSlinger:entity scale:scale power:power];
 
 					if (!_stretchSoundPlayed &&
 							scale <= SLINGER_STRETCH_SOUND_SCALE)
@@ -356,12 +338,7 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 						[EntityUtil setEntityPosition:beeEntity position:[trajectoryComponent startPoint]];
 						[EntityUtil setEntityRotation:beeEntity rotation:[transformComponent rotation] + 90];
 
-						RenderSprite *mainRenderSprite = [renderComponent renderSpriteWithName:@"main"];
-						[mainRenderSprite setScale:CGPointMake(1.0f, 1.0f)];
-						NSString *slingShootAnimationName = ccpLength([trajectoryComponent startVelocity]) >= 100.0f ? @"Sling-Shoot-Fast" : @"Sling-Shoot-Slow";
-						[mainRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:slingShootAnimationName, @"Sling-Idle", nil]];
-						RenderSprite *addonRenderSprite = [renderComponent renderSpriteWithName:@"addon"];
-						[addonRenderSprite setScale:CGPointMake(1.0f, 0.1f)];
+						[self resetSlingerStretch:entity shoot:TRUE];
 
 						[[SoundManager sharedManager] stopSound:@"SlingerStretch"];
 						[[SoundManager sharedManager] playSound:@"SlingerShoot"];
@@ -398,10 +375,7 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 			{
 				if ([slingerComponent hasLoadedBee])
 				{
-					RenderSprite *mainRenderSprite = [renderComponent renderSpriteWithName:@"main"];
-					[mainRenderSprite setScale:CGPointMake(1.0f, 1.0f)];
-					RenderSprite *addonRenderSprite = [renderComponent renderSpriteWithName:@"addon"];
-					[addonRenderSprite setScale:CGPointMake(1.0f, 0.1f)];
+					[self resetSlingerStretch:entity shoot:FALSE];
 
 					[transformComponent setRotation:_startAngle];
 
@@ -421,6 +395,33 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 				break;
 			}
 		}
+	}
+}
+
+-(void) stretchSlinger:(Entity *)entity scale:(float)scale power:(float)power
+{
+	RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
+	RenderSprite *bodyRenderSprite = [renderComponent renderSpriteWithName:@"body"];
+	[bodyRenderSprite setScale:CGPointMake(1.0f, scale)];
+	RenderSprite *backRenderSprite = [renderComponent renderSpriteWithName:@"back"];
+	[backRenderSprite setScale:CGPointMake(1.0f, (3.0f * (1.0f - scale)))];
+	RenderSprite *addonRenderSprite = [renderComponent renderSpriteWithName:@"addon"];
+	[addonRenderSprite setScale:CGPointMake(1.0f, (3.0f * (1.0f - scale)))];
+}
+
+-(void) resetSlingerStretch:(Entity *)entity shoot:(BOOL)shoot
+{
+	RenderComponent *renderComponent = [_renderComponentMapper getComponentFor:entity];
+	RenderSprite *bodyRenderSprite = [renderComponent renderSpriteWithName:@"body"];
+	[bodyRenderSprite setScale:CGPointMake(1.0f, 1.0f)];
+	RenderSprite *addonRenderSprite = [renderComponent renderSpriteWithName:@"addon"];
+	[addonRenderSprite setScale:CGPointMake(1.0f, 0.1f)];
+	RenderSprite *backRenderSprite = [renderComponent renderSpriteWithName:@"back"];
+	[backRenderSprite setScale:CGPointMake(1.0f, 0.1f)];
+
+	if (shoot)
+	{
+		[bodyRenderSprite playAnimationsLoopLast:[NSArray arrayWithObjects:@"Slinger-Body-Shoot", @"Slinger-Body-Idle", nil]];
 	}
 }
 
