@@ -11,6 +11,7 @@
 
 @class InputSystem;
 @class RenderSystem;
+@class CDSoundSource;
 
 @interface SlingerControlSystem : EntityComponentSystem
 {
@@ -30,6 +31,7 @@
 	NSTimeInterval _touchBeganTime;
 
 	BOOL _stretchSoundPlayed;
+	CDSoundSource *_soundSource;
 
 	CCSprite *_controlChangeTextSprite;
 }

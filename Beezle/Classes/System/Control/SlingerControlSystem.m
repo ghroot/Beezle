@@ -33,7 +33,7 @@ static const float SLINGER_AIM_SENSITIVITY = 7.0f;
 static const float SLINGER_STRETCH_SOUND_SCALE = 0.8f;
 static const float SLINGER_HEIGHT = 28.0f;
 static const float SCALE_AT_MIN_POWER = 1.0f;
-static const float SCALE_AT_MAX_POWER = 0.4f;
+static const float SCALE_AT_MAX_POWER = 0.35f;
 static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SHOT = 15;
 static const float SLINGER_MAX_TOUCH_TIME_FOR_SHOT = 0.3f;
 static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
@@ -50,6 +50,8 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 -(void) changeToAdvancedMode:(Entity *)entity;
 -(void) createControlChangeText:(Entity *)entity fileName:(NSString *)fileName;
 -(void) rotateToOriginalRotation:(Entity *)entity;
+-(void) startBuzzSound;
+-(void) stopBuzzSound;
 
 @end
 
@@ -67,6 +69,8 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 	[_trajectoryComponentMapper release];
 	[_slingerComponentMapper release];
 	[_renderComponentMapper release];
+
+	[_soundSource release];
 
 	[super dealloc];
 }
@@ -152,6 +156,8 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 
 						// Game notification
 						[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_LOADED object:self];
+
+						[self startBuzzSound];
 					}
 
 					float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
@@ -206,6 +212,8 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 						{
 							[[SoundManager sharedManager] playSound:[[slingerComponent loadedBeeType] shootSoundName]];
 						}
+
+						[self stopBuzzSound];
 
 						[slingerComponent clearLoadedBee];
 
@@ -296,6 +304,8 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 
 						// Game notification
 						[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_LOADED object:self];
+
+						[self startBuzzSound];
 					}
 
 					float aimAngle = [self calculateAimAngle:[nextInputAction touchLocation] slingerLocation:[transformComponent position]];
@@ -340,6 +350,7 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 
 						[self resetSlingerStretch:entity shoot:TRUE];
 
+						[self stopBuzzSound];
 						[[SoundManager sharedManager] stopSound:@"SlingerStretch"];
 						[[SoundManager sharedManager] playSound:@"SlingerShoot"];
 
@@ -379,6 +390,7 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 
 					[transformComponent setRotation:_startAngle];
 
+					[self stopBuzzSound];
 					[[SoundManager sharedManager] stopSound:@"SlingerStretch"];
 
 					[slingerComponent revertLoadedBee];
@@ -556,6 +568,23 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 
 	_currentPower = 0.0f;
 	_startPower = 0.0f;
+}
+
+-(void) startBuzzSound
+{
+	NSString *soundFilePath = [[SoundManager sharedManager] soundFilePathForSfx:@"SlingerBzzz"];
+	_soundSource = [[[SimpleAudioEngine sharedEngine] soundSourceForFile:soundFilePath] retain];
+	[_soundSource setLooping:TRUE];
+	[_soundSource setGain:0.7f];
+	[_soundSource play];
+}
+
+-(void) stopBuzzSound
+{
+	[[[CCDirector sharedDirector] actionManager] removeAllActionsFromTarget:_soundSource];
+	[_soundSource stop];
+	[_soundSource release];
+	_soundSource = nil;
 }
 
 @end
