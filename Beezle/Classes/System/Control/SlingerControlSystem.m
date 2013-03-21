@@ -25,6 +25,7 @@
 #import "RenderSystem.h"
 #import "SlingerRotator.h"
 #import "ActionTags.h"
+#import "CDXPropertyModifierAction.h"
 
 static const float SLINGER_POWER_SENSITIVITY = 7.5f;
 static const int SLINGER_MIN_POWER = 100;
@@ -575,8 +576,10 @@ static const int SLINGER_MAX_TOUCH_DISTANCE_FOR_SETTING_CHANGE = 40;
 	NSString *soundFilePath = [[SoundManager sharedManager] soundFilePathForSfx:@"SlingerBzzz"];
 	_soundSource = [[[SimpleAudioEngine sharedEngine] soundSourceForFile:soundFilePath] retain];
 	[_soundSource setLooping:TRUE];
-	[_soundSource setGain:0.7f];
+	[_soundSource setGain:0.0f];
 	[_soundSource play];
+
+	[CDXPropertyModifierAction fadeSoundEffect:1.0f finalVolume:1.0f curveType:kIT_Linear shouldStop:FALSE effect:_soundSource];
 }
 
 -(void) stopBuzzSound
