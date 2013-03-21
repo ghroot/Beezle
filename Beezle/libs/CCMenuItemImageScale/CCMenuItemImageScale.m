@@ -12,23 +12,23 @@
 
 -(void) selected
 {
-	if (isEnabled_)
+	if (_isEnabled)
 	{
-		isSelected_ = TRUE;
+		_isSelected = TRUE;
 
-		[normalImage_ setPosition:CGPointMake([self contentSize].width / 2, [self contentSize].height / 2)];
-		[normalImage_ setAnchorPoint:CGPointMake(0.5f, 0.5f)];
-		[normalImage_ setScale:1.1f];
+		[_normalImage setPosition:CGPointMake([self contentSize].width / 2, [self contentSize].height / 2)];
+		[_normalImage setAnchorPoint:CGPointMake(0.5f, 0.5f)];
+		[_normalImage setScale:1.1f];
 	}
 }
 
 -(void) unselected
 {
-	if (isEnabled_)
+	if (_isEnabled)
 	{
-		isSelected_ = FALSE;
+		_isSelected = FALSE;
 
-		[normalImage_ setScale:1.0f];
+		[_normalImage setScale:1.0f];
 	}
 }
 

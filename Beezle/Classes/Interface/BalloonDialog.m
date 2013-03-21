@@ -76,7 +76,7 @@
 				[burstSprite runAction:rotateAction];
 				[burstSprite runAction:scaleDownAction];
 
-				[parent_ addChild:burstSprite];
+				[_parent addChild:burstSprite];
 			}
 
 			[self close];

@@ -27,7 +27,7 @@
 		_h2 = calloc(_count, sizeof(float));
         
         shader_ = [[CCShaderCache sharedShaderCache] programForKey:kCCShader_Position_uColor];
-        colorLocation_ = glGetUniformLocation(shader_->program_, "u_color");
+        colorLocation_ = glGetUniformLocation(shader_->_program, "u_color");
 	}
 	
 	return self;

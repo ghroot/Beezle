@@ -1,7 +1,7 @@
 /*
  * cocos2d for iPhone: http://www.cocos2d-iphone.org
  *
- * Copyright (c) 2009 On-Core
+ * Copyright (c) 2012 Zynga Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,25 +20,20 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- *
  */
 
+extern unsigned char cc_fps_images_png[];
+extern unsigned char cc_fps_images_hd_png[];
+extern unsigned char cc_fps_images_ipadhd_png[];
 
-#import "Platforms/CCGL.h"
-#import <Foundation/Foundation.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-@class CCTexture2D;
+unsigned int cc_fps_images_len(void);
+unsigned int cc_fps_images_hd_len(void);
+unsigned int cc_fps_images_ipadhd_len(void);
 
-/** FBO class that grabs the the contents of the screen */
-@interface CCGrabber : NSObject
-{
-	GLuint	_FBO;
-	GLint	_oldFBO;
-	GLfloat	oldClearColor_[4];
+#ifdef __cplusplus
 }
-
--(void)grab:(CCTexture2D*)texture;
--(void)beforeRender:(CCTexture2D*)texture;
--(void)afterRender:(CCTexture2D*)texture;
-
-@end
+#endif

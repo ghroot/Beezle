@@ -524,7 +524,7 @@
 
 -(void) update:(ccTime)time
 {
-	((CCSprite *)target_).displayFrame = spriteFrame;
+	((CCSprite *)_target).displayFrame = spriteFrame;
 }
 
 @end
@@ -556,13 +556,13 @@
 -(void) startWithTarget:(CCNode *)aTarget
 {
 	[super startWithTarget:aTarget];
-    startAngle_ = [target_ rotation];
+    startAngle_ = [_target rotation];
     diffAngle_ = dstAngle_ - startAngle_;
 }
 
 -(void) update: (ccTime) t
 {
-	[target_ setRotation: startAngle_ + diffAngle_ * t];
+	[_target setRotation: startAngle_ + diffAngle_ * t];
 }
 
 @end
@@ -573,11 +573,11 @@
 {
     if (t < 0)
     {
-        [other update:0];
+        [_inner update:0];
     }
     else
     {
-        [other update:1];
+        [_inner update:1];
     }
 }
 @end
