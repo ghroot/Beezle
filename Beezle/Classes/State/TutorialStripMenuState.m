@@ -11,16 +11,13 @@
 #import "ScrollView.h"
 #import "CCMenuItemImageScale.h"
 
-static const int DRAG_DISTANCE_BLOCK_MENU_ITEMS = 10;
-
 @implementation TutorialStripMenuState
 
 -(id) initWithFileName:(NSString *)fileName buttonFileName:(NSString *)buttonFileName block:(void(^)())block
 {
 	if (self = [super initWithName:@"tutorialStripMenu"])
 	{
-		NSString *filePath = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:fileName];
-		CCSprite *singleSprite = [CCSprite spriteWithFile:filePath];
+		CCSprite *singleSprite = [CCSprite spriteWithFile:fileName];
 		CCNode *draggableNode;
 		float contentWidth;
 		if (singleSprite != nil)

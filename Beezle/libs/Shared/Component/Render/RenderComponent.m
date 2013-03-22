@@ -61,8 +61,7 @@
 			if ([instanceComponentDict objectForKey:@"overrideTextureFile"] != nil)
 			{
 				_overrideTextureFile = [[instanceComponentDict objectForKey:@"overrideTextureFile"] copy];
-				NSString *overrideTextureFile = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:_overrideTextureFile];
-				renderSprite = [RenderSprite renderSpriteWithFile:overrideTextureFile zOrder:zOrder];
+				renderSprite = [RenderSprite renderSpriteWithFile:_overrideTextureFile zOrder:zOrder];
 			}
 			else if ([spriteDict objectForKey:@"spriteSheetName"] != nil)
 			{
@@ -79,8 +78,7 @@
 			}
 			else if ([spriteDict objectForKey:@"textureFile"] != nil)
 			{
-				NSString *textureFile = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:[spriteDict objectForKey:@"textureFile"]];
-                renderSprite = [RenderSprite renderSpriteWithFile:textureFile zOrder:zOrder];
+                renderSprite = [RenderSprite renderSpriteWithFile:[spriteDict objectForKey:@"textureFile"] zOrder:zOrder];
 			}
 			else if ([spriteDict objectForKey:@"spriteClass"] != nil)
 			{
