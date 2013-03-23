@@ -86,6 +86,7 @@
 	[_beeaterOptionsMenu release];
 	[_slingerOptionsMenu release];
 	[_movementOptionsMenu release];
+	[_reflectionOptionsMenu release];
 	
 	[super dealloc];
 }
