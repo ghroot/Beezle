@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 __MyCompanyName__. All rights reserved.
 //
 
-#import "Facebook.h"
 #import "cocos2d.h"
 
 @protocol FacebookScoresDelegate <NSObject>
@@ -21,7 +20,6 @@
 
 @interface FacebookManager : NSObject
 {
-	Facebook *_facebook;
 	BOOL _isLoggedIn;
 	BOOL _hasPublishPermission;
 	BOOL _haveAskedForPublishPermissions;

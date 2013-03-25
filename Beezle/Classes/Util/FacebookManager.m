@@ -7,6 +7,7 @@
 //
 
 #import <Accounts/Accounts.h>
+#import <FacebookSDK/FacebookSDK.h>
 #import "FacebookManager.h"
 #import "Logger.h"
 #import "PlayerInformation.h"
@@ -50,13 +51,6 @@ static const long long FACEBOOK_APPLICATION_ID = 392888574136437;
 	return self;
 }
 
--(void) dealloc
-{
-	[_facebook release];
-
-	[super dealloc];
-}
-
 -(void) login
 {
 	if (_isLoggedIn)
@@ -89,7 +83,8 @@ static const long long FACEBOOK_APPLICATION_ID = 392888574136437;
 		return;
 	}
 
-	if (status == FBSessionStateClosedLoginFailed || status == FBSessionStateCreatedOpening){
+	if (status == FBSessionStateClosedLoginFailed || status == FBSessionStateCreatedOpening)
+	{
 #ifdef DEBUG
 		[[Logger defaultLogger] log:[NSString stringWithFormat:@"Facebook login failed: %@", [error localizedDescription]]];
 #endif
@@ -104,10 +99,6 @@ static const long long FACEBOOK_APPLICATION_ID = 392888574136437;
 #ifdef DEBUG
 		[[Logger defaultLogger] log:@"Facebook logged in"];
 #endif
-
-		_facebook = [[Facebook alloc] initWithAppId:[[FBSession activeSession] appID] andDelegate:nil];
-		[_facebook setAccessToken:[[FBSession activeSession] accessToken]];
-		[_facebook setExpirationDate:[[FBSession activeSession] expirationDate]];
 
 		for (NSString *permission in [session permissions])
 		{
@@ -212,7 +203,7 @@ static const long long FACEBOOK_APPLICATION_ID = 392888574136437;
 		_haveAskedForPublishPermissions = TRUE;
 
 		// iOS6 with facebook account, have to request publish permission
-		[[FBSession activeSession] reauthorizeWithPublishPermissions:[NSArray arrayWithObject:@"publish_actions"] defaultAudience:FBSessionDefaultAudienceFriends completionHandler:^(FBSession *session, NSError *error){
+		[[FBSession activeSession] requestNewPublishPermissions:[NSArray arrayWithObject:@"publish_actions"] defaultAudience:FBSessionDefaultAudienceFriends completionHandler:^(FBSession *session, NSError *error){
 			if (!error)
 			{
 				for (NSString *permission in [session permissions])
