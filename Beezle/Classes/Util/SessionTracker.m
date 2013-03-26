@@ -26,7 +26,11 @@ static NSString *FLURRY_ANALYTICS_TOKEN = @"R5JM67WQ5K522SHSW925";
 #endif
 
 #ifdef DEBUG
-static NSString *TEST_FLIGHT_TOKEN = @"ae396bc6dbee18a35a1087713acb890b_ODQ5NTEyMDEyLTA0LTI2IDE5OjE0OjM3LjYyMDc3NQ";
+  #ifdef LITE_VERSION
+static NSString *TEST_FLIGHT_TOKEN = @"d35af6e1-d2ad-4b75-9280-113fd33480f0";
+  #else
+static NSString *TEST_FLIGHT_TOKEN = @"67541518-ef6d-4f16-a58f-0400938531b0";
+  #endif
 #endif
 
 #ifdef LITE_VERSION
@@ -68,6 +72,7 @@ void uncaughtExceptionHandler(NSException *exception)
 
 #ifdef DEBUG
 	// TestFlight
+	[TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
 	[TestFlight takeOff:TEST_FLIGHT_TOKEN];
 #endif
 
