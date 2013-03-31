@@ -104,20 +104,12 @@
 	}
 	
 	// Save bee
-//	if ([savedBeeType canBeReused])
-//	{
-//		[slingerComponent insertBeeTypeAtStart:savedBeeType];
-//	}
-//	else
-//	{
-		[slingerComponent pushBeeType:savedBeeType];
-//	}
+	[slingerComponent pushBeeType:savedBeeType];
 	
 	// Reuse bee
 	if (savingBeeType != nil &&
 		[savingBeeType canBeReused])
 	{
-//		[slingerComponent insertBeeTypeAtStart:savingBeeType];
 		[slingerComponent pushBeeType:savingBeeType];
 	}
 	
