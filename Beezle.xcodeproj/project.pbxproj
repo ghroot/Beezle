@@ -2784,6 +2784,130 @@
 		2C19999316AF50E8006D8333 /* Button-Buy Full Version-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16C569D6E2E1250213C61 /* Button-Buy Full Version-hd.png */; };
 		2C19999416AF50E8006D8333 /* Button-Buy Full Version.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F1668F4397BE7761C3938B /* Button-Buy Full Version.png */; };
 		2C19999516AF50E8006D8333 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2C86AD7516A8B08600A57F52 /* FacebookSDKResources.bundle */; };
+		2C27631B170A41D9008F75EE /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8E714D20577002165CD /* Component.m */; };
+		2C27631E170A420F008F75EE /* EntityComponentSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8EB14D20577002165CD /* EntityComponentSystem.m */; };
+		2C27631F170A420F008F75EE /* EntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8EF14D20577002165CD /* EntitySystem.m */; };
+		2C276320170A4227008F75EE /* ComponentMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F354 /* ComponentMapper.m */; };
+		2C276321170A4227008F75EE /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8E914D20577002165CD /* Entity.m */; };
+		2C276322170A4227008F75EE /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8ED14D20577002165CD /* EntityManager.m */; };
+		2C276323170A4227008F75EE /* GroupEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8F114D20577002165CD /* GroupEntitySystem.m */; };
+		2C276324170A4227008F75EE /* GroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8F314D20577002165CD /* GroupManager.m */; };
+		2C276325170A4227008F75EE /* LabelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8F514D20577002165CD /* LabelManager.m */; };
+		2C276326170A4227008F75EE /* Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8F714D20577002165CD /* Manager.m */; };
+		2C276327170A4227008F75EE /* SystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8F914D20577002165CD /* SystemManager.m */; };
+		2C276328170A4227008F75EE /* TagEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FB14D20577002165CD /* TagEntitySystem.m */; };
+		2C276329170A4227008F75EE /* TagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FD14D20577002165CD /* TagManager.m */; };
+		2C27632A170A4227008F75EE /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FF14D20577002165CD /* World.m */; };
+		2C27632B170A42C2008F75EE /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B553156FAD3900596A22 /* Game.m */; };
+		2C27632C170A42FF008F75EE /* GameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B555156FAD3900596A22 /* GameState.m */; };
+		2C27632D170A42FF008F75EE /* LoadingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B557156FAD3900596A22 /* LoadingState.m */; };
+		2C27632E170A4370008F75EE /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289D416FBC5F400401434 /* CCAction.m */; };
+		2C27632F170A4370008F75EE /* CCActionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289D616FBC5F400401434 /* CCActionCamera.m */; };
+		2C276330170A4370008F75EE /* CCActionCatmullRom.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289D816FBC5F400401434 /* CCActionCatmullRom.m */; };
+		2C276331170A4370008F75EE /* CCActionEase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289DA16FBC5F400401434 /* CCActionEase.m */; };
+		2C276332170A4370008F75EE /* CCActionGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289DC16FBC5F400401434 /* CCActionGrid.m */; };
+		2C276333170A4370008F75EE /* CCActionGrid3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289DE16FBC5F400401434 /* CCActionGrid3D.m */; };
+		2C276334170A4370008F75EE /* CCActionInstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289E016FBC5F400401434 /* CCActionInstant.m */; };
+		2C276335170A4370008F75EE /* CCActionInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289E216FBC5F400401434 /* CCActionInterval.m */; };
+		2C276336170A4370008F75EE /* CCActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289E416FBC5F400401434 /* CCActionManager.m */; };
+		2C276337170A4370008F75EE /* CCActionPageTurn3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289E616FBC5F400401434 /* CCActionPageTurn3D.m */; };
+		2C276338170A4370008F75EE /* CCActionProgressTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289E816FBC5F400401434 /* CCActionProgressTimer.m */; };
+		2C276339170A4370008F75EE /* CCActionTiledGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289EA16FBC5F400401434 /* CCActionTiledGrid.m */; };
+		2C27633A170A4370008F75EE /* CCActionTween.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289EC16FBC5F400401434 /* CCActionTween.m */; };
+		2C27633B170A4370008F75EE /* CCAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289EE16FBC5F400401434 /* CCAnimation.m */; };
+		2C27633C170A4370008F75EE /* CCAnimationCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289F016FBC5F400401434 /* CCAnimationCache.m */; };
+		2C27633D170A4370008F75EE /* CCAtlasNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289F216FBC5F400401434 /* CCAtlasNode.m */; };
+		2C27633E170A4370008F75EE /* CCCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289F416FBC5F400401434 /* CCCamera.m */; };
+		2C27633F170A4370008F75EE /* CCClippingNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289F616FBC5F400401434 /* CCClippingNode.m */; };
+		2C276340170A4370008F75EE /* CCConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289F916FBC5F400401434 /* CCConfiguration.m */; };
+		2C276341170A4370008F75EE /* ccDeprecated.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289FB16FBC5F400401434 /* ccDeprecated.m */; };
+		2C276342170A4370008F75EE /* CCDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289FD16FBC5F400401434 /* CCDirector.m */; };
+		2C276343170A4370008F75EE /* CCDrawingPrimitives.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC289FF16FBC5F400401434 /* CCDrawingPrimitives.m */; };
+		2C276344170A4370008F75EE /* CCDrawNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A0116FBC5F400401434 /* CCDrawNode.m */; };
+		2C276345170A4370008F75EE /* ccFPSImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A0316FBC5F400401434 /* ccFPSImages.m */; };
+		2C276346170A4370008F75EE /* CCGLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A0516FBC5F400401434 /* CCGLProgram.m */; };
+		2C276347170A4370008F75EE /* ccGLStateCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A0716FBC5F400401434 /* ccGLStateCache.m */; };
+		2C276348170A4370008F75EE /* CCGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A0916FBC5F400401434 /* CCGrabber.m */; };
+		2C276349170A4370008F75EE /* CCGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A0B16FBC5F400401434 /* CCGrid.m */; };
+		2C27634A170A4370008F75EE /* CCLabelAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A0D16FBC5F400401434 /* CCLabelAtlas.m */; };
+		2C27634B170A4370008F75EE /* CCLabelBMFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A0F16FBC5F400401434 /* CCLabelBMFont.m */; };
+		2C27634C170A4370008F75EE /* CCLabelTTF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A1116FBC5F400401434 /* CCLabelTTF.m */; };
+		2C27634D170A4370008F75EE /* CCLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A1316FBC5F400401434 /* CCLayer.m */; };
+		2C27634E170A4370008F75EE /* CCMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A1616FBC5F400401434 /* CCMenu.m */; };
+		2C27634F170A4370008F75EE /* CCMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A1816FBC5F400401434 /* CCMenuItem.m */; };
+		2C276350170A4370008F75EE /* CCMotionStreak.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A1A16FBC5F400401434 /* CCMotionStreak.m */; };
+		2C276351170A4370008F75EE /* CCNode+Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A1C16FBC5F400401434 /* CCNode+Debug.m */; };
+		2C276352170A4370008F75EE /* CCNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A1E16FBC5F400401434 /* CCNode.m */; };
+		2C276353170A4370008F75EE /* CCParallaxNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A2016FBC5F400401434 /* CCParallaxNode.m */; };
+		2C276354170A4370008F75EE /* CCParticleBatchNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A2216FBC5F400401434 /* CCParticleBatchNode.m */; };
+		2C276355170A4370008F75EE /* CCParticleExamples.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A2416FBC5F400401434 /* CCParticleExamples.m */; };
+		2C276356170A4370008F75EE /* CCParticleSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A2616FBC5F400401434 /* CCParticleSystem.m */; };
+		2C276357170A4370008F75EE /* CCParticleSystemQuad.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A2816FBC5F400401434 /* CCParticleSystemQuad.m */; };
+		2C276358170A4370008F75EE /* CCPhysicsDebugNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A2A16FBC5F500401434 /* CCPhysicsDebugNode.m */; };
+		2C276359170A4370008F75EE /* CCProgressTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A2E16FBC5F500401434 /* CCProgressTimer.m */; };
+		2C27635A170A4370008F75EE /* CCRenderTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A3116FBC5F500401434 /* CCRenderTexture.m */; };
+		2C27635B170A4370008F75EE /* CCScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A3316FBC5F500401434 /* CCScene.m */; };
+		2C27635C170A4370008F75EE /* CCScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A3516FBC5F500401434 /* CCScheduler.m */; };
+		2C27635D170A4370008F75EE /* CCShaderCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A4616FBC5F500401434 /* CCShaderCache.m */; };
+		2C27635E170A4370008F75EE /* ccShaders.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A4816FBC5F500401434 /* ccShaders.m */; };
+		2C27635F170A4370008F75EE /* CCSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A4A16FBC5F500401434 /* CCSprite.m */; };
+		2C276360170A4370008F75EE /* CCSpriteBatchNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A4C16FBC5F500401434 /* CCSpriteBatchNode.m */; };
+		2C276361170A4370008F75EE /* CCSpriteFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A4E16FBC5F500401434 /* CCSpriteFrame.m */; };
+		2C276362170A4370008F75EE /* CCSpriteFrameCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A5016FBC5F500401434 /* CCSpriteFrameCache.m */; };
+		2C276363170A4370008F75EE /* CCTexture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A5216FBC5F500401434 /* CCTexture2D.m */; };
+		2C276364170A4370008F75EE /* CCTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A5416FBC5F500401434 /* CCTextureAtlas.m */; };
+		2C276365170A4370008F75EE /* CCTextureCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A5616FBC5F500401434 /* CCTextureCache.m */; };
+		2C276366170A4370008F75EE /* CCTexturePVR.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A5816FBC5F500401434 /* CCTexturePVR.m */; };
+		2C276367170A4370008F75EE /* CCTileMapAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A5A16FBC5F500401434 /* CCTileMapAtlas.m */; };
+		2C276368170A4370008F75EE /* CCTMXLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A5C16FBC5F500401434 /* CCTMXLayer.m */; };
+		2C276369170A4370008F75EE /* CCTMXObjectGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A5E16FBC5F500401434 /* CCTMXObjectGroup.m */; };
+		2C27636A170A4370008F75EE /* CCTMXTiledMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A6016FBC5F500401434 /* CCTMXTiledMap.m */; };
+		2C27636B170A4370008F75EE /* CCTMXXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A6216FBC5F500401434 /* CCTMXXMLParser.m */; };
+		2C27636C170A4370008F75EE /* CCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A6416FBC5F500401434 /* CCTransition.m */; };
+		2C27636D170A4370008F75EE /* CCTransitionPageTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A6616FBC5F500401434 /* CCTransitionPageTurn.m */; };
+		2C27636E170A4370008F75EE /* CCTransitionProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A6816FBC5F500401434 /* CCTransitionProgress.m */; };
+		2C27636F170A4370008F75EE /* cocos2d.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A6B16FBC5F500401434 /* cocos2d.m */; };
+		2C276370170A4370008F75EE /* CCPhysicsSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A2C16FBC5F500401434 /* CCPhysicsSprite.mm */; };
+		2C276371170A4382008F75EE /* CCDirectorIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A7116FBC5F500401434 /* CCDirectorIOS.m */; };
+		2C276372170A4382008F75EE /* CCES2Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A7316FBC5F500401434 /* CCES2Renderer.m */; };
+		2C276373170A4382008F75EE /* CCGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A7616FBC5F500401434 /* CCGLView.m */; };
+		2C276374170A4382008F75EE /* CCTouchDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A7916FBC5F500401434 /* CCTouchDispatcher.m */; };
+		2C276375170A4382008F75EE /* CCTouchHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A7B16FBC5F500401434 /* CCTouchHandler.m */; };
+		2C276376170A4392008F75EE /* CCArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A8916FBC5F500401434 /* CCArray.m */; };
+		2C276377170A4392008F75EE /* ccCArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A8B16FBC5F500401434 /* ccCArray.m */; };
+		2C276378170A4392008F75EE /* CCFileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A8D16FBC5F500401434 /* CCFileUtils.m */; };
+		2C276379170A4392008F75EE /* CCProfiling.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A8F16FBC5F500401434 /* CCProfiling.m */; };
+		2C27637A170A4392008F75EE /* CCVertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A9316FBC5F500401434 /* CCVertex.m */; };
+		2C27637B170A4392008F75EE /* CGPointExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A9516FBC5F500401434 /* CGPointExtension.m */; };
+		2C27637C170A4392008F75EE /* NSThread+performBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A9716FBC5F500401434 /* NSThread+performBlock.m */; };
+		2C27637D170A4392008F75EE /* TGAlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A9A16FBC5F500401434 /* TGAlib.m */; };
+		2C27637E170A4392008F75EE /* TransformUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A9C16FBC5F500401434 /* TransformUtils.m */; };
+		2C27637F170A4392008F75EE /* ZipUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28AA016FBC5F500401434 /* ZipUtils.m */; };
+		2C276380170A4583008F75EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3285145F66F7000FF575 /* CoreGraphics.framework */; };
+		2C276381170A45C7008F75EE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3277145F66F7000FF575 /* QuartzCore.framework */; };
+		2C276382170A45DE008F75EE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3279145F66F7000FF575 /* OpenGLES.framework */; };
+		2C276385170A4651008F75EE /* SessionTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B4CF156FAD1E00596A22 /* SessionTracker.m */; };
+		2C276386170A467F008F75EE /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8C739BB13E582AF07D5C6F /* libFlurry.a */; };
+		2C276387170A4697008F75EE /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F167F8D9B1C6AA5B156E5F /* libGoogleAnalytics.a */; };
+		2C276388170A4697008F75EE /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F16B225BE44BB79BAE9C48 /* libGoogleAnalytics_debug.a */; };
+		2C27638A170A4724008F75EE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC2DD3A1662F2FC00A2362E /* CoreData.framework */; };
+		2C27638B170A4746008F75EE /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5C9A37154A0D8800FF6F57 /* libTestFlight.a */; };
+		2C27638C170A4790008F75EE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF7AE531640963A00AE18B3 /* SystemConfiguration.framework */; };
+		2C27638D170A47F5008F75EE /* aabb.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08BFD164C6C6F0012E22B /* aabb.c */; };
+		2C27638E170A47F5008F75EE /* mat4stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C01164C6C6F0012E22B /* mat4stack.c */; };
+		2C27638F170A47F5008F75EE /* matrix.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C02164C6C6F0012E22B /* matrix.c */; };
+		2C276390170A47F5008F75EE /* mat3.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C03164C6C6F0012E22B /* mat3.c */; };
+		2C276391170A47F5008F75EE /* mat4.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C04164C6C6F0012E22B /* mat4.c */; };
+		2C276392170A47F5008F75EE /* neon_matrix_impl.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C05164C6C6F0012E22B /* neon_matrix_impl.c */; };
+		2C276393170A47F5008F75EE /* plane.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C06164C6C6F0012E22B /* plane.c */; };
+		2C276394170A47F5008F75EE /* quaternion.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C07164C6C6F0012E22B /* quaternion.c */; };
+		2C276395170A47F5008F75EE /* ray2.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C08164C6C6F0012E22B /* ray2.c */; };
+		2C276396170A47F5008F75EE /* utility.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C09164C6C6F0012E22B /* utility.c */; };
+		2C276397170A47F5008F75EE /* vec2.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C0A164C6C6F0012E22B /* vec2.c */; };
+		2C276398170A47F5008F75EE /* vec3.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C0B164C6C6F0012E22B /* vec3.c */; };
+		2C276399170A47F5008F75EE /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C0C164C6C6F0012E22B /* vec4.c */; };
+		2C27639A170A4889008F75EE /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A8616FBC5F500401434 /* base64.c */; };
+		2C27639B170A489B008F75EE /* ccUtils.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A9016FBC5F500401434 /* ccUtils.c */; };
 		2C27E90014D20577002165CD /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8E714D20577002165CD /* Component.m */; };
 		2C27E90114D20577002165CD /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8E914D20577002165CD /* Entity.m */; };
 		2C27E90214D20577002165CD /* EntityComponentSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8EB14D20577002165CD /* EntityComponentSystem.m */; };
@@ -6043,23 +6167,6 @@
 		BF8C7FE72A4462C3AEEDE9CD /* PageDot-full-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8C7D6230E9028EBE0B7B84 /* PageDot-full-hd.png */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		2C75CD891474715A00545287 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2CEA326A145F66F7000FF575 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2CEA3272145F66F7000FF575;
-			remoteInfo = Beezle;
-		};
-		2C9526AC16CAFC7900293ACE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2CEA326A145F66F7000FF575 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2C198DEF16AF50D6006D8333;
-			remoteInfo = "Stingy Bees Development";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		2C03D6CF16B5EF1300242FD8 /* BeezleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeezleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C03D6D516B5EF1300242FD8 /* BeezleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BeezleTests-Info.plist"; sourceTree = "<group>"; };
@@ -8518,11 +8625,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C27638C170A4790008F75EE /* SystemConfiguration.framework in Frameworks */,
+				2C27638A170A4724008F75EE /* CoreData.framework in Frameworks */,
+				2C276382170A45DE008F75EE /* OpenGLES.framework in Frameworks */,
+				2C276381170A45C7008F75EE /* QuartzCore.framework in Frameworks */,
+				2C276380170A4583008F75EE /* CoreGraphics.framework in Frameworks */,
 				2C03D6D016B5EF1300242FD8 /* SenTestingKit.framework in Frameworks */,
 				2C03D6D116B5EF1300242FD8 /* UIKit.framework in Frameworks */,
 				2C03D6D216B5EF1300242FD8 /* Foundation.framework in Frameworks */,
 				2C9524EE16CAF67400293ACE /* OCMockitoIOS.framework in Frameworks */,
 				2C9524F116CAF67D00293ACE /* OCHamcrestIOS.framework in Frameworks */,
+				2C276386170A467F008F75EE /* libFlurry.a in Frameworks */,
+				2C276387170A4697008F75EE /* libGoogleAnalytics.a in Frameworks */,
+				2C276388170A4697008F75EE /* libGoogleAnalytics_debug.a in Frameworks */,
+				2C27638B170A4746008F75EE /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -12367,7 +12483,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2C9526AD16CAFC7900293ACE /* PBXTargetDependency */,
 			);
 			name = BeezleTests;
 			productName = BeezleTests;
@@ -12420,7 +12535,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2C75CD8A1474715A00545287 /* PBXTargetDependency */,
 			);
 			name = ArtemisTests;
 			productName = ArtemisTests;
@@ -17103,6 +17217,107 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C9524F716CAFA9A00293ACE /* GameTest.m in Sources */,
+				2C27632B170A42C2008F75EE /* Game.m in Sources */,
+				2C27632C170A42FF008F75EE /* GameState.m in Sources */,
+				2C27632D170A42FF008F75EE /* LoadingState.m in Sources */,
+				2C27632E170A4370008F75EE /* CCAction.m in Sources */,
+				2C27632F170A4370008F75EE /* CCActionCamera.m in Sources */,
+				2C276330170A4370008F75EE /* CCActionCatmullRom.m in Sources */,
+				2C276331170A4370008F75EE /* CCActionEase.m in Sources */,
+				2C276332170A4370008F75EE /* CCActionGrid.m in Sources */,
+				2C276333170A4370008F75EE /* CCActionGrid3D.m in Sources */,
+				2C276334170A4370008F75EE /* CCActionInstant.m in Sources */,
+				2C276335170A4370008F75EE /* CCActionInterval.m in Sources */,
+				2C276336170A4370008F75EE /* CCActionManager.m in Sources */,
+				2C276337170A4370008F75EE /* CCActionPageTurn3D.m in Sources */,
+				2C276338170A4370008F75EE /* CCActionProgressTimer.m in Sources */,
+				2C276339170A4370008F75EE /* CCActionTiledGrid.m in Sources */,
+				2C27633A170A4370008F75EE /* CCActionTween.m in Sources */,
+				2C27633B170A4370008F75EE /* CCAnimation.m in Sources */,
+				2C27633C170A4370008F75EE /* CCAnimationCache.m in Sources */,
+				2C27633D170A4370008F75EE /* CCAtlasNode.m in Sources */,
+				2C27633E170A4370008F75EE /* CCCamera.m in Sources */,
+				2C27633F170A4370008F75EE /* CCClippingNode.m in Sources */,
+				2C276340170A4370008F75EE /* CCConfiguration.m in Sources */,
+				2C276341170A4370008F75EE /* ccDeprecated.m in Sources */,
+				2C276342170A4370008F75EE /* CCDirector.m in Sources */,
+				2C276343170A4370008F75EE /* CCDrawingPrimitives.m in Sources */,
+				2C276344170A4370008F75EE /* CCDrawNode.m in Sources */,
+				2C276345170A4370008F75EE /* ccFPSImages.m in Sources */,
+				2C276346170A4370008F75EE /* CCGLProgram.m in Sources */,
+				2C276347170A4370008F75EE /* ccGLStateCache.m in Sources */,
+				2C276348170A4370008F75EE /* CCGrabber.m in Sources */,
+				2C276349170A4370008F75EE /* CCGrid.m in Sources */,
+				2C27634A170A4370008F75EE /* CCLabelAtlas.m in Sources */,
+				2C27634B170A4370008F75EE /* CCLabelBMFont.m in Sources */,
+				2C27634C170A4370008F75EE /* CCLabelTTF.m in Sources */,
+				2C27634D170A4370008F75EE /* CCLayer.m in Sources */,
+				2C27634E170A4370008F75EE /* CCMenu.m in Sources */,
+				2C27634F170A4370008F75EE /* CCMenuItem.m in Sources */,
+				2C276350170A4370008F75EE /* CCMotionStreak.m in Sources */,
+				2C276351170A4370008F75EE /* CCNode+Debug.m in Sources */,
+				2C276352170A4370008F75EE /* CCNode.m in Sources */,
+				2C276353170A4370008F75EE /* CCParallaxNode.m in Sources */,
+				2C276354170A4370008F75EE /* CCParticleBatchNode.m in Sources */,
+				2C276355170A4370008F75EE /* CCParticleExamples.m in Sources */,
+				2C276356170A4370008F75EE /* CCParticleSystem.m in Sources */,
+				2C276357170A4370008F75EE /* CCParticleSystemQuad.m in Sources */,
+				2C276358170A4370008F75EE /* CCPhysicsDebugNode.m in Sources */,
+				2C276359170A4370008F75EE /* CCProgressTimer.m in Sources */,
+				2C27635A170A4370008F75EE /* CCRenderTexture.m in Sources */,
+				2C27635B170A4370008F75EE /* CCScene.m in Sources */,
+				2C27635C170A4370008F75EE /* CCScheduler.m in Sources */,
+				2C27635D170A4370008F75EE /* CCShaderCache.m in Sources */,
+				2C27635E170A4370008F75EE /* ccShaders.m in Sources */,
+				2C27635F170A4370008F75EE /* CCSprite.m in Sources */,
+				2C276360170A4370008F75EE /* CCSpriteBatchNode.m in Sources */,
+				2C276361170A4370008F75EE /* CCSpriteFrame.m in Sources */,
+				2C276362170A4370008F75EE /* CCSpriteFrameCache.m in Sources */,
+				2C276363170A4370008F75EE /* CCTexture2D.m in Sources */,
+				2C276364170A4370008F75EE /* CCTextureAtlas.m in Sources */,
+				2C276365170A4370008F75EE /* CCTextureCache.m in Sources */,
+				2C276366170A4370008F75EE /* CCTexturePVR.m in Sources */,
+				2C276367170A4370008F75EE /* CCTileMapAtlas.m in Sources */,
+				2C276368170A4370008F75EE /* CCTMXLayer.m in Sources */,
+				2C276369170A4370008F75EE /* CCTMXObjectGroup.m in Sources */,
+				2C27636A170A4370008F75EE /* CCTMXTiledMap.m in Sources */,
+				2C27636B170A4370008F75EE /* CCTMXXMLParser.m in Sources */,
+				2C27636C170A4370008F75EE /* CCTransition.m in Sources */,
+				2C27636D170A4370008F75EE /* CCTransitionPageTurn.m in Sources */,
+				2C27636E170A4370008F75EE /* CCTransitionProgress.m in Sources */,
+				2C27636F170A4370008F75EE /* cocos2d.m in Sources */,
+				2C276370170A4370008F75EE /* CCPhysicsSprite.mm in Sources */,
+				2C276371170A4382008F75EE /* CCDirectorIOS.m in Sources */,
+				2C276372170A4382008F75EE /* CCES2Renderer.m in Sources */,
+				2C276373170A4382008F75EE /* CCGLView.m in Sources */,
+				2C276374170A4382008F75EE /* CCTouchDispatcher.m in Sources */,
+				2C276375170A4382008F75EE /* CCTouchHandler.m in Sources */,
+				2C276376170A4392008F75EE /* CCArray.m in Sources */,
+				2C276377170A4392008F75EE /* ccCArray.m in Sources */,
+				2C276378170A4392008F75EE /* CCFileUtils.m in Sources */,
+				2C276379170A4392008F75EE /* CCProfiling.m in Sources */,
+				2C27637A170A4392008F75EE /* CCVertex.m in Sources */,
+				2C27637B170A4392008F75EE /* CGPointExtension.m in Sources */,
+				2C27637C170A4392008F75EE /* NSThread+performBlock.m in Sources */,
+				2C27637D170A4392008F75EE /* TGAlib.m in Sources */,
+				2C27637E170A4392008F75EE /* TransformUtils.m in Sources */,
+				2C27637F170A4392008F75EE /* ZipUtils.m in Sources */,
+				2C276385170A4651008F75EE /* SessionTracker.m in Sources */,
+				2C27638D170A47F5008F75EE /* aabb.c in Sources */,
+				2C27638E170A47F5008F75EE /* mat4stack.c in Sources */,
+				2C27638F170A47F5008F75EE /* matrix.c in Sources */,
+				2C276390170A47F5008F75EE /* mat3.c in Sources */,
+				2C276391170A47F5008F75EE /* mat4.c in Sources */,
+				2C276392170A47F5008F75EE /* neon_matrix_impl.c in Sources */,
+				2C276393170A47F5008F75EE /* plane.c in Sources */,
+				2C276394170A47F5008F75EE /* quaternion.c in Sources */,
+				2C276395170A47F5008F75EE /* ray2.c in Sources */,
+				2C276396170A47F5008F75EE /* utility.c in Sources */,
+				2C276397170A47F5008F75EE /* vec2.c in Sources */,
+				2C276398170A47F5008F75EE /* vec3.c in Sources */,
+				2C276399170A47F5008F75EE /* vec4.c in Sources */,
+				2C27639A170A4889008F75EE /* base64.c in Sources */,
+				2C27639B170A489B008F75EE /* ccUtils.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -17822,6 +18037,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CADCC9014746BA200302475 /* ArtemisTests.m in Sources */,
+				2C27631B170A41D9008F75EE /* Component.m in Sources */,
+				2C27631E170A420F008F75EE /* EntityComponentSystem.m in Sources */,
+				2C27631F170A420F008F75EE /* EntitySystem.m in Sources */,
+				2C276320170A4227008F75EE /* ComponentMapper.m in Sources */,
+				2C276321170A4227008F75EE /* Entity.m in Sources */,
+				2C276322170A4227008F75EE /* EntityManager.m in Sources */,
+				2C276323170A4227008F75EE /* GroupEntitySystem.m in Sources */,
+				2C276324170A4227008F75EE /* GroupManager.m in Sources */,
+				2C276325170A4227008F75EE /* LabelManager.m in Sources */,
+				2C276326170A4227008F75EE /* Manager.m in Sources */,
+				2C276327170A4227008F75EE /* SystemManager.m in Sources */,
+				2C276328170A4227008F75EE /* TagEntitySystem.m in Sources */,
+				2C276329170A4227008F75EE /* TagManager.m in Sources */,
+				2C27632A170A4227008F75EE /* World.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -18538,19 +18767,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		2C75CD8A1474715A00545287 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2CEA3272145F66F7000FF575 /* Stingy Bees */;
-			targetProxy = 2C75CD891474715A00545287 /* PBXContainerItemProxy */;
-		};
-		2C9526AD16CAFC7900293ACE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2C198DEF16AF50D6006D8333 /* Stingy Bees Development */;
-			targetProxy = 2C9526AC16CAFC7900293ACE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		2C03D6D616B5EF1300242FD8 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -18575,12 +18791,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Stingy Bees Dev.app/Stingy Bees Dev";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -18597,9 +18811,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
-				ONLY_ACTIVE_ARCH = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Beezle/libs/Flurry\"",
+					"\"$(SRCROOT)/Beezle/libs/GoogleAnalytics\"",
+					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "${BUNDLE_LOADER}";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -18608,12 +18827,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Stingy Bees Dev.app/Stingy Bees Dev";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -18625,9 +18842,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Beezle/libs/Flurry\"",
+					"\"$(SRCROOT)/Beezle/libs/GoogleAnalytics\"",
+					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "${BUNDLE_LOADER}";
-				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = "TestFlight Debug";
@@ -18636,12 +18858,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Stingy Bees Dev.app/Stingy Bees Dev";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -18653,9 +18873,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Beezle/libs/Flurry\"",
+					"\"$(SRCROOT)/Beezle/libs/GoogleAnalytics\"",
+					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "${BUNDLE_LOADER}";
-				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = "TestFlight Release";
@@ -18664,12 +18889,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Stingy Bees Dev.app/Stingy Bees Dev";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -18681,9 +18904,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Beezle/libs/Flurry\"",
+					"\"$(SRCROOT)/Beezle/libs/GoogleAnalytics\"",
+					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "${BUNDLE_LOADER}";
-				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = AppStore;
@@ -18692,12 +18920,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Stingy Bees Dev.app/Stingy Bees Dev";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -18709,9 +18935,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Beezle/libs/Flurry\"",
+					"\"$(SRCROOT)/Beezle/libs/GoogleAnalytics\"",
+					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "${BUNDLE_LOADER}";
-				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
@@ -18790,8 +19021,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Beezle.app/Beezle";
-				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -18808,7 +19037,6 @@
 				INFOPLIST_FILE = "ArtemisTests/ArtemisTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = "TestFlight Debug";
@@ -18981,8 +19209,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Beezle.app/Beezle";
-				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -18994,8 +19220,6 @@
 				INFOPLIST_FILE = "ArtemisTests/ArtemisTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = AppStore;
@@ -19110,8 +19334,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Beezle.app/Beezle";
-				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -19128,7 +19350,6 @@
 				INFOPLIST_FILE = "ArtemisTests/ArtemisTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = "TestFlight Release";
@@ -19243,8 +19464,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Beezle.app/Beezle";
-				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -19256,8 +19475,6 @@
 				INFOPLIST_FILE = "ArtemisTests/ArtemisTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
@@ -19266,8 +19483,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Beezle.app/Beezle";
-				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -19284,7 +19499,6 @@
 				INFOPLIST_FILE = "ArtemisTests/ArtemisTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
