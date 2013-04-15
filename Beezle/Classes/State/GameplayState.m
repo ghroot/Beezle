@@ -67,6 +67,7 @@
 #import "TutorialBalloonDescription.h"
 #import "LevelLayoutCache.h"
 #import "LevelLayout.h"
+#import "SlingerGogglesSystem.h"
 #import "NSObject+PWObject.h"
 #import "BeeWithTeleportCollisionHandler.h"
 #import "SlingerControlSystem.h"
@@ -124,6 +125,7 @@
 @synthesize shakeSystem = _shakeSystem;
 @synthesize shardSystem = _shardSystem;
 @synthesize slingerControlSystem = _slingerControlSystem;
+@synthesize slingerGogglesSystem = _slingerGogglesSystem;
 @synthesize soundSystem = _soundSystem;
 @synthesize spawnSystem = _spawnSystem;
 @synthesize teleportSystem = _teleportSystem;
@@ -218,6 +220,8 @@
 	[systemManager setSystem:_slingerControlSystem];
 	_aimPollenShooterSystem = [AimPollenShooterSystem system];
 	[systemManager setSystem:_aimPollenShooterSystem];
+	_slingerGogglesSystem = [SlingerGogglesSystem system];
+	[systemManager setSystem:_slingerGogglesSystem];
 	_destructControlSystem = [DestructControlSystem system];
 	[systemManager setSystem:_destructControlSystem];
 	_followControlSystem = [FollowControlSystem system];

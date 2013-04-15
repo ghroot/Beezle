@@ -5776,7 +5776,9 @@
 		88F163B99A2EC66C72C93624 /* Level-E10-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1676D76DF852C495BE905 /* Level-E10-Layout.plist */; };
 		88F163BFBF308A206F3D5EC6 /* Ramp-Piece-Small-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1635BD08CAFA35EA24A94 /* Ramp-Piece-Small-E.plist */; };
 		88F163C082E0F37B60BED0BC /* Text-GameCompleted?-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16EDB05686F37A96063A3 /* Text-GameCompleted?-hd.png */; };
+		88F163D4CAB41B1EC11C2863 /* SlingerGogglesSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16DE80C57131E2C8C06EF /* SlingerGogglesSystem.m */; };
 		88F163E141E9A777E67831DD /* CCBSequenceProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16CABFB750E1507717F97 /* CCBSequenceProperty.m */; };
+		88F163E2CD732DFC946AE43C /* SlingerGogglesSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16DE80C57131E2C8C06EF /* SlingerGogglesSystem.m */; };
 		88F163EE7EE84EB0F6051807 /* End-Completed?-Bee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F160DD1014B091DFCB9284 /* End-Completed?-Bee-1-hd.png */; };
 		88F1640E7B0C8DF49A014394 /* ThemeSelect-E.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 88F161512DB9EA7E77E5FF61 /* ThemeSelect-E.ccbi */; };
 		88F16412D74CE470D63DA478 /* GameCompletedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 88F1694B1AE0A48841501329 /* GameCompletedDialog.ccbi */; };
@@ -5948,6 +5950,7 @@
 		88F16C0EE888625D5BFA25F9 /* BeezleNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163EF41B4544CC7852D7B /* BeezleNavigationViewController.m */; };
 		88F16C303E71580797C32FA4 /* End-Completed?-Bee-2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16696B433AEBE34C3E306 /* End-Completed?-Bee-2-hd.png */; };
 		88F16C35B442B6517D1A8DFB /* End-GameCompleted!-Speedee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F163C3EAA348F3859CCD64 /* End-GameCompleted!-Speedee-1-hd.png */; };
+		88F16C46E2AA1BCB22EE830C /* SlingerGogglesSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16DE80C57131E2C8C06EF /* SlingerGogglesSystem.m */; };
 		88F16C506F6AF5A6C8A942C2 /* Credits.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 88F16682A9EEF3A90FA48485 /* Credits.ccbi */; };
 		88F16C608705B4261B5574BC /* End-GameCompleted!-TBee-2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16938C86A7FBD8EF1C54F /* End-GameCompleted!-TBee-2-hd.png */; };
 		88F16C80189194A59E54A326 /* DestroySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F162DA675659E97F1FFE77 /* DestroySystem.m */; };
@@ -5978,6 +5981,7 @@
 		88F16D5D79913EB54363FCDE /* Level-E8-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16077E5C41B0D3E03EF00 /* Level-E8-Layout.plist */; };
 		88F16D5E33CB0221600030AD /* End-Credits-Bees-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16218AE09A08E66BB8854 /* End-Credits-Bees-hd.png */; };
 		88F16D6280429BA8A13D2F9E /* HiddenLevelsFoundDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 88F1628D8065B43990F7479D /* HiddenLevelsFoundDialog.ccbi */; };
+		88F16D839718D31C6482FD23 /* SlingerGogglesSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16DE80C57131E2C8C06EF /* SlingerGogglesSystem.m */; };
 		88F16D85E5CA6735F8F6AB6E /* Pollen-Magic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16DE4036D4DF45E471D80 /* Pollen-Magic.plist */; };
 		88F16D9B206B9385FD73CAF1 /* End-Credits-Copyright-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16C6223E81A81B9CF24B8 /* End-Credits-Copyright-hd.png */; };
 		88F16DA7293FA0802285E7E8 /* Glass-Piece-Small-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F161ED53CADE207CEB8410 /* Glass-Piece-Small-E.plist */; };
@@ -8454,9 +8458,11 @@
 		88F16DDA90CFE1963941ED6A /* End-GameCompleted!-Sumee-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Sumee-1-hd.png"; sourceTree = "<group>"; };
 		88F16DDE78ECCDDAEF968062 /* End-GameCompleted!-Speedee-2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Speedee-2-hd.png"; sourceTree = "<group>"; };
 		88F16DE4036D4DF45E471D80 /* Pollen-Magic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Pollen-Magic.plist"; sourceTree = "<group>"; };
+		88F16DE80C57131E2C8C06EF /* SlingerGogglesSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlingerGogglesSystem.m; sourceTree = "<group>"; };
 		88F16DF35F4A1F71C5E54EFB /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ioapi.c; path = libs/SSZipArchive/minizip/ioapi.c; sourceTree = "<group>"; };
 		88F16DF4571CBFE365DCA8AF /* OutputConsoleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputConsoleState.h; sourceTree = "<group>"; };
 		88F16DF93A6C9827B0ACDCC0 /* Beeater-Body-Land-E-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Beeater-Body-Land-E-Animations.plist"; sourceTree = "<group>"; };
+		88F16E09D5DD5AC91462FD5C /* SlingerGogglesSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlingerGogglesSystem.h; sourceTree = "<group>"; };
 		88F16E2FFB048E404EA68476 /* BubbleYel-A24-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-A24-hd.png"; sourceTree = "<group>"; };
 		88F16E5EAFAE797A8C2419F2 /* CreditsDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsDialog.m; sourceTree = "<group>"; };
 		88F16E7D847CCF09190F73D8 /* SlingerRotator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlingerRotator.h; sourceTree = "<group>"; };
@@ -10733,6 +10739,8 @@
 				88F16DAADC30014B5F54E8EA /* RespawnSystem.h */,
 				88F16FD321481DE983D51F22 /* SoundSystem.m */,
 				88F16CF0833137B5B1DB6864 /* SoundSystem.h */,
+				88F16DE80C57131E2C8C06EF /* SlingerGogglesSystem.m */,
+				88F16E09D5DD5AC91462FD5C /* SlingerGogglesSystem.h */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -17724,6 +17732,7 @@
 				2C2763A6171B4AF8008F75EE /* BurnableComponent.m in Sources */,
 				2C2763AA171B4AF8008F75EE /* BurnComponent.m in Sources */,
 				88F16E79D3BDFA62D677DB0E /* InAppPurchasesManager.m in Sources */,
+				88F163E2CD732DFC946AE43C /* SlingerGogglesSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -18081,6 +18090,7 @@
 				2C2763A8171B4AF8008F75EE /* BurnableComponent.m in Sources */,
 				2C2763AC171B4AF8008F75EE /* BurnComponent.m in Sources */,
 				88F16CE939E2C41E0AF7CC4E /* InAppPurchasesManager.m in Sources */,
+				88F16D839718D31C6482FD23 /* SlingerGogglesSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -18460,6 +18470,7 @@
 				2C2763A9171B4AF8008F75EE /* BurnableComponent.m in Sources */,
 				2C2763AD171B4AF8008F75EE /* BurnComponent.m in Sources */,
 				88F162AAD67E33346997D19B /* InAppPurchasesManager.m in Sources */,
+				88F16C46E2AA1BCB22EE830C /* SlingerGogglesSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -18816,6 +18827,7 @@
 				2C2763A7171B4AF8008F75EE /* BurnableComponent.m in Sources */,
 				2C2763AB171B4AF8008F75EE /* BurnComponent.m in Sources */,
 				88F166224AAFA03FF6F3FFD7 /* InAppPurchasesManager.m in Sources */,
+				88F163D4CAB41B1EC11C2863 /* SlingerGogglesSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

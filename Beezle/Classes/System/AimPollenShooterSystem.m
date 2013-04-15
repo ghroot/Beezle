@@ -67,7 +67,8 @@
 	if (![trajectoryComponent isZero])
     {
 		SlingerComponent *slingerComponent = [_slingerComponentMapper getComponentFor:slingerEntity];
-	    Entity *aimPollenEntity = [EntityFactory createAimPollen:_world withBeeType:[slingerComponent loadedBeeType] andVelocity:[trajectoryComponent startVelocity]];
+		float duration = [slingerComponent isGogglesActive] ? 1.6f : 0.8f;
+	    Entity *aimPollenEntity = [EntityFactory createAimPollen:_world withBeeType:[slingerComponent loadedBeeType] velocity:[trajectoryComponent startVelocity] duration:duration];
 		[EntityUtil setEntityPosition:aimPollenEntity position:[trajectoryComponent startPoint]];
     }
 }

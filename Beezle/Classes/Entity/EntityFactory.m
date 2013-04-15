@@ -349,7 +349,7 @@ static const int AIM_POLLEN_LAYERS = 2;
     return beeEntity;
 }
 
-+(Entity *) createAimPollen:(World *)world withBeeType:(BeeType *)beeType andVelocity:(CGPoint)velocity
++(Entity *) createAimPollen:(World *)world withBeeType:(BeeType *)beeType velocity:(CGPoint)velocity duration:(float)duration
 {
     Entity *aimPollenEntity = [self createEntity:@"AIM-POLLEN" world:world];
 	
@@ -366,7 +366,7 @@ static const int AIM_POLLEN_LAYERS = 2;
 	RenderComponent *renderComponent = [RenderComponent getFrom:aimPollenEntity];
 	RenderSprite *renderSprite = [[renderComponent renderSprites] objectAtIndex:0];
 	[renderSprite playAnimationLoop:@"Pollen-Yellow-Static"];
-    CCFadeOut *fadeOutAction = [CCFadeOut actionWithDuration:0.8f];
+    CCFadeOut *fadeOutAction = [CCFadeOut actionWithDuration:duration];
     CCCallFunc *callFunctionAction = [CCCallFunc actionWithTarget:aimPollenEntity selector:@selector(deleteEntity)];
     [[renderSprite sprite] runAction:[CCSequence actions:fadeOutAction, callFunctionAction, nil]];
     

@@ -18,6 +18,7 @@ static const int AIM_POLLEN_INTERVAL = 16;
 @synthesize loadedBeeType = _loadedBeeType;
 @synthesize originalRotation = _originalRotation;
 @synthesize rotator = _rotator;
+@synthesize isGogglesActive = _isGogglesActive;
 
 -(id) init
 {

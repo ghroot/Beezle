@@ -29,6 +29,7 @@
 		[_systems addObject:[gameplayState inputSystem]];
 		[_systems addObject:[gameplayState slingerControlSystem]];
 		[_systems addObject:[gameplayState aimPollenShooterSystem]];
+		[_systems addObject:[gameplayState slingerGogglesSystem]];
 		[_systems addObject:[gameplayState freezeSystem]];
 		[_systems addObject:[gameplayState beeaterSystem]];
 		[_systems addObject:[gameplayState capturedSystem]];

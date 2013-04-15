@@ -31,6 +31,7 @@ typedef enum
 	int _aimPollenCountdown;
 	float _originalRotation;
 	SlingerRotator *_rotator;
+	BOOL _isGogglesActive;
 }
 
 @property (nonatomic, readonly) NSArray *queuedBeeTypes;
@@ -38,6 +39,7 @@ typedef enum
 @property (nonatomic, readonly) BeeType *loadedBeeType;
 @property (nonatomic) float originalRotation;
 @property (nonatomic, retain) SlingerRotator *rotator;
+@property (nonatomic) BOOL isGogglesActive;
 
 -(void) pushBeeType:(BeeType *)beeType;
 -(void) insertBeeTypeAtStart:(BeeType *)beeType;

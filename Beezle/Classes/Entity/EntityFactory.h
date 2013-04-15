@@ -23,7 +23,7 @@
 +(Entity *) createEntity:(NSString *)type world:(World *)world;
 
 +(Entity *) createBee:(World *)world withBeeType:(BeeType *)beeType andVelocity:(CGPoint)velocity;
-+(Entity *) createAimPollen:(World *)world withBeeType:(BeeType *)beeType andVelocity:(CGPoint)velocity;
++(Entity *) createAimPollen:(World *)world withBeeType:(BeeType *)beeType velocity:(CGPoint)velocity duration:(float)duration;
 +(Entity *) createMovementIndicator:(World *)world forEntity:(Entity *)entity;
 +(Entity *) createTeleportOutPosition:(World *)world;
 +(Entity *) createSimpleAnimatedEntity:(World *)world;

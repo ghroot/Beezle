@@ -43,6 +43,7 @@
 @class SoundSystem;
 @class DestroySystem;
 @class InteractiveTutorial;
+@class SlingerGogglesSystem;
 
 @interface GameplayState : BeezleGameState
 {
@@ -79,6 +80,7 @@
 	PollenSystem *_pollenSystem;
     SlingerControlSystem *_slingerControlSystem;
 	AimPollenShooterSystem *_aimPollenShooterSystem;
+	SlingerGogglesSystem *_slingerGogglesSystem;
 	DestructControlSystem *_destructControlSystem;
 	FollowControlSystem *_followControlSystem;
 	SpawnSystem *_spawnSystem;
@@ -124,6 +126,7 @@
 @property (nonatomic, readonly) ShakeSystem *shakeSystem;
 @property (nonatomic, readonly) ShardSystem *shardSystem;
 @property (nonatomic, readonly) SlingerControlSystem *slingerControlSystem;
+@property (nonatomic, readonly) SlingerGogglesSystem *slingerGogglesSystem;
 @property (nonatomic, readonly) SoundSystem *soundSystem;
 @property (nonatomic, readonly) SpawnSystem *spawnSystem;
 @property (nonatomic, readonly) TeleportSystem *teleportSystem;
