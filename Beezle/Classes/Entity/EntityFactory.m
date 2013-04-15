@@ -436,7 +436,7 @@ static const int AIM_POLLEN_LAYERS = 2;
 	return entity;
 }
 
-+(Entity *) createShardPieceEntity:(World *)world animationName:(NSString *)animationName smallAnimationNames:(NSArray *)smallAnimationNames spriteSheetName:(NSString *)spriteSheetName animationFile:(NSString *)animationFile
++(Entity *) createShardPieceEntity:(World *)world animationName:(NSString *)animationName smallAnimationNames:(NSArray *)smallAnimationNames spriteSheetName:(NSString *)spriteSheetName animationFile:(NSString *)animationFile shapeSize:(CGSize)shapeSize
 {
 	Entity *entity = [world createEntity];
 
@@ -458,10 +458,10 @@ static const int AIM_POLLEN_LAYERS = 2;
 	NSMutableArray *shapes = [NSMutableArray array];
 	int numVerts = 4;
 	CGPoint verts[] = {
-		cpv(-10.0f, -6.0f),
-		cpv(-10.0f, 6.0f),
-		cpv(10.0f, 6.0f),
-		cpv(10.0f, -6.0f)
+		cpv(-shapeSize.width / 2, -shapeSize.height / 2),
+		cpv(-shapeSize.width / 2, shapeSize.height / 2),
+		cpv(shapeSize.width / 2, shapeSize.height / 2),
+		cpv(shapeSize.width / 2, -shapeSize.height / 2)
 	};
 	for (int i = 0; i < numVerts; i++)
 	{
@@ -475,7 +475,8 @@ static const int AIM_POLLEN_LAYERS = 2;
 	PhysicsComponent *physicsComponent = [PhysicsComponent componentWithBody:body andShapes:shapes];
 	[entity addComponent:physicsComponent];
 
-	if (smallAnimationNames != nil)
+	if (smallAnimationNames != nil &&
+			[smallAnimationNames count] > 0)
 	{
 		// Disposable
 		DisposableComponent *disposableComponent = [DisposableComponent component];
@@ -505,6 +506,11 @@ static const int AIM_POLLEN_LAYERS = 2;
 	[entity refresh];
 
 	return entity;
+}
+
++(Entity *) createShardPieceEntity:(World *)world animationName:(NSString *)animationName smallAnimationNames:(NSArray *)smallAnimationNames spriteSheetName:(NSString *)spriteSheetName animationFile:(NSString *)animationFile
+{
+	return [self createShardPieceEntity:world animationName:animationName smallAnimationNames:smallAnimationNames spriteSheetName:spriteSheetName animationFile:animationFile shapeSize:CGSizeMake(20.0f, 12.0f)];
 }
 
 @end

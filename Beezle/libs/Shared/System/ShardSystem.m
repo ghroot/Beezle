@@ -29,7 +29,6 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 -(NSArray *) generateShardPieceEntityTypes:(Entity *)entity;
 -(int) calculateNumberOfShardPiecesToSpawn:(Entity *)entity;
 -(int) derivePiecesCountFromBoundingBox:(cpBB)boundingBox;
--(CGPoint) getRandomPositionWithinShapes:(NSArray *)shapes boundingBox:(cpBB)boundingBox;
 
 @end
 
@@ -121,7 +120,7 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 		for (Entity *shardPieceEntity in shardPieceEntities)
 		{
 			// Position
-			CGPoint randomPosition = [self getRandomPositionWithinShapes:[physicsComponent shapes] boundingBox:boundingBox];
+			CGPoint randomPosition = [EntityUtil getRandomPositionWithinShapes:[physicsComponent shapes] boundingBox:boundingBox];
 			[EntityUtil setEntityPosition:shardPieceEntity position:randomPosition];
 			
 			// Velocity
@@ -218,25 +217,6 @@ static const float PIECES_FADEOUT_DURATION = 7.0f;
 {
 	float area = (boundingBox.r - boundingBox.l) * (boundingBox.t - boundingBox.b);
 	return (int)(area * DERIVED_PIECES_PER_AREA);
-}
-
--(CGPoint) getRandomPositionWithinShapes:(NSArray *)shapes boundingBox:(cpBB)boundingBox
-{
-	CGPoint randomPosition = CGPointZero;
-	BOOL validPoint = FALSE;
-	while (!validPoint)
-	{
-		randomPosition = CGPointMake(boundingBox.l + rand() % (int)(boundingBox.r - boundingBox.l), boundingBox.b + rand() % (int)(boundingBox.t - boundingBox.b));
-		for (ChipmunkShape *shape in shapes)
-		{
-            ChipmunkNearestPointQueryInfo *queryInfo = [shape nearestPointQuery:randomPosition];
-			if ([queryInfo dist] <= 0)
-			{
-				validPoint = TRUE;
-			}
-		}
-	}
-	return randomPosition;
 }
 
 @end

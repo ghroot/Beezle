@@ -7,6 +7,7 @@
 //
 
 #import "artemis.h"
+#import "ObjectiveChipmunk.h"
 
 @interface EntityUtil : NSObject
 
@@ -32,5 +33,6 @@
 +(void) fadeOutAndDeleteEntity:(Entity *)entity duration:(float)duration;
 +(void) playDefaultCollisionSound:(Entity *)entity;
 +(void) playDefaultDestroySound:(Entity *)entity;
++(CGPoint) getRandomPositionWithinShapes:(NSArray *)shapes boundingBox:(cpBB)boundingBox;
 
 @end

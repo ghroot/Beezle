@@ -156,13 +156,7 @@ static NSString *FULL_VERSION_UPGRADE_PRODUCT_ID = @"com.stinglab.inapp.fullupgr
 
 -(void) provideContent:(NSString *)string
 {
-	if ([string isEqualToString:FULL_VERSION_UPGRADE_PRODUCT_ID])
-	{
-		[[PlayerInformation sharedInformation] markAsUpgradedToFullVersion];
-		[[PlayerInformation sharedInformation] save];
-
-		[_delegate upgradeWasSuccessful];
-	}
+	// TODO
 }
 
 @end

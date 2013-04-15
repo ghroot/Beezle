@@ -10,6 +10,7 @@
 #import "ActionTags.h"
 #import "StringCollection.h"
 #import "ZOrder.h"
+#import "RenderSpriteRotationType.h"
 
 @interface RenderSprite()
 
@@ -25,6 +26,7 @@
 @synthesize name = _name;
 @synthesize scale = _scale;
 @synthesize offset = _offset;
+@synthesize rotationType = _rotationType;
 @synthesize defaultIdleAnimationNames = _defaultIdleAnimationNames;
 @synthesize defaultDestroyAnimationNames = _defaultDestroyAnimationNames;
 @synthesize defaultStillAnimationNames = _defaultStillAnimationNames;
@@ -66,6 +68,7 @@
         _name = @"default";
         _scale = CGPointMake(1.0f, 1.0f);
 		_offset = CGPointZero;
+		_rotationType = ROTATION_TYPE_NORMAL;
 		_defaultIdleAnimationNames = [StringCollection new];
 		_defaultDestroyAnimationNames = [StringCollection new];
 		_defaultStillAnimationNames = [StringCollection new];
@@ -220,6 +223,11 @@
     CCSequence *sequenceAction = [CCSequence actionWithArray:animationActions];
     [sequenceAction setTag:ACTION_TAG_ANIMATION];
     [_sprite runAction:sequenceAction];
+}
+
+-(void) stopAnimation
+{
+	[_sprite stopActionByTag:ACTION_TAG_ANIMATION];
 }
 
 -(BOOL) hasDefaultIdleAnimation

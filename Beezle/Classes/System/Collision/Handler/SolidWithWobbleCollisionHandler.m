@@ -11,6 +11,8 @@
 #import "RenderSprite.h"
 #import "SolidComponent.h"
 #import "WobbleComponent.h"
+#import "DisposableComponent.h"
+#import "EntityUtil.h"
 
 @implementation SolidWithWobbleCollisionHandler
 
@@ -26,6 +28,13 @@
 
 -(BOOL) handleCollisionBetween:(Entity *)firstEntity and:(Entity *)secondEntity collision:(Collision *)collision
 {
+	// TODO: Is there a nicer solution than opting out here?
+	if ([EntityUtil isEntityDisposable:secondEntity] &&
+			[[DisposableComponent getFrom:secondEntity] isAboutToBeDeleted])
+	{
+		return TRUE;
+	}
+
 	WobbleComponent *wobbleComponent = [WobbleComponent getFrom:secondEntity];
 	RenderComponent *renderComponent = [RenderComponent getFrom:secondEntity];
 	RenderSprite *defaultRenderSprite = [renderComponent defaultRenderSprite];

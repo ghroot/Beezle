@@ -20,6 +20,7 @@
     NSString *_name;
     CGPoint _scale;
 	CGPoint _offset;
+	int _rotationType;
 	StringCollection *_defaultIdleAnimationNames;
     StringCollection *_defaultDestroyAnimationNames;
 	StringCollection *_defaultStillAnimationNames;
@@ -31,6 +32,7 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic) CGPoint scale;
 @property (nonatomic) CGPoint offset;
+@property (nonatomic) int rotationType;
 @property (nonatomic, readonly) StringCollection *defaultIdleAnimationNames;
 @property (nonatomic, readonly) StringCollection *defaultDestroyAnimationNames;
 @property (nonatomic, readonly) StringCollection *defaultStillAnimationNames;
@@ -55,6 +57,7 @@
 -(void) playAnimationLoop:(NSString *)animationName;
 -(void) playAnimationsLoopAll:(NSArray *)animationNames;
 -(void) playAnimationsLoopLast:(NSArray *)animationNames;
+-(void) stopAnimation;
 -(BOOL) hasDefaultIdleAnimation;
 -(NSString *) randomDefaultIdleAnimationName;
 -(void) playDefaultIdleAnimation;

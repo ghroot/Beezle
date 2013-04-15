@@ -15,4 +15,6 @@
 	NSMutableArray *_respawnInfos;
 }
 
+-(void) addRespawnInfoForEntity:(Entity *)entity;
+
 @end

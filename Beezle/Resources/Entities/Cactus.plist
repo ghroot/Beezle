@@ -6,6 +6,11 @@
 	<string>CACTUS</string>
 	<key>components</key>
 	<dict>
+        <key>burnable</key>
+        <dict>
+            <key>useDefaultBurnBehaviour</key>
+            <true/>
+        </dict>
         <key>disposable</key>
         <dict>
             <key>deleteEntityWhenDisposed</key>

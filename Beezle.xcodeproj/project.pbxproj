@@ -196,9 +196,6 @@
 		2C198EA116AF50D6006D8333 /* TeleportOutSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F553 /* TeleportOutSprite.m */; };
 		2C198EA216AF50D6006D8333 /* BeeWithTeleportCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F558 /* BeeWithTeleportCollisionHandler.m */; };
 		2C198EA316AF50D6006D8333 /* TeleportInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F55B /* TeleportInfo.m */; };
-		2C198EA416AF50D6006D8333 /* ParticleGroupSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F574 /* ParticleGroupSelectMenuItem.m */; };
-		2C198EA516AF50D6006D8333 /* ParticleSelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F577 /* ParticleSelectIngameMenuState.m */; };
-		2C198EA616AF50D6006D8333 /* ParticleSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F57A /* ParticleSelectMenuItem.m */; };
 		2C198EA716AF50D6006D8333 /* BalloonDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F580 /* BalloonDialog.m */; };
 		2C198EA816AF50D6006D8333 /* TutorialOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5A3 /* TutorialOrganizer.m */; };
 		2C198EA916AF50D6006D8333 /* TutorialDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5A6 /* TutorialDescription.m */; };
@@ -2057,9 +2054,6 @@
 		2C19965516AF50E8006D8333 /* TeleportOutSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F553 /* TeleportOutSprite.m */; };
 		2C19965616AF50E8006D8333 /* BeeWithTeleportCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F558 /* BeeWithTeleportCollisionHandler.m */; };
 		2C19965716AF50E8006D8333 /* TeleportInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F55B /* TeleportInfo.m */; };
-		2C19965816AF50E8006D8333 /* ParticleGroupSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F574 /* ParticleGroupSelectMenuItem.m */; };
-		2C19965916AF50E8006D8333 /* ParticleSelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F577 /* ParticleSelectIngameMenuState.m */; };
-		2C19965A16AF50E8006D8333 /* ParticleSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F57A /* ParticleSelectMenuItem.m */; };
 		2C19965B16AF50E8006D8333 /* BalloonDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F580 /* BalloonDialog.m */; };
 		2C19965C16AF50E8006D8333 /* TutorialOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5A3 /* TutorialOrganizer.m */; };
 		2C19965D16AF50E8006D8333 /* TutorialDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5A6 /* TutorialDescription.m */; };
@@ -2908,6 +2902,18 @@
 		2C276399170A47F5008F75EE /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C0C164C6C6F0012E22B /* vec4.c */; };
 		2C27639A170A4889008F75EE /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A8616FBC5F500401434 /* base64.c */; };
 		2C27639B170A489B008F75EE /* ccUtils.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CC28A9016FBC5F500401434 /* ccUtils.c */; };
+		2C27639E171B4AAB008F75EE /* BurnWithBurnableCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27639D171B4AAB008F75EE /* BurnWithBurnableCollisionHandler.m */; };
+		2C27639F171B4AAB008F75EE /* BurnWithBurnableCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27639D171B4AAB008F75EE /* BurnWithBurnableCollisionHandler.m */; };
+		2C2763A0171B4AAB008F75EE /* BurnWithBurnableCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27639D171B4AAB008F75EE /* BurnWithBurnableCollisionHandler.m */; };
+		2C2763A1171B4AAB008F75EE /* BurnWithBurnableCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27639D171B4AAB008F75EE /* BurnWithBurnableCollisionHandler.m */; };
+		2C2763A6171B4AF8008F75EE /* BurnableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2763A3171B4AF8008F75EE /* BurnableComponent.m */; };
+		2C2763A7171B4AF8008F75EE /* BurnableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2763A3171B4AF8008F75EE /* BurnableComponent.m */; };
+		2C2763A8171B4AF8008F75EE /* BurnableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2763A3171B4AF8008F75EE /* BurnableComponent.m */; };
+		2C2763A9171B4AF8008F75EE /* BurnableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2763A3171B4AF8008F75EE /* BurnableComponent.m */; };
+		2C2763AA171B4AF8008F75EE /* BurnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2763A5171B4AF8008F75EE /* BurnComponent.m */; };
+		2C2763AB171B4AF8008F75EE /* BurnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2763A5171B4AF8008F75EE /* BurnComponent.m */; };
+		2C2763AC171B4AF8008F75EE /* BurnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2763A5171B4AF8008F75EE /* BurnComponent.m */; };
+		2C2763AD171B4AF8008F75EE /* BurnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2763A5171B4AF8008F75EE /* BurnComponent.m */; };
 		2C27E90014D20577002165CD /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8E714D20577002165CD /* Component.m */; };
 		2C27E90114D20577002165CD /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8E914D20577002165CD /* Entity.m */; };
 		2C27E90214D20577002165CD /* EntityComponentSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8EB14D20577002165CD /* EntityComponentSystem.m */; };
@@ -4907,9 +4913,6 @@
 		2CD6B05C164480AD008D834B /* TeleportOutSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F553 /* TeleportOutSprite.m */; };
 		2CD6B05D164480AD008D834B /* BeeWithTeleportCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F558 /* BeeWithTeleportCollisionHandler.m */; };
 		2CD6B05E164480AD008D834B /* TeleportInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F55B /* TeleportInfo.m */; };
-		2CD6B05F164480AD008D834B /* ParticleGroupSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F574 /* ParticleGroupSelectMenuItem.m */; };
-		2CD6B060164480AD008D834B /* ParticleSelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F577 /* ParticleSelectIngameMenuState.m */; };
-		2CD6B061164480AD008D834B /* ParticleSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F57A /* ParticleSelectMenuItem.m */; };
 		2CD6B062164480AD008D834B /* BalloonDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F580 /* BalloonDialog.m */; };
 		2CD6B063164480AD008D834B /* TutorialOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5A3 /* TutorialOrganizer.m */; };
 		2CD6B064164480AD008D834B /* TutorialDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F5A6 /* TutorialDescription.m */; };
@@ -5627,9 +5630,6 @@
 		2CF8E0F61576B45F0052F556 /* Teleporter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F555 /* Teleporter.plist */; };
 		2CF8E0F61576B45F0052F559 /* BeeWithTeleportCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F558 /* BeeWithTeleportCollisionHandler.m */; };
 		2CF8E0F61576B45F0052F55C /* TeleportInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F55B /* TeleportInfo.m */; };
-		2CF8E0F61576B45F0052F575 /* ParticleGroupSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F574 /* ParticleGroupSelectMenuItem.m */; };
-		2CF8E0F61576B45F0052F578 /* ParticleSelectIngameMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F577 /* ParticleSelectIngameMenuState.m */; };
-		2CF8E0F61576B45F0052F57B /* ParticleSelectMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F57A /* ParticleSelectMenuItem.m */; };
 		2CF8E0F61576B45F0052F581 /* BalloonDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F580 /* BalloonDialog.m */; };
 		2CF8E0F61576B45F0052F583 /* Interface-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F582 /* Interface-hd.plist */; };
 		2CF8E0F61576B45F0052F585 /* Interface-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8E0F61576B45F0052F584 /* Interface-hd.png */; };
@@ -5672,6 +5672,7 @@
 		88F16003BF4288DEE2408574 /* AppGratis-Advert-LogowSpeedee-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16D1A5423A8580025BABD /* AppGratis-Advert-LogowSpeedee-hd.png */; };
 		88F1600FA22DB790E7FF2675 /* GameCompletedLiteDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 88F167766B5F18C3837D6EC5 /* GameCompletedLiteDialog.ccbi */; };
 		88F160113700A13924E20945 /* Beeater-Head-Piece-E-4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16F038E4EA4BAF9AA002F /* Beeater-Head-Piece-E-4.plist */; };
+		88F1601752DA7F6EF5B28B4C /* Burnee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1628A8DB29D429786975B /* Burnee.plist */; };
 		88F16019F614E4AEA650A603 /* Beeater-Fish-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1684520035A2A6BACA4CC /* Beeater-Fish-E.plist */; };
 		88F1602AD79647FF84357055 /* AppGratis-Advert-LogowSpeedee-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16D1A5423A8580025BABD /* AppGratis-Advert-LogowSpeedee-hd.png */; };
 		88F1602C3EB15588D48B6C62 /* D34a-Sand.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F160148CF063759CA314B9 /* D34a-Sand.png */; };
@@ -5697,6 +5698,7 @@
 		88F160CB2408B26B5DC27EA0 /* Chooser-Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F1645169D3DF11FAAD581E /* Chooser-Screen.png */; };
 		88F160DDE143CA2D74A07DD8 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F16B225BE44BB79BAE9C48 /* libGoogleAnalytics_debug.a */; };
 		88F160E1DEA23C40FB8CA9B4 /* Beeater-Head-Piece-E-5.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16ABD9515CDC9E44D5F16 /* Beeater-Head-Piece-E-5.plist */; };
+		88F160E7E79BA304560ED569 /* Burn-Parts-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F160B542A3D19813C4329F /* Burn-Parts-Animations.plist */; };
 		88F160E85B5CB5301FED4729 /* End-Completed?-Bee-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F161C7D04907A985C55A96 /* End-Completed?-Bee-1.png */; };
 		88F160FCE81F712192CFA6D8 /* Text-atleastfornow.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16374042A5E8F91FA7AFD /* Text-atleastfornow.png */; };
 		88F16119027447FF728101B8 /* End-GameCompleted!-Bombee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16AD0C16B4AFBA5D5E286 /* End-GameCompleted!-Bombee-1-hd.png */; };
@@ -5707,6 +5709,7 @@
 		88F1616D87C454F0BB877027 /* A42-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F160F176D6E51FACC88FE6 /* A42-Glass-hd.png */; };
 		88F16175D5DBE22B43BD033F /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16C9B4D9ADABB9B6F7B96 /* SSZipArchive.m */; };
 		88F16179FE4FFC9294B0E3B1 /* End-Credits-Thanks-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F1698F7A90BC1C43CF75F1 /* End-Credits-Thanks-hd.png */; };
+		88F1617F5D179BADAB59C2BB /* Burn-Parts-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F160B542A3D19813C4329F /* Burn-Parts-Animations.plist */; };
 		88F16189282C33223F2A9184 /* CCBKeyframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1660F2D5915EC2D7E01CC /* CCBKeyframe.m */; };
 		88F1618B335F62E6619AB82C /* End-Credits-Copyright.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F1621F80BB64251FE58E55 /* End-Credits-Copyright.png */; };
 		88F1618D338A673B9F399DD0 /* ActionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16A01E189F9D6E18B9EC4 /* ActionUtils.m */; };
@@ -5728,6 +5731,7 @@
 		88F16248D32A782B91315052 /* End-GameCompleted!-Speedee-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16974CBC7F5CD2A845958 /* End-GameCompleted!-Speedee-2.png */; };
 		88F162529D1B0C2FA13CE197 /* Text-atleastfornow-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F161C3D84E9028E4F71F8C /* Text-atleastfornow-hd.png */; };
 		88F16255E406AEBD97A25722 /* Glass-Piece-E-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16C74EC0C1E6BF41DBD88 /* Glass-Piece-E-Animations.plist */; };
+		88F16259AD996EF85EF7A0E0 /* Burnee-Puff.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1649728B4F654A86B9EBC /* Burnee-Puff.plist */; };
 		88F1625F14003C8E2205A280 /* Chooser-Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F1645169D3DF11FAAD581E /* Chooser-Screen.png */; };
 		88F1625F58CAC3A1193D18C6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 88F16AE9458458DE41277A98 /* LICENSE */; };
 		88F1626D928AD79695B0FE77 /* SlingerBzzz.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F16EF99D6CA45233C6DCB2 /* SlingerBzzz.caf */; };
@@ -5741,6 +5745,7 @@
 		88F16297395A004C994C29D4 /* E1-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16AFEB78B753575A526D0 /* E1-Glass-hd.png */; };
 		88F1629B5541F97D7B918973 /* End-GameCompleted!-Bee-2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F161AAEA57A39D955CAEF3 /* End-GameCompleted!-Bee-2-hd.png */; };
 		88F162A964664B70ED7C0C44 /* ChooserSlingerBackground-3-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88F1669EDA5390CBA85447D3 /* ChooserSlingerBackground-3-hd.jpg */; };
+		88F162AAD67E33346997D19B /* InAppPurchasesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16DC09FB23A507B2384C4 /* InAppPurchasesManager.m */; };
 		88F162AC0216D31DBAEC56BC /* SlingerBzzz.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F16EF99D6CA45233C6DCB2 /* SlingerBzzz.caf */; };
 		88F162B56B2A97819C0EBA74 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F167F8D9B1C6AA5B156E5F /* libGoogleAnalytics.a */; };
 		88F162BE3973491025C90541 /* E7-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16F5E395CE4ADDB051148 /* E7-Glass-hd.png */; };
@@ -5757,6 +5762,7 @@
 		88F16323316CD4334190823E /* TestCCBState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1662C8B3172E216BBE48D /* TestCCBState.m */; };
 		88F16325B49AF003CEF27A93 /* End-GameCompleted!-Bombee-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F160FAB25BEFC66475BFB9 /* End-GameCompleted!-Bombee-1.png */; };
 		88F16330B220C90F6C072647 /* RespawnInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163E64A26B0A08A307A79 /* RespawnInfo.m */; };
+		88F163420503561DEDDD572C /* Burnee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1628A8DB29D429786975B /* Burnee.plist */; };
 		88F16345F4D4DF0B7E14195C /* Hangnest-Lian-E-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16AB21D4018977E9A8D9F /* Hangnest-Lian-E-Animations.plist */; };
 		88F1635112E8C5E82D9D8026 /* CDXPropertyModifierAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F161731DFFC4E656B29314 /* CDXPropertyModifierAction.m */; };
 		88F16353D418E6A23B38260D /* RespawnInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163E64A26B0A08A307A79 /* RespawnInfo.m */; };
@@ -5783,6 +5789,7 @@
 		88F1644E30BE9724E38541B2 /* End-Credits-Beeaters-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F169C82197EC0F7750C1E5 /* End-Credits-Beeaters-hd.png */; };
 		88F16463EA7A1DF2E91F4D7A /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 88F164891D0F1ABB61338178 /* zip.c */; };
 		88F1646AA21EA7FAB530B747 /* Text-GameCompleted!.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16649DED4295D2D2F280C /* Text-GameCompleted!.png */; };
+		88F16471DB065D1406419C25 /* Burn-Parts-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F160B542A3D19813C4329F /* Burn-Parts-Animations.plist */; };
 		88F1647E1BFB5AFB71AE840A /* End-GameCompleted!-Sumee-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F165326E51E7284B0D5C80 /* End-GameCompleted!-Sumee-1.png */; };
 		88F1647FAB98EBC7760A6038 /* GameCompletedLiteDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F160A26F17B4CB96A04C3F /* GameCompletedLiteDialog.m */; };
 		88F164865D1C2A56D3CCFC5E /* Hangnest-Lian-E-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16AB21D4018977E9A8D9F /* Hangnest-Lian-E-Animations.plist */; };
@@ -5803,6 +5810,7 @@
 		88F1653EF9EBB1B304EC3798 /* ChooserSlingerBackground-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88F162D644973A0DF190144A /* ChooserSlingerBackground-3.jpg */; };
 		88F16543507724931C1A2A76 /* Super-Beeater-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16BE26AA17A8F4C36902F /* Super-Beeater-E.plist */; };
 		88F1654361051393866599EE /* End-GameCompleted!-Sumee-2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16CCC3494E5DC198834BB /* End-GameCompleted!-Sumee-2-hd.png */; };
+		88F16548C73DD477394E4B6B /* Burn-Parts-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F160B542A3D19813C4329F /* Burn-Parts-Animations.plist */; };
 		88F165561C515DAFEEB28517 /* RespawnComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16579ADE2F7B75B98E3D3 /* RespawnComponent.m */; };
 		88F16557175E73AE9E0E5727 /* Game-Completed.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F165077EF3304EA0F2AFA2 /* Game-Completed.caf */; };
 		88F16559CADD2B7AF6FACF64 /* End-GameCompleted!-Sumee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16DDA90CFE1963941ED6A /* End-GameCompleted!-Sumee-1-hd.png */; };
@@ -5814,6 +5822,7 @@
 		88F165AE8E86690C7281B192 /* Text-GameCompleted?-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16EDB05686F37A96063A3 /* Text-GameCompleted?-hd.png */; };
 		88F165AFAA061592B8E431D6 /* DestroyComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16C000DE30862C87C1455 /* DestroyComponent.m */; };
 		88F165CB5EB9D23516F70E6E /* End-GameCompleted!-Bee-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F160193E8134C9F166BF31 /* End-GameCompleted!-Bee-2.png */; };
+		88F165D6DBA6277B3D3956E0 /* Burnee-Puff.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1649728B4F654A86B9EBC /* Burnee-Puff.plist */; };
 		88F165E301A894F95FEEB83C /* Title-s-E.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16B9D2B9E7EE6D24D1D9E /* Title-s-E.png */; };
 		88F165F302D3A62530E02B46 /* Text-GameCompleted!-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16118DC7F9631754CF09E /* Text-GameCompleted!-hd.png */; };
 		88F165F8EC132E3B6BFB2E11 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 88F16362DC7182E48FE452C7 /* mztools.c */; };
@@ -5821,10 +5830,12 @@
 		88F1660907FC9C46A2921BA9 /* A42-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16A1344B4119F754AF8E5 /* A42-Glass.png */; };
 		88F1660B0C5731015C71684F /* LevelThemeSelectBuyFullLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16D5E4F6CE0B80DC274B1 /* LevelThemeSelectBuyFullLayer.m */; };
 		88F1661AA614A69CC316D9B9 /* End-GameCompleted!-Speedee-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F168DD615DE1289CC93BAE /* End-GameCompleted!-Speedee-1.png */; };
+		88F166224AAFA03FF6F3FFD7 /* InAppPurchasesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16DC09FB23A507B2384C4 /* InAppPurchasesManager.m */; };
 		88F1663560F602C4749DBD4F /* GameCompletedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1681F43B4A308CC5FA88D /* GameCompletedDialog.m */; };
 		88F1663B875D41D946EE4D00 /* Beeater-Head-E-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16F4079D06E5186630E12 /* Beeater-Head-E-Animations.plist */; };
 		88F16644F87270C7C743732E /* Beeater-Bird-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F161CFD2135A1F85DBBB64 /* Beeater-Bird-E.plist */; };
 		88F1664DD0E08EEBBA578728 /* Pollen-Magic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16DE4036D4DF45E471D80 /* Pollen-Magic.plist */; };
+		88F1665D7A8201FA23E59642 /* Burnee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1685E474FA513343DD915 /* Burnee-Animations.plist */; };
 		88F166718F3291183DCC168A /* End-GameCompleted!-Bombee-2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16AC82F8276083A785959 /* End-GameCompleted!-Bombee-2-hd.png */; };
 		88F1668C86E48BA9DD4DA8DC /* End-GameCompleted!-Mumee-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F162E766D9334D7CC4E066 /* End-GameCompleted!-Mumee-1.png */; };
 		88F1669692F93C5A1C121563 /* HiddenLevelsFoundDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 88F1628D8065B43990F7479D /* HiddenLevelsFoundDialog.ccbi */; };
@@ -5861,6 +5872,7 @@
 		88F1684B411BC5423F06BE99 /* End-GameCompleted!-Bombee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16AD0C16B4AFBA5D5E286 /* End-GameCompleted!-Bombee-1-hd.png */; };
 		88F1685D301B5C63DDD6F858 /* E10-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16911D60A12BEE586A6AA /* E10-Glass-hd.png */; };
 		88F168648BA9FCAB29D4B36F /* Title-s-E.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16B9D2B9E7EE6D24D1D9E /* Title-s-E.png */; };
+		88F1686DF91D6C33C924B6A5 /* Burnee-Puff.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1649728B4F654A86B9EBC /* Burnee-Puff.plist */; };
 		88F1688D7DB39D23AF7966C6 /* End-Credits-Flowers-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16C88CCAC5A70FB68D483 /* End-Credits-Flowers-hd.png */; };
 		88F1689F175A18B4AC4A4F66 /* BubbleYel-A24.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16DC362DA2996D4A4BB25 /* BubbleYel-A24.png */; };
 		88F1689F9420C8BF91E4550A /* End-GameCompleted!-Sawee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F160E33CC64B2EEECE14F3 /* End-GameCompleted!-Sawee-1-hd.png */; };
@@ -5874,6 +5886,7 @@
 		88F168E77493AA9CAAB12775 /* Text-Congratulations.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F1679AE8FD81E5A2C84971 /* Text-Congratulations.png */; };
 		88F168E7BD7910514BFB35E4 /* E4-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16991BCCDD8A8E174F46E /* E4-Glass.png */; };
 		88F168F35BF3C22A4AE79021 /* SlingerBzzz.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F16EF99D6CA45233C6DCB2 /* SlingerBzzz.caf */; };
+		88F168F4475A512015C36D86 /* Burnee-Puff.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1649728B4F654A86B9EBC /* Burnee-Puff.plist */; };
 		88F168FC54FAE9178E6062F9 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 88F16DF35F4A1F71C5E54EFB /* ioapi.c */; };
 		88F168FCE1615E81E5AFC23D /* End-GameCompleted!-Sawee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F160E33CC64B2EEECE14F3 /* End-GameCompleted!-Sawee-1-hd.png */; };
 		88F169015C02A3F69734877F /* End-GameCompleted!-Sumee-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F163BE772341C643097BFF /* End-GameCompleted!-Sumee-2.png */; };
@@ -5894,6 +5907,7 @@
 		88F169B196C2BB6362B93FA4 /* GameAlmostCompletedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 88F16B9AACB3E9960FA7B2F9 /* GameAlmostCompletedDialog.ccbi */; };
 		88F169BA7B7979D5CD829E84 /* Text-atleastfornow-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F161C3D84E9028E4F71F8C /* Text-atleastfornow-hd.png */; };
 		88F169C6E981D8CD04ECAA7A /* GameCompletedLiteDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F160A26F17B4CB96A04C3F /* GameCompletedLiteDialog.m */; };
+		88F169D44363526F28037ECF /* Burnee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1628A8DB29D429786975B /* Burnee.plist */; };
 		88F169DE92B797D47B490B1A /* Beeater-Head-Piece-E-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16BEBF72371BBB36EECE5 /* Beeater-Head-Piece-E-2.plist */; };
 		88F169ED4910170E1BC879A1 /* End-GameCompleted!-Bee-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F160193E8134C9F166BF31 /* End-GameCompleted!-Bee-2.png */; };
 		88F169F1212D1A39A635CAF1 /* End-GameCompleted!-TBee-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F167B5FE92D439C818D1CB /* End-GameCompleted!-TBee-2.png */; };
@@ -5906,6 +5920,7 @@
 		88F16A4D381ACB6F2882B2D9 /* End-GameCompleted!-Bee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F167FAAECC7C61E9C4801E /* End-GameCompleted!-Bee-1-hd.png */; };
 		88F16A5138AA852FA56DA0F5 /* CreditsDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16E5EAFAE797A8C2419F2 /* CreditsDialog.m */; };
 		88F16A53A6D1D7CD5398561E /* TestCCBState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1662C8B3172E216BBE48D /* TestCCBState.m */; };
+		88F16A699496AEC67C2C260D /* Burnee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1685E474FA513343DD915 /* Burnee-Animations.plist */; };
 		88F16A6AA8364E7DF1954572 /* End-GameCompleted!-Sawee-2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F168EA0B6C973E97AEBA67 /* End-GameCompleted!-Sawee-2-hd.png */; };
 		88F16A72BEE3B13B4CA69C4C /* E5-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F169648E58E89122BC6E4A /* E5-Glass-hd.png */; };
 		88F16A83796B62B29F5151C4 /* numberImages-xs.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16C93B79912674A6680EA /* numberImages-xs.png */; };
@@ -5915,6 +5930,7 @@
 		88F16AFB83A4CCFEBF3B81C1 /* End-GameCompleted!-Speedee-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F168DD615DE1289CC93BAE /* End-GameCompleted!-Speedee-1.png */; };
 		88F16B044BE225A84E6036F7 /* Beeater-Head-Piece-E-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F169AFCA0966AE4AEBC1CA /* Beeater-Head-Piece-E-1.plist */; };
 		88F16B0B497F0AFD184C7883 /* ThemeSelect-E.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 88F161512DB9EA7E77E5FF61 /* ThemeSelect-E.ccbi */; };
+		88F16B0C64F8236C03C0802C /* Burnee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1628A8DB29D429786975B /* Burnee.plist */; };
 		88F16B286CD44C064458A359 /* End-Credits-StingLabLogo-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16460284B5F105106134C /* End-Credits-StingLabLogo-hd.png */; };
 		88F16B49ADF92BAC293736E7 /* End-GameCompleted!-Bombee-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16C74E9EAE85D46E87EFB /* End-GameCompleted!-Bombee-2.png */; };
 		88F16B5DF0468E0D06ED0460 /* CDXPropertyModifierAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F161731DFFC4E656B29314 /* CDXPropertyModifierAction.m */; };
@@ -5935,6 +5951,7 @@
 		88F16C506F6AF5A6C8A942C2 /* Credits.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 88F16682A9EEF3A90FA48485 /* Credits.ccbi */; };
 		88F16C608705B4261B5574BC /* End-GameCompleted!-TBee-2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16938C86A7FBD8EF1C54F /* End-GameCompleted!-TBee-2-hd.png */; };
 		88F16C80189194A59E54A326 /* DestroySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F162DA675659E97F1FFE77 /* DestroySystem.m */; };
+		88F16C80643EBA8ECB4A1CDF /* Burnee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1685E474FA513343DD915 /* Burnee-Animations.plist */; };
 		88F16C841C76068646FE287F /* Beeater-Hanging-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1695793BA8C41FAC26A53 /* Beeater-Hanging-E.plist */; };
 		88F16C88A0C6FB390123323B /* End-Credits-Flowers.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F166D41C7B322C91D4E190 /* End-Credits-Flowers.png */; };
 		88F16C8D2690199F4A4B8CC7 /* E9-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16645017484B2701E87F1 /* E9-Glass-hd.png */; };
@@ -5944,6 +5961,7 @@
 		88F16CD8DE672A9CD464D7E5 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 88F164891D0F1ABB61338178 /* zip.c */; };
 		88F16CD8E1FD78BBBCBB7911 /* End-GameCompleted!-Speedee-2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16DDE78ECCDDAEF968062 /* End-GameCompleted!-Speedee-2-hd.png */; };
 		88F16CE761A2F4AC60527055 /* End-GameCompleted!-TBee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F163866FEF28DCC31BD6E3 /* End-GameCompleted!-TBee-1-hd.png */; };
+		88F16CE939E2C41E0AF7CC4E /* InAppPurchasesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16DC09FB23A507B2384C4 /* InAppPurchasesManager.m */; };
 		88F16CEB3D79032A5B974A4D /* ChooserSlingerBackground-3-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88F1669EDA5390CBA85447D3 /* ChooserSlingerBackground-3-hd.jpg */; };
 		88F16CF0E94825812C367F0C /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F16B225BE44BB79BAE9C48 /* libGoogleAnalytics_debug.a */; };
 		88F16CF3A46C5D1DC6F04CB9 /* ResetMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16ADD85C05C77F25BDC9D /* ResetMenuState.m */; };
@@ -5977,7 +5995,9 @@
 		88F16E3ACF8E8462EB51105C /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16D66507EF501BB695D95 /* Logger.m */; };
 		88F16E3DBCC71733313DA034 /* GameAlmostCompletedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16D82FAA5666D3ABB3249 /* GameAlmostCompletedDialog.m */; };
 		88F16E5BE74AA68E3BBC32C1 /* Credits.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 88F16682A9EEF3A90FA48485 /* Credits.ccbi */; };
+		88F16E5E93AD0D5EB5577D50 /* Burnee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F1685E474FA513343DD915 /* Burnee-Animations.plist */; };
 		88F16E71AF9B8BB1FED6FA5F /* CCBsequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16B5F0C128CBE3858CB5A /* CCBsequence.m */; };
+		88F16E79D3BDFA62D677DB0E /* InAppPurchasesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16DC09FB23A507B2384C4 /* InAppPurchasesManager.m */; };
 		88F16E8164305EAF77334093 /* A42-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F160F176D6E51FACC88FE6 /* A42-Glass-hd.png */; };
 		88F16E919856954BBF295B46 /* SoundSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16FD321481DE983D51F22 /* SoundSystem.m */; };
 		88F16E9393E3D05160731580 /* LevelThemeSelectBuyFullLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16D5E4F6CE0B80DC274B1 /* LevelThemeSelectBuyFullLayer.m */; };
@@ -6182,6 +6202,12 @@
 		2C114748148B9459002E4DBD /* LICENSE_Kazmath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE_Kazmath.txt; path = libs/LICENSE_Kazmath.txt; sourceTree = "<group>"; };
 		2C1995A016AF50D6006D8333 /* Stingy Bees Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stingy Bees Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C19999A16AF50E8006D8333 /* Stingy Bees Lite Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stingy Bees Lite Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C27639C171B4AAB008F75EE /* BurnWithBurnableCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnWithBurnableCollisionHandler.h; sourceTree = "<group>"; };
+		2C27639D171B4AAB008F75EE /* BurnWithBurnableCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnWithBurnableCollisionHandler.m; sourceTree = "<group>"; };
+		2C2763A2171B4AF8008F75EE /* BurnableComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnableComponent.h; sourceTree = "<group>"; };
+		2C2763A3171B4AF8008F75EE /* BurnableComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnableComponent.m; sourceTree = "<group>"; };
+		2C2763A4171B4AF8008F75EE /* BurnComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnComponent.h; sourceTree = "<group>"; };
+		2C2763A5171B4AF8008F75EE /* BurnComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnComponent.m; sourceTree = "<group>"; };
 		2C27E8E514D20577002165CD /* artemis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = artemis.h; sourceTree = "<group>"; };
 		2C27E8E614D20577002165CD /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 		2C27E8E714D20577002165CD /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Component.m; sourceTree = "<group>"; };
@@ -8159,12 +8185,6 @@
 		2CF8E0F61576B45F0052F558 /* BeeWithTeleportCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeWithTeleportCollisionHandler.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F55A /* TeleportInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeleportInfo.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F55B /* TeleportInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeleportInfo.m; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F573 /* ParticleGroupSelectMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleGroupSelectMenuItem.h; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F574 /* ParticleGroupSelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleGroupSelectMenuItem.m; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F576 /* ParticleSelectIngameMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSelectIngameMenuState.h; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F577 /* ParticleSelectIngameMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSelectIngameMenuState.m; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F579 /* ParticleSelectMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSelectMenuItem.h; sourceTree = "<group>"; };
-		2CF8E0F61576B45F0052F57A /* ParticleSelectMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSelectMenuItem.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F57F /* BalloonDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalloonDialog.h; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F580 /* BalloonDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalloonDialog.m; sourceTree = "<group>"; };
 		2CF8E0F61576B45F0052F582 /* Interface-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Interface-hd.plist"; sourceTree = "<group>"; };
@@ -8226,6 +8246,7 @@
 		88F16077E5C41B0D3E03EF00 /* Level-E8-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Level-E8-Layout.plist"; sourceTree = "<group>"; };
 		88F1609041D472D74B85C3EF /* CCBKeyframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBKeyframe.h; sourceTree = "<group>"; };
 		88F160A26F17B4CB96A04C3F /* GameCompletedLiteDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCompletedLiteDialog.m; sourceTree = "<group>"; };
+		88F160B542A3D19813C4329F /* Burn-Parts-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Burn-Parts-Animations.plist"; sourceTree = "<group>"; };
 		88F160BF3D081E70DE74B452 /* E5-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E5-Glass.png"; sourceTree = "<group>"; };
 		88F160CB166D2379FD307433 /* GameCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterManager.h; sourceTree = "<group>"; };
 		88F160DD1014B091DFCB9284 /* End-Completed?-Bee-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Completed?-Bee-1-hd.png"; sourceTree = "<group>"; };
@@ -8237,6 +8258,7 @@
 		88F16140306989BA9657DF1E /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = libs/GoogleAnalytics/GAITrackedViewController.h; sourceTree = "<group>"; };
 		88F161512DB9EA7E77E5FF61 /* ThemeSelect-E.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file.ccbi; path = "ThemeSelect-E.ccbi"; sourceTree = "<group>"; };
 		88F1615A37B0FC37A051849C /* E8-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E8-Glass.png"; sourceTree = "<group>"; };
+		88F1616151FDE0613BD1CB0B /* RenderSpriteRotationType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderSpriteRotationType.h; sourceTree = "<group>"; };
 		88F16161910AECEB4C817B06 /* Tutorial-Lite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = "Tutorial-Lite.plist"; path = "Resources/Tutorial-Lite.plist"; sourceTree = "<group>"; };
 		88F161731DFFC4E656B29314 /* CDXPropertyModifierAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDXPropertyModifierAction.m; sourceTree = "<group>"; };
 		88F161954D9E371E1B898DE0 /* Text-…but more bees-Lite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Text-…but more bees-Lite.png"; sourceTree = "<group>"; };
@@ -8248,12 +8270,14 @@
 		88F161CFD2135A1F85DBBB64 /* Beeater-Bird-E.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Beeater-Bird-E.plist"; sourceTree = "<group>"; };
 		88F161DB5B41A8535A9F70C7 /* Hangnest-E.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Hangnest-E.plist"; sourceTree = "<group>"; };
 		88F161ED53CADE207CEB8410 /* Glass-Piece-Small-E.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Glass-Piece-Small-E.plist"; sourceTree = "<group>"; };
+		88F162080952553BD65C606D /* InAppPurchasesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPurchasesManager.h; sourceTree = "<group>"; };
 		88F162180D8EED3511FB7131 /* CCNode+CCBRelativePositioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+CCBRelativePositioning.m"; sourceTree = "<group>"; };
 		88F16218AE09A08E66BB8854 /* End-Credits-Bees-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-Bees-hd.png"; sourceTree = "<group>"; };
 		88F1621F80BB64251FE58E55 /* End-Credits-Copyright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-Copyright.png"; sourceTree = "<group>"; };
 		88F162367B9FDD62526A85A8 /* RespawnInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespawnInfo.h; sourceTree = "<group>"; };
 		88F1625980982F54EC65F686 /* TestCreditsState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCreditsState.h; sourceTree = "<group>"; };
 		88F16280D09097CFF6C69201 /* Glass-E.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Glass-E.plist"; sourceTree = "<group>"; };
+		88F1628A8DB29D429786975B /* Burnee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Burnee.plist; sourceTree = "<group>"; };
 		88F1628D8065B43990F7479D /* HiddenLevelsFoundDialog.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file.ccbi; path = HiddenLevelsFoundDialog.ccbi; sourceTree = "<group>"; };
 		88F162930A97BC78B86C9415 /* End-Credits-StingLabLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-StingLabLogo.png"; sourceTree = "<group>"; };
 		88F1629A925728F553823AF3 /* BeezleNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeezleNavigationViewController.h; sourceTree = "<group>"; };
@@ -8291,6 +8315,7 @@
 		88F16460284B5F105106134C /* End-Credits-StingLabLogo-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-StingLabLogo-hd.png"; sourceTree = "<group>"; };
 		88F164891D0F1ABB61338178 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zip.c; path = libs/SSZipArchive/minizip/zip.c; sourceTree = "<group>"; };
 		88F1648A34B7527215B86288 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
+		88F1649728B4F654A86B9EBC /* Burnee-Puff.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Burnee-Puff.plist"; sourceTree = "<group>"; };
 		88F164B2EF1E6C587405CB37 /* Glass-Piece-E.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Glass-Piece-E.plist"; sourceTree = "<group>"; };
 		88F164F3159EC647194FD383 /* CCBAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBAnimationManager.h; sourceTree = "<group>"; };
 		88F165077EF3304EA0F2AFA2 /* Game-Completed.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = "Game-Completed.caf"; sourceTree = "<group>"; };
@@ -8341,6 +8366,7 @@
 		88F168284202793BF9E5ECCA /* Level-E6-Layout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Level-E6-Layout.plist"; sourceTree = "<group>"; };
 		88F1684520035A2A6BACA4CC /* Beeater-Fish-E.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Beeater-Fish-E.plist"; sourceTree = "<group>"; };
 		88F168529EF00671440C34CC /* E2-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E2-Glass-hd.png"; sourceTree = "<group>"; };
+		88F1685E474FA513343DD915 /* Burnee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Burnee-Animations.plist"; sourceTree = "<group>"; };
 		88F16862B024CCCF4A961DC8 /* GameCompletedLiteDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCompletedLiteDialog.h; sourceTree = "<group>"; };
 		88F168B5C77FBDADCE0AE326 /* GameAlmostCompletedDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameAlmostCompletedDialog.h; sourceTree = "<group>"; };
 		88F168DC6C0E7D12DB48A61D /* HiddenLevelsFoundDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HiddenLevelsFoundDialog.m; sourceTree = "<group>"; };
@@ -8420,6 +8446,7 @@
 		88F16D9B8B47FEF5392C608F /* ApplicationIds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationIds.h; sourceTree = "<group>"; };
 		88F16DAADC30014B5F54E8EA /* RespawnSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespawnSystem.h; sourceTree = "<group>"; };
 		88F16DAD60252C8CCE613928 /* ResetMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetMenuState.h; sourceTree = "<group>"; };
+		88F16DC09FB23A507B2384C4 /* InAppPurchasesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurchasesManager.m; sourceTree = "<group>"; };
 		88F16DC362DA2996D4A4BB25 /* BubbleYel-A24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleYel-A24.png"; sourceTree = "<group>"; };
 		88F16DC53204B60855B30840 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ioapi.h; path = libs/SSZipArchive/minizip/ioapi.h; sourceTree = "<group>"; };
 		88F16DCF58C8CBC8C2B25A4A /* CCNode+CCBRelativePositioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+CCBRelativePositioning.h"; sourceTree = "<group>"; };
@@ -10370,28 +10397,8 @@
 		2C74B40B156FAD1E00596A22 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				2CF8E0F61576B45F0052F55B /* TeleportInfo.m */,
-				2CF8E0F61576B45F0052F55A /* TeleportInfo.h */,
-				2CF8E0F61576B45F0052F54D /* TeleportComponent.m */,
-				2CF8E0F61576B45F0052F54C /* TeleportComponent.h */,
-				2CF8E0F61576B45F0052F522 /* SpiritComponent.m */,
-				2CF8E0F61576B45F0052F521 /* SpiritComponent.h */,
-				2CF8E0F61576B45F0052F51F /* PossessComponent.m */,
-				2CF8E0F61576B45F0052F51E /* PossessComponent.h */,
-				2CF8E0F61576B45F0052F47C /* SandComponent.m */,
-				2CF8E0F61576B45F0052F47B /* SandComponent.h */,
-				2CF8E0F61576B45F0052F3B1 /* ArmoredComponent.m */,
 				2CF8E0F61576B45F0052F3B0 /* ArmoredComponent.h */,
-				2CF8E0F61576B45F0052F3AE /* SpikeComponent.m */,
-				2CF8E0F61576B45F0052F3AD /* SpikeComponent.h */,
-				2CF8E0F61576B45F0052F399 /* PulverizeComponent.m */,
-				2CF8E0F61576B45F0052F398 /* PulverizeComponent.h */,
-				2CF8E0F61576B45F0052F396 /* PulverizableComponent.m */,
-				2CF8E0F61576B45F0052F395 /* PulverizableComponent.h */,
-				2CF8E0F61576B45F0052F34D /* FadeComponent.h */,
-				2CF8E0F61576B45F0052F34B /* FadeComponent.m */,
-				2CF8E0F61576B45F0052F33C /* FollowComponent.h */,
-				2CF8E0F61576B45F0052F33A /* FollowComponent.m */,
+				2CF8E0F61576B45F0052F3B1 /* ArmoredComponent.m */,
 				2C74B40C156FAD1E00596A22 /* BeeaterComponent.h */,
 				2C74B40D156FAD1E00596A22 /* BeeaterComponent.m */,
 				2C74B40E156FAD1E00596A22 /* BeeComponent.h */,
@@ -10402,6 +10409,10 @@
 				2C74B413156FAD1E00596A22 /* BreakableComponent.m */,
 				2C74B414156FAD1E00596A22 /* BrittleComponent.h */,
 				2C74B415156FAD1E00596A22 /* BrittleComponent.m */,
+				2C2763A2171B4AF8008F75EE /* BurnableComponent.h */,
+				2C2763A3171B4AF8008F75EE /* BurnableComponent.m */,
+				2C2763A4171B4AF8008F75EE /* BurnComponent.h */,
+				2C2763A5171B4AF8008F75EE /* BurnComponent.m */,
 				2C74B416156FAD1E00596A22 /* CapturedComponent.h */,
 				2C74B417156FAD1E00596A22 /* CapturedComponent.m */,
 				2C74B41A156FAD1E00596A22 /* CrumbleComponent.h */,
@@ -10411,18 +10422,42 @@
 				2C74B41E156FAD1E00596A22 /* Edit */,
 				2C74B421156FAD1E00596A22 /* ExplodeComponent.h */,
 				2C74B422156FAD1E00596A22 /* ExplodeComponent.m */,
+				2CF8E0F61576B45F0052F34D /* FadeComponent.h */,
+				2CF8E0F61576B45F0052F34B /* FadeComponent.m */,
+				2CF8E0F61576B45F0052F33C /* FollowComponent.h */,
+				2CF8E0F61576B45F0052F33A /* FollowComponent.m */,
 				2C74B423156FAD1E00596A22 /* FreezableComponent.h */,
 				2C74B424156FAD1E00596A22 /* FreezableComponent.m */,
 				2C74B425156FAD1E00596A22 /* FreezeComponent.h */,
 				2C74B426156FAD1E00596A22 /* FreezeComponent.m */,
 				2C74B427156FAD1E00596A22 /* PollenComponent.h */,
 				2C74B428156FAD1E00596A22 /* PollenComponent.m */,
+				2CF8E0F61576B45F0052F51E /* PossessComponent.h */,
+				2CF8E0F61576B45F0052F51F /* PossessComponent.m */,
+				2CF8E0F61576B45F0052F395 /* PulverizableComponent.h */,
+				2CF8E0F61576B45F0052F396 /* PulverizableComponent.m */,
+				2CF8E0F61576B45F0052F398 /* PulverizeComponent.h */,
+				2CF8E0F61576B45F0052F399 /* PulverizeComponent.m */,
+				88F162BF9CACBBB551BFDB2E /* RespawnComponent.h */,
+				88F16579ADE2F7B75B98E3D3 /* RespawnComponent.m */,
+				88F162367B9FDD62526A85A8 /* RespawnInfo.h */,
+				88F163E64A26B0A08A307A79 /* RespawnInfo.m */,
+				2CF8E0F61576B45F0052F47B /* SandComponent.h */,
+				2CF8E0F61576B45F0052F47C /* SandComponent.m */,
 				2C74B429156FAD1E00596A22 /* SawComponent.h */,
 				2C74B42A156FAD1E00596A22 /* SawComponent.m */,
 				2C74B42B156FAD1E00596A22 /* SlingerComponent.h */,
 				2C74B42C156FAD1E00596A22 /* SlingerComponent.m */,
 				2C74B42D156FAD1E00596A22 /* SolidComponent.h */,
 				2C74B42E156FAD1E00596A22 /* SolidComponent.m */,
+				2CF8E0F61576B45F0052F3AD /* SpikeComponent.h */,
+				2CF8E0F61576B45F0052F3AE /* SpikeComponent.m */,
+				2CF8E0F61576B45F0052F521 /* SpiritComponent.h */,
+				2CF8E0F61576B45F0052F522 /* SpiritComponent.m */,
+				2CF8E0F61576B45F0052F54C /* TeleportComponent.h */,
+				2CF8E0F61576B45F0052F54D /* TeleportComponent.m */,
+				2CF8E0F61576B45F0052F55A /* TeleportInfo.h */,
+				2CF8E0F61576B45F0052F55B /* TeleportInfo.m */,
 				2C74B42F156FAD1E00596A22 /* TrajectoryComponent.h */,
 				2C74B430156FAD1E00596A22 /* TrajectoryComponent.m */,
 				2C74B431156FAD1E00596A22 /* VoidComponent.h */,
@@ -10435,10 +10470,6 @@
 				2C74B438156FAD1E00596A22 /* WobbleComponent.m */,
 				2C74B439156FAD1E00596A22 /* WoodComponent.h */,
 				2C74B43A156FAD1E00596A22 /* WoodComponent.m */,
-				88F16579ADE2F7B75B98E3D3 /* RespawnComponent.m */,
-				88F162BF9CACBBB551BFDB2E /* RespawnComponent.h */,
-				88F163E64A26B0A08A307A79 /* RespawnInfo.m */,
-				88F162367B9FDD62526A85A8 /* RespawnInfo.h */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -10636,12 +10667,6 @@
 		2C74B46B156FAD1E00596A22 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
-				2CF8E0F61576B45F0052F57A /* ParticleSelectMenuItem.m */,
-				2CF8E0F61576B45F0052F579 /* ParticleSelectMenuItem.h */,
-				2CF8E0F61576B45F0052F577 /* ParticleSelectIngameMenuState.m */,
-				2CF8E0F61576B45F0052F576 /* ParticleSelectIngameMenuState.h */,
-				2CF8E0F61576B45F0052F574 /* ParticleGroupSelectMenuItem.m */,
-				2CF8E0F61576B45F0052F573 /* ParticleGroupSelectMenuItem.h */,
 				2CF8E0F61576B45F0052F3C6 /* EntitySelectMenuItem.m */,
 				2CF8E0F61576B45F0052F3C5 /* EntitySelectMenuItem.h */,
 				2CF8E0F61576B45F0052F3C3 /* EntityGroupSelectMenuItem.m */,
@@ -10723,22 +10748,24 @@
 		2C74B495156FAD1E00596A22 /* Handler */ = {
 			isa = PBXGroup;
 			children = (
-				2CF8E0F61576B45F0052F558 /* BeeWithTeleportCollisionHandler.m */,
-				2CF8E0F61576B45F0052F557 /* BeeWithTeleportCollisionHandler.h */,
-				2CF8E0F61576B45F0052F525 /* PossessWithSpiritCollisionHandler.m */,
-				2CF8E0F61576B45F0052F524 /* PossessWithSpiritCollisionHandler.h */,
-				2CF8E0F61576B45F0052F3B4 /* BeeWithSpikeCollisionHandler.m */,
-				2CF8E0F61576B45F0052F3B3 /* BeeWithSpikeCollisionHandler.h */,
-				2CF8E0F61576B45F0052F39C /* PulverizeWithPulverizableCollisionHandler.m */,
-				2CF8E0F61576B45F0052F39B /* PulverizeWithPulverizableCollisionHandler.h */,
 				2C74B496156FAD1E00596A22 /* AnythingWithVoidCollisionHandler.h */,
 				2C74B497156FAD1E00596A22 /* AnythingWithVoidCollisionHandler.m */,
 				2C74B498156FAD1E00596A22 /* AnythingWithVolatileCollisionHandler.h */,
 				2C74B499156FAD1E00596A22 /* AnythingWithVolatileCollisionHandler.m */,
 				2C74B49A156FAD1E00596A22 /* BeeWithBeeaterCollisionHandler.h */,
 				2C74B49B156FAD1E00596A22 /* BeeWithBeeaterCollisionHandler.m */,
+				2CF8E0F61576B45F0052F3B3 /* BeeWithSpikeCollisionHandler.h */,
+				2CF8E0F61576B45F0052F3B4 /* BeeWithSpikeCollisionHandler.m */,
+				2CF8E0F61576B45F0052F557 /* BeeWithTeleportCollisionHandler.h */,
+				2CF8E0F61576B45F0052F558 /* BeeWithTeleportCollisionHandler.m */,
+				2C27639C171B4AAB008F75EE /* BurnWithBurnableCollisionHandler.h */,
+				2C27639D171B4AAB008F75EE /* BurnWithBurnableCollisionHandler.m */,
 				2C74B49E156FAD1E00596A22 /* DozerWithCrumbleCollisionHandler.h */,
 				2C74B49F156FAD1E00596A22 /* DozerWithCrumbleCollisionHandler.m */,
+				2CF8E0F61576B45F0052F524 /* PossessWithSpiritCollisionHandler.h */,
+				2CF8E0F61576B45F0052F525 /* PossessWithSpiritCollisionHandler.m */,
+				2CF8E0F61576B45F0052F39B /* PulverizeWithPulverizableCollisionHandler.h */,
+				2CF8E0F61576B45F0052F39C /* PulverizeWithPulverizableCollisionHandler.m */,
 				2C74B4A0156FAD1E00596A22 /* SawWithWoodCollisionHandler.h */,
 				2C74B4A1156FAD1E00596A22 /* SawWithWoodCollisionHandler.m */,
 				2C74B4A2156FAD1E00596A22 /* SolidWithBoostCollisionHandler.h */,
@@ -10829,6 +10856,8 @@
 				2CF8E0F61576B45F0052F60B /* MemoryManager.m */,
 				2C74B4CE156FAD1E00596A22 /* SessionTracker.h */,
 				2C74B4CF156FAD1E00596A22 /* SessionTracker.m */,
+				88F162080952553BD65C606D /* InAppPurchasesManager.h */,
+				88F16DC09FB23A507B2384C4 /* InAppPurchasesManager.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -10878,6 +10907,7 @@
 				2C74B536156FAD3900596A22 /* RenderComponent.m */,
 				2C74B537156FAD3900596A22 /* RenderSprite.h */,
 				2C74B538156FAD3900596A22 /* RenderSprite.m */,
+				88F1616151FDE0613BD1CB0B /* RenderSpriteRotationType.h */,
 			);
 			path = Render;
 			sourceTree = "<group>";
@@ -11070,6 +11100,7 @@
 				2C8409CA15829AA10098BA9C /* Ramp */,
 				2C8409CD15829AA10098BA9C /* Sling-Animations.plist */,
 				2C8409CF15829AA10098BA9C /* Wood-Animations.plist */,
+				88F160B542A3D19813C4329F /* Burn-Parts-Animations.plist */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -11085,6 +11116,7 @@
 				2C84099D15829AA10098BA9C /* Speedee-Animations.plist */,
 				2C84099E15829AA10098BA9C /* Sumee-Animations.plist */,
 				2C84099F15829AA10098BA9C /* Tbee-Animations.plist */,
+				88F1685E474FA513343DD915 /* Burnee-Animations.plist */,
 			);
 			path = Bee;
 			sourceTree = "<group>";
@@ -11837,6 +11869,8 @@
 				2CE4F53D153CC8A80023B5C6 /* Speedee.plist */,
 				2CE4F53E153CC8A80023B5C6 /* Sumee.plist */,
 				2C7B1C661559C8CC00AF0026 /* Tbee.plist */,
+				88F1649728B4F654A86B9EBC /* Burnee-Puff.plist */,
+				88F1628A8DB29D429786975B /* Burnee.plist */,
 			);
 			path = Bee;
 			sourceTree = "<group>";
@@ -14228,6 +14262,10 @@
 				88F16003BF4288DEE2408574 /* AppGratis-Advert-LogowSpeedee-hd.png in Resources */,
 				88F16BC53CA2859E303D23A0 /* AppGratis-Advert-LogowSpeedee.png in Resources */,
 				88F1626D928AD79695B0FE77 /* SlingerBzzz.caf in Resources */,
+				88F168F4475A512015C36D86 /* Burnee-Puff.plist in Resources */,
+				88F163420503561DEDDD572C /* Burnee.plist in Resources */,
+				88F1665D7A8201FA23E59642 /* Burnee-Animations.plist in Resources */,
+				88F1617F5D179BADAB59C2BB /* Burn-Parts-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -14890,6 +14928,10 @@
 				2CC0F17516E564BB00036E33 /* PlayScene-Lite-hd.jpg in Resources */,
 				2CC0F17716E564BB00036E33 /* PlayScene-Lite.jpg in Resources */,
 				88F162AC0216D31DBAEC56BC /* SlingerBzzz.caf in Resources */,
+				88F165D6DBA6277B3D3956E0 /* Burnee-Puff.plist in Resources */,
+				88F1601752DA7F6EF5B28B4C /* Burnee.plist in Resources */,
+				88F16C80643EBA8ECB4A1CDF /* Burnee-Animations.plist in Resources */,
+				88F160E7E79BA304560ED569 /* Burn-Parts-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -15560,6 +15602,10 @@
 				2CC0F17616E564BB00036E33 /* PlayScene-Lite-hd.jpg in Resources */,
 				2CC0F17816E564BB00036E33 /* PlayScene-Lite.jpg in Resources */,
 				88F16493C37DE02F3377324C /* SlingerBzzz.caf in Resources */,
+				88F1686DF91D6C33C924B6A5 /* Burnee-Puff.plist in Resources */,
+				88F16B0C64F8236C03C0802C /* Burnee.plist in Resources */,
+				88F16E5E93AD0D5EB5577D50 /* Burnee-Animations.plist in Resources */,
+				88F16471DB065D1406419C25 /* Burn-Parts-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -17177,6 +17223,10 @@
 				88F1602AD79647FF84357055 /* AppGratis-Advert-LogowSpeedee-hd.png in Resources */,
 				88F16A9428DC988CBB23F040 /* AppGratis-Advert-LogowSpeedee.png in Resources */,
 				88F168F35BF3C22A4AE79021 /* SlingerBzzz.caf in Resources */,
+				88F16259AD996EF85EF7A0E0 /* Burnee-Puff.plist in Resources */,
+				88F169D44363526F28037ECF /* Burnee.plist in Resources */,
+				88F16A699496AEC67C2C260D /* Burnee-Animations.plist in Resources */,
+				88F16548C73DD477394E4B6B /* Burn-Parts-Animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -17502,9 +17552,6 @@
 				2C198EA116AF50D6006D8333 /* TeleportOutSprite.m in Sources */,
 				2C198EA216AF50D6006D8333 /* BeeWithTeleportCollisionHandler.m in Sources */,
 				2C198EA316AF50D6006D8333 /* TeleportInfo.m in Sources */,
-				2C198EA416AF50D6006D8333 /* ParticleGroupSelectMenuItem.m in Sources */,
-				2C198EA516AF50D6006D8333 /* ParticleSelectIngameMenuState.m in Sources */,
-				2C198EA616AF50D6006D8333 /* ParticleSelectMenuItem.m in Sources */,
 				2C198EA716AF50D6006D8333 /* BalloonDialog.m in Sources */,
 				2C198EA816AF50D6006D8333 /* TutorialOrganizer.m in Sources */,
 				2C198EA916AF50D6006D8333 /* TutorialDescription.m in Sources */,
@@ -17673,6 +17720,10 @@
 				2CC28BF516FBC5F500401434 /* TGAlib.m in Sources */,
 				2CC28BF916FBC5F500401434 /* TransformUtils.m in Sources */,
 				2CC28BFD16FBC5F500401434 /* ZipUtils.m in Sources */,
+				2C27639E171B4AAB008F75EE /* BurnWithBurnableCollisionHandler.m in Sources */,
+				2C2763A6171B4AF8008F75EE /* BurnableComponent.m in Sources */,
+				2C2763AA171B4AF8008F75EE /* BurnComponent.m in Sources */,
+				88F16E79D3BDFA62D677DB0E /* InAppPurchasesManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -17857,9 +17908,6 @@
 				2C19965516AF50E8006D8333 /* TeleportOutSprite.m in Sources */,
 				2C19965616AF50E8006D8333 /* BeeWithTeleportCollisionHandler.m in Sources */,
 				2C19965716AF50E8006D8333 /* TeleportInfo.m in Sources */,
-				2C19965816AF50E8006D8333 /* ParticleGroupSelectMenuItem.m in Sources */,
-				2C19965916AF50E8006D8333 /* ParticleSelectIngameMenuState.m in Sources */,
-				2C19965A16AF50E8006D8333 /* ParticleSelectMenuItem.m in Sources */,
 				2C19965B16AF50E8006D8333 /* BalloonDialog.m in Sources */,
 				2C19965C16AF50E8006D8333 /* TutorialOrganizer.m in Sources */,
 				2C19965D16AF50E8006D8333 /* TutorialDescription.m in Sources */,
@@ -18029,6 +18077,10 @@
 				2CC28BF716FBC5F500401434 /* TGAlib.m in Sources */,
 				2CC28BFB16FBC5F500401434 /* TransformUtils.m in Sources */,
 				2CC28BFF16FBC5F500401434 /* ZipUtils.m in Sources */,
+				2C2763A0171B4AAB008F75EE /* BurnWithBurnableCollisionHandler.m in Sources */,
+				2C2763A8171B4AF8008F75EE /* BurnableComponent.m in Sources */,
+				2C2763AC171B4AF8008F75EE /* BurnComponent.m in Sources */,
+				88F16CE939E2C41E0AF7CC4E /* InAppPurchasesManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -18235,9 +18287,6 @@
 				2CD6B05C164480AD008D834B /* TeleportOutSprite.m in Sources */,
 				2CD6B05D164480AD008D834B /* BeeWithTeleportCollisionHandler.m in Sources */,
 				2CD6B05E164480AD008D834B /* TeleportInfo.m in Sources */,
-				2CD6B05F164480AD008D834B /* ParticleGroupSelectMenuItem.m in Sources */,
-				2CD6B060164480AD008D834B /* ParticleSelectIngameMenuState.m in Sources */,
-				2CD6B061164480AD008D834B /* ParticleSelectMenuItem.m in Sources */,
 				2CD6B062164480AD008D834B /* BalloonDialog.m in Sources */,
 				2CD6B063164480AD008D834B /* TutorialOrganizer.m in Sources */,
 				2CD6B064164480AD008D834B /* TutorialDescription.m in Sources */,
@@ -18407,6 +18456,10 @@
 				2CC28BF816FBC5F500401434 /* TGAlib.m in Sources */,
 				2CC28BFC16FBC5F500401434 /* TransformUtils.m in Sources */,
 				2CC28C0016FBC5F500401434 /* ZipUtils.m in Sources */,
+				2C2763A1171B4AAB008F75EE /* BurnWithBurnableCollisionHandler.m in Sources */,
+				2C2763A9171B4AF8008F75EE /* BurnableComponent.m in Sources */,
+				2C2763AD171B4AF8008F75EE /* BurnComponent.m in Sources */,
+				88F162AAD67E33346997D19B /* InAppPurchasesManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -18591,9 +18644,6 @@
 				2CF8E0F61576B45F0052F554 /* TeleportOutSprite.m in Sources */,
 				2CF8E0F61576B45F0052F559 /* BeeWithTeleportCollisionHandler.m in Sources */,
 				2CF8E0F61576B45F0052F55C /* TeleportInfo.m in Sources */,
-				2CF8E0F61576B45F0052F575 /* ParticleGroupSelectMenuItem.m in Sources */,
-				2CF8E0F61576B45F0052F578 /* ParticleSelectIngameMenuState.m in Sources */,
-				2CF8E0F61576B45F0052F57B /* ParticleSelectMenuItem.m in Sources */,
 				2CF8E0F61576B45F0052F581 /* BalloonDialog.m in Sources */,
 				2CF8E0F61576B45F0052F5A4 /* TutorialOrganizer.m in Sources */,
 				2CF8E0F61576B45F0052F5A7 /* TutorialDescription.m in Sources */,
@@ -18762,6 +18812,10 @@
 				2CC28BF616FBC5F500401434 /* TGAlib.m in Sources */,
 				2CC28BFA16FBC5F500401434 /* TransformUtils.m in Sources */,
 				2CC28BFE16FBC5F500401434 /* ZipUtils.m in Sources */,
+				2C27639F171B4AAB008F75EE /* BurnWithBurnableCollisionHandler.m in Sources */,
+				2C2763A7171B4AF8008F75EE /* BurnableComponent.m in Sources */,
+				2C2763AB171B4AF8008F75EE /* BurnComponent.m in Sources */,
+				88F166224AAFA03FF6F3FFD7 /* InAppPurchasesManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
