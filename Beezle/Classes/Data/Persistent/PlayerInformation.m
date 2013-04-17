@@ -33,6 +33,8 @@ static NSString *PROGRESS_KEY = @"Progress";
 @synthesize usingAdvancedControlScheme = _usingAdvancedControlScheme;
 @synthesize autoAuthenticateGameCenter = _autoAuthenticateGameCenter;
 @synthesize autoLoginToFacebook = _autoLoginToFacebook;
+@synthesize numberOfBurnee = _numberOfBurnee;
+@synthesize numberOfGoggles = _numberOfGoggles;
 
 +(PlayerInformation *) sharedInformation
 {

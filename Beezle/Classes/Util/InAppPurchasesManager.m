@@ -9,14 +9,12 @@
 #import "InAppPurchasesManager.h"
 #import "PlayerInformation.h"
 
-static NSString *FULL_VERSION_UPGRADE_PRODUCT_ID = @"com.stinglab.inapp.fullupgrade";
-
 @interface InAppPurchasesManager()
 
 -(void) completeTransaction:(SKPaymentTransaction *)transaction;
 -(void) failedTransaction: (SKPaymentTransaction *)transaction;
 -(void) restoreTransaction:(SKPaymentTransaction *)transaction;
--(void) provideContent:(NSString *)string;
+-(void) provideContent:(NSString *)string quantity:(int)quantity;
 
 @end
 
@@ -34,13 +32,21 @@ static NSString *FULL_VERSION_UPGRADE_PRODUCT_ID = @"com.stinglab.inapp.fullupgr
 	return manager;
 }
 
+-(id) init
+{
+	if (self = [super init])
+	{
+		_products = [NSMutableDictionary new];
+	}
+	return self;
+}
+
 -(void) dealloc
 {
-	[_upgradeToFullVersionProduct release];
+	[_products release];
 
 	[super dealloc];
 }
-
 
 -(void) initialise
 {
@@ -54,10 +60,9 @@ static NSString *FULL_VERSION_UPGRADE_PRODUCT_ID = @"com.stinglab.inapp.fullupgr
 
 -(void) updateProductInformation
 {
-	[_upgradeToFullVersionProduct release];
-	_upgradeToFullVersionProduct = nil;
+	[_products removeAllObjects];
 
-	SKProductsRequest *request = [[[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObject:FULL_VERSION_UPGRADE_PRODUCT_ID]] autorelease];
+	SKProductsRequest *request = [[[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObjects:BURNEE_PRODUCT_ID, GOGGLES_PRODUCT_ID, nil]] autorelease];
 	[request setDelegate:self];
 	[request start];
 }
@@ -66,39 +71,29 @@ static NSString *FULL_VERSION_UPGRADE_PRODUCT_ID = @"com.stinglab.inapp.fullupgr
 {
 	for (SKProduct *product in [response products])
 	{
-		if ([[product productIdentifier] isEqualToString:FULL_VERSION_UPGRADE_PRODUCT_ID])
-		{
-			_upgradeToFullVersionProduct = [product retain];
-			break;
-		}
+		[_products setObject:product forKey:[product productIdentifier]];
 	}
 
-	if (_upgradeToFullVersionProduct != nil)
-	{
-		NSNumberFormatter *numberFormatter = [[[NSNumberFormatter alloc] init] autorelease];
-		[numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
-		[numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-		[numberFormatter setLocale:[_upgradeToFullVersionProduct priceLocale]];
-		NSString *priceString = [numberFormatter stringFromNumber:[_upgradeToFullVersionProduct price]];
-
-		[_delegate didRecieveUpgradeProductWithName:[_upgradeToFullVersionProduct localizedTitle] andPrice:priceString];
-	}
-	else
-	{
-		[_delegate failedToGetProductInformation];
-	}
+//		NSNumberFormatter *numberFormatter = [[[NSNumberFormatter alloc] init] autorelease];
+//		[numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+//		[numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+//		[numberFormatter setLocale:[_upgradeToFullVersionProduct priceLocale]];
+//		NSString *priceString = [numberFormatter stringFromNumber:[_upgradeToFullVersionProduct price]];
+//
+//		[_delegate didRecieveUpgradeProductWithName:[_upgradeToFullVersionProduct localizedTitle] andPrice:priceString];
 }
 
--(void) upgradeToFullVersion
+-(void) buy:(NSString *)productId
 {
 	if (![self canMakePayments] ||
-			_upgradeToFullVersionProduct == nil)
+			[_products objectForKey:productId] == nil)
 	{
-		[_delegate upgradeFailed:FALSE];
+		[_delegate puchaseFailed:FALSE];
 		return;
 	}
 
-	SKPayment *payment = [SKPayment paymentWithProduct:_upgradeToFullVersionProduct];
+	SKProduct *product = [_products objectForKey:productId];
+	SKPayment *payment = [SKPayment paymentWithProduct:product];
 	[[SKPaymentQueue defaultQueue] addPayment:payment];
 }
 
@@ -138,25 +133,33 @@ static NSString *FULL_VERSION_UPGRADE_PRODUCT_ID = @"com.stinglab.inapp.fullupgr
 
 -(void) completeTransaction:(SKPaymentTransaction *)transaction
 {
-	[self provideContent:[[transaction payment] productIdentifier]];
+	[self provideContent:[[transaction payment] productIdentifier] quantity:[[transaction payment] quantity]];
 	[[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
 
 -(void) failedTransaction: (SKPaymentTransaction *)transaction
 {
-	[_delegate upgradeFailed:([[transaction error] code] == SKErrorPaymentCancelled)];
+	[_delegate puchaseFailed:([[transaction error] code] == SKErrorPaymentCancelled)];
 	[[SKPaymentQueue defaultQueue] finishTransaction: transaction];
 }
 
 -(void) restoreTransaction:(SKPaymentTransaction *)transaction
 {
-	[self provideContent:[[[transaction originalTransaction] payment] productIdentifier]];
+	[self provideContent:[[[transaction originalTransaction] payment] productIdentifier] quantity:[[[transaction originalTransaction] payment] quantity]];
 	[[SKPaymentQueue defaultQueue] finishTransaction: transaction];
 }
 
--(void) provideContent:(NSString *)string
+-(void) provideContent:(NSString *)string quantity:(int)quantity
 {
-	// TODO
+	if ([string isEqualToString:BURNEE_PRODUCT_ID])
+	{
+		[[PlayerInformation sharedInformation] setNumberOfBurnee:[[PlayerInformation sharedInformation] numberOfBurnee] + quantity];
+	}
+	else if ([string isEqualToString:GOGGLES_PRODUCT_ID])
+	{
+		[[PlayerInformation sharedInformation] setNumberOfGoggles:[[PlayerInformation sharedInformation] numberOfGoggles] + quantity];
+	}
+	[[PlayerInformation sharedInformation] save];
 }
 
 @end

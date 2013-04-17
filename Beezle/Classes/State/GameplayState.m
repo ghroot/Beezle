@@ -81,6 +81,8 @@
 #import "GameAlmostCompletedDialog.h"
 #import "GameCompletedDialog.h"
 #import "BurnWithBurnableCollisionHandler.h"
+#import "InAppPurchasesManager.h"
+#import "SlingerComponent.h"
 
 @interface GameplayState()
 
@@ -188,6 +190,52 @@
     CCMenu *menu = [CCMenu menuWithItems:_pauseMenuItem, nil];
     [menu setPosition:CGPointZero];
     [_uiLayer addChild:menu];
+
+	// TEMP: In-App menu
+//	CCMenuItemFont *gogglesMenuItem = [CCMenuItemFont itemWithString:@"Goggles" block:^(id sender){
+//		NSLog(@"%d", [[PlayerInformation sharedInformation] numberOfGoggles]);
+//		if ([[PlayerInformation sharedInformation] numberOfGoggles] > 0)
+//		{
+//			TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
+//			Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
+//			SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
+//			[slingerComponent setIsGogglesActive:TRUE];
+//
+//			[[PlayerInformation sharedInformation] setNumberOfGoggles:[[PlayerInformation sharedInformation] numberOfGoggles] - 1];
+//			[[PlayerInformation sharedInformation] save];
+//		}
+//		else
+//		{
+//			[[InAppPurchasesManager sharedManager] buy:GOGGLES_PRODUCT_ID];
+//		}
+//	}];
+//	[gogglesMenuItem setFontSize:20];
+//	[gogglesMenuItem setPosition:CGPointMake(2.0f, 2.0f)];
+//	[gogglesMenuItem setAnchorPoint:CGPointMake(0.0f, 0.0f)];
+//	[menu addChild:gogglesMenuItem];
+//	CCMenuItemFont *burneeMenuItem = [CCMenuItemFont itemWithString:@"Burnee" block:^(id sender){
+//		NSLog(@"%d", [[PlayerInformation sharedInformation] numberOfBurnee]);
+//		if ([[PlayerInformation sharedInformation] numberOfBurnee] > 0)
+//		{
+//			TagManager *tagManager = (TagManager *)[_world getManager:[TagManager class]];
+//			Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
+//			SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
+//			[slingerComponent insertBeeTypeAtStart:[BeeType BURNEE]];
+//
+//			[_beeQueueRenderingSystem refreshSprites];
+//
+//			[[PlayerInformation sharedInformation] setNumberOfBurnee:[[PlayerInformation sharedInformation] numberOfBurnee] - 1];
+//			[[PlayerInformation sharedInformation] save];
+//		}
+//		else
+//		{
+//			[[InAppPurchasesManager sharedManager] buy:BURNEE_PRODUCT_ID];
+//		}
+//	}];
+//	[burneeMenuItem setFontSize:20];
+//	[burneeMenuItem setPosition:CGPointMake(2.0f, 24.0f)];
+//	[burneeMenuItem setAnchorPoint:CGPointMake(0.0f, 0.0f)];
+//	[menu addChild:burneeMenuItem];
 }
 
 -(void) createWorldAndSystems

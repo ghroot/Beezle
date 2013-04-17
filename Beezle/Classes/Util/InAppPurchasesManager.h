@@ -8,18 +8,19 @@
 
 #import <StoreKit/StoreKit.h>
 
+static NSString *BURNEE_PRODUCT_ID = @"com.stinglab.inapp.burnee";
+static NSString *GOGGLES_PRODUCT_ID = @"com.stinglab.inapp.goggles";
+
 @protocol InAppPurchasesDelegate <NSObject>
 
--(void) didRecieveUpgradeProductWithName:(NSString *)name andPrice:(NSString *)price;
--(void) failedToGetProductInformation;
--(void) upgradeWasSuccessful;
--(void) upgradeFailed:(BOOL)canceled;
+-(void) purchaseWasSuccessful;
+-(void) puchaseFailed:(BOOL)canceled;
 
 @end
 
 @interface InAppPurchasesManager : NSObject <SKPaymentTransactionObserver, SKProductsRequestDelegate>
 {
-	SKProduct *_upgradeToFullVersionProduct;
+	NSMutableDictionary *_products;
 	id<InAppPurchasesDelegate> _delegate;
 }
 
@@ -30,7 +31,7 @@
 -(void) initialise;
 -(BOOL) canMakePayments;
 -(void) updateProductInformation;
--(void) upgradeToFullVersion;
+-(void) buy:(NSString *)productId;
 -(void) restorePurchases;
 
 @end

@@ -19,6 +19,8 @@
 	BOOL _usingAdvancedControlScheme;
 	BOOL _autoAuthenticateGameCenter;
 	BOOL _autoLoginToFacebook;
+	int _numberOfBurnee;
+	int _numberOfGoggles;
 }
 
 @property (nonatomic, copy) NSString *defaultTheme;
@@ -26,6 +28,8 @@
 @property (nonatomic) BOOL usingAdvancedControlScheme;
 @property (nonatomic) BOOL autoAuthenticateGameCenter;
 @property (nonatomic) BOOL autoLoginToFacebook;
+@property (nonatomic) int numberOfBurnee;
+@property (nonatomic) int numberOfGoggles;
 
 +(PlayerInformation *) sharedInformation;
 

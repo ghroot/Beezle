@@ -21,6 +21,7 @@
 #import "FacebookManager.h"
 #import "ApplicationIds.h"
 #import "AdManager.h"
+#import "InAppPurchasesManager.h"
 
 @implementation AppDelegate
 
@@ -125,6 +126,10 @@
 			// Facebook
 			[[FacebookManager sharedManager] login];
 		}
+
+		// In-App purchases
+//		[[InAppPurchasesManager sharedManager] initialise];
+//		[[InAppPurchasesManager sharedManager] updateProductInformation];
 #endif
 
 #ifdef LITE_VERSION
