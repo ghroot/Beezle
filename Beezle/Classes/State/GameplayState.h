@@ -42,7 +42,6 @@
 @class RespawnSystem;
 @class SoundSystem;
 @class DestroySystem;
-@class InteractiveTutorial;
 @class SlingerGogglesSystem;
 
 @interface GameplayState : BeezleGameState
@@ -92,8 +91,6 @@
 
     NSMutableArray *_modes;
     GameMode *_currentMode;
-
-	InteractiveTutorial *_interactiveTutorial;
 }
 
 @property (nonatomic, readonly) NSString *levelName;

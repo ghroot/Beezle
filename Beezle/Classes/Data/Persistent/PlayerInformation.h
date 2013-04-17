@@ -16,7 +16,6 @@
 	NSMutableSet *_seenTutorialIds;
 	NSString *_defaultTheme;
 	BOOL _isSoundMuted;
-	BOOL _usingAdvancedControlScheme;
 	BOOL _autoAuthenticateGameCenter;
 	BOOL _autoLoginToFacebook;
 	int _numberOfBurnee;
@@ -25,7 +24,6 @@
 
 @property (nonatomic, copy) NSString *defaultTheme;
 @property (nonatomic) BOOL isSoundMuted;
-@property (nonatomic) BOOL usingAdvancedControlScheme;
 @property (nonatomic) BOOL autoAuthenticateGameCenter;
 @property (nonatomic) BOOL autoLoginToFacebook;
 @property (nonatomic) int numberOfBurnee;

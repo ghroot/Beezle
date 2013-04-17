@@ -15,6 +15,7 @@
 #import "TestLevelLayoutsState.h"
 #import "iRate.h"
 #import "TestCCBState.h"
+#import "TestSlingerSpaceState.h"
 
 @interface TestMenuState()
 
@@ -50,6 +51,10 @@
 		[_game pushState:[TestLevelLayoutsState state]];
 	}];
 	[_menu addChild:testLevelLayoutsMenuItem];
+	CCMenuItemFont *testSlingerSpaceMenuItem = [CCMenuItemFont itemWithString:@"Test slinger space" block:^(id sender){
+		[_game pushState:[TestSlingerSpaceState state]];
+	}];
+	[_menu addChild:testSlingerSpaceMenuItem];
 	CCMenuItemFont *testCCBMenuItem = [CCMenuItemFont itemWithString:@"Test CCB" block:^(id sender){
 		[_game pushState:[TestCCBState state]];
 	}];

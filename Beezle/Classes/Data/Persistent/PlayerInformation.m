@@ -30,7 +30,6 @@ static NSString *PROGRESS_KEY = @"Progress";
 
 @synthesize defaultTheme = _defaultTheme;
 @synthesize isSoundMuted = _isSoundMuted;
-@synthesize usingAdvancedControlScheme = _usingAdvancedControlScheme;
 @synthesize autoAuthenticateGameCenter = _autoAuthenticateGameCenter;
 @synthesize autoLoginToFacebook = _autoLoginToFacebook;
 @synthesize numberOfBurnee = _numberOfBurnee;
@@ -160,7 +159,6 @@ static NSString *PROGRESS_KEY = @"Progress";
 	if (settingsDict != nil)
 	{
 		_isSoundMuted = [[settingsDict objectForKey:@"isSoundMuted"] boolValue];
-		_usingAdvancedControlScheme = [[settingsDict objectForKey:@"usingAdvancedControlScheme"] boolValue];
 		_autoAuthenticateGameCenter = [[settingsDict objectForKey:@"autoAuthenticateGameCenter"] boolValue];
 		_autoLoginToFacebook = [[settingsDict objectForKey:@"autoLoginToFacebook"] boolValue];
 	}
@@ -180,7 +178,6 @@ static NSString *PROGRESS_KEY = @"Progress";
 	[_defaultTheme release];
 	_defaultTheme = nil;
 	_isSoundMuted = FALSE;
-	_usingAdvancedControlScheme = FALSE;
 	_autoAuthenticateGameCenter = FALSE;
 	_autoLoginToFacebook = FALSE;
 	
@@ -204,7 +201,6 @@ static NSString *PROGRESS_KEY = @"Progress";
 {
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	[dict setObject:[NSNumber numberWithBool:_isSoundMuted] forKey:@"isSoundMuted"];
-	[dict setObject:[NSNumber numberWithBool:_usingAdvancedControlScheme] forKey:@"usingAdvancedControlScheme"];
 	[dict setObject:[NSNumber numberWithBool:_autoAuthenticateGameCenter] forKey:@"autoAuthenticateGameCenter"];
 	[dict setObject:[NSNumber numberWithBool:_autoLoginToFacebook] forKey:@"autoLoginToFacebook"];
 	return dict;
