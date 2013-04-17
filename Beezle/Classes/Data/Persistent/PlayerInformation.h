@@ -15,9 +15,15 @@
 	NSMutableDictionary *_pollenRecordByLevelName;
 	NSMutableSet *_seenTutorialIds;
 	NSString *_defaultTheme;
+
+	BOOL _hasCheckedIfShouldSeeUpdatedControlsDialog;
+	BOOL _shouldSeeUpdatedControlsDialog;
+	BOOL _hasSeenUpdatedControlsDialog;
+
 	BOOL _isSoundMuted;
 	BOOL _autoAuthenticateGameCenter;
 	BOOL _autoLoginToFacebook;
+
 	int _numberOfBurnee;
 	int _numberOfGoggles;
 }
@@ -26,6 +32,8 @@
 @property (nonatomic) BOOL isSoundMuted;
 @property (nonatomic) BOOL autoAuthenticateGameCenter;
 @property (nonatomic) BOOL autoLoginToFacebook;
+@property (nonatomic, readonly) BOOL shouldSeeUpdatedControlsDialog;
+@property (nonatomic) BOOL hasSeenUpdatedControlsDialog;
 @property (nonatomic) int numberOfBurnee;
 @property (nonatomic) int numberOfGoggles;
 

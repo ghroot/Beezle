@@ -82,6 +82,7 @@
 #import "BurnWithBurnableCollisionHandler.h"
 #import "InAppPurchasesManager.h"
 #import "SlingerComponent.h"
+#import "UpdatedControlsDialog.h"
 
 @interface GameplayState()
 
@@ -91,6 +92,7 @@
 -(void) createModes;
 -(void) loadLevel;
 -(void) checkTutorial;
+-(void) checkUpdatedControls;
 -(void) enterMode:(GameMode *)mode;
 -(void) updateMode:(float)delta;
 
@@ -172,6 +174,7 @@
 	[self loadLevel];
 	[self performBlock:^{
 		[self checkTutorial];
+		[self checkUpdatedControls];
 	} afterDelay:0.4f];
 
 	[[SessionTracker sharedTracker] trackStartedLevel:_levelName];
@@ -184,8 +187,8 @@
     
 	_pauseMenuItem = [[CCMenuItemImageScale itemWithNormalImage:@"Symbol-Pause.png" selectedImage:@"Symbol-Pause.png" target:self selector:@selector(pauseGame:)] retain];
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
-    [_pauseMenuItem setPosition:CGPointMake(2.0f, winSize.height - 2.0f)];
-    [_pauseMenuItem setAnchorPoint:CGPointMake(0.0f, 1.0f)];
+    [_pauseMenuItem setPosition:CGPointMake(winSize.width - 2.0f, winSize.height - 2.0f)];
+    [_pauseMenuItem setAnchorPoint:CGPointMake(1.0f, 1.0f)];
     CCMenu *menu = [CCMenu menuWithItems:_pauseMenuItem, nil];
     [menu setPosition:CGPointZero];
     [_uiLayer addChild:menu];
@@ -365,6 +368,18 @@
 		[_uiLayer addChild:balloonDialog];
 
 		[[PlayerInformation sharedInformation] markTutorialIdAsSeenAndSave:[tutorialBalloonDescription id]];
+	}
+}
+
+-(void) checkUpdatedControls
+{
+	if ([[PlayerInformation sharedInformation] shouldSeeUpdatedControlsDialog] &&
+			![[PlayerInformation sharedInformation] hasSeenUpdatedControlsDialog])
+	{
+		[_uiLayer addChild:[[UpdatedControlsDialog new] autorelease]];
+
+		[[PlayerInformation sharedInformation] setHasSeenUpdatedControlsDialog:TRUE];
+		[[PlayerInformation sharedInformation] save];
 	}
 }
 
