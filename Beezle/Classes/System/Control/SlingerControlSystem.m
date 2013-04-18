@@ -29,6 +29,7 @@
 static const float SLINGER_POWER_SENSITIVITY = 5.0f;
 static const int SLINGER_MIN_POWER = 100;
 static const int SLINGER_MAX_POWER = 400;
+static const int SLINGER_DEAD_DISTANCE = 15;
 static const float SLINGER_STRETCH_SOUND_SCALE = 0.8f;
 static const float SLINGER_HEIGHT = 28.0f;
 static const float SCALE_AT_MIN_POWER = 0.9f;
@@ -227,7 +228,7 @@ static const float SCALE_AT_MAX_POWER = 0.5f;
 {
 	CGPoint touchToSlingerVector = ccpSub(slingerLocation, touchLocation);
 	float touchToStartVectorLength = sqrtf(touchToSlingerVector.x * touchToSlingerVector.x + touchToSlingerVector.y * touchToSlingerVector.y);
-	float power = SLINGER_POWER_SENSITIVITY * touchToStartVectorLength;
+	float power = SLINGER_POWER_SENSITIVITY * max(0.0f, touchToStartVectorLength - SLINGER_DEAD_DISTANCE);
 	power = max(power, SLINGER_MIN_POWER);
 	power = min(power, SLINGER_MAX_POWER);
 
