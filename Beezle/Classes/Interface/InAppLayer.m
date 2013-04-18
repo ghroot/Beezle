@@ -45,6 +45,7 @@
 
 			BeeQueueRenderingSystem *beeQueueRenderingSystem = [[_world systemManager] getSystem:[BeeQueueRenderingSystem class]];
 			[beeQueueRenderingSystem refreshSprites];
+			[beeQueueRenderingSystem highlightBeeFirstInQueue];
 
 			[[PlayerInformation sharedInformation] setNumberOfBurnee:[[PlayerInformation sharedInformation] numberOfBurnee] - 1];
 			[[PlayerInformation sharedInformation] save];
@@ -89,13 +90,11 @@
 
 -(void) purchaseWasSuccessful
 {
-	NSLog(@"purchaseWasSuccessful");
 	[self updateBuyTagVisibility];
 }
 
 -(void) purchaseFailed:(BOOL)canceled
 {
-	NSLog(@"puchaseFailed");
 }
 
 @end

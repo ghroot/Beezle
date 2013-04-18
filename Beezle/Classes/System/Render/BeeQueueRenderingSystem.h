@@ -31,5 +31,6 @@
 -(void) refreshSprites;
 -(BOOL) isBusy;
 -(void) turnRemainingBeesIntoPollen;
+-(void) highlightBeeFirstInQueue;
 
 @end
