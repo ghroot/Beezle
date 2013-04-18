@@ -6,6 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import <CoreGraphics/CoreGraphics.h>
 #import "EditState.h"
 #import "BeeaterSystem.h"
 #import "BeeQueueRenderingSystem.h"
@@ -80,8 +81,8 @@
     
     CCMenuItemImage *pauseMenuItem = [CCMenuItemImage itemWithNormalImage:@"Symbol-Pause.png" selectedImage:@"Symbol-Pause.png" target:self selector:@selector(pauseGame:)];
     CGSize winSize = [[CCDirector sharedDirector] winSize];
-	[pauseMenuItem setPosition:CGPointMake(2.0f, winSize.height - 2.0f)];
-	[pauseMenuItem setAnchorPoint:CGPointMake(0.0f, 1.0f)];
+	[pauseMenuItem setPosition:CGPointMake(winSize.width - 2.0f, winSize.height - 2.0f)];
+	[pauseMenuItem setAnchorPoint:CGPointMake(1.0f, 1.0f)];
     CCMenu *menu = [CCMenu menuWithItems:pauseMenuItem, nil];
     [menu setPosition:CGPointZero];
     [_uiLayer addChild:menu];
