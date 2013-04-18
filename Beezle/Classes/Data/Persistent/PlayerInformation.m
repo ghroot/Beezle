@@ -148,6 +148,15 @@ static NSString *PROGRESS_KEY = @"Progress";
 						_defaultTheme = [[cloudDict objectForKey:@"defaultTheme"] copy];
 					}
 
+					if ([cloudDict objectForKey:@"numberOfBurnee"] != nil)
+					{
+						_numberOfBurnee = (int)max(_numberOfBurnee, [[cloudDict objectForKey:@"numberOfBurnee"] intValue]);
+					}
+					if ([cloudDict objectForKey:@"numberOfGoggles"] != nil)
+					{
+						_numberOfGoggles = (int)max(_numberOfGoggles, [[cloudDict objectForKey:@"numberOfGoggles"] intValue]);
+					}
+
 					if ([cloudDict objectForKey:@"hasCheckedIfShouldSeeUpdatedControlsDialog"] != nil)
 					{
 						_hasCheckedIfShouldSeeUpdatedControlsDialog = _hasCheckedIfShouldSeeUpdatedControlsDialog || [[cloudDict objectForKey:@"hasCheckedIfShouldSeeUpdatedControlsDialog"] boolValue];
@@ -199,10 +208,14 @@ static NSString *PROGRESS_KEY = @"Progress";
 	{
 		[_pollenRecordByLevelName addEntriesFromDictionary:[progressDict objectForKey:@"pollenRecordByLevelName"]];
 		[_seenTutorialIds addObjectsFromArray:[progressDict objectForKey:@"seenTutorialIds"]];
+		_defaultTheme = [[progressDict objectForKey:@"defaultTheme"] copy];
+
+		_numberOfBurnee = [[progressDict objectForKey:@"numberOfBurnee"] intValue];
+		_numberOfGoggles = [[progressDict objectForKey:@"numberOfGoggles"] intValue];
+
 		_hasCheckedIfShouldSeeUpdatedControlsDialog = [[progressDict objectForKey:@"hasCheckedIfShouldSeeUpdatedControlsDialog"] boolValue];
 		_shouldSeeUpdatedControlsDialog = [[progressDict objectForKey:@"shouldSeeUpdatedControlsDialog"] boolValue];
 		_hasSeenUpdatedControlsDialog = [[progressDict objectForKey:@"hasSeenUpdatedControlsDialog"] boolValue];
-		_defaultTheme = [[progressDict objectForKey:@"defaultTheme"] copy];
 	}
 }
 
@@ -215,6 +228,8 @@ static NSString *PROGRESS_KEY = @"Progress";
 	_isSoundMuted = FALSE;
 	_autoAuthenticateGameCenter = FALSE;
 	_autoLoginToFacebook = FALSE;
+	_numberOfBurnee = 0;
+	_numberOfGoggles = 0;
 	_hasCheckedIfShouldSeeUpdatedControlsDialog = FALSE;
 	_shouldSeeUpdatedControlsDialog = FALSE;
 	_hasSeenUpdatedControlsDialog = FALSE;
@@ -249,13 +264,18 @@ static NSString *PROGRESS_KEY = @"Progress";
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	[dict setObject:[NSDictionary dictionaryWithDictionary:_pollenRecordByLevelName] forKey:@"pollenRecordByLevelName"];
 	[dict setObject:[_seenTutorialIds allObjects] forKey:@"seenTutorialIds"];
-	[dict setObject:[NSNumber numberWithBool:_hasCheckedIfShouldSeeUpdatedControlsDialog] forKey:@"hasCheckedIfShouldSeeUpdatedControlsDialog"];
-	[dict setObject:[NSNumber numberWithBool:_shouldSeeUpdatedControlsDialog] forKey:@"shouldSeeUpdatedControlsDialog"];
-	[dict setObject:[NSNumber numberWithBool:_hasSeenUpdatedControlsDialog] forKey:@"hasSeenUpdatedControlsDialog"];
 	if (_defaultTheme != nil)
 	{
 		[dict setObject:_defaultTheme forKey:@"defaultTheme"];
 	}
+
+	[dict setObject:[NSNumber numberWithInt:_numberOfBurnee] forKey:@"numberOfBurnee"];
+	[dict setObject:[NSNumber numberWithInt:_numberOfGoggles] forKey:@"numberOfGoggles"];
+
+	[dict setObject:[NSNumber numberWithBool:_hasCheckedIfShouldSeeUpdatedControlsDialog] forKey:@"hasCheckedIfShouldSeeUpdatedControlsDialog"];
+	[dict setObject:[NSNumber numberWithBool:_shouldSeeUpdatedControlsDialog] forKey:@"shouldSeeUpdatedControlsDialog"];
+	[dict setObject:[NSNumber numberWithBool:_hasSeenUpdatedControlsDialog] forKey:@"hasSeenUpdatedControlsDialog"];
+
 	return dict;
 }
 

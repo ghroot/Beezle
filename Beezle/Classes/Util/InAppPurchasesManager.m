@@ -9,6 +9,9 @@
 #import "InAppPurchasesManager.h"
 #import "PlayerInformation.h"
 
+static const int NUMBER_OF_BURNEE_PER_PURCHASE = 3;
+static const int NUMBER_OF_GOGGLES_PER_PURCHASE = 3;
+
 @interface InAppPurchasesManager()
 
 -(void) completeTransaction:(SKPaymentTransaction *)transaction;
@@ -86,11 +89,14 @@
 -(void) buy:(NSString *)productId
 {
 	if (![self canMakePayments] ||
-			[_products objectForKey:productId] == nil)
+			[_products objectForKey:productId] == nil ||
+			_isPurchaseInProgress)
 	{
-		[_delegate puchaseFailed:FALSE];
+		[_delegate purchaseFailed:FALSE];
 		return;
 	}
+
+	_isPurchaseInProgress = TRUE;
 
 	SKProduct *product = [_products objectForKey:productId];
 	SKPayment *payment = [SKPayment paymentWithProduct:product];
@@ -99,6 +105,8 @@
 
 -(void) restorePurchases
 {
+	_isPurchaseInProgress = TRUE;
+
 	[[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
 
@@ -134,30 +142,37 @@
 -(void) completeTransaction:(SKPaymentTransaction *)transaction
 {
 	[self provideContent:[[transaction payment] productIdentifier] quantity:[[transaction payment] quantity]];
+	[_delegate purchaseWasSuccessful];
 	[[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+
+	_isPurchaseInProgress = FALSE;
 }
 
 -(void) failedTransaction: (SKPaymentTransaction *)transaction
 {
-	[_delegate puchaseFailed:([[transaction error] code] == SKErrorPaymentCancelled)];
+	[_delegate purchaseFailed:([[transaction error] code] == SKErrorPaymentCancelled)];
 	[[SKPaymentQueue defaultQueue] finishTransaction: transaction];
+
+	_isPurchaseInProgress = FALSE;
 }
 
 -(void) restoreTransaction:(SKPaymentTransaction *)transaction
 {
 	[self provideContent:[[[transaction originalTransaction] payment] productIdentifier] quantity:[[[transaction originalTransaction] payment] quantity]];
 	[[SKPaymentQueue defaultQueue] finishTransaction: transaction];
+
+	_isPurchaseInProgress = FALSE;
 }
 
 -(void) provideContent:(NSString *)string quantity:(int)quantity
 {
 	if ([string isEqualToString:BURNEE_PRODUCT_ID])
 	{
-		[[PlayerInformation sharedInformation] setNumberOfBurnee:[[PlayerInformation sharedInformation] numberOfBurnee] + quantity];
+		[[PlayerInformation sharedInformation] setNumberOfBurnee:[[PlayerInformation sharedInformation] numberOfBurnee] + quantity * NUMBER_OF_BURNEE_PER_PURCHASE];
 	}
 	else if ([string isEqualToString:GOGGLES_PRODUCT_ID])
 	{
-		[[PlayerInformation sharedInformation] setNumberOfGoggles:[[PlayerInformation sharedInformation] numberOfGoggles] + quantity];
+		[[PlayerInformation sharedInformation] setNumberOfGoggles:[[PlayerInformation sharedInformation] numberOfGoggles] + quantity * NUMBER_OF_GOGGLES_PER_PURCHASE];
 	}
 	[[PlayerInformation sharedInformation] save];
 }

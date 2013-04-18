@@ -14,7 +14,7 @@ static NSString *GOGGLES_PRODUCT_ID = @"com.stinglab.inapp.goggles";
 @protocol InAppPurchasesDelegate <NSObject>
 
 -(void) purchaseWasSuccessful;
--(void) puchaseFailed:(BOOL)canceled;
+-(void) purchaseFailed:(BOOL)canceled;
 
 @end
 
@@ -22,6 +22,7 @@ static NSString *GOGGLES_PRODUCT_ID = @"com.stinglab.inapp.goggles";
 {
 	NSMutableDictionary *_products;
 	id<InAppPurchasesDelegate> _delegate;
+	BOOL _isPurchaseInProgress;
 }
 
 @property (nonatomic, assign) id<InAppPurchasesDelegate> delegate;

@@ -10,6 +10,8 @@
 #import "EntityUtil.h"
 #import "GameplayState.h"
 #import "ShootingMode.h"
+#import "InAppLayer.h"
+#import "TrajectoryComponent.h"
 
 @implementation AimingMode
 
@@ -42,6 +44,23 @@
 		[_systems addObject:[gameplayState gameRulesSystem]];
 	}
 	return self;
+}
+
+-(void) update:(float)delta
+{
+	[super update:delta];
+
+	TagManager *tagManager = (TagManager *)[[_gameplayState world] getManager:[TagManager class]];
+	Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
+	TrajectoryComponent *trajectoryComponent = [TrajectoryComponent getFrom:slingerEntity];
+	[[_gameplayState inAppLayer] setVisible:[trajectoryComponent isZero]];
+}
+
+-(void) leave
+{
+	[super leave];
+
+	[[_gameplayState inAppLayer] setVisible:FALSE];
 }
 
 -(GameMode *) nextMode

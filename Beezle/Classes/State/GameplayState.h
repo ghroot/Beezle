@@ -43,6 +43,7 @@
 @class SoundSystem;
 @class DestroySystem;
 @class SlingerGogglesSystem;
+@class InAppLayer;
 
 @interface GameplayState : BeezleGameState
 {
@@ -52,6 +53,7 @@
 	CCLayer *_gameLayer;
 	CCLayer *_uiLayer;
 	CCMenuItemImage *_pauseMenuItem;
+	InAppLayer *_inAppLayer;
 
 	World *_world;
 	
@@ -95,6 +97,7 @@
 
 @property (nonatomic, readonly) NSString *levelName;
 @property (nonatomic, readonly) CCLayer *uiLayer;
+@property (nonatomic, readonly) InAppLayer *inAppLayer;
 @property (nonatomic, readonly) World *world;
 @property (nonatomic) BOOL musicDisabled;
 @property (nonatomic, readonly) AimPollenShooterSystem *aimPollenShooterSystem;
