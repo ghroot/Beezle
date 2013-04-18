@@ -8,6 +8,7 @@
 #import "PlayerInformation.h"
 #import "SlingerComponent.h"
 #import "BeeQueueRenderingSystem.h"
+#import "ActionTags.h"
 
 @interface InAppLayer()
 
@@ -23,7 +24,10 @@
 	{
 		_world = world;
 
-		[self addChild:[CCBReader nodeGraphFromFile:@"InApp.ccbi" owner:self]];
+		_interfaceNode = [[CCBReader nodeGraphFromFile:@"InApp.ccbi" owner:self] retain];
+		[self addChild:_interfaceNode];
+
+		_isInView = TRUE;
 
 		[[InAppPurchasesManager sharedManager] setDelegate:self];
 
@@ -31,6 +35,14 @@
 	}
 	return self;
 }
+
+-(void) dealloc
+{
+	[_interfaceNode release];
+
+	[super dealloc];
+}
+
 
 -(void) useBurnee
 {
@@ -95,6 +107,30 @@
 
 -(void) purchaseFailed:(BOOL)canceled
 {
+}
+
+-(void) ensureInView:(BOOL)shouldBeInView
+{
+	if (shouldBeInView)
+	{
+		if (!_isInView)
+		{
+			[_interfaceNode stopAllActions];
+			[_interfaceNode runAction:[CCMoveTo actionWithDuration:0.3f position:CGPointMake(2.0f, [_interfaceNode position].y)]];
+
+			_isInView = TRUE;
+		}
+	}
+	else
+	{
+		if (_isInView)
+		{
+			[_interfaceNode stopAllActions];
+			[_interfaceNode runAction:[CCMoveTo actionWithDuration:0.3f position:CGPointMake(-80.0f, [_interfaceNode position].y)]];
+
+			_isInView = FALSE;
+		}
+	}
 }
 
 @end

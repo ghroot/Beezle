@@ -8,6 +8,8 @@
 
 @interface InAppLayer : CCLayer <InAppPurchasesDelegate>
 {
+	CCNode *_interfaceNode;
+	BOOL _isInView;
 	CCSprite *_buyBurneeTagSprite;
 	CCSprite *_buyGogglesTagSprite;
 
@@ -18,5 +20,6 @@
 
 -(void) useBurnee;
 -(void) useGoggles;
+-(void) ensureInView:(BOOL)shouldBeInView;
 
 @end

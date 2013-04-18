@@ -53,14 +53,14 @@
 	TagManager *tagManager = (TagManager *)[[_gameplayState world] getManager:[TagManager class]];
 	Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
 	TrajectoryComponent *trajectoryComponent = [TrajectoryComponent getFrom:slingerEntity];
-	[[_gameplayState inAppLayer] setVisible:[trajectoryComponent isZero]];
+	[[_gameplayState inAppLayer] ensureInView:[trajectoryComponent isZero]];
 }
 
 -(void) leave
 {
 	[super leave];
 
-	[[_gameplayState inAppLayer] setVisible:FALSE];
+	[[_gameplayState inAppLayer] ensureInView:FALSE];
 }
 
 -(GameMode *) nextMode
