@@ -8,7 +8,7 @@
 #import "PlayerInformation.h"
 #import "SlingerComponent.h"
 #import "BeeQueueRenderingSystem.h"
-#import "ActionTags.h"
+#import "InAppProductIds.h"
 
 @interface InAppLayer()
 

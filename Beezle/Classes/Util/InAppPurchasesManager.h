@@ -8,9 +8,6 @@
 
 #import <StoreKit/StoreKit.h>
 
-static NSString *BURNEE_PRODUCT_ID = @"com.stinglab.inapp.burnee";
-static NSString *GOGGLES_PRODUCT_ID = @"com.stinglab.inapp.goggles";
-
 @protocol InAppPurchasesDelegate <NSObject>
 
 -(void) purchaseWasSuccessful;

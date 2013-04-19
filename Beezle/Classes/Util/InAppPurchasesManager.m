@@ -8,6 +8,7 @@
 
 #import "InAppPurchasesManager.h"
 #import "PlayerInformation.h"
+#import "InAppProductIds.h"
 
 static const int NUMBER_OF_BURNEE_PER_PURCHASE = 3;
 static const int NUMBER_OF_GOGGLES_PER_PURCHASE = 3;
