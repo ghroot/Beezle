@@ -79,8 +79,8 @@ void uncaughtExceptionHandler(NSException *exception)
 	// TestFlight
 #ifdef DEVELOPMENT
 	[TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
-#endif
 	[TestFlight takeOff:TEST_FLIGHT_TOKEN];
+#endif
 
 	// Google analytics
 	[[GAI sharedInstance] setTrackUncaughtExceptions:TRUE];
