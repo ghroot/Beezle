@@ -14,6 +14,7 @@
 #import "GameRulesSystem.h"
 #import "LevelCompletedMode.h"
 #import "LevelFailedMode.h"
+#import "InAppLayer.h"
 
 @implementation ShootingMode
 
@@ -55,6 +56,13 @@
 		[_systems addObject:[gameplayState gameRulesSystem]];
     }
     return self;
+}
+
+-(void) enter
+{
+	[super enter];
+
+	[[_gameplayState inAppLayer] ensureInView:FALSE];
 }
 
 -(GameMode *) nextMode

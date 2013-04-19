@@ -10,7 +10,12 @@
 {
 	CCNode *_interfaceNode;
 	BOOL _isInView;
+
+	CCSprite *_burneeQuantityBoxSprite;
+	CCLabelTTF *_burneeQuantityLabel;
 	CCSprite *_buyBurneeTagSprite;
+	CCSprite *_gogglesQuantityBoxSprite;
+	CCLabelTTF *_gogglesQuantityLabel;
 	CCSprite *_buyGogglesTagSprite;
 
 	World *_world;

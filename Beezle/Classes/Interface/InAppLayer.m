@@ -12,7 +12,7 @@
 
 @interface InAppLayer()
 
--(void) updateBuyTagVisibility;
+-(void) refresh;
 
 @end
 
@@ -31,7 +31,7 @@
 
 		[[InAppPurchasesManager sharedManager] setDelegate:self];
 
-		[self updateBuyTagVisibility];
+		[self refresh];
 	}
 	return self;
 }
@@ -62,7 +62,7 @@
 			[[PlayerInformation sharedInformation] setNumberOfBurnee:[[PlayerInformation sharedInformation] numberOfBurnee] - 1];
 			[[PlayerInformation sharedInformation] save];
 
-			[self updateBuyTagVisibility];
+			[self refresh];
 		}
 	}
 	else
@@ -85,7 +85,7 @@
 			[[PlayerInformation sharedInformation] setNumberOfGoggles:[[PlayerInformation sharedInformation] numberOfGoggles] - 1];
 			[[PlayerInformation sharedInformation] save];
 
-			[self updateBuyTagVisibility];
+			[self refresh];
 		}
 	}
 	else
@@ -94,15 +94,24 @@
 	}
 }
 
--(void) updateBuyTagVisibility
+-(void) refresh
 {
-	[_buyBurneeTagSprite setVisible:[[PlayerInformation sharedInformation] numberOfBurnee] == 0];
-	[_buyGogglesTagSprite setVisible:[[PlayerInformation sharedInformation] numberOfGoggles] == 0];
+	int numberOfBurnee = [[PlayerInformation sharedInformation] numberOfBurnee];
+	[_burneeQuantityBoxSprite setVisible:numberOfBurnee > 0];
+	[_burneeQuantityLabel setVisible:numberOfBurnee > 0];
+	[_burneeQuantityLabel setString:[NSString stringWithFormat:@"%d", numberOfBurnee]];
+	[_buyBurneeTagSprite setVisible:numberOfBurnee == 0];
+
+	int numberOfGoggles = [[PlayerInformation sharedInformation] numberOfGoggles];
+	[_gogglesQuantityBoxSprite setVisible:numberOfGoggles > 0];
+	[_gogglesQuantityLabel setVisible:numberOfGoggles > 0];
+	[_gogglesQuantityLabel setString:[NSString stringWithFormat:@"%d", numberOfGoggles]];
+	[_buyGogglesTagSprite setVisible:numberOfGoggles == 0];
 }
 
 -(void) purchaseWasSuccessful
 {
-	[self updateBuyTagVisibility];
+	[self refresh];
 }
 
 -(void) purchaseFailed:(BOOL)canceled
