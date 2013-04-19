@@ -29,13 +29,13 @@ static NSString *FLURRY_ANALYTICS_TOKEN = @"R5JM67WQ5K522SHSW925";
   #ifdef DEVELOPMENT
 static NSString *TEST_FLIGHT_TOKEN = @"d35af6e1-d2ad-4b75-9280-113fd33480f0";
   #else
-static NSString *TEST_FLIGHT_TOKEN = @"ff63f3f1-a9de-4b4a-8418-04c5d6896d19";
+//static NSString *TEST_FLIGHT_TOKEN = @"ff63f3f1-a9de-4b4a-8418-04c5d6896d19";
   #endif
 #else
   #ifdef DEVELOPMENT
 static NSString *TEST_FLIGHT_TOKEN = @"67541518-ef6d-4f16-a58f-0400938531b0";
   #else
-static NSString *TEST_FLIGHT_TOKEN = @"c9e388f1-9619-44b1-8e46-3f6b605499c0";
+//static NSString *TEST_FLIGHT_TOKEN = @"c9e388f1-9619-44b1-8e46-3f6b605499c0";
   #endif
 #endif
 
