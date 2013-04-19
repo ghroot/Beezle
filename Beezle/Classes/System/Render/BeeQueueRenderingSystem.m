@@ -461,8 +461,6 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 	[highlightRenderSprite playAnimationOnce:@"Slinger-Highlight" andCallBlockAtEnd:^{
 		[highlightRenderSprite removeSpriteFromSpriteSheet];
 	}];
-
-	[[SoundManager sharedManager] playSound:@"SlingerInstall"];
 }
 
 @end
