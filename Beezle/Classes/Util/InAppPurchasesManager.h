@@ -17,7 +17,8 @@
 
 @interface InAppPurchasesManager : NSObject <SKPaymentTransactionObserver, SKProductsRequestDelegate>
 {
-	NSMutableDictionary *_products;
+	NSMutableDictionary *_productsByProductId;
+	NSMutableDictionary *_priceStringsByProductId;
 	id<InAppPurchasesDelegate> _delegate;
 	BOOL _isPurchaseInProgress;
 }
@@ -29,6 +30,7 @@
 -(void) initialise;
 -(BOOL) canMakePayments;
 -(void) updateProductInformation;
+-(NSString *) priceStringForProduct:(NSString *)productId;
 -(void) buy:(NSString *)productId;
 -(void) restorePurchases;
 

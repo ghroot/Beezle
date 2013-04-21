@@ -15,6 +15,10 @@
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
     if (self = [super initWithColor:ccc4(0, 0, 0, 0) width:winSize.width height:winSize.height])
 	{
+		[self setTouchPriority:kCCMenuHandlerPriority];
+		[self setTouchMode:kCCTouchesOneByOne];
+		[self setTouchEnabled:TRUE];
+
 		if (instant)
 		{
 			[self setOpacity:opacity];
@@ -35,6 +39,11 @@
 -(id) init
 {
 	return [self initWithOpacity:120];
+}
+
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	return TRUE;
 }
 
 @end

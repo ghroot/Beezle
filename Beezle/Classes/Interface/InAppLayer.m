@@ -9,6 +9,7 @@
 #import "SlingerComponent.h"
 #import "BeeQueueRenderingSystem.h"
 #import "InAppProductIds.h"
+#import "InAppBuyDialog.h"
 
 @interface InAppLayer()
 
@@ -67,7 +68,9 @@
 	}
 	else
 	{
-		[[InAppPurchasesManager sharedManager] buy:BURNEE_PRODUCT_ID];
+		// TODO: Don't open if can't make purchases
+		InAppBuyDialog *buyDialog = [[[InAppBuyDialog alloc] initWithInterfaceFile:@"InAppPurchaseBurnee.ccbi" andProductId:BURNEE_PRODUCT_ID] autorelease];
+		[self addChild:buyDialog];
 	}
 }
 
@@ -90,7 +93,9 @@
 	}
 	else
 	{
-		[[InAppPurchasesManager sharedManager] buy:GOGGLES_PRODUCT_ID];
+		// TODO: Don't open if can't make purchases
+		InAppBuyDialog *buyDialog = [[[InAppBuyDialog alloc] initWithInterfaceFile:@"InAppPurchaseGoggles.ccbi" andProductId:GOGGLES_PRODUCT_ID] autorelease];
+		[self addChild:buyDialog];
 	}
 }
 

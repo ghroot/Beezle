@@ -8,7 +8,7 @@
 
 #import "cocos2d.h"
 
-@interface CoverLayer : CCLayerColor
+@interface CoverLayer : CCLayerColor <CCTouchOneByOneDelegate>
 
 -(id) initWithOpacity:(GLubyte)opacity instant:(BOOL)instant;
 -(id) initWithOpacity:(GLubyte)opacity;

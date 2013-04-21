@@ -40,14 +40,16 @@ static const int NUMBER_OF_GOGGLES_PER_PURCHASE = 3;
 {
 	if (self = [super init])
 	{
-		_products = [NSMutableDictionary new];
+		_productsByProductId = [NSMutableDictionary new];
+		_priceStringsByProductId = [NSMutableDictionary new];
 	}
 	return self;
 }
 
 -(void) dealloc
 {
-	[_products release];
+	[_productsByProductId release];
+	[_priceStringsByProductId release];
 
 	[super dealloc];
 }
@@ -64,7 +66,7 @@ static const int NUMBER_OF_GOGGLES_PER_PURCHASE = 3;
 
 -(void) updateProductInformation
 {
-	[_products removeAllObjects];
+	[_productsByProductId removeAllObjects];
 
 	SKProductsRequest *request = [[[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObjects:BURNEE_PRODUCT_ID, GOGGLES_PRODUCT_ID, nil]] autorelease];
 	[request setDelegate:self];
@@ -75,22 +77,26 @@ static const int NUMBER_OF_GOGGLES_PER_PURCHASE = 3;
 {
 	for (SKProduct *product in [response products])
 	{
-		[_products setObject:product forKey:[product productIdentifier]];
-	}
+		[_productsByProductId setObject:product forKey:[product productIdentifier]];
 
-//		NSNumberFormatter *numberFormatter = [[[NSNumberFormatter alloc] init] autorelease];
-//		[numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
-//		[numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-//		[numberFormatter setLocale:[_upgradeToFullVersionProduct priceLocale]];
-//		NSString *priceString = [numberFormatter stringFromNumber:[_upgradeToFullVersionProduct price]];
-//
-//		[_delegate didRecieveUpgradeProductWithName:[_upgradeToFullVersionProduct localizedTitle] andPrice:priceString];
+		NSNumberFormatter *numberFormatter = [[[NSNumberFormatter alloc] init] autorelease];
+		[numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+		[numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+		[numberFormatter setLocale:[product priceLocale]];
+		NSString *priceString = [numberFormatter stringFromNumber:[product price]];
+		[_priceStringsByProductId setObject:priceString forKey:[product productIdentifier]];
+	}
+}
+
+-(NSString *) priceStringForProduct:(NSString *)productId
+{
+	return [_priceStringsByProductId objectForKey:productId];
 }
 
 -(void) buy:(NSString *)productId
 {
 	if (![self canMakePayments] ||
-			[_products objectForKey:productId] == nil ||
+			[_productsByProductId objectForKey:productId] == nil ||
 			_isPurchaseInProgress)
 	{
 		[_delegate purchaseFailed:FALSE];
@@ -99,7 +105,7 @@ static const int NUMBER_OF_GOGGLES_PER_PURCHASE = 3;
 
 	_isPurchaseInProgress = TRUE;
 
-	SKProduct *product = [_products objectForKey:productId];
+	SKProduct *product = [_productsByProductId objectForKey:productId];
 	SKPayment *payment = [SKPayment paymentWithProduct:product];
 	[[SKPaymentQueue defaultQueue] addPayment:payment];
 }
