@@ -11,14 +11,14 @@
 				<dict>
 					<key>queuedBeeTypes</key>
 					<array>
-						<string>SPEEDEE</string>
 						<string>BEE</string>
+						<string>BOMBEE</string>
 					</array>
 				</dict>
 				<key>transform</key>
 				<dict>
 					<key>position</key>
-					<string>{70, 218}</string>
+					<string>{113, 205}</string>
 					<key>rotation</key>
 					<real>326</real>
 					<key>scale</key>
@@ -592,7 +592,7 @@
 				<dict>
 					<key>containedBeeTypes</key>
 					<array>
-						<string>SPEEDEE</string>
+						<string>BEE</string>
 					</array>
 				</dict>
 				<key>physics</key>
@@ -622,7 +622,7 @@
 				<dict>
 					<key>containedBeeTypes</key>
 					<array>
-						<string>BEE</string>
+						<string>SPEEDEE</string>
 					</array>
 				</dict>
 				<key>physics</key>
@@ -757,43 +757,6 @@
 			</dict>
 			<key>type</key>
 			<string>BEEATER-HANGING-C-REFLECTION</string>
-		</dict>
-		<dict>
-			<key>components</key>
-			<dict>
-				<key>captured</key>
-				<dict>
-					<key>containedBeeTypes</key>
-					<array>
-						<string>BOMBEE</string>
-					</array>
-				</dict>
-				<key>movement</key>
-				<dict>
-					<key>positions</key>
-					<array>
-						<string>{146, 188}</string>
-					</array>
-				</dict>
-				<key>physics</key>
-				<dict>
-					<key>angle</key>
-					<real>0.0</real>
-					<key>position</key>
-					<string>{146, 231}</string>
-				</dict>
-				<key>transform</key>
-				<dict>
-					<key>position</key>
-					<string>{146, 231}</string>
-					<key>rotation</key>
-					<real>0.0</real>
-					<key>scale</key>
-					<string>{1, 1}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>BEEATER-BIRD-C</string>
 		</dict>
 		<dict>
 			<key>components</key>
@@ -945,6 +908,6 @@
 	<key>pollenForTwoFlowers</key>
 	<integer>375</integer>
 	<key>version</key>
-	<integer>16</integer>
+	<integer>20</integer>
 </dict>
 </plist>
