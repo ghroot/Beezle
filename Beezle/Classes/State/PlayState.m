@@ -406,12 +406,12 @@ static int nextBeeIndex = 0;
 -(void) createBeeaters
 {
 	CCSprite *beeaterMediumSprite = [CCSprite spriteWithSpriteFrameName:@"Play/Play-Beeater-m-1.png"];
-	[beeaterMediumSprite setPosition:CGPointMake(_universalScreenStartX + 436.0f, 63.0f)];
+	[beeaterMediumSprite setPosition:CGPointMake(_universalScreenStartX + 400.0f, 80.0f)];
 	[beeaterMediumSprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:[[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Beeater-Medium"]]]];
 	[self addChild:beeaterMediumSprite z:30];
 
 	CCSprite *beeaterSmallSprite = [CCSprite spriteWithSpriteFrameName:@"Play/Play-Beeater-s-1.png"];
-	[beeaterSmallSprite setPosition:CGPointMake(_universalScreenStartX + 140.0f, 92.0f)];
+	[beeaterSmallSprite setPosition:CGPointMake(_universalScreenStartX + 100.0f, 130.0f)];
 	[beeaterSmallSprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:[[CCAnimationCache sharedAnimationCache] animationByName:@"Play-Beeater-Small"]]]];
 	[self addChild:beeaterSmallSprite z:30];
 }
