@@ -128,8 +128,8 @@
 		}
 
 		// In-App purchases
-		[[InAppPurchasesManager sharedManager] initialise];
-		[[InAppPurchasesManager sharedManager] updateProductInformation];
+//		[[InAppPurchasesManager sharedManager] initialise];
+//		[[InAppPurchasesManager sharedManager] updateProductInformation];
 #endif
 
 #ifdef LITE_VERSION
