@@ -80,7 +80,7 @@ static const float SIGNIFICANT_DRAG_DISTANCE = 10.0f;
 
 -(void) registerWithTouchDispatcher
 {
-	[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:FALSE];
+	[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:(kCCMenuHandlerPriority - 1) swallowsTouches:FALSE];
 }
 
 -(void) onEnter
