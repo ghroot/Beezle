@@ -63,7 +63,7 @@ static int nextBeeIndex = 0;
 #ifdef LITE_VERSION
 		[_menuItemPlay setPosition:CGPointMake(winSize.width / 2, winSize.height / 2 - 45.0f)];
 #else
-		[_menuItemPlay setPosition:CGPointMake(winSize.width / 2, winSize.height / 2 - 35.0f)];
+		[_menuItemPlay setPosition:CGPointMake(winSize.width / 2, winSize.height / 2 - 20.0f)];
 #endif
 		_menu = [CCMenu menuWithItems:_menuItemPlay, nil];
 		[_menu setPosition:CGPointZero];
@@ -74,7 +74,11 @@ static int nextBeeIndex = 0;
 		[_menuItemPlay runAction:swayAction];
 
 		_pollenExplodeSprite = [[CCSprite alloc] initWithSpriteFrameName:@"Play/PlayButtonPollen-1.png"];
-		[_pollenExplodeSprite setPosition:CGPointMake(winSize.width / 2, winSize.height / 2 - 35.0f)];
+#ifdef LITE_VERSION
+		[_pollenExplodeSprite setPosition:CGPointMake(winSize.width / 2, winSize.height / 2 - 45.0f)];
+#else
+		[_pollenExplodeSprite setPosition:CGPointMake(winSize.width / 2, winSize.height / 2 - 20.0f)];
+#endif
 
 		_universalScreenStartX = [Utils universalScreenStartX];
 
