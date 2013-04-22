@@ -103,6 +103,21 @@
     return nil;
 }
 
+-(NSString *) themeBefore:(NSString *)theme
+{
+	NSArray *themes = [self themes];
+	int themeIndex = [themes indexOfObject:theme];
+	int themeIndexBefore = themeIndex - 1;
+	if (themeIndexBefore < 0)
+	{
+		return nil;
+	}
+	else
+	{
+		return [themes objectAtIndex:themeIndexBefore];
+	}
+}
+
 -(NSString *) themeAfter:(NSString *)theme
 {
 	NSArray *themes = [self themes];

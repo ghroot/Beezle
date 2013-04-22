@@ -16,6 +16,7 @@
 #import "iRate.h"
 #import "TestCCBState.h"
 #import "TestSlingerSpaceState.h"
+#import "TestVisualState.h"
 
 @interface TestMenuState()
 
@@ -40,29 +41,41 @@
     _menu = [CCMenu menuWithItems:nil];
 	
 	CCMenuItemFont *testAnimationsMenuItem = [CCMenuItemFont itemWithString:@"Test animations" target:self selector:@selector(testAnimations:)];
+	[testAnimationsMenuItem setFontSize:24];
 	[_menu addChild:testAnimationsMenuItem];
 	CCMenuItemFont *testEntitySystemMenuItem = [CCMenuItemFont itemWithString:@"Test entity system" target:self selector:@selector(testEntitySystem:)];
+	[testEntitySystemMenuItem setFontSize:24];
 	[_menu addChild:testEntitySystemMenuItem];
 	CCMenuItemFont *testCreditsMenuItem = [CCMenuItemFont itemWithString:@"Test credits" block:^(id sender){
 		[_game pushState:[TestCreditsState state]];
 	}];
+	[testCreditsMenuItem setFontSize:24];
 	[_menu addChild:testCreditsMenuItem];
 	CCMenuItemFont *testLevelLayoutsMenuItem = [CCMenuItemFont itemWithString:@"Test level layouts" block:^(id sender){
 		[_game pushState:[TestLevelLayoutsState state]];
 	}];
+	[testLevelLayoutsMenuItem setFontSize:24];
 	[_menu addChild:testLevelLayoutsMenuItem];
 	CCMenuItemFont *testSlingerSpaceMenuItem = [CCMenuItemFont itemWithString:@"Test slinger space" block:^(id sender){
 		[_game pushState:[TestSlingerSpaceState state]];
 	}];
+	[testSlingerSpaceMenuItem setFontSize:24];
 	[_menu addChild:testSlingerSpaceMenuItem];
 	CCMenuItemFont *testCCBMenuItem = [CCMenuItemFont itemWithString:@"Test CCB" block:^(id sender){
 		[_game pushState:[TestCCBState state]];
 	}];
+	[testCCBMenuItem setFontSize:24];
 	[_menu addChild:testCCBMenuItem];
 	CCMenuItemFont *testRatingMenuItem = [CCMenuItemFont itemWithString:@"Test rating" block:^(id sender){
 		[[iRate sharedInstance] promptForRating];
 	}];
+	[testRatingMenuItem setFontSize:24];
 	[_menu addChild:testRatingMenuItem];
+	CCMenuItemFont *testVisualMenuItem = [CCMenuItemFont itemWithString:@"Test visual" block:^(id sender){
+		[_game pushState:[TestVisualState state]];
+	}];
+	[testVisualMenuItem setFontSize:24];
+	[_menu addChild:testVisualMenuItem];
 
     CCMenuItemFont *backMenuItem = [CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(goBack:)];
     [backMenuItem setFontSize:26];

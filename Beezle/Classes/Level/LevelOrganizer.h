@@ -23,6 +23,7 @@
 -(NSArray *) levelNamesInTheme:(NSString *)theme;
 -(NSArray *) allLevelNames;
 -(NSString *) themeForLevel:(NSString *)levelName;
+-(NSString *) themeBefore:(NSString *)theme;
 -(NSString *) themeAfter:(NSString *)theme;
 -(NSString *) levelNameBefore:(NSString *)levelName;
 -(NSString *) levelNameAfter:(NSString *)levelName;
