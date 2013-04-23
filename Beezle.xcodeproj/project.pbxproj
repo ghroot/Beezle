@@ -3698,6 +3698,10 @@
 		2C4044DB15FD467D00A2124A /* C60-Ice.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C40446515FD467D00A2124A /* C60-Ice.png */; };
 		2C4044E215FD478300A2124A /* C57-Ice-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4044E015FD478300A2124A /* C57-Ice-hd.png */; };
 		2C4044E315FD478300A2124A /* C57-Ice.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4044E115FD478300A2124A /* C57-Ice.png */; };
+		2C4452CE17272D7C00F7B734 /* PlayScene-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8C71B245059C9502F85148 /* PlayScene-hd.jpg */; };
+		2C4452CF17272D7D00F7B734 /* PlayScene-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8C71B245059C9502F85148 /* PlayScene-hd.jpg */; };
+		2C4452D017272D8000F7B734 /* PlayScene.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8C73A49791F692FF3F2BA0 /* PlayScene.jpg */; };
+		2C4452D117272D8000F7B734 /* PlayScene.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8C73A49791F692FF3F2BA0 /* PlayScene.jpg */; };
 		2C4D1DA216A307B400E4F91F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4D1D9F16A307B400E4F91F /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2C4D1DA316A307B400E4F91F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4D1DA016A307B400E4F91F /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2C4D1DA416A307B400E4F91F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4D1DA116A307B400E4F91F /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -4220,10 +4224,6 @@
 		2CC0F17016E40C2300036E33 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC0F16D16E40B7900036E33 /* iAd.framework */; };
 		2CC0F17116E40CB700036E33 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC0F16D16E40B7900036E33 /* iAd.framework */; };
 		2CC0F17216E40CB800036E33 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC0F16D16E40B7900036E33 /* iAd.framework */; };
-		2CC0F17516E564BB00036E33 /* PlayScene-Lite-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CC0F17316E564BB00036E33 /* PlayScene-Lite-hd.jpg */; };
-		2CC0F17616E564BB00036E33 /* PlayScene-Lite-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CC0F17316E564BB00036E33 /* PlayScene-Lite-hd.jpg */; };
-		2CC0F17716E564BB00036E33 /* PlayScene-Lite.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CC0F17416E564BB00036E33 /* PlayScene-Lite.jpg */; };
-		2CC0F17816E564BB00036E33 /* PlayScene-Lite.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CC0F17416E564BB00036E33 /* PlayScene-Lite.jpg */; };
 		2CC0F17916E564C500036E33 /* PlayScene-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8C71B245059C9502F85148 /* PlayScene-hd.jpg */; };
 		2CC0F19116E6B2AF00036E33 /* AppGratisManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC0F19016E6B2AF00036E33 /* AppGratisManager.m */; };
 		2CC0F19216E6B2AF00036E33 /* AppGratisManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC0F19016E6B2AF00036E33 /* AppGratisManager.m */; };
@@ -7645,8 +7645,6 @@
 		2CC0F16316E40B2600036E33 /* ThemeSelect-A-Lite.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThemeSelect-A-Lite.ccbi"; sourceTree = "<group>"; };
 		2CC0F16416E40B2600036E33 /* ThemeSelect-Shared-Lite.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThemeSelect-Shared-Lite.ccbi"; sourceTree = "<group>"; };
 		2CC0F16D16E40B7900036E33 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
-		2CC0F17316E564BB00036E33 /* PlayScene-Lite-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "PlayScene-Lite-hd.jpg"; sourceTree = "<group>"; };
-		2CC0F17416E564BB00036E33 /* PlayScene-Lite.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "PlayScene-Lite.jpg"; sourceTree = "<group>"; };
 		2CC0F18F16E6B2AF00036E33 /* AppGratisManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppGratisManager.h; sourceTree = "<group>"; };
 		2CC0F19016E6B2AF00036E33 /* AppGratisManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppGratisManager.m; sourceTree = "<group>"; };
 		2CC0F19716E6B2E100036E33 /* AppGratis-Advert-Text-For featuring-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppGratis-Advert-Text-For featuring-hd.png"; sourceTree = "<group>"; };
@@ -8807,8 +8805,6 @@
 				BF8C7B2A8A26D8EE7F3926E6 /* PlayButton-hd.png */,
 				BF8C7F46B42C54F2DE3A5C2A /* PlayButton.png */,
 				BF8C71B245059C9502F85148 /* PlayScene-hd.jpg */,
-				2CC0F17316E564BB00036E33 /* PlayScene-Lite-hd.jpg */,
-				2CC0F17416E564BB00036E33 /* PlayScene-Lite.jpg */,
 				BF8C73A49791F692FF3F2BA0 /* PlayScene.jpg */,
 				BF8C75388FCFCD75EDC425C3 /* SoundButton-off-hd.png */,
 				BF8C798C1E1A10FAA34185A7 /* SoundButton-off.png */,
@@ -14852,8 +14848,6 @@
 				88F16A0E1B05DD08F84F611D /* Game-Completed.caf in Resources */,
 				2CC0F16716E40B2600036E33 /* ThemeSelect-A-Lite.ccbi in Resources */,
 				2CC0F16B16E40B2600036E33 /* ThemeSelect-Shared-Lite.ccbi in Resources */,
-				2CC0F17516E564BB00036E33 /* PlayScene-Lite-hd.jpg in Resources */,
-				2CC0F17716E564BB00036E33 /* PlayScene-Lite.jpg in Resources */,
 				88F162AC0216D31DBAEC56BC /* SlingerBzzz.caf in Resources */,
 				88F165D6DBA6277B3D3956E0 /* Burnee-Puff.plist in Resources */,
 				88F1601752DA7F6EF5B28B4C /* Burnee.plist in Resources */,
@@ -14863,6 +14857,8 @@
 				88F16F7B26E04DD0A8AD86BC /* InAppProductIds.h in Resources */,
 				88F160CB13E77205CDC785BD /* New Shooting Mechanic Opt2-hd.png in Resources */,
 				88F16BDFF25D56D0BB7086CA /* New Shooting Mechanic Opt2.png in Resources */,
+				2C4452CE17272D7C00F7B734 /* PlayScene-hd.jpg in Resources */,
+				2C4452D017272D8000F7B734 /* PlayScene.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -15513,8 +15509,6 @@
 				88F163A0BAF6419339C385DF /* Game-Completed.caf in Resources */,
 				2CC0F16816E40B2600036E33 /* ThemeSelect-A-Lite.ccbi in Resources */,
 				2CC0F16C16E40B2600036E33 /* ThemeSelect-Shared-Lite.ccbi in Resources */,
-				2CC0F17616E564BB00036E33 /* PlayScene-Lite-hd.jpg in Resources */,
-				2CC0F17816E564BB00036E33 /* PlayScene-Lite.jpg in Resources */,
 				88F16493C37DE02F3377324C /* SlingerBzzz.caf in Resources */,
 				88F1686DF91D6C33C924B6A5 /* Burnee-Puff.plist in Resources */,
 				88F16B0C64F8236C03C0802C /* Burnee.plist in Resources */,
@@ -15524,6 +15518,8 @@
 				88F16B93AB7C077F900565E6 /* InAppProductIds.h in Resources */,
 				88F16021D88EF37F02F2058C /* New Shooting Mechanic Opt2-hd.png in Resources */,
 				88F165C30CA9AEE4E012EA31 /* New Shooting Mechanic Opt2.png in Resources */,
+				2C4452CF17272D7D00F7B734 /* PlayScene-hd.jpg in Resources */,
+				2C4452D117272D8000F7B734 /* PlayScene.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

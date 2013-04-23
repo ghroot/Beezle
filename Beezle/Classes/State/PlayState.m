@@ -48,11 +48,7 @@ static int nextBeeIndex = 0;
 
 		CGSize winSize = [[CCDirector sharedDirector] winSize];
 
-#ifdef LITE_VERSION
-		CCSprite *backgroundSprite = [CCSprite spriteWithFile:@"PlayScene-Lite.jpg"];
-#else
 		CCSprite *backgroundSprite = [CCSprite spriteWithFile:@"PlayScene.jpg"];
-#endif
 		[backgroundSprite setPosition:[Utils screenCenterPosition]];
 		[self addChild:backgroundSprite];
 
@@ -60,11 +56,8 @@ static int nextBeeIndex = 0;
 		[[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:@"Play-Animations.plist"];
 
 		_menuItemPlay = [CCMenuItemImage itemWithNormalImage:@"PlayButton.png" selectedImage:@"PlayButton.png" target:self selector:@selector(play)];
-#ifdef LITE_VERSION
-		[_menuItemPlay setPosition:CGPointMake(winSize.width / 2, winSize.height / 2 - 45.0f)];
-#else
-		[_menuItemPlay setPosition:CGPointMake(winSize.width / 2, winSize.height / 2 - 20.0f)];
-#endif
+		[_menuItemPlay setPosition:CGPointMake(winSize.width / 2, winSize.height / 2 - 26.0f)];
+
 		_menu = [CCMenu menuWithItems:_menuItemPlay, nil];
 		[_menu setPosition:CGPointZero];
 		[self addChild:_menu z:50];
@@ -74,11 +67,7 @@ static int nextBeeIndex = 0;
 		[_menuItemPlay runAction:swayAction];
 
 		_pollenExplodeSprite = [[CCSprite alloc] initWithSpriteFrameName:@"Play/PlayButtonPollen-1.png"];
-#ifdef LITE_VERSION
-		[_pollenExplodeSprite setPosition:CGPointMake(winSize.width / 2, winSize.height / 2 - 45.0f)];
-#else
-		[_pollenExplodeSprite setPosition:CGPointMake(winSize.width / 2, winSize.height / 2 - 20.0f)];
-#endif
+		[_pollenExplodeSprite setPosition:CGPointMake(winSize.width / 2, winSize.height / 2 - 26.0f)];
 
 		_universalScreenStartX = [Utils universalScreenStartX];
 
