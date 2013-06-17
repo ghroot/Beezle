@@ -59,7 +59,7 @@ static NSString *PROGRESS_KEY = @"Progress";
 
 -(void) dealloc
 {
-#ifndef LITE_VERSION
+#ifdef ICLOUD
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 #endif
 
@@ -74,7 +74,7 @@ static NSString *PROGRESS_KEY = @"Progress";
 {
 	[self load];
 
-#ifndef LITE_VERSION
+#ifdef ICLOUD
 #ifdef DEBUG
 	[[Logger defaultLogger] log:@"Synchronizing iCloud..."];
 #endif
@@ -181,7 +181,7 @@ static NSString *PROGRESS_KEY = @"Progress";
 	[[NSUserDefaults standardUserDefaults] setObject:[self getProgressAsDictionary] forKey:PROGRESS_KEY];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 
-#ifndef LITE_VERSION
+#ifdef ICLOUD
 #ifdef DEBUG
 	[[Logger defaultLogger] log:@"Saving to iCloud..."];
 #endif
@@ -238,7 +238,7 @@ static NSString *PROGRESS_KEY = @"Progress";
 	[[NSUserDefaults standardUserDefaults] removeObjectForKey:PROGRESS_KEY];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 
-#ifndef LITE_VERSION
+#ifdef ICLOUD
 #ifdef DEBUG
 	[[Logger defaultLogger] log:@"Resetting iCloud data..."];
 #endif
