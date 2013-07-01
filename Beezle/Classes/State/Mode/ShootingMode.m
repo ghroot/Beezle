@@ -58,12 +58,12 @@
     return self;
 }
 
-//-(void) enter
-//{
-//	[super enter];
-//
-//	[[_gameplayState inAppLayer] ensureInView:FALSE];
-//}
+-(void) enter
+{
+	[super enter];
+
+	[[_gameplayState inAppLayer] ensureInView:FALSE];
+}
 
 -(GameMode *) nextMode
 {

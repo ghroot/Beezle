@@ -46,15 +46,15 @@
 	return self;
 }
 
-//-(void) update:(float)delta
-//{
-//	[super update:delta];
-//
-//	TagManager *tagManager = (TagManager *)[[_gameplayState world] getManager:[TagManager class]];
-//	Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
-//	SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
-//	[[_gameplayState inAppLayer] ensureInView:[slingerComponent state] == SLINGER_STATE_IDLE];
-//}
+-(void) update:(float)delta
+{
+	[super update:delta];
+
+	TagManager *tagManager = (TagManager *)[[_gameplayState world] getManager:[TagManager class]];
+	Entity *slingerEntity = [tagManager getEntity:@"SLINGER"];
+	SlingerComponent *slingerComponent = [SlingerComponent getFrom:slingerEntity];
+	[[_gameplayState inAppLayer] ensureInView:[slingerComponent state] == SLINGER_STATE_IDLE];
+}
 
 -(GameMode *) nextMode
 {

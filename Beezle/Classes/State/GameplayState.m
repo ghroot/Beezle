@@ -195,8 +195,8 @@
     [menu setPosition:CGPointZero];
     [_uiLayer addChild:menu];
 
-//	_inAppLayer = [[InAppLayer alloc] initWithWorld:_world];
-//	[_uiLayer addChild:_inAppLayer];
+	_inAppLayer = [[InAppLayer alloc] initWithWorld:_world];
+	[_uiLayer addChild:_inAppLayer];
 }
 
 -(void) createSystems
@@ -352,7 +352,7 @@
     [_world release];
 
 	[_pauseMenuItem release];
-//	[_inAppLayer release];
+	[_inAppLayer release];
 
 	[super dealloc];
 }
