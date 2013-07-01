@@ -41,22 +41,8 @@
 		[gogglesBackRenderSprite show];
 		[gogglesFrontRenderSprite show];
 
-		RenderSprite *bodyRenderSprite = [renderComponent renderSpriteWithName:@"body"];
-		if ([bodyRenderSprite scale].y <= 0.55f)
-		{
-			[gogglesBackRenderSprite playAnimationLoop:@"Slinger-Goggles-Back-3"];
-			[gogglesFrontRenderSprite playAnimationLoop:@"Slinger-Goggles-Front-3"];
-		}
-		else if ([bodyRenderSprite scale].y <= 0.76f)
-		{
-			[gogglesBackRenderSprite playAnimationLoop:@"Slinger-Goggles-Back-2"];
-			[gogglesFrontRenderSprite playAnimationLoop:@"Slinger-Goggles-Front-2"];
-		}
-		else
-		{
-			[gogglesBackRenderSprite playAnimationLoop:@"Slinger-Goggles-Back-1"];
-			[gogglesFrontRenderSprite playAnimationLoop:@"Slinger-Goggles-Front-1"];
-		}
+		[gogglesBackRenderSprite playAnimationLoop:@"Slinger-Goggles-Back"];
+		[gogglesFrontRenderSprite playAnimationLoop:@"Slinger-Goggles-Front"];
 	}
 	else
 	{
