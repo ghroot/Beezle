@@ -150,6 +150,10 @@ static const float SCALE_AT_MAX_POWER = 0.5f;
 					[backRenderSprite setScale:CGPointMake(1.0f, (5 * (1.0f - scale)))];
 					RenderSprite *addonRenderSprite = [renderComponent renderSpriteWithName:@"addon"];
 					[addonRenderSprite setScale:CGPointMake(1.0f, (5 * (1.0f - scale)))];
+					RenderSprite *gogglesFrontRenderSprite = [renderComponent renderSpriteWithName:@"gogglesFront"];
+					[gogglesFrontRenderSprite setScale:CGPointMake(1.0f, scale)];
+					RenderSprite *gogglesBackRenderSprite = [renderComponent renderSpriteWithName:@"gogglesBack"];
+					[gogglesBackRenderSprite setScale:CGPointMake(1.0f, scale)];
 
 					if (!_stretchSoundPlayed &&
 							scale <= SLINGER_STRETCH_SOUND_SCALE)
@@ -181,6 +185,10 @@ static const float SCALE_AT_MAX_POWER = 0.5f;
 						[frontRenderSprite setScale:CGPointMake(1.0f, 1.0f)];
 						RenderSprite *backRenderSprite = [renderComponent renderSpriteWithName:@"back"];
 						[backRenderSprite setScale:CGPointMake(1.0f, 0.1f)];
+						RenderSprite *gogglesFrontRenderSprite = [renderComponent renderSpriteWithName:@"gogglesFront"];
+						[gogglesFrontRenderSprite setScale:CGPointMake(1.0f, 1.0f)];
+						RenderSprite *gogglesBackRenderSprite = [renderComponent renderSpriteWithName:@"gogglesBack"];
+						[gogglesBackRenderSprite setScale:CGPointMake(1.0f, 1.0f)];
 
 						[self stopBuzzSound];
 						[[SoundManager sharedManager] stopSound:@"SlingerStretch"];
