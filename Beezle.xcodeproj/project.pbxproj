@@ -12567,7 +12567,7 @@
 		2CEA326A145F66F7000FF575 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = 2CEA326D145F66F7000FF575 /* Build configuration list for PBXProject "Beezle" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -18874,7 +18874,6 @@
 		2C198DE916AF4AEB006D8333 /* TestFlight Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = armv7;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"${inherited}",
@@ -18995,7 +18994,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Development.plist";
 				PRODUCT_NAME = "Stingy Bees Dev";
-				PROVISIONING_PROFILE = "2DF6406D-1B18-4DDA-A316-E63DC6BC8D0D";
+				PROVISIONING_PROFILE = "E123CEBB-481D-42F9-A8DC-E60A832CDC23";
 			};
 			name = "TestFlight Debug";
 		};
@@ -19038,7 +19037,6 @@
 		2C1999A116AF533C006D8333 /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = armv7;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"${inherited}",
@@ -19151,7 +19149,6 @@
 		2C1999A716B09C09006D8333 /* TestFlight Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = armv7;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"${inherited}",
@@ -19281,7 +19278,6 @@
 		2C973DDE16B5E36A00BD6C39 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = armv7;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"${inherited}",
@@ -19448,7 +19444,6 @@
 		2CEA3484145F66F9000FF575 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = armv7;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"${inherited}",
@@ -19475,6 +19470,7 @@
 					"\"${SRCROOT}/Beezle/libs/Flurry\"",
 					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3.0",
