@@ -12568,6 +12568,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					2C198DEF16AF50D6006D8333 = {
+						DevelopmentTeam = 4C28MZ8U29;
+					};
+				};
 			};
 			buildConfigurationList = 2CEA326D145F66F7000FF575 /* Build configuration list for PBXProject "Beezle" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -18968,7 +18973,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: KM Lagerstrom (WXEWHGD352)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
 					"COCOS2D_DEBUG=1",
@@ -18977,7 +18982,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Development.plist";
 				PRODUCT_NAME = "Stingy Bees Dev";
-				PROVISIONING_PROFILE = "4425EF8F-AC0E-4381-8737-B5A3A3293C79";
+				PROVISIONING_PROFILE = "C3E1A194-E96F-4757-BF22-0BB2541466E3";
 			};
 			name = Debug;
 		};
@@ -18985,7 +18990,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
 					"COCOS2D_DEBUG=1",
@@ -18994,7 +18999,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Development.plist";
 				PRODUCT_NAME = "Stingy Bees Dev";
-				PROVISIONING_PROFILE = "E123CEBB-481D-42F9-A8DC-E60A832CDC23";
+				PROVISIONING_PROFILE = "21666F4B-3825-4A2F-B458-53334E030F02";
 			};
 			name = "TestFlight Debug";
 		};
@@ -19078,7 +19083,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees.entitlements";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Development.plist";
 				PRODUCT_NAME = "Stingy Bees Dev";
@@ -19189,7 +19194,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
@@ -19198,7 +19203,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Development.plist";
 				PRODUCT_NAME = "Stingy Bees Dev";
-				PROVISIONING_PROFILE = "2DF6406D-1B18-4DDA-A316-E63DC6BC8D0D";
+				PROVISIONING_PROFILE = "21666F4B-3825-4A2F-B458-53334E030F02";
 			};
 			name = "TestFlight Release";
 		};
@@ -19318,7 +19323,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: KM Lagerstrom (WXEWHGD352)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
@@ -19327,7 +19332,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Development.plist";
 				PRODUCT_NAME = "Stingy Bees Dev";
-				PROVISIONING_PROFILE = "4425EF8F-AC0E-4381-8737-B5A3A3293C79";
+				PROVISIONING_PROFILE = "C3E1A194-E96F-4757-BF22-0BB2541466E3";
 			};
 			name = Release;
 		};
