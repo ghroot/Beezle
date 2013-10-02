@@ -25,6 +25,7 @@
 #import "SlingerRotator.h"
 #import "ActionTags.h"
 #import "CDXPropertyModifierAction.h"
+#import "CCAnchorPointTo.h"
 
 static const float SLINGER_POWER_SENSITIVITY = 5.0f;
 static const int SLINGER_MIN_POWER = 100;
@@ -151,9 +152,9 @@ static const float SCALE_AT_MAX_POWER = 0.5f;
 					RenderSprite *addonRenderSprite = [renderComponent renderSpriteWithName:@"addon"];
 					[addonRenderSprite setScale:CGPointMake(1.0f, (5 * (1.0f - scale)))];
 					RenderSprite *gogglesFrontRenderSprite = [renderComponent renderSpriteWithName:@"gogglesFront"];
-					[gogglesFrontRenderSprite setScale:CGPointMake(1.0f, scale)];
+					[[gogglesFrontRenderSprite sprite] setAnchorPoint:CGPointMake(0.0f, 0.7f - 0.25f * percent)];
 					RenderSprite *gogglesBackRenderSprite = [renderComponent renderSpriteWithName:@"gogglesBack"];
-					[gogglesBackRenderSprite setScale:CGPointMake(1.0f, scale)];
+					[[gogglesBackRenderSprite sprite] setAnchorPoint:CGPointMake(0.0f, 0.9f - 0.3f * percent)];
 
 					if (!_stretchSoundPlayed &&
 							scale <= SLINGER_STRETCH_SOUND_SCALE)
@@ -186,9 +187,9 @@ static const float SCALE_AT_MAX_POWER = 0.5f;
 						RenderSprite *backRenderSprite = [renderComponent renderSpriteWithName:@"back"];
 						[backRenderSprite setScale:CGPointMake(1.0f, 0.1f)];
 						RenderSprite *gogglesFrontRenderSprite = [renderComponent renderSpriteWithName:@"gogglesFront"];
-						[gogglesFrontRenderSprite setScale:CGPointMake(1.0f, 1.0f)];
+						[[gogglesFrontRenderSprite sprite] runAction:[CCEaseElasticOut actionWithAction:[CCAnchorPointTo actionWithDuration:0.6f anchorPoint:CGPointMake(0.0f, 0.7f)]]];
 						RenderSprite *gogglesBackRenderSprite = [renderComponent renderSpriteWithName:@"gogglesBack"];
-						[gogglesBackRenderSprite setScale:CGPointMake(1.0f, 1.0f)];
+						[[gogglesBackRenderSprite sprite] runAction:[CCEaseElasticOut actionWithAction:[CCAnchorPointTo actionWithDuration:0.6f anchorPoint:CGPointMake(0.0f, 0.9f)]]];
 
 						[self stopBuzzSound];
 						[[SoundManager sharedManager] stopSound:@"SlingerStretch"];
