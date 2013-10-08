@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>STINGEE-TAG</string>
+	<key>components</key>
+	<dict>
+        <key>physics</key>
+        <dict>
+            <key>body</key>
+            <dict>
+                <key>mass</key>
+                <real>1</real>
+                <key>moment</key>
+                <real>1</real>
+            </dict>
+            <key>shapes</key>
+            <array>
+                <dict>
+                    <key>type</key>
+                    <string>poly</string>
+                    <key>vertices</key>
+                    <array>
+                        <string>{ -4, 0 }</string>
+                        <string>{ -4, 4 }</string>
+                        <string>{ 4, 4 }</string>
+                        <string>{ 4, 0 }</string>
+                    </array>
+                    <key>sensor</key>
+                    <true/>
+                    <key>elasticity</key>
+                    <real>0.8</real>
+                    <key>friction</key>
+                    <real>0.5</real>
+                    <key>layers</key>
+                    <integer>1</integer>
+                    <key>group</key>
+                    <string>OBJECT</string>
+                </dict>
+            </array>
+            <key>gravity</key>
+            <real>0.0</real>
+        </dict>
+		<key>render</key>
+		<dict>
+			<key>sprites</key>
+			<array>
+				<dict>
+					<key>spriteSheetName</key>
+					<string>Shared</string>
+					<key>animationFile</key>
+					<string>Stingee-Animations.plist</string>
+					<key>defaultIdleAnimations</key>
+                    <array>
+                        <!--<string>Stingee-Tag-S</string>-->
+                        <!--<string>Stingee-Tag-M</string>-->
+                        <string>Stingee-Tag-L</string>
+                    </array>
+				</dict>
+			</array>
+		</dict>
+        <key>sting</key>
+        <dict/>
+		<key>transform</key>
+		<dict/>
+        <key>volatile</key>
+        <dict/>
+	</dict>
+</dict>
+</plist>

@@ -141,7 +141,7 @@
 	[_slingerOptionsMenu addChild:[self createMenuItem:@"Sawee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"SAWEE"]];
 	[_slingerOptionsMenu addChild:[self createMenuItem:@"Sumee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"SUMEE"]];
 	[_slingerOptionsMenu addChild:[self createMenuItem:@"Mumee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"MUMEE"]];
-	[_slingerOptionsMenu addChild:[self createMenuItem:@"Burnee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"BURNEE"]];
+	[_slingerOptionsMenu addChild:[self createMenuItem:@"Stingee" selector:@selector(doOptionAddSlingerBeeType:) userData:@"STINGEE"]];
 	[_slingerOptionsMenu addChild:[self createMenuItem:@"Clear" selector:@selector(doOptionClearSlingerBees:) userData:nil]];
 	[_slingerOptionsMenu alignItemsHorizontallyWithPadding:20.0f];
 }

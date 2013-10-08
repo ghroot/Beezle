@@ -120,7 +120,9 @@ static const float SCALE_AT_MAX_POWER = 0.5f;
 						[slingerComponent loadNextBee];
 
 						// Game notification
-						[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_LOADED object:self];
+						NSMutableDictionary *notificationUserInfo = [NSMutableDictionary dictionary];
+						[notificationUserInfo setObject:[slingerComponent loadedBeeType] forKey:@"loadedBeeType"];
+						[[NSNotificationCenter defaultCenter] postNotificationName:GAME_NOTIFICATION_BEE_LOADED object:self userInfo:notificationUserInfo];
 
 						[self startBuzzSound];
 					}

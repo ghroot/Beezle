@@ -26,6 +26,7 @@ GANDENUM(SUMEE, 4, [NSNumber numberWithInt:0], @"beeaterHits", [NSNumber numberW
 GANDENUM(TBEE, 5, [NSNumber numberWithInt:1], @"beeaterHits", [NSNumber numberWithBool:TRUE], @"canBeReused", [NSNumber numberWithInt:10000], @"autoDestroyDelay", [NSNumber numberWithFloat:1.0f], @"slingerShootSpeedModifier", [NSNumber numberWithBool:TRUE], @"doesExpire", @"SlingerTBee", @"shootSoundName", @"FreedTBee", @"freedSoundName")
 GANDENUM(MUMEE, 6, [NSNumber numberWithInt:0], @"beeaterHits", [NSNumber numberWithBool:FALSE], @"canBeReused", [NSNumber numberWithInt:180000], @"autoDestroyDelay", [NSNumber numberWithFloat:0.2f], @"slingerShootSpeedModifier", [NSNumber numberWithBool:FALSE], @"doesExpire", nil, @"shootSoundName", @"FreedMumee", @"freedSoundName")
 GANDENUM(BURNEE, 7, [NSNumber numberWithInt:0], @"beeaterHits", [NSNumber numberWithBool:FALSE], @"canBeReused", [NSNumber numberWithInt:15000], @"autoDestroyDelay", [NSNumber numberWithFloat:1.0f], @"slingerShootSpeedModifier", [NSNumber numberWithBool:TRUE], @"doesExpire", @"SlingerBee", @"shootSoundName", @"", @"freedSoundName")
+GANDENUM(STINGEE, 8, [NSNumber numberWithInt:0], @"beeaterHits", [NSNumber numberWithBool:FALSE], @"canBeReused", [NSNumber numberWithInt:15000], @"autoDestroyDelay", [NSNumber numberWithFloat:1.0f], @"slingerShootSpeedModifier", [NSNumber numberWithBool:TRUE], @"doesExpire", @"SlingerBee", @"shootSoundName", @"", @"freedSoundName")
 
 -(NSString *) capitalizedString
 {

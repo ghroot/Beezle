@@ -44,6 +44,7 @@
 @class DestroySystem;
 @class SlingerGogglesSystem;
 @class InAppLayer;
+@class StingerControlSystem;
 
 @interface GameplayState : BeezleGameState
 {
@@ -68,6 +69,7 @@
 	WaterWaveSystem *_waterWaveSystem;
     CollisionSystem *_collisionSystem;
 	ExplodeControlSystem *_explodeControlSystem;
+	StingerControlSystem *_stingControlSystem;
     GameRulesSystem *_gameRulesSystem;
 	FreezeSystem *_freezeSystem;
 	FadeSystem *_fadeSystem;
@@ -129,6 +131,7 @@
 @property (nonatomic, readonly) SlingerGogglesSystem *slingerGogglesSystem;
 @property (nonatomic, readonly) SoundSystem *soundSystem;
 @property (nonatomic, readonly) SpawnSystem *spawnSystem;
+@property (nonatomic, readonly) StingerControlSystem *stingControlSystem;
 @property (nonatomic, readonly) TeleportSystem *teleportSystem;
 @property (nonatomic, readonly) WaterWaveSystem *waterWaveSystem;
 

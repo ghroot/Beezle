@@ -38,6 +38,7 @@
 		[_systems addObject:[gameplayState beeExpirationSystem]];
 		[_systems addObject:[gameplayState destroySystem]];
 		[_systems addObject:[gameplayState explodeControlSystem]];
+		[_systems addObject:[gameplayState stingControlSystem]];
 		[_systems addObject:[gameplayState destructControlSystem]];
 		[_systems addObject:[gameplayState followControlSystem]];
 		[_systems addObject:[gameplayState freezeSystem]];

@@ -104,6 +104,16 @@ static NSString *PROGRESS_KEY = @"Progress";
 	}
 }
 
+-(int) numberOfGoggles
+{
+	return 20;
+}
+
+-(int) numberOfBurnee
+{
+	return 20;
+}
+
 -(void) cloudDataDidChange:(NSNotification *)notification
 {
 #ifdef DEBUG

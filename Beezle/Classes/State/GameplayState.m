@@ -54,6 +54,7 @@
 #import "SolidWithBreakableCollisionHandler.h"
 #import "TeleportSystem.h"
 #import "SolidWithWaterCollisionHandler.h"
+#import "StingerControlSystem.h"
 #import "SolidWithWobbleCollisionHandler.h"
 #import "SandSystem.h"
 #import "PollenSystem.h"
@@ -82,6 +83,8 @@
 #import "GameCompletedDialog.h"
 #import "BurnWithBurnableCollisionHandler.h"
 #import "UpdatedControlsDialog.h"
+#import "StingWithAnythingCollisionHandler.h"
+#import "StingWithPollenCollisionHandler.h"
 
 @interface GameplayState()
 
@@ -131,6 +134,7 @@
 @synthesize slingerGogglesSystem = _slingerGogglesSystem;
 @synthesize soundSystem = _soundSystem;
 @synthesize spawnSystem = _spawnSystem;
+@synthesize stingControlSystem = _stingControlSystem;
 @synthesize teleportSystem = _teleportSystem;
 @synthesize waterWaveSystem = _waterWaveSystem;
 @synthesize followControlSystem = _followControlSystem;
@@ -243,6 +247,8 @@
 	[systemManager setSystem:_destroySystem];
 	_explodeControlSystem = [ExplodeControlSystem system];
 	[systemManager setSystem:_explodeControlSystem];
+	_stingControlSystem = [StingerControlSystem system];
+	[systemManager setSystem:_stingControlSystem];
 	_beeQueueRenderingSystem = [BeeQueueRenderingSystem system];
 	[systemManager setSystem:_beeQueueRenderingSystem];
 	_beeaterSystem = [BeeaterSystem system];
@@ -271,6 +277,8 @@
 
 -(void) registerCollisionHandlers
 {
+	[_collisionSystem registerCollisionHandler:[StingWithAnythingCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[StingWithPollenCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[PulverizeWithPulverizableCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[BurnWithBurnableCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[BeeWithTeleportCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];

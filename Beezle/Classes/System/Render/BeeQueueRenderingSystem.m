@@ -154,8 +154,7 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 	[beeLoadingRenderSprite release];
 
 	// Create new sprite and place in slinger
-	SlingerComponent *slingerComponent = [_slingerComponentMapper getComponentFor:slingerEntity];
-	BeeType *beeType = [slingerComponent loadedBeeType];
+	BeeType *beeType = [[notification userInfo] objectForKey:@"loadedBeeType"];
 	_beeLoadedRenderSprite = [self createBeeQueueRenderSpriteWithBeeType:beeType position:[slingerTransformComponent position]];
 	[_beeLoadedRenderSprite retain];
 	NSString *animationName = [NSString stringWithFormat:@"%@-Slinger", [beeType capitalizedString]];
