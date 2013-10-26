@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import <AdSupport/AdSupport.h>
 #import "SessionTracker.h"
 #import "TestFlight.h"
 #import "Flurry.h"
@@ -78,7 +79,10 @@ void uncaughtExceptionHandler(NSException *exception)
 
 	// TestFlight
 #ifdef DEVELOPMENT
-	[TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+	if ([ASIdentifierManager class])
+	{
+		[TestFlight setDeviceIdentifier:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString]];
+	}
 	[TestFlight takeOff:TEST_FLIGHT_TOKEN];
 #endif
 
