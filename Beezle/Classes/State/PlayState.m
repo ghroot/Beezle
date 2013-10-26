@@ -23,7 +23,6 @@
 #import "SessionTracker.h"
 #import "CCBReader.h"
 
-static BOOL isFirstPlayState = TRUE;
 static int nextBeeIndex = 0;
 
 @interface PlayState()
@@ -129,11 +128,6 @@ static int nextBeeIndex = 0;
 		[facebookMenuItem setPosition:CGPointMake(80.0f, 40.0f)];
 		[_menu addChild:facebookMenuItem];
 
-		if (isFirstPlayState)
-		{
-			[[AppGratisManager sharedManager] setDelegate:self];
-			[[AppGratisManager sharedManager] initialise];
-		}
 #else
 		[_soundButton setPosition:CGPointMake(winSize.width / 2, 30.0f)];
 #endif
@@ -141,8 +135,6 @@ static int nextBeeIndex = 0;
 #ifdef DEBUG
 		[self createGotoDebugMenu];
 #endif
-
-		isFirstPlayState = FALSE;
 	}
 	return self;
 }
@@ -151,31 +143,9 @@ static int nextBeeIndex = 0;
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 
-	[[AppGratisManager sharedManager] setDelegate:nil];
-
 	[_pollenExplodeSprite release];
 
 	[super dealloc];
-}
-
--(void) showAppGratisAd
-{
-	[_menu setEnabled:FALSE];
-	_appGratisNode = [CCBReader nodeGraphFromFile:@"AppGratis.ccbi" owner:self];
-	[self addChild:_appGratisNode z:100];
-}
-
--(void) openAppGratisURL
-{
-	[self removeAppGratisNode];
-	[[AppGratisManager sharedManager] openAppGratisAdUrl];
-}
-
--(void) removeAppGratisNode
-{
-	[self removeChild:_appGratisNode];
-	_appGratisNode = nil;
-	[_menu setEnabled:TRUE];
 }
 
 -(void) enter
