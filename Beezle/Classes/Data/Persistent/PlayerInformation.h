@@ -20,11 +20,15 @@
 	BOOL _shouldSeeUpdatedControlsDialog;
 	BOOL _hasSeenUpdatedControlsDialog;
 
+	BOOL _hasCheckedIfShouldGiveInitialInApps;
+
 	BOOL _isSoundMuted;
 	BOOL _autoAuthenticateGameCenter;
 	BOOL _autoLoginToFacebook;
 
 	int _numberOfBurnee;
+	int _numberOfStingee;
+	int _numberOfIronBee;
 	int _numberOfGoggles;
 }
 
@@ -35,6 +39,8 @@
 @property (nonatomic, readonly) BOOL shouldSeeUpdatedControlsDialog;
 @property (nonatomic) BOOL hasSeenUpdatedControlsDialog;
 @property (nonatomic) int numberOfBurnee;
+@property (nonatomic) int numberOfStingee;
+@property (nonatomic) int numberOfIronBee;
 @property (nonatomic) int numberOfGoggles;
 
 +(PlayerInformation *) sharedInformation;

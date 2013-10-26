@@ -35,6 +35,20 @@
 	return self;
 }
 
+-(id) initWithDuration:(float)duration introAnimationName:(NSString *)introAnimationName fadeAnimationNames:(NSArray *)fadeAnimationNames
+{
+	if (self = [self init])
+	{
+		_duration = duration;
+		_introAnimationName = [introAnimationName copy];
+		for (NSString *fadeAnimationName in fadeAnimationNames)
+		{
+			[_fadeAnimationNames addString:fadeAnimationName];
+		}
+	}
+	return self;
+}
+
 -(void) dealloc
 {
 	[_fadeAnimationNames release];

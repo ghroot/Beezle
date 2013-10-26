@@ -8,6 +8,8 @@
 
 @class TutorialBalloonDescription;
 @class TutorialStripDescription;
+@class BeeType;
+@class TutorialDescription;
 
 @interface TutorialOrganizer : NSObject
 {
@@ -23,5 +25,7 @@
 
 -(TutorialBalloonDescription *) unseenTutorialBalloonDescriptionForLevel:(NSString *)levelName;
 -(TutorialStripDescription *) unseenTutorialStripDescriptionForLevel:(NSString *)levelName;
+-(TutorialStripDescription *) unseenTutorialStripDescriptionForBeeType:(BeeType *)beeType;
+-(TutorialDescription *) getTutorialDescription:(NSString *)id;
 
 @end

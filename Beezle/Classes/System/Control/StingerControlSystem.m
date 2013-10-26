@@ -12,6 +12,9 @@
 #import "PhysicsComponent.h"
 #import "EntityUtil.h"
 #import "TransformComponent.h"
+#import "SoundManager.h"
+#import "DisposableComponent.h"
+#import "Utils.h"
 
 @interface StingerControlSystem ()
 
@@ -41,9 +44,12 @@
 		[stingComponent setCountdownUntilNextPossibleSting:[stingComponent countdownUntilNextPossibleSting] - 1];
 	}
 
+	DisposableComponent *disposableComponent = [DisposableComponent getFrom:entity];
+
 	BOOL didTouchBegin = [self didTouchBegin];
 	if (didTouchBegin &&
-			[stingComponent countdownUntilNextPossibleSting] == 0)
+			[stingComponent countdownUntilNextPossibleSting] == 0 &&
+			![disposableComponent isAboutToBeDeleted])
 	{
 		TransformComponent *transformComponent = [TransformComponent getFrom:entity];
 
@@ -53,10 +59,13 @@
 
 		for (float rotation = 0.0f; rotation < 360.0f; rotation += 36.0f)
 		{
-			float velocityX = 150.0f * cosf(CC_DEGREES_TO_RADIANS(rotation));
-			float velocityY = 150.0f * sinf(CC_DEGREES_TO_RADIANS(rotation));
-			[self createTag:[transformComponent position] velocity:CGPointMake(velocityX, velocityY) rotation:360.0f - rotation + 225.0f];
+			float unWoundRotation = [Utils unwindAngleDegrees:[transformComponent rotation] + rotation];
+			float velocityX = 150.0f * cosf(CC_DEGREES_TO_RADIANS(unWoundRotation));
+			float velocityY = 150.0f * sinf(CC_DEGREES_TO_RADIANS(unWoundRotation));
+			[self createTag:[transformComponent position] velocity:CGPointMake(velocityX, velocityY) rotation:360.0f - unWoundRotation + 225.0f];
 		}
+
+		[[SoundManager sharedManager] playSound:@"StingeeShooting"];
 
 		[stingComponent setCountdownUntilNextPossibleSting:20];
 	}

@@ -36,6 +36,7 @@
 +(BeeType *) MUMEE;
 +(BeeType *) BURNEE;
 +(BeeType *) STINGEE;
++(BeeType *) IRONBEE;
 
 -(NSString *) capitalizedString;
 

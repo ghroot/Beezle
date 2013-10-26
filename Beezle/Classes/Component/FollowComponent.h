@@ -16,12 +16,22 @@ typedef enum
 
 @interface FollowComponent : Component
 {
+	// Type
+	BOOL _alwaysActive;
+	NSString *_locationAnimationFile;
+	NSString *_locationAnimationName;
+
 	// Transient
 	FollowControlState _state;
 	CGPoint _location;
+	Entity *_locationEntity;
 }
 
+@property (nonatomic) BOOL alwaysActive;
+@property (nonatomic, copy) NSString *locationAnimationFile;
+@property (nonatomic, copy) NSString *locationAnimationName;
 @property (nonatomic) FollowControlState state;
 @property (nonatomic) CGPoint location;
+@property (nonatomic, assign) Entity * locationEntity;
 
 @end

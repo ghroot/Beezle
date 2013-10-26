@@ -19,6 +19,7 @@
 #import "LevelLayoutEntry.h"
 #import "StringCollection.h"
 #import "PlayerInformation.h"
+#import "TutorialDescription.h"
 
 @interface TutorialOrganizer()
 
@@ -205,6 +206,36 @@
 		}
 	}
 	return FALSE;
+}
+
+-(TutorialStripDescription *) unseenTutorialStripDescriptionForBeeType:(BeeType *)beeType
+{
+	for (TutorialDescription *tutorialDescription in _tutorialDescriptions)
+	{
+		if ([tutorialDescription isKindOfClass:[TutorialStripDescription class]] &&
+				[[tutorialDescription triggerDescription] isKindOfClass:[TutorialBeeTypeTriggerDescription class]] &&
+				![[PlayerInformation sharedInformation] hasSeenTutorialId:[tutorialDescription id]])
+		{
+			TutorialBeeTypeTriggerDescription *tutorialBeeTypeTriggerDescription = (TutorialBeeTypeTriggerDescription *) [tutorialDescription triggerDescription];
+			if ([tutorialBeeTypeTriggerDescription beeType] == beeType)
+			{
+				return (TutorialStripDescription *)tutorialDescription;
+			}
+		}
+	}
+	return nil;
+}
+
+-(TutorialDescription *) getTutorialDescription:(NSString *)id
+{
+	for (TutorialDescription *tutorialDescription in _tutorialDescriptions)
+	{
+		if ([[tutorialDescription id] isEqualToString:id])
+		{
+			return tutorialDescription;
+		}
+	}
+	return nil;
 }
 
 @end

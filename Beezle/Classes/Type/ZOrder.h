@@ -16,6 +16,7 @@
 @property (nonatomic) int z;
 
 +(ZOrder *) Z_SHEET_DEFAULT;
++(ZOrder *) Z_BACK;
 +(ZOrder *) Z_DEFAULT;
 
 

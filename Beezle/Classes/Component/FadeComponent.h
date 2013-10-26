@@ -25,6 +25,8 @@
 @property (nonatomic, readonly) NSString *introAnimationName;
 @property (nonatomic, copy) NSString *currentAnimationName;
 
+-(id) initWithDuration:(float)duration introAnimationName:(NSString *)introAnimationName fadeAnimationNames:(NSArray *)fadeAnimationNames;
+
 -(void) resetCountdown;
 -(void) decreaseCountdown:(float)delta;
 -(BOOL) hasCountdownReachedZero;

@@ -33,6 +33,7 @@
 #import "ShardComponent.h"
 #import "VolatileComponent.h"
 #import "DisposableComponent.h"
+#import "GroundComponent.h"
 
 static const float BACKGROUND_FRICTION = 0.7f;
 static const float BACKGROUND_ELASTICITY = 0.7f;
@@ -148,6 +149,11 @@ static const int AIM_POLLEN_LAYERS = 2;
     SoundComponent *soundComponent = [SoundComponent component];
 	[soundComponent setDefaultCollisionSoundName:@"BeeHitWall"];
 	[backgroundEntity addComponent:soundComponent];
+
+	// Ground
+	GroundComponent *groundComponent = [GroundComponent component];
+	[groundComponent setIsIce:[name hasPrefix:@"Level-C"]];
+	[backgroundEntity addComponent:groundComponent];
 	
     [backgroundEntity refresh];
 	

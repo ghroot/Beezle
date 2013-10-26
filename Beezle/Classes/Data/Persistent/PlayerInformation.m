@@ -19,6 +19,7 @@ static NSString *PROGRESS_KEY = @"Progress";
 @interface PlayerInformation()
 
 -(void) checkUpdatedControls;
+-(void) checkInitialInApps;
 -(void) cloudDataDidChange:(NSNotification *)notification;
 -(void) load;
 -(NSDictionary *) getSettingsAsDictionary;
@@ -35,6 +36,8 @@ static NSString *PROGRESS_KEY = @"Progress";
 @synthesize autoLoginToFacebook = _autoLoginToFacebook;
 @synthesize hasSeenUpdatedControlsDialog = _hasSeenUpdatedControlsDialog;
 @synthesize numberOfBurnee = _numberOfBurnee;
+@synthesize numberOfStingee = _numberOfStingee;
+@synthesize numberOfIronBee = _numberOfIronBee;
 @synthesize numberOfGoggles = _numberOfGoggles;
 
 +(PlayerInformation *) sharedInformation
@@ -87,6 +90,7 @@ static NSString *PROGRESS_KEY = @"Progress";
 #endif
 
 	[self checkUpdatedControls];
+	[self checkInitialInApps];
 }
 
 -(void) checkUpdatedControls
@@ -104,14 +108,19 @@ static NSString *PROGRESS_KEY = @"Progress";
 	}
 }
 
--(int) numberOfGoggles
+-(void) checkInitialInApps
 {
-	return 20;
-}
+	if (!_hasCheckedIfShouldGiveInitialInApps)
+	{
+		[self setNumberOfBurnee:10];
+		[self setNumberOfGoggles:10];
+		[self setNumberOfIronBee:10];
+		[self setNumberOfStingee:10];
 
--(int) numberOfBurnee
-{
-	return 20;
+		_hasCheckedIfShouldGiveInitialInApps = TRUE;
+
+		[self save];
+	}
 }
 
 -(void) cloudDataDidChange:(NSNotification *)notification
@@ -162,6 +171,14 @@ static NSString *PROGRESS_KEY = @"Progress";
 					{
 						_numberOfBurnee = (int)max(_numberOfBurnee, [[cloudDict objectForKey:@"numberOfBurnee"] intValue]);
 					}
+					if ([cloudDict objectForKey:@"numberOfStingee"] != nil)
+					{
+						_numberOfStingee = (int)max(_numberOfStingee, [[cloudDict objectForKey:@"numberOfStingee"] intValue]);
+					}
+					if ([cloudDict objectForKey:@"numberOfIronBee"] != nil)
+					{
+						_numberOfIronBee = (int)max(_numberOfIronBee, [[cloudDict objectForKey:@"numberOfIronBee"] intValue]);
+					}
 					if ([cloudDict objectForKey:@"numberOfGoggles"] != nil)
 					{
 						_numberOfGoggles = (int)max(_numberOfGoggles, [[cloudDict objectForKey:@"numberOfGoggles"] intValue]);
@@ -178,6 +195,11 @@ static NSString *PROGRESS_KEY = @"Progress";
 					if ([cloudDict objectForKey:@"hasSeenUpdatedControlsDialog"] != nil)
 					{
 						_hasSeenUpdatedControlsDialog = _hasSeenUpdatedControlsDialog || [[cloudDict objectForKey:@"hasSeenUpdatedControlsDialog"] boolValue];
+					}
+
+					if ([cloudDict objectForKey:@"hasCheckedIfShouldGiveInitialInApps"] != nil)
+					{
+						_hasCheckedIfShouldGiveInitialInApps = _hasCheckedIfShouldGiveInitialInApps || [[cloudDict objectForKey:@"hasCheckedIfShouldGiveInitialInApps"] boolValue];
 					}
 				}
 			}
@@ -221,11 +243,15 @@ static NSString *PROGRESS_KEY = @"Progress";
 		_defaultTheme = [[progressDict objectForKey:@"defaultTheme"] copy];
 
 		_numberOfBurnee = [[progressDict objectForKey:@"numberOfBurnee"] intValue];
+		_numberOfStingee = [[progressDict objectForKey:@"numberOfStingee"] intValue];
+		_numberOfIronBee = [[progressDict objectForKey:@"numberOfIronBee"] intValue];
 		_numberOfGoggles = [[progressDict objectForKey:@"numberOfGoggles"] intValue];
 
 		_hasCheckedIfShouldSeeUpdatedControlsDialog = [[progressDict objectForKey:@"hasCheckedIfShouldSeeUpdatedControlsDialog"] boolValue];
 		_shouldSeeUpdatedControlsDialog = [[progressDict objectForKey:@"shouldSeeUpdatedControlsDialog"] boolValue];
 		_hasSeenUpdatedControlsDialog = [[progressDict objectForKey:@"hasSeenUpdatedControlsDialog"] boolValue];
+
+		_hasCheckedIfShouldGiveInitialInApps = [[progressDict objectForKey:@"hasCheckedIfShouldGiveInitialInApps"] boolValue];
 	}
 }
 
@@ -239,10 +265,13 @@ static NSString *PROGRESS_KEY = @"Progress";
 	_autoAuthenticateGameCenter = FALSE;
 	_autoLoginToFacebook = FALSE;
 	_numberOfBurnee = 0;
+	_numberOfStingee = 0;
+	_numberOfIronBee = 0;
 	_numberOfGoggles = 0;
 	_hasCheckedIfShouldSeeUpdatedControlsDialog = FALSE;
 	_shouldSeeUpdatedControlsDialog = FALSE;
 	_hasSeenUpdatedControlsDialog = FALSE;
+	_hasCheckedIfShouldGiveInitialInApps = FALSE;
 	
 	[[NSUserDefaults standardUserDefaults] removeObjectForKey:SETTINGS_KEY];
 	[[NSUserDefaults standardUserDefaults] removeObjectForKey:PROGRESS_KEY];
@@ -280,11 +309,15 @@ static NSString *PROGRESS_KEY = @"Progress";
 	}
 
 	[dict setObject:[NSNumber numberWithInt:_numberOfBurnee] forKey:@"numberOfBurnee"];
+	[dict setObject:[NSNumber numberWithInt:_numberOfStingee] forKey:@"numberOfStingee"];
+	[dict setObject:[NSNumber numberWithInt:_numberOfIronBee] forKey:@"numberOfIronBee"];
 	[dict setObject:[NSNumber numberWithInt:_numberOfGoggles] forKey:@"numberOfGoggles"];
 
 	[dict setObject:[NSNumber numberWithBool:_hasCheckedIfShouldSeeUpdatedControlsDialog] forKey:@"hasCheckedIfShouldSeeUpdatedControlsDialog"];
 	[dict setObject:[NSNumber numberWithBool:_shouldSeeUpdatedControlsDialog] forKey:@"shouldSeeUpdatedControlsDialog"];
 	[dict setObject:[NSNumber numberWithBool:_hasSeenUpdatedControlsDialog] forKey:@"hasSeenUpdatedControlsDialog"];
+
+	[dict setObject:[NSNumber numberWithBool:_hasCheckedIfShouldGiveInitialInApps] forKey:@"hasCheckedIfShouldGiveInitialInApps"];
 
 	return dict;
 }

@@ -38,6 +38,7 @@
 		[_systems addObject:[gameplayState beeExpirationSystem]];
 		[_systems addObject:[gameplayState destroySystem]];
 		[_systems addObject:[gameplayState explodeControlSystem]];
+		[_systems addObject:[gameplayState followExplodeSystem]];
 		[_systems addObject:[gameplayState stingControlSystem]];
 		[_systems addObject:[gameplayState destructControlSystem]];
 		[_systems addObject:[gameplayState followControlSystem]];
@@ -83,6 +84,13 @@
     }
     
     GroupManager *groupManager = (GroupManager *)[[_gameplayState world] getManager:[GroupManager class]];
+
+    NSArray *projectileEntities = [groupManager getEntitiesInGroup:@"PROJECTILES"];
+	if ([projectileEntities count] > 0)
+	{
+		return nil;
+	}
+
     NSArray *beeEntities = [groupManager getEntitiesInGroup:@"BEES"];
     BOOL isBeeFlying = FALSE;
     for (Entity *beeEntity in beeEntities)

@@ -33,6 +33,7 @@
 		[_systems addObject:[gameplayState aimPollenShooterSystem]];
 		[_systems addObject:[gameplayState slingerGogglesSystem]];
 		[_systems addObject:[gameplayState freezeSystem]];
+		[_systems addObject:[gameplayState fadeSystem]];
 		[_systems addObject:[gameplayState beeaterSystem]];
 		[_systems addObject:[gameplayState capturedSystem]];
 		[_systems addObject:[gameplayState beeQueueRenderingSystem]];

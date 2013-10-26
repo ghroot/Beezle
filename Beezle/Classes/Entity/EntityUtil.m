@@ -125,12 +125,15 @@
 	}
 }
 
-+(void) destroyEntity:(Entity *)entity instant:(BOOL)instant
++(void) destroyEntity:(Entity *)entity instant:(BOOL)instant damage:(int)damage
 {
 	if ([entity hasComponent:[HealthComponent class]])
 	{
 		HealthComponent *healthComponent = [HealthComponent getFrom:entity];
-		[healthComponent deductHealthPoint];
+		for (int i = 0; i < damage; i++)
+		{
+			[healthComponent deductHealthPoint];
+		}
 		if ([healthComponent hasHealthPointsLeft])
 		{
 			RenderComponent *renderComponent = [RenderComponent getFrom:entity];
@@ -163,7 +166,7 @@
 		}
 	}
 	else if (!instant &&
-			 [[RenderComponent getFrom:entity] hasDefaultDestroyAnimation])
+			[[RenderComponent getFrom:entity] hasDefaultDestroyAnimation])
 	{
 		[self animateAndDeleteEntity:entity];
 	}
@@ -171,11 +174,16 @@
 	{
 		[entity deleteEntity];
 	}
-	
+
 	if (!instant)
 	{
 		[self playDefaultDestroySound:entity];
 	}
+}
+
++(void) destroyEntity:(Entity *)entity instant:(BOOL)instant
+{
+	[self destroyEntity:entity instant:instant damage:1];
 }
 
 +(void) destroyEntity:(Entity *)entity

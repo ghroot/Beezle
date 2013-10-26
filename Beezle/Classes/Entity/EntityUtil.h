@@ -21,6 +21,7 @@
 +(void) setEntityDisposed:(Entity *)entity sendNotification:(BOOL)sendNotification;
 +(void) setEntityDisposed:(Entity *)entity;
 +(void) setEntityIsAboutToBeDeleted:(Entity *)entity;
++(void) destroyEntity:(Entity *)entity instant:(BOOL)instant damage:(int)damage;
 +(void) destroyEntity:(Entity *)entity instant:(BOOL)instant;
 +(void) destroyEntity:(Entity *)entity;
 +(void) disablePhysics:(Entity *)entity;

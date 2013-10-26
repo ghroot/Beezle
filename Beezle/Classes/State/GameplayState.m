@@ -68,6 +68,7 @@
 #import "PlayerInformation.h"
 #import "TutorialBalloonDescription.h"
 #import "LevelLayoutCache.h"
+#import "FollowExplodeSystem.h"
 #import "LevelLayout.h"
 #import "SlingerGogglesSystem.h"
 #import "NSObject+PWObject.h"
@@ -82,9 +83,11 @@
 #import "GameAlmostCompletedDialog.h"
 #import "GameCompletedDialog.h"
 #import "BurnWithBurnableCollisionHandler.h"
-#import "UpdatedControlsDialog.h"
 #import "StingWithAnythingCollisionHandler.h"
 #import "StingWithPollenCollisionHandler.h"
+#import "BeeWithGroundCollisionHandler.h"
+#import "StingerWithPollenCollisionHandler.h"
+#import "PausedMode.h"
 
 @interface GameplayState()
 
@@ -94,8 +97,6 @@
 -(void) createModes;
 -(void) loadLevel;
 -(void) checkTutorial;
--(void) checkUpdatedControls;
--(void) enterMode:(GameMode *)mode;
 -(void) updateMode:(float)delta;
 
 @end
@@ -180,7 +181,6 @@
 	[self loadLevel];
 	[self performBlock:^{
 		[self checkTutorial];
-		[self checkUpdatedControls];
 	} afterDelay:0.4f];
 
 	[[SessionTracker sharedTracker] trackStartedLevel:_levelName];
@@ -199,7 +199,7 @@
     [menu setPosition:CGPointZero];
     [_uiLayer addChild:menu];
 
-	_inAppLayer = [[InAppLayer alloc] initWithWorld:_world];
+	_inAppLayer = [[InAppLayer alloc] initWithWorld:_world game:_game gameplayState:self];
 	[_uiLayer addChild:_inAppLayer];
 }
 
@@ -245,6 +245,8 @@
 	[systemManager setSystem:_beeExpirationSystem];
 	_destroySystem = [DestroySystem system];
 	[systemManager setSystem:_destroySystem];
+	_followExplodeSystem = [FollowExplodeSystem system];
+	[systemManager setSystem:_followExplodeSystem];
 	_explodeControlSystem = [ExplodeControlSystem system];
 	[systemManager setSystem:_explodeControlSystem];
 	_stingControlSystem = [StingerControlSystem system];
@@ -280,8 +282,10 @@
 	[_collisionSystem registerCollisionHandler:[StingWithAnythingCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[StingWithPollenCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[PulverizeWithPulverizableCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[StingerWithPollenCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[BurnWithBurnableCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[BeeWithTeleportCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
+	[_collisionSystem registerCollisionHandler:[BeeWithGroundCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[AnythingWithVoidCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[AnythingWithVolatileCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
 	[_collisionSystem registerCollisionHandler:[BeeWithBeeaterCollisionHandler handlerWithWorld:_world levelSession:_levelSession]];
@@ -304,7 +308,8 @@
 	ShootingMode *shootingMode = [[[ShootingMode alloc] initWithGameplayState:self] autorelease];
 	LevelCompletedMode *levelCompletedMode = [[[LevelCompletedMode alloc] initWithGameplayState:self andUiLayer:_uiLayer levelSession:_levelSession] autorelease];
 	LevelFailedMode *levelFailedMode = [[[LevelFailedMode alloc] initWithGameplayState:self andUiLayer:_uiLayer levelSession:_levelSession] autorelease];
-	
+	PausedMode *pausedMode = [[[PausedMode alloc] initWithGameplayState:self] autorelease];
+
 	// Inject dependencies
 	[aimingMode setShootingMode:shootingMode];
 	[shootingMode setAimingMode:aimingMode];
@@ -315,8 +320,21 @@
     [_modes addObject:shootingMode];
 	[_modes addObject:levelCompletedMode];
 	[_modes addObject:levelFailedMode];
-	
+	[_modes addObject:pausedMode];
+
     _currentMode = aimingMode;
+}
+
+-(GameMode *) getMode:(Class)modeClass
+{
+	for (GameMode *gameMode in _modes)
+	{
+		if ([gameMode isKindOfClass:modeClass])
+		{
+			return gameMode;
+		}
+	}
+	return nil;
 }
 
 -(void) loadLevel
@@ -333,18 +351,6 @@
 		[_uiLayer addChild:balloonDialog];
 
 		[[PlayerInformation sharedInformation] markTutorialIdAsSeenAndSave:[tutorialBalloonDescription id]];
-	}
-}
-
--(void) checkUpdatedControls
-{
-	if ([[PlayerInformation sharedInformation] shouldSeeUpdatedControlsDialog] &&
-			![[PlayerInformation sharedInformation] hasSeenUpdatedControlsDialog])
-	{
-		[_uiLayer addChild:[[UpdatedControlsDialog new] autorelease]];
-
-		[[PlayerInformation sharedInformation] setHasSeenUpdatedControlsDialog:TRUE];
-		[[PlayerInformation sharedInformation] save];
 	}
 }
 

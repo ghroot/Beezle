@@ -81,16 +81,16 @@
 	else if ([[burnableComponent burnRenderSpritesByName] count] > 0)
 	{
 		[self replaceWithBurnSprites:burnableEntity];
+
+		if ([burnableComponent burnSoundName] != nil)
+		{
+			[[SoundManager sharedManager] playSound:[burnableComponent burnSoundName]];
+		}
 	}
 
 	if ([[burnableComponent pieceAnimationNames] count] > 0)
 	{
 		[self spawnBurnPieces:burnableEntity];
-	}
-
-	if ([burnableComponent burnSoundName] != nil)
-	{
-		[[SoundManager sharedManager] playSound:[burnableComponent burnSoundName]];
 	}
 
 	return FALSE;
@@ -173,6 +173,9 @@
 		}
 	}];
 	[[[renderComponent firstRenderSprite] sprite] runAction:[CCSequence actionOne:waitForCoalPiecesAction two:spawnCoalPiecesAction]];
+
+	// Burn sound
+	[[SoundManager sharedManager] playSound:@"BurneeBurn"];
 }
 
 -(void) replaceWithBurnSprites:(Entity *)entity

@@ -12,12 +12,13 @@
 #import "EntityUtil.h"
 #import "InputAction.h"
 #import "InputSystem.h"
-#import "PhysicsComponent.h"
 #import "PhysicsSystem.h"
 #import "RenderSprite.h"
 #import "RenderComponent.h"
 #import "SoundManager.h"
 #import "TransformComponent.h"
+#import "CrumbleComponent.h"
+#import "PollenComponent.h"
 
 @interface ExplodeControlSystem()
 
@@ -44,16 +45,22 @@
 -(void) processEntity:(Entity *)entity
 {
     ExplodeComponent *explodeComponent = [ExplodeComponent getFrom:entity];
-	BOOL didTouchBegin = [self didTouchBegin];
-	if (didTouchBegin &&
-		[explodeComponent explosionState] == NOT_EXPLODED)
+
+	if ([explodeComponent explosionState] == NOT_EXPLODED &&
+			[explodeComponent explodeOnTap] &&
+			[self didTouchBegin])
+	{
+		[explodeComponent setExplosionState:EXPLOSION_TRIGGERED];
+	}
+
+	if ([explodeComponent explosionState] == EXPLOSION_TRIGGERED)
 	{
 		[self startExplode:entity];
 	}
-    else if ([explodeComponent explosionState] == WAITING_FOR_END_EXPLOSION)
-    {
-        [self endExplode:entity];
-    }
+	else if ([explodeComponent explosionState] == WAITING_FOR_END_EXPLOSION)
+	{
+		[self endExplode:entity];
+	}
 }
 
 -(BOOL) didTouchBegin
@@ -100,7 +107,9 @@
 	{
 		Entity *otherEntity = [[shapeQueryInfo shape] data];
 		if (otherEntity != nil &&
-			[otherEntity hasComponent:[BrittleComponent class]] &&
+			([otherEntity hasComponent:[BrittleComponent class]] ||
+					([explodeComponent alsoExplodesCrumble] && [otherEntity hasComponent:[CrumbleComponent class]]) ||
+					([explodeComponent alsoExplodesPollen] && [otherEntity hasComponent:[PollenComponent class]])) &&
 			![entitiesToDestroy containsObject:otherEntity])
 		{
 			[entitiesToDestroy addObject:otherEntity];
@@ -111,11 +120,16 @@
     {
 		if (![EntityUtil isEntityDisposed:entityToDestroy])
 		{
-			[EntityUtil destroyEntity:entityToDestroy];
+			[EntityUtil destroyEntity:entityToDestroy instant:FALSE damage:[explodeComponent damage]];
 		}
     }
 	
 	[[SoundManager sharedManager] playSound:[explodeComponent randomExplodeSoundName]];
+
+	if ([explodeComponent alsoExplodesCrumble])
+	{
+		AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+	}
 }
 
 @end

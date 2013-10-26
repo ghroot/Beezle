@@ -10,6 +10,8 @@
 	</array>
 	<key>components</key>
 	<dict>
+        <key>armored</key>
+        <dict/>
 		<key>bee</key>
 		<dict>
 			<key>type</key>
@@ -27,7 +29,9 @@
             <key>bodyName</key>
             <string>Bee</string>
             <key>gravity</key>
-            <real>-45.0</real>
+            <real>-25.0</real>
+            <key>maxVelocity</key>
+            <real>120.0</real>
             <key>layers</key>
             <real>1</real>
             <key>group</key>
@@ -61,6 +65,11 @@
             <string>Stingee-Inflate-End</string>
             <key>stingSound</key>
             <string>StingeeSting</string>
+        </dict>
+        <key>sound</key>
+        <dict>
+            <key>loopingSound</key>
+            <string>StingeeFlight</string>
         </dict>
 		<key>transform</key>
 		<dict/>

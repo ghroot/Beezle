@@ -15,6 +15,12 @@
 #import "TransformComponent.h"
 #import "Utils.h"
 #import "EntityUtil.h"
+#import "EntityFactory.h"
+#import "RenderComponent.h"
+#import "RenderSprite.h"
+#import "FadeComponent.h"
+#import "SonarSprite.h"
+#import "SoundManager.h"
 
 static float FORCE_SCALE = 0.5f;
 
@@ -70,7 +76,8 @@ static float FORCE_SCALE = 0.5f;
 		{
 			case TOUCH_BEGAN:
 			{
-				if ([followComponent state] == FOLLOW_CONTROL_STATE_INACTIVE)
+				if ([followComponent alwaysActive] ||
+						[followComponent state] == FOLLOW_CONTROL_STATE_INACTIVE)
 				{
 					[followComponent setLocation:[inputAction touchLocation]];
 					[followComponent setState:FOLLOW_CONTROL_STATE_ACTIVE];
@@ -88,13 +95,54 @@ static float FORCE_SCALE = 0.5f;
 			case TOUCH_ENDED:
 			case TOUCH_CANCELLED:
 			{
-				if ([followComponent state] == FOLLOW_CONTROL_STATE_ACTIVE)
+				if (![followComponent alwaysActive] &&
+						[followComponent state] == FOLLOW_CONTROL_STATE_ACTIVE)
 				{
 					[followComponent setState:FOLLOW_CONTROL_STATE_INACTIVE];
 				}
 				break;
 			}
 		}
+	}
+
+	if ([followComponent locationEntity] == nil &&
+			([followComponent location].x != 0.0f || [followComponent location].y != 0.0f) &&
+			[followComponent locationAnimationFile] != nil)
+	{
+		Entity *locationEntity = [EntityFactory createSimpleAnimatedEntity:_world animationFile:[followComponent locationAnimationFile]];
+
+		FadeComponent *fadeComponent = [[[FadeComponent alloc] initWithDuration:0.1f introAnimationName:@"Ironbee-Target" fadeAnimationNames:[NSArray arrayWithObject:@"Ironbee-Target"]] autorelease];
+		[locationEntity addComponent:fadeComponent];
+		[locationEntity refresh];
+
+		RenderComponent *renderComponent = [RenderComponent getFrom:locationEntity];
+		[[renderComponent defaultRenderSprite] playAnimationLoop:[followComponent locationAnimationName]];
+
+		CCSprite *sonarParentSprite = [CCSprite node];
+		CCSprite *sonarSprite = [SonarSprite node];
+		[sonarParentSprite addChild:sonarSprite];
+		RenderSprite *sonarRenderSprite = [RenderSprite renderSpriteWithSprite:sonarParentSprite];
+		[sonarRenderSprite setName:@"sonar"];
+		[renderComponent addRenderSprite:sonarRenderSprite];
+
+		[[SoundManager sharedManager] playSound:@"IronBeeSonar"];
+		id scaleAndFadeSequence = [CCSpawn actionOne:[CCFadeOut actionWithDuration:2.0f] two:[CCScaleTo actionWithDuration:2.0f scale:4.0f]];
+		id resetScaleAndAlphaAction = [CCCallBlock actionWithBlock:^{
+			[sonarSprite setOpacity:255];
+			[sonarSprite setScale:1.0f];
+			[[SoundManager sharedManager] playSound:@"IronBeeSonar"];
+		}];
+		id sequence = [CCSequence actionOne:scaleAndFadeSequence two:resetScaleAndAlphaAction];
+		[sonarSprite runAction:[CCRepeat actionWithAction:sequence times:9999]];
+
+		[followComponent setLocationEntity:locationEntity];
+	}
+	if ([followComponent locationEntity] != nil)
+	{
+		[EntityUtil setEntityPosition:[followComponent locationEntity] position:[followComponent location]];
+
+		FadeComponent *fadeComponent = [FadeComponent getFrom:[followComponent locationEntity]];
+		[fadeComponent resetCountdown];
 	}
 }
 

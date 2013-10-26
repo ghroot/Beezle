@@ -6,24 +6,36 @@
 #import "artemis.h"
 #import "InAppPurchasesManager.h"
 
+@class Game;
+@class GameplayState;
+
 @interface InAppLayer : CCLayer <InAppPurchasesDelegate>
 {
 	CCNode *_interfaceNode;
 	BOOL _isInView;
+	Game *_game;
+	GameplayState *_gameplayState;
 
-	CCSprite *_burneeQuantityBoxSprite;
-	CCLabelTTF *_burneeQuantityLabel;
+	CCMenu *_menu;
+	CCLabelAtlas *_ironBeeQuantityLabel;
+	CCSprite *_buyIronBeeTagSprite;
+	CCLabelAtlas *_stingeeQuantityLabel;
+	CCSprite *_buyStingeeTagSprite;
+	CCLabelAtlas *_burneeQuantityLabel;
 	CCSprite *_buyBurneeTagSprite;
-	CCSprite *_gogglesQuantityBoxSprite;
-	CCLabelTTF *_gogglesQuantityLabel;
+	CCLabelAtlas *_gogglesQuantityLabel;
 	CCSprite *_buyGogglesTagSprite;
+
+	CCLayerColor *_coverLayer;
 
 	World *_world;
 }
 
--(id) initWithWorld:(World *)world;
+-(id) initWithWorld:(World *)world game:(Game *)game gameplayState:(GameplayState *)gameplayState;
 
 -(void) useBurnee;
+-(void) useStingee;
+-(void) useIronBee;
 -(void) useGoggles;
 -(void) ensureInView:(BOOL)shouldBeInView;
 

@@ -45,6 +45,7 @@
 @class SlingerGogglesSystem;
 @class InAppLayer;
 @class StingerControlSystem;
+@class FollowExplodeSystem;
 
 @interface GameplayState : BeezleGameState
 {
@@ -81,6 +82,7 @@
     RenderSystem *_renderSystem;
 	ShardSystem *_shardSystem;
 	PollenSystem *_pollenSystem;
+	FollowExplodeSystem *_followExplodeSystem;
     SlingerControlSystem *_slingerControlSystem;
 	AimPollenShooterSystem *_aimPollenShooterSystem;
 	SlingerGogglesSystem *_slingerGogglesSystem;
@@ -114,6 +116,7 @@
 @property (nonatomic, readonly) ExplodeControlSystem *explodeControlSystem;
 @property (nonatomic, readonly) FadeSystem *fadeSystem;
 @property (nonatomic, readonly) FollowControlSystem *followControlSystem;
+@property (nonatomic, readonly) FollowExplodeSystem *followExplodeSystem;
 @property (nonatomic, readonly) FreezeSystem *freezeSystem;
 @property (nonatomic, readonly) GameRulesSystem *gameRulesSystem;
 @property (nonatomic, readonly) HealthSystem *healthSystem;
@@ -143,5 +146,7 @@
 -(void) showPauseButton;
 -(void) nextLevel;
 -(void) closeAllDialogs;
+-(GameMode *) getMode:(Class)modeClass;
+-(void) enterMode:(GameMode *)mode;
 
 @end

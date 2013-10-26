@@ -13,6 +13,7 @@
 typedef enum
 {
     NOT_EXPLODED,
+	EXPLOSION_TRIGGERED,
     ANIMATING_START_EXPLOSION,
     WAITING_FOR_END_EXPLOSION,
     EXPLODED
@@ -24,16 +25,24 @@ typedef enum
 @interface ExplodeComponent : Component
 {
     // Type
+	BOOL _explodeOnTap;
 	int _radius;
 	NSString *_explodeStartAnimationName;
 	StringCollection *_explodeSoundNames;
-    
+	int _damage;
+	BOOL _alsoExplodesCrumble;
+	BOOL _alsoExplodesPollen;
+
     // Transient
     ExplosionState _explosionState;
 }
 
+@property (nonatomic) BOOL explodeOnTap;
 @property (nonatomic) int radius;
 @property (nonatomic, readonly) NSString *explodeStartAnimationName;
+@property (nonatomic, readonly) int damage;
+@property (nonatomic, readonly) BOOL alsoExplodesCrumble;
+@property (nonatomic, readonly) BOOL alsoExplodesPollen;
 @property (nonatomic) ExplosionState explosionState;
 
 -(NSString *) randomExplodeSoundName;

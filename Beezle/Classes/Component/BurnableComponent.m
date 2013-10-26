@@ -47,6 +47,7 @@
 		}
 		_pieceSmallAnimationNames = [[NSArray alloc] initWithArray:[typeComponentDict objectForKey:@"pieceSmallAnimations"]];
 		_pieceDelay = [[typeComponentDict objectForKey:@"pieceDelay"] floatValue];
+		_burnSoundName = [[typeComponentDict objectForKey:@"burnSound"] copy];
 	}
 	return self;
 }

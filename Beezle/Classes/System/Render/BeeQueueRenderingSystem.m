@@ -454,12 +454,14 @@ static const float LOADED_BEE_MAX_ANIMATION_DURATION = 1.0f;
 
 -(void) highlightBeeFirstInQueue
 {
-	RenderSprite *highlightRenderSprite = [_renderSystem createRenderSpriteWithSpriteSheetName:@"Shared" zOrder:[ZOrder Z_DEFAULT]];
+	RenderSprite *highlightRenderSprite = [_renderSystem createRenderSpriteWithSpriteSheetName:@"Shared" zOrder:[ZOrder Z_BACK]];
 	[[highlightRenderSprite sprite] setPosition:[[[_beeQueueRenderSprites objectAtIndex:0] sprite] position]];
 	[highlightRenderSprite addSpriteToSpriteSheet];
 	[highlightRenderSprite playAnimationOnce:@"Slinger-Highlight" andCallBlockAtEnd:^{
 		[highlightRenderSprite removeSpriteFromSpriteSheet];
 	}];
+
+	[[SoundManager sharedManager] playSound:@"SlingerInstall"];
 }
 
 @end
