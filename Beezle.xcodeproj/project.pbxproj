@@ -11,6 +11,10 @@
 		2C03D6D116B5EF1300242FD8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3281145F66F7000FF575 /* UIKit.framework */; };
 		2C03D6D216B5EF1300242FD8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3283145F66F7000FF575 /* Foundation.framework */; };
 		2C03D6D816B5EF1300242FD8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C03D6D616B5EF1300242FD8 /* InfoPlist.strings */; };
+		2C0A819F181C7BD6009AAE41 /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0A819D181C7BD6009AAE41 /* Icon-80.png */; };
+		2C0A81A0181C7BD6009AAE41 /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0A819D181C7BD6009AAE41 /* Icon-80.png */; };
+		2C0A81A1181C7BD6009AAE41 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0A819E181C7BD6009AAE41 /* Icon-120.png */; };
+		2C0A81A2181C7BD6009AAE41 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0A819E181C7BD6009AAE41 /* Icon-120.png */; };
 		2C0D500414A8CDBC00466316 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0D500314A8CDBC00466316 /* MessageUI.framework */; };
 		2C0D5E7115C486E10024C88D /* PausedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6615C486E10024C88D /* PausedDialog.ccbi */; };
 		2C0D5E7A15C486E10024C88D /* Syst-Text-Pause-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6F15C486E10024C88D /* Syst-Text-Pause-hd.png */; };
@@ -6064,6 +6068,8 @@
 		2C03D6D516B5EF1300242FD8 /* BeezleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BeezleTests-Info.plist"; sourceTree = "<group>"; };
 		2C03D6D716B5EF1300242FD8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C03D6DC16B5EF1300242FD8 /* BeezleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BeezleTests-Prefix.pch"; sourceTree = "<group>"; };
+		2C0A819D181C7BD6009AAE41 /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-80.png"; sourceTree = "<group>"; };
+		2C0A819E181C7BD6009AAE41 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		2C0D500314A8CDBC00466316 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		2C0D5E6615C486E10024C88D /* PausedDialog.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = PausedDialog.ccbi; sourceTree = "<group>"; };
 		2C0D5E6F15C486E10024C88D /* Syst-Text-Pause-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Syst-Text-Pause-hd.png"; sourceTree = "<group>"; };
@@ -10110,8 +10116,10 @@
 		2C4E91F81546EC7B0092B006 /* Icon */ = {
 			isa = PBXGroup;
 			children = (
+				2C0A819E181C7BD6009AAE41 /* Icon-120.png */,
 				2C85BD44164DCEC300A369AE /* Icon-72-Lite.png */,
 				2C4E91F91546EC7B0092B006 /* Icon-72.png */,
+				2C0A819D181C7BD6009AAE41 /* Icon-80.png */,
 				2C85BD45164DCEC300A369AE /* Icon-Lite.png */,
 				2C85BD46164DCEC300A369AE /* Icon-Lite@2x.png */,
 				2C85BD47164DCEC300A369AE /* Icon-Small-50-Lite.png */,
@@ -12899,6 +12907,7 @@
 				2C19907E16AF50D6006D8333 /* A51-Glass.png in Resources */,
 				2C19907F16AF50D6006D8333 /* A54-Glass-hd.png in Resources */,
 				2C19908016AF50D6006D8333 /* A54-Glass.png in Resources */,
+				2C0A819F181C7BD6009AAE41 /* Icon-80.png in Resources */,
 				2C19908116AF50D6006D8333 /* A55-Glass-hd.png in Resources */,
 				2C19908216AF50D6006D8333 /* A55-Glass.png in Resources */,
 				2C19908316AF50D6006D8333 /* A56-Glass-hd.png in Resources */,
@@ -14092,6 +14101,7 @@
 				2C19955116AF50D6006D8333 /* End-Credits-StingyBeesLogo-hd.png in Resources */,
 				2C19955216AF50D6006D8333 /* End-Credits-StingyBeesLogo.png in Resources */,
 				2C19955316AF50D6006D8333 /* E1-Glass-hd.png in Resources */,
+				2C0A81A1181C7BD6009AAE41 /* Icon-120.png in Resources */,
 				2C19955416AF50D6006D8333 /* E1-Glass.png in Resources */,
 				2C19955516AF50D6006D8333 /* E2-Glass-hd.png in Resources */,
 				2C19955616AF50D6006D8333 /* E2-Glass.png in Resources */,
@@ -15774,6 +15784,7 @@
 				2C5C597215CBD537006BA973 /* A51-Glass.png in Resources */,
 				2C5C597715CBD537006BA973 /* A54-Glass-hd.png in Resources */,
 				2C5C597815CBD537006BA973 /* A54-Glass.png in Resources */,
+				2C0A81A0181C7BD6009AAE41 /* Icon-80.png in Resources */,
 				2C5C597915CBD537006BA973 /* A55-Glass-hd.png in Resources */,
 				2C5C597A15CBD537006BA973 /* A55-Glass.png in Resources */,
 				2C5C597B15CBD537006BA973 /* A56-Glass-hd.png in Resources */,
@@ -16967,6 +16978,7 @@
 				88F1691506E82B6C8CFB2B3A /* End-Credits-StingyBeesLogo.png in Resources */,
 				88F16297395A004C994C29D4 /* E1-Glass-hd.png in Resources */,
 				88F16372ACD1CC5804B73B66 /* E1-Glass.png in Resources */,
+				2C0A81A2181C7BD6009AAE41 /* Icon-120.png in Resources */,
 				88F1642BEFA59165B20AAB32 /* E2-Glass-hd.png in Resources */,
 				88F166F898C5C98E12926027 /* E2-Glass.png in Resources */,
 				88F162BE3973491025C90541 /* E7-Glass-hd.png in Resources */,
@@ -19049,13 +19061,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info.plist";
 				PRODUCT_NAME = "Stingy Bees";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "26543A6C-0147-495C-B174-9E1A88E2E722";
 			};
 			name = AppStore;
 		};
