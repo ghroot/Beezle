@@ -11,10 +11,10 @@
 #import "InAppProductIds.h"
 #import "Logger.h"
 
-static const int NUMBER_OF_BURNEE_PER_PURCHASE = 15;
-static const int NUMBER_OF_STINGEE_PER_PURCHASE = 15;
-static const int NUMBER_OF_IRONBEE_PER_PURCHASE = 15;
-static const int NUMBER_OF_GOGGLES_PER_PURCHASE = 15;
+static const int NUMBER_OF_BURNEE_PER_PURCHASE = 20;
+static const int NUMBER_OF_STINGEE_PER_PURCHASE = 20;
+static const int NUMBER_OF_IRONBEE_PER_PURCHASE = 20;
+static const int NUMBER_OF_GOGGLES_PER_PURCHASE = 20;
 
 @interface InAppPurchasesManager()
 
