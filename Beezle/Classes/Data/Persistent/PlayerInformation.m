@@ -112,10 +112,10 @@ static NSString *PROGRESS_KEY = @"Progress";
 {
 	if (!_hasCheckedIfShouldGiveInitialInApps)
 	{
-		[self setNumberOfBurnee:10];
-		[self setNumberOfGoggles:10];
-		[self setNumberOfIronBee:10];
-		[self setNumberOfStingee:10];
+		[self setNumberOfBurnee:5];
+		[self setNumberOfGoggles:5];
+		[self setNumberOfIronBee:5];
+		[self setNumberOfStingee:5];
 
 		_hasCheckedIfShouldGiveInitialInApps = TRUE;
 
