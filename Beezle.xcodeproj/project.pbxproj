@@ -15,6 +15,8 @@
 		2C0A81A0181C7BD6009AAE41 /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0A819D181C7BD6009AAE41 /* Icon-80.png */; };
 		2C0A81A1181C7BD6009AAE41 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0A819E181C7BD6009AAE41 /* Icon-120.png */; };
 		2C0A81A2181C7BD6009AAE41 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0A819E181C7BD6009AAE41 /* Icon-120.png */; };
+		2C0A81A3181D765F009AAE41 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F16B225BE44BB79BAE9C48 /* libGoogleAnalytics_debug.a */; };
+		2C0A81A4181D7660009AAE41 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F16B225BE44BB79BAE9C48 /* libGoogleAnalytics_debug.a */; };
 		2C0D500414A8CDBC00466316 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0D500314A8CDBC00466316 /* MessageUI.framework */; };
 		2C0D5E7115C486E10024C88D /* PausedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6615C486E10024C88D /* PausedDialog.ccbi */; };
 		2C0D5E7A15C486E10024C88D /* Syst-Text-Pause-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6F15C486E10024C88D /* Syst-Text-Pause-hd.png */; };
@@ -5472,7 +5474,6 @@
 		88F160C4215DFEBDF8538173 /* Slinger-Burnee.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F16AA7378B829D3C03993C /* Slinger-Burnee.caf */; };
 		88F160CAE250BE9B6DD8CA17 /* E8-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F1615A37B0FC37A051849C /* E8-Glass.png */; };
 		88F160CB2408B26B5DC27EA0 /* Chooser-Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F1645169D3DF11FAAD581E /* Chooser-Screen.png */; };
-		88F160DDE143CA2D74A07DD8 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F16B225BE44BB79BAE9C48 /* libGoogleAnalytics_debug.a */; };
 		88F160E1DEA23C40FB8CA9B4 /* Beeater-Head-Piece-E-5.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16ABD9515CDC9E44D5F16 /* Beeater-Head-Piece-E-5.plist */; };
 		88F160E480D02CA6A8F8319B /* Menu-Circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F168FE48E3CCCAE156544F /* Menu-Circle.png */; };
 		88F160E7E79BA304560ED569 /* Burn-Parts-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F160B542A3D19813C4329F /* Burn-Parts-Animations.plist */; };
@@ -5842,7 +5843,6 @@
 		88F16CE761A2F4AC60527055 /* End-GameCompleted!-TBee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F163866FEF28DCC31BD6E3 /* End-GameCompleted!-TBee-1-hd.png */; };
 		88F16CE939E2C41E0AF7CC4E /* InAppPurchasesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16DC09FB23A507B2384C4 /* InAppPurchasesManager.m */; };
 		88F16CEB3D79032A5B974A4D /* ChooserSlingerBackground-3-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88F1669EDA5390CBA85447D3 /* ChooserSlingerBackground-3-hd.jpg */; };
-		88F16CF0E94825812C367F0C /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F16B225BE44BB79BAE9C48 /* libGoogleAnalytics_debug.a */; };
 		88F16CF3A46C5D1DC6F04CB9 /* ResetMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16ADD85C05C77F25BDC9D /* ResetMenuState.m */; };
 		88F16CF5C01C8B62D8A21DD8 /* Glass-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16280D09097CFF6C69201 /* Glass-E.plist */; };
 		88F16CF8D009979A04D4E46B /* Button-Buy Full Version-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16C569D6E2E1250213C61 /* Button-Buy Full Version-hd.png */; };
@@ -8668,12 +8668,12 @@
 				2CD6B0D6164480AD008D834B /* AVFoundation.framework in Frameworks */,
 				2CD6B0D7164480AD008D834B /* UIKit.framework in Frameworks */,
 				2CD6B0D8164480AD008D834B /* Foundation.framework in Frameworks */,
+				2C0A81A4181D7660009AAE41 /* libGoogleAnalytics_debug.a in Frameworks */,
 				2CD6B0D9164480AD008D834B /* CoreGraphics.framework in Frameworks */,
 				2CD6B0DA164480AD008D834B /* MessageUI.framework in Frameworks */,
 				2CD6B0DB164480AD008D834B /* libTestFlight.a in Frameworks */,
 				2CD6B0DD164480AD008D834B /* libFlurry.a in Frameworks */,
 				88F162B56B2A97819C0EBA74 /* libGoogleAnalytics.a in Frameworks */,
-				88F16CF0E94825812C367F0C /* libGoogleAnalytics_debug.a in Frameworks */,
 				2CAC3C5C166C1DC10089B83B /* libObjectiveChipmunk-iPhone.a in Frameworks */,
 				2CA0B9CD16ACBA73003E4B4C /* Accounts.framework in Frameworks */,
 				2CA0B9CE16ACBA7B003E4B4C /* AdSupport.framework in Frameworks */,
@@ -8700,6 +8700,7 @@
 				2CEA3278145F66F7000FF575 /* QuartzCore.framework in Frameworks */,
 				2CEA327A145F66F7000FF575 /* OpenGLES.framework in Frameworks */,
 				2CEA327C145F66F7000FF575 /* OpenAL.framework in Frameworks */,
+				2C0A81A3181D765F009AAE41 /* libGoogleAnalytics_debug.a in Frameworks */,
 				2CEA327E145F66F7000FF575 /* AudioToolbox.framework in Frameworks */,
 				2CEA3280145F66F7000FF575 /* AVFoundation.framework in Frameworks */,
 				2CEA3282145F66F7000FF575 /* UIKit.framework in Frameworks */,
@@ -8709,7 +8710,6 @@
 				2C5C9A39154A0D8800FF6F57 /* libTestFlight.a in Frameworks */,
 				BF8C7230C53737AD96BFF25A /* libFlurry.a in Frameworks */,
 				88F1605FAC230EF1BFE7AF83 /* libGoogleAnalytics.a in Frameworks */,
-				88F160DDE143CA2D74A07DD8 /* libGoogleAnalytics_debug.a in Frameworks */,
 				2CAC3C5B166C1DC10089B83B /* libObjectiveChipmunk-iPhone.a in Frameworks */,
 				2C86AD7816A8B09900A57F52 /* FacebookSDK.framework in Frameworks */,
 				2CC0F17116E40CB700036E33 /* iAd.framework in Frameworks */,
@@ -18889,6 +18889,10 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
+				);
 				PRODUCT_NAME = "Stingy Bees";
 				PROVISIONING_PROFILE = "";
 			};
@@ -18907,6 +18911,10 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Lite.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
+				);
 				PRODUCT_NAME = "Stingy Bees Lite";
 				PROVISIONING_PROFILE = "C4FBCA15-C9F0-4BF2-AA82-6312C8118B74";
 			};
@@ -19066,8 +19074,12 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
+				);
 				PRODUCT_NAME = "Stingy Bees";
-				PROVISIONING_PROFILE = "26543A6C-0147-495C-B174-9E1A88E2E722";
+				PROVISIONING_PROFILE = "7A3E851E-569B-4FE8-804E-ED5CEBC9607D";
 			};
 			name = AppStore;
 		};
@@ -19095,6 +19107,10 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Lite.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
+				);
 				PRODUCT_NAME = "Stingy Bees Lite";
 				PROVISIONING_PROFILE = "C4FBCA15-C9F0-4BF2-AA82-6312C8118B74";
 			};
@@ -19184,8 +19200,12 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
+				);
 				PRODUCT_NAME = "Stingy Bees";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "F34613CF-2834-4EC7-9300-6B2D062452AF";
 			};
 			name = "TestFlight Release";
 		};
@@ -19220,6 +19240,10 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Lite.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
+				);
 				PRODUCT_NAME = "Stingy Bees Lite";
 				PROVISIONING_PROFILE = "C4FBCA15-C9F0-4BF2-AA82-6312C8118B74";
 			};
@@ -19314,6 +19338,10 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
+				);
 				PRODUCT_NAME = "Stingy Bees";
 				PROVISIONING_PROFILE = "";
 			};
@@ -19350,6 +19378,10 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Lite.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
+				);
 				PRODUCT_NAME = "Stingy Bees Lite";
 				PROVISIONING_PROFILE = "2F604790-5CA3-4B26-A974-C1E3FD896D92";
 			};
@@ -19411,6 +19443,10 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Lite.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
+				);
 				PRODUCT_NAME = "Stingy Bees Lite";
 				PROVISIONING_PROFILE = "2F604790-5CA3-4B26-A974-C1E3FD896D92";
 			};
@@ -19464,6 +19500,10 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
+				);
 				PRODUCT_NAME = "Stingy Bees";
 				PROVISIONING_PROFILE = "";
 			};
