@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Facebook
+ * Copyright 2010-present Facebook.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,8 +25,8 @@
 @interface FBSessionManualTokenCachingStrategy : FBSessionTokenCachingStrategy
 
 // set the properties before instantiating the FBSession object in order to seed a token
-@property (readwrite, copy) NSString* accessToken;
-@property (readwrite, copy) NSDate* expirationDate;
+@property (readwrite, copy) NSString *accessToken;
+@property (readwrite, copy) NSDate *expirationDate;
 
 @end
 

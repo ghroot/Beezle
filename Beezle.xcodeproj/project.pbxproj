@@ -15,8 +15,6 @@
 		2C0A81A0181C7BD6009AAE41 /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0A819D181C7BD6009AAE41 /* Icon-80.png */; };
 		2C0A81A1181C7BD6009AAE41 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0A819E181C7BD6009AAE41 /* Icon-120.png */; };
 		2C0A81A2181C7BD6009AAE41 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0A819E181C7BD6009AAE41 /* Icon-120.png */; };
-		2C0A81A3181D765F009AAE41 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F16B225BE44BB79BAE9C48 /* libGoogleAnalytics_debug.a */; };
-		2C0A81A4181D7660009AAE41 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F16B225BE44BB79BAE9C48 /* libGoogleAnalytics_debug.a */; };
 		2C0D500414A8CDBC00466316 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0D500314A8CDBC00466316 /* MessageUI.framework */; };
 		2C0D5E7115C486E10024C88D /* PausedDialog.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6615C486E10024C88D /* PausedDialog.ccbi */; };
 		2C0D5E7A15C486E10024C88D /* Syst-Text-Pause-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0D5E6F15C486E10024C88D /* Syst-Text-Pause-hd.png */; };
@@ -295,8 +293,6 @@
 		2C198F5916AF50D6006D8333 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0D500314A8CDBC00466316 /* MessageUI.framework */; };
 		2C198F5A16AF50D6006D8333 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5C9A37154A0D8800FF6F57 /* libTestFlight.a */; };
 		2C198F5B16AF50D6006D8333 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8C739BB13E582AF07D5C6F /* libFlurry.a */; };
-		2C198F5C16AF50D6006D8333 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F167F8D9B1C6AA5B156E5F /* libGoogleAnalytics.a */; };
-		2C198F5D16AF50D6006D8333 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F16B225BE44BB79BAE9C48 /* libGoogleAnalytics_debug.a */; };
 		2C198F5E16AF50D6006D8333 /* libObjectiveChipmunk-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAC3C59166C1DC10089B83B /* libObjectiveChipmunk-iPhone.a */; };
 		2C198F5F16AF50D6006D8333 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C86AD7716A8B09900A57F52 /* FacebookSDK.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2C198F6116AF50D6006D8333 /* LICENSE_Chipmunk.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C114745148B9459002E4DBD /* LICENSE_Chipmunk.txt */; };
@@ -2111,8 +2107,6 @@
 		2C19970816AF50E8006D8333 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0D500314A8CDBC00466316 /* MessageUI.framework */; };
 		2C19970916AF50E8006D8333 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5C9A37154A0D8800FF6F57 /* libTestFlight.a */; };
 		2C19970A16AF50E8006D8333 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8C739BB13E582AF07D5C6F /* libFlurry.a */; };
-		2C19970B16AF50E8006D8333 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F167F8D9B1C6AA5B156E5F /* libGoogleAnalytics.a */; };
-		2C19970C16AF50E8006D8333 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F16B225BE44BB79BAE9C48 /* libGoogleAnalytics_debug.a */; };
 		2C19970D16AF50E8006D8333 /* libObjectiveChipmunk-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAC3C59166C1DC10089B83B /* libObjectiveChipmunk-iPhone.a */; };
 		2C19970E16AF50E8006D8333 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4D1D9F16A307B400E4F91F /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2C19970F16AF50E8006D8333 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4D1DA016A307B400E4F91F /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -2736,8 +2730,6 @@
 		2C276382170A45DE008F75EE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEA3279145F66F7000FF575 /* OpenGLES.framework */; };
 		2C276385170A4651008F75EE /* SessionTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C74B4CF156FAD1E00596A22 /* SessionTracker.m */; };
 		2C276386170A467F008F75EE /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8C739BB13E582AF07D5C6F /* libFlurry.a */; };
-		2C276387170A4697008F75EE /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F167F8D9B1C6AA5B156E5F /* libGoogleAnalytics.a */; };
-		2C276388170A4697008F75EE /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F16B225BE44BB79BAE9C48 /* libGoogleAnalytics_debug.a */; };
 		2C27638A170A4724008F75EE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC2DD3A1662F2FC00A2362E /* CoreData.framework */; };
 		2C27638B170A4746008F75EE /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5C9A37154A0D8800FF6F57 /* libTestFlight.a */; };
 		2C27638C170A4790008F75EE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF7AE531640963A00AE18B3 /* SystemConfiguration.framework */; };
@@ -2779,6 +2771,10 @@
 		2C27E90A14D20577002165CD /* TagEntitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FB14D20577002165CD /* TagEntitySystem.m */; };
 		2C27E90B14D20577002165CD /* TagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FD14D20577002165CD /* TagManager.m */; };
 		2C27E90C14D20577002165CD /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C27E8FF14D20577002165CD /* World.m */; };
+		2C2CD5FB189D2B6200DA7A9E /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2CD5F9189D2B6200DA7A9E /* libGoogleAnalytics_debug.a */; };
+		2C2CD5FC189D2B6200DA7A9E /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2CD5F9189D2B6200DA7A9E /* libGoogleAnalytics_debug.a */; };
+		2C2CD5FD189D2B6200DA7A9E /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2CD5FA189D2B6200DA7A9E /* libGoogleAnalytics.a */; };
+		2C2CD5FE189D2B6200DA7A9E /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2CD5FA189D2B6200DA7A9E /* libGoogleAnalytics.a */; };
 		2C3238F217C2BA20006B20F4 /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C32382317C2BA20006B20F4 /* CCAction.m */; };
 		2C3238F317C2BA20006B20F4 /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C32382317C2BA20006B20F4 /* CCAction.m */; };
 		2C3238F417C2BA20006B20F4 /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C32382317C2BA20006B20F4 /* CCAction.m */; };
@@ -3922,7 +3918,6 @@
 		2C4452D017272D8000F7B734 /* PlayScene.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8C73A49791F692FF3F2BA0 /* PlayScene.jpg */; };
 		2C4452D117272D8000F7B734 /* PlayScene.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8C73A49791F692FF3F2BA0 /* PlayScene.jpg */; };
 		2C4D1DA216A307B400E4F91F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4D1D9F16A307B400E4F91F /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		2C4D1DA316A307B400E4F91F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4D1DA016A307B400E4F91F /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2C4D1DA416A307B400E4F91F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4D1DA116A307B400E4F91F /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2C4E92001546EC7B0092B006 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4E91F91546EC7B0092B006 /* Icon-72.png */; };
 		2C4E92011546EC7B0092B006 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4E91FA1546EC7B0092B006 /* Icon-Small-50.png */; };
@@ -4351,7 +4346,6 @@
 		2C85BDF31656E8E400A369AE /* Level-D29-Layout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C85BDE61656E8E400A369AE /* Level-D29-Layout.plist */; };
 		2C85BDF51656E8E400A369AE /* Level-D29-Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C85BDE71656E8E400A369AE /* Level-D29-Shapes.plist */; };
 		2C85BDF71656E8E400A369AE /* Level-D29.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C85BDE81656E8E400A369AE /* Level-D29.jpg */; };
-		2C86AD7616A8B08600A57F52 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2C86AD7516A8B08600A57F52 /* FacebookSDKResources.bundle */; };
 		2C86AD7816A8B09900A57F52 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C86AD7716A8B09900A57F52 /* FacebookSDK.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2C8808AC155EF3BD000FD02E /* Beeater-Land-C.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8808AB155EF3BD000FD02E /* Beeater-Land-C.plist */; };
 		2C8808AF155F07C4000FD02E /* Beeater-Hanging-C.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8808AE155F07C4000FD02E /* Beeater-Hanging-C.plist */; };
@@ -5460,7 +5454,6 @@
 		88F160515CDF1249336AEF65 /* End-Credits-Bees-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16218AE09A08E66BB8854 /* End-Credits-Bees-hd.png */; };
 		88F16053B3C4E4854F86F662 /* Burnee-Burn.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F16A04BCBA4BED6D01355D /* Burnee-Burn.caf */; };
 		88F16059F115DBCC6735BCDF /* TestLevelLayoutsState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1641C13F25A38C83FAF73 /* TestLevelLayoutsState.m */; };
-		88F1605FAC230EF1BFE7AF83 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F167F8D9B1C6AA5B156E5F /* libGoogleAnalytics.a */; };
 		88F1606683813F2F169B4B03 /* Symbol-Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F166C26B8992B65811E668 /* Symbol-Pause.png */; };
 		88F16076AF45FA72B31E1B57 /* Ramp-Piece-E.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16C943B85E5C8FCF3EEEF /* Ramp-Piece-E.plist */; };
 		88F1607E5B6EAC4222A70748 /* CCMenuItemImageScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16306AA718A76078F15D9 /* CCMenuItemImageScale.m */; };
@@ -5541,7 +5534,6 @@
 		88F162A964664B70ED7C0C44 /* ChooserSlingerBackground-3-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88F1669EDA5390CBA85447D3 /* ChooserSlingerBackground-3-hd.jpg */; };
 		88F162AAD67E33346997D19B /* InAppPurchasesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16DC09FB23A507B2384C4 /* InAppPurchasesManager.m */; };
 		88F162AC0216D31DBAEC56BC /* SlingerBzzz.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F16EF99D6CA45233C6DCB2 /* SlingerBzzz.caf */; };
-		88F162B56B2A97819C0EBA74 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F167F8D9B1C6AA5B156E5F /* libGoogleAnalytics.a */; };
 		88F162BE3973491025C90541 /* E7-Glass-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16F5E395CE4ADDB051148 /* E7-Glass-hd.png */; };
 		88F162C3CA57BA6386567389 /* Popcorn.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F1654FD40311BF797DF718 /* Popcorn.caf */; };
 		88F162C4EE5CA95DD8672C5F /* PausedMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1699429F3DF371268DBA8 /* PausedMode.m */; };
@@ -6113,6 +6105,13 @@
 		2C27E8FD14D20577002165CD /* TagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagManager.m; sourceTree = "<group>"; };
 		2C27E8FE14D20577002165CD /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		2C27E8FF14D20577002165CD /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
+		2C2CD5F4189D2B6200DA7A9E /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = libs/GoogleAnalytics/GAI.h; sourceTree = "<group>"; };
+		2C2CD5F5189D2B6200DA7A9E /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = libs/GoogleAnalytics/GAITrackedViewController.h; sourceTree = "<group>"; };
+		2C2CD5F6189D2B6200DA7A9E /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = libs/GoogleAnalytics/GAITracker.h; sourceTree = "<group>"; };
+		2C2CD5F7189D2B6200DA7A9E /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransaction.h; path = libs/GoogleAnalytics/GAITransaction.h; sourceTree = "<group>"; };
+		2C2CD5F8189D2B6200DA7A9E /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransactionItem.h; path = libs/GoogleAnalytics/GAITransactionItem.h; sourceTree = "<group>"; };
+		2C2CD5F9189D2B6200DA7A9E /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics_debug.a; path = libs/GoogleAnalytics/libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
+		2C2CD5FA189D2B6200DA7A9E /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = libs/GoogleAnalytics/libGoogleAnalytics.a; sourceTree = "<group>"; };
 		2C32382217C2BA20006B20F4 /* CCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAction.h; sourceTree = "<group>"; };
 		2C32382317C2BA20006B20F4 /* CCAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAction.m; sourceTree = "<group>"; };
 		2C32382417C2BA20006B20F4 /* CCActionCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCActionCamera.h; sourceTree = "<group>"; };
@@ -8121,7 +8120,6 @@
 		88F160FAB25BEFC66475BFB9 /* End-GameCompleted!-Bombee-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Bombee-1.png"; sourceTree = "<group>"; };
 		88F16118DC7F9631754CF09E /* Text-GameCompleted!-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Text-GameCompleted!-hd.png"; sourceTree = "<group>"; };
 		88F16121FC8B13C3A0A24403 /* StingerControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StingerControlSystem.h; sourceTree = "<group>"; };
-		88F16140306989BA9657DF1E /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = libs/GoogleAnalytics/GAITrackedViewController.h; sourceTree = "<group>"; };
 		88F161512DB9EA7E77E5FF61 /* ThemeSelect-E.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file.ccbi; path = "ThemeSelect-E.ccbi"; sourceTree = "<group>"; };
 		88F1615A37B0FC37A051849C /* E8-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E8-Glass.png"; sourceTree = "<group>"; };
 		88F1616151FDE0613BD1CB0B /* RenderSpriteRotationType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderSpriteRotationType.h; sourceTree = "<group>"; };
@@ -8208,14 +8206,12 @@
 		88F165691C268C8B998515D5 /* DescrStrip-Bombee-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Bombee-hd.jpg"; sourceTree = "<group>"; };
 		88F16579ADE2F7B75B98E3D3 /* RespawnComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RespawnComponent.m; sourceTree = "<group>"; };
 		88F16588D63205FB5CF38293 /* GroundComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroundComponent.m; sourceTree = "<group>"; };
-		88F1658A0AEF2EF3F9DA73EB /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransaction.h; path = libs/GoogleAnalytics/GAITransaction.h; sourceTree = "<group>"; };
 		88F1658AC056562C3A9362E8 /* URLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = URLConnection.m; path = libs/URLConnection/URLConnection.m; sourceTree = "<group>"; };
 		88F165922364752477718CE5 /* E8-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E8-Glass-hd.png"; sourceTree = "<group>"; };
 		88F165A6E6244AF7D4BAF3A3 /* LiteUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiteUtils.h; sourceTree = "<group>"; };
 		88F165B0EF6C4AE5032BDA3C /* FacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookManager.h; sourceTree = "<group>"; };
 		88F165C3D30A3D15E648960B /* Stingee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Stingee-Animations.plist"; sourceTree = "<group>"; };
 		88F165D08A4C52AE4FE1AF08 /* Burnee-Steam.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = "Burnee-Steam.caf"; sourceTree = "<group>"; };
-		88F165D69830D69FEB428DFE /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = libs/GoogleAnalytics/GAITracker.h; sourceTree = "<group>"; };
 		88F165F520E8EB4F6826A3C3 /* DescrStrip-Sawee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Sawee.jpg"; sourceTree = "<group>"; };
 		88F1660553418788071E53E9 /* DestroyComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestroyComponent.h; sourceTree = "<group>"; };
 		88F1660F2D5915EC2D7E01CC /* CCBKeyframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBKeyframe.m; sourceTree = "<group>"; };
@@ -8257,7 +8253,6 @@
 		88F167B5FE92D439C818D1CB /* End-GameCompleted!-TBee-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-TBee-2.png"; sourceTree = "<group>"; };
 		88F167E7C8CA1424185EB8C3 /* Beeater-Head-Piece-E-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Beeater-Head-Piece-E-3.plist"; sourceTree = "<group>"; };
 		88F167F0EF9090D25CDF8009 /* URLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = URLConnection.h; path = libs/URLConnection/URLConnection.h; sourceTree = "<group>"; };
-		88F167F8D9B1C6AA5B156E5F /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = libs/GoogleAnalytics/libGoogleAnalytics.a; sourceTree = "<group>"; };
 		88F167FAAECC7C61E9C4801E /* End-GameCompleted!-Bee-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Bee-1-hd.png"; sourceTree = "<group>"; };
 		88F16800C6449CE96E760F35 /* Stingee-Idle-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stingee-Idle-1-hd.png"; sourceTree = "<group>"; };
 		88F1681F43B4A308CC5FA88D /* GameCompletedDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCompletedDialog.m; sourceTree = "<group>"; };
@@ -8319,7 +8314,6 @@
 		88F16AFEB78B753575A526D0 /* E1-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E1-Glass-hd.png"; sourceTree = "<group>"; };
 		88F16B0859277B71A3431924 /* StingerWithPollenCollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StingerWithPollenCollisionHandler.m; sourceTree = "<group>"; };
 		88F16B1F8B868A68BD5AD12E /* GameCentre logo-Idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GameCentre logo-Idle.png"; sourceTree = "<group>"; };
-		88F16B225BE44BB79BAE9C48 /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics_debug.a; path = libs/GoogleAnalytics/libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
 		88F16B2BBA1E587A869107CA /* Burnee-Idle-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Burnee-Idle-1-hd.png"; sourceTree = "<group>"; };
 		88F16B4269B72DCCD323C11F /* End-Credits-StingyBeesLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-StingyBeesLogo.png"; sourceTree = "<group>"; };
 		88F16B51E1ACF2D772B37351 /* Menu-Circle-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-Circle-hd.png"; sourceTree = "<group>"; };
@@ -8353,7 +8347,6 @@
 		88F16C9CB457A6B395A8996B /* DescrStrip-IntroGame-A-2-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-IntroGame-A-2-hd.jpg"; sourceTree = "<group>"; };
 		88F16C9D21E3F18B604F2420 /* BeeWithGroundCollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeWithGroundCollisionHandler.h; sourceTree = "<group>"; };
 		88F16CABFB750E1507717F97 /* CCBSequenceProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBSequenceProperty.m; sourceTree = "<group>"; };
-		88F16CC162E97E8342DF4B82 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransactionItem.h; path = libs/GoogleAnalytics/GAITransactionItem.h; sourceTree = "<group>"; };
 		88F16CC45855AABA60B54FC1 /* DescrStrip-IntroGame-A-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-IntroGame-A-2.jpg"; sourceTree = "<group>"; };
 		88F16CCC3494E5DC198834BB /* End-GameCompleted!-Sumee-2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Sumee-2-hd.png"; sourceTree = "<group>"; };
 		88F16CCE5D365F0BA297F8C9 /* End-GameCompleted!-Mumee-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Mumee-1-hd.png"; sourceTree = "<group>"; };
@@ -8364,7 +8357,6 @@
 		88F16D22AE4B051561A9E2C3 /* E4-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E4-Glass-hd.png"; sourceTree = "<group>"; };
 		88F16D2ADDFB1ED4BEF8E5C2 /* Iron-Bee-Off-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Iron-Bee-Off-1-hd.png"; sourceTree = "<group>"; };
 		88F16D39DE5329C6D7D7D54F /* DescrStrip-IntroGame-A-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-IntroGame-A-1.jpg"; sourceTree = "<group>"; };
-		88F16D430E686F22E0730B7D /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = libs/GoogleAnalytics/GAI.h; sourceTree = "<group>"; };
 		88F16D547595DC13E1D6BD32 /* LevelSelect.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file.ccbi; path = LevelSelect.ccbi; sourceTree = "<group>"; };
 		88F16D5E4F6CE0B80DC274B1 /* LevelThemeSelectBuyFullLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelThemeSelectBuyFullLayer.m; sourceTree = "<group>"; };
 		88F16D66507EF501BB695D95 /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
@@ -8570,8 +8562,6 @@
 				2C9524EE16CAF67400293ACE /* OCMockitoIOS.framework in Frameworks */,
 				2C9524F116CAF67D00293ACE /* OCHamcrestIOS.framework in Frameworks */,
 				2C276386170A467F008F75EE /* libFlurry.a in Frameworks */,
-				2C276387170A4697008F75EE /* libGoogleAnalytics.a in Frameworks */,
-				2C276388170A4697008F75EE /* libGoogleAnalytics_debug.a in Frameworks */,
 				2C27638B170A4746008F75EE /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -8583,6 +8573,7 @@
 				2CC1BBA0173AF22C000E901D /* CoreText.framework in Frameworks */,
 				2C198F4916AF50D6006D8333 /* StoreKit.framework in Frameworks */,
 				2C198F4A16AF50D6006D8333 /* Accounts.framework in Frameworks */,
+				2C2CD5FB189D2B6200DA7A9E /* libGoogleAnalytics_debug.a in Frameworks */,
 				2C198F4B16AF50D6006D8333 /* AdSupport.framework in Frameworks */,
 				2C198F4C16AF50D6006D8333 /* Social.framework in Frameworks */,
 				2C198F4D16AF50D6006D8333 /* CoreData.framework in Frameworks */,
@@ -8593,6 +8584,7 @@
 				2C198F5216AF50D6006D8333 /* OpenGLES.framework in Frameworks */,
 				2C198F5316AF50D6006D8333 /* OpenAL.framework in Frameworks */,
 				2C198F5416AF50D6006D8333 /* AudioToolbox.framework in Frameworks */,
+				2C2CD5FD189D2B6200DA7A9E /* libGoogleAnalytics.a in Frameworks */,
 				2C198F5516AF50D6006D8333 /* AVFoundation.framework in Frameworks */,
 				2C198F5616AF50D6006D8333 /* UIKit.framework in Frameworks */,
 				2C198F5716AF50D6006D8333 /* Foundation.framework in Frameworks */,
@@ -8600,8 +8592,6 @@
 				2C198F5916AF50D6006D8333 /* MessageUI.framework in Frameworks */,
 				2C198F5A16AF50D6006D8333 /* libTestFlight.a in Frameworks */,
 				2C198F5B16AF50D6006D8333 /* libFlurry.a in Frameworks */,
-				2C198F5C16AF50D6006D8333 /* libGoogleAnalytics.a in Frameworks */,
-				2C198F5D16AF50D6006D8333 /* libGoogleAnalytics_debug.a in Frameworks */,
 				2C198F5E16AF50D6006D8333 /* libObjectiveChipmunk-iPhone.a in Frameworks */,
 				2C198F5F16AF50D6006D8333 /* FacebookSDK.framework in Frameworks */,
 				2CC0F17216E40CB800036E33 /* iAd.framework in Frameworks */,
@@ -8628,8 +8618,6 @@
 				2C19970816AF50E8006D8333 /* MessageUI.framework in Frameworks */,
 				2C19970916AF50E8006D8333 /* libTestFlight.a in Frameworks */,
 				2C19970A16AF50E8006D8333 /* libFlurry.a in Frameworks */,
-				2C19970B16AF50E8006D8333 /* libGoogleAnalytics.a in Frameworks */,
-				2C19970C16AF50E8006D8333 /* libGoogleAnalytics_debug.a in Frameworks */,
 				2C19970D16AF50E8006D8333 /* libObjectiveChipmunk-iPhone.a in Frameworks */,
 				2C19970E16AF50E8006D8333 /* Accounts.framework in Frameworks */,
 				2C19970F16AF50E8006D8333 /* AdSupport.framework in Frameworks */,
@@ -8668,12 +8656,10 @@
 				2CD6B0D6164480AD008D834B /* AVFoundation.framework in Frameworks */,
 				2CD6B0D7164480AD008D834B /* UIKit.framework in Frameworks */,
 				2CD6B0D8164480AD008D834B /* Foundation.framework in Frameworks */,
-				2C0A81A4181D7660009AAE41 /* libGoogleAnalytics_debug.a in Frameworks */,
 				2CD6B0D9164480AD008D834B /* CoreGraphics.framework in Frameworks */,
 				2CD6B0DA164480AD008D834B /* MessageUI.framework in Frameworks */,
 				2CD6B0DB164480AD008D834B /* libTestFlight.a in Frameworks */,
 				2CD6B0DD164480AD008D834B /* libFlurry.a in Frameworks */,
-				88F162B56B2A97819C0EBA74 /* libGoogleAnalytics.a in Frameworks */,
 				2CAC3C5C166C1DC10089B83B /* libObjectiveChipmunk-iPhone.a in Frameworks */,
 				2CA0B9CD16ACBA73003E4B4C /* Accounts.framework in Frameworks */,
 				2CA0B9CE16ACBA7B003E4B4C /* AdSupport.framework in Frameworks */,
@@ -8691,8 +8677,8 @@
 				2CC1BBA1173AF23D000E901D /* CoreText.framework in Frameworks */,
 				2CEEAEA916AF3B8A001F7CC6 /* StoreKit.framework in Frameworks */,
 				2C4D1DA216A307B400E4F91F /* Accounts.framework in Frameworks */,
-				2C4D1DA316A307B400E4F91F /* AdSupport.framework in Frameworks */,
 				2C4D1DA416A307B400E4F91F /* Social.framework in Frameworks */,
+				2C2CD5FC189D2B6200DA7A9E /* libGoogleAnalytics_debug.a in Frameworks */,
 				2CC2DD3B1662F2FC00A2362E /* CoreData.framework in Frameworks */,
 				2C85BD731651BDE100A369AE /* GameKit.framework in Frameworks */,
 				2CF7AE541640963A00AE18B3 /* SystemConfiguration.framework in Frameworks */,
@@ -8700,7 +8686,6 @@
 				2CEA3278145F66F7000FF575 /* QuartzCore.framework in Frameworks */,
 				2CEA327A145F66F7000FF575 /* OpenGLES.framework in Frameworks */,
 				2CEA327C145F66F7000FF575 /* OpenAL.framework in Frameworks */,
-				2C0A81A3181D765F009AAE41 /* libGoogleAnalytics_debug.a in Frameworks */,
 				2CEA327E145F66F7000FF575 /* AudioToolbox.framework in Frameworks */,
 				2CEA3280145F66F7000FF575 /* AVFoundation.framework in Frameworks */,
 				2CEA3282145F66F7000FF575 /* UIKit.framework in Frameworks */,
@@ -8709,10 +8694,10 @@
 				2C0D500414A8CDBC00466316 /* MessageUI.framework in Frameworks */,
 				2C5C9A39154A0D8800FF6F57 /* libTestFlight.a in Frameworks */,
 				BF8C7230C53737AD96BFF25A /* libFlurry.a in Frameworks */,
-				88F1605FAC230EF1BFE7AF83 /* libGoogleAnalytics.a in Frameworks */,
 				2CAC3C5B166C1DC10089B83B /* libObjectiveChipmunk-iPhone.a in Frameworks */,
 				2C86AD7816A8B09900A57F52 /* FacebookSDK.framework in Frameworks */,
 				2CC0F17116E40CB700036E33 /* iAd.framework in Frameworks */,
+				2C2CD5FE189D2B6200DA7A9E /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -12261,13 +12246,13 @@
 		88F162428B87BFC5341C67FA /* GoogleAnalytics */ = {
 			isa = PBXGroup;
 			children = (
-				88F16D430E686F22E0730B7D /* GAI.h */,
-				88F16140306989BA9657DF1E /* GAITrackedViewController.h */,
-				88F165D69830D69FEB428DFE /* GAITracker.h */,
-				88F1658A0AEF2EF3F9DA73EB /* GAITransaction.h */,
-				88F16CC162E97E8342DF4B82 /* GAITransactionItem.h */,
-				88F167F8D9B1C6AA5B156E5F /* libGoogleAnalytics.a */,
-				88F16B225BE44BB79BAE9C48 /* libGoogleAnalytics_debug.a */,
+				2C2CD5F4189D2B6200DA7A9E /* GAI.h */,
+				2C2CD5F5189D2B6200DA7A9E /* GAITrackedViewController.h */,
+				2C2CD5F6189D2B6200DA7A9E /* GAITracker.h */,
+				2C2CD5F7189D2B6200DA7A9E /* GAITransaction.h */,
+				2C2CD5F8189D2B6200DA7A9E /* GAITransactionItem.h */,
+				2C2CD5F9189D2B6200DA7A9E /* libGoogleAnalytics_debug.a */,
+				2C2CD5FA189D2B6200DA7A9E /* libGoogleAnalytics.a */,
 			);
 			name = GoogleAnalytics;
 			sourceTree = "<group>";
@@ -17045,7 +17030,6 @@
 				88F16E99BF5A74774247988A /* Facebook-logo.png in Resources */,
 				88F160C2AA4FA92919272033 /* Text-My Friends High Score-hd.png in Resources */,
 				88F160A2EC63FA3F9100C87E /* Text-My Friends High Score.png in Resources */,
-				2C86AD7616A8B08600A57F52 /* FacebookSDKResources.bundle in Resources */,
 				2C37B84A16C46A3100AF3DFA /* Default-568h@2x.png in Resources */,
 				2C37B84E16C46A3100AF3DFA /* Default.png in Resources */,
 				2C37B85216C46A3100AF3DFA /* Default@2x.png in Resources */,
@@ -18956,6 +18940,10 @@
 				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Development.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
+				);
 				PRODUCT_NAME = "Stingy Bees Dev";
 				PROVISIONING_PROFILE = "D760D0C7-5909-48F9-AD58-C55902CE7999";
 			};
@@ -18973,6 +18961,10 @@
 				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Development.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
+				);
 				PRODUCT_NAME = "Stingy Bees Dev";
 				PROVISIONING_PROFILE = "97AB07D9-32E4-4369-AD5F-B0262E6D2023";
 			};
@@ -19061,6 +19053,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Development.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
+				);
 				PRODUCT_NAME = "Stingy Bees Dev";
 			};
 			name = AppStore;
@@ -19186,6 +19182,10 @@
 				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Development.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
+				);
 				PRODUCT_NAME = "Stingy Bees Dev";
 				PROVISIONING_PROFILE = "97AB07D9-32E4-4369-AD5F-B0262E6D2023";
 			};
@@ -19324,6 +19324,10 @@
 				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Development.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
+				);
 				PRODUCT_NAME = "Stingy Bees Dev";
 				PROVISIONING_PROFILE = "D760D0C7-5909-48F9-AD58-C55902CE7999";
 			};
