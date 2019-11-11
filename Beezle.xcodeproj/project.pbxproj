@@ -12551,7 +12551,7 @@
 		2CEA326A145F66F7000FF575 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 1120;
 				TargetAttributes = {
 					2C198DEF16AF50D6006D8333 = {
 						DevelopmentTeam = 4C28MZ8U29;
@@ -12576,6 +12576,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 2CEA3268145F66F7000FF575;
@@ -18672,6 +18673,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -18690,13 +18692,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Beezle/libs/Flurry\"",
 					"\"$(SRCROOT)/Beezle/libs/GoogleAnalytics\"",
 					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stinglab.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -18708,6 +18711,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -18721,13 +18725,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Beezle/libs/Flurry\"",
 					"\"$(SRCROOT)/Beezle/libs/GoogleAnalytics\"",
 					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stinglab.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -18739,6 +18744,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -18752,13 +18758,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Beezle/libs/Flurry\"",
 					"\"$(SRCROOT)/Beezle/libs/GoogleAnalytics\"",
 					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stinglab.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -18770,6 +18777,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -18783,13 +18791,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Beezle/libs/Flurry\"",
 					"\"$(SRCROOT)/Beezle/libs/GoogleAnalytics\"",
 					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stinglab.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -18801,6 +18810,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -18814,13 +18824,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
 				INFOPLIST_FILE = "BeezleTests/BeezleTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Beezle/libs/Flurry\"",
 					"\"$(SRCROOT)/Beezle/libs/GoogleAnalytics\"",
 					"\"$(SRCROOT)/Beezle/libs/TestFlight\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stinglab.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -18829,12 +18840,33 @@
 		2C198DE916AF4AEB006D8333 /* TestFlight Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"${inherited}",
 					"\"$(SRCROOT)/Beezle/libs\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -18843,10 +18875,14 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				KEEP_PRIVATE_EXTERNS = NO;
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
@@ -18855,6 +18891,7 @@
 					"\"${SRCROOT}/Beezle/libs/Flurry\"",
 					"\"${PROJECT_DIR}/Beezle/libs/GoogleAnalytics\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3.0",
@@ -18867,6 +18904,7 @@
 		2C198DEA16AF4AEB006D8333 /* TestFlight Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -18877,6 +18915,7 @@
 					"$(inherited)",
 					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBees;
 				PRODUCT_NAME = "Stingy Bees";
 				PROVISIONING_PROFILE = "";
 			};
@@ -18885,6 +18924,7 @@
 		2C198DEC16AF4AEB006D8333 /* TestFlight Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees Lite.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -18899,6 +18939,7 @@
 					"$(inherited)",
 					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBeesLite;
 				PRODUCT_NAME = "Stingy Bees Lite";
 				PROVISIONING_PROFILE = "C4FBCA15-C9F0-4BF2-AA82-6312C8118B74";
 			};
@@ -18908,6 +18949,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -18922,7 +18964,8 @@
 				);
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				INFOPLIST_FILE = "ArtemisTests/ArtemisTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.micmar.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -18931,6 +18974,7 @@
 		2C19959D16AF50D6006D8333 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -18944,6 +18988,7 @@
 					"$(inherited)",
 					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBeesDevelopment2;
 				PRODUCT_NAME = "Stingy Bees Dev";
 				PROVISIONING_PROFILE = "D760D0C7-5909-48F9-AD58-C55902CE7999";
 			};
@@ -18952,6 +18997,7 @@
 		2C19959E16AF50D6006D8333 /* TestFlight Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -18965,6 +19011,7 @@
 					"$(inherited)",
 					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBeesDevelopment2;
 				PRODUCT_NAME = "Stingy Bees Dev";
 				PROVISIONING_PROFILE = "97AB07D9-32E4-4369-AD5F-B0262E6D2023";
 			};
@@ -18973,6 +19020,7 @@
 		2C19999716AF50E8006D8333 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees Lite.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: KM Lagerstrom (WXEWHGD352)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -18983,6 +19031,7 @@
 				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Lite-Development.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBeesLiteDevelopment;
 				PRODUCT_NAME = "Stingy Bees Lite Dev";
 				PROVISIONING_PROFILE = "EF5FB5DF-8D39-4A40-B464-31F5F323C628";
 			};
@@ -18991,6 +19040,7 @@
 		2C19999816AF50E8006D8333 /* TestFlight Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees Lite.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -19001,6 +19051,7 @@
 				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Lite-Development.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBeesLiteDevelopment;
 				PRODUCT_NAME = "Stingy Bees Lite Dev";
 				PROVISIONING_PROFILE = "77798FD3-C9A3-46DD-BF8E-6C3D1EFAA8C7";
 			};
@@ -19009,12 +19060,32 @@
 		2C1999A116AF533C006D8333 /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"${inherited}",
 					"\"$(SRCROOT)/Beezle/libs\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -19024,10 +19095,14 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				KEEP_PRIVATE_EXTERNS = NO;
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
@@ -19049,6 +19124,7 @@
 		2C1999A216AF533C006D8333 /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
@@ -19057,6 +19133,7 @@
 					"$(inherited)",
 					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBeesDevelopment2;
 				PRODUCT_NAME = "Stingy Bees Dev";
 			};
 			name = AppStore;
@@ -19064,6 +19141,7 @@
 		2C1999A316AF533C006D8333 /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees.entitlements";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -19074,6 +19152,7 @@
 					"$(inherited)",
 					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBees;
 				PRODUCT_NAME = "Stingy Bees";
 				PROVISIONING_PROFILE = "A878B46B-1F10-4056-A756-19C9EC6652A8";
 			};
@@ -19082,10 +19161,12 @@
 		2C1999A416AF533C006D8333 /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees Lite.entitlements";
 				CODE_SIGN_IDENTITY = "";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Lite-Development.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBeesLiteDevelopment;
 				PRODUCT_NAME = "Stingy Bees Lite Dev";
 			};
 			name = AppStore;
@@ -19093,6 +19174,7 @@
 		2C1999A516AF533C006D8333 /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees Lite.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -19107,6 +19189,7 @@
 					"$(inherited)",
 					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBeesLite;
 				PRODUCT_NAME = "Stingy Bees Lite";
 				PROVISIONING_PROFILE = "C4FBCA15-C9F0-4BF2-AA82-6312C8118B74";
 			};
@@ -19116,6 +19199,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -19125,7 +19209,8 @@
 				GCC_PREFIX_HEADER = "ArtemisTests/ArtemisTests-Prefix.pch";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				INFOPLIST_FILE = "ArtemisTests/ArtemisTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.micmar.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -19134,12 +19219,32 @@
 		2C1999A716B09C09006D8333 /* TestFlight Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"${inherited}",
 					"\"$(SRCROOT)/Beezle/libs\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -19148,10 +19253,14 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				KEEP_PRIVATE_EXTERNS = NO;
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
@@ -19173,6 +19282,7 @@
 		2C1999A816B09C09006D8333 /* TestFlight Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -19186,6 +19296,7 @@
 					"$(inherited)",
 					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBeesDevelopment2;
 				PRODUCT_NAME = "Stingy Bees Dev";
 				PROVISIONING_PROFILE = "97AB07D9-32E4-4369-AD5F-B0262E6D2023";
 			};
@@ -19194,6 +19305,7 @@
 		2C1999A916B09C09006D8333 /* TestFlight Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -19204,6 +19316,7 @@
 					"$(inherited)",
 					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBees;
 				PRODUCT_NAME = "Stingy Bees";
 				PROVISIONING_PROFILE = "";
 			};
@@ -19212,6 +19325,7 @@
 		2C1999AA16B09C09006D8333 /* TestFlight Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees Lite.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -19222,6 +19336,7 @@
 				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Lite-Development.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBeesLiteDevelopment;
 				PRODUCT_NAME = "Stingy Bees Lite Dev";
 				PROVISIONING_PROFILE = "77798FD3-C9A3-46DD-BF8E-6C3D1EFAA8C7";
 			};
@@ -19230,6 +19345,7 @@
 		2C1999AB16B09C09006D8333 /* TestFlight Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees Lite.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: StingLab Limited";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -19244,6 +19360,7 @@
 					"$(inherited)",
 					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBeesLite;
 				PRODUCT_NAME = "Stingy Bees Lite";
 				PROVISIONING_PROFILE = "C4FBCA15-C9F0-4BF2-AA82-6312C8118B74";
 			};
@@ -19253,6 +19370,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -19267,7 +19385,8 @@
 				);
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				INFOPLIST_FILE = "ArtemisTests/ArtemisTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.micmar.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -19276,12 +19395,32 @@
 		2C973DDE16B5E36A00BD6C39 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"${inherited}",
 					"\"$(SRCROOT)/Beezle/libs\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -19290,10 +19429,14 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				KEEP_PRIVATE_EXTERNS = NO;
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
@@ -19315,6 +19458,7 @@
 		2C973DDF16B5E36A00BD6C39 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -19328,6 +19472,7 @@
 					"$(inherited)",
 					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBeesDevelopment2;
 				PRODUCT_NAME = "Stingy Bees Dev";
 				PROVISIONING_PROFILE = "D760D0C7-5909-48F9-AD58-C55902CE7999";
 			};
@@ -19336,6 +19481,7 @@
 		2C973DE016B5E36A00BD6C39 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -19346,6 +19492,7 @@
 					"$(inherited)",
 					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBees;
 				PRODUCT_NAME = "Stingy Bees";
 				PROVISIONING_PROFILE = "";
 			};
@@ -19354,6 +19501,7 @@
 		2C973DE116B5E36A00BD6C39 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees Lite.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: KM Lagerstrom (WXEWHGD352)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -19364,6 +19512,7 @@
 				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Beezle/Info-Lite-Development.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBeesLiteDevelopment;
 				PRODUCT_NAME = "Stingy Bees Lite Dev";
 				PROVISIONING_PROFILE = "EF5FB5DF-8D39-4A40-B464-31F5F323C628";
 			};
@@ -19372,6 +19521,7 @@
 		2C973DE216B5E36A00BD6C39 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees Lite.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: KM Lagerstrom (WXEWHGD352)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -19386,6 +19536,7 @@
 					"$(inherited)",
 					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBeesLite;
 				PRODUCT_NAME = "Stingy Bees Lite";
 				PROVISIONING_PROFILE = "2F604790-5CA3-4B26-A974-C1E3FD896D92";
 			};
@@ -19395,6 +19546,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -19404,7 +19556,8 @@
 				GCC_PREFIX_HEADER = "ArtemisTests/ArtemisTests-Prefix.pch";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				INFOPLIST_FILE = "ArtemisTests/ArtemisTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.micmar.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -19414,6 +19567,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -19428,7 +19582,8 @@
 				);
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				INFOPLIST_FILE = "ArtemisTests/ArtemisTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.micmar.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -19437,6 +19592,7 @@
 		2CD6B848164480AD008D834B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees Lite.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: KM Lagerstrom (WXEWHGD352)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -19451,6 +19607,7 @@
 					"$(inherited)",
 					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBeesLite;
 				PRODUCT_NAME = "Stingy Bees Lite";
 				PROVISIONING_PROFILE = "2F604790-5CA3-4B26-A974-C1E3FD896D92";
 			};
@@ -19459,12 +19616,33 @@
 		2CEA3484145F66F9000FF575 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"${inherited}",
 					"\"$(SRCROOT)/Beezle/libs\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Beezle/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -19473,10 +19651,14 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = Beezle/libs/kazmath/include;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				KEEP_PRIVATE_EXTERNS = NO;
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
@@ -19498,6 +19680,7 @@
 		2CEA3487145F66F9000FF575 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Beezle/Stingy Bees.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -19508,6 +19691,7 @@
 					"$(inherited)",
 					/Users/Marcus/Documents/Development/Beezle/Beezle/libs/GoogleAnalytics,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stinglab.StingyBees;
 				PRODUCT_NAME = "Stingy Bees";
 				PROVISIONING_PROFILE = "";
 			};
