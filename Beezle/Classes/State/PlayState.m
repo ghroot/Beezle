@@ -111,26 +111,26 @@ static int nextBeeIndex = 0;
 		[_menu addChild:appStoreMenuItem];
 #endif
 
-#ifndef LITE_VERSION
-		[_soundButton setPosition:CGPointMake(winSize.width / 2 - 30.0f, 40.0f)];
+//#ifndef LITE_VERSION
+//		[_soundButton setPosition:CGPointMake(winSize.width / 2 - 30.0f, 40.0f)];
 
-		_gameCenterMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"GameCentre logo-Idle.png" selectedImage:@"GameCentre logo-Idle.png" block:^(id sender){
-			[[GameCenterManager sharedManager] showLeaderboards];
-			[[SessionTracker sharedTracker] trackInteraction:@"button" name:@"game center"];
-		}];
-		[_gameCenterMenuItem setPosition:CGPointMake(winSize.width / 2 + 30.0f, 40.0f)];
-		[_menu addChild:_gameCenterMenuItem];
+//		_gameCenterMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"GameCentre logo-Idle.png" selectedImage:@"GameCentre logo-Idle.png" block:^(id sender){
+//			[[GameCenterManager sharedManager] showLeaderboards];
+//			[[SessionTracker sharedTracker] trackInteraction:@"button" name:@"game center"];
+//		}];
+//		[_gameCenterMenuItem setPosition:CGPointMake(winSize.width / 2 + 30.0f, 40.0f)];
+//		[_menu addChild:_gameCenterMenuItem];
 
-		CCMenuItemImageScale *facebookMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"Facebook-logo.png" selectedImage:@"Facebook-logo.png" block:^(id sender){
-			[_game pushState:[FacebookHighscoresState state] transition:FALSE];
-			[[SessionTracker sharedTracker] trackInteraction:@"button" name:@"facebook"];
-		}];
-		[facebookMenuItem setPosition:CGPointMake(80.0f, 40.0f)];
-		[_menu addChild:facebookMenuItem];
+//		CCMenuItemImageScale *facebookMenuItem = [CCMenuItemImageScale itemWithNormalImage:@"Facebook-logo.png" selectedImage:@"Facebook-logo.png" block:^(id sender){
+//			[_game pushState:[FacebookHighscoresState state] transition:FALSE];
+//			[[SessionTracker sharedTracker] trackInteraction:@"button" name:@"facebook"];
+//		}];
+//		[facebookMenuItem setPosition:CGPointMake(80.0f, 40.0f)];
+//		[_menu addChild:facebookMenuItem];
 
-#else
+//#else
 		[_soundButton setPosition:CGPointMake(winSize.width / 2, 30.0f)];
-#endif
+//#endif
 
 #ifdef DEBUG
 		[self createGotoDebugMenu];
