@@ -14,8 +14,6 @@
 #import "PlayerInformation.h"
 #import "SessionTracker.h"
 #import "SlingerComponent.h"
-#import "FacebookManager.h"
-#import "GameCenterManager.h"
 
 static const float DIALOG_DELAY_IN_SECONDS = 0.2f;
 
@@ -80,11 +78,6 @@ static const float DIALOG_DELAY_IN_SECONDS = 0.2f;
 				[self updateLevelSessionWithNumberOfUnusedBees];
 				[self showLevelCompleteDialog];
 				[[PlayerInformation sharedInformation] storeAndSave:_levelSession];
-
-#ifndef LITE_VERSION
-				[[GameCenterManager sharedManager] reportScore:[[PlayerInformation sharedInformation] totalNumberOfPollen]];
-				[[FacebookManager sharedManager] tryPostScore:[[PlayerInformation sharedInformation] totalNumberOfPollen]];
-#endif
 			}
 		}
 	}

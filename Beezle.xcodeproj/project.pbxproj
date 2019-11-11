@@ -255,7 +255,6 @@
 		2C198F3316AF50D6006D8333 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C0C164C6C6F0012E22B /* vec4.c */; };
 		2C198F3416AF50D6006D8333 /* ActionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16A01E189F9D6E18B9EC4 /* ActionUtils.m */; };
 		2C198F3516AF50D6006D8333 /* TestCreditsState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F169B7B355B5F8E2DC8832 /* TestCreditsState.m */; };
-		2C198F3616AF50D6006D8333 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163F21CDB2253F82F64FE /* GameCenterManager.m */; };
 		2C198F3716AF50D6006D8333 /* HiddenLevelsFoundDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F168DC6C0E7D12DB48A61D /* HiddenLevelsFoundDialog.m */; };
 		2C198F3816AF50D6006D8333 /* BeezleNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163EF41B4544CC7852D7B /* BeezleNavigationViewController.m */; };
 		2C198F3916AF50D6006D8333 /* TestLevelLayoutsState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1641C13F25A38C83FAF73 /* TestLevelLayoutsState.m */; };
@@ -270,8 +269,6 @@
 		2C198F4216AF50D6006D8333 /* DestroySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F162DA675659E97F1FFE77 /* DestroySystem.m */; };
 		2C198F4316AF50D6006D8333 /* DestroyComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16C000DE30862C87C1455 /* DestroyComponent.m */; };
 		2C198F4416AF50D6006D8333 /* ResetMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16ADD85C05C77F25BDC9D /* ResetMenuState.m */; };
-		2C198F4516AF50D6006D8333 /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163B77EF8D1730950FF3C /* FacebookManager.m */; };
-		2C198F4616AF50D6006D8333 /* FacebookHighscoresState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F166AB6BC30968A3246318 /* FacebookHighscoresState.m */; };
 		2C198F4716AF50D6006D8333 /* URLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1658AC056562C3A9362E8 /* URLConnection.m */; };
 		2C198F4916AF50D6006D8333 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEEAEA816AF3B8A001F7CC6 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2C198F4A16AF50D6006D8333 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4D1D9F16A307B400E4F91F /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -2069,7 +2066,6 @@
 		2C1996E716AF50E8006D8333 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE08C0C164C6C6F0012E22B /* vec4.c */; };
 		2C1996E816AF50E8006D8333 /* ActionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16A01E189F9D6E18B9EC4 /* ActionUtils.m */; };
 		2C1996E916AF50E8006D8333 /* TestCreditsState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F169B7B355B5F8E2DC8832 /* TestCreditsState.m */; };
-		2C1996EA16AF50E8006D8333 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163F21CDB2253F82F64FE /* GameCenterManager.m */; };
 		2C1996EB16AF50E8006D8333 /* HiddenLevelsFoundDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F168DC6C0E7D12DB48A61D /* HiddenLevelsFoundDialog.m */; };
 		2C1996EC16AF50E8006D8333 /* BeezleNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163EF41B4544CC7852D7B /* BeezleNavigationViewController.m */; };
 		2C1996ED16AF50E8006D8333 /* LiteUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16ECB57493AAB36916987 /* LiteUtils.m */; };
@@ -2085,7 +2081,6 @@
 		2C1996F716AF50E8006D8333 /* DestroyComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16C000DE30862C87C1455 /* DestroyComponent.m */; };
 		2C1996F816AF50E8006D8333 /* ResetMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16ADD85C05C77F25BDC9D /* ResetMenuState.m */; };
 		2C1996F916AF50E8006D8333 /* URLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F1658AC056562C3A9362E8 /* URLConnection.m */; };
-		2C1996FA16AF50E8006D8333 /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163B77EF8D1730950FF3C /* FacebookManager.m */; };
 		2C1996FC16AF50E8006D8333 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC2DD3A1662F2FC00A2362E /* CoreData.framework */; };
 		2C1996FD16AF50E8006D8333 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C85BD721651BDE000A369AE /* GameKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		2C1996FE16AF50E8006D8333 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF7AE531640963A00AE18B3 /* SystemConfiguration.framework */; };
@@ -4355,7 +4350,6 @@
 		2C96F77A15741DEA00052239 /* TestEntitySystemState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C96F77915741DE900052239 /* TestEntitySystemState.m */; };
 		2C96F780157422CC00052239 /* DebugSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C96F77F157422CA00052239 /* DebugSystem.m */; };
 		2C9EB4C3167948050031D8EE /* LiteUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16ECB57493AAB36916987 /* LiteUtils.m */; };
-		2CA0B9CC16ACB9F4003E4B4C /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163B77EF8D1730950FF3C /* FacebookManager.m */; };
 		2CA0B9CD16ACBA73003E4B4C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4D1D9F16A307B400E4F91F /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2CA0B9CE16ACBA7B003E4B4C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4D1DA016A307B400E4F91F /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2CA0B9D116ACBA99003E4B4C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4D1DA116A307B400E4F91F /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -5226,8 +5220,6 @@
 		2CEA3478145F66F9000FF575 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA3477145F66F9000FF575 /* main.m */; };
 		2CEEAEA916AF3B8A001F7CC6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEEAEA816AF3B8A001F7CC6 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2CEEAEAB16AF3BB6001F7CC6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEEAEA816AF3B8A001F7CC6 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		2CF1B86916B3273500CEB737 /* FacebookHighscoresState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F166AB6BC30968A3246318 /* FacebookHighscoresState.m */; };
-		2CF1B86A16B3273600CEB737 /* FacebookHighscoresState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F166AB6BC30968A3246318 /* FacebookHighscoresState.m */; };
 		2CF7AE541640963A00AE18B3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF7AE531640963A00AE18B3 /* SystemConfiguration.framework */; };
 		2CF7C6A715CAA436006C2F0C /* Super-Beeater-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF7C6A615CAA436006C2F0C /* Super-Beeater-Template.plist */; };
 		2CF7C6A915CAA442006C2F0C /* Super-Beeater-A.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF7C6A815CAA442006C2F0C /* Super-Beeater-A.plist */; };
@@ -5577,7 +5569,6 @@
 		88F16493C37DE02F3377324C /* SlingerBzzz.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F16EF99D6CA45233C6DCB2 /* SlingerBzzz.caf */; };
 		88F16493CC1BD174C16C0154 /* End-Completed?-Bee-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F1662CD4ECEBD7BA026AE4 /* End-Completed?-Bee-2.png */; };
 		88F1649A31FDB0741260A2A4 /* Beeater-Body-Land-E-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16DF93A6C9827B0ACDCC0 /* Beeater-Body-Land-E-Animations.plist */; };
-		88F164A716B10A5565B546AE /* FacebookHighscoresState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F166AB6BC30968A3246318 /* FacebookHighscoresState.m */; };
 		88F164ABBEADECC9A8A65BC2 /* Beeater-Head-Piece-E-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F167E7C8CA1424185EB8C3 /* Beeater-Head-Piece-E-3.plist */; };
 		88F164B0F492BB2CD6C3C1F1 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16C9B4D9ADABB9B6F7B96 /* SSZipArchive.m */; };
 		88F164BEC05E6D11CEBB5DA9 /* CCNode+CCBRelativePositioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F162180D8EED3511FB7131 /* CCNode+CCBRelativePositioning.m */; };
@@ -5606,7 +5597,6 @@
 		88F165770885AF668BD24C47 /* End-Credits-Beeaters.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16A1136C803F91B4016B0 /* End-Credits-Beeaters.png */; };
 		88F1657C66B9F69DD613A6DC /* Burnee-Steam.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F165D08A4C52AE4FE1AF08 /* Burnee-Steam.caf */; };
 		88F1658C00D05B1146607281 /* End-GameCompleted!-Mumee-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F162E766D9334D7CC4E066 /* End-GameCompleted!-Mumee-1.png */; };
-		88F1659AB13A19374C0D95A9 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163F21CDB2253F82F64FE /* GameCenterManager.m */; };
 		88F165AE8E86690C7281B192 /* Text-GameCompleted?-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16EDB05686F37A96063A3 /* Text-GameCompleted?-hd.png */; };
 		88F165AFAA061592B8E431D6 /* DestroyComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16C000DE30862C87C1455 /* DestroyComponent.m */; };
 		88F165BD20D832C04AADA9C6 /* StingWithPollenCollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F16A05FA4B6B3A75FA2229 /* StingWithPollenCollisionHandler.m */; };
@@ -5648,7 +5638,6 @@
 		88F1670190BD55F4B3D82033 /* Glass-Piece-E-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F16C74EC0C1E6BF41DBD88 /* Glass-Piece-E-Animations.plist */; };
 		88F1670CA7995E23BB84D7D4 /* DescrStrip-Burnee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88F164B3E893C98C9747F3C0 /* DescrStrip-Burnee.jpg */; };
 		88F167191C01151482CFCE52 /* End-Credits-Bees.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F162CAA517808899801331 /* End-Credits-Bees.png */; };
-		88F1671E41F2AB6D7CDCCA09 /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163B77EF8D1730950FF3C /* FacebookManager.m */; };
 		88F16727AB4F068FE19C591D /* IronBee-Flight.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F1670B3FA482BECCE2B8A7 /* IronBee-Flight.caf */; };
 		88F167366A885298FE4FCE36 /* Stingee-Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F165C3D30A3D15E648960B /* Stingee-Animations.plist */; };
 		88F1675669E4435F0C56C353 /* Slinger-Install.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F16D1721F262E560341A98 /* Slinger-Install.caf */; };
@@ -5675,7 +5664,6 @@
 		88F168270E60671EE5DF16A3 /* A42-Glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16A1344B4119F754AF8E5 /* A42-Glass.png */; };
 		88F1682A6DD28987E7838DFF /* DescrStrip-Speedee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88F16240531DFF1DD3FFF123 /* DescrStrip-Speedee.jpg */; };
 		88F1682AEEA1C563EDEA0588 /* HiddenLevelsFoundDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F168DC6C0E7D12DB48A61D /* HiddenLevelsFoundDialog.m */; };
-		88F168356D81FD0035D6EE62 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F163F21CDB2253F82F64FE /* GameCenterManager.m */; };
 		88F168497F514A7C730B645C /* Stingee-Flight.caf in Resources */ = {isa = PBXBuildFile; fileRef = 88F16330CD6093D4027DAB14 /* Stingee-Flight.caf */; };
 		88F1684B411BC5423F06BE99 /* End-GameCompleted!-Bombee-1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F16AD0C16B4AFBA5D5E286 /* End-GameCompleted!-Bombee-1-hd.png */; };
 		88F16854AC6A60A0B9C8C3EE /* DescrStrip-IntroGame-A-1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88F163DC19A388D9B7D4AF37 /* DescrStrip-IntroGame-A-1-hd.jpg */; };
@@ -8080,7 +8068,6 @@
 		88F160A26F17B4CB96A04C3F /* GameCompletedLiteDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCompletedLiteDialog.m; sourceTree = "<group>"; };
 		88F160B542A3D19813C4329F /* Burn-Parts-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Burn-Parts-Animations.plist"; sourceTree = "<group>"; };
 		88F160BF3D081E70DE74B452 /* E5-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E5-Glass.png"; sourceTree = "<group>"; };
-		88F160CB166D2379FD307433 /* GameCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterManager.h; sourceTree = "<group>"; };
 		88F160DD1014B091DFCB9284 /* End-Completed?-Bee-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Completed?-Bee-1-hd.png"; sourceTree = "<group>"; };
 		88F160E33CC64B2EEECE14F3 /* End-GameCompleted!-Sawee-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Sawee-1-hd.png"; sourceTree = "<group>"; };
 		88F160F176D6E51FACC88FE6 /* A42-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A42-Glass-hd.png"; sourceTree = "<group>"; };
@@ -8140,7 +8127,6 @@
 		88F1637A3240FF11995A46E7 /* E9-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E9-Glass.png"; sourceTree = "<group>"; };
 		88F163866FEF28DCC31BD6E3 /* End-GameCompleted!-TBee-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-TBee-1-hd.png"; sourceTree = "<group>"; };
 		88F163988B9ED8F374C45F9D /* E1-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E1-Glass.png"; sourceTree = "<group>"; };
-		88F163B77EF8D1730950FF3C /* FacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookManager.m; sourceTree = "<group>"; };
 		88F163BE772341C643097BFF /* End-GameCompleted!-Sumee-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Sumee-2.png"; sourceTree = "<group>"; };
 		88F163C1735003267D916572 /* CCBSequenceProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBSequenceProperty.h; sourceTree = "<group>"; };
 		88F163C3EAA348F3859CCD64 /* End-GameCompleted!-Speedee-1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Speedee-1-hd.png"; sourceTree = "<group>"; };
@@ -8150,7 +8136,6 @@
 		88F163E96AD4ADCF9DC46E8D /* CCMenuItemImageScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCMenuItemImageScale.h; path = libs/CCMenuItemImageScale/CCMenuItemImageScale.h; sourceTree = "<group>"; };
 		88F163EA6A3250DDDD31C359 /* DescrStrip-IronBee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-IronBee.jpg"; sourceTree = "<group>"; };
 		88F163EF41B4544CC7852D7B /* BeezleNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeezleNavigationViewController.m; sourceTree = "<group>"; };
-		88F163F21CDB2253F82F64FE /* GameCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterManager.m; sourceTree = "<group>"; };
 		88F164093FFDDEF660E96275 /* DescrStrip-Bombee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Bombee.jpg"; sourceTree = "<group>"; };
 		88F1641C13F25A38C83FAF73 /* TestLevelLayoutsState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLevelLayoutsState.m; sourceTree = "<group>"; };
 		88F164438FED3FE1AFE6D2F8 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unzip.h; path = libs/SSZipArchive/minizip/unzip.h; sourceTree = "<group>"; };
@@ -8177,7 +8162,6 @@
 		88F1658AC056562C3A9362E8 /* URLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = URLConnection.m; path = libs/URLConnection/URLConnection.m; sourceTree = "<group>"; };
 		88F165922364752477718CE5 /* E8-Glass-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E8-Glass-hd.png"; sourceTree = "<group>"; };
 		88F165A6E6244AF7D4BAF3A3 /* LiteUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiteUtils.h; sourceTree = "<group>"; };
-		88F165B0EF6C4AE5032BDA3C /* FacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookManager.h; sourceTree = "<group>"; };
 		88F165C3D30A3D15E648960B /* Stingee-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Stingee-Animations.plist"; sourceTree = "<group>"; };
 		88F165D08A4C52AE4FE1AF08 /* Burnee-Steam.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; path = "Burnee-Steam.caf"; sourceTree = "<group>"; };
 		88F165F520E8EB4F6826A3C3 /* DescrStrip-Sawee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DescrStrip-Sawee.jpg"; sourceTree = "<group>"; };
@@ -8200,7 +8184,6 @@
 		88F1669E0540A15D10236F21 /* Beeater-Land-E.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Beeater-Land-E.plist"; sourceTree = "<group>"; };
 		88F1669EDA5390CBA85447D3 /* ChooserSlingerBackground-3-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ChooserSlingerBackground-3-hd.jpg"; sourceTree = "<group>"; };
 		88F1669FD940B518EAFB6C9D /* GameCentre logo-Idle-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GameCentre logo-Idle-hd.png"; sourceTree = "<group>"; };
-		88F166AB6BC30968A3246318 /* FacebookHighscoresState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookHighscoresState.m; sourceTree = "<group>"; };
 		88F166C262346BC546855E86 /* TestCCBState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCCBState.h; sourceTree = "<group>"; };
 		88F166C26B8992B65811E668 /* Symbol-Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Symbol-Pause.png"; sourceTree = "<group>"; };
 		88F166D41C7B322C91D4E190 /* End-Credits-Flowers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-Flowers.png"; sourceTree = "<group>"; };
@@ -8302,7 +8285,6 @@
 		88F16BF2180E5668C2DEBD09 /* Pollen-Magic-Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "Pollen-Magic-Animations.plist"; sourceTree = "<group>"; };
 		88F16C000DE30862C87C1455 /* DestroyComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestroyComponent.m; sourceTree = "<group>"; };
 		88F16C14C9CF23947F323932 /* E7-Glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E7-Glass.png"; sourceTree = "<group>"; };
-		88F16C1622705B8FD34F79E6 /* FacebookHighscoresState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookHighscoresState.h; sourceTree = "<group>"; };
 		88F16C457F8B6579D1BE4435 /* End-GameCompleted!-Bee-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-GameCompleted!-Bee-1.png"; sourceTree = "<group>"; };
 		88F16C569D6E2E1250213C61 /* Button-Buy Full Version-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-Buy Full Version-hd.png"; sourceTree = "<group>"; };
 		88F16C6223E81A81B9CF24B8 /* End-Credits-Copyright-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "End-Credits-Copyright-hd.png"; sourceTree = "<group>"; };
@@ -10690,8 +10672,6 @@
 				2CC0F15E16E40B0000036E33 /* BeezleGameState.m */,
 				2C74B462156FAD1E00596A22 /* Debug */,
 				2C74B46B156FAD1E00596A22 /* Edit */,
-				88F16C1622705B8FD34F79E6 /* FacebookHighscoresState.h */,
-				88F166AB6BC30968A3246318 /* FacebookHighscoresState.m */,
 				2CF8E0F61576B45F0052F49A /* FullscreenTransparentMenuItem.h */,
 				2CF8E0F61576B45F0052F49B /* FullscreenTransparentMenuItem.m */,
 				2C74B472156FAD1E00596A22 /* GameplayState.h */,
@@ -10949,10 +10929,6 @@
 				2CC0F15816E40AE300036E33 /* AdManager.m */,
 				2C74B4D0156FAD1E00596A22 /* EmailInfo.h */,
 				2C74B4D1156FAD1E00596A22 /* EmailInfo.m */,
-				88F165B0EF6C4AE5032BDA3C /* FacebookManager.h */,
-				88F163B77EF8D1730950FF3C /* FacebookManager.m */,
-				88F160CB166D2379FD307433 /* GameCenterManager.h */,
-				88F163F21CDB2253F82F64FE /* GameCenterManager.m */,
 				88F165A6E6244AF7D4BAF3A3 /* LiteUtils.h */,
 				88F16ECB57493AAB36916987 /* LiteUtils.m */,
 				2CF8E0F61576B45F0052F60A /* MemoryManager.h */,
@@ -17306,7 +17282,6 @@
 				2C198F3316AF50D6006D8333 /* vec4.c in Sources */,
 				2C198F3416AF50D6006D8333 /* ActionUtils.m in Sources */,
 				2C198F3516AF50D6006D8333 /* TestCreditsState.m in Sources */,
-				2C198F3616AF50D6006D8333 /* GameCenterManager.m in Sources */,
 				2C198F3716AF50D6006D8333 /* HiddenLevelsFoundDialog.m in Sources */,
 				2C198F3816AF50D6006D8333 /* BeezleNavigationViewController.m in Sources */,
 				2C198F3916AF50D6006D8333 /* TestLevelLayoutsState.m in Sources */,
@@ -17321,8 +17296,6 @@
 				2C198F4216AF50D6006D8333 /* DestroySystem.m in Sources */,
 				2C198F4316AF50D6006D8333 /* DestroyComponent.m in Sources */,
 				2C198F4416AF50D6006D8333 /* ResetMenuState.m in Sources */,
-				2C198F4516AF50D6006D8333 /* FacebookManager.m in Sources */,
-				2C198F4616AF50D6006D8333 /* FacebookHighscoresState.m in Sources */,
 				2C198F4716AF50D6006D8333 /* URLConnection.m in Sources */,
 				88F16323316CD4334190823E /* TestCCBState.m in Sources */,
 				2CC0F15916E40AE300036E33 /* AdManager.m in Sources */,
@@ -17677,7 +17650,6 @@
 				2C1996E716AF50E8006D8333 /* vec4.c in Sources */,
 				2C1996E816AF50E8006D8333 /* ActionUtils.m in Sources */,
 				2C1996E916AF50E8006D8333 /* TestCreditsState.m in Sources */,
-				2C1996EA16AF50E8006D8333 /* GameCenterManager.m in Sources */,
 				2C1996EB16AF50E8006D8333 /* HiddenLevelsFoundDialog.m in Sources */,
 				2C1996EC16AF50E8006D8333 /* BeezleNavigationViewController.m in Sources */,
 				2C1996ED16AF50E8006D8333 /* LiteUtils.m in Sources */,
@@ -17693,8 +17665,6 @@
 				2C1996F716AF50E8006D8333 /* DestroyComponent.m in Sources */,
 				2C1996F816AF50E8006D8333 /* ResetMenuState.m in Sources */,
 				2C1996F916AF50E8006D8333 /* URLConnection.m in Sources */,
-				2C1996FA16AF50E8006D8333 /* FacebookManager.m in Sources */,
-				2CF1B86916B3273500CEB737 /* FacebookHighscoresState.m in Sources */,
 				88F16E9393E3D05160731580 /* LevelThemeSelectBuyFullLayer.m in Sources */,
 				88F164F01346E8014FE0B952 /* TestCCBState.m in Sources */,
 				2CC0F15B16E40AE300036E33 /* AdManager.m in Sources */,
@@ -18060,7 +18030,6 @@
 				2CE08CE0164C6C6F0012E22B /* vec4.c in Sources */,
 				88F16D4D60E814332831FB2F /* ActionUtils.m in Sources */,
 				88F16DB7108779564B64D9BC /* TestCreditsState.m in Sources */,
-				88F168356D81FD0035D6EE62 /* GameCenterManager.m in Sources */,
 				88F1682AEEA1C563EDEA0588 /* HiddenLevelsFoundDialog.m in Sources */,
 				88F16BEF2D60535A280DED74 /* BeezleNavigationViewController.m in Sources */,
 				88F163836ECD758F0E2C43F5 /* LiteUtils.m in Sources */,
@@ -18076,8 +18045,6 @@
 				88F165AFAA061592B8E431D6 /* DestroyComponent.m in Sources */,
 				88F16CF3A46C5D1DC6F04CB9 /* ResetMenuState.m in Sources */,
 				88F166F8BA38D29B48F88A4D /* URLConnection.m in Sources */,
-				2CA0B9CC16ACB9F4003E4B4C /* FacebookManager.m in Sources */,
-				2CF1B86A16B3273600CEB737 /* FacebookHighscoresState.m in Sources */,
 				88F1660B0C5731015C71684F /* LevelThemeSelectBuyFullLayer.m in Sources */,
 				88F167B6546E3CB7E1B46CCC /* TestCCBState.m in Sources */,
 				2CC0F15C16E40AE300036E33 /* AdManager.m in Sources */,
@@ -18421,7 +18388,6 @@
 				2CE08CDF164C6C6F0012E22B /* vec4.c in Sources */,
 				88F1618D338A673B9F399DD0 /* ActionUtils.m in Sources */,
 				88F1694FF2F6AC9731024015 /* TestCreditsState.m in Sources */,
-				88F1659AB13A19374C0D95A9 /* GameCenterManager.m in Sources */,
 				88F164CD04518E159B40E2FD /* HiddenLevelsFoundDialog.m in Sources */,
 				88F16C0EE888625D5BFA25F9 /* BeezleNavigationViewController.m in Sources */,
 				88F16059F115DBCC6735BCDF /* TestLevelLayoutsState.m in Sources */,
@@ -18436,8 +18402,6 @@
 				88F1623AC35A562B8057DB0A /* DestroySystem.m in Sources */,
 				88F161230DC5BDFBCAD5FEB6 /* DestroyComponent.m in Sources */,
 				88F1693A549C3CA935060165 /* ResetMenuState.m in Sources */,
-				88F1671E41F2AB6D7CDCCA09 /* FacebookManager.m in Sources */,
-				88F164A716B10A5565B546AE /* FacebookHighscoresState.m in Sources */,
 				88F16126A450008BB5DFEFBA /* URLConnection.m in Sources */,
 				88F16A53A6D1D7CD5398561E /* TestCCBState.m in Sources */,
 				2CC0F15A16E40AE300036E33 /* AdManager.m in Sources */,

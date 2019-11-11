@@ -16,9 +16,7 @@
 #import "iRate.h"
 #import "PlayerInformation.h"
 #import "AnimationSoundMediator.h"
-#import "GameCenterManager.h"
 #import "BeezleNavigationViewController.h"
-#import "FacebookManager.h"
 #import "ApplicationIds.h"
 #import "AdManager.h"
 #import "InAppPurchasesManager.h"
@@ -116,18 +114,6 @@
 		[[AnimationSoundMediator sharedMediator] initialise];
 
 #ifndef LITE_VERSION
-		if ([[PlayerInformation sharedInformation] autoAuthenticateGameCenter])
-		{
-			// Game center
-			[[GameCenterManager sharedManager] authenticate];
-		}
-
-		if ([[PlayerInformation sharedInformation] autoLoginToFacebook])
-		{
-			// Facebook
-			[[FacebookManager sharedManager] login];
-		}
-
 		// In-App purchases
 		[[InAppPurchasesManager sharedManager] initialise];
 		[[InAppPurchasesManager sharedManager] updateProductInformation];
@@ -188,10 +174,6 @@
 	{
 		[_director resume];
 		[_director setNextDeltaTimeZero:TRUE];
-
-#ifndef LITE_VERSION
-		[[FacebookManager sharedManager] handleDidBecomeActive];
-#endif
 	}
 }
 
@@ -215,10 +197,6 @@
 
 -(void) applicationWillTerminate:(UIApplication *)application
 {
-#ifndef LITE_VERSION
-	[[FacebookManager sharedManager] closeSession];
-#endif
-
 	CC_DIRECTOR_END();
 }
 
@@ -234,20 +212,12 @@
 
 -(BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-#ifndef LITE_VERSION
-	[[FacebookManager sharedManager] handleOpenURL:url];
-#endif
-
 	return YES;
 }
 
 // iOS 4.3 compatibility
 -(BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
-#ifndef LITE_VERSION
-	[[FacebookManager sharedManager] handleOpenURL:url];
-#endif
-
 	return TRUE;
 }
 
