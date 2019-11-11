@@ -8,9 +8,9 @@
 
 #import <AdSupport/AdSupport.h>
 #import "SessionTracker.h"
-#import "TestFlight.h"
-#import "Flurry.h"
-#import "GAI.h"
+//#import "TestFlight.h"
+//#import "Flurry.h"
+//#import "GAI.h"
 
 #ifdef LITE_VERSION
   #ifdef DEVELOPMENT
@@ -56,7 +56,7 @@ static NSString *GOOGLE_ANALYTICS_TRACKING_ID = @"UA-36666042-1";
 
 void uncaughtExceptionHandler(NSException *exception)
 {
-    [Flurry logError:@"Uncaught" message:@"Crash!" exception:exception];
+//    [Flurry logError:@"Uncaught" message:@"Crash!" exception:exception];
 }
 
 @implementation SessionTracker
@@ -73,64 +73,64 @@ void uncaughtExceptionHandler(NSException *exception)
 
 -(void) start
 {
-	// Flurry
-	NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
-    [Flurry startSession:FLURRY_ANALYTICS_TOKEN];
-
-	// TestFlight
-#ifdef DEVELOPMENT
-	if ([ASIdentifierManager class])
-	{
-		[TestFlight setDeviceIdentifier:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString]];
-	}
-	[TestFlight takeOff:TEST_FLIGHT_TOKEN];
-#endif
-
-	// Google analytics
-	[[GAI sharedInstance] setTrackUncaughtExceptions:TRUE];
-	[[GAI sharedInstance] setDispatchInterval:20];
-	[[GAI sharedInstance] trackerWithTrackingId:GOOGLE_ANALYTICS_TRACKING_ID];
+//	// Flurry
+//	NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+//    [Flurry startSession:FLURRY_ANALYTICS_TOKEN];
+//
+//	// TestFlight
+//#ifdef DEVELOPMENT
+//	if ([ASIdentifierManager class])
+//	{
+//		[TestFlight setDeviceIdentifier:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString]];
+//	}
+//	[TestFlight takeOff:TEST_FLIGHT_TOKEN];
+//#endif
+//
+//	// Google analytics
+//	[[GAI sharedInstance] setTrackUncaughtExceptions:TRUE];
+//	[[GAI sharedInstance] setDispatchInterval:20];
+//	[[GAI sharedInstance] trackerWithTrackingId:GOOGLE_ANALYTICS_TRACKING_ID];
 }
 
 -(void) trackStartedLevel:(NSString *)levelName
 {
-	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-	[parameters setObject:levelName forKey:@"levelName"];
-	[Flurry logEvent:@"LEVEL_STARTED" withParameters:parameters];
-
-	[[[GAI sharedInstance] defaultTracker] trackEventWithCategory:@"level" withAction:@"started" withLabel:levelName withValue:[NSNumber numberWithInt:0]];
+//	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+//	[parameters setObject:levelName forKey:@"levelName"];
+//	[Flurry logEvent:@"LEVEL_STARTED" withParameters:parameters];
+//
+//	[[[GAI sharedInstance] defaultTracker] trackEventWithCategory:@"level" withAction:@"started" withLabel:levelName withValue:[NSNumber numberWithInt:0]];
 }
 
 -(void) trackCompletedLevel:(NSString *)levelName
 {
-	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-	[parameters setObject:levelName forKey:@"levelName"];
-	[Flurry logEvent:@"LEVEL_COMPLETED" withParameters:parameters];
-
-	[[[GAI sharedInstance] defaultTracker] trackEventWithCategory:@"level" withAction:@"completed" withLabel:levelName withValue:[NSNumber numberWithInt:0]];
+//	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+//	[parameters setObject:levelName forKey:@"levelName"];
+//	[Flurry logEvent:@"LEVEL_COMPLETED" withParameters:parameters];
+//
+//	[[[GAI sharedInstance] defaultTracker] trackEventWithCategory:@"level" withAction:@"completed" withLabel:levelName withValue:[NSNumber numberWithInt:0]];
 }
 
 -(void) trackFailedLevel:(NSString *)levelName
 {
-	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-	[parameters setObject:levelName forKey:@"levelName"];
-	[Flurry logEvent:@"LEVEL_FAILED" withParameters:parameters];
-
-	[[[GAI sharedInstance] defaultTracker] trackEventWithCategory:@"level" withAction:@"failed" withLabel:levelName withValue:[NSNumber numberWithInt:0]];
+//	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+//	[parameters setObject:levelName forKey:@"levelName"];
+//	[Flurry logEvent:@"LEVEL_FAILED" withParameters:parameters];
+//
+//	[[[GAI sharedInstance] defaultTracker] trackEventWithCategory:@"level" withAction:@"failed" withLabel:levelName withValue:[NSNumber numberWithInt:0]];
 }
 
 -(void) trackInteraction:(NSString *)type name:(NSString *)interactionName
 {
-	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-	[parameters setObject:interactionName forKey:@"interactionName"];
-	[Flurry logEvent:@"INTERACTION" withParameters:parameters];
-
-	[[[GAI sharedInstance] defaultTracker] trackEventWithCategory:@"interaction" withAction:type withLabel:interactionName withValue:[NSNumber numberWithInt:0]];
+//	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+//	[parameters setObject:interactionName forKey:@"interactionName"];
+//	[Flurry logEvent:@"INTERACTION" withParameters:parameters];
+//
+//	[[[GAI sharedInstance] defaultTracker] trackEventWithCategory:@"interaction" withAction:type withLabel:interactionName withValue:[NSNumber numberWithInt:0]];
 }
 
 -(void) trackScreen:(NSString *)screenName
 {
-	[[[GAI sharedInstance] defaultTracker] trackView:screenName];
+//	[[[GAI sharedInstance] defaultTracker] trackView:screenName];
 }
 
 @end

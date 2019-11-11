@@ -556,7 +556,7 @@
 -(void) startWithTarget:(CCNode *)aTarget
 {
 	[super startWithTarget:aTarget];
-    startAngle_ = [_target rotation];
+    startAngle_ = [_target rotationX];
     diffAngle_ = dstAngle_ - startAngle_;
 }
 

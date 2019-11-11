@@ -78,15 +78,16 @@
 	[_navigationController setNavigationBarHidden:TRUE];
 	
 	// Set the Navigation Controller as the root view controller
-	if ([[[UIDevice currentDevice] systemVersion] compare:@"6.0" options:NSNumericSearch] != NSOrderedAscending)
-	{
-		[_window addSubview:_navigationController.view];
-		[_window setRootViewController:_navigationController];
-	}
-	else
-	{
-		[_window addSubview:_navigationController.view];
-	}
+//	if ([[[UIDevice currentDevice] systemVersion] compare:@"6.0" options:NSNumericSearch] != NSOrderedAscending)
+//	{
+//		[_window addSubview:_navigationController.view];
+//		[_window setRootViewController:_navigationController];
+//	}
+//	else
+//	{
+//		[_window addSubview:_navigationController.view];
+//	}
+	[_window setRootViewController:_navigationController];
 	
 	// Show
 	[_window makeKeyAndVisible];
