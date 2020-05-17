@@ -11,7 +11,6 @@
 #import "TestAnimationsState.h"
 #import "TestEntitySystemState.h"
 #import "TestCreditsState.h"
-#import "GameCenterManager.h"
 #import "TestLevelLayoutsState.h"
 #import "iRate.h"
 #import "TestCCBState.h"
